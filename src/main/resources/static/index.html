@@ -26,56 +26,59 @@
 <!--  <script src="js/app.js"></script>-->
 
   <script>
-    {
+
   	  var user = null;
 	  var token = null;
-      if (localStorage.user != null ) {
-    	  user = JSON.parse(window.localStorage.user);
-    	  token = user.token;
-        alert(JSON.stringify(localStorage.user));
-        document.getElementById("name").value = localStorage.weixinname;
-      } else {
-        alert("no");
-        window.location.href = "./login.html";
+	  checkRight();
+	  function checkRight() {
+        if (localStorage.user != null) {
+          user = JSON.parse(window.localStorage.user);
+          token = user.token;
+          uname = user.name;
+
+          $.ajax({
+            //提交数据的类型 POST GET
+            type:"POST",
+            //提交的网址
+            url:"checkRight",
+            //提交的数据
+            data:{uname:uname,token:token},
+            //返回数据的格式
+            datatype: "json",//"xml", "html", "script", "json", "jsonp", "text".
+            //在请求之前调用的函数
+            beforeSend:function(){$("#msg").html("logining");},
+            //成功返回之后调用的函数
+            success:function(data){
+              data.
+              localStorage.user = JSON.stringify(data);
+              window.location.href ="index.html";
+            }   ,
+            //调用执行后调用的函数
+            complete: function(XMLHttpRequest, textStatus){
+              alert(XMLHttpRequest.responseText);
+              alert(textStatus);
+              //HideLoading();
+            },
+            //调用出错执行的函数
+            error: function(){
+              //请求出错处理
+              alert(errot.toString());
+            }
+          });
+
+          alert(JSON.stringify(localStorage.user));
+          // document.getElementById("name").value = localStorage.weixinname;
+        }
+        // else {
+        //   alert("no");
+        //   window.location.href = "./login.html";
+        // }
       }
 
-      localStorage.weixinname = document.getElementById("name").value;
-    }
 
 
-    function check() {
 
-      // 保存缓存
-      localStorage.weixinname = document.getElementById("name").value;
-      localStorage.weixinnumber = document.getElementById("number").value;
-      localStorage.weixinaddress = document.getElementById("address").value;
-      localStorage.weixinremark = document.getElementById("remark").value;
-
-      document.getElementById("submitButton").disabled=true;
-
-      form1.submit();
-
-      return true;
-    }
-
-    function load() {
-      // 读取缓存
-      if (localStorage.weixinname) {
-        document.getElementById("name").value = localStorage.weixinname;
-      }
-      if (localStorage.weixinnumber) {
-        document.getElementById("number").value = localStorage.weixinnumber;
-      }
-      if (localStorage.weixinaddress) {
-        document.getElementById("address").value = localStorage.weixinaddress;
-      }
-      if (localStorage.weixinremark) {
-        document.getElementById("remark").value = localStorage.weixinremark;
-      }
-
-    }
-
-    var charts = {
+    var addCharts = {
       "dirCount":0,
       "dirs":[
 
@@ -85,8 +88,24 @@
 
       ]
     }
+
+    var removeCharts = {
+      "dirCount":0,
+      "dirs":[
+
+      ],
+      "chartCount":0,
+      "charts":[
+
+      ]
+    }
+
     /* 刷新流程图目录结构*/
-    function retriveChart(){
+    function retriveServer(){
+
+    }
+
+    function retrievChart(){
 
     }
   </script>
