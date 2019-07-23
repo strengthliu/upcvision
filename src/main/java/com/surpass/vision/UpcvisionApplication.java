@@ -13,7 +13,12 @@ import org.springframework.context.annotation.ImportResource;
 @EnableAutoConfiguration
 @EnableConfigurationProperties
 //@ImportResource({"classpath:applicationContext.xml"})
-@ComponentScan(basePackages={"com.surpass.vision",  "com.surpass.vision.util",  "com.surpass.vision.service",  "com.surpass.vision.service.impl", "com.surpass.vision.schedule"})  
+@ComponentScan(basePackages={"com.surpass.vision",  
+		"com.surpass.vision.util",  
+		"com.surpass.vision.service",  
+		"com.surpass.vision.service.impl", 
+		"com.surpass.vision.schedule",
+		"com.surpass.vision.graph"})  
 
 //@MapperScan(basePackages={"com.cpts.mapper"})
 @SpringBootApplication

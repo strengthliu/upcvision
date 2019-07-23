@@ -1,16 +1,20 @@
 package com.surpass.vision.appCfg;
 
 import org.quartz.Trigger;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.quartz.CronTriggerFactoryBean;
 import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
+import org.springframework.stereotype.Component;
 
 import com.surpass.vision.schedule.UpdateGraphDirctory;
-
+@Component
 @Configuration
 public class ScheduleTaskConfigration {
+	@Value("${upc.graphUpdateInterval}")
+	private String graphUpdateInterval;
 	/**
 	 *      * attention:      * Details：配置定时任务     
 	 */
@@ -48,7 +52,8 @@ public class ScheduleTaskConfigration {
 	public CronTriggerFactoryBean cronJobTrigger(MethodInvokingJobDetailFactoryBean jobDetail) {
 		CronTriggerFactoryBean tigger = new CronTriggerFactoryBean();
 		tigger.setJobDetail(jobDetail.getObject());
-		tigger.setCronExpression("5 * * * * ?");// 初始时的cron表达式
+		System.out.println("graphUpdateInterval:"+graphUpdateInterval);
+		tigger.setCronExpression(graphUpdateInterval);// 初始时的cron表达式
 		tigger.setName("updateGraphDirctory");// trigger的name
 		return tigger;
 	}

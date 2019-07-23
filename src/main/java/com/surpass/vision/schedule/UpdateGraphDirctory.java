@@ -20,16 +20,13 @@ public class UpdateGraphDirctory {
 	@Value("${upc.graphPath}")
 	private String graphPath;
 	
-	@Value("${upc.graphPathDepth}")
-	private int depth;
-	
 	public void sayHello(){
 		LOGGER.info("Hello world, i'm the king of the world!!!");
 	}
 	public void updateGraphDirctory() {
 		LOGGER.info("UpdateGraphDirctory in "+graphPath);
 		try {
-			FileTool.find(graphPath, depth);
+			FileTool.find(graphPath);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

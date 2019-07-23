@@ -21,10 +21,10 @@ public class AuthorcationController {
 	@Reference
 	@Autowired
 	LoginService login;
-
+	
 	
 	@RequestMapping(value = "login", method = { RequestMethod.POST, RequestMethod.GET })
-	public @ResponseBody JSONObject login(@RequestParam String uname, @RequestParam String pwd,  HttpServletRequest request)
+	public @ResponseBody JSONObject login(@RequestParam(name="uname") String uname, @RequestParam(name="pwd") String pwd,  HttpServletRequest request)
 			throws Exception {
 		System.out.println(uname+" "+pwd);
 		TwoString ts = login.VerificationAccount(uname, pwd);
