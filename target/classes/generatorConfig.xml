@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-  <classPathEntry location="/Users/qiang/.m2/repository/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar" />
+  <classPathEntry location="C:/Users/Administrator/.m2/repository/org/xerial/sqlite-jdbc/3.28.0/sqlite-jdbc-3.28.0-sources.jar" />
 
   <context id="Mysql2Tables" targetRuntime="MyBatis3">
    <!-- 这里引入扩展插件    -->
@@ -12,9 +12,9 @@
 			<property name="suppressAllComments" value="true" />
 			<property name="suppressDate" value="true" />
 		</commentGenerator>
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://47.98.185.21:3306/cpts?useUnicode=true" userId="root"
-			password="1qaz@WSX">
+    <jdbcConnection driverClass="org.sqlite.JDBC"
+			connectionURL="jdbc:sqlite:database.db3" userId=""
+			password="">
     </jdbcConnection>
 
     <javaTypeResolver >
@@ -23,18 +23,18 @@
 
 
 	<!-- targetProject:自动生成代码的位置 -->
-		<javaModelGenerator targetPackage="com.cpts.domain"
+		<javaModelGenerator targetPackage="com.surpass.vision.domain"
 			targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="com.cpts.mapper"
+		<sqlMapGenerator targetPackage="com.surpass.vision.mapper"
 			targetProject="src/main/resources">
 		</sqlMapGenerator>
 
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.cpts.mapper" targetProject="src/main/java">
+			targetPackage="com.surpass.vision.mapper" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
@@ -44,13 +44,8 @@
 			 enableSelectByExample="false" selectByExampleQueryId="false">
 	  </table>
  -->
- 	  <table schema="addTeam" tableName="addTeam"
-			 domainObjectName="AddTeam" enableCountByExample="false"
-			 enableUpdateByExample="false" enableDeleteByExample="false"
-			 enableSelectByExample="false" selectByExampleQueryId="false">
-	  </table>
-	  <table schema="contact" tableName="contact"
-			 domainObjectName="Contact" enableCountByExample="false"
+	  <table schema="t_user" tableName="t_user"
+			 domainObjectName="UserInfo" enableCountByExample="false"
 			 enableUpdateByExample="false" enableDeleteByExample="false"
 			 enableSelectByExample="false" selectByExampleQueryId="false">
 	  </table>

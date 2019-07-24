@@ -1,5 +1,6 @@
 package com.surpass.vision;
 
+import org.mybatis.spring.annotation.MapperScan;
 //import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -18,9 +19,10 @@ import org.springframework.context.annotation.ImportResource;
 		"com.surpass.vision.service",  
 		"com.surpass.vision.service.impl", 
 		"com.surpass.vision.schedule",
+		"com.surpass.vision.domain",
 		"com.surpass.vision.graph"})  
 
-//@MapperScan(basePackages={"com.cpts.mapper"})
+@MapperScan(basePackages={"com.surpass.vision.mapper"})
 @SpringBootApplication
 public class UpcvisionApplication {
 
