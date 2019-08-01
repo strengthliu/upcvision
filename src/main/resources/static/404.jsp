@@ -15,7 +15,7 @@
 		<br>
 		<br>
 		<h1 align="center" class="sys_list_yh">
-			您访问的页面不存在！
+			没有授权！请重新登录。
 		</h1>
 		<br>
 		<br>

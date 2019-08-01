@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.surpass.vision.mapper.UserSpaceDataMapper">
+  <resultMap id="BaseResultMap" type="com.surpass.vision.domain.UserSpaceData">
+    <id column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="right" jdbcType="VARCHAR" property="right" />
+    <result column="graphs" jdbcType="VARCHAR" property="graphs" />
+    <result column="xygraph" jdbcType="VARCHAR" property="xygraph" />
+    <result column="realtimedata" jdbcType="VARCHAR" property="realtimedata" />
+    <result column="alertdata" jdbcType="VARCHAR" property="alertdata" />
+    <result column="historydata" jdbcType="VARCHAR" property="historydata" />
+    <result column="linealertdata" jdbcType="VARCHAR" property="linealertdata" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uid, right, graphs, xygraph, realtimedata, alertdata, historydata, linealertdata
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_userSpace
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_userSpace
+    where uid = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.surpass.vision.domain.UserSpaceData">
+    insert into t_userSpace (uid, right, graphs, 
+      xygraph, realtimedata, alertdata, 
+      historydata, linealertdata)
+    values (#{uid,jdbcType=INTEGER}, #{right,jdbcType=VARCHAR}, #{graphs,jdbcType=VARCHAR}, 
+      #{xygraph,jdbcType=VARCHAR}, #{realtimedata,jdbcType=VARCHAR}, #{alertdata,jdbcType=VARCHAR}, 
+      #{historydata,jdbcType=VARCHAR}, #{linealertdata,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.surpass.vision.domain.UserSpaceData">
+    insert into t_userSpace
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="right != null">
+        right,
+      </if>
+      <if test="graphs != null">
+        graphs,
+      </if>
+      <if test="xygraph != null">
+        xygraph,
+      </if>
+      <if test="realtimedata != null">
+        realtimedata,
+      </if>
+      <if test="alertdata != null">
+        alertdata,
+      </if>
+      <if test="historydata != null">
+        historydata,
+      </if>
+      <if test="linealertdata != null">
+        linealertdata,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="right != null">
+        #{right,jdbcType=VARCHAR},
+      </if>
+      <if test="graphs != null">
+        #{graphs,jdbcType=VARCHAR},
+      </if>
+      <if test="xygraph != null">
+        #{xygraph,jdbcType=VARCHAR},
+      </if>
+      <if test="realtimedata != null">
+        #{realtimedata,jdbcType=VARCHAR},
+      </if>
+      <if test="alertdata != null">
+        #{alertdata,jdbcType=VARCHAR},
+      </if>
+      <if test="historydata != null">
+        #{historydata,jdbcType=VARCHAR},
+      </if>
+      <if test="linealertdata != null">
+        #{linealertdata,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.surpass.vision.domain.UserSpaceData">
+    update t_userSpace
+    <set>
+      <if test="right != null">
+        right = #{right,jdbcType=VARCHAR},
+      </if>
+      <if test="graphs != null">
+        graphs = #{graphs,jdbcType=VARCHAR},
+      </if>
+      <if test="xygraph != null">
+        xygraph = #{xygraph,jdbcType=VARCHAR},
+      </if>
+      <if test="realtimedata != null">
+        realtimedata = #{realtimedata,jdbcType=VARCHAR},
+      </if>
+      <if test="alertdata != null">
+        alertdata = #{alertdata,jdbcType=VARCHAR},
+      </if>
+      <if test="historydata != null">
+        historydata = #{historydata,jdbcType=VARCHAR},
+      </if>
+      <if test="linealertdata != null">
+        linealertdata = #{linealertdata,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.surpass.vision.domain.UserSpaceData">
+    update t_userSpace
+    set right = #{right,jdbcType=VARCHAR},
+      graphs = #{graphs,jdbcType=VARCHAR},
+      xygraph = #{xygraph,jdbcType=VARCHAR},
+      realtimedata = #{realtimedata,jdbcType=VARCHAR},
+      alertdata = #{alertdata,jdbcType=VARCHAR},
+      historydata = #{historydata,jdbcType=VARCHAR},
+      linealertdata = #{linealertdata,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+</mapper>

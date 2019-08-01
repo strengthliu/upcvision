@@ -5,10 +5,17 @@ import java.util.Hashtable;
 
 
 public class Device {
-	public int getId() {
+	String deviceNote;
+	public String getDeviceNote() {
+		return deviceNote;
+	}
+	public void setDeviceNote(String deviceNote) {
+		this.deviceNote = deviceNote;
+	}
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getDeviceName() {
@@ -17,7 +24,7 @@ public class Device {
 	public void setDeviceName(String deviceName) {
 		this.deviceName = deviceName;
 	}
-	int id;
+	Long id;
 	String deviceName;
 	Hashtable<String,Point> points;
 	public void addPoint(Point point) {

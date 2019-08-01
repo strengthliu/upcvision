@@ -3,14 +3,23 @@ package com.surpass.vision.graph;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.annotation.Reference;
 import org.springframework.stereotype.Component;
 
 import com.surpass.vision.domain.FileList;
+import com.surpass.vision.domain.Graph;
+import com.surpass.vision.service.RedisService;
+import com.surpass.vision.tools.IDTools;
 
 @Component 
 public class GraphManager {
 
+	@Reference
+	@Autowired
+	RedisService redisService;
+	
 	@Value("${upc.graphPath}")
 	private String graphPath;
 	@Value("${upc.graphUpdateTimeOut}")
@@ -22,7 +31,10 @@ public class GraphManager {
 	private boolean updating = false;
 	private FileList repo;
 	private ArrayList<FileList> changed;
-	private GraphManager() {}
+	private GraphManager() {
+		super();
+		if(instance == null) instance = this;
+	}
 	private static GraphManager instance;
 //	{
 //		if(instance == null) instance = new GraphManager();
@@ -143,8 +155,9 @@ System.out.println(aa.length);
 	}
 
 	public static FileList getCurrentFileList() {
-		if(instance == null) return null;
-		return new FileList(instance.repo);
+		return GraphManager.getInstance().repo;
+//		if(instance == null) return null;
+//		return new FileList(GraphManager.getInstance().repo);
 	}
 
 	public static ArrayList<FileList> getCurrentUpdate() {
@@ -152,6 +165,12 @@ System.out.println(aa.length);
 		return instance.changed;
 //		return new ArrayList<FileList>(instance.changed);
 	}
+
+	public FileList getArllGraph() {
+		
+		return this.repo;
+	}
+
 
 
 }

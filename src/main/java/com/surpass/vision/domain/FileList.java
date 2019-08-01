@@ -1,6 +1,7 @@
 package com.surpass.vision.domain;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
@@ -25,8 +26,34 @@ public class FileList {
 		this.children = new Hashtable<String, FileList>(repo.children);
 	}
 
+	public void setPointIDs(ArrayList<String> pointIDs) {
+		this.pointIDs = pointIDs;
+	}
+
 	boolean isFile;
 	String name;
+	ArrayList<String> pointIDs;
+	public ArrayList<String> getPointIDs() {
+		return pointIDs;
+	}
+	boolean isSVG;
+	
+
+	public Hashtable<String, FileList> getChildren() {
+		return children;
+	}
+
+	public void setChildren(Hashtable<String, FileList> children) {
+		this.children = children;
+	}
+
+	public boolean isSVG() {
+		return isSVG;
+	}
+
+	public void setSVG(boolean isSVG) {
+		this.isSVG = isSVG;
+	}
 
 	public String getPath() {
 		return path;
@@ -63,7 +90,7 @@ public class FileList {
 	}
 
 	public String getWholePath() {
-		return "";
+		return this.path+File.separator+this.name;
 	}
 
 	Hashtable<String, FileList> children;

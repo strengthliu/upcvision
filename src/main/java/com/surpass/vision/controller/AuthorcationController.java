@@ -1,5 +1,7 @@
 package com.surpass.vision.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +15,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
+import com.surpass.vision.appCfg.GlobalConsts;
+import com.surpass.vision.common.ToWeb;
+import com.surpass.vision.domain.UserInfo;
+import com.surpass.vision.domain.UserSpace;
 //import com.surpass.vision.domain.UserInfo;
 import com.surpass.vision.service.LoginService;
 import com.surpass.vision.service.RedisService;
+import com.surpass.vision.tools.TokenTools;
+import com.surpass.vision.userSpace.UserSpaceManager;
 import com.surpass.vision.utils.TwoString;
 
 @RestController
@@ -25,21 +33,41 @@ public class AuthorcationController {
 	@Autowired
 	LoginService login;
 	
+	@Autowired
+	UserSpaceManager userSpaceManager;
 	
 	@RequestMapping(value = "login", method = { RequestMethod.POST, RequestMethod.GET })
-	public @ResponseBody JSONObject login(@RequestParam(name="uname") String uname, @RequestParam(name="pwd") String pwd,  HttpServletRequest request)
+	public  ToWeb login(@RequestBody JSONObject user,  HttpServletRequest request)
 			throws Exception {
+		ToWeb tw = ToWeb.buildResult();
+		String uname = user.getString("uname");
+		String pwd = user.getString("pwd");
 		System.out.println(uname+" "+pwd);
-		TwoString ts = login.VerificationAccount(uname, pwd);
-		
-		if(ts != null) {
-			System.out.println(ts.getName()+"  "+ts.getQuanxian()+"  "+ts.getPwd());
+		UserInfo ui = login.VerificationAccount(uname, pwd); 
+		// TODO 没有这个用户
+		if(ui==null) {
+			tw.setStatus(GlobalConsts.ResultCode_FAIL);
+			tw.setMsg("用户名密码不正确");
+			tw.setRedirectUrl("login.html");
+			return tw;
 		}
-		JSONObject ret = new JSONObject();
-		ret.put("user", ts);
-		ret.put("token","aadd");
-		System.out.println(ts.toString());
-		return ret;
+		// 返回UserSpace
+		UserSpace us = userSpaceManager.getUserSpace(ui.getId());
+		if(us == null) {
+			String token = TokenTools.genToken(ui.getId().toString());
+			try {
+			us = userSpaceManager.buildUserSpace(ui.getId(), token);
+			}catch(IllegalStateException e) {
+				e.printStackTrace();
+			}
+		}
+		tw.setStatus(GlobalConsts.ResultCode_SUCCESS);
+		tw.setMsg("登录成功！");
+		HashMap<String ,Object> hm = new HashMap<String ,Object>();
+		hm.put("userSpace",us);
+		hm.put("userInfo", us.getUser());
+		tw.setData(hm);
+		return tw;
 	}
 
     @Autowired

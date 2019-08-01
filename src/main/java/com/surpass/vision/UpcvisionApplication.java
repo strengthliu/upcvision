@@ -19,8 +19,16 @@ import org.springframework.context.annotation.ImportResource;
 		"com.surpass.vision.service",  
 		"com.surpass.vision.service.impl", 
 		"com.surpass.vision.schedule",
+		"com.surpass.vision.server",
+		"com.surpass.vision.user",
+		"com.surpass.vision.userSpace",
+		"com.surpass.vision.graph",
+		"com.surpass.vision.realTimeData",
+		"com.surpass.vision.historyData",
+		"com.surpass.vision.lineAlertData",
+		"com.surpass.vision.alertData",
 		"com.surpass.vision.domain",
-		"com.surpass.vision.graph"})  
+		"com.surpass.vision.exception"})  
 
 @MapperScan(basePackages={"com.surpass.vision.mapper"})
 @SpringBootApplication
