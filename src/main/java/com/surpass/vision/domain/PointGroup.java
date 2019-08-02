@@ -31,74 +31,74 @@ import com.surpass.vision.server.Point;
  */
 public class PointGroup extends PointGroupData implements Serializable{
 	private static final long serialVersionUID = -4373082997833397493L;
-	String type;
+	User creater; // 创建者
 	Integer id;
 	String name;
 	
 	// 权限信息
 	User owner; // 拥有者，默认为创建者
-	public String getType() {
-		return type;
-	}
+	// 点位信息
+	List<Point> points;
 
-	public void setType(String type) {
-		this.type = type;
+	List<User> shared; // 共享者 
+
+	String type;
+
+	public User getCreaterUser() {
+		return creater;
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 	public String getName() {
 		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public User getOwnerUser() {
 		return owner;
 	}
 
-	public void setOwner(User owner) {
-		this.owner = owner;
-	}
-
-	public User getCreaterUser() {
-		return creater;
-	}
-
-	public void setCreater(User creater) {
-		this.creater = creater;
+	public List<Point> getServerPoints() {
+		return points;
 	}
 
 	public List<User> getSharedUser() {
 		return shared;
 	}
 
-	public void setShared(List<User> shared) {
-		this.shared = shared;
+	public String getType() {
+		return type;
 	}
 
-	public List<Point> getServerPoints() {
-		return points;
+	public void setCreater(User creater) {
+		this.creater = creater;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setOwner(User owner) {
+		this.owner = owner;
 	}
 
 	public void setPoints(List<Point> points) {
 		this.points = points;
 	}
-
-	User creater; // 创建者
 	
-	List<User> shared; // 共享者 
+	public void setShared(List<User> shared) {
+		this.shared = shared;
+	}
 	
-	// 点位信息
-	List<Point> points;
+	public void setType(String type) {
+		this.type = type;
+	}
 	
 	// 更新数据方法
 }
