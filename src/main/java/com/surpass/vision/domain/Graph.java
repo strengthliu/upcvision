@@ -15,6 +15,7 @@ package com.surpass.vision.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 import com.surpass.vision.server.Point;
@@ -31,75 +32,144 @@ import com.surpass.vision.server.Point;
  * @version: v1.0  
  * ---------------------------------------
  */
-public class Graph extends FileList implements Serializable {
-	
+public class Graph implements Serializable {
+	int changed;
+	Hashtable<String,Graph> children;
+	User creater; // 创建者
 	Integer id;
-	public Integer getId() {
-		return id;
-	}
+	boolean isFile;
+	boolean isSVG;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	String name;
+
+	String otherrule1;
+
+	String otherrule2;
 
 	// 权限信息
 	User owner; // 拥有者，默认为创建者
-	User creater; // 创建者
+
+	String path;
+
+	//ArrayList<String >pointIDs;
+	//ret.setChildren(fl.getChildren());
+
+	// 点位信息
+	List<Point> points;
+
+	List<User> shared; // 共享者 
+
+	public int getChanged() {
+		return changed;
+	}
 	
-	String otherrule2;
-	public String getOtherrule2() {
-		return otherrule2;
-	}
-
-	public void setOtherrule2(String otherrule2) {
-		this.otherrule2 = otherrule2;
-	}
-
-	public String getOtherrule1() {
-		return otherrule1;
-	}
-
-	public void setOtherrule1(String otherrule1) {
-		this.otherrule1 = otherrule1;
-	}
-
-	String otherrule1;
-	public User getOwner() {
-		return owner;
-	}
-
-	public void setOwner(User owner) {
-		this.owner = owner;
+	public Hashtable<String,Graph> getChildren() {
+		return children;
 	}
 
 	public User getCreater() {
 		return creater;
 	}
 
-	public void setCreater(User creater) {
-		this.creater = creater;
+	public Integer getId() {
+		return id;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getOtherrule1() {
+		return otherrule1;
+	}
+
+	public String getOtherrule2() {
+		return otherrule2;
+	}
+
+	public User getOwner() {
+		return owner;
+	}
+
+	public String getPath() {
+		return path;
+	}
+	public List<Point> getPoints() {
+		return points;
+	}
+
+//	public ArrayList<String> getPointIDs() {
+//		return pointIDs;
+//	}
 
 	public List<User> getShared() {
 		return shared;
 	}
-
-	public void setShared(List<User> shared) {
-		this.shared = shared;
+	public int isChanged() {
+		return changed;
+	}
+	
+	public boolean isFile() {
+		return isFile;
+	}
+	public boolean isSVG() {
+		return isSVG;
 	}
 
-	public List<Point> getPoints() {
-		return points;
+	public void setChanged(int changed) {
+		this.changed = changed;
 	}
+
+	public void setChildren(Hashtable<String,Graph> children) {
+		this.children = children;
+	}
+
+	public void setCreater(User creater) {
+		this.creater = creater;
+	}
+
+	public void setFile(boolean isFile) {
+		this.isFile = isFile;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setOtherrule1(String otherrule1) {
+		this.otherrule1 = otherrule1;
+	}
+
+	public void setOtherrule2(String otherrule2) {
+		this.otherrule2 = otherrule2;
+	}
+
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+//	public void setPointIDs(ArrayList<String> pointIDs) {
+//		this.pointIDs = pointIDs;
+//	}
 
 	public void setPoints(List<Point> points) {
 		this.points = points;
 	}
 
-	List<User> shared; // 共享者 
+	public void setShared(List<User> shared) {
+		this.shared = shared;
+	}
 	
-	// 点位信息
-	List<Point> points;
+	public void setSVG(boolean isSVG) {
+		this.isSVG = isSVG;
+	}
 	
 	// 更新数据方法
 	

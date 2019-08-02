@@ -74,21 +74,21 @@ public class AuthorcationController {
     private RedisService redisService;
 
 
-//    //http://localhost:8888/saveCity?cityName=北京&cityIntroduce=中国首都&cityId=1
-//    @GetMapping(value = "saveCity")
-//    public String saveCity(int cityId,String cityName,String cityIntroduce){
-//    	UserInfo city = null ;//= new City(cityId,cityName,cityIntroduce);
-//        redisService.set(cityId+"",city);
-//        return "success";
-//    }
-//
-//
-//
-//    //http://localhost:8888/getCityById?cityId=1
-//    @GetMapping(value = "getCityById")
-//    public UserInfo getCity(int cityId){
-//    	UserInfo city = (UserInfo) redisService.get(cityId+"");
-//        return city;
-//    }
+    //http://localhost:8888/saveCity?cityName=北京&cityIntroduce=中国首都&cityId=1
+    @GetMapping(value = "saveCity")
+    public String saveCity(int cityId,String cityName,String cityIntroduce){
+    	UserInfo city = null ;//= new City(cityId,cityName,cityIntroduce);
+        redisService.set(cityId+"",city);
+        return "success";
+    }
+
+
+
+    //http://localhost:8888/getCityById?cityId=1
+    @GetMapping(value = "getCityById")
+    public UserInfo getCity(int cityId){
+    	UserInfo city = (UserInfo) redisService.get(cityId+"");
+        return city;
+    }
 
 }

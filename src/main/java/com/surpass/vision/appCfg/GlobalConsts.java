@@ -17,7 +17,6 @@ public class GlobalConsts {
     public static final String APP_PREFIX = "/app";
     public static final String HELLO_MAPPING = "/hello";
 
-
     /**
      * 返回值状态码
      */
@@ -67,6 +66,13 @@ public class GlobalConsts {
 
 	// 设备中文注释的长度
 	public static final int DeviceNoteLength = 80;
+	
+	
+	/**
+	 * 权限功能名称
+	 */
+	public static final String Operation_createOrUpdateRealTimeData = "Operation_createOrUpdateRealTimeData";
+	public static final String Operation_getRealTimeDataList = "Operation_getRealTimeDataList";
 
 
 

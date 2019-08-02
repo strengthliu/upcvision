@@ -44,10 +44,21 @@ public class UserManager {
 
 	// 初始化用户信息到缓存
 	public void init() {
-		// TODO Auto-generated method stub
 		List<UserInfo> users = userService.getAllUsers();
 		for(int i=0;i<users.size();i++)
 			redisService.set(GlobalConsts.Key_UserInfo_Pre+users.get(i).getId().toString(), users.get(i));
+	}
+
+	public boolean hasRight(Integer role, String operation) {
+		// TODO 现在权限是按简单角色定义的，未来扩展时，从这里修改
+		switch(operation) {
+		case GlobalConsts.Operation_createOrUpdateRealTimeData:
+			if(role <3) return true;
+			return false;
+		case GlobalConsts.Operation_getRealTimeDataList:
+			return true;
+		}
+		return false;
 	}
 
 }

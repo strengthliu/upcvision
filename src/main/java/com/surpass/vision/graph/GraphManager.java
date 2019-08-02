@@ -1,5 +1,6 @@
 package com.surpass.vision.graph;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.Graph;
 import com.surpass.vision.service.RedisService;
+import com.surpass.vision.tools.FileTool;
 import com.surpass.vision.tools.IDTools;
 
 @Component 
@@ -34,6 +36,7 @@ public class GraphManager {
 	private GraphManager() {
 		super();
 		if(instance == null) instance = this;
+		if(repo == null) repo = new FileList(); 
 	}
 	private static GraphManager instance;
 //	{
@@ -124,10 +127,10 @@ System.out.println(aa.length);
 
 	public void addChildren(String pathName, Hashtable<String, FileList> children) {
 		// 如果当前库没有名字，说明是第一次更新，就初始化加入
-		if(this.repo.getName() == null) {
-			this.repo.setName(pathName);
-			this.repo.setFile(false);
-			this.repo.addChildren(children);
+		if(GraphManager.getInstance().repo.getName() == null) {
+			GraphManager.getInstance().repo.setName(pathName);
+			GraphManager.getInstance().repo.setFile(false);
+			GraphManager.getInstance().repo.addChildren(children);
 			System.out.println("pathName:= "+pathName+"  graphPath="+graphPath);
 		} else {
 			// 从孩子中找指定名字的对象
@@ -169,6 +172,16 @@ System.out.println(aa.length);
 	public FileList getArllGraph() {
 		
 		return this.repo;
+	}
+
+	public void reloadFileList(String graphPath2) {
+		try {
+			FileTool.find(graphPath2);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 

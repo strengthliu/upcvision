@@ -101,7 +101,7 @@ public class GraphController {
 				}
 				ret.put("type", "2");
 				ret.put("version", v);
-				ret.put("fl", fl.toJSONObject());
+				ret.put("fl", fl);
 				return ret;
 			}
 //			return ret;
@@ -159,7 +159,7 @@ public class GraphController {
 				}
 				ret.put("type", "2");
 				ret.put("version", v);
-				ret.put("fl", fl.toJSONObject());
+				ret.put("fl", fl);
 				return ret;
 			}
 		}

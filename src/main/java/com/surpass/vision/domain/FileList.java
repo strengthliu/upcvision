@@ -11,11 +11,27 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.graph.GraphManager;
 
-public class FileList {
+public class FileList implements Serializable {
+	/**
+	 * 0：没有变化
+	 * 1：该文件为新增文件
+	 * -1：该文件为删除文件
+	 */
+	int changed = 0;
+
+	Hashtable<String, FileList> children;
+
+	boolean isFile;
+
+	boolean isSVG;
+	String name;
+	String path;
+	ArrayList<String> pointIDs;
 	public FileList() {
 		super();
 		this.children = new Hashtable<String, FileList>();
 	}
+	
 
 	public FileList(FileList repo) {
 		super();
@@ -26,131 +42,23 @@ public class FileList {
 		this.children = new Hashtable<String, FileList>(repo.children);
 	}
 
-	public void setPointIDs(ArrayList<String> pointIDs) {
-		this.pointIDs = pointIDs;
-	}
-
-	boolean isFile;
-	String name;
-	ArrayList<String> pointIDs;
-	public ArrayList<String> getPointIDs() {
-		return pointIDs;
-	}
-	boolean isSVG;
-	
-
-	public Hashtable<String, FileList> getChildren() {
-		return children;
-	}
-
-	public void setChildren(Hashtable<String, FileList> children) {
-		this.children = children;
-	}
-
-	public boolean isSVG() {
-		return isSVG;
-	}
-
-	public void setSVG(boolean isSVG) {
-		this.isSVG = isSVG;
-	}
-
-	public String getPath() {
-		return path;
-	}
-
-	public int getChanged() {
-		return changed;
-	}
-
-	public void setChanged(int changed) {
-		this.changed = changed;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
-
-	String path;
-
-	public boolean isFile() {
-		return isFile;
-	}
-
-	public void setFile(boolean isFile) {
-		this.isFile = isFile;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getWholePath() {
-		return this.path+File.separator+this.name;
-	}
-
-	Hashtable<String, FileList> children;
-
 	/**
-	 * 0：没有变化
-	 * 1：该文件为新增文件
-	 * -1：该文件为删除文件
+	 * 
+	 * @param child
+	 * @return
 	 */
-	int changed = 0;
-
-//	Hashtable<String, FileList> change;
-
-//	public Hashtable<String, FileList> getChange() {
-//		if (change != null) {
-//			Hashtable<String, FileList> ret = new Hashtable<String, FileList>(change);
-//			change = null;
-//			return ret;
-//		} else
-//			return null;
-//	}
-
-	public JSONObject toJSONObject() {
-		JSONObject ret = new JSONObject();
-		ret.put("name", name);
-		ret.put("path", path);
-		ret.put("isFile", isFile);
-		ret.put("changed", changed);
-		{
-			JSONArray jChildren = new JSONArray();
-			Enumeration<String> e = this.children.keys();
-			while (e.hasMoreElements()) {
-				String key = (String) e.nextElement();
-				FileList fl = children.get(key);
-				JSONObject jo = fl.toJSONObject();
-				jChildren.add(jo);
-			}
-			ret.put("children", jChildren);
+	@Deprecated
+	public synchronized boolean addChild(FileList child) {
+		if (children == null)
+			children = new Hashtable<String, FileList>();
+		if (children.containsKey(child.getName())) {
+			return false;
+		} else {
+			children.put(child.getName(), child);
 		}
-		return ret;
-	}
 
-	public JSONObject getJSONChange() {
-		JSONObject ret = new JSONObject();
-		ret.put("name", name);
-		ret.put("path", path);
-		ret.put("isFile", isFile);
-		ret.put("changed", changed);
-		if (changed != -1) {
-			JSONArray jChildren = new JSONArray();
-			Enumeration<String> e = this.children.keys();
-			while (e.hasMoreElements()) {
-				String key = (String) e.nextElement();
-				FileList fl = children.get(key);
-				JSONObject jo = fl.toJSONObject();
-				jChildren.add(jo);
-			}
-			ret.put("children", jChildren);
-		}
-		return ret;
+		return true;
+
 	}
 
 	/***
@@ -210,30 +118,8 @@ public class FileList {
 			return;
 	}
 
-	/**
-	 * 
-	 * @param child
-	 * @return
-	 */
-	@Deprecated
-	public synchronized boolean addChild(FileList child) {
-		if (children == null)
-			children = new Hashtable<String, FileList>();
-		if (children.containsKey(child.getName())) {
-			return false;
-		} else {
-			children.put(child.getName(), child);
-		}
-
-		return true;
-
-	}
-
-	public boolean hasChild(FileList child) {
-		if (this.children.containsKey(child.getName()))
-			return true;
-		else
-			return false;
+	public int getChanged() {
+		return changed;
 	}
 
 	public FileList getChild(String pathName) {
@@ -267,5 +153,120 @@ public class FileList {
 		}
 		return null;
 	}
+
+	public Hashtable<String, FileList> getChildren() {
+		return children;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public ArrayList<String> getPointIDs() {
+		return pointIDs;
+	}
+
+	public String getWholePath() {
+		return this.path+File.separator+this.name;
+	}
+
+	public boolean hasChild(FileList child) {
+		if (this.children.containsKey(child.getName()))
+			return true;
+		else
+			return false;
+	}
+
+	public boolean isFile() {
+		return isFile;
+	}
+
+	public boolean isSVG() {
+		return isSVG;
+	}
+
+	public void setChanged(int changed) {
+		this.changed = changed;
+	}
+
+	public void setChildren(Hashtable<String, FileList> children) {
+		this.children = children;
+	}
+
+	public void setFile(boolean isFile) {
+		this.isFile = isFile;
+	}
+
+//	Hashtable<String, FileList> change;
+
+//	public Hashtable<String, FileList> getChange() {
+//		if (change != null) {
+//			Hashtable<String, FileList> ret = new Hashtable<String, FileList>(change);
+//			change = null;
+//			return ret;
+//		} else
+//			return null;
+//	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+//	public JSONObject getJSONChange() {
+//		JSONObject ret = new JSONObject();
+//		ret.put("name", name);
+//		ret.put("path", path);
+//		ret.put("isFile", isFile);
+//		ret.put("changed", changed);
+//		if (changed != -1) {
+//			JSONArray jChildren = new JSONArray();
+//			Enumeration<String> e = this.children.keys();
+//			while (e.hasMoreElements()) {
+//				String key = (String) e.nextElement();
+//				FileList fl = children.get(key);
+//				JSONObject jo = fl.toJSONObject();
+//				jChildren.add(jo);
+//			}
+//			ret.put("children", jChildren);
+//		}
+//		return ret;
+//	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public void setPointIDs(ArrayList<String> pointIDs) {
+		this.pointIDs = pointIDs;
+	}
+
+	public void setSVG(boolean isSVG) {
+		this.isSVG = isSVG;
+	}
+
+	
+//	public JSONObject toJSONObject() {
+//		JSONObject ret = new JSONObject();
+//		ret.put("name", name);
+//		ret.put("path", path);
+//		ret.put("isFile", isFile);
+//		ret.put("changed", changed);
+//		{
+//			JSONArray jChildren = new JSONArray();
+//			Enumeration<String> e = this.children.keys();
+//			while (e.hasMoreElements()) {
+//				String key = (String) e.nextElement();
+//				FileList fl = children.get(key);
+//				JSONObject jo = fl.toJSONObject();
+//				jChildren.add(jo);
+//			}
+//			ret.put("children", jChildren);
+//		}
+//		return ret;
+//	}
 
 }

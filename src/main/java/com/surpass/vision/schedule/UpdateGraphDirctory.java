@@ -1,5 +1,6 @@
 package com.surpass.vision.schedule;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.slf4j.Logger;
@@ -24,10 +25,11 @@ public class UpdateGraphDirctory {
 		LOGGER.info("Hello world, i'm the king of the world!!!");
 	}
 	public void updateGraphDirctory() {
-		LOGGER.info("UpdateGraphDirctory in "+graphPath);
+		LOGGER.info("在定时计划中，开始更新图形目录数据..  UpdateGraphDirctory in "+graphPath);
 		try {
-			FileTool.find(graphPath);
-		} catch (IOException e) {
+			 // FileTool.find(graphPath);
+
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

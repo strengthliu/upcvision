@@ -149,4 +149,15 @@ public class RealTimeDataManager {
 		return ret;
 	}
 
+	public RealTimeData createOrUpdateRealTimeData(String type, String name, String owner, String creater, String shared,
+			String points, String otherrule1, String otherrule2) {
+		// 先写缓存，返回
+		// 异步处理:
+		// 创建一条数据库记录
+		// 更新相关人的信息
+		
+//		pointGroupService
+		return null;
+	}
+
 }

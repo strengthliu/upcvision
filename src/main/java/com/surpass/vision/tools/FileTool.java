@@ -14,16 +14,38 @@ import org.jsoup.helper.StringUtil;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.FileList;
 import com.surpass.vision.graph.GraphManager;
+import com.surpass.vision.schedule.UpdateGraphDirctory;
+import com.surpass.vision.server.ServerManager;
+import com.surpass.vision.service.RedisService;
 
 public class FileTool {
+	private static final Logger LOGGER =  LoggerFactory.getLogger(UpdateGraphDirctory.class);
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+	}
+
+	static ServerManager sm = ServerManager.getInstance();
+
+	RedisService rs;
+	
+	public RedisService getRs() {
+		return rs;
+	}
+
+	public void setRs(RedisService rs) {
+		this.rs = rs;
+	}
+
+	public void setSm(ServerManager sm) {
+		this.sm = sm;
 	}
 
 	// 从1开始
@@ -34,9 +56,19 @@ public class FileTool {
 	}
 
 	public static String readHtml(String fileName) {
+		//LOGGER.info("检测文件："+fileName);
 		//System.out.println("fileName="+fileName);
 		//String pathname = "D:\\twitter\\13_9_6\\dataset\\en\\input.txt"; // 绝对路径或相对路径都可以，这里是绝对路径，写入文件时演示相对路径
 		File filename = new File(fileName); // 要读取以上路径的input。txt文件
+		String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
+		boolean isCompatible = false;
+		if(suffix.contentEquals("txt") || suffix.contentEquals("html") 
+				|| suffix.contentEquals("htm") ||suffix.contentEquals("svg") 
+				|| suffix.contentEquals("text"))
+			isCompatible = true;
+		// 大于1m或不是指定文件格式，就退出。
+		if((filename.length()/1024/1024)>1 || !isCompatible ) return "";
+		//System.out.println(fileName);
 		InputStreamReader reader = null;
 		String ret = "";
 		BufferedReader br = null;
@@ -66,7 +98,7 @@ public class FileTool {
 			}
 		}
 		return ret;
-//		
+//		// 按字节流读文件
 //		FileInputStream fis = null;
 //		StringBuffer sb = new StringBuffer();
 //		try {
@@ -104,6 +136,7 @@ public class FileTool {
 		if (!dirFile.isDirectory()) {
 			return;
 		}
+		LOGGER.info("开始刷新目录："+pathName);
 		// 获取此目录下的所有文件名与目录名
 		String[] fileList = dirFile.list();
 		Hashtable<String, FileList> children = new Hashtable<String, FileList>();
@@ -136,9 +169,12 @@ public class FileTool {
 					Elements docs = doc.select(GlobalConsts.PointTag);
 					for (int idocs = 0; idocs < docs.size(); idocs++) {
 						Element e = docs.get(idocs);
-						String pointId = e.attr(GlobalConsts.PointID);
-						if (!StringUtil.isBlank(pointId)) {
-							pointIDs.add(pointId);
+						String tag = e.attr(GlobalConsts.PointID);
+						if (!StringUtil.isBlank(tag)) {
+							if(sm.getPointByID(tag)!=null) {
+								pointIDs.add(tag);
+								// LOGGER.info("检查点位："+tag+" => "+sm.getPointByID(tag));
+							}
 						}
 					}
 					fl.setSVG(true);

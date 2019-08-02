@@ -32,7 +32,7 @@ public class ServerManager {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ServerManager.getInstance();
+		ServerManager.getInstance().updateServerInfo();
 //		System.out.println(System.getProperty(File.encoding));
 //		ServerManager.
 		ServerManager s1 = new ServerManager();
@@ -153,13 +153,14 @@ public class ServerManager {
 						point.setId(pointId);
 						point.setServerName(serverName);
 						point.setTagName(tagName);
-//						System.out.println(serverName+" - "+deviceName+" - "+deviceNote+" - "+tagName+" - "+pointId+" - "+point.id);
+						// System.out.println(serverName+" - "+deviceName+" - "+deviceNote+" - "+tagName+" - "+pointId+" - "+point.id);
 						// 
 						device.addPoint(point);
 						server.addPoint(point);
 //						System.out.println(GlobalConsts.Key_Point_pre);
 //						System.out.println(point.id.toString());
-						redisService.set(GlobalConsts.Key_Point_pre + point.id.toString(), point);
+						// 使用tag做key
+						redisService.set(GlobalConsts.Key_Point_pre + point.tagName.toString(), point);
 					}
 					server.addDevice(device);
 					redisService.set(GlobalConsts.Key_Device_pre_+device.id.toString(), device);
