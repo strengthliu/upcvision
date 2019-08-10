@@ -66,7 +66,9 @@ public class GlobalConsts {
 
 	// 设备中文注释的长度
 	public static final int DeviceNoteLength = 80;
-	
+	// token加解密时的加长前缀
+	public static final String SecKey_Pre = "SecKey_Pre";
+
 	
 	/**
 	 * 权限功能名称

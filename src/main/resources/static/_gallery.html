@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-12">
-            <div class="row portfolio-grid">
+            <div id="diagram_gallery" class="row portfolio-grid">
               <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                 <figure class="effect-text-in">
                   <img src="./images/samples/300x300/1.jpg" alt="image"/>
@@ -23,7 +23,7 @@
                   </figcaption>
                 </figure>
               </div>
-              <div class="col-xl-4 col-lg-3 col-md-3 col-sm-6 col-12">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                 <figure class="effect-text-in">
                   <img src="./images/samples/300x300/2.jpg" alt="image"/>
                   <figcaption>
@@ -32,7 +32,7 @@
                   </figcaption>
                 </figure>
               </div>
-              <div class="col-xl-4 col-lg-3 col-md-3 col-sm-6 col-12">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                 <figure class="effect-text-in">
                   <img src="./images/samples/300x300/3.jpg" alt="image"/>
                   <figcaption>
@@ -41,7 +41,7 @@
                   </figcaption>
                 </figure>
               </div>
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                 <figure class="effect-text-in">
                   <img src="./images/samples/300x300/4.jpg" alt="image"/>
                   <figcaption>
@@ -59,33 +59,7 @@
   </div>
 </div>
 <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="row grid-margin">
-            <div class="col-lg-12">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">light Gallery</h4>
-                  <p class="card-text">
-                    Click on any image to open in lightbox gallery
-                  </p>
-                  <div id="lightgallery" class="row lightGallery">
-                    <a href="../../images/lightbox/1280x768/1.jpg" class="image-tile">
-                      <img src="../../images/lightbox/300x300/1.jpg" alt="image small">
-                    </a>
-                    <a href="./images/lightbox/1280x768/2.jpg" class="image-tile"><img src="./images/lightbox/300x300/2.jpg" alt="image small"></a>
-                    <a href="./images/lightbox/1280x768/3.jpg" class="image-tile"><img src="./images/lightbox/300x300/3.jpg" alt="image small"></a>
-                    <a href="./images/lightbox/1280x768/4.jpg" class="image-tile"><img src="./images/lightbox/300x300/4.jpg" alt="image small"></a>
-                    <a href="./images/lightbox/1280x768/5.jpg" class="image-tile"><img src="./images/lightbox/300x300/5.jpg" alt="image small"></a>
-                    <a href="./images/lightbox/1280x768/6.jpg" class="image-tile"><img src="./images/lightbox/300x300/6.jpg" alt="image small"></a>
-                    <a href="./images/lightbox/1280x768/7.jpg" class="image-tile"><img src="./images/lightbox/300x300/7.jpg" alt="image small"></a>
-                    <a href="./images/lightbox/1280x768/8.jpg" class="image-tile"><img src="./images/lightbox/300x300/8.jpg" alt="image small"></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
         <!-- content-wrapper ends -->
       </div>
       <!-- main-panel ends -->
@@ -94,10 +68,49 @@
   <!-- plugins:js -->
   <!-- endinject -->
   <!-- plugin js for this page -->
-  <script src="../../vendors/lightgallery/js/lightgallery-all.min.js"></script>
+  <!-- -->
+   
   <!-- end plugin js for this page -->
 
   <!-- Custom js for this page-->
-  <script src="./js/light-gallery.js"></script>
+  <script>
+  console.log("_galleryKey = "+_galleryKey);
+  var _graphs ;
+  // TODO:  如果key为空，就是异常，待处理。
+  if(_galleryKey == null || _galleryKey=="undefined")
+	  _galleryKey = "";
+  
+  
+  if(_galleryKey.trim() == 'unclassify'){
+	  alert(_galleryKey);
+	  _galleryKey="";
+	  _graphs = userSpace.graphs[""];
+  }else
+  	_graphs = userSpace.graphs[_galleryKey];
+  console.log("graphs => "+JSON.stringify(userSpace));
+
+  // console.log("graphs = "+JSON.stringify(userSpace.graphs[""]));
+  
+  var diagram_gallery =document.getElementById("diagram_gallery");
+  var diagram_gallery_innerHTML = "";
+  if(_graphs instanceof Array)
+  for(var ind=0;ind<_graphs.length;ind++){
+	  var diagram_gallery_item_innerHTML= '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12"';
+	  diagram_gallery_item_innerHTML += 'onclick="routeTo('+"'"+"diagramDetail','"+_graphs[ind].urlPath+"'"+');">';
+	  diagram_gallery_item_innerHTML += '<figure class="effect-text-in">';
+	  diagram_gallery_item_innerHTML += '<img src="' + _graphs[ind].img + '" alt="image"/>';
+	  diagram_gallery_item_innerHTML += '<figcaption><h4>'+ _graphs[ind].name + '</h4><p>' + _graphs[ind].path + '</p></figcaption>';
+	  diagram_gallery_item_innerHTML += '</figure></div>';
+
+	  //console.log(diagram_gallery_item_innerHTML);
+	  diagram_gallery_innerHTML = diagram_gallery_innerHTML + diagram_gallery_item_innerHTML;
+  }
+  diagram_gallery.innerHTML = diagram_gallery_innerHTML;
+  
+  //console.log(" in _gallery.html userSpace="+JSON.stringify(userSpace));
+  </script>
   <!-- End custom js for this page-->
+    <script src="./js/light-gallery.js"></script>
+  
+  <script src="../../vendors/lightgallery/js/lightgallery-all.min.js"></script>
 

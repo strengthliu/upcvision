@@ -33,73 +33,73 @@ import com.surpass.vision.server.Point;
  */
 public class GraphData extends FileList implements Serializable {
 	
+	User creater; // 创建者
 	Integer id;
-	public Integer getId() {
-		return id;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	String otherrule1;
 
+	String otherrule2;
 	// 权限信息
 	User owner; // 拥有者，默认为创建者
-	User creater; // 创建者
 	
-	String otherrule2;
-	public String getOtherrule2() {
-		return otherrule2;
+	// 点位信息
+	List<Point> points;
+	List<User> shared; // 共享者 
+
+	public User getCreater() {
+		return creater;
 	}
 
-	public void setOtherrule2(String otherrule2) {
-		this.otherrule2 = otherrule2;
+	public Integer getId() {
+		return id;
 	}
 
 	public String getOtherrule1() {
 		return otherrule1;
 	}
 
-	public void setOtherrule1(String otherrule1) {
-		this.otherrule1 = otherrule1;
+	public String getOtherrule2() {
+		return otherrule2;
 	}
-
-	String otherrule1;
 	public User getOwner() {
 		return owner;
-	}
-
-	public void setOwner(User owner) {
-		this.owner = owner;
-	}
-
-	public User getCreater() {
-		return creater;
-	}
-
-	public void setCreater(User creater) {
-		this.creater = creater;
-	}
-
-	public List<User> getShared() {
-		return shared;
-	}
-
-	public void setShared(List<User> shared) {
-		this.shared = shared;
 	}
 
 	public List<Point> getPoints() {
 		return points;
 	}
 
+	public List<User> getShared() {
+		return shared;
+	}
+
+	public void setCreater(User creater) {
+		this.creater = creater;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setOtherrule1(String otherrule1) {
+		this.otherrule1 = otherrule1;
+	}
+
+	public void setOtherrule2(String otherrule2) {
+		this.otherrule2 = otherrule2;
+	}
+
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
+
 	public void setPoints(List<Point> points) {
 		this.points = points;
 	}
-
-	List<User> shared; // 共享者 
 	
-	// 点位信息
-	List<Point> points;
+	public void setShared(List<User> shared) {
+		this.shared = shared;
+	}
 	
 	// 更新数据方法
 	

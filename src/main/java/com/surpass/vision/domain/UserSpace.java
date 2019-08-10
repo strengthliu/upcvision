@@ -1,6 +1,7 @@
 package com.surpass.vision.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 import com.alibaba.fastjson.JSONObject;
@@ -11,7 +12,7 @@ Hashtable<String,AlertData> alertData;
 	/**
 	 * 用户可见的图
 	 */
-	Hashtable<String,Graph> graphs;
+	Hashtable<String, ArrayList<Graph>> graphs;
 	Hashtable<String,HistoryData> historyData;
 	Hashtable<String,LineAlertData> lineAlertData;
 	
@@ -48,7 +49,7 @@ Hashtable<String,AlertData> alertData;
 		return alertData;
 	}
 
-	public Hashtable<String, Graph> getGraphs() {
+	public Hashtable<String, ArrayList<Graph>> getGraphs() {
 		return graphs;
 	}
 
@@ -84,7 +85,7 @@ Hashtable<String,AlertData> alertData;
 		this.alertData = alertData;
 	}
 
-	public void setGraphs(Hashtable<String, Graph> graphs) {
+	public void setGraphs(Hashtable<String, ArrayList<Graph>> graphs) {
 		this.graphs = graphs;
 	}
 

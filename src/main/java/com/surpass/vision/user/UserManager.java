@@ -23,7 +23,15 @@ public class UserManager {
 	@Autowired
 	UserService userService;
 	
-	public UserInfo getUserByID(String userId) {
+	public User getUserByID(String userId) {
+		UserInfo ui = getUserInfoByID(userId);
+		User u = new User();
+		u.setId(ui.getId());
+		u.setName(ui.getName());
+		return u;
+	}
+	
+	public UserInfo getUserInfoByID(String userId) {
 		UserInfo ui = (UserInfo)redisService.get(GlobalConsts.Key_UserInfo_Pre+userId);
 		if(ui!=null)
 			return ui;

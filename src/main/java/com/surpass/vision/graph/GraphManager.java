@@ -24,6 +24,7 @@ public class GraphManager {
 	
 	@Value("${upc.graphPath}")
 	private String graphPath;
+	
 	@Value("${upc.graphUpdateTimeOut}")
 	private int timeOut;
 	

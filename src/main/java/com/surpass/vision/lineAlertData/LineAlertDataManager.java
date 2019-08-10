@@ -54,7 +54,7 @@ public class LineAlertDataManager {
 			LineAlertData lineAlertData = new LineAlertData();
 
 			lineAlertData.setCreater(pgd.getCreater());
-			lineAlertData.setCreater(userManager.getUserByID(pgd.getCreater()));
+			lineAlertData.setCreaterUser(userManager.getUserByID(pgd.getCreater()));
 
 			lineAlertData.setId(pgd.getId());
 			lineAlertData.setName(pgd.getName());
@@ -62,7 +62,7 @@ public class LineAlertDataManager {
 			lineAlertData.setOtherrule2(pgd.getOtherrule2());
 
 			lineAlertData.setOwner(pgd.getOwner());
-			lineAlertData.setOwner(userManager.getUserByID(pgd.getOwner()));
+			lineAlertData.setOwnerUser(userManager.getUserByID(pgd.getOwner()));
 
 			lineAlertData.setPoints(pgd.getPoints());
 			ArrayList<Point> pal = new ArrayList<>();
@@ -71,7 +71,7 @@ public class LineAlertDataManager {
 				Point p = ServerManager.getInstance().getPointByID(pids[ipids]);
 				pal.add(p);
 			}
-			lineAlertData.setPoints(pal);
+			lineAlertData.setPointList(pal);
 
 			lineAlertData.setShared(pgd.getShared());
 			ArrayList<User> ul = new ArrayList<User>();
@@ -80,7 +80,7 @@ public class LineAlertDataManager {
 				User u = userManager.getUserByID(sharedIds[isharedIDs]);
 				ul.add(u);
 			}
-			lineAlertData.setShared(ul);
+			lineAlertData.setSharedUsers(ul);
 
 			lineAlertData.setType(pgd.getType());
 

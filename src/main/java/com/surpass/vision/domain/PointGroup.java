@@ -15,6 +15,7 @@ package com.surpass.vision.domain;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.surpass.vision.server.Point;
 
 /**---------------------------------------
@@ -29,76 +30,77 @@ import com.surpass.vision.server.Point;
  * @version: v1.0  
  * ---------------------------------------
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PointGroup extends PointGroupData implements Serializable{
 	private static final long serialVersionUID = -4373082997833397493L;
-	User creater; // 创建者
+	User createrUser; // 创建者
 	Integer id;
 	String name;
 	
 	// 权限信息
-	User owner; // 拥有者，默认为创建者
+	User ownerUser; // 拥有者，默认为创建者
 	// 点位信息
-	List<Point> points;
+	List<Point> pointList;
 
-	List<User> shared; // 共享者 
+	List<User> sharedUsers; // 共享者 
 
 	String type;
 
 	public User getCreaterUser() {
-		return creater;
+		return createrUser;
+	}
+
+	public void setCreaterUser(User createrUser) {
+		this.createrUser = createrUser;
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public User getOwnerUser() {
-		return owner;
-	}
-
-	public List<Point> getServerPoints() {
-		return points;
-	}
-
-	public List<User> getSharedUser() {
-		return shared;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setCreater(User creater) {
-		this.creater = creater;
-	}
-
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public void setOwner(User owner) {
-		this.owner = owner;
+	public User getOwnerUser() {
+		return ownerUser;
 	}
 
-	public void setPoints(List<Point> points) {
-		this.points = points;
+	public void setOwnerUser(User ownerUser) {
+		this.ownerUser = ownerUser;
 	}
-	
-	public void setShared(List<User> shared) {
-		this.shared = shared;
+
+	public List<Point> getPointList() {
+		return pointList;
 	}
-	
+
+	public void setPointList(List<Point> pointList) {
+		this.pointList = pointList;
+	}
+
+	public List<User> getSharedUsers() {
+		return sharedUsers;
+	}
+
+	public void setSharedUsers(List<User> sharedUsers) {
+		this.sharedUsers = sharedUsers;
+	}
+
+	public String getType() {
+		return type;
+	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
 	// 更新数据方法
 }

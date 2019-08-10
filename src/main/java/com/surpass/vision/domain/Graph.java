@@ -39,6 +39,23 @@ public class Graph implements Serializable {
 	Integer id;
 	boolean isFile;
 	boolean isSVG;
+	String fileName;
+	String img;
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 
 	String name;
 
@@ -50,6 +67,16 @@ public class Graph implements Serializable {
 	User owner; // 拥有者，默认为创建者
 
 	String path;
+	
+	public String getUrlPath() {
+		return urlPath;
+	}
+
+	public void setUrlPath(String urlPath) {
+		this.urlPath = urlPath;
+	}
+
+	String urlPath;
 
 	//ArrayList<String >pointIDs;
 	//ret.setChildren(fl.getChildren());

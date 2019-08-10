@@ -111,7 +111,7 @@ public RealTimeData generateRealTimeDataFromPointGroupData(PointGroupData pgd) {
 	RealTimeData realTimeData = new RealTimeData();
 
 	realTimeData.setCreater(pgd.getCreater());
-	realTimeData.setCreater(userManager.getUserByID(pgd.getCreater()));
+	realTimeData.setCreaterUser(userManager.getUserByID(pgd.getCreater()));
 
 	realTimeData.setId(pgd.getId());
 	realTimeData.setName(pgd.getName());
@@ -119,7 +119,7 @@ public RealTimeData generateRealTimeDataFromPointGroupData(PointGroupData pgd) {
 	realTimeData.setOtherrule2(pgd.getOtherrule2());
 
 	realTimeData.setOwner(pgd.getOwner());
-	realTimeData.setOwner(userManager.getUserByID(pgd.getOwner()));
+	realTimeData.setOwnerUser(userManager.getUserByID(pgd.getOwner()));
 
 	realTimeData.setPoints(pgd.getPoints());
 	ArrayList<Point> pal = new ArrayList<>();
@@ -128,7 +128,7 @@ public RealTimeData generateRealTimeDataFromPointGroupData(PointGroupData pgd) {
 		Point p = ServerManager.getInstance().getPointByID(pids[ipids]);
 		pal.add(p);
 	}
-	realTimeData.setPoints(pal);
+	realTimeData.setPointList(pal);
 
 	realTimeData.setShared(pgd.getShared());
 	ArrayList<User> ul = new ArrayList<User>();
@@ -137,7 +137,7 @@ public RealTimeData generateRealTimeDataFromPointGroupData(PointGroupData pgd) {
 		User u = userManager.getUserByID(sharedIds[isharedIDs]);
 		ul.add(u);
 	}
-	realTimeData.setShared(ul);
+	realTimeData.setSharedUsers(ul);
 
 	realTimeData.setType(pgd.getType());
 	

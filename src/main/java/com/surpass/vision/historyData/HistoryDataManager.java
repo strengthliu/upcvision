@@ -55,7 +55,7 @@ public class HistoryDataManager {
 			HistoryData historyData = new HistoryData();
 
 			historyData.setCreater(pgd.getCreater());
-			historyData.setCreater(userManager.getUserByID(pgd.getCreater()));
+			historyData.setCreaterUser(userManager.getUserByID(pgd.getCreater()));
 
 			historyData.setId(pgd.getId());
 			historyData.setName(pgd.getName());
@@ -63,7 +63,7 @@ public class HistoryDataManager {
 			historyData.setOtherrule2(pgd.getOtherrule2());
 
 			historyData.setOwner(pgd.getOwner());
-			historyData.setOwner(userManager.getUserByID(pgd.getOwner()));
+			historyData.setOwnerUser(userManager.getUserByID(pgd.getOwner()));
 
 			historyData.setPoints(pgd.getPoints());
 			ArrayList<Point> pal = new ArrayList<>();
@@ -72,7 +72,7 @@ public class HistoryDataManager {
 				Point p = ServerManager.getInstance().getPointByID(pids[ipids]);
 				pal.add(p);
 			}
-			historyData.setPoints(pal);
+			historyData.setPointList(pal);
 
 			historyData.setShared(pgd.getShared());
 			ArrayList<User> ul = new ArrayList<User>();
@@ -81,7 +81,7 @@ public class HistoryDataManager {
 				User u = userManager.getUserByID(sharedIds[isharedIDs]);
 				ul.add(u);
 			}
-			historyData.setShared(ul);
+			historyData.setSharedUsers(ul);
 
 			historyData.setType(pgd.getType());
 

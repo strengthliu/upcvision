@@ -51,7 +51,7 @@ public class ServerManager {
 	public ServerManager() {
 		super();
 		try {
-			System.out.println("gcLibrary = "+gcLibrary);
+			// System.out.println("gcLibrary = "+gcLibrary);
 			gec = gec();
 			if(instance == null)
 				instance = this;
@@ -111,7 +111,14 @@ public class ServerManager {
 				String serverName = servs.get(iserver);
 				server.setServerName(serverName);
 				// 取装置信息
-				List<String> devices = gec.DBECEnumDeviceName(serverName);
+				
+				List<String> devices ;
+				try{
+					devices = gec.DBECEnumDeviceName(serverName);
+				}catch(Exception e) {
+					e.printStackTrace();
+					throw new IllegalStateException("实时数据库服务运行错误，请查看是否已经正常启动。");
+				}
 				
 				for (int idevice = 0; idevice < devices.size(); idevice++) {
 					String deviceName = devices.get(idevice);
@@ -121,13 +128,13 @@ public class ServerManager {
 					device.setId(deviceId);
 					String deviceNote = gec.DBECGetDeviceNote(serverName, deviceName, deviceId, GlobalConsts.DeviceNoteLength);
 					deviceNote = deviceNote.trim();
-					System.out.println("Encoding: "+EncodingTools.getEncoding(deviceNote)+"  "+Charset.defaultCharset());
+					// System.out.println("Encoding: "+EncodingTools.getEncoding(deviceNote)+"  "+Charset.defaultCharset());
 					byte[] b;
 					try {
 						b = deviceNote.getBytes("GB2312");
 //						b = deviceNote.getBytes();
 						deviceNote = new String(b, Charset.defaultCharset());
-						System.out.println(deviceNote);
+						// System.out.println(deviceNote);
 						//b = deviceNote.getBytes(Charset.defaultCharset());
 //						deviceNote = new String(b, Charset.defaultCharset());//解码:用什么字符集编码就用什么字符集解码
 //						deviceNote = new String(b, "utf-8");//解码:用什么字符集编码就用什么字符集解码

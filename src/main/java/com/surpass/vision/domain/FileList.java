@@ -24,6 +24,16 @@ public class FileList implements Serializable {
 	boolean isFile;
 
 	boolean isSVG;
+	String img;
+	public String getImg() {
+		return img;
+	}
+
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
 	String name;
 	String path;
 	ArrayList<String> pointIDs;

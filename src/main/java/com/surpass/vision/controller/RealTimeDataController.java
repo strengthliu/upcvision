@@ -9,11 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Reference;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.HtmlUtils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
@@ -25,6 +28,7 @@ import com.surpass.vision.service.RealTimeDataService;
 import com.surpass.vision.tools.TokenTools;
 import com.surpass.vision.user.UserManager;
 import com.surpass.vision.userSpace.UserSpaceManager;
+
 import com.surpass.vision.domain.*;
 import com.surpass.vision.realTimeData.RealTimeDataManager;
 
@@ -156,5 +160,12 @@ public class RealTimeDataController extends BaseController {
 			return ret;
 		}
 	}
+//
+//    @MessageMapping("/hello/{index}")
+//    @SendTo("/topic/greetings/{index}")
+//    public Greeting greeting(HelloMessage message) throws Exception {
+//        Thread.sleep(1000); // simulated delay
+//        return new Greeting(HtmlUtils.htmlEscape(message.getName()) + ": "+HtmlUtils.htmlEscape(message.getContent()));
+//    }
 
 }

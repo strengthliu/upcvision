@@ -41,6 +41,7 @@ public class BaseController {
 			ret.setRedirectUrl("login.html");
 			return ret;
 		}
+		
 		return ret;
 	}
 

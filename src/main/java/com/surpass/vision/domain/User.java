@@ -2,6 +2,8 @@ package com.surpass.vision.domain;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**---------------------------------------
  * @Title: User.java
  * @Package:com.surpass.vision.domain
@@ -14,6 +16,7 @@ import java.io.Serializable;
  * @version:V1.0  
  * ---------------------------------------
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class User implements Serializable  {
     private Integer id;
 

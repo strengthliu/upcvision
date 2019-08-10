@@ -1,21 +1,5 @@
 var g1, g2, gg1, g7, g8, g9, g10;
 
-window.onload = function() {
-  var g1 = new JustGage({
-    id: "g1",
-    value: getRandomInt(0, 100),
-    min: 0,
-    max: 100,
-    title: "Big Fella",
-    label: "pounds"
-  });
-
-
-  setInterval(function() {
-    g1.refresh(getRandomInt(50, 100));
-  }, 2500);
-};
-
 
 
 
@@ -190,4 +174,42 @@ document.addEventListener("DOMContentLoaded", function(event) {
     g10.refresh(getRandomInt(0, 100));
   });
 
+  setInterval(function() {
+	    g3.refresh(getRandomInt(0, 100));
+	    g4.refresh(getRandomInt(0, 100));
+	    g5.refresh(getRandomInt(0, 100));
+	    g6.refresh(getRandomInt(0, 100));
+	    g7.refresh(getRandomInt(0, 100));
+	    g8.refresh(getRandomInt(0, 100));
+	    g9.refresh(getRandomInt(0, 100));
+	    g10.refresh(getRandomInt(0, 100));
+
+	  }, 1000);
+
 });
+
+window.onload = function() {
+	  var g1 = new JustGage({
+	    id: "g1",
+	    value: getRandomInt(0, 100),
+	    min: 0,
+	    max: 100,
+	    title: "一级电脱盐混合阀压差",
+	    label: "度"
+	  });
+
+
+	  setInterval(function() {
+	    g1.refresh(getRandomInt(50, 100));
+	    g3.refresh(getRandomInt(0, 100));
+	    g4.refresh(getRandomInt(0, 100));
+	    g5.refresh(getRandomInt(0, 100));
+	    g6.refresh(getRandomInt(0, 100));
+	    g7.refresh(getRandomInt(0, 100));
+	    g8.refresh(getRandomInt(0, 100));
+	    g9.refresh(getRandomInt(0, 100));
+	    g10.refresh(getRandomInt(0, 100));
+
+	  }, 2500);
+	};
+

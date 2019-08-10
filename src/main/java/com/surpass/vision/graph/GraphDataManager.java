@@ -1,6 +1,7 @@
 package com.surpass.vision.graph;
 
 import java.util.List;
+import java.util.Map.Entry;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -19,6 +20,7 @@ import com.surpass.vision.mapper.PointGroupDataMapper;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.tools.IDTools;
 import com.surpass.vision.user.UserManager;
+import com.surpass.vision.utils.StringUtil;
 
 @Component
 public class GraphDataManager {
@@ -33,6 +35,14 @@ public class GraphDataManager {
 	@Reference
 	@Autowired
 	UserManager userManager;
+
+	@Value("${upc.graphPath}")
+	private String graphPath;
+	@Value("${upc.graphServerPath}")
+	private String graphServerPath;
+
+	@Value("${upc.graphDefaultImg}")
+	private String graphDefaultImg;
 
 	/**
 	 * 从缓存里取数据，如果没有，再调用服务。
@@ -143,7 +153,43 @@ public class GraphDataManager {
 		ret.setFile(fl.isFile());
 		ret.setSVG(fl.isSVG());
 		ret.setName(fl.getName());
-		ret.setPath(fl.getPath());
+		if(fl.isFile()) {
+			ret.setFileName(fl.getName());
+			String name = fl.getName();
+			if(name.lastIndexOf(".")>0)
+				name = name.substring(0,name.lastIndexOf("."));
+			ret.setName(name);
+		}
+		if(fl.getImg()==null || fl.getImg() == "") ret.setImg(graphDefaultImg);
+		String path = fl.getPath();
+		ret.setPath(path);
+		if(path!=null && path.contains(graphPath)) {
+			path = path.substring(graphPath.length());
+		} 
+		// 如果是根，就用.代替
+		//if(path==null) path=".";
+		// 开头结尾加上/
+		//System.out.println(path);
+		String seperator = "/";
+//		if(path!=null && path.length()>=1) {
+////			StringUtil.replace(path, "\\\\", "a");
+//			path = path.replaceAll("\\\\", "/");
+//			path = path.replaceAll("\\\\\\\\", "/");
+//			path = path.replaceAll("//", "/");
+//		}
+//		String a = "\\热力";
+//		a.replaceAll("\\\\", "////");
+//		System.out.println(a);
+		if(!graphServerPath.startsWith(seperator)) graphServerPath = seperator + graphServerPath ;
+		if(!graphServerPath.endsWith(seperator)) graphServerPath =  graphServerPath + seperator;
+		if(path==null) path = graphServerPath ;
+		else path = graphServerPath + path;
+		path = path.replaceAll("\\\\", "/");
+		path = path.replaceAll("\\\\\\\\", "/");
+		path = path.replaceAll("//", "/");
+
+		System.out.println(path);
+		ret.setUrlPath(path+"/"+ret.getFileName());
 		// ret.setPointIDs(fl.getPointIDs());
 //		ret.setChildren(fl.getChildren());
 		Hashtable<String, FileList> flh = fl.getChildren();
@@ -159,4 +205,60 @@ public class GraphDataManager {
 
 		return ret;
 	}
+	
+
+	public Hashtable<String, ArrayList<Graph>> rebuildGraph(Hashtable<String, Graph> graphs) {
+		Hashtable<String, ArrayList<Graph>> ret = new Hashtable<String, ArrayList<Graph>>();
+
+		for(Entry entry : graphs.entrySet()){
+			Graph graph = (Graph)entry.getValue();
+			ret.putAll(rebuildGraph(graph));
+		}
+		return ret;
+	}
+
+	private Hashtable<String, ArrayList<Graph>> rebuildGraph(Graph g) {
+		Hashtable<String, ArrayList<Graph>>	ret = new Hashtable<String, ArrayList<Graph>>();
+
+		if(g.isFile()) { // 找到了文件
+			String nk = g.getPath();
+			if(nk.contains(graphPath)) 
+				nk = nk.substring(graphPath.length());
+			while(nk.startsWith("\\"))
+				nk = nk.substring(1);
+			// if(nk.length()<=0) return ret1;
+			ArrayList<Graph> gs = ret.get(nk);
+			if(gs==null) gs= new ArrayList<Graph>();
+			String name = g.getName();
+			//g.setFileName(name);
+			if(name.lastIndexOf(".")>0)
+				name = name.substring(0,name.lastIndexOf("."));
+			g.setName(name);
+			
+			gs.add(g);
+			ret.put(nk, gs);
+			return ret;
+		} else { // 如果是目录 
+			if(g.getChildren().size()>0) {
+				Hashtable<String,Graph> children = g.getChildren();
+				for(Entry entry : children.entrySet()){
+					Hashtable<String, ArrayList<Graph>> r = rebuildGraph((Graph)entry.getValue());
+					for(Entry entryr : r.entrySet()){
+					    ArrayList<Graph> al = ret.get(entryr.getKey());
+					    if(al == null) al = new ArrayList<Graph>();
+					    ArrayList<Graph> rl = r.get(entryr.getKey());
+//					    al.addAll(rl);
+					    if(rl!=null)
+					    for(int i=0;i<rl.size();i++)
+					    	al.add(rl.get(i));
+					    ret.put((String) entryr.getKey(), al);
+					}
+
+//					ret.putAll(r);
+				}
+			}
+		}
+		return ret;
+	}
+
 }

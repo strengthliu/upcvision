@@ -178,7 +178,12 @@ public class XXTEAUtil {
         cipher = cipher.replace('.', '=');
         byte[] k = key.getBytes();
         byte[] v = Base64.decodeBase64(cipher);
-        plain = new String(XXTEAUtil.decrypt(v, k));
+        byte[] ks = XXTEAUtil.decrypt(v, k);
+        if(ks==null ) {
+        	return null;
+        	// throw new IllegalStateException("加密执行异常！");
+        }
+        plain = new String(ks);
         return plain;
     }
 

@@ -156,6 +156,7 @@ public class FileTool {
 				fl.setFile(false);
 				dirs.add(fl);
 			} else {
+				String pathTemp = path;
 				path = path.substring(0, path.length()-name.length()-1);
 				fl.setPath(path);
 				fl.setFile(true);
@@ -179,6 +180,13 @@ public class FileTool {
 					}
 					fl.setSVG(true);
 					fl.setPointIDs(pointIDs);
+					//System.out.println(path);
+					// 生成图片
+					//String img = SVGTool.GetImageStr(fl.getPath()+File.pathSeparator+fl.getName());
+					//System.out.println(docs.text());
+					//String img = SVGTool.getImageStr(docs.html());
+					//SVGTool.GenerateImage(img,pathTemp+File.pathSeparator+name+".png");
+					//fl.setImg(img);
 				} else { // 不是svg文件
 					fl.setSVG(false);
 				}

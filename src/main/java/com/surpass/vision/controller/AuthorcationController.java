@@ -28,13 +28,16 @@ import com.surpass.vision.utils.TwoString;
 
 @RestController
 //@RequestMapping("/v1")
-public class AuthorcationController {
+public class AuthorcationController extends BaseController {
 	@Reference
 	@Autowired
 	LoginService login;
 	
 	@Autowired
 	UserSpaceManager userSpaceManager;
+	
+    @Autowired
+    private RedisService redisService;
 	
 	@RequestMapping(value = "login", method = { RequestMethod.POST, RequestMethod.GET })
 	public  ToWeb login(@RequestBody JSONObject user,  HttpServletRequest request)
@@ -53,26 +56,60 @@ public class AuthorcationController {
 		}
 		// 返回UserSpace
 		UserSpace us = userSpaceManager.getUserSpace(ui.getId());
+		String token = TokenTools.genToken(ui.getId().toString());
 		if(us == null) {
-			String token = TokenTools.genToken(ui.getId().toString());
 			try {
 			us = userSpaceManager.buildUserSpace(ui.getId(), token);
 			}catch(IllegalStateException e) {
 				e.printStackTrace();
 			}
+		} else {
+			// 重新建token
+			us.setToken(token);
 		}
+		userSpaceManager.setUserSpace(ui.getId(), us);
 		tw.setStatus(GlobalConsts.ResultCode_SUCCESS);
 		tw.setMsg("登录成功！");
 		HashMap<String ,Object> hm = new HashMap<String ,Object>();
 		hm.put("userSpace",us);
-		hm.put("userInfo", us.getUser());
+		//hm.put("userInfo", us.getUser());
 		tw.setData(hm);
 		return tw;
 	}
 
-    @Autowired
-    private RedisService redisService;
+	
+	@RequestMapping(value = "checkAuthorcation", method = { RequestMethod.POST, RequestMethod.GET })
+	public  ToWeb checkAuthorcation(@RequestParam String uid, @RequestParam String token,  HttpServletRequest request)
+			throws Exception {
 
+		Integer userId = null;
+		try {
+			userId = Integer.parseInt(uid);
+			if(userId == null || userId == 0) userId = 0;
+		}catch(Exception e) {
+			userId = 0;
+		}
+		return authercation(userId,token);
+	}
+
+	@RequestMapping(value = "getUserSpace", method = { RequestMethod.POST, RequestMethod.GET })
+	public  ToWeb getUserSpace(@RequestParam String uid, @RequestParam String token,  HttpServletRequest request)
+			throws Exception {
+
+		Integer userId = null;
+		try {
+			userId = Integer.parseInt(uid);
+			if(userId == null || userId == 0) userId = 0;
+		}catch(Exception e) {
+			userId = 0;
+		}
+		ToWeb ret = authercation(userId,token);
+		if(ret.getStatus()!= GlobalConsts.ResultCode_SUCCESS) return ret;
+		UserSpace us = userSpaceManager.getUserSpaceRigidly(userId);
+		ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+		ret.setData("userSpace", us);
+		return ret;
+	}
 
     //http://localhost:8888/saveCity?cityName=北京&cityIntroduce=中国首都&cityId=1
     @GetMapping(value = "saveCity")

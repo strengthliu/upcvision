@@ -66,11 +66,11 @@ public class InitServiceRunner implements CommandLineRunner {
 		end = System.currentTimeMillis();
 		System.out.println(new Date().toLocaleString()+"====>> 初始化图形目录数据结束，用时"+(end-start)/1000+"秒");
 		
-		rs.set("test", "aaaa");
-		System.out.println(rs.get("test"));
+		//rs.set("test", "aaaa");
+		//System.out.println(rs.get("test"));
 		
 		ServerManager s = ServerManager.getInstance();
-		System.out.println(s.name);
+		//System.out.println(s.name);
 		
 	}
 

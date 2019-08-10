@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Reference;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.surpass.vision.XYGraph.XYGraphManager;
 import com.surpass.vision.alertData.AlertDataManager;
 import com.surpass.vision.appCfg.GlobalConsts;
@@ -28,6 +29,7 @@ import com.surpass.vision.tools.IDTools;
 import com.surpass.vision.user.UserManager;
 import com.surpass.vision.userSpace.UserSpaceManager;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Component
 public class RealTimeDataManager {
 
@@ -47,7 +49,7 @@ public class RealTimeDataManager {
 		RealTimeData realTimeData = new RealTimeData();
 
 		realTimeData.setCreater(pgd.getCreater());
-		realTimeData.setCreater(userManager.getUserByID(pgd.getCreater()));
+		realTimeData.setCreaterUser(userManager.getUserByID(pgd.getCreater()));
 
 		realTimeData.setId(pgd.getId());
 		realTimeData.setName(pgd.getName());
@@ -55,7 +57,7 @@ public class RealTimeDataManager {
 		realTimeData.setOtherrule2(pgd.getOtherrule2());
 
 		realTimeData.setOwner(pgd.getOwner());
-		realTimeData.setOwner(userManager.getUserByID(pgd.getOwner()));
+		realTimeData.setOwnerUser(userManager.getUserByID(pgd.getOwner()));
 
 		realTimeData.setPoints(pgd.getPoints());
 		ArrayList<Point> pal = new ArrayList<>();
@@ -64,7 +66,7 @@ public class RealTimeDataManager {
 			Point p = ServerManager.getInstance().getPointByID(pids[ipids]);
 			pal.add(p);
 		}
-		realTimeData.setPoints(pal);
+		realTimeData.setPointList(pal);
 
 		realTimeData.setShared(pgd.getShared());
 		ArrayList<User> ul = new ArrayList<User>();
@@ -73,7 +75,7 @@ public class RealTimeDataManager {
 			User u = userManager.getUserByID(sharedIds[isharedIDs]);
 			ul.add(u);
 		}
-		realTimeData.setShared(ul);
+		realTimeData.setSharedUsers(ul);
 
 		realTimeData.setType(pgd.getType());
 
@@ -88,7 +90,7 @@ public class RealTimeDataManager {
 			RealTimeData realTimeData = new RealTimeData();
 
 			realTimeData.setCreater(pgd.getCreater());
-			realTimeData.setCreater(userManager.getUserByID(pgd.getCreater()));
+			realTimeData.setCreaterUser(userManager.getUserByID(pgd.getCreater()));
 
 			realTimeData.setId(pgd.getId());
 			realTimeData.setName(pgd.getName());
@@ -96,7 +98,7 @@ public class RealTimeDataManager {
 			realTimeData.setOtherrule2(pgd.getOtherrule2());
 
 			realTimeData.setOwner(pgd.getOwner());
-			realTimeData.setOwner(userManager.getUserByID(pgd.getOwner()));
+			realTimeData.setOwnerUser(userManager.getUserByID(pgd.getOwner()));
 
 			realTimeData.setPoints(pgd.getPoints());
 			ArrayList<Point> pal = new ArrayList<>();
@@ -105,7 +107,7 @@ public class RealTimeDataManager {
 				Point p = ServerManager.getInstance().getPointByID(pids[ipids]);
 				pal.add(p);
 			}
-			realTimeData.setPoints(pal);
+			realTimeData.setPointList(pal);
 
 			realTimeData.setShared(pgd.getShared());
 			ArrayList<User> ul = new ArrayList<User>();
@@ -114,7 +116,7 @@ public class RealTimeDataManager {
 				User u = userManager.getUserByID(sharedIds[isharedIDs]);
 				ul.add(u);
 			}
-			realTimeData.setShared(ul);
+			realTimeData.setSharedUsers(ul);
 
 			realTimeData.setType(pgd.getType());
 

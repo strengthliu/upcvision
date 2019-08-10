@@ -5,13 +5,16 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang.StringUtils;
 
+import com.surpass.vision.appCfg.GlobalConsts;
+
 public class TokenTools {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String token = TokenTools.genToken();
+		String token = TokenTools.genToken("2");
 		System.out.println(token);
-		Boolean b = TokenTools.verificationToken(token);
+		// token = "GjwBgLMmHTjaYrJXgMECeaNSBFwfNhHN";
+		Boolean b = TokenTools.verificationToken(token,"2");
 		if (b)
 			System.out.println("token正确");
 		else
@@ -35,6 +38,8 @@ public class TokenTools {
 	private static int charCount = 4;
 
 	public static final String genToken(String secKey) {
+		//secKey = GlobalConsts.SecKey_Pre + secKey;
+		//System.out.println("加密过程：secKey="+secKey);
 		StringBuffer sb = new StringBuffer();
 		for (int i = 0; i < charCount; i++) {
 			int randInt = Math.abs(rand.nextInt());
@@ -43,12 +48,13 @@ public class TokenTools {
 		long timestamp = System.currentTimeMillis();
 		String token = null;
 		token = String.format("%s_%d", sb.toString(), timestamp);
-		System.out.println("未加密的token:" + token);
+		//System.out.println("加密过程：未加密的token:" + token);
 		token = XXTEAUtil.encrypt(token, secKey);
+		//System.out.println("加密过程：加密后的token="+token);
 		return token;
 	}
 
-	public static final String genToken() {
+	private static final String genToken() {
 		StringBuffer sb = new StringBuffer();
 		for (int i = 0; i < charCount; i++) {
 			int randInt = Math.abs(rand.nextInt());
@@ -63,8 +69,11 @@ public class TokenTools {
 	}
 
 	public static final boolean verificationToken(String token, String secKey) throws RuntimeException {
+		//System.out.println("解密过程：token="+token+"  secKey="+secKey);
+		//secKey = GlobalConsts.SecKey_Pre + secKey;
 		String plainText = XXTEAUtil.decrypt(token, secKey);
-		System.out.println(plainText);
+		//System.out.println(plainText);
+		//System.out.println("解密过程：plainText="+plainText);
 		if (StringUtils.isBlank(plainText)) {
 			throw new IllegalStateException("解密失败,token可能遭到篡改");
 		}
@@ -81,13 +90,15 @@ public class TokenTools {
 		if ((System.currentTimeMillis() - timestamp) > TimeUnit.MILLISECONDS.convert(expire + 5, TimeUnit.DAYS)) {
 			throw new IllegalStateException("token已过期");
 		}
-		if(plainText.contentEquals(secKey))
-			return true;
-		else
-			return false;
+//		System.out.println();
+//		if(plainText.contentEquals(secKey))
+//			return true;
+//		else
+//			return false;
+		return true;
 	}
 
-	public static final boolean verificationToken(String token) throws RuntimeException {
+	private static final boolean verificationToken(String token) throws RuntimeException {
 		String plainText = XXTEAUtil.decrypt(token, secKey);
 		System.out.println(plainText);
 		if (StringUtils.isBlank(plainText)) {

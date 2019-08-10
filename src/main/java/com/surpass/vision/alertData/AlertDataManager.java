@@ -54,7 +54,7 @@ public class AlertDataManager {
 			AlertData alertData = new AlertData();
 
 			alertData.setCreater(pgd.getCreater());
-			alertData.setCreater(userManager.getUserByID(pgd.getCreater()));
+			alertData.setCreaterUser(userManager.getUserByID(pgd.getCreater()));
 
 			alertData.setId(pgd.getId());
 			alertData.setName(pgd.getName());
@@ -62,7 +62,7 @@ public class AlertDataManager {
 			alertData.setOtherrule2(pgd.getOtherrule2());
 
 			alertData.setOwner(pgd.getOwner());
-			alertData.setOwner(userManager.getUserByID(pgd.getOwner()));
+			alertData.setOwnerUser(userManager.getUserByID(pgd.getOwner()));
 
 			alertData.setPoints(pgd.getPoints());
 			ArrayList<Point> pal = new ArrayList<>();
@@ -71,7 +71,7 @@ public class AlertDataManager {
 				Point p = ServerManager.getInstance().getPointByID(pids[ipids]);
 				pal.add(p);
 			}
-			alertData.setPoints(pal);
+			alertData.setPointList(pal);
 
 			alertData.setShared(pgd.getShared());
 			ArrayList<User> ul = new ArrayList<User>();
@@ -80,7 +80,7 @@ public class AlertDataManager {
 				User u = userManager.getUserByID(sharedIds[isharedIDs]);
 				ul.add(u);
 			}
-			alertData.setShared(ul);
+			alertData.setSharedUsers(ul);
 
 			alertData.setType(pgd.getType());
 

@@ -1,14 +1,17 @@
 package com.surpass.vision.userSpace;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.jsoup.helper.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Reference;
 import org.springframework.stereotype.Component;
 
@@ -43,7 +46,7 @@ import com.surpass.vision.user.UserManager;
 
 @Component
 public class UserSpaceManager {
-	private static final Logger LOGGER =  LoggerFactory.getLogger(UserSpaceManager.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserSpaceManager.class);
 
 	@Reference
 	@Autowired
@@ -81,37 +84,53 @@ public class UserSpaceManager {
 	@Autowired
 	UserSpaceDataMapper usdMapper;
 
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+//		String nk = "C:\\dev\\xiangmu\\WebRoot\\tu";
+//		String path = "C:\\dev\\xiangmu\\WebRoot";
+//		if (nk.contains(path))
+//			nk = nk.substring(path.length());
+//		while (nk.startsWith("\\"))
+//			nk = nk.substring(1);
+//		System.out.println(nk);
+		Hashtable<String,Object> a = new Hashtable<String,Object>();
+		a.put("", 1);
+		System.out.println(a.get(""));
+
 
 	}
 
-	public  UserSpace getUserSpace(Integer uid) {
-		LOGGER.info("userKey: " + GlobalConsts.Key_UserSpace_pre_+uid.toString());
-		Object obj = redisService.get(GlobalConsts.Key_UserSpace_pre_+uid.toString());
-		if(obj == null) return null;
-		if(obj instanceof UserSpace)
-			return (UserSpace)obj;
+	public UserSpace getUserSpace(Integer uid) {
+		LOGGER.info("userKey: " + GlobalConsts.Key_UserSpace_pre_ + uid.toString());
+		Object obj = redisService.get(GlobalConsts.Key_UserSpace_pre_ + uid.toString());
+		if (obj == null)
+			return null;
+		if (obj instanceof UserSpace)
+			return (UserSpace) obj;
 		else {
 			System.out.println(obj.toString());
 			throw new IllegalStateException("缓存中保存的用户空间类型与实际不匹配。");
 		}
-		
+
 	}
 
-
 	public void setUserSpace(UserSpace us) {
-		if(us == null) {
+		if (us == null) {
 			LOGGER.info("给的用户空间为空，不能设置。");
 			throw new IllegalStateException("给的用户空间为空，不能设置。");
 		}
-		redisService.set(GlobalConsts.Key_UserSpace_pre_+us.getUser().getId().toString(), us);
-		
+		redisService.set(GlobalConsts.Key_UserSpace_pre_ + us.getUser().getId().toString(), us);
+
 	}
 
-	public void setUserSpace(Integer uid,UserSpace us) {
-		redisService.set(GlobalConsts.Key_UserSpace_pre_+uid.toString(), us);
+	public void setUserSpace(Integer uid, UserSpace us) {
+		redisService.set(GlobalConsts.Key_UserSpace_pre_ + uid.toString(), us);
+		try {
+		UserSpace t = (UserSpace)redisService.get(GlobalConsts.Key_UserSpace_pre_ + uid.toString());
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+		}
 	}
 
 //	public UserSpace buildUserSpace(Integer uid, String string) {
@@ -122,58 +141,63 @@ public class UserSpaceManager {
 //	}
 
 	public List<RealTimeData> getRealTimeData(Integer uid) {
-		return (List<RealTimeData>) redisService.get(GlobalConsts.Key_RealTimeData_pre_+uid.toString());
+		return (List<RealTimeData>) redisService.get(GlobalConsts.Key_RealTimeData_pre_ + uid.toString());
 	}
-	public void setRealTimeData(Integer uid,List<RealTimeData> rtdl) {
-		redisService.set(GlobalConsts.Key_RealTimeData_pre_+uid.toString(),rtdl);
+
+	public void setRealTimeData(Integer uid, List<RealTimeData> rtdl) {
+		redisService.set(GlobalConsts.Key_RealTimeData_pre_ + uid.toString(), rtdl);
 	}
+
 	public UserSpace buildUserSpace(Integer userID, String... token) {
 //		// TODO Auto-generated method stub
 //		UserSpace us = new UserSpace();
 //		// 如果是管理员，就建管理员空间。
-		UserInfo user = userManager.getUserByID(userID.toString());
-		if(user == null) throw new IllegalStateException("id为"+userID+"的用户不存在，不能为其建立用户空间。");
+		UserInfo user = userManager.getUserInfoByID(userID.toString());
+		if (user == null)
+			throw new IllegalStateException("id为" + userID + "的用户不存在，不能为其建立用户空间。");
 		if (user.getRole() == 1)
 			return buildAdminUserSpace(user);
 		LOGGER.info(new Date().toGMTString() + " 开始为用户初始化用户空间..");
 		UserSpaceData usd = userSpaceService.getUserSpaceById(userID);
 		Integer uid = null;
-		if(usd == null) { 
+		if (usd == null) {
 			usd = new UserSpaceData();
 			uid = userID;
 		}
-		UserSpace us =  new UserSpace();
-		//UserInfo ui = userManager.getUserByID(uid.toString());//.selectByPrimaryKey(uid);
+		UserSpace us = new UserSpace();
+		// UserInfo ui =
+		// userManager.getUserByID(uid.toString());//.selectByPrimaryKey(uid);
 		us.setUser(user);
 		UserRight right;
-		//图形
+		// 图形
 		String graphs = usd.getGraphs();
 		Hashtable<String, Graph> gh = null;
-		if(StringUtil.isBlank(graphs))
+		if (StringUtil.isBlank(graphs))
 			gh = new Hashtable<String, Graph>();
 		else
 			gh = graphDataManager.getGraphHashtableByKeys(graphs);
-		us.setGraphs(gh);
-		//XY图
+		Hashtable<String, ArrayList<Graph>> gl = graphDataManager.rebuildGraph(gh);
+		us.setGraphs(gl);
+		// XY图
 		String xygraph = usd.getXygraph();
 		Hashtable<String, XYGraph> xyGraph = null;
-		if(StringUtil.isBlank(xygraph))
+		if (StringUtil.isBlank(xygraph))
 			xyGraph = new Hashtable<String, XYGraph>();
 		else
 			xyGraph = xYGraphManager.getXYGraphHashtabelByKeys(xygraph);
 		us.setXyGraph(xyGraph);
-		//实时数据
+		// 实时数据
 		String realtimedata = usd.getRealtimedata();
 		Hashtable<String, RealTimeData> realTimeData = null;
-		if(StringUtil.isBlank(realtimedata))
+		if (StringUtil.isBlank(realtimedata))
 			realTimeData = new Hashtable<String, RealTimeData>();
 		else
 			realTimeData = realTimeDataManager.getRealTimeDataHashtableByKeys(realtimedata);
 		us.setRealTimeData(realTimeData);
-		//报警数据
+		// 报警数据
 		String alertdata = usd.getAlertdata();
 		Hashtable<String, AlertData> alertData = null;
-		if(StringUtil.isBlank(alertdata))
+		if (StringUtil.isBlank(alertdata))
 			alertData = new Hashtable<String, AlertData>();
 		else
 			alertData = alertDataManager.getAlertDataHashtableByKeys(alertdata);
@@ -181,7 +205,7 @@ public class UserSpaceManager {
 		// 历史数据
 		String historydata = usd.getHistorydata();
 		Hashtable<String, HistoryData> historyData = null;
-		if(StringUtil.isBlank(historydata))
+		if (StringUtil.isBlank(historydata))
 			historyData = new Hashtable<String, HistoryData>();
 		else
 			historyData = historyDataManager.getHistoryDataHashtableByKeys(historydata);
@@ -189,11 +213,10 @@ public class UserSpaceManager {
 		// 直线报警
 		String linealertdata = usd.getLineAlertdata();
 		Hashtable<String, LineAlertData> lineAlertData = null;
-		if(StringUtil.isBlank(linealertdata))
+		if (StringUtil.isBlank(linealertdata))
 			lineAlertData = new Hashtable<String, LineAlertData>();
 		else
-			lineAlertData = lineAlertDataManager
-				.getLineAlertDataHashtableByKeys(alertdata);
+			lineAlertData = lineAlertDataManager.getLineAlertDataHashtableByKeys(alertdata);
 		us.setLineAlertData(lineAlertData);
 
 		String tk = "";
@@ -213,11 +236,15 @@ public class UserSpaceManager {
 		UserSpace us = new UserSpace();
 		us.setUser(user);
 		Graph gf = graphDataManager.getAdminGraphHashtable();
-		Hashtable<String,Graph> graph = new Hashtable<String,Graph>();
-		if(gf!=null) {
-			graph.put(gf.getPath()+gf.getName(), gf);
-			us.setGraphs(graph);
+		Hashtable<String, Graph> graph = new Hashtable<String, Graph>();
+		if (gf != null) {
+			graph.put(gf.getPath() + gf.getName(), gf);
+			Hashtable<String, ArrayList<Graph>> gl = graphDataManager.rebuildGraph(graph);
+			us.setGraphs(gl);
 		}
+		// 整理成单路径+文件的方式
+		Hashtable<String, ArrayList<Graph>> graphList = graphDataManager.rebuildGraph(graph);
+		us.setGraphs(graphList);
 		Hashtable<String, XYGraph> xyGraph = xYGraphManager.getAdminXYGraphHashtabel();
 		us.setXyGraph(xyGraph);
 		Hashtable<String, RealTimeData> realTimeData = realTimeDataManager.getAdminRealTimeDataHashtable();
@@ -233,8 +260,8 @@ public class UserSpaceManager {
 		tk = TokenTools.genToken(user.toString());
 		us.setToken(tk);
 		try {
-		setUserSpace(us);
-		}catch(IllegalStateException e) {
+			setUserSpace(us);
+		} catch (IllegalStateException e) {
 			LOGGER.info("更新管理员用户空间失败：redis error.");
 			e.printStackTrace();
 		}
@@ -243,15 +270,17 @@ public class UserSpaceManager {
 
 	public UserSpace getUserSpaceRigidly(Integer uid) {
 		UserSpace ret = this.getUserSpace(uid);
-		if(ret == null) {
+		if (ret == null) {
 			ret = this.buildUserSpace(uid);
-			if(ret == null) throw new IllegalStateException("创建用户空间失败。");
+			if (ret == null)
+				throw new IllegalStateException("创建用户空间失败。");
 		}
 		return ret;
 	}
 
 	public boolean tokenVerification(Integer uid, String token) {
-		return TokenTools.verificationToken(token, uid.toString()) 
+		System.out.println(token + " == " + this.getUserSpace(uid).getToken());
+		return TokenTools.verificationToken(token, uid.toString())
 				&& token.contentEquals(getUserSpaceRigidly(uid).getToken());
 	}
 

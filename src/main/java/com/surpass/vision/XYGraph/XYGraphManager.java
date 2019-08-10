@@ -64,7 +64,7 @@ public class XYGraphManager {
 			XYGraph xYGraph = new XYGraph();
 			
 			xYGraph.setCreater(pgd.getCreater());
-			xYGraph.setCreater(userManager.getUserByID(pgd.getCreater()));
+			xYGraph.setCreaterUser(userManager.getUserByID(pgd.getCreater()));
 			
 			xYGraph.setId(pgd.getId());
 			xYGraph.setName(pgd.getName());
@@ -72,7 +72,7 @@ public class XYGraphManager {
 			xYGraph.setOtherrule2(pgd.getOtherrule2());
 			
 			xYGraph.setOwner(pgd.getOwner());
-			xYGraph.setOwner(userManager.getUserByID(pgd.getOwner()));
+			xYGraph.setOwnerUser(userManager.getUserByID(pgd.getOwner()));
 
 			xYGraph.setPoints(pgd.getPoints());
 			ArrayList<Point> pal = new ArrayList<>();
@@ -81,7 +81,7 @@ public class XYGraphManager {
 				Point p = ServerManager.getInstance().getPointByID(pids[ipids]);
 				pal.add(p);
 			}
-			xYGraph.setPoints(pal);
+			xYGraph.setPointList(pal);
 			
 			xYGraph.setShared(pgd.getShared());
 			ArrayList<User> ul = new ArrayList<User>();
@@ -90,7 +90,7 @@ public class XYGraphManager {
 				User u = userManager.getUserByID(sharedIds[isharedIDs]);
 				ul.add(u);
 			}
-			xYGraph.setShared(ul);
+			xYGraph.setSharedUsers(ul);
 			
 			xYGraph.setType(pgd.getType());
 
