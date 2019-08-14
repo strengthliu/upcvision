@@ -1,10 +1,11 @@
 package com.surpass.vision.server;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
-public class Server {
+public class Server implements Serializable {
 	int id;
 	String serverName;
 	public int getId() {
@@ -21,6 +22,19 @@ public class Server {
 	}
 	
 	List<Device> devices;
+	public List<Device> getDevices() {
+		return devices;
+	}
+	public void setDevices(List<Device> devices) {
+		this.devices = devices;
+	}
+	public Hashtable<String, Point> getPoints() {
+		return points;
+	}
+	public void setPoints(Hashtable<String, Point> points) {
+		this.points = points;
+	}
+
 	Hashtable<String,Point> points;
 	
 	public void addDevice(Device device) {

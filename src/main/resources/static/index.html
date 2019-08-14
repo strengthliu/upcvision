@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cmn-Hans">
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -32,263 +32,27 @@
 <script src="js/stomp.min.js"></script>
 <script src="js/domain.js"></script>
 <script src="js/app.js"></script>
-
+<script src="js/router.js"></script>
+<script src="js/navagator.js"></script>
 <script type="text/javascript">
-	//var userSpace = null;
-	//var user = null;
-	//var token = null;
-	/* 用户登录验证 */
-	if (localStorage.user != null && localStorage.user != 'undefined') {
 
-		user = JSON.parse(localStorage.user);
-		token = localStorage.token;
-		//alert("token="+token+"  uid="+user.id);
-		uname = user.name;
-		uid = user.id;
-		checkRight(uid, token);
-		getUserSpace(uid,token,function(){});
-		//if(userSpace == null || userSpace == "undefined"){
-		//	userSpace = getUserSpace(uid,token);
-		//}
-		// alert("user: "+JSON.stringify(userSpace));
-	} else {
-		location.href = "login.html";
-	}
+/* 用户登录验证 */
+if (localStorage.user != null && localStorage.user != 'undefined') {
 
-	var _realtimeDataDetailKey;
-    function routeTo(diagram,key){
-    	switch(diagram){
-    	case "diagramList":
-    		if(key=='未分类') key = "unclassify";
-    	    _galleryKey = key;    		
-    	    $("#mainPanel").load("_gallery.html");
-    		break;
-    	case "diagramDetail":
-    	    _diagramShowKey = key;    		
-    	    $("#mainPanel").load("_diagramShow.html");
-    		break;
-    	case "xydiagramList":
-    		
-    	    $("#mainPanel").load("_datalist.html");
-    		break;
-    	case "realtimedataList":
-    		
-    	    $("#mainPanel").load("_datalist.html");
-    		break;
-    	case "realtimedataDetail":
-    		_realtimeDataDetailKey = key;
-    	    $("#mainPanel").load("_realtimeDataChart.html");
-    		break;
-    	case "alertdataList":
-    		
-    	    $("#mainPanel").load("_datalist.html");
-    		break;
-    	case "historydataList":
-    		
-    	    $("#mainPanel").load("_datalist.html");
-    		break;
-    	case "directreportingdataList":
-    		
-    	    $("#mainPanel").load("_datalist.html");
-    		break;
-    		
-    		//     
-    	}
-
-    }
-	/* 刷新流程图目录结构*/
-	function updateDiagram() {
-		if (userSpace != null && userSpace != "undefined") {
-			console.log("userSpace is not null");
-		} else 
-		getUserSpace(
-				user.id,
-				token,
-				function sucessFucn(userSpace) {
-					if (userSpace == null || userSpace == "undefined") {
-						console.log("userSpace is null");
-					}
-					
-					// alert();
-					//console.log(JSON.stringify(userSpace));
-					/* 刷新流程图目录结构*/
-					var diagrams = userSpace.graphs;
-					if(diagrams == null || diagrams == "undefined") diagrams = {};
-					var uiDiagram = document.getElementById("ui-diagram");
-
-					//if (uiDiagram != null && uiDiagram != "undefined")
-					//	console.log(uiDiagram.innerHTML);
-					var itemsHtml = '<ul class="nav flex-column sub-menu">';
-					Object
-							.keys(diagrams)
-							.forEach(
-									function(key) {
-										if (key != null 
-												&& key != "undefined") {
-											var diagram = diagrams[key];
-											if(key == "") key = "未分类";
-											var item = '<li class="nav-item"><a class="nav-link" onclick="routeTo('+"'diagramList','"+key+"');"+'">'
-													+ key + '</a></li>';
-											itemsHtml = itemsHtml + item;
-											// console.log(key,obj[key]);
-										}
-									});
-
-					itemsHtml = itemsHtml + "</ul>";
-					uiDiagram.innerHTML = itemsHtml;//"<ul></ul>";
-					//console.log(uiDiagram.innerHTML);
-					
-					/* 刷新XY图结构*/
-					var xydiagrams = userSpace.xygraph;
-					if(xydiagrams == null || xydiagrams == "undefined") xydiagrams = {};
-					var uixydiagram = document.getElementById("ui-xydiagram");
-
-					//if (uixydiagram != null && uixydiagram != "undefined")
-					//	console.log(uixydiagram.innerHTML);
-					var itemsHtml = '<ul class="nav flex-column sub-menu">';
-					
-					Object
-							.keys(xydiagrams)
-							.forEach(
-									function(key) {
-										if (key != null 
-												&& key != "undefined") {
-											var xydiagram = xydiagrams[key];
-											if(key == "") key = "未分类";
-
-											var item = '<li class="nav-item"><a class="nav-link" onclick="routeTo('+"'xydiagramList','"+key+"');"+'">'
-													+ key + '</a></li>';
-											itemsHtml = itemsHtml + item;
-											// console.log(key,obj[key]);
-										}
-									});
-
-					itemsHtml = itemsHtml + "</ul>";
-					uixydiagram.innerHTML = itemsHtml;//"<ul></ul>";
-					//console.log(uixydiagram.innerHTML);
-
-					/* 刷新实时数据结构*/
-					var realtimedatas = userSpace.realTimeData;
-					if(realtimedatas == null || realtimedatas == "undefined") realtimedatas = {};
-					var uirealtimedata = document.getElementById("ui-realtimedata");
-
-					//if (uirealtimedata != null && uirealtimedata != "undefined")
-					//	console.log(uirealtimedata.innerHTML);
-					var itemsHtml = '<ul class="nav flex-column sub-menu">';
-					Object
-							.keys(realtimedatas)
-							.forEach(
-									function(key) {
-										if (key != null 
-												&& key != "undefined") {
-											var realtimedata = realtimedatas[key];
-											if(key == "") key = "未分类";
-
-											var item = '<li class="nav-item"><a class="nav-link" onclick="routeTo('+"'realtimedataDetail','"+key+"');"+'">'
-													+ realtimedata.name + '</a></li>';
-											itemsHtml = itemsHtml + item;
-											// console.log(key,obj[key]);
-										}
-									});
-
-					itemsHtml = itemsHtml + "</ul>";
-					uirealtimedata.innerHTML = itemsHtml;//"<ul></ul>";
-					//console.log(uirealtimedata.innerHTML);
-
-					/* 刷新报警结构*/
-					var alertdatas = userSpace.alertData;
-					if(alertdatas == null || alertdatas == "undefined") alertdatas = {};
-					var uialertdata = document.getElementById("ui-alertdata");
-
-					//if (uialertdata != null && uialertdata != "undefined")
-					//	console.log(uialertdata.innerHTML);
-					var itemsHtml = '<ul class="nav flex-column sub-menu">';
-					Object
-							.keys(alertdatas)
-							.forEach(
-									function(key) {
-										if (key != null 
-												&& key != "undefined") {
-											var alertdata = alertdatas[key];
-											if(key == "") key = "未分类";
-
-											var item = '<li class="nav-item"><a class="nav-link" onclick="routeTo('+"'alertdataList','"+key+"');"+'">'
-													+ key + '</a></li>';
-											itemsHtml = itemsHtml + item;
-											// console.log(key,obj[key]);
-										}
-									});
-
-					itemsHtml = itemsHtml + "</ul>";
-					uialertdata.innerHTML = itemsHtml;//"<ul></ul>";
-					//console.log(uialertdata.innerHTML);
-
-					/* 刷新历史数据结构*/
-					var historydatas = userSpace.historyData;
-					if(historydatas == null || historydatas == "undefined") historydatas = {};
-					var uidatahistory = document.getElementById("ui-datahistory");
-
-					//if (uidatahistory != null && uidatahistory != "undefined")
-					//	console.log(uidatahistory.innerHTML);
-					var itemsHtml = '<ul class="nav flex-column sub-menu">';
-					Object
-							.keys(historydatas)
-							.forEach(
-									function(key) {
-										if (key != null 
-												&& key != "undefined") {
-											var historydata = historydatas[key];
-											if(key == "") key = "未分类";
-
-											var item = '<li class="nav-item"><a class="nav-link" onclick="routeTo('+"'historydataList','"+key+"');"+'">'
-													+ key + '</a></li>';
-											itemsHtml = itemsHtml + item;
-											// console.log(key,obj[key]);
-										}
-									});
-
-					itemsHtml = itemsHtml + "</ul>";
-					uidatahistory.innerHTML = itemsHtml;//"<ul></ul>";
-					//console.log(uidatahistory.innerHTML);
-
-					/* 刷新直线报警结构*/
-					var directreportingdatas = userSpace.lineAlertData;
-					if(directreportingdatas == null || directreportingdatas == "undefined") directreportingdatas = {};
-					var uidirectreporting = document.getElementById("ui-directreporting");
-
-					//if (uidirectreporting != null && uidirectreporting != "undefined")
-					//	console.log(uidirectreporting.innerHTML);
-					var itemsHtml = '<ul class="nav flex-column sub-menu">';
-					Object
-							.keys(directreportingdatas)
-							.forEach(
-									function(key) {
-										if (key != null 
-												&& key != "undefined") {
-											var directreportingdata = directreportingdatas[key];
-											if(key == "") key = "未分类";
-
-											var item = '<li class="nav-item"><a class="nav-link" onclick="routeTo('+"'directreportingdataList','"+key+"');"+'">'
-													+ key + '</a></li>';
-											itemsHtml = itemsHtml + item;
-											// console.log(key,obj[key]);
-										}
-									});
-
-					itemsHtml = itemsHtml + "</ul>";
-					uidirectreporting.innerHTML = itemsHtml;//"<ul></ul>";
-					//console.log(uidirectreporting.innerHTML);
-
-		});
-	}
-
-	function getPath(diagram) {
-		var path = "";
-		if (!diagram.file) {
-			path = path + name;
-		}
-
-	}
+	user = JSON.parse(localStorage.user);
+	token = localStorage.token;
+	//alert("token="+token+"  uid="+user.id);
+	uname = user.name;
+	uid = user.id;
+	checkRight(uid, token);
+	getUserSpace(uid,token,function(){});
+	//if(userSpace == null || userSpace == "undefined"){
+	//	userSpace = getUserSpace(uid,token);
+	//}
+	// alert("user: "+JSON.stringify(userSpace));
+} else {
+	location.href = "login.html";
+}
 
 	function addLoadEvent(func) {
 		//把现有的 window.onload 事件处理函数的值存入变量
@@ -305,9 +69,8 @@
 		}
 	}
 
-	// addLoadEvent(updateDiagram);
 
-	</script>
+</script>
 	
 	
 </head>
@@ -454,7 +217,7 @@
 						class="nav-link dropdown-toggle nav-profile" id="profileDropdown"
 						href="#" data-toggle="dropdown" aria-expanded="false"> <img
 							src="images/faces/face1.jpg" alt="image"> <span
-							class="d-none d-lg-inline">张三</span>
+							class="d-none d-lg-inline" id="userNameUIRight">张三</span>
 					</a>
 						<div class="dropdown-menu navbar-dropdown w-100"
 							aria-labelledby="profileDropdown">
@@ -564,6 +327,9 @@
 									var udd = document
 											.getElementById("userDescUI");
 									udd.innerHTML = user.desc;
+									var unrd = document
+									.getElementById("userNameUIRight");
+									unrd.innerHTML = user.name;
 								}
 							</script>
 						</div>
@@ -583,7 +349,7 @@
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-diagram" aria-expanded="false"
 						aria-controls="ui-diagram"> <i class="icon-layers menu-icon"></i>
-							<span class="menu-title">流程图</span> <i class="menu-arrow"></i>
+							<span class="menu-title" onclick="routeTo('diagramList','')">流程图</span> <i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-diagram">
 							<ul class="nav flex-column sub-menu">
@@ -597,125 +363,47 @@
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-xydiagram" aria-expanded="false"
 						aria-controls="ui-xydiagram"> <i class="icon-server menu-icon"></i>
-							<span class="menu-title">XY图</span> <i class="menu-arrow"></i>
+							<span class="menu-title" onclick="routeTo('xydiagramList','')">XY图</span> <i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-xydiagram">
 							<ul class="nav flex-column sub-menu">
 								<li class="nav-item"><a class="nav-link"
 									href="pages/ui-features/accordions.html">石化常减压</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/buttons.html">石化气分</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/badges.html">石化三催化</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/breadcrumbs.html">石化重交沥青</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/dropdowns.html">石化重油裂解</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/modals.html">电力3号炉2号机</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/progress.html">电力4、5号炉3号机</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/pagination.html">钢铁炼铁厂</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/tabs.html">冶金铝业3号回转炉</a></li>
 							</ul>
 						</div></li>
-
 					</li>
-
-
-
 
 					<!-- *******************************  实时数据 ******************************* -->
-					<li class="nav-item nav-category"><span class="nav-link">实时数据</span>
-					</li>
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-realtimedata" aria-expanded="false"
 						aria-controls="ui-realtimedata"> <i class="icon-server menu-icon"></i>
-							<span class="menu-title">实时数据查询</span> <i class="menu-arrow"></i>
+							<span class="menu-title" onclick="routeTo('realtimedataList','')">实时数据查询</span> <i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-realtimedata">
 							<ul class="nav flex-column sub-menu">
 								<li class="nav-item"><a class="nav-link"
 									href="pages/ui-features/accordions.html">石化常减压</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/buttons.html">石化气分</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/badges.html">石化三催化</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/breadcrumbs.html">石化重交沥青</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/dropdowns.html">石化重油裂解</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/modals.html">电力3号炉2号机</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/progress.html">电力4、5号炉3号机</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/pagination.html">钢铁炼铁厂</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/tabs.html">冶金铝业3号回转炉</a></li>
 							</ul>
 						</div></li>
-					<li class="nav-item"><a class="nav-link"
-						data-toggle="collapse" href="#ui-advanced" aria-expanded="false"
-						aria-controls="ui-advanced"> <i
-							class="icon-air-play menu-icon"></i> <span class="menu-title">实时数据管理</span>
-							<i class="menu-arrow"></i>
-					</a>
-						<div class="collapse" id="ui-advanced">
-							<ul class="nav flex-column sub-menu">
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/dragula.html">Dragula</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/carousel.html">Carousel</a></li>
-							</ul>
-						</div></li>
-					<li class="nav-item"><a class="nav-link"
-						href="pages/ui-features/popups.html"> <i
-							class="icon-speech-bubble menu-icon"></i> <span
-							class="menu-title">Popups</span> <span
-							class="badge badge-info badge-pill">8</span>
-					</a></li>
-
-
 
 					<!-- *******************************  报警查询 ******************************* -->
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-alertdata" aria-expanded="false"
 						aria-controls="ui-alertdata"> <i class="icon-bell menu-icon"></i> <span
-							class="menu-title">报警查询</span> <i class="menu-arrow"></i>
+							class="menu-title" onclick="routeTo('alertdataList','')">报警查询</span> <i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-alertdata">
 							<ul class="nav flex-column sub-menu">
 								<li class="nav-item"><a class="nav-link"
 									href="pages/ui-features/accordions.html">石化常减压</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/buttons.html">石化气分</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/badges.html">石化三催化</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/breadcrumbs.html">石化重交沥青</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/dropdowns.html">石化重油裂解</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/modals.html">电力3号炉2号机</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/progress.html">电力4、5号炉3号机</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/pagination.html">钢铁炼铁厂</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/tabs.html">冶金铝业3号回转炉</a></li>
 							</ul>
 						</div></li>
 
 					<!-- *******************************  历史数据 ******************************* -->
-					<li class="nav-item nav-category"><span class="nav-link">历史数据</span>
-					</li>
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-datahistory"
 						aria-expanded="false" aria-controls="ui-datahistory"> <i
-							class="icon-layers menu-icon"></i> <span class="menu-title">历史数据</span>
+							class="icon-layers menu-icon"></i> <span class="menu-title" onclick="routeTo('historydataList','')">历史数据</span>
 							<i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-datahistory">
@@ -724,74 +412,31 @@
 									href="pages/ui-features/accordions.html">Accordions</a></li>
 								<li class="nav-item"><a class="nav-link"
 									href="pages/ui-features/buttons.html">Buttons</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/badges.html">Badges</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/breadcrumbs.html">Breadcrumbs</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/modals.html">Modals</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/progress.html">Progress bar</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/pagination.html">Pagination</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/tabs.html">Tabs</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/typography.html">Typography</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/tooltips.html">Tooltips</a></li>
 							</ul>
 						</div></li>
 
 
 					<!-- *******************************  直线报警 ******************************* -->
-					<li class="nav-item nav-category"><span class="nav-link">直线警报</span>
-					</li>
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-directreporting"
 						aria-expanded="false" aria-controls="ui-directreporting"> <i
-							class="icon-layers menu-icon"></i> <span class="menu-title">直线警报</span>
+							class="icon-layers menu-icon"></i> <span class="menu-title" onclick="routeTo('directreportingdataList','')">直线警报</span>
 							<i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-directreporting">
 							<ul class="nav flex-column sub-menu">
 								<li class="nav-item"><a class="nav-link"
 									href="pages/ui-features/accordions.html">Accordions</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/buttons.html">Buttons</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/badges.html">Badges</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/breadcrumbs.html">Breadcrumbs</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/modals.html">Modals</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/progress.html">Progress bar</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/pagination.html">Pagination</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/tabs.html">Tabs</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/typography.html">Typography</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/tooltips.html">Tooltips</a></li>
 							</ul>
 						</div></li>
-					<li class="nav-item"><a class="nav-link"
-						href="pages/ui-features/popups.html"> <i
-							class="icon-speech-bubble menu-icon"></i> <span
-							class="menu-title">Popups</span> <span
-							class="badge badge-info badge-pill">8</span>
-					</a></li>
 
 					<script>
-						function retrievChart() {
-
-						}
+						updateDiagram();
+						updateXYDiagram();
+						updateRealTimeData();
+						updateAlertData();
+						updateHistoryData();
+						updateLineAlertData();
 					</script>
 
 					<!-- *******************************  用户管理 ******************************* -->
@@ -816,7 +461,6 @@
 			<!--  ************************************ 主窗口  ends ************************************  -->
 		</div>
 		<script>
-		updateDiagram();
 		</script>
 		<!-- page-body-wrapper ends -->
 	</div>

@@ -11794,7 +11794,7 @@ button.close {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0rem;
   border-bottom: 1px solid #f3f3f3;
   border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem; }
@@ -11809,7 +11809,7 @@ button.close {
 .modal-body {
   position: relative;
   flex: 1 1 auto;
-  padding: 15px; }
+  padding: 5px; }
 
 .modal-footer {
   display: flex;
@@ -18648,7 +18648,7 @@ ul {
       font-weight: 400;
       color: #6a6a6a; }
   .modal .modal-dialog .modal-content .modal-body {
-    padding: 35px 26px; }
+    padding: 5px 6px; }
   .modal .modal-dialog .modal-content .modal-footer {
     padding: 15px 31px; }
 
@@ -22504,3 +22504,71 @@ div.tagsinput {
   height: 200px; }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+
+@charset "gb2312";
+.info-nr {position:fixed;
+    top:170px;
+    right:30px;
+    z-index:900;
+    tap-highlight-color: rgba(0, 0, 0, 0);
+}     
+#toMenu{display:block;
+    width:45px!important;
+    height:45px!important;
+    border-radius:45px;
+    position: absolute;
+    bottom:0;
+    right:0;
+    z-index:9999;
+    color:#fff;
+    background:url(../img/navimg/png2.png) 50% 50% #3498fe;
+    background-repeat: no-repeat;
+    background-size:auto 62%;
+    box-shadow:0 0 0 3px #3498fe, 0 2px 5px 0 #3498fe;
+}
+.info-nr-phone{height:45px;width:45px;}
+#info-nr-phone{position:relative;}
+.info-nr-phone>div {
+    width:40px;
+    height:40px;
+    border-radius:40px;
+    box-shadow:0 0 0 3px #FFFFFF, 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    position:absolute;
+    bottom:2px;
+    right:2px;
+    z-index:900;
+    -moz-transition: transform 200ms;
+    -webkit-transition: -webkit-transform 200ms;
+    -ms-transition: transform 200ms;
+}
+.info-nr-phone>.to_01 {-webkit-transform: translate(-14px, -120px) rotate(720deg); 
+                           -moz-transform: translate(-14px, -120px) rotate(720deg);
+                            -ms-transform: translate(-14px, -120px) rotate(720deg); 
+                             -o-transform: translate(-14px, -120px) rotate(720deg);
+                                transform: translate(-14px, -65px) rotate(720deg);
+                            background:url(../img/navimg/55.png) 50% 50% no-repeat #fff;
+                                background-size:auto 66%;}
+.info-nr-phone>.to_02 {-webkit-transform: translate(-78px, -108px) rotate(720deg); 
+                           -moz-transform: translate(-78px, -108px) rotate(720deg);
+                        -ms-transform: translate(-78px, -108px) rotate(720deg); 
+                             -o-transform: translate(-78px, -108px) rotate(720deg); 
+                                transform: translate(-71px, -31px) rotate(720deg);
+                                background:url(../img/navimg/4.png) 50% 50% no-repeat #fff;
+                                background-size:auto 70%;}
+.info-nr-phone>.to_03 {-webkit-transform: translate(-85px, -80px) rotate(720deg); 
+                           -moz-transform: translate(-85px, -80px) rotate(720deg);
+                            -ms-transform: translate(-85px, -80px) rotate(720deg); 
+                             -o-transform: translate(-85px, -80px) rotate(720deg);
+                                 transform: translate(-67px, 28px) rotate(720deg);
+                                background:url(../img/navimg/3.png) 50% 50% no-repeat #fff;
+                                background-size:auto 60%;
+                        }
+.info-nr-phone> .to_04{-webkit-transform: translate(-79px, -36px) rotate(720deg);
+                           -moz-transform: translate(-79px, -36px) rotate(720deg);
+                            -ms-transform: translate(-79px, -36px) rotate(720deg);
+                             -o-transform: translate(-79px, -36px) rotate(720deg); 
+                                transform: translate(-15px, 62px) rotate(720deg);
+                                background:url(../img/navimg/2.png) 50% 50% no-repeat #fff;
+                                background-size:auto 60%;
+                        } 

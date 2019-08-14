@@ -1,0 +1,265 @@
+
+<div class="col-12 ">
+  <div  >
+    <div >
+      <!--      <h4 class="card-title">鏌ヨ</h4>-->
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">服务器</label>
+            <div class="col-sm-9">
+              <select class="form-control" id="newItem_ServerSelectSect">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">位号组</label>
+            <div class="col-sm-6">
+              <select class="form-control" id="newItem_DeviceSelectSect">
+              </select>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <!-- 
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">位号名</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" placeholder="位号名过滤"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">位号描述</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control"  placeholder="位号描述过滤"/>
+            </div>
+            <div class="col-sm-2">
+              <button type="button" class="btn btn-success">应用过滤</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       -->
+    </div>
+  </div>
+</div>
+
+<!-- partial -->
+<div class="col-12 "  style="padding: .75rem;padding-buttom:0.25rem;margin-buttom:0.25rem;">
+  <div class="card">
+    <div class="card-body" style="padding: .75rem;padding-buttom:0.25rem;margin-buttom:0.25rem;">
+      <!--                  <h4 class="card-title">Simple Dragula</h4>-->
+      <!--                  <p class="card-description">Drag and drop between Team A and Team B</p>-->
+      <div class="row">
+        <div class="col-md-6 h-100">
+          <div class="bg-secondary p-4">
+
+
+            <div class="form-inline repeater">
+              <div data-repeater-list="group-a">
+                <div data-repeater-item class="d-flex mb-2">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">待选择的位号</span>
+                    </div>
+                    <input type="text" class="form-control form-control-sm" id="newItem_pointfilterpointname" placeholder="位号名">
+                    <input type="text" class="form-control form-control-sm" id="newItem_pointfilterpointdesc" placeholder="位号描述">
+                  </div>
+                  <button class="btn btn-success btn-sm" onclick="filterNewItem_pointlistleft();">过滤</button>
+                  <button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2">
+                    >>>
+                  </button>
+                  <!--
+                  <button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" >
+                    <i class="mdi mdi-delete"></i>
+                  </button>
+                   -->
+                </div>
+              </div>
+            </div>
+            <div id="newItem_pointlistleft" class="py-2" style="border:solid;height:300px;overflow: auto;">
+              <div class="card rounded mb-2">
+                <div>
+                  <div class="media icheck-line">
+                    <input type="checkbox" id="line-radio-disabled-checked" checked >
+                    <label for="line-radio-disabled-checked">Disabled &amp; checked</label>
+                  </div>
+                </div>
+              </div>
+              <div class="card rounded mb-2">
+                <div>
+                  <div class="media icheck-line">
+                    <input type="checkbox" id="line-radio-disabled-checked" checked >
+                    <label for="line-radio-disabled-checked">Disabled &amp; checked</label>
+                  </div>
+                </div>
+              </div>
+              <div class="card rounded mb-2">
+                <div>
+                  <div class="media icheck-line">
+                    <input type="checkbox" id="line-radio-disabled-checked" checked >
+                    <label for="line-radio-disabled-checked">Disabled &amp; checked</label>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 h-100">
+          <div class="bg-secondary p-4">
+            <form class="form-inline repeater">
+              <div data-repeater-list="group-a">
+                <div data-repeater-item class="d-flex mb-2">
+                  <label class="sr-only" for="inlineFormInputGroup1">Users</label>
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">被选中的位号</span>
+                    </div>
+                    <!-- 
+                    <input type="text" class="form-control form-control-sm" id="inlineFormInputGroup1" placeholder="Add user">
+                     -->
+                  </div>
+                  <!-- 
+                  <button type="submit" class="btn btn-success btn-sm">Sit</button>
+                  <button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" >
+                    <i class="mdi mdi-delete"></i>
+                  </button>
+                  <button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2">
+                    <i class="mdi mdi-plus"></i>
+                  </button>
+ 					-->
+                </div>
+              </div>
+            </form>
+            <div id="newItem_pointlistright" class="py-2" style="border:solid;height:300px;overflow: auto;">
+
+              <div class="card rounded mb-2">
+                <div>
+                  <div class="media icheck-line">
+                    <input type="checkbox" id="line-radio-disabled-checked" checked >
+                    <label for="line-radio-disabled-checked">Disabled &amp; checked</label>
+                  </div>
+                </div>
+              </div>
+              <div class="card rounded mb-2">
+                <div>
+                  <div class="media icheck-line">
+                    <input type="checkbox" id="line-radio-disabled-checked" checked >
+                    <label for="line-radio-disabled-checked">Disabled &amp; checked</label>
+                  </div>
+                </div>
+              </div>
+              <div class="card rounded mb-2">
+                <div>
+                  <div class="media icheck-line">
+                    <input type="checkbox" id="line-radio-disabled-checked" checked >
+                    <label for="line-radio-disabled-checked">Disabled &amp; checked</label>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="card rounded mb-2">
+                <div class="card-body p-3">
+                  <div class="media">
+                    <img src="images/faces/face4.jpg" alt="image" class="img-sm mr-3 rounded-circle">
+                    <div class="media-body">
+                      <h6 class="mb-1">Thomas Cook</h6>
+                      <p class="mb-0 text-muted">
+                        Developer
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+<!--            <div id="profile-list-right" class="py-2">-->
+<!--              <div class="card rounded mb-2">-->
+<!--                <div class="card-body p-3">-->
+<!--                  <div class="media">-->
+<!--                    <div class="media-body">-->
+<!--                      jkfdjklsjklafs-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="card rounded mb-2">-->
+<!--                <div class="card-body p-3">-->
+<!--                  <div class="media">-->
+<!--                    <img src="images/faces/face6.jpg" alt="image" class="img-sm mr-3 rounded-circle">-->
+<!--                    <div class="media-body">-->
+<!--                      <h6 class="mb-1">Jacob Stephen</h6>-->
+<!--                      <p class="mb-0 text-muted">-->
+<!--                        Tester-->
+<!--                      </p>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="card rounded mb-2">-->
+<!--                <div class="card-body p-3">-->
+<!--                  <div class="media">-->
+<!--                    <img src="images/faces/face7.jpg" alt="image" class="img-sm mr-3 rounded-circle">-->
+<!--                    <div class="media-body">-->
+<!--                      <h6 class="mb-1">March Creg</h6>-->
+<!--                      <p class="mb-0 text-muted">-->
+<!--                        Developer-->
+<!--                      </p>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="card rounded mb-2">-->
+<!--                <div class="card-body p-3">-->
+<!--                  <div class="media">-->
+<!--                    <img src="images/faces/face8.jpg" alt="image" class="img-sm mr-3 rounded-circle">-->
+<!--                    <div class="media-body">-->
+<!--                      <h6 class="mb-1">Peter Beckham</h6>-->
+<!--                      <p class="mb-0 text-muted">-->
+<!--                        Designer-->
+<!--                      </p>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+    
+      <button type="button" class="btn btn-success">下一步</button>
+      <button type="button" class="btn btn-light">取消</button>
+    </div>
+
+
+
+  </div>
+
+</div>
+
+<!-- content-wrapper ends -->
+
+<!-- Custom js for this page-->
+<script src="js/newDataItem.js"></script>
+<script type="text/javascript">
+//alert("newDataItem");
+
+
+</script>
+<script src="js/dragula.js"></script>
+<!-- End custom js for this page-->
+
+
+<!-- container-scroller -->
+

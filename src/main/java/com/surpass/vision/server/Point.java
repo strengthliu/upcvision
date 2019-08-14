@@ -1,8 +1,9 @@
 package com.surpass.vision.server;
 
+import java.io.Serializable;
 import java.util.Hashtable;
 
-public class Point {
+public class Point implements Serializable {
 	Long id;
 	String tagName;
 	String desc;
@@ -11,6 +12,24 @@ public class Point {
 	
 	public Long getId() {
 		return id;
+	}
+	public String getDesc() {
+		return desc;
+	}
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+	public long getTagType() {
+		return tagType;
+	}
+	public void setTagType(long tagType) {
+		this.tagType = tagType;
+	}
+	public Hashtable<String, Float> getValues() {
+		return values;
+	}
+	public void setValues(Hashtable<String, Float> values) {
+		this.values = values;
 	}
 	public void setId(Long id) {
 		this.id = id;

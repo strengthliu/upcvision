@@ -1,10 +1,11 @@
 package com.surpass.vision.server;
 
 
+import java.io.Serializable;
 import java.util.Hashtable;
 
 
-public class Device {
+public class Device implements Serializable {
 	String deviceNote;
 	public String getDeviceNote() {
 		return deviceNote;
@@ -17,6 +18,12 @@ public class Device {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public Hashtable<String, Point> getPoints() {
+		return points;
+	}
+	public void setPoints(Hashtable<String, Point> points) {
+		this.points = points;
 	}
 	public String getDeviceName() {
 		return deviceName;

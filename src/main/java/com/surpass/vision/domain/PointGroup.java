@@ -32,6 +32,14 @@ import com.surpass.vision.server.Point;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PointGroup extends PointGroupData implements Serializable{
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
 	private static final long serialVersionUID = -4373082997833397493L;
 	User createrUser; // 创建者
 	Integer id;
@@ -46,6 +54,7 @@ public class PointGroup extends PointGroupData implements Serializable{
 
 	String type;
 
+	String img = "/images/samples/300x300/1.jpg";
 	public User getCreaterUser() {
 		return createrUser;
 	}

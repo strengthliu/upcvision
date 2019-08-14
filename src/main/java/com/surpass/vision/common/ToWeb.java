@@ -1,10 +1,12 @@
 package com.surpass.vision.common;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
 import com.surpass.vision.appCfg.Config;
 import com.surpass.vision.domain.UserSpace;
+import com.surpass.vision.server.Server;
 
 /**
  * 
@@ -112,6 +114,12 @@ public class ToWeb {
 	public void setData(String key, UserSpace value) {
 		HashMap<String, Object> hm = new HashMap<String, Object>();
 		hm.put(key, value);
+		this.setData(hm);
+	}
+
+	public void setData(String key, Hashtable<String, Server> data2) {
+		HashMap<String, Object> hm = new HashMap<String, Object>();
+		hm.put(key, data2);
 		this.setData(hm);
 	}
 }

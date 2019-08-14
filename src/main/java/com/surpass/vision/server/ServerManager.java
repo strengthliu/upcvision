@@ -4,6 +4,7 @@ import java.nio.charset.Charset;
 import java.util.Hashtable;
 import java.util.List;
 
+import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Reference;
 import org.springframework.stereotype.Component;
@@ -17,7 +18,11 @@ import com.surpass.vision.tools.EncodingTools;
 @Component
 public class ServerManager {
 
-	Hashtable<String,Server> servers;
+	static Hashtable<String,Server> servers = new Hashtable<String,Server>();
+
+	public static Hashtable<String, Server> getServers() {
+		return servers;
+	}
 
 	//@Value("${gc.library}")
 	private String gcLibrary = "geC.dll";
@@ -153,13 +158,20 @@ public class ServerManager {
 						//
 						String tagName = gec.DBECGetTagName(serverName,pointId);
 //						gec.DBECGetDeviceNote(lpszServerName, lpszDeviceName, nDeviceID, nBufLen)
-//						String desc = gec.DBECGetTagStringField(serverName, deviceName, pointId, lpszFieldName)
+						String desc = "";
+						try {
+							desc = gec.DBECGetTagStringField(serverName, deviceName, pointId, "");
+						}catch(Exception e) {
+							// e.printStackTrace();
+						}
+						if(StringUtil.isBlank(desc)) desc = "未知描述";
 						tagName = tagName.trim();
 						//二次
 						point.setDeviceName(deviceName);
 						point.setId(pointId);
 						point.setServerName(serverName);
 						point.setTagName(tagName);
+						point.setDesc(desc);
 						// System.out.println(serverName+" - "+deviceName+" - "+deviceNote+" - "+tagName+" - "+pointId+" - "+point.id);
 						// 
 						device.addPoint(point);

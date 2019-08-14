@@ -1,5 +1,5 @@
 var userSpace = null;
-
+var serverList = null;
 
 var stompClient = null;
 //var _realtimeDataDetailKey = null;
@@ -109,10 +109,11 @@ function loginByUserPassWord(uname, pwd) {
 				userSpace = data.data.userSpace;
 				user = userSpace.user;
 				token = userSpace.token;
-				console.log("登录成功，token="+token);
+				//console.log("登录成功，token="+token);
 				//alert("登录成功能 ，用户名为： "+JSON.stringify(user)+" token="+token);
 				window.userSpace = userSpace;
 				localStorage.user = JSON.stringify(user);
+				//console.log("登录成功，user="+JSON.stringify(user));
 				localStorage.token = token;
 			} else {
 				alert("登录失败 ： "+data.msg);
@@ -157,7 +158,7 @@ function getUserSpace(uid,token,sucessFucn) {
       },
       // 成功返回之后调用的函数
       success:function(data){
-    	//  console.log(JSON.stringify(data));
+    	 //console.log(JSON.stringify(data));
     	  if(data.status != GlobalConsts.ResultCode_SUCCESS) { // 不成功
     		  alert(data.msg);
     		  window.location.href="login.html";
@@ -165,7 +166,7 @@ function getUserSpace(uid,token,sucessFucn) {
     	  }
       	//alert(" getUserSpace : "+JSON.stringify(data));
       	if(userSpace == null || userSpace == "undefined") {
-      		console.log("getUserSpace -> set userSpace.");
+      		//console.log("getUserSpace -> set userSpace.");
       		userSpace = data.data.userSpace;
       		// alert(JSON.stringify(userSpace));
       		//return userSpace;
