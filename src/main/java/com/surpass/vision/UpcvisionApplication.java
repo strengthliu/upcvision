@@ -35,7 +35,7 @@ public class UpcvisionApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UpcvisionApplication.class, args);
-		System.out.println("测试语句");
+		//测试
 	}
 //    @Override  
 //    public void customize(ConfigurableEmbeddedServletContainer container) {
