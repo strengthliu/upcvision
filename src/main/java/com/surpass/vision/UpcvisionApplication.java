@@ -29,7 +29,6 @@ import org.springframework.context.annotation.ImportResource;
 		"com.surpass.vision.alertData",
 		"com.surpass.vision.domain",
 		"com.surpass.vision.exception"})  
-
 @MapperScan(basePackages={"com.surpass.vision.mapper"})
 @SpringBootApplication
 public class UpcvisionApplication {
