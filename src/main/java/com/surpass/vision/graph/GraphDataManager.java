@@ -120,7 +120,7 @@ public class GraphDataManager {
 			ret.setCreater(creater);
 
 			// ------------------ 设置拥有者 -------------------
-			ret.setId(pgd.getId());
+			ret.setId(Double.valueOf(pgd.getId()));
 			String ownerId = pgd.getOwner();
 			User owner = userManager.getUserByID(ownerId);
 			if (owner == null)

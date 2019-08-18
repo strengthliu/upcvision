@@ -3,13 +3,14 @@
  */
 //alert("newDataItem");
 var selectedPoints = new Set();
+var targetName = "";
 
 
 if(serverList == null || serverList=="undefined"){
 	//alert("newDataItem1");
 
 	// 去取服务器数据
-console.log("进入");
+//console.log("进入");
 	var data={'uid':uid,'token':token};
 		$.ajax({
 			// 提交数据的类型 POST GET
@@ -30,6 +31,7 @@ console.log("进入");
 				if (data.status == GlobalConsts.ResultCode_SUCCESS) {
 					//console.log("server info : "+JSON.stringify(data.data.data));
 					serverList = data.data.data;
+					console.log(JSON.stringify(serverList));
 					buildNewItemUI(serverList);
 				} else {
 					alert("失败 ： "+data.msg);
@@ -57,7 +59,7 @@ console.log("进入");
 			}
 		});
 } else {
-	alert("newDataItem2");
+	//alert("newDataItem2");
 	buildNewItemUI(serverList);
 }
 
@@ -82,7 +84,7 @@ function buildNewItemUI(serverInfos) {
 	// 添加默认左侧点位选择列表
 	var defaultDevice = serverInfos[$("#newItem_ServerSelectSect").val()].devices[$("#newItem_DeviceSelectSect").val()-1];
 	var defaultPoints = defaultDevice.points;
-	console.log(JSON.stringify(defaultDevice));
+	//console.log(JSON.stringify(defaultDevice));
 	var pointLeftBox = document.getElementById("newItem_pointlistleft");
 	pointLeftBox.innerHTML="";
 	var pointLeftBoxInnerHtml = "";
@@ -159,11 +161,11 @@ function filterNewItem_pointlistleft(){
 		var filterPointsInd = 0;
 		Object.keys(_Points).forEach(function(keyPoint){
 			var _point = _Points[keyPoint];
-			console.log(" check point : "+JSON.stringify(_point));
+			// console.log(" check point : "+JSON.stringify(_point));
 			var _tagName = _point.tagName.toLowerCase();
 			var _desc = _point.desc.toLowerCase();
 			if((filterTagName!="" && _tagName.search(filterTagName) != -1) || (filterTagDesc!="" && _desc.search(filterTagDesc) != -1)) {
-				console.log("tagName="+_tagName +"  =? "+filterTagName+" = "+ _tagName.search(filterTagName));
+				// console.log("tagName="+_tagName +"  =? "+filterTagName+" = "+ _tagName.search(filterTagName));
 				filterPoints[filterPointsInd]=_point;
 				filterPointsInd ++;
 			}
@@ -173,7 +175,7 @@ function filterNewItem_pointlistleft(){
 		pointLeftBox.innerHTML="";
 		var pointLeftBoxInnerHtml = "";
 
-		console.log(JSON.stringify(filterPoints));
+		// console.log(JSON.stringify(filterPoints));
 		for(var keyPoint in filterPoints){
 			var pointLeftBoxInnerHtmlItem = '<div class="card rounded mb-2" id="div'+filterPoints[keyPoint].tagName+'">'+
 			'<div><div class="media icheck-line"><input type="checkbox" id="check'+
@@ -226,5 +228,87 @@ function newDataItem_leftboxitemcheck(elemId) {
 	}
 }
 
+function submitNewDataItem(selectedPoints,targetName,targetDesc){
+	if(serverList == null || serverList=="undefined"){
+		
+	}
+	console.log("2: "+JSON.stringify(selectedPoints));
+	// console.log(JSON.stringify(userSpace));
+	var selectPointArray = new Array();
+	var i__ = 0;
+	for (let e of selectedPoints) {
+		selectPointArray[i__] = e;
+		i__++;
+		}
 
+	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc.value};
+	$.ajax({
+		// 提交数据的类型 POST GET
+		type : "POST",
+		// 提交的网址
+		url : "newRealTimeDataGroup",
+		// 提交的数据
+		data : JSON.stringify(data),
+		contentType : "application/json",
+		// 返回数据的格式
+		datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
+		// 在请求之前调用的函数
+		beforeSend : function() {
+			showLoading();
+		},
+		// 成功返回之后调用的函数
+		success : function(data) {
+			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+				//console.log("server info : "+JSON.stringify(data.data.data));
+				var realTimeData = data.data.data;
+				$('#newItemAction_mid').modal('hide');
+				fixLocalRealTimeDataList(realTimeData);
+				// 
+			} else {
+				alert("失败 ： "+data.msg);
+			}
+			hideLoading();
+			//alert("本地存储："+localStorage.user);
+			//window.location.href = "index.html";
+		},
+		// 调用执行后调用的函数
+		complete : function(XMLHttpRequest, textStatus) {
+			//alert(XMLHttpRequest.responseText);
+			//alert(textStatus);
+			hideLoading();
+		
+		},
+		// 调用出错执行的函数
+		error : function(jqXHR, textStatus, errorThrown) {
+			/* 弹出jqXHR对象的信息 */
+			// alert(jqXHR.responseText);
+			// alert(jqXHR.status);
+			// alert(jqXHR.readyState);
+			// alert(jqXHR.statusText);
+			/* 弹出其他两个参数的信息 */
+			// alert(textStatus);
+			// alert(errorThrown);
+			hideLoading();
+		}
+	});
 
+}
+
+function fixLocalRealTimeDataList(realTimeData){
+	//$('#newItemAction_mid').modal('hide');
+	cancel();
+	
+	if(userSpace==null || userSpace=="undefined"){
+		getUserSpace(user.id,token,fixLocalRealTimeDataList);
+		return;
+	}
+	if(realTimeData.owner !=null && realTimeData.owner !="undefined"){
+		userSpace.realTimeData[realTimeData.id]=realTimeData;
+		//realTimeDataList = realTimeDataList.realTimeData;
+		
+		updateRealTimeData();
+		return;
+	}
+	//userSpace.realTimeData = realTimeDataList;
+	//updateRealTimeData();
+}

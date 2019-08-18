@@ -28,6 +28,7 @@ public class GlobalConsts {
     public final static String ResultCode_AuthericationError = "006"; // token错
     
 //    public final static String ResultMessage
+    
     /**
      * Redis中Key的定义
      */
@@ -75,6 +76,10 @@ public class GlobalConsts {
 	 */
 	public static final String Operation_createOrUpdateRealTimeData = "Operation_createOrUpdateRealTimeData";
 	public static final String Operation_getRealTimeDataList = "Operation_getRealTimeDataList";
+	
+	
+	public static final String KeyAggrandizement = "KeyAggrandizement"; // 增加
+	public static final String KeyDecrement = "KeyDecrement"; // 减少
 
 
 

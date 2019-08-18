@@ -20,7 +20,7 @@ public interface UserSpaceService {
 	 */
 	void updateRealTimeDataList(RealTimeData rtd);
 
-	UserSpaceData getUserSpaceById(Integer userID);
+	UserSpaceData getUserSpaceById(Long userID);
 
 
 

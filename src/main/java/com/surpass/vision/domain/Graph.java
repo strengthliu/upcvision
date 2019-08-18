@@ -36,7 +36,7 @@ public class Graph implements Serializable {
 	int changed;
 	Hashtable<String,Graph> children;
 	User creater; // 创建者
-	Integer id;
+	Double id;
 	boolean isFile;
 	boolean isSVG;
 	String fileName;
@@ -98,7 +98,7 @@ public class Graph implements Serializable {
 		return creater;
 	}
 
-	public Integer getId() {
+	public Double getId() {
 		return id;
 	}
 
@@ -158,7 +158,7 @@ public class Graph implements Serializable {
 	public void setFile(boolean isFile) {
 		this.isFile = isFile;
 	}
-	public void setId(Integer id) {
+	public void setId(Double id) {
 		this.id = id;
 	}
 

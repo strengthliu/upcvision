@@ -4,8 +4,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.jsoup.helper.StringUtil;
 import org.slf4j.Logger;
@@ -22,7 +24,10 @@ import com.surpass.vision.domain.AlertData;
 import com.surpass.vision.domain.Graph;
 import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.domain.LineAlertData;
+import com.surpass.vision.domain.PointGroup;
+import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.RealTimeData;
+import com.surpass.vision.domain.User;
 import com.surpass.vision.domain.UserInfo;
 import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
@@ -34,6 +39,7 @@ import com.surpass.vision.historyData.HistoryDataManager;
 import com.surpass.vision.lineAlertData.LineAlertDataManager;
 import com.surpass.vision.mapper.PointGroupDataMapper;
 import com.surpass.vision.mapper.UserSpaceDataMapper;
+import com.surpass.vision.pointGroup.PointGroupDataManager;
 import com.surpass.vision.realTimeData.RealTimeDataManager;
 import com.surpass.vision.schedule.UpdateGraphDirctory;
 import com.surpass.vision.server.ServerManager;
@@ -41,6 +47,7 @@ import com.surpass.vision.service.PointGroupService;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.service.UserService;
 import com.surpass.vision.service.UserSpaceService;
+import com.surpass.vision.tools.IDTools;
 import com.surpass.vision.tools.TokenTools;
 import com.surpass.vision.user.UserManager;
 
@@ -100,7 +107,7 @@ public class UserSpaceManager {
 
 	}
 
-	public UserSpace getUserSpace(Integer uid) {
+	public UserSpace getUserSpace(Long uid) {
 		LOGGER.info("userKey: " + GlobalConsts.Key_UserSpace_pre_ + uid.toString());
 		Object obj = redisService.get(GlobalConsts.Key_UserSpace_pre_ + uid.toString());
 		if (obj == null)
@@ -123,7 +130,7 @@ public class UserSpaceManager {
 
 	}
 
-	public void setUserSpace(Integer uid, UserSpace us) {
+	public void setUserSpace(Long uid, UserSpace us) {
 		redisService.set(GlobalConsts.Key_UserSpace_pre_ + uid.toString(), us);
 		try {
 		UserSpace t = (UserSpace)redisService.get(GlobalConsts.Key_UserSpace_pre_ + uid.toString());
@@ -148,7 +155,7 @@ public class UserSpaceManager {
 		redisService.set(GlobalConsts.Key_RealTimeData_pre_ + uid.toString(), rtdl);
 	}
 
-	public UserSpace buildUserSpace(Integer userID, String... token) {
+	public UserSpace buildUserSpace(Long userID, String... token) {
 //		// TODO Auto-generated method stub
 //		UserSpace us = new UserSpace();
 //		// 如果是管理员，就建管理员空间。
@@ -159,7 +166,7 @@ public class UserSpaceManager {
 			return buildAdminUserSpace(user);
 		LOGGER.info(new Date().toGMTString() + " 开始为用户初始化用户空间..");
 		UserSpaceData usd = userSpaceService.getUserSpaceById(userID);
-		Integer uid = null;
+		Long uid = null;
 		if (usd == null) {
 			usd = new UserSpaceData();
 			uid = userID;
@@ -245,6 +252,7 @@ public class UserSpaceManager {
 		// 整理成单路径+文件的方式
 		Hashtable<String, ArrayList<Graph>> graphList = graphDataManager.rebuildGraph(graph);
 		us.setGraphs(graphList);
+		
 		Hashtable<String, XYGraph> xyGraph = xYGraphManager.getAdminXYGraphHashtabel();
 		us.setXyGraph(xyGraph);
 		Hashtable<String, RealTimeData> realTimeData = realTimeDataManager.getAdminRealTimeDataHashtable();
@@ -268,7 +276,7 @@ public class UserSpaceManager {
 		return us;
 	}
 
-	public UserSpace getUserSpaceRigidly(Integer uid) {
+	public UserSpace getUserSpaceRigidly(Long uid) {
 		UserSpace ret = this.getUserSpace(uid);
 		if (ret == null) {
 			ret = this.buildUserSpace(uid);
@@ -278,10 +286,38 @@ public class UserSpaceManager {
 		return ret;
 	}
 
-	public boolean tokenVerification(Integer uid, String token) {
+	public boolean tokenVerification(Long uid, String token) {
 		System.out.println(token + " == " + this.getUserSpace(uid).getToken());
 		return TokenTools.verificationToken(token, uid.toString())
 				&& token.contentEquals(getUserSpaceRigidly(uid).getToken());
 	}
+
+	public void updateRealTimeData( RealTimeData rtd,Long oldRtdId) {
+		if(rtd == null) return;
+		RealTimeData oldRtd = null;
+		if(oldRtdId == null || oldRtdId==0)
+			oldRtd = new RealTimeData();
+		else 
+			oldRtd = realTimeDataManager.getRealTimeDataByKeys(oldRtdId);
+		updateRealTimeData(rtd,oldRtd);
+	}
+	
+	public void updateRealTimeData( RealTimeData rtd,RealTimeData oldRtd) {
+		// 跟这个RealTimeData对比用户，取出差别
+		// 
+		Set<String> rightChangesaggrandizement = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyAggrandizement);
+		Set<String> rightChangesdecreament = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyAggrandizement);
+		// 根据 这些用户,取的他们UserSpace，更新他们的realTimeData字段，再写回缓存。
+		Iterator it = rightChangesaggrandizement.iterator();
+		while (it.hasNext()) {
+			String uids = (String)it.next();
+			// 从缓存中取出RealTimeData
+			UserSpace us = getUserSpaceRigidly(Long.valueOf(uids));
+			Hashtable<String,RealTimeData> hrtd = us.getRealTimeData();
+			hrtd.put(rtd.getId().toString(), rtd);
+			this.setUserSpace(Long.valueOf(uids), us);
+		}
+	}
+
 
 }

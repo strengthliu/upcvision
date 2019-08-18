@@ -9,7 +9,7 @@ public interface UserSpaceDataMapper {
 
     int insertSelective(UserSpaceData record);
 
-    UserSpaceData selectByPrimaryKey(Integer uid);
+    UserSpaceData selectByPrimaryKey(Long uid);
 
     int updateByPrimaryKeySelective(UserSpaceData record);
 

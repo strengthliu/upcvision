@@ -43,12 +43,19 @@
 			 enableUpdateByExample="false" enableDeleteByExample="false"
 			 enableSelectByExample="false" selectByExampleQueryId="false">
 	  </table>
- -->
+
 	  <table schema="t_userSpace" tableName="t_userSpace"
 			 domainObjectName="UserSpaceData" enableCountByExample="false"
 			 enableUpdateByExample="false" enableDeleteByExample="false"
 			 enableSelectByExample="false" selectByExampleQueryId="false">
 	  </table>
-
+ -->
+ 
+ 	  <table schema="t_pointGroup" tableName="t_pointGroup"
+			 domainObjectName="PointGroupData" enableCountByExample="false"
+			 enableUpdateByExample="false" enableDeleteByExample="false"
+			 enableSelectByExample="false" selectByExampleQueryId="false">
+	  </table>
+ 
   </context>
 </generatorConfiguration>

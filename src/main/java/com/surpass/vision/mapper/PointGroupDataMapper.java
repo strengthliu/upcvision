@@ -7,20 +7,24 @@ import org.apache.ibatis.annotations.Select;
 
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.PointGroupData;
-import com.surpass.vision.domain.UserInfo;
 
 public interface PointGroupDataMapper {
-    int deleteByPrimaryKey(Integer id);
-
     int insert(PointGroupData record);
 
     int insertSelective(PointGroupData record);
+    
+    int deleteByPrimaryKey(Double id);
 
-    PointGroupData selectByPrimaryKey(Integer id);
+
+
+
+
+    PointGroupData selectByPrimaryKey(Double id);
 
     int updateByPrimaryKeySelective(PointGroupData record);
 
     int updateByPrimaryKey(PointGroupData record);
+
 
     @Select("select distinct * from t_pointGroup where type='"+GlobalConsts.Type_xygraph_+"'")
     @ResultMap("BaseResultMap")
@@ -46,4 +50,5 @@ public interface PointGroupDataMapper {
     @ResultMap("BaseResultMap")
 	List<PointGroupData> getAdminGraphData();
 
+    
 }

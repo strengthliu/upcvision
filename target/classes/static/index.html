@@ -35,24 +35,24 @@
 <script src="js/router.js"></script>
 <script src="js/navagator.js"></script>
 <script type="text/javascript">
+	/* 用户登录验证 */
+	if (localStorage.user != null && localStorage.user != 'undefined') {
 
-/* 用户登录验证 */
-if (localStorage.user != null && localStorage.user != 'undefined') {
-
-	user = JSON.parse(localStorage.user);
-	token = localStorage.token;
-	//alert("token="+token+"  uid="+user.id);
-	uname = user.name;
-	uid = user.id;
-	checkRight(uid, token);
-	getUserSpace(uid,token,function(){});
-	//if(userSpace == null || userSpace == "undefined"){
-	//	userSpace = getUserSpace(uid,token);
-	//}
-	// alert("user: "+JSON.stringify(userSpace));
-} else {
-	location.href = "login.html";
-}
+		user = JSON.parse(localStorage.user);
+		token = localStorage.token;
+		//alert("token="+token+"  uid="+user.id);
+		uname = user.name;
+		uid = user.id;
+		checkRight(uid, token);
+		getUserSpace(uid, token, function() {
+		});
+		//if(userSpace == null || userSpace == "undefined"){
+		//	userSpace = getUserSpace(uid,token);
+		//}
+		// alert("user: "+JSON.stringify(userSpace));
+	} else {
+		location.href = "login.html";
+	}
 
 	function addLoadEvent(func) {
 		//把现有的 window.onload 事件处理函数的值存入变量
@@ -68,11 +68,9 @@ if (localStorage.user != null && localStorage.user != 'undefined') {
 			}
 		}
 	}
-
-
 </script>
-	
-	
+
+
 </head>
 <body>
 	<div class="container-scroller">
@@ -328,7 +326,7 @@ if (localStorage.user != null && localStorage.user != 'undefined') {
 											.getElementById("userDescUI");
 									udd.innerHTML = user.desc;
 									var unrd = document
-									.getElementById("userNameUIRight");
+											.getElementById("userNameUIRight");
 									unrd.innerHTML = user.name;
 								}
 							</script>
@@ -349,7 +347,8 @@ if (localStorage.user != null && localStorage.user != 'undefined') {
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-diagram" aria-expanded="false"
 						aria-controls="ui-diagram"> <i class="icon-layers menu-icon"></i>
-							<span class="menu-title" onclick="routeTo('diagramList','')">流程图</span> <i class="menu-arrow"></i>
+							<span class="menu-title" onclick="routeTo('diagramList','')">流程图</span>
+							<i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-diagram">
 							<ul class="nav flex-column sub-menu">
@@ -363,7 +362,8 @@ if (localStorage.user != null && localStorage.user != 'undefined') {
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-xydiagram" aria-expanded="false"
 						aria-controls="ui-xydiagram"> <i class="icon-server menu-icon"></i>
-							<span class="menu-title" onclick="routeTo('xydiagramList','')">XY图</span> <i class="menu-arrow"></i>
+							<span class="menu-title" onclick="routeTo('xydiagramList','')">XY图</span>
+							<i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-xydiagram">
 							<ul class="nav flex-column sub-menu">
@@ -375,9 +375,11 @@ if (localStorage.user != null && localStorage.user != 'undefined') {
 
 					<!-- *******************************  实时数据 ******************************* -->
 					<li class="nav-item"><a class="nav-link"
-						data-toggle="collapse" href="#ui-realtimedata" aria-expanded="false"
-						aria-controls="ui-realtimedata"> <i class="icon-server menu-icon"></i>
-							<span class="menu-title" onclick="routeTo('realtimedataList','')">实时数据查询</span> <i class="menu-arrow"></i>
+						data-toggle="collapse" href="#ui-realtimedata"
+						aria-expanded="false" aria-controls="ui-realtimedata"> <i
+							class="icon-server menu-icon"></i> <span class="menu-title"
+							onclick="routeTo('realtimedataList','')">实时数据查询</span> <i
+							class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-realtimedata">
 							<ul class="nav flex-column sub-menu">
@@ -389,8 +391,9 @@ if (localStorage.user != null && localStorage.user != 'undefined') {
 					<!-- *******************************  报警查询 ******************************* -->
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-alertdata" aria-expanded="false"
-						aria-controls="ui-alertdata"> <i class="icon-bell menu-icon"></i> <span
-							class="menu-title" onclick="routeTo('alertdataList','')">报警查询</span> <i class="menu-arrow"></i>
+						aria-controls="ui-alertdata"> <i class="icon-bell menu-icon"></i>
+							<span class="menu-title" onclick="routeTo('alertdataList','')">报警查询</span>
+							<i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-alertdata">
 							<ul class="nav flex-column sub-menu">
@@ -403,8 +406,9 @@ if (localStorage.user != null && localStorage.user != 'undefined') {
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-datahistory"
 						aria-expanded="false" aria-controls="ui-datahistory"> <i
-							class="icon-layers menu-icon"></i> <span class="menu-title" onclick="routeTo('historydataList','')">历史数据</span>
-							<i class="menu-arrow"></i>
+							class="icon-layers menu-icon"></i> <span class="menu-title"
+							onclick="routeTo('historydataList','')">历史数据</span> <i
+							class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-datahistory">
 							<ul class="nav flex-column sub-menu">
@@ -420,8 +424,9 @@ if (localStorage.user != null && localStorage.user != 'undefined') {
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-directreporting"
 						aria-expanded="false" aria-controls="ui-directreporting"> <i
-							class="icon-layers menu-icon"></i> <span class="menu-title" onclick="routeTo('directreportingdataList','')">直线警报</span>
-							<i class="menu-arrow"></i>
+							class="icon-layers menu-icon"></i> <span class="menu-title"
+							onclick="routeTo('directreportingdataList','')">直线警报</span> <i
+							class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-directreporting">
 							<ul class="nav flex-column sub-menu">
@@ -460,7 +465,51 @@ if (localStorage.user != null && localStorage.user != 'undefined') {
 
 			<!--  ************************************ 主窗口  ends ************************************  -->
 		</div>
+		<div class="row" id="loading">
+			<div class="col-md-12 col-sm-6 grid-margin stretch-card">
+				<div class="loader-demo-box">
+					<div class="square-box-loader">
+						<div class="square-box-loader-container">
+							<div class="square-box-loader-corner-top"></div>
+							<div class="square-box-loader-corner-bottom"></div>
+						</div>
+						<div class="square-box-loader-square"></div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<script>
+			$("#loading").hide();
+			var loadStartTime;
+			function showLoading() {
+				loadStartTime = Date.now();
+				setTimeout(function() {
+					_showLoading();
+				}, 500);
+			}
+			function _showLoading() {
+				if (loadStartTime != 0)
+					$("#loading").show();
+			}
+			function hideLoading() {
+				var currentTime = Date.now();
+				var difference = currentTime - loadStartTime;
+				console.log(difference);
+				if (difference < 500)
+					loadStartTime = 0;
+				else {
+					if (difference < 1000) {
+						setTimeout(function() {
+							$("#loading").hide();
+						}, 1000);
+					} else
+						$("#loading").hide();
+				}
+			}
+		</script>
+
+		<script>
+			
 		</script>
 		<!-- page-body-wrapper ends -->
 	</div>
@@ -483,7 +532,9 @@ if (localStorage.user != null && localStorage.user != 'undefined') {
 	<!-- Custom js for this page-->
 	<script src="js/dashboard.js"></script>
 
-
+	<script type="text/javascript">
+		
+	</script>
 	<!-- End custom js for this page-->
 </body>
 </html>

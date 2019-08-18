@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
+import com.surpass.vision.common.Submit;
 import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.realTimeData.RealTimeDataManager;
@@ -33,12 +34,13 @@ public class ServerInfoController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
+	@Submit
 	@RequestMapping(value = "getServerInfo", method = { RequestMethod.POST, RequestMethod.GET })
 	public ToWeb getServerInfo(@RequestBody JSONObject uidToken,  HttpServletRequest request) throws Exception {
 		String uid = uidToken.getString("uid");
 		String token = uidToken.getString("token");
 		// 认证+权限
-		ToWeb ret = authercation(Integer.valueOf(uid), token, GlobalConsts.Operation_getRealTimeDataList);
+		ToWeb ret = authercation(Long.valueOf(uid), token, GlobalConsts.Operation_getRealTimeDataList);
 		if (!StringUtil.isBlank(ret.getStatus()) && ret.getStatus()!=GlobalConsts.ResultCode_SUCCESS)
 			return ret;
 

@@ -15,8 +15,8 @@ Hashtable<String,AlertData> alertData;
 	Hashtable<String, ArrayList<Graph>> graphs;
 	Hashtable<String,HistoryData> historyData;
 	Hashtable<String,LineAlertData> lineAlertData;
-	
 	Hashtable<String,RealTimeData> realTimeData;
+	Hashtable<String,XYGraph> xyGraph;
 
 	/**
 	 * 用户权限信息
@@ -34,7 +34,6 @@ Hashtable<String,AlertData> alertData;
 	 */
 	UserInfo user;
 
-	Hashtable<String,XYGraph> xyGraph;
 
 	//	public UserSpace(UserSpaceData usd) {
 //		// TODO:

@@ -57,7 +57,7 @@ public class UserSpaceServiceImpl implements UserSpaceService {
 	}
 
 	@Override
-	public UserSpaceData getUserSpaceById(Integer userID) {
+	public UserSpaceData getUserSpaceById(Long userID) {
 		return userSpaceDataMapper.selectByPrimaryKey(userID);
 	}
 

@@ -42,7 +42,7 @@ public class PointGroup extends PointGroupData implements Serializable{
 
 	private static final long serialVersionUID = -4373082997833397493L;
 	User createrUser; // 创建者
-	Integer id;
+	Double id;
 	String name;
 	
 	// 权限信息
@@ -63,11 +63,11 @@ public class PointGroup extends PointGroupData implements Serializable{
 		this.createrUser = createrUser;
 	}
 
-	public Integer getId() {
+	public Double getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Double id) {
 		this.id = id;
 	}
 

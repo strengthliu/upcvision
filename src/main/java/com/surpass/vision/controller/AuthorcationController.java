@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
+import com.surpass.vision.common.Submit;
 import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.UserInfo;
 import com.surpass.vision.domain.UserSpace;
@@ -39,7 +40,8 @@ public class AuthorcationController extends BaseController {
     @Autowired
     private RedisService redisService;
 	
-	@RequestMapping(value = "login", method = { RequestMethod.POST, RequestMethod.GET })
+    @Submit
+    @RequestMapping(value = "login", method = { RequestMethod.POST, RequestMethod.GET })
 	public  ToWeb login(@RequestBody JSONObject user,  HttpServletRequest request)
 			throws Exception {
 		ToWeb tw = ToWeb.buildResult();
@@ -82,12 +84,12 @@ public class AuthorcationController extends BaseController {
 	public  ToWeb checkAuthorcation(@RequestParam String uid, @RequestParam String token,  HttpServletRequest request)
 			throws Exception {
 
-		Integer userId = null;
+		Long userId = null;
 		try {
-			userId = Integer.parseInt(uid);
-			if(userId == null || userId == 0) userId = 0;
+			userId = Long.parseLong(uid);
+			if(userId == null || userId == 0) userId = Long.valueOf(0);
 		}catch(Exception e) {
-			userId = 0;
+			userId = Long.valueOf(0);
 		}
 		return authercation(userId,token);
 	}
@@ -96,12 +98,12 @@ public class AuthorcationController extends BaseController {
 	public  ToWeb getUserSpace(@RequestParam String uid, @RequestParam String token,  HttpServletRequest request)
 			throws Exception {
 
-		Integer userId = null;
+		Long userId = null;
 		try {
-			userId = Integer.parseInt(uid);
-			if(userId == null || userId == 0) userId = 0;
+			userId = Long.parseLong(uid);
+			if(userId == null || userId == 0) userId = Long.valueOf(0);
 		}catch(Exception e) {
-			userId = 0;
+			userId = Long.valueOf(0);
 		}
 		ToWeb ret = authercation(userId,token);
 		if(ret.getStatus()!= GlobalConsts.ResultCode_SUCCESS) return ret;

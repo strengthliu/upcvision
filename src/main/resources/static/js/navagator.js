@@ -109,11 +109,13 @@
 		if (userSpace != null && userSpace != "undefined") {
 			console.log("userSpace is not null");
 			doUpdateRealTimeData(userSpace);
-		} else 
+		} else {
+			console.log("userSpace is null.");
 		getUserSpace(
 				user.id,
 				token,
 				doUpdateRealTimeData);
+		}
 	}
 
 	function doUpdateRealTimeData(userSpace){

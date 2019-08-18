@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 //import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 //import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 @EnableAutoConfiguration
 @EnableConfigurationProperties
@@ -23,6 +24,7 @@ import org.springframework.context.annotation.ImportResource;
 		"com.surpass.vision.user",
 		"com.surpass.vision.userSpace",
 		"com.surpass.vision.graph",
+		"com.surpass.vision.pointGroup",
 		"com.surpass.vision.realTimeData",
 		"com.surpass.vision.historyData",
 		"com.surpass.vision.lineAlertData",
@@ -31,6 +33,7 @@ import org.springframework.context.annotation.ImportResource;
 		"com.surpass.vision.exception"})  
 
 @MapperScan(basePackages={"com.surpass.vision.mapper"})
+@EnableAsync
 @SpringBootApplication
 public class UpcvisionApplication {
 

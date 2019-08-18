@@ -15,5 +15,9 @@ public interface PointGroupService {
 	public List<PointGroupData> getAdminHistoryData();
 
 	public List<PointGroupData> getAdminLineAlertData();
+	
+	public Object newPointGroupData(PointGroupData pgd);
+
+	public void deletePointGroupItem(String id);
 
 }

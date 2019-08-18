@@ -50,7 +50,7 @@ public class RealTimeDataServiceImpl implements RealTimeDataService {
 	PointGroupDataMapper pgdMapper;
 
 	@Override
-	public List<RealTimeData> getRealTimeDataList(Integer uid) {
+	public List<RealTimeData> getRealTimeDataList(Long uid) {
 		// TODO: 考虑一下设计是否合理。因为这里使用了uerSpaceManager，是否应该在uerSpaceManager中实现。
 		// 从用户空间里取
 //		List<RealTimeData> ret = userSpaceManager.getRealTimeData(uid);
@@ -64,7 +64,7 @@ public class RealTimeDataServiceImpl implements RealTimeDataService {
 			String[] rtdIds = IDTools.splitID(srtd);
 			ArrayList<RealTimeData> rtdl = new ArrayList<RealTimeData>();
 			for (int i = 0; i < rtdIds.length; i++) {
-				PointGroupData pgd = pgdMapper.selectByPrimaryKey(Integer.parseInt(rtdIds[i]));
+				PointGroupData pgd = pgdMapper.selectByPrimaryKey(Double.parseDouble(rtdIds[i]));
 				if (pgd != null) {
 					RealTimeData realTimeData = generateRealTimeDataFromPointGroupData(pgd);
 					rtdl.add(realTimeData);
@@ -96,8 +96,8 @@ public class RealTimeDataServiceImpl implements RealTimeDataService {
 		pg.setOtherrule1(otherrule1);
 		pg.setOtherrule2(otherrule2);
 		// 写数据库
-		int id = pgdMapper.insert(pg);
-		pg.setId(id);
+		double id = pgdMapper.insert(pg);
+		pg.setId(Double.valueOf(id));
 		RealTimeData rtd = generateRealTimeDataFromPointGroupData(pg);
 //		// 更新用户空间
 //		uss.updateRealTimeDataList(rtd);

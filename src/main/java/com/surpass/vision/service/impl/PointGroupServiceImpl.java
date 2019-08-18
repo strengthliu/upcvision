@@ -3,6 +3,7 @@ package com.surpass.vision.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.surpass.vision.domain.PointGroupData;
@@ -37,6 +38,20 @@ public class PointGroupServiceImpl implements PointGroupService {
 	@Override
 	public List<PointGroupData> getAdminLineAlertData() {
 		return pointGroupDataMapper.getAdminLineAlertData();	
+	}
+	
+	@Async
+	@Override
+	public Object newPointGroupData(PointGroupData pgd) {
+		pointGroupDataMapper.insert(pgd);
+		return null;
+	}
+
+	@Async
+	@Override
+	public void deletePointGroupItem(String id) {
+		pointGroupDataMapper.deleteByPrimaryKey(Double.valueOf(id));
+		
 	}
 
 }

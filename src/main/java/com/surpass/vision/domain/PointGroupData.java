@@ -1,7 +1,7 @@
 package com.surpass.vision.domain;
 
 public class PointGroupData {
-    private Integer id;
+    private Double id;
 
     private String type;
 
@@ -19,11 +19,11 @@ public class PointGroupData {
 
     private String otherrule2;
 
-    public Integer getId() {
+    public Double getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Double id) {
         this.id = id;
     }
 
