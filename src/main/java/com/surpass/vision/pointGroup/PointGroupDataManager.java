@@ -12,13 +12,14 @@ import org.springframework.stereotype.Component;
 
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.PointGroup;
+import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.RealTimeData;
 import com.surpass.vision.tools.IDTools;
 
 @Component
 public class PointGroupDataManager {
 	
-	public static Set compareRight(RealTimeData rtd, RealTimeData oldRtd, String keyaggrandizement) {
+	public static Set compareRight(PointGroupData rtd, PointGroupData oldRtd, String keyaggrandizement) {
 		if(oldRtd == null || StringUtil.isBlank(oldRtd.getCreater()) || StringUtil.isBlank(oldRtd.getOwner())) {
 			Set<String> s1 = new HashSet<String>();
 			try {

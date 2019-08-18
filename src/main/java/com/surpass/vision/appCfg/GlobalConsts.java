@@ -75,6 +75,7 @@ public class GlobalConsts {
 	 * 权限功能名称
 	 */
 	public static final String Operation_createOrUpdateRealTimeData = "Operation_createOrUpdateRealTimeData";
+	public static final String Operation_createOrUpdateLineAlertData = "Operation_createOrUpdateLineAlertData";
 	public static final String Operation_getRealTimeDataList = "Operation_getRealTimeDataList";
 	
 	

@@ -58,6 +58,12 @@ public class BaseController {
 			ret.setMsg("您没有此操作权限，如果一定要执行这个操作，请联系组态人员或系统管理员。");
 			return ret;
 		}
+		if(!userManager.hasRight(role,GlobalConsts.Operation_createOrUpdateLineAlertData)) {
+			// 没有权限
+			ret.setStatus(GlobalConsts.ResultCode_NO_PRIVILEGE);
+			ret.setMsg("您没有此操作权限，如果一定要执行这个操作，请联系组态人员或系统管理员。");
+			return ret;
+		}
 		return ret;
 	}
 }

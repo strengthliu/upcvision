@@ -39,8 +39,8 @@
     	    $("#mainPanel").load("_historydataList.html");
     		break;
     	case "directreportingdataList":
-    		
-    	    $("#mainPanel").load("_directreportingdataList.html");
+    		_linealertdataListKey = key;
+    	    $("#mainPanel").load("_lineAlertDataList.html");
     		break;
     		
     		//     

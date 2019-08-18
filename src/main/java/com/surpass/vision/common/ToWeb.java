@@ -5,6 +5,7 @@ import java.util.Hashtable;
 import java.util.Map;
 
 import com.surpass.vision.appCfg.Config;
+import com.surpass.vision.domain.LineAlertData;
 import com.surpass.vision.domain.RealTimeData;
 import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.server.Server;
@@ -125,6 +126,12 @@ public class ToWeb {
 	}
 
 	public void setData(String key, RealTimeData rtd) {
+		HashMap<String, Object> hm = new HashMap<String, Object>();
+		hm.put(key, rtd);
+		this.setData(hm);
+	}
+
+	public void setData(String key, LineAlertData rtd) {
 		HashMap<String, Object> hm = new HashMap<String, Object>();
 		hm.put(key, rtd);
 		this.setData(hm);

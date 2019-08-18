@@ -319,5 +319,32 @@ public class UserSpaceManager {
 		}
 	}
 
+	public void updateLineAlertData(LineAlertData rtd, Long oldRtdId) {
+		if(rtd == null) return;
+		LineAlertData oldRtd = null;
+		if(oldRtdId == null || oldRtdId==0)
+			oldRtd = new LineAlertData();
+		else 
+			oldRtd = lineAlertDataManager.getLineAlertDataByKeys(oldRtdId);
+		updateLineAlertData(rtd,oldRtd);
+	}
+	
+	public void updateLineAlertData( LineAlertData rtd,LineAlertData oldRtd) {
+		// 跟这个RealTimeData对比用户，取出差别
+		// 
+		Set<String> rightChangesaggrandizement = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyAggrandizement);
+		Set<String> rightChangesdecreament = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyAggrandizement);
+		// 根据 这些用户,取的他们UserSpace，更新他们的realTimeData字段，再写回缓存。
+		Iterator it = rightChangesaggrandizement.iterator();
+		while (it.hasNext()) {
+			String uids = (String)it.next();
+			// 从缓存中取出RealTimeData
+			UserSpace us = getUserSpaceRigidly(Long.valueOf(uids));
+			Hashtable<String,LineAlertData> hrtd = us.getLineAlertData();
+			hrtd.put(rtd.getId().toString(), rtd);
+			this.setUserSpace(Long.valueOf(uids), us);
+		}
+	}
+
 
 }

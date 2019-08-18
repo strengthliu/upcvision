@@ -285,7 +285,7 @@
 								if(key == "") key = "未分类";
 
 								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'directreportingdataList','"+key+"');"+'">'
-										+ key + '</text></li>';
+										+ directreportingdata.name + '</text></li>';
 								itemsHtml = itemsHtml + item;
 								// console.log(key,obj[key]);
 							}
