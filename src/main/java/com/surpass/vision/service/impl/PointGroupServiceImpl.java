@@ -40,14 +40,14 @@ public class PointGroupServiceImpl implements PointGroupService {
 		return pointGroupDataMapper.getAdminLineAlertData();	
 	}
 	
-	@Async
+	@Async("taskExecutor")
 	@Override
 	public Object newPointGroupData(PointGroupData pgd) {
 		pointGroupDataMapper.insert(pgd);
 		return null;
 	}
 
-	@Async
+	@Async("taskExecutor")
 	@Override
 	public void deletePointGroupItem(Double id) {
 		pointGroupDataMapper.deleteByPrimaryKey(Double.valueOf(id));

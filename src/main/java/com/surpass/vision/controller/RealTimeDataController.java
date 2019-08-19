@@ -60,7 +60,7 @@ public class RealTimeDataController extends BaseController {
 	 */
 	@RequestMapping(value = "getRealTimeDataList", method = { RequestMethod.POST, RequestMethod.GET })
 	public ToWeb getRealTimeDataList(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
-		Long uid = user.getLong("uid");
+		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
 		// 认证+权限
 		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getRealTimeDataList);
@@ -68,11 +68,11 @@ public class RealTimeDataController extends BaseController {
 			return ret;
 
 		// 取出用户空间
-		UserSpace us = userSpaceManager.getUserSpace(Long.valueOf(uid));
+		UserSpace us = userSpaceManager.getUserSpace(Double.valueOf(uid));
 		if (us == null) {
 			// token = TokenTools.genToken(uid.toString());
 			try {
-				us = userSpaceManager.buildUserSpace(Long.valueOf(uid), token);
+				us = userSpaceManager.buildUserSpace(Double.valueOf(uid), token);
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			}
@@ -125,7 +125,7 @@ public class RealTimeDataController extends BaseController {
 	 */
 	@RequestMapping(value = "newRealTimeDataGroup", method = { RequestMethod.POST, RequestMethod.GET })
 	public ToWeb newRealTimeDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
-		Long uid = user.getLong("uid");
+		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
 		// 认证+权限
 		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateRealTimeData);
@@ -146,7 +146,7 @@ public class RealTimeDataController extends BaseController {
 			RealTimeData rtd = realTimeDataManager.createRealTimeData(GlobalConsts.Type_realtimedata_, name, owner, creater,points,otherrule2);
 			if (rtd != null) {
 				// 更新用户空间
-				UserSpace us = userSpaceManager.getUserSpaceRigidly(Long.valueOf(uid));
+				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
 				userSpaceManager.updateRealTimeData(rtd,Double.valueOf(0));
 				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
 				ret.setMsg("成功");
@@ -165,7 +165,7 @@ public class RealTimeDataController extends BaseController {
 	
 	@RequestMapping(value = "deleteRealTimeDataGroup", method = { RequestMethod.POST, RequestMethod.GET })
 	public ToWeb deleteRealTimeDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
-		Long uid = user.getLong("uid");
+		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
 		// 认证+权限
 		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateRealTimeData);
@@ -183,7 +183,14 @@ public class RealTimeDataController extends BaseController {
 		}
 		Double rtdId = Double.valueOf(id);
 		try {
-			RealTimeData rtd = realTimeDataManager.deleteRealTimeData(id);
+			RealTimeData rtd = realTimeDataManager.getRealTimeDataByKeys(rtdId);
+			if(rtd == null || StringUtil.isBlank(rtd.getOwner())) {
+				ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+				ret.setMsg("没有指定ID的数据。");
+				ret.setRefresh(true);
+				return ret;
+			}
+			rtd = realTimeDataManager.deleteRealTimeData(id);
 			if (rtd != null) {
 				// 更新用户空间
 				//UserSpace us = userSpaceManager.getUserSpaceRigidly(Long.valueOf(uid));

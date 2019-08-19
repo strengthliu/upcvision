@@ -16,7 +16,7 @@ public interface UserService {
 	// 授权
 	//UserSpace buildUserSpace(Integer userID, String... token);
 
-	public UserInfo getUserById(Integer userID);
+	public UserInfo getUserById(Double userID);
 
 	public List<UserInfo> getAllUsers();
 

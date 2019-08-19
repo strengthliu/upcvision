@@ -36,9 +36,11 @@ console.log("deleteItemAction");
 		success : function(data) {
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
 				//console.log("server info : "+JSON.stringify(data.data.data));
-				var realTimeData = data.data.id;
+				var realTimeDataId = data.data;
+				console.log("realTimeDataId="+realTimeDataId);
+				console.log("data="+JSON.stringify(data,null,2));
 				//$('#newItemAction_mid').modal('hide');
-				fixLocalRealTimeDataList(realTimeData);
+				fixLocalRealTimeDataList_Delete(realTimeDataId);
 				// 
 			} else {
 				alert("失败 ： "+data.msg);
@@ -146,8 +148,33 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 
 }
 
+
 /**
- * 修改左侧实时数据列表
+ * 修改左侧实时数据列表,删除一个数据
+ * @param realTimeData
+ * @returns
+ */
+function fixLocalRealTimeDataList_Delete(realTimeDataId){
+	if(userSpace==null || userSpace=="undefined"){
+		getUserSpace(user.id,token,fixLocalRealTimeDataList_Delete);
+		return;
+	}
+	if(realTimeDataId !=null && realTimeDataId !="undefined"){
+		var realTimeData = userSpace.realTimeData;
+		console.log(JSON.stringify(realTimeData));
+		//delete realTimeData[realTimeDataId];
+		_.omit(realTimeData, [realTimeDataId]);
+		userSpace.realTimeData = realTimeData;
+		console.log(JSON.stringify(userSpace.realTimeData));
+		
+		updateRealTimeData();
+		return;
+	}
+	
+}
+
+/**
+ * 修改左侧实时数据列表,增加一个新数据
  * @param realTimeData
  * @returns
  */

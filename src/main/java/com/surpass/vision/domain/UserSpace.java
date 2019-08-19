@@ -7,7 +7,6 @@ import java.util.Hashtable;
 import com.alibaba.fastjson.JSONObject;
 
 public class UserSpace implements Serializable {
-Hashtable<String,AlertData> alertData;
 	
 	/**
 	 * 用户可见的图
@@ -17,6 +16,7 @@ Hashtable<String,AlertData> alertData;
 	Hashtable<String,LineAlertData> lineAlertData;
 	Hashtable<String,RealTimeData> realTimeData;
 	Hashtable<String,XYGraph> xyGraph;
+	Hashtable<String,AlertData> alertData;
 
 	/**
 	 * 用户权限信息

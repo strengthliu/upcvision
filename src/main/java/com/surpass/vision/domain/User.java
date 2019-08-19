@@ -17,16 +17,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * ---------------------------------------
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class User implements Serializable  {
-    private Long id;
+public class User extends BaseDomain implements Serializable  {
+    private Double id;
 
     private String name;
     
-    public Long getId() {
+    public Double getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Double id) {
         this.id = id;
     }
 

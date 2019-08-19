@@ -85,8 +85,9 @@ public class RealTimeDataManager extends PointGroupDataManager {
 		for (int i = 0; i < pgdl.size(); i++) {
 			PointGroupData pgd = pgdl.get(i);
 			RealTimeData realTimeData = copyFromPointGroupData(pgd);
-			ret.put(pgd.getId().toString(), realTimeData);
-			redisService.set(GlobalConsts.Key_RealTimeData_pre_ + realTimeData.getId().toString(), realTimeData);
+			ret.put(IDTools.toString(pgd.getId()), realTimeData);
+			System.out.println("pgd.getId().toString()="+pgd.getId().toString());
+			redisService.set(GlobalConsts.Key_RealTimeData_pre_ + IDTools.toString(realTimeData.getId()), realTimeData);
 		}
 		return ret;
 	}
@@ -110,7 +111,7 @@ public class RealTimeDataManager extends PointGroupDataManager {
 				// 再设置缓存
 			}
 
-			ret.put(g.getName(), g);
+			ret.put(IDTools.toString(g.getId()), g);
 		}
 		//
 		return ret;
@@ -140,7 +141,7 @@ public class RealTimeDataManager extends PointGroupDataManager {
 		// 异步处理:
 		try {
 			// 先写缓存RealTimeData，返回
-			redisService.set(GlobalConsts.Key_RealTimeData_pre_+id,ret);
+			redisService.set(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(id),ret);
 			// 创建一条数据库记录
 			pointGroupService.newPointGroupData(pgd);	
 		} catch (Exception e) {
@@ -152,7 +153,7 @@ public class RealTimeDataManager extends PointGroupDataManager {
 	}
 
 	public RealTimeData getRealTimeDataByKeys(Double oldRtdId) {
-		RealTimeData rtd = (RealTimeData)redisService.get(GlobalConsts.Key_RealTimeData_pre_+oldRtdId);
+		RealTimeData rtd = (RealTimeData)redisService.get(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(oldRtdId));
 		return rtd;
 	}
 

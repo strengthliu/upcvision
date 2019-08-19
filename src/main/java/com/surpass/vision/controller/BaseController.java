@@ -27,12 +27,12 @@ public class BaseController {
 	UserSpaceManager userSpaceManager;
 
 	public ToWeb authercation(JSONObject user,HttpServletRequest request) {
-		Long uid = user.getLong("uid");
+		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
 		return authercation(uid,token);
 	}
 	
-	public ToWeb authercation(Long uid, String token) {
+	public ToWeb authercation(Double uid, String token) {
 		ToWeb ret = ToWeb.buildResult();
 		if(!userSpaceManager.tokenVerification(uid, token)) {
 //			throw new NotAuthorizedException("You Don't Have Permission");
@@ -45,7 +45,7 @@ public class BaseController {
 		return ret;
 	}
 
-	public ToWeb authercation(Long uid, String token, String opperation) {
+	public ToWeb authercation(Double uid, String token, String opperation) {
 		ToWeb ret = authercation(uid,token);
 		if(!StringUtil.isBlank(ret.getStatus())) return ret;
 		

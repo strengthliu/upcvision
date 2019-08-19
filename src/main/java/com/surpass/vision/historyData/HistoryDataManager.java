@@ -85,7 +85,7 @@ public class HistoryDataManager {
 
 			historyData.setType(pgd.getType());
 
-			ret.put(pgd.getId().toString(), historyData);
+			ret.put(IDTools.toString(pgd.getId()), historyData);
 		}
 		return ret;
 	}
@@ -109,7 +109,7 @@ public class HistoryDataManager {
 				// 再设置缓存
 			}
 			
-			ret.put(g.getName(), g);
+			ret.put(IDTools.toString(g.getId()), g);
 		}
 		// 
 		return ret;

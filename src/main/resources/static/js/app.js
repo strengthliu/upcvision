@@ -113,7 +113,7 @@ function loginByUserPassWord(uname, pwd) {
 				//alert("登录成功能 ，用户名为： "+JSON.stringify(user)+" token="+token);
 				window.userSpace = userSpace;
 				localStorage.user = JSON.stringify(user);
-				//console.log("登录成功，user="+JSON.stringify(user));
+				console.log("登录成功，user="+JSON.stringify(userSpace));
 				localStorage.token = token;
 			} else {
 				alert("登录失败 ： "+data.msg);

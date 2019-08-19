@@ -1,24 +1,36 @@
 package com.surpass.vision.mapper;
 
+import com.surpass.vision.domain.UserInfo;
+import com.surpass.vision.domain.UserInfoExample;
 import java.util.List;
-
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 
-import com.surpass.vision.domain.UserInfo;
-
 public interface UserInfoMapper {
-    int deleteByPrimaryKey(Integer id);
+    long countByExample(UserInfoExample example);
+
+    int deleteByExample(UserInfoExample example);
+
+    int deleteByPrimaryKey(Double id);
 
     int insert(UserInfo record);
 
     int insertSelective(UserInfo record);
 
-    UserInfo selectByPrimaryKey(Integer id);
+    List<UserInfo> selectByExample(UserInfoExample example);
+
+    UserInfo selectByPrimaryKey(Double id);
+
+    int updateByExampleSelective(@Param("record") UserInfo record, @Param("example") UserInfoExample example);
+
+    int updateByExample(@Param("record") UserInfo record, @Param("example") UserInfoExample example);
 
     int updateByPrimaryKeySelective(UserInfo record);
 
     int updateByPrimaryKey(UserInfo record);
+    
+    // userinfomapper
     
     @Select("select * from t_user where name=#{name} and password=#{password}")
     @ResultMap("BaseResultMap")
@@ -31,5 +43,6 @@ public interface UserInfoMapper {
     @Select("select distinct * from t_user")
     @ResultMap("BaseResultMap")
     List<UserInfo> selectAdminUserInfo();
+
 
 }

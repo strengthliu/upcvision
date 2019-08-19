@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserInfo getUserById(Integer userID) {
+	public UserInfo getUserById(Double userID) {
 		return userMapper.selectByPrimaryKey(userID);
 	}
 

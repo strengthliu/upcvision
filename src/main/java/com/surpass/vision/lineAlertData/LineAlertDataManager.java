@@ -87,7 +87,7 @@ public class LineAlertDataManager {
 
 			lineAlertData.setType(pgd.getType());
 
-			ret.put(pgd.getId().toString(), lineAlertData);
+			ret.put(IDTools.toString(pgd.getId()), lineAlertData);
 		}
 		return ret;
 	}
@@ -167,8 +167,8 @@ public class LineAlertDataManager {
 	}
 
 
-	public LineAlertData getLineAlertDataByKeys(Long oldRtdId) {
-		LineAlertData rtd = (LineAlertData)redisService.get(GlobalConsts.Key_RealTimeData_pre_+oldRtdId);
+	public LineAlertData getLineAlertDataByKeys(Double oldRtdId) {
+		LineAlertData rtd = (LineAlertData)redisService.get(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(oldRtdId));
 		return rtd;
 	}
 
@@ -190,7 +190,7 @@ public class LineAlertDataManager {
 				// 再设置缓存
 			}
 			
-			ret.put(g.getName(), g);
+			ret.put(IDTools.toString(g.getId()), g);
 		}
 		// 
 		return ret;

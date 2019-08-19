@@ -12,6 +12,7 @@ import com.surpass.vision.domain.UserInfo;
 import com.surpass.vision.mapper.UserInfoMapper;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.service.UserService;
+import com.surpass.vision.tools.IDTools;
 
 @Component
 public class UserManager {
@@ -32,14 +33,14 @@ public class UserManager {
 	}
 	
 	public UserInfo getUserInfoByID(String userId) {
-		UserInfo ui = (UserInfo)redisService.get(GlobalConsts.Key_UserInfo_Pre+userId);
+		UserInfo ui = (UserInfo)redisService.get(GlobalConsts.Key_UserInfo_Pre+IDTools.toString(userId));
 		if(ui!=null)
 			return ui;
 		else {
 			// 到数据库里取
-			ui = userService.getUserById(Integer.parseInt(userId));
+			ui = userService.getUserById(Double.valueOf(userId));
 			if(ui != null) {
-				redisService.set(GlobalConsts.Key_UserInfo_Pre+userId, ui);
+				redisService.set(GlobalConsts.Key_UserInfo_Pre+IDTools.toString(userId), ui);
 				return ui;
 			}
 		}
@@ -47,14 +48,14 @@ public class UserManager {
 	}
 	
 	public void setUserInfo(UserInfo user) {
-		redisService.set(GlobalConsts.Key_UserInfo_Pre+user.getId().toString(),user);
+		redisService.set(GlobalConsts.Key_UserInfo_Pre+IDTools.toString(user.getId()),user);
 	}
 
 	// 初始化用户信息到缓存
 	public void init() {
 		List<UserInfo> users = userService.getAllUsers();
 		for(int i=0;i<users.size();i++)
-			redisService.set(GlobalConsts.Key_UserInfo_Pre+users.get(i).getId().toString(), users.get(i));
+			redisService.set(GlobalConsts.Key_UserInfo_Pre+IDTools.toString(users.get(i).getId()), users.get(i));
 	}
 
 	public boolean hasRight(Integer role, String operation) {

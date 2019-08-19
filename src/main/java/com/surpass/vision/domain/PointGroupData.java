@@ -1,6 +1,8 @@
 package com.surpass.vision.domain;
 
-public class PointGroupData {
+import java.io.Serializable;
+
+public class PointGroupData extends BaseDomain implements Serializable {
     private Double id;
 
     private String type;

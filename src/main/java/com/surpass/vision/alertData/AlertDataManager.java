@@ -84,7 +84,7 @@ public class AlertDataManager {
 
 			alertData.setType(pgd.getType());
 
-			ret.put(pgd.getId().toString(), alertData);
+			ret.put(IDTools.toString(pgd.getId()), alertData);
 		}
 		return ret;
 	}
@@ -107,7 +107,7 @@ public class AlertDataManager {
 				// 再设置缓存
 			}
 			
-			ret.put(g.getName(), g);
+			ret.put(IDTools.toString(g.getId()), g);
 		}
 		// 
 		return ret;

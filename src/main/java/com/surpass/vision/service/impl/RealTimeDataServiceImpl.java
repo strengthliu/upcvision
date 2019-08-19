@@ -50,7 +50,7 @@ public class RealTimeDataServiceImpl implements RealTimeDataService {
 	PointGroupDataMapper pgdMapper;
 
 	@Override
-	public List<RealTimeData> getRealTimeDataList(Long uid) {
+	public List<RealTimeData> getRealTimeDataList(Double uid) {
 		// TODO: 考虑一下设计是否合理。因为这里使用了uerSpaceManager，是否应该在uerSpaceManager中实现。
 		// 从用户空间里取
 //		List<RealTimeData> ret = userSpaceManager.getRealTimeData(uid);

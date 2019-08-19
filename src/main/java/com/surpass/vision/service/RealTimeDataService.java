@@ -6,7 +6,7 @@ import com.surpass.vision.domain.RealTimeData;
 
 public interface RealTimeDataService {
 
-	List<RealTimeData> getRealTimeDataList(Long uid);
+	List<RealTimeData> getRealTimeDataList(Double uid);
 
 	RealTimeData newRealTimeData(String type, String name, String owner, String creater, String shared, String points,
 			String otherrule1, String otherrule2);

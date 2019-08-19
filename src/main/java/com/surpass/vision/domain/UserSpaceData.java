@@ -1,7 +1,9 @@
 package com.surpass.vision.domain;
 
-public class UserSpaceData {
-    private Integer uid;
+import java.io.Serializable;
+
+public class UserSpaceData extends BaseDomain implements Serializable {
+    private Double uid;
 
     private String right;
 
@@ -17,11 +19,11 @@ public class UserSpaceData {
 
     private String linealertdata;
 
-    public Integer getUid() {
+    public Double getUid() {
         return uid;
     }
 
-    public void setUid(Integer uid) {
+    public void setUid(Double uid) {
         this.uid = uid;
     }
 
@@ -73,11 +75,13 @@ public class UserSpaceData {
         this.historydata = historydata == null ? null : historydata.trim();
     }
 
-    public String getLineAlertdata() {
+    public String getLinealertdata() {
         return linealertdata;
     }
 
-    public void setLineAlertdata(String linealertdata) {
+    public void setLinealertdata(String linealertdata) {
         this.linealertdata = linealertdata == null ? null : linealertdata.trim();
     }
+
+
 }

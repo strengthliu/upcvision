@@ -49,7 +49,7 @@ public class XYGraphManager {
 				// 再设置缓存
 			}
 			
-			ret.put(g.getName(), g);
+			ret.put(IDTools.toString(g.getId()), g);
 		}
 		// 
 		return ret;
@@ -94,7 +94,7 @@ public class XYGraphManager {
 			
 			xYGraph.setType(pgd.getType());
 
-			ret.put(pgd.getId().toString(), xYGraph);
+			ret.put(IDTools.toString(pgd.getId()), xYGraph);
 		}
 		return ret;
 	}

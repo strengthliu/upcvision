@@ -107,9 +107,9 @@ public class UserSpaceManager {
 
 	}
 
-	public UserSpace getUserSpace(Long uid) {
+	public UserSpace getUserSpace(Double uid) {
 		LOGGER.info("userKey: " + GlobalConsts.Key_UserSpace_pre_ + uid.toString());
-		Object obj = redisService.get(GlobalConsts.Key_UserSpace_pre_ + uid.toString());
+		Object obj = redisService.get(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(uid));
 		if (obj == null)
 			return null;
 		if (obj instanceof UserSpace)
@@ -126,14 +126,14 @@ public class UserSpaceManager {
 			LOGGER.info("给的用户空间为空，不能设置。");
 			throw new IllegalStateException("给的用户空间为空，不能设置。");
 		}
-		redisService.set(GlobalConsts.Key_UserSpace_pre_ + us.getUser().getId().toString(), us);
+		redisService.set(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(us.getUser().getId()), us);
 
 	}
 
-	public void setUserSpace(Long uid, UserSpace us) {
-		redisService.set(GlobalConsts.Key_UserSpace_pre_ + uid.toString(), us);
+	public void setUserSpace(Double uid, UserSpace us) {
+		redisService.set(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(uid), us);
 		try {
-		UserSpace t = (UserSpace)redisService.get(GlobalConsts.Key_UserSpace_pre_ + uid.toString());
+		UserSpace t = (UserSpace)redisService.get(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(uid));
 		}catch(Exception e) {
 			e.printStackTrace();
 			
@@ -147,26 +147,26 @@ public class UserSpaceManager {
 //		return us;
 //	}
 
-	public List<RealTimeData> getRealTimeData(Integer uid) {
-		return (List<RealTimeData>) redisService.get(GlobalConsts.Key_RealTimeData_pre_ + uid.toString());
+	public List<RealTimeData> getRealTimeData(Double uid) {
+		return (List<RealTimeData>) redisService.get(GlobalConsts.Key_RealTimeData_pre_ + IDTools.toString(uid));
 	}
 
 	public void setRealTimeData(Integer uid, List<RealTimeData> rtdl) {
-		redisService.set(GlobalConsts.Key_RealTimeData_pre_ + uid.toString(), rtdl);
+		redisService.set(GlobalConsts.Key_RealTimeData_pre_ + IDTools.toString(uid), rtdl);
 	}
 
-	public UserSpace buildUserSpace(Long userID, String... token) {
+	public UserSpace buildUserSpace(Double userID, String... token) {
 //		// TODO Auto-generated method stub
 //		UserSpace us = new UserSpace();
 //		// 如果是管理员，就建管理员空间。
-		UserInfo user = userManager.getUserInfoByID(userID.toString());
+		UserInfo user = userManager.getUserInfoByID(IDTools.toString(userID));
 		if (user == null)
 			throw new IllegalStateException("id为" + userID + "的用户不存在，不能为其建立用户空间。");
 		if (user.getRole() == 1)
 			return buildAdminUserSpace(user);
 		LOGGER.info(new Date().toGMTString() + " 开始为用户初始化用户空间..");
 		UserSpaceData usd = userSpaceService.getUserSpaceById(userID);
-		Long uid = null;
+		Double uid = null;
 		if (usd == null) {
 			usd = new UserSpaceData();
 			uid = userID;
@@ -218,7 +218,7 @@ public class UserSpaceManager {
 			historyData = historyDataManager.getHistoryDataHashtableByKeys(historydata);
 		us.setHistoryData(historyData);
 		// 直线报警
-		String linealertdata = usd.getLineAlertdata();
+		String linealertdata = usd.getLinealertdata();
 		Hashtable<String, LineAlertData> lineAlertData = null;
 		if (StringUtil.isBlank(linealertdata))
 			lineAlertData = new Hashtable<String, LineAlertData>();
@@ -230,7 +230,7 @@ public class UserSpaceManager {
 		if (token.length == 1)
 			tk = token[0];
 		else if (token.length == 0) {
-			tk = TokenTools.genToken(userID.toString());
+			tk = TokenTools.genToken(IDTools.toString(userID));
 		} else
 			throw new IllegalStateException("参数错误，只能有一个token。");
 		us.setToken(tk);
@@ -276,7 +276,7 @@ public class UserSpaceManager {
 		return us;
 	}
 
-	public UserSpace getUserSpaceRigidly(Long uid) {
+	public UserSpace getUserSpaceRigidly(Double uid) {
 		UserSpace ret = this.getUserSpace(uid);
 		if (ret == null) {
 			ret = this.buildUserSpace(uid);
@@ -286,7 +286,7 @@ public class UserSpaceManager {
 		return ret;
 	}
 
-	public boolean tokenVerification(Long uid, String token) {
+	public boolean tokenVerification(Double uid, String token) {
 		System.out.println(token + " == " + this.getUserSpace(uid).getToken());
 		return TokenTools.verificationToken(token, uid.toString())
 				&& token.contentEquals(getUserSpaceRigidly(uid).getToken());
@@ -316,24 +316,24 @@ public class UserSpaceManager {
 		while (it.hasNext()) {
 			String uids = (String)it.next();
 			// 从缓存中取出RealTimeData
-			UserSpace us = getUserSpaceRigidly(Long.valueOf(uids));
+			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
 			Hashtable<String,RealTimeData> hrtd = us.getRealTimeData();
-			hrtd.put(rtd.getId().toString(), rtd);
-			this.setUserSpace(Long.valueOf(uids), us);
+			hrtd.put(IDTools.toString(rtd.getId()), rtd);
+			this.setUserSpace(Double.valueOf(uids), us);
 		}
 		// 去掉删除权限的用户空间数据
 		Iterator it1 = rightChangesdecreament.iterator();
 		while (it1.hasNext()) {
 			String uids = (String)it.next();
 			// 从缓存中取出RealTimeData
-			UserSpace us = getUserSpaceRigidly(Long.valueOf(uids));
+			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
 			Hashtable<String,RealTimeData> hrtd = us.getRealTimeData();
-			hrtd.remove(rtd.getId().toString());
-			this.setUserSpace(Long.valueOf(uids), us);
+			hrtd.remove(IDTools.toString(rtd.getId()));
+			this.setUserSpace(Double.valueOf(uids), us);
 		}
 	}
 
-	public void updateLineAlertData(LineAlertData rtd, Long oldRtdId) {
+	public void updateLineAlertData(LineAlertData rtd, Double oldRtdId) {
 		if(rtd == null) return;
 		LineAlertData oldRtd = null;
 		if(oldRtdId == null || oldRtdId==0)
@@ -353,10 +353,10 @@ public class UserSpaceManager {
 		while (it.hasNext()) {
 			String uids = (String)it.next();
 			// 从缓存中取出RealTimeData
-			UserSpace us = getUserSpaceRigidly(Long.valueOf(uids));
+			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
 			Hashtable<String,LineAlertData> hrtd = us.getLineAlertData();
-			hrtd.put(rtd.getId().toString(), rtd);
-			this.setUserSpace(Long.valueOf(uids), us);
+			hrtd.put(IDTools.toString(rtd.getId()), rtd);
+			this.setUserSpace(Double.valueOf(uids), us);
 		}
 	}
 

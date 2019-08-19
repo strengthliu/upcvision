@@ -48,7 +48,7 @@ public class LineAlertDataController extends BaseController {
 		 */
 		@RequestMapping(value = "newLineAlertDataGroup", method = { RequestMethod.POST, RequestMethod.GET })
 		public ToWeb newLineAlertDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
-			Long uid = user.getLong("uid");
+			Double uid = user.getDouble("uid");
 			String token = user.getString("token");
 			// 认证+权限
 			ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateRealTimeData);
@@ -69,8 +69,8 @@ public class LineAlertDataController extends BaseController {
 				LineAlertData rtd = lineAlertDataManager.createLineAlertData(GlobalConsts.Type_linealertdata_, name, owner, creater,points,otherrule2);
 				if (rtd != null) {
 					// TODO:  更新自己的用户空间
-					UserSpace us = userSpaceManager.getUserSpaceRigidly(Long.valueOf(uid));
-					userSpaceManager.updateLineAlertData(rtd,Long.valueOf(0));
+					UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
+					userSpaceManager.updateLineAlertData(rtd,Double.valueOf(0));
 					ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
 					ret.setMsg("成功");
 					ret.setData("data",rtd);

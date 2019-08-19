@@ -84,12 +84,12 @@ public class AuthorcationController extends BaseController {
 	public  ToWeb checkAuthorcation(@RequestParam String uid, @RequestParam String token,  HttpServletRequest request)
 			throws Exception {
 
-		Long userId = null;
+		Double userId = null;
 		try {
-			userId = Long.parseLong(uid);
-			if(userId == null || userId == 0) userId = Long.valueOf(0);
+			userId = Double.valueOf(uid);
+			if(userId == null || userId == 0) userId = Double.valueOf(0);
 		}catch(Exception e) {
-			userId = Long.valueOf(0);
+			userId = Double.valueOf(0);
 		}
 		return authercation(userId,token);
 	}
@@ -98,12 +98,12 @@ public class AuthorcationController extends BaseController {
 	public  ToWeb getUserSpace(@RequestParam String uid, @RequestParam String token,  HttpServletRequest request)
 			throws Exception {
 
-		Long userId = null;
+		Double userId = null;
 		try {
-			userId = Long.parseLong(uid);
-			if(userId == null || userId == 0) userId = Long.valueOf(0);
+			userId = Double.valueOf(uid);
+			if(userId == null || userId == 0) userId = Double.valueOf(0);
 		}catch(Exception e) {
-			userId = Long.valueOf(0);
+			userId = Double.valueOf(0);
 		}
 		ToWeb ret = authercation(userId,token);
 		if(ret.getStatus()!= GlobalConsts.ResultCode_SUCCESS) return ret;

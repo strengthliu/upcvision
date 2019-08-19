@@ -1,5 +1,6 @@
 package com.surpass.vision.tools;
 
+import java.math.BigDecimal;
 import java.util.Random;
 
 import org.jsoup.helper.StringUtil;
@@ -9,11 +10,16 @@ import com.surpass.vision.appCfg.GlobalConsts;
 public class IDTools {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String [] ss = {"|"};
-		String [] r = IDTools.splitID("!aa,b|b");
-		for(int i=0;i<r.length;i++)
-			System.out.println(r[i]);
+//		// TODO Auto-generated method stub
+//		String [] ss = {"|"};
+//		String [] r = IDTools.splitID("!aa,b|b");
+//		for(int i=0;i<r.length;i++)
+//			System.out.println(r[i]);
+//		
+		Double d = 15660299628049.0;
+		System.out.println("默认输出:" + d);
+		System.out.println("格式输出:" + toString(d));
+
 	}
 	
 	public static Double newID() {
@@ -63,5 +69,20 @@ public class IDTools {
 		return ret;
 	}
 
+	public static String toString(Double doubleId) {
+		return BigDecimal.valueOf(doubleId).toString();
+	}
 
+	public static String toString(Long id) {
+		return BigDecimal.valueOf(id).toString();
+	}
+
+	public static String toString(Integer uid) {
+		return BigDecimal.valueOf(uid).toString();
+	}
+
+	public static String toString(String userId) {
+		
+		return userId;
+	}
 }

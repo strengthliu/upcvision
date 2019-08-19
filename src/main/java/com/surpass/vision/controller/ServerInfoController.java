@@ -40,7 +40,7 @@ public class ServerInfoController extends BaseController {
 		String uid = uidToken.getString("uid");
 		String token = uidToken.getString("token");
 		// 认证+权限
-		ToWeb ret = authercation(Long.valueOf(uid), token, GlobalConsts.Operation_getRealTimeDataList);
+		ToWeb ret = authercation(Double.valueOf(uid), token, GlobalConsts.Operation_getRealTimeDataList);
 		if (!StringUtil.isBlank(ret.getStatus()) && ret.getStatus()!=GlobalConsts.ResultCode_SUCCESS)
 			return ret;
 

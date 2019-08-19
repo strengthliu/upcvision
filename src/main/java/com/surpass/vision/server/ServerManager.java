@@ -14,6 +14,7 @@ import com.surpass.realkits.exception.GecException;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.tools.EncodingTools;
+import com.surpass.vision.tools.IDTools;
 
 @Component
 public class ServerManager {
@@ -182,7 +183,7 @@ public class ServerManager {
 						redisService.set(GlobalConsts.Key_Point_pre + point.tagName.toString(), point);
 					}
 					server.addDevice(device);
-					redisService.set(GlobalConsts.Key_Device_pre_+device.id.toString(), device);
+					redisService.set(GlobalConsts.Key_Device_pre_+IDTools.toString(device.id), device);
 				}
 				servers.put(server.getServerName(),server);
 				redisService.set(GlobalConsts.Key_Server_pre_+server.serverName, server);

@@ -3,13 +3,11 @@ package com.surpass.vision.domain;
 import java.io.Serializable;
 
 public class UserInfo extends User implements Serializable {
+    private Double id;
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1521451832639371380L;
+    private String name;
 
-	private String pwd;
+    private String pwd;
 
     private String email;
 
@@ -21,6 +19,21 @@ public class UserInfo extends User implements Serializable {
 
     private String desc;
 
+    public Double getId() {
+        return id;
+    }
+
+    public void setId(Double id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
 
     public String getPwd() {
         return pwd;
