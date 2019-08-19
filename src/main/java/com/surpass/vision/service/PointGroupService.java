@@ -18,6 +18,6 @@ public interface PointGroupService {
 	
 	public Object newPointGroupData(PointGroupData pgd);
 
-	public void deletePointGroupItem(String id);
+	public void deletePointGroupItem(Double id);
 
 }

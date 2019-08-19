@@ -16,7 +16,7 @@ function editItemAction(itemId) {
 alert(itemId);
 }
 function deleteItemAction(itemId) {
-
+console.log("deleteItemAction");
 	var data={'uid':uid,'token':token,'id':itemId};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -36,8 +36,8 @@ function deleteItemAction(itemId) {
 		success : function(data) {
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
 				//console.log("server info : "+JSON.stringify(data.data.data));
-				var realTimeData = data.data.data;
-				$('#newItemAction_mid').modal('hide');
+				var realTimeData = data.data.id;
+				//$('#newItemAction_mid').modal('hide');
 				fixLocalRealTimeDataList(realTimeData);
 				// 
 			} else {

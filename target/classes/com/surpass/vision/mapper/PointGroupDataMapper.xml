@@ -12,6 +12,10 @@
     <result column="otherRule1" jdbcType="VARCHAR" property="otherrule1" />
     <result column="otherRule2" jdbcType="VARCHAR" property="otherrule2" />
   </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Double">
+    delete from t_pointGroup
+    where id = #{id,jdbcType=DOUBLE}
+  </delete>
   <insert id="insert" parameterType="com.surpass.vision.domain.PointGroupData">
     insert into t_pointGroup (id, type, name, 
       owner, creater, shared, 

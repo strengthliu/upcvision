@@ -145,9 +145,9 @@ public class RealTimeDataController extends BaseController {
 		try {
 			RealTimeData rtd = realTimeDataManager.createRealTimeData(GlobalConsts.Type_realtimedata_, name, owner, creater,points,otherrule2);
 			if (rtd != null) {
-				// TODO:  更新自己的用户空间
+				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Long.valueOf(uid));
-				userSpaceManager.updateRealTimeData(rtd,Long.valueOf(0));
+				userSpaceManager.updateRealTimeData(rtd,Double.valueOf(0));
 				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
 				ret.setMsg("成功");
 				ret.setData("data",rtd);
@@ -175,17 +175,22 @@ public class RealTimeDataController extends BaseController {
 		// 取出参数
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
 		String id = user.getString("id");		
-		// TODO: 检查参数合法性
-
+		// 检查参数合法性
+		if(StringUtil.isBlank(id)) {
+			ret.setStatus(GlobalConsts.ResultCode_FAIL);
+			ret.setMsg("参数不正确，ID不能为空。");
+			return ret;
+		}
+		Double rtdId = Double.valueOf(id);
 		try {
 			RealTimeData rtd = realTimeDataManager.deleteRealTimeData(id);
 			if (rtd != null) {
-				// TODO:  更新自己的用户空间
-				UserSpace us = userSpaceManager.getUserSpaceRigidly(Long.valueOf(uid));
-				userSpaceManager.updateRealTimeData(rtd,Long.valueOf(0));
+				// 更新用户空间
+				//UserSpace us = userSpaceManager.getUserSpaceRigidly(Long.valueOf(uid));
+				userSpaceManager.updateRealTimeData(null,rtd);
 				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
 				ret.setMsg("成功");
-				ret.setData("data",rtd);
+				ret.setData("data",id);
 				ret.setRefresh(true);
 				return ret;
 			} else

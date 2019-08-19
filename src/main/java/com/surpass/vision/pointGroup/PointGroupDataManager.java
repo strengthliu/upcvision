@@ -20,8 +20,10 @@ import com.surpass.vision.tools.IDTools;
 public class PointGroupDataManager {
 	
 	public static Set compareRight(PointGroupData rtd, PointGroupData oldRtd, String keyaggrandizement) {
+		// 如果旧数据为空，就是增加
 		if(oldRtd == null || StringUtil.isBlank(oldRtd.getCreater()) || StringUtil.isBlank(oldRtd.getOwner())) {
 			Set<String> s1 = new HashSet<String>();
+			if(keyaggrandizement.contentEquals(GlobalConsts.KeyDecrement)) return s1;
 			try {
 				s1.add(rtd.getCreater());
 				s1.add(rtd.getOwner());
@@ -38,6 +40,27 @@ public class PointGroupDataManager {
 				e.printStackTrace();
 			}
 		}
+		// 如果新数据为空，就是删除
+		if(rtd == null || StringUtil.isBlank(rtd.getCreater()) || StringUtil.isBlank(rtd.getOwner())) {
+			Set<String> s1 = new HashSet<String>();
+			if(keyaggrandizement.contentEquals(GlobalConsts.KeyAggrandizement)) return s1;
+			try {
+				s1.add(oldRtd.getCreater());
+				s1.add(oldRtd.getOwner());
+				String [] idShare1 = IDTools.splitID(oldRtd.getShared());
+				for(int ii=0;ii<=idShare1.length;ii++)
+					try {
+						if(!s1.contains(idShare1[ii]))
+							s1.add(idShare1[ii]);
+					}catch(Exception e) {
+						
+					}
+				return s1;
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 		String idOwnerChange = "";
 		if(!rtd.getOwner().contentEquals(oldRtd.getOwner())) idOwnerChange=rtd.getOwner();
 		String [] idShare1 = IDTools.splitID(rtd.getShared());

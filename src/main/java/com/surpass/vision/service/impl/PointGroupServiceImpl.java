@@ -49,7 +49,7 @@ public class PointGroupServiceImpl implements PointGroupService {
 
 	@Async
 	@Override
-	public void deletePointGroupItem(String id) {
+	public void deletePointGroupItem(Double id) {
 		pointGroupDataMapper.deleteByPrimaryKey(Double.valueOf(id));
 		
 	}

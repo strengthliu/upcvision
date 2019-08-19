@@ -136,4 +136,10 @@ public class ToWeb {
 		hm.put(key, rtd);
 		this.setData(hm);
 	}
+
+	public void setData(String key, String id) {
+		HashMap<String, Object> hm = new HashMap<String, Object>();
+		hm.put(key, id);
+		this.setData(hm);
+	}
 }

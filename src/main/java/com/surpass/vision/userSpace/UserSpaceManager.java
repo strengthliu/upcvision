@@ -292,22 +292,26 @@ public class UserSpaceManager {
 				&& token.contentEquals(getUserSpaceRigidly(uid).getToken());
 	}
 
-	public void updateRealTimeData( RealTimeData rtd,Long oldRtdId) {
-		if(rtd == null) return;
+	public void updateRealTimeData( RealTimeData rtd,Double oldRtdId) {
 		RealTimeData oldRtd = null;
 		if(oldRtdId == null || oldRtdId==0)
 			oldRtd = new RealTimeData();
 		else 
 			oldRtd = realTimeDataManager.getRealTimeDataByKeys(oldRtdId);
+		if(rtd == null) { // 是删除
+			return;
+		}
 		updateRealTimeData(rtd,oldRtd);
 	}
 	
 	public void updateRealTimeData( RealTimeData rtd,RealTimeData oldRtd) {
+		if(rtd == null) rtd = new RealTimeData();// 第一个参数为空，就是要删除后面那个
 		// 跟这个RealTimeData对比用户，取出差别
 		// 
 		Set<String> rightChangesaggrandizement = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyAggrandizement);
 		Set<String> rightChangesdecreament = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyAggrandizement);
 		// 根据 这些用户,取的他们UserSpace，更新他们的realTimeData字段，再写回缓存。
+		// 增加新授权的用户的空间数据
 		Iterator it = rightChangesaggrandizement.iterator();
 		while (it.hasNext()) {
 			String uids = (String)it.next();
@@ -315,6 +319,16 @@ public class UserSpaceManager {
 			UserSpace us = getUserSpaceRigidly(Long.valueOf(uids));
 			Hashtable<String,RealTimeData> hrtd = us.getRealTimeData();
 			hrtd.put(rtd.getId().toString(), rtd);
+			this.setUserSpace(Long.valueOf(uids), us);
+		}
+		// 去掉删除权限的用户空间数据
+		Iterator it1 = rightChangesdecreament.iterator();
+		while (it1.hasNext()) {
+			String uids = (String)it.next();
+			// 从缓存中取出RealTimeData
+			UserSpace us = getUserSpaceRigidly(Long.valueOf(uids));
+			Hashtable<String,RealTimeData> hrtd = us.getRealTimeData();
+			hrtd.remove(rtd.getId().toString());
 			this.setUserSpace(Long.valueOf(uids), us);
 		}
 	}

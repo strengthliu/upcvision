@@ -5,6 +5,7 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.concurrent.Future;
 
+import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Reference;
 import org.springframework.stereotype.Component;
@@ -138,41 +139,45 @@ public class RealTimeDataManager extends PointGroupDataManager {
         
 		// 异步处理:
 		try {
-			// TODO:  先写缓存RealTimeData，返回
-			
+			// 先写缓存RealTimeData，返回
+			redisService.set(GlobalConsts.Key_RealTimeData_pre_+id,ret);
 			// 创建一条数据库记录
 			pointGroupService.newPointGroupData(pgd);	
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw new IllegalStateException("新建实时数据失败。");
 		}
 		
 		return ret;
 	}
 
-	public RealTimeData getRealTimeDataByKeys(Long oldRtdId) {
+	public RealTimeData getRealTimeDataByKeys(Double oldRtdId) {
 		RealTimeData rtd = (RealTimeData)redisService.get(GlobalConsts.Key_RealTimeData_pre_+oldRtdId);
 		return rtd;
 	}
 
-	public RealTimeData deleteRealTimeData(String id) {
-		RealTimeData ret ;
-
+	public RealTimeData deleteRealTimeData(String oldRtdIdStr) {
+		RealTimeData oldRtd = null;
+		if(StringUtil.isBlank(oldRtdIdStr)) return null;
+		Double oldRtdId = Double.valueOf(oldRtdIdStr);
         //pgd.setType(GlobalConsts.Type_realtimedata_);
-
-        
 		// 异步处理:
 		try {
-			// TODO:  先写缓存RealTimeData，返回
+			// 先写缓存RealTimeData，返回
+			if(oldRtdId == null || oldRtdId==0)
+				oldRtd = new RealTimeData();
+			else 
+				oldRtd = getRealTimeDataByKeys(oldRtdId);
 			
-			// 创建一条数据库记录
-			pointGroupService.deletePointGroupItem(id);	
+			// 删除一条数据库记录
+			pointGroupService.deletePointGroupItem(oldRtdId);	
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return oldRtd;
 		}
 		
-		return null;	
+		return oldRtd;	
 	}
 
 
