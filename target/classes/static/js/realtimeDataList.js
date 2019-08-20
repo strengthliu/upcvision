@@ -36,11 +36,13 @@ console.log("deleteItemAction");
 		success : function(data) {
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
 				//console.log("server info : "+JSON.stringify(data.data.data));
-				var realTimeDataId = data.data;
-				console.log("realTimeDataId="+realTimeDataId);
-				console.log("data="+JSON.stringify(data,null,2));
+				var realTimeDataId = data.data.data;
+				//console.log("data.data="+JSON.stringify(data));
+				//console.log("realTimeDataId="+realTimeDataId);
+				//console.log("data="+JSON.stringify(data,null,2));
 				//$('#newItemAction_mid').modal('hide');
 				fixLocalRealTimeDataList_Delete(realTimeDataId);
+				if(data.refresh) routeTo('realtimedataList','');
 				// 
 			} else {
 				alert("失败 ： "+data.msg);
@@ -71,8 +73,8 @@ console.log("deleteItemAction");
 	});
 
 }
-function shareItemAction() {
-
+function shareItemAction(itemId) {
+alert(itemId);
 }
 
 /**
@@ -161,15 +163,19 @@ function fixLocalRealTimeDataList_Delete(realTimeDataId){
 	}
 	if(realTimeDataId !=null && realTimeDataId !="undefined"){
 		var realTimeData = userSpace.realTimeData;
-		console.log(JSON.stringify(realTimeData));
-		//delete realTimeData[realTimeDataId];
-		_.omit(realTimeData, [realTimeDataId]);
+		console.log("realTimeDataId="+JSON.stringify(realTimeDataId));
+		console.log(JSON.stringify(realTimeData[realTimeDataId]));
+		delete realTimeData[realTimeDataId];
+		delete userSpace.realTimeData[realTimeDataId];
+		// _.omit(realTimeData, [realTimeDataId]);
+		console.log(JSON.stringify(realTimeData[realTimeDataId]));
 		userSpace.realTimeData = realTimeData;
-		console.log(JSON.stringify(userSpace.realTimeData));
+		console.log("after delete realTimeData => "+JSON.stringify(userSpace.realTimeData));
 		
 		updateRealTimeData();
 		return;
 	}
+	
 	
 }
 
@@ -205,10 +211,10 @@ if (_realtimedataListKey == null || _realtimedataListKey == "undefined")
 if (_realtimedataListKey.trim() == 'unclassify') {
 	alert(_realtimedataListKey);
 	_realtimedataListKey = "";
-	_realtimeDatas = userSpace.graphs[""];
+	_realtimeDatas = userSpace.realTimeData[""];
 } else
 	_realtimeDatas = userSpace.realTimeData;
-// console.log("graphs => "+JSON.stringify(userSpace));
+console.log("realTimeData => "+JSON.stringify(userSpace.realTimeData));
 
 // console.log("graphs = "+JSON.stringify(userSpace.graphs[""]));
 
@@ -242,7 +248,7 @@ if (_realtimeDatas != null && _realtimeDatas != "undefined")
 						realtimeDataList_ui_item_innerHTML += 'deleteItemAction(\''+_realtimeData.id+'\')">';
 						realtimeDataList_ui_item_innerHTML += '<i class="mdi mdi-delete"></i>';
 						realtimeDataList_ui_item_innerHTML += '</button>';
-						realtimeDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2"';
+						realtimeDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
 						realtimeDataList_ui_item_innerHTML += 'editItemAction(\''+_realtimeData.id+'\')">';
 						realtimeDataList_ui_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
 						realtimeDataList_ui_item_innerHTML += '</button></div>';

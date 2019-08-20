@@ -108,6 +108,7 @@
 	function updateRealTimeData() {
 		if (userSpace != null && userSpace != "undefined") {
 			console.log("userSpace is not null");
+			console.log("userSpace "+JSON.stringify(userSpace.realTimeData));
 			doUpdateRealTimeData(userSpace);
 		} else {
 			console.log("userSpace is null.");
@@ -143,12 +144,13 @@
 								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'realtimedataDetail','"+key+"');"+'">'
 										+ realtimedata.name + '</text></li>';
 								itemsHtml = itemsHtml + item;
-								// console.log(key,obj[key]);
+								//console.log(key,realtimedatas[key]);
 							}
 						});
 
 		itemsHtml = itemsHtml + "</ul>";
 		uirealtimedata.innerHTML = itemsHtml;//"<ul></ul>";
+		//console.log("debug");
 		//console.log(uirealtimedata.innerHTML);
 	}
 	

@@ -31,7 +31,7 @@ if(serverList == null || serverList=="undefined"){
 				if (data.status == GlobalConsts.ResultCode_SUCCESS) {
 					//console.log("server info : "+JSON.stringify(data.data.data));
 					serverList = data.data.data;
-					console.log(JSON.stringify(serverList));
+					//console.log(JSON.stringify(serverList));
 					buildNewItemUI(serverList);
 				} else {
 					alert("失败 ： "+data.msg);
