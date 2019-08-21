@@ -1,5 +1,6 @@
 var userSpace = null;
 var serverList = null;
+var users = null;
 
 var stompClient = null;
 //var _realtimeDataDetailKey = null;
@@ -193,7 +194,7 @@ function getUserSpace(uid,token,sucessFucn) {
 
 }
 function checkRight(uid,token) {
-      console.log("checkRight token="+token);
+      //console.log("checkRight token="+token);
       $.ajax({
         // 提交数据的类型 POST GET
         type:"POST",

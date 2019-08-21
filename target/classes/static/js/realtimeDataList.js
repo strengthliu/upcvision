@@ -9,7 +9,7 @@
 function newItemAction() {
 	// alert("realtimeDataList.newItemAction");
 	$('#newItemAction_mid').modal('show');
-
+	
 }
 function editItemAction(itemId) {
 	console.log(itemId);
@@ -73,8 +73,11 @@ console.log("deleteItemAction");
 	});
 
 }
+
 function shareItemAction(itemId) {
-alert(itemId);
+	dataItemId = itemId;
+	$('#shareItemAction_mid').modal('show');
+	
 }
 
 /**

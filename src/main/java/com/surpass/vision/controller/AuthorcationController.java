@@ -1,6 +1,7 @@
 package com.surpass.vision.controller;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,12 +19,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.common.Submit;
 import com.surpass.vision.common.ToWeb;
+import com.surpass.vision.domain.User;
 import com.surpass.vision.domain.UserInfo;
 import com.surpass.vision.domain.UserSpace;
 //import com.surpass.vision.domain.UserInfo;
 import com.surpass.vision.service.LoginService;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.tools.TokenTools;
+import com.surpass.vision.user.UserManager;
 import com.surpass.vision.userSpace.UserSpaceManager;
 import com.surpass.vision.utils.TwoString;
 
@@ -37,7 +40,10 @@ public class AuthorcationController extends BaseController {
 	@Autowired
 	UserSpaceManager userSpaceManager;
 	
-    @Autowired
+	@Autowired
+	UserManager userManager;
+
+	@Autowired
     private RedisService redisService;
 	
     @Submit
@@ -94,6 +100,35 @@ public class AuthorcationController extends BaseController {
 		return authercation(userId,token);
 	}
 
+	
+	/**
+	 * 获取用户列表，用于分享。
+	 * @param uid
+	 * @param token
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "getUserList", method = { RequestMethod.POST, RequestMethod.GET })
+	public  ToWeb getUserList(@RequestParam String uid, @RequestParam String token,  HttpServletRequest request)
+			throws Exception {
+
+		Double userId = null;
+		try {
+			userId = Double.valueOf(uid);
+			if(userId == null || userId == 0) userId = Double.valueOf(0);
+		}catch(Exception e) {
+			userId = Double.valueOf(0);
+		}
+		ToWeb ret = authercation(userId,token);
+		if(ret.getStatus()!= GlobalConsts.ResultCode_SUCCESS) return ret;
+		
+		HashMap<String,User> hus = userManager.getUserList();
+		ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+		ret.putData("users", hus);
+		return ret;
+	}
+	
 	@RequestMapping(value = "getUserSpace", method = { RequestMethod.POST, RequestMethod.GET })
 	public  ToWeb getUserSpace(@RequestParam String uid, @RequestParam String token,  HttpServletRequest request)
 			throws Exception {

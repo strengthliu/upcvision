@@ -7,6 +7,7 @@ import java.util.Map;
 import com.surpass.vision.appCfg.Config;
 import com.surpass.vision.domain.LineAlertData;
 import com.surpass.vision.domain.RealTimeData;
+import com.surpass.vision.domain.User;
 import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.server.Server;
 
@@ -142,4 +143,6 @@ public class ToWeb {
 		hm.put(key, id);
 		this.setData(hm);
 	}
+
+
 }

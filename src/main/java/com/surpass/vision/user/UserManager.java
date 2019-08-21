@@ -1,5 +1,7 @@
 package com.surpass.vision.user;
 
+import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,8 +56,11 @@ public class UserManager {
 	// 初始化用户信息到缓存
 	public void init() {
 		List<UserInfo> users = userService.getAllUsers();
-		for(int i=0;i<users.size();i++)
+		for(int i=0;i<users.size();i++) {
 			redisService.set(GlobalConsts.Key_UserInfo_Pre+IDTools.toString(users.get(i).getId()), users.get(i));
+		}
+		redisService.set(GlobalConsts.Key_UserInfo_Pre+"all", users);
+
 	}
 
 	public boolean hasRight(Integer role, String operation) {
@@ -68,6 +73,23 @@ public class UserManager {
 			return true;
 		}
 		return false;
+	}
+
+	public HashMap<String,User> getUserList() {
+		HashMap<String,User> ret = new HashMap<String,User>();
+		List<UserInfo> users = (List<UserInfo>)redisService.get(GlobalConsts.Key_UserInfo_Pre+"all");
+		if(users == null || users.size()==0) {
+			init();
+			return getUserList();
+		}
+		for(int i=0;i<users.size();i++) {
+			User u = new User();
+			UserInfo ui = users.get(i);
+			u.setId(ui.getId());
+			u.setName(ui.getName());
+			ret.put(IDTools.toString(u.getId()), u);
+		}
+		return ret;
 	}
 
 }

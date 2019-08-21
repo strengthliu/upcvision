@@ -1,6 +1,7 @@
 package com.surpass.vision.tools;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 import org.jsoup.helper.StringUtil;
@@ -15,10 +16,12 @@ public class IDTools {
 //		String [] r = IDTools.splitID("!aa,b|b");
 //		for(int i=0;i<r.length;i++)
 //			System.out.println(r[i]);
-//		
+//		getUserList
 		Double d = 15660299628049.0;
 		System.out.println("默认输出:" + d);
 		System.out.println("格式输出:" + toString(d));
+		
+		System.out.println("格式输出:" + toString(Double.valueOf(2)));
 
 	}
 	
@@ -70,15 +73,21 @@ public class IDTools {
 	}
 
 	public static String toString(Double doubleId) {
-		return BigDecimal.valueOf(doubleId).toString();
+		DecimalFormat df1 = new DecimalFormat("0");
+		String ret = df1.format(doubleId);
+		return ret;
 	}
 
 	public static String toString(Long id) {
-		return BigDecimal.valueOf(id).toString();
+		DecimalFormat df1 = new DecimalFormat("0");
+		String ret = df1.format(id);
+		return ret;
 	}
 
 	public static String toString(Integer uid) {
-		return BigDecimal.valueOf(uid).toString();
+		DecimalFormat df1 = new DecimalFormat("0");
+		String ret = df1.format(uid);
+		return ret;
 	}
 
 	public static String toString(String userId) {
