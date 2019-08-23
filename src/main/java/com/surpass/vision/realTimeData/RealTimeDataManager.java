@@ -119,7 +119,7 @@ public class RealTimeDataManager extends PointGroupDataManager {
 
 
 	public RealTimeData createRealTimeData(String typeRealtimedata, String name, String owner, String creater,
-			JSONArray points, String otherrule2) {
+			JSONArray points, String otherrule2, String id2) {
 		RealTimeData ret ;
 		PointGroupData pgd = new PointGroupData();
 		pgd.setCreater(creater);
@@ -133,15 +133,19 @@ public class RealTimeDataManager extends PointGroupDataManager {
         if(pointsString.endsWith(GlobalConsts.Key_splitChar)) 
         	pointsString = pointsString.substring(0,pointsString.length()-GlobalConsts.Key_splitChar.length());
         pgd.setPoints(pointsString);
-        Double id = IDTools.newID();
-        pgd.setId(id);
+        Double _id ;
+        if(StringUtil.isBlank(id2))
+        	_id = IDTools.newID();
+        else
+        	_id = Double.valueOf(id2);
+        pgd.setId(_id);
         pgd.setType(GlobalConsts.Type_realtimedata_);
         ret = copyFromPointGroupData(pgd);
         
 		// 异步处理:
 		try {
 			// 先写缓存RealTimeData，返回
-			redisService.set(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(id),ret);
+			redisService.set(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(_id),ret);
 			// 创建一条数据库记录
 			pointGroupService.newPointGroupData(pgd);	
 		} catch (Exception e) {
@@ -179,6 +183,28 @@ public class RealTimeDataManager extends PointGroupDataManager {
 		}
 		
 		return oldRtd;	
+	}
+
+	public RealTimeData updateShareRight(Double itemId, List<String> userIdsid) {
+		// TODO Auto-generated method stub
+		PointGroupData pgd = pointGroupService.getRealTimeDataByID(itemId);
+		if(pgd == null) {
+			throw new IllegalStateException("没有id为"+itemId+"这个数据");
+		}
+		String sharedUserIDs = "";
+		if(userIdsid != null) {
+			sharedUserIDs = IDTools.merge(userIdsid.toArray());
+		}
+		pgd.setShared(sharedUserIDs);
+		// 更新数据库
+		pointGroupService.updatePointGroupItem(pgd);
+		
+		// 更新缓存
+		RealTimeData rtd = this.copyFromPointGroupData(pgd);
+		// 写缓存RealTimeData，返回
+		redisService.set(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(rtd.getId()),rtd);
+
+		return rtd;
 	}
 
 

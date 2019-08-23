@@ -43,7 +43,12 @@ public class PointGroupServiceImpl implements PointGroupService {
 	@Async("taskExecutor")
 	@Override
 	public Object newPointGroupData(PointGroupData pgd) {
-		pointGroupDataMapper.insert(pgd);
+		//如果有就更新，
+		PointGroupData _pgd = pointGroupDataMapper.selectByPrimaryKey(pgd.getId());
+		if(_pgd==null)
+			pointGroupDataMapper.insert(pgd);
+		else
+			pointGroupDataMapper.updateByPrimaryKey(pgd);
 		return null;
 	}
 
@@ -52,6 +57,19 @@ public class PointGroupServiceImpl implements PointGroupService {
 	public void deletePointGroupItem(Double id) {
 		pointGroupDataMapper.deleteByPrimaryKey(Double.valueOf(id));
 		
+	}
+
+
+	@Override
+	public PointGroupData getRealTimeDataByID(Double itemId) {
+		
+		return pointGroupDataMapper.selectByPrimaryKey(Double.valueOf(itemId));
+	}
+
+	@Async("taskExecutor")
+	@Override
+	public void updatePointGroupItem(PointGroupData pgd) {
+		pointGroupDataMapper.updateByPrimaryKeySelective(pgd);
 	}
 
 }

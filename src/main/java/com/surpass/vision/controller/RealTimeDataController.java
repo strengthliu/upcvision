@@ -1,5 +1,6 @@
 package com.surpass.vision.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
@@ -139,11 +140,13 @@ public class RealTimeDataController extends BaseController {
 		String creater = owner;
 		JSONArray points = user.getJSONArray("points");
 		String otherrule2 = user.getString("desc");
+		String id=user.getString("id");
+
 		
 		// TODO: 检查参数合法性
 
 		try {
-			RealTimeData rtd = realTimeDataManager.createRealTimeData(GlobalConsts.Type_realtimedata_, name, owner, creater,points,otherrule2);
+			RealTimeData rtd = realTimeDataManager.createRealTimeData(GlobalConsts.Type_realtimedata_, name, owner, creater,points,otherrule2,id);
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
@@ -209,6 +212,53 @@ public class RealTimeDataController extends BaseController {
 			return ret;
 		}
 	}
+	
+	@RequestMapping(value = "shareRightRealTimeData", method = { RequestMethod.POST, RequestMethod.GET })
+	public ToWeb shareRight(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
+		Double uid = user.getDouble("uid");
+		String token = user.getString("token");
+		// 认证+权限
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateRealTimeData);
+		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+			return ret;
+
+		// 取出参数
+		// var data={'uid':uid,'token':token,'userIds':Array.from(selectedUsers),'type':"realTimeData"};
+		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
+		JSONArray juserIds = user.getJSONArray("userIds");
+		String type = user.getString("type");
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			
+		}else {
+			id = Double.valueOf(idstr);
+		}
+			
+		List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
+		// TODO: 检查参数合法性
+
+		try {
+			RealTimeData rtd = realTimeDataManager.updateShareRight(id,userIds);
+			if (rtd != null) {
+				// 更新用户空间
+				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
+				userSpaceManager.updateRealTimeData(rtd,Double.valueOf(0));
+				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+				ret.setMsg("成功");
+				ret.setData("data",rtd);
+				ret.setRefresh(true);
+				return ret;
+			} else
+				throw new Exception();
+		} catch (Exception e) {
+			e.printStackTrace();
+			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
+			ret.setMsg("异常失败");
+			return ret;
+		}
+	}
+
 //
 //    @MessageMapping("/hello/{index}")
 //    @SendTo("/topic/greetings/{index}")

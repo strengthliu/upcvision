@@ -20,4 +20,8 @@ public interface PointGroupService {
 
 	public void deletePointGroupItem(Double id);
 
+	public PointGroupData getRealTimeDataByID(Double itemId);
+
+	public void updatePointGroupItem(PointGroupData pgd);
+
 }

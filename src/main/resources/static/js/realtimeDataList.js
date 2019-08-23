@@ -11,9 +11,14 @@ function newItemAction() {
 	$('#newItemAction_mid').modal('show');
 	
 }
+var itemID;
+var actionType = "realTimeData";
 function editItemAction(itemId) {
 	console.log(itemId);
-alert(itemId);
+// alert(itemId);
+	itemID = itemId;
+$('#newItemAction_mid').modal('show');
+editItem();
 }
 function deleteItemAction(itemId) {
 console.log("deleteItemAction");
@@ -35,12 +40,12 @@ console.log("deleteItemAction");
 		// 成功返回之后调用的函数
 		success : function(data) {
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
-				//console.log("server info : "+JSON.stringify(data.data.data));
+				// console.log("server info : "+JSON.stringify(data.data.data));
 				var realTimeDataId = data.data.data;
-				//console.log("data.data="+JSON.stringify(data));
-				//console.log("realTimeDataId="+realTimeDataId);
-				//console.log("data="+JSON.stringify(data,null,2));
-				//$('#newItemAction_mid').modal('hide');
+				// console.log("data.data="+JSON.stringify(data));
+				// console.log("realTimeDataId="+realTimeDataId);
+				// console.log("data="+JSON.stringify(data,null,2));
+				// $('#newItemAction_mid').modal('hide');
 				fixLocalRealTimeDataList_Delete(realTimeDataId);
 				if(data.refresh) routeTo('realtimedataList','');
 				// 
@@ -48,13 +53,13 @@ console.log("deleteItemAction");
 				alert("失败 ： "+data.msg);
 			}
 			hideLoading();
-			//alert("本地存储："+localStorage.user);
-			//window.location.href = "index.html";
+			// alert("本地存储："+localStorage.user);
+			// window.location.href = "index.html";
 		},
 		// 调用执行后调用的函数
 		complete : function(XMLHttpRequest, textStatus) {
-			//alert(XMLHttpRequest.responseText);
-			//alert(textStatus);
+			// alert(XMLHttpRequest.responseText);
+			// alert(textStatus);
 			hideLoading();
 		
 		},
@@ -74,14 +79,17 @@ console.log("deleteItemAction");
 
 }
 
+var dataItemId;
 function shareItemAction(itemId) {
 	dataItemId = itemId;
+	shareType = "realTimeData";
 	$('#shareItemAction_mid').modal('show');
-	
+	loadUsers();
 }
 
 /**
  * 添加一个实时数据
+ * 
  * @param selectedPoints
  * @param targetName
  * @param targetDesc
@@ -100,7 +108,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		i__++;
 		}
 
-	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc.value};
+	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc.value,'id':itemID};
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -118,7 +126,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		// 成功返回之后调用的函数
 		success : function(data) {
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
-				//console.log("server info : "+JSON.stringify(data.data.data));
+				// console.log("server info : "+JSON.stringify(data.data.data));
 				var realTimeData = data.data.data;
 				$('#newItemAction_mid').modal('hide');
 				fixLocalRealTimeDataList(realTimeData);
@@ -127,13 +135,13 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 				alert("失败 ： "+data.msg);
 			}
 			hideLoading();
-			//alert("本地存储："+localStorage.user);
-			//window.location.href = "index.html";
+			// alert("本地存储："+localStorage.user);
+			// window.location.href = "index.html";
 		},
 		// 调用执行后调用的函数
 		complete : function(XMLHttpRequest, textStatus) {
-			//alert(XMLHttpRequest.responseText);
-			//alert(textStatus);
+			// alert(XMLHttpRequest.responseText);
+			// alert(textStatus);
 			hideLoading();
 		
 		},
@@ -156,6 +164,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 
 /**
  * 修改左侧实时数据列表,删除一个数据
+ * 
  * @param realTimeData
  * @returns
  */
@@ -184,11 +193,12 @@ function fixLocalRealTimeDataList_Delete(realTimeDataId){
 
 /**
  * 修改左侧实时数据列表,增加一个新数据
+ * 
  * @param realTimeData
  * @returns
  */
 function fixLocalRealTimeDataList(realTimeData){
-	//$('#newItemAction_mid').modal('hide');
+	// $('#newItemAction_mid').modal('hide');
 	cancel();
 	
 	if(userSpace==null || userSpace=="undefined"){
@@ -197,7 +207,7 @@ function fixLocalRealTimeDataList(realTimeData){
 	}
 	if(realTimeData.owner !=null && realTimeData.owner !="undefined"){
 		userSpace.realTimeData[realTimeData.id]=realTimeData;
-		//realTimeDataList = realTimeDataList.realTimeData;
+		// realTimeDataList = realTimeDataList.realTimeData;
 		
 		updateRealTimeData();
 		return;

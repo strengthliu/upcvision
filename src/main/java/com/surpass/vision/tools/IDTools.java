@@ -61,10 +61,10 @@ public class IDTools {
 		return str.split(sc);
 	}
 
-	public static String merge(String[] aggrandizement) {
+	public static String merge(Object[] aggrandizement) {
 		String ret = "";
 		for(int i=0;i<aggrandizement.length;i++) {
-			ret += aggrandizement[i];
+			ret += aggrandizement[i].toString();
 			ret += GlobalConsts.Key_splitChar;
 		}
 		if(ret.endsWith(GlobalConsts.Key_splitChar))

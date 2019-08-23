@@ -1,16 +1,16 @@
 /**
  * 
  */
-//alert("newDataItem");
+// alert("newDataItem");
 var selectedPoints = new Set();
 var targetName = "";
 
 
 if(serverList == null || serverList=="undefined"){
-	//alert("newDataItem1");
+	// alert("newDataItem1");
 
 	// 去取服务器数据
-//console.log("进入");
+// console.log("进入");
 	var data={'uid':uid,'token':token};
 		$.ajax({
 			// 提交数据的类型 POST GET
@@ -21,7 +21,8 @@ if(serverList == null || serverList=="undefined"){
 			data : JSON.stringify(data),
 			contentType : "application/json",
 			// 返回数据的格式
-			datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
+			datatype : "json",// "xml", "html", "script", "json", "jsonp",
+								// "text".
 			// 在请求之前调用的函数
 			beforeSend : function() {
 				$("#msg").html("logining");
@@ -29,21 +30,22 @@ if(serverList == null || serverList=="undefined"){
 			// 成功返回之后调用的函数
 			success : function(data) {
 				if (data.status == GlobalConsts.ResultCode_SUCCESS) {
-					//console.log("server info : "+JSON.stringify(data.data.data));
+					// console.log("server info :
+					// "+JSON.stringify(data.data.data));
 					serverList = data.data.data;
-					//console.log(JSON.stringify(serverList));
+					// console.log(JSON.stringify(serverList));
 					buildNewItemUI(serverList);
 				} else {
 					alert("失败 ： "+data.msg);
 				}
 				
-				//alert("本地存储："+localStorage.user);
-				//window.location.href = "index.html";
+				// alert("本地存储："+localStorage.user);
+				// window.location.href = "index.html";
 			},
 			// 调用执行后调用的函数
 			complete : function(XMLHttpRequest, textStatus) {
-				//alert(XMLHttpRequest.responseText);
-				//alert(textStatus);
+				// alert(XMLHttpRequest.responseText);
+				// alert(textStatus);
 				// HideLoading();
 			},
 			// 调用出错执行的函数
@@ -59,32 +61,36 @@ if(serverList == null || serverList=="undefined"){
 			}
 		});
 } else {
-	//alert("newDataItem2");
+	// alert("newDataItem2");
 	buildNewItemUI(serverList);
 }
 
 
 function buildNewItemUI(serverInfos) {
+	console.log("buildNewItemUI");
 	// 清空服务器选择列表
 	$("#newItem_ServerSelectSect").html("");
 	$("#newItem_ServerSelectSect").empty();
 	// 添加服务器选择项
 	Object.keys(serverInfos).forEach(function(key){
-		$("#newItem_ServerSelectSect").append("<option value='"+key+"'>"+key+"</option>");  //为Select追加一个Option(下拉项)  
+		$("#newItem_ServerSelectSect").append("<option value='"+key+"'>"+key+"</option>");  // 为Select追加一个Option(下拉项)
 	});
 	// 添加默认位号组
 	var defaultServer = serverInfos[$("#newItem_ServerSelectSect").val()];
-	//console.log(JSON.stringify(defaultServer));
+	// console.log(JSON.stringify(defaultServer));
 	var deviceInfos = defaultServer.devices;
 	Object.keys(deviceInfos).forEach(function(keyDevice){
-		//$("#newItem_DeviceSelectSect").append("<option value='"+deviceInfos[keyDevice].id+"'>"+deviceInfos[keyDevice].deviceNote+"</option>");  //为Select追加一个Option(下拉项)  
-		$("#newItem_DeviceSelectSect").append("<option value='"+deviceInfos[keyDevice].id+"'>"+deviceInfos[keyDevice].deviceName+"</option>");  //为Select追加一个Option(下拉项)  
+		// $("#newItem_DeviceSelectSect").append("<option
+		// value='"+deviceInfos[keyDevice].id+"'>"+deviceInfos[keyDevice].deviceNote+"</option>");
+		// //为Select追加一个Option(下拉项)
+		$("#newItem_DeviceSelectSect").append("<option value='"+deviceInfos[keyDevice].id+"'>"+deviceInfos[keyDevice].deviceName+"</option>");  // 为Select追加一个Option(下拉项)
 	});
+
 
 	// 添加默认左侧点位选择列表
 	var defaultDevice = serverInfos[$("#newItem_ServerSelectSect").val()].devices[$("#newItem_DeviceSelectSect").val()-1];
 	var defaultPoints = defaultDevice.points;
-	//console.log(JSON.stringify(defaultDevice));
+	// console.log(JSON.stringify(defaultDevice));
 	var pointLeftBox = document.getElementById("newItem_pointlistleft");
 	pointLeftBox.innerHTML="";
 	var pointLeftBoxInnerHtml = "";
@@ -107,12 +113,14 @@ function buildNewItemUI(serverInfos) {
 
 		var deviceInfos = serverInfos[$("#newItem_ServerSelectSect").val()];
 		Object.keys(deviceInfos).forEach(function(keyDevice){
-			$("#newItem_DeviceSelectSect").append("<option value='Value'>"+keyDevice+"</option>");  //为Select追加一个Option(下拉项)  
+			$("#newItem_DeviceSelectSect").append("<option value='Value'>"+keyDevice+"</option>");  // 为Select追加一个Option(下拉项)
 		});
 		var deviceInfos = defaultServer.devices;
 		Object.keys(deviceInfos).forEach(function(keyDevice){
-			//$("#newItem_DeviceSelectSect").append("<option value='"+deviceInfos[keyDevice].id+"'>"+deviceInfos[keyDevice].deviceNote+"</option>");  //为Select追加一个Option(下拉项)  
-			$("#newItem_DeviceSelectSect").append("<option value='"+deviceInfos[keyDevice].id+"'>"+deviceInfos[keyDevice].deviceName+"</option>");  //为Select追加一个Option(下拉项)  
+			// $("#newItem_DeviceSelectSect").append("<option
+			// value='"+deviceInfos[keyDevice].id+"'>"+deviceInfos[keyDevice].deviceNote+"</option>");
+			// //为Select追加一个Option(下拉项)
+			$("#newItem_DeviceSelectSect").append("<option value='"+deviceInfos[keyDevice].id+"'>"+deviceInfos[keyDevice].deviceName+"</option>");  // 为Select追加一个Option(下拉项)
 		});
 		
 	});
@@ -153,7 +161,7 @@ function filterNewItem_pointlistleft(){
 	
 	var defaultDevice = serverList[$("#newItem_ServerSelectSect").val()].devices[$("#newItem_DeviceSelectSect").val()-1];
 	var _Points = defaultDevice.points;
-	//console.log(JSON.stringify(_Points));
+	// console.log(JSON.stringify(_Points));
 	var filterPoints = new Array();
 	// 过滤
 	if(!(filterTagDesc == "" && filterTagName == "")) 
@@ -165,7 +173,8 @@ function filterNewItem_pointlistleft(){
 			var _tagName = _point.tagName.toLowerCase();
 			var _desc = _point.desc.toLowerCase();
 			if((filterTagName!="" && _tagName.search(filterTagName) != -1) || (filterTagDesc!="" && _desc.search(filterTagDesc) != -1)) {
-				// console.log("tagName="+_tagName +"  =? "+filterTagName+" = "+ _tagName.search(filterTagName));
+				// console.log("tagName="+_tagName +" =? "+filterTagName+" = "+
+				// _tagName.search(filterTagName));
 				filterPoints[filterPointsInd]=_point;
 				filterPointsInd ++;
 			}
@@ -201,14 +210,16 @@ function filterNewItem_pointlistleft(){
 	}
 }
 
-function newDataItem_leftboxitemcheck(elemId) {
+function newDataItem_leftboxitemcheck(elemId,editAction) {
+	if(editAction==null || editAction=="undefined")
+		editAction = false;
 	// alert("check "+ elemId);
 	var newItem_pointlistleft = document.getElementById("newItem_pointlistleft");
 	var newItem_pointlistright = document.getElementById("newItem_pointlistright");
-	
+	console.log("elemId="+elemId);
 	// 找出目标
 	var targetCheck = document.getElementById("check"+elemId);
-	if(targetCheck.checked == true){
+	if(targetCheck.checked == true || editAction){
 		targetCheck.checked = true;
 		var targetDiv = document.getElementById("div"+elemId);
 		// 左侧删除
@@ -227,3 +238,35 @@ function newDataItem_leftboxitemcheck(elemId) {
 
 	}
 }
+	function editItem(){
+	var item;
+	// 编辑
+	console.log("data =>"+actionType+"  "+itemID);
+	if(actionType!=null && actionType!="undefined" && itemID!=null && itemID!="undefined"){
+		switch(actionType){
+			case "realTimeData":
+				item = userSpace.realTimeData[itemID];
+				break;
+			case "alertData":
+				break;
+		}
+		console.log("data =>"+JSON.stringify(item));
+		if(item!=null && item!="undefined"){
+			targetName = item.name;
+			var psel = document.getElementById("targetName");
+			psel.value = targetName;
+			var pseld = document.getElementById("targetDesc");
+			targetDesc = item.desc;
+			pseld.value = targetDesc;
+			
+			Object.keys(item.pointList).forEach(function(key){
+				var id__= item.pointList[key].tagName;
+				console.log(id__);
+				selectedPoints.add(id__);
+				newDataItem_leftboxitemcheck(id__,true);
+			});
+			
+		}
+	}
+	}
+
