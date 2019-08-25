@@ -36,7 +36,9 @@ public class ServerManager {
 
 	public String name = "s1";
 	
+	List<Double> pointID;
 	public static void main(String[] args) {
+		
 		// TODO Auto-generated method stub
 		ServerManager.getInstance().updateServerInfo();
 //		System.out.println(System.getProperty(File.encoding));
@@ -201,6 +203,8 @@ public class ServerManager {
 	}
 
 	public Point getPointByID(String pointKey) {
+		//gec.g
+		//gec.DBECBatchGetTagRealField(lpszServerName, pnIDArray, lpszFieldName)
 		return (Point)redisService.get(GlobalConsts.Key_Point_pre+pointKey);
 	}
 

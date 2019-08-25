@@ -248,9 +248,12 @@ if (_realtimeDatas != null && _realtimeDatas != "undefined")
 						realtimeDataList_ui_item_innerHTML += 'onclick="routeTo('
 							+ "'"
 							+ "realtimedataDetail','"
-							+ _realtimeData.id + "'" + ');"/>';
+							+ _realtimeData.id + "'" + ')"/>';
 
-						realtimeDataList_ui_item_innerHTML += '<figcaption><h4>'
+						realtimeDataList_ui_item_innerHTML += '<figcaption onclick="routeTo('
+							+ "'"
+							+ "realtimedataDetail','"
+							+ _realtimeData.id + "'" + ')"><h4>'
 								+ _realtimeData.name
 								+ '</h4><p>'
 								+ _realtimeData.path + '</p></figcaption>';
@@ -267,11 +270,11 @@ if (_realtimeDatas != null && _realtimeDatas != "undefined")
 						realtimeDataList_ui_item_innerHTML += '</button></div>';
 
 						realtimeDataList_ui_item_innerHTML += '</figure></div>';
-
 						// console.log(diagram_gallery_item_innerHTML);
 						realtimeDataList_ui_innerHTML = realtimeDataList_ui_innerHTML
 								+ realtimeDataList_ui_item_innerHTML;
 					});
 realtimeDataList_ui.innerHTML = realtimeDataList_ui_innerHTML;
+console.log(realtimeDataList_ui_innerHTML);
 
 // console.log(" in _gallery.html userSpace="+JSON.stringify(userSpace));

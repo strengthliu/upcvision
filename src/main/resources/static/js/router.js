@@ -27,6 +27,7 @@
     	    $("#mainPanel").load("_realtimedataList.html");
     		break;
     	case "realtimedataDetail":
+    		console.log("realtimedataDetail");
     		_realtimeDataDetailKey = key;
     	    $("#mainPanel").load("_realtimeDataChart.html");
     		break;

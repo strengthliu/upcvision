@@ -81,6 +81,10 @@ public class GlobalConsts {
 	
 	public static final String KeyAggrandizement = "KeyAggrandizement"; // 增加
 	public static final String KeyDecrement = "KeyDecrement"; // 减少
+	
+	
+	public static final String AJAX_REQUEST_HEADER = "XMLHttpRequest";     //Ajax请求的Header
+	public static final String SESSION_USER = "SESSION_USER";
 
 
 
