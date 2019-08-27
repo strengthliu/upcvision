@@ -22,10 +22,15 @@ public class AuthHandshakeInterceptor implements HandshakeInterceptor {
 
     @Override
     public boolean beforeHandshake(ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse, WebSocketHandler webSocketHandler, Map<String, Object> map) throws Exception {
-    	System.out.println("beforeHandshake log point 1");
+    	// 身份验证
+    	
+    	// 加入连接池
+    	
+    	
+    	// System.out.println("beforeHandshake log point 1");
     	HttpSession session = SpringContextUtils.getSession();
         User loginUser = null;//(User) session.getAttribute(Constants.SESSION_USER);
-
+        /** 先完成整体，再做验证。
         if(loginUser != null){
             logger.debug(MessageFormat.format("用户{0}请求建立WebSocket连接", loginUser.getName()));
             return true;
@@ -33,7 +38,8 @@ public class AuthHandshakeInterceptor implements HandshakeInterceptor {
             logger.error("未登录系统，禁止连接WebSocket");
             return false;
         }
-
+         */
+        return true;
     }
 
     @Override

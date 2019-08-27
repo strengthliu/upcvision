@@ -1,5 +1,6 @@
 package com.surpass.vision.server;
 
+import java.lang.reflect.Array;
 import java.nio.charset.Charset;
 import java.util.Hashtable;
 import java.util.List;
@@ -207,12 +208,23 @@ public class ServerManager {
 		//gec.DBECBatchGetTagRealField(lpszServerName, pnIDArray, lpszFieldName)
 		return (Point)redisService.get(GlobalConsts.Key_Point_pre+pointKey);
 	}
-
+	private static boolean inited = false;
+	public static boolean inited() {
+		return inited;
+	}
 	/**
 	 * 初始化服务器、点位等信息到缓存。
 	 */
 	public static void init() {
 		ServerManager.getInstance().updateServerInfo();
+		inited = true;
+		
+	}
+
+	public List getPointValue(List<Long> idList) {
+		// TODO Auto-generated method stub
+		return gec.DBECBatchGetTagRealField("", idList, "");
+
 	}
 
 }

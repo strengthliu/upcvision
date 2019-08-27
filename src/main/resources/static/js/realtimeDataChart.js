@@ -130,44 +130,6 @@ function setConnected(connected) {
 //	$("#greetings").html("");
 }
 
-
-
-function connect2(){
-        if ('WebSocket' in window){
-            //ws = new WebSocket("ws://www.niezhiliang.com:8086/socketServer/niezhiliang9595");
-            ws = new WebSocket("ws://127.0.0.1:8888/socketServer/admin");
-        }
-        else if ('MozWebSocket' in window){
-            //ws = new MozWebSocket("ws://www.niezhiliang.com:8086/socketServer/niezhiliang9595");
-            ws = new MozWebSocket("ws://127.0.0.1:8888/socketServer/admin");
-        }
-        else{
-            alert("该浏览器不支持websocket");
-        }
-        ws.onmessage = function(evt) {
-            var content = $("#content").html();
-            $("#content").html(content+'<div style="text-align: right;margin-bottom: 8px">\n' +
-                '                        <p><q style="color: mediumorchid;text-align: right">'+evt.data+ '</span></p>\n' +
-                '                    </div>\n' +
-                '                    <br/>');
-            console.log(msg)
-        };
-
-        ws.onclose = function(evt) {
-           console.log('连接关闭')
-        };
-
-        ws.onopen = function(evt) {
-            var content = $("#content").html();
-            $("#content").html(content+'<div style="margin-bottom: 8px">\n' +
-                '                        <p><q style="color: #eb7350">'+'服务器初始化成功...'+ '</span></p>\n' +
-                '                    </div>\n' +
-                '                    <br/>');
-           console.log('连接成功')
-        };
-}
-
-
  loginWebsocket();
 function loginWebsocket() {
 //	console.log("debug 1");
@@ -192,12 +154,15 @@ function connect() {
 		setConnected(true);
 		console.log("websocket connected.");
 		// console.log('Connected: ' + frame);
+        //连接成功后，主动拉取未读消息
+        pullUnreadMessage("/topic/reply");
 		// 接收消息设置
-		stompClient.subscribe('/topic/greeting/' + user.id, function(greeting) {
+		stompClient.subscribe('/topic/greeting/' + _realtimeDataDetailKey, function(greeting) {
 			alert("websocket connected 3.");
 			// 收到消息后处理
 			showGreeting(JSON.parse(greeting.body).content);
 		});
+
 		// 接收消息设置。该方法是接收广播消息。
         stompClient.subscribe('/topic/greeting/11', function(greeting){
             showGreeting(JSON.parse(greeting.body).content);
@@ -216,6 +181,30 @@ function connect() {
 		//alert("websocket connected 2.");
 
 	});
+}
+//从服务器拉取未读消息
+function pullUnreadMessage(destination) {
+    $.ajax({
+        url: "/wsTemplate/pullUnreadMessage",
+        type: "POST",
+        dataType: "json",
+        async: true,
+        data: {
+            "destination": destination
+        },
+        success: function (data) {
+            if (data.result != null) {
+                $.each(data.result, function (i, item) {
+                    log(JSON.parse(item).content);
+                })
+            } else if (data.code !=null && data.code == "500") {
+                layer.msg(data.msg, {
+                    offset: 'auto'
+                    ,icon: 2
+                });
+            }
+        }
+    });
 }
 
 

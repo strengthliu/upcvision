@@ -38,33 +38,15 @@ public class WebSocketController {
     @Autowired
     private SimpUserRegistry userRegistry;
     
-    /**
-     *
-     * 客户端页面
-     * @return
-     */
-    @RequestMapping(value = "/index")
-    public String idnex() {
-
-        return "index";
-    }
-
-
 //    /**
 //     *
-//     * 服务端页面
-//     * @param model
+//     * 客户端页面
 //     * @return
 //     */
-//    @RequestMapping(value = "/admin")
-//    public String admin(Model model) {
-//    	System.out.println("WebSocketController.admin");
-//        int num = socketServer.getOnlineNum();
-//        List<String> list = socketServer.getOnlineUsers();
+//    @RequestMapping(value = "/index")
+//    public String idnex() {
 //
-//        model.addAttribute("num",num);
-//        model.addAttribute("users",list);
-//        return "admin";
+//        return "index";
 //    }
 
     /**

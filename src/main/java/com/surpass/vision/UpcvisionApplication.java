@@ -62,6 +62,18 @@ public class UpcvisionApplication {
             executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
             return executor;
         }
+        
+        @Bean("postMessageExecutor")
+        public Executor postMessageExecutor() {
+            ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+            executor.setCorePoolSize(10);
+            executor.setMaxPoolSize(20);
+            executor.setQueueCapacity(200);
+            executor.setKeepAliveSeconds(60);
+            executor.setThreadNamePrefix("taskExecutor-");
+            executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+            return executor;
+        }
     }
 //    @Override  
 //    public void customize(ConfigurableEmbeddedServletContainer container) {
