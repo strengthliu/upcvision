@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.surpass.vision.tools.FileTool;
@@ -24,6 +25,8 @@ public class UpdateGraphDirctory {
 	public void sayHello(){
 		LOGGER.info("Hello world, i'm the king of the world!!!");
 	}
+	
+//	@Scheduled(cron="*/1 * * * * ?")
 	public void updateGraphDirctory() {
 		LOGGER.info("在定时计划中，开始更新图形目录数据..  UpdateGraphDirctory in "+graphPath);
 		try {

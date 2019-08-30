@@ -1,5 +1,6 @@
 package com.surpass.vision.controller;
 
+import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Headers;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.Greeting;
 import com.surpass.vision.server.SocketServer;
 
@@ -49,30 +51,30 @@ public class WebSocketController {
 //        return "index";
 //    }
 
-    /**
-     * 个人信息推送
-     * @return
-     */
-    @RequestMapping("sendmsg")
-    @ResponseBody
-    public String sendmsg(String msg, String username){
-        //第一个参数 :msg 发送的信息内容
-        //第二个参数为用户长连接传的用户人数
-        String [] persons = username.split(",");
-        SocketServer.SendMany(msg,persons);
-        return "success";
-    }
+//    /**
+//     * 个人信息推送
+//     * @return
+//     */
+//    @RequestMapping("sendmsg")
+//    @ResponseBody
+//    public String sendmsg(String msg, String username){
+//        //第一个参数 :msg 发送的信息内容
+//        //第二个参数为用户长连接传的用户人数
+//        String [] persons = username.split(",");
+//        SocketServer.SendMany(msg,persons);
+//        return "success";
+//    }
 
-    /**
-     * 推送给所有在线用户
-     * @return
-     */
-    @RequestMapping("sendAll")
-    @ResponseBody
-    public String sendAll(String msg){
-        SocketServer.sendAll(msg);
-        return "success";
-    }
+//    /**
+//     * 推送给所有在线用户
+//     * @return
+//     */
+//    @RequestMapping("sendAll")
+//    @ResponseBody
+//    public String sendAll(String msg){
+//        SocketServer.sendAll(msg);
+//        return "success";
+//    }
     
     @Autowired
     private SimpMessageSendingOperations simpMessageSendingOperations;
@@ -83,12 +85,39 @@ public class WebSocketController {
      * @param headers
      */
     @MessageMapping("/aaa") //"/hello"为WebSocketConfig类中registerStompEndpoints()方法配置的
-    @SendTo("/topic/greetings")
-    public void greeting(@Header("atytopic") String topic, @Headers Map<String, Object> headers) {
+    @SendTo("/topic/realTimeData")
+    public void greeting(@Header("atytopic") String topic,@Header("id") String id,@Header("type") String type, @Headers Map<String, Object> headers) {
         System.out.println("connected successfully....");
         System.out.println(topic);
         System.out.println(headers);
-        this.messagingTemplate.convertAndSend("/topic/greeting/11", new Greeting("Hello," + topic + "!"));
+        // 添加一条主题
+        if(StringUtil.isBlank(type)) type = GlobalConsts.Key_RealTimeData_pre_;
+        switch(type) {
+        case "realtimeData":
+        	type = GlobalConsts.Key_RealTimeData_pre_;
+        	break;
+        case "alertData":
+        	type = GlobalConsts.key_AlertData_pre;
+        	break;
+        }
+        String topicRequest = "/topic/"+type+"/"+id;
+        socketServer.addRequest(type,topicRequest,Double.valueOf(id));
+        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
+        try {
+			Thread.sleep(500);
+	        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
+			Thread.sleep(500);
+	        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
+			Thread.sleep(500);
+	        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
+        this.messagingTemplate.convertAndSend("/topic/greeting/11", new Greeting("Hello1," + topic + "!"));
+        
     }
  
     /**

@@ -8,6 +8,7 @@ public class Point implements Serializable {
 	String tagName;
 	String desc;
 	String deviceName;
+	String serverName;
 	long tagType;
 	
 	public Long getId() {
@@ -52,7 +53,7 @@ public class Point implements Serializable {
 	public void setServerName(String serverName) {
 		this.serverName = serverName;
 	}
-	String serverName;
+
 	Hashtable<String,Float> values;
 	
 }

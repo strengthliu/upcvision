@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 
 import com.surpass.vision.domain.PointGroupData;
 
-public class GlobalConsts {
+public final class GlobalConsts {
 	
 	/**
 	 * WebSocket的定义
@@ -37,6 +37,7 @@ public class GlobalConsts {
     public final static String Key_Graph_pre_ = "Key_Graph_pre_"; // 图形key前缀
 	public static final String Key_HistoryData_pre_ = "Key_HistoryData_pre_"; // 历史数据组key前缀
 	public static final String Key_RealTimeData_pre_ = "Key_RealTimeData_pre_";
+	public static final String key_AlertData_pre = "key_AlertData_pre";
 	
 	public static final String Key_Point_pre = "Key_Point_pre";
 	public static final String Key_Device_pre_ = "Key_Device_pre_";
@@ -47,6 +48,12 @@ public class GlobalConsts {
      * 很多ID拼接成字符串时，分隔字符
      */
     public final static String Key_splitChar = ",";
+	/**
+	 * 服务器和tagName连接的符号
+	 * ---------------------------------------
+	 * @author 刘强 2019年8月29日 上午9:18:36 
+	 */
+	public static final String Key_splitCharServerPoint = ".";
 
     /**
      * PointGroupData表中，type的值的类型，没有写枚举。

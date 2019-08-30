@@ -11,11 +11,17 @@ import org.springframework.stereotype.Component;
 
 import com.surpass.vision.domain.Client;
 import com.surpass.vision.domain.Greeting;
+import com.surpass.vision.domain.PointGroup;
+import com.surpass.vision.domain.PointGroupData;
+import com.surpass.vision.pointGroup.PointGroupDataManager;
 
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -37,7 +43,7 @@ import java.util.stream.Collectors;
  * ---------------------------------------
  */
 @Component
-public class SocketServer  implements ApplicationListener<DataUpdateEvent> {
+public class SocketServer {
 //
 	private static final Logger logger = LoggerFactory.getLogger(SocketServer.class);
 	
@@ -51,6 +57,11 @@ public class SocketServer  implements ApplicationListener<DataUpdateEvent> {
     @Autowired
     private SimpMessageSendingOperations simpMessageSendingOperations;
 
+    @Autowired
+    PointGroupDataManager pointGroupDataManager;
+    
+    @Autowired
+    PointList pointList;
     /**
 	 *
 	 * 用线程安全的CopyOnWriteArraySet来存放客户端连接的信息
@@ -65,7 +76,11 @@ public class SocketServer  implements ApplicationListener<DataUpdateEvent> {
 	 * ---------------------------------------
 	 * @author 刘强 2019年8月25日 下午6:31:42 
 	 */
-	Hashtable<Double,PointsData> topics = new Hashtable<Double,PointsData>();
+	static Hashtable<Double,String> topics = new Hashtable<Double,String>();
+	static Hashtable<Double,AtomicInteger> used = new Hashtable<Double,AtomicInteger>();
+	static Hashtable<Double,String> types = new Hashtable<Double,String>();
+	static Hashtable<Double,DataViewer> dvs = new Hashtable<Double,DataViewer>();
+	
 	
 	// 解决ABA问题
 	AtomicStampedReference<PointsData> reference = new AtomicStampedReference<PointsData>(new PointsData(),1);
@@ -73,44 +88,85 @@ public class SocketServer  implements ApplicationListener<DataUpdateEvent> {
 	 * 增加一个新订阅
 	 * @param topic
 	 */
-	public synchronized void addRequest(String topic) {
-		
+	public synchronized void addRequest(String type,String topic,Double id) {
+		if(topics.containsKey(id)) {
+			AtomicInteger ai = used.get(id);
+			ai.getAndIncrement();
+		}else {
+			topics.put(id, topic);
+			AtomicInteger ai = new AtomicInteger(0);
+			ai.getAndIncrement();
+			used.put(id, ai);
+			types.put(id,type);
+			DataViewer dv = pointGroupDataManager.buildDataViewer(id,type);
+			dv = pointList.addPoints(dv);
+			dvs.put(id, dv);
+		}
 	}
 	
 	/**
 	 * 减少一个订阅
 	 * @param topic
 	 */
-	public synchronized void disconnect(String topic) {
+	public synchronized void disconnect(String topic,Double id) {
+		if(topics.containsKey(id)) {
+			AtomicInteger ai = used.get(id);
+			int a = ai.getAndDecrement();
+			if(a==1) {
+				topics.remove(id);
+				used.remove(id);
+				types.remove(id);
+				dvs.remove(id);
+			}
+		}else {
+			
+		}
 		
 	}
 	
 	@Async("postMessageExecutor")
-	public void sendMessage(String topic,String message) {
-
-        messagingTemplate.convertAndSend(topic, new Greeting(message));
-
+	public void sendMessage(String topic,HashMap message) {
+        messagingTemplate.convertAndSend(topic, message);
 	}
 
 
-	/**
-	 * 收到数据更新完成消息，向客户端推送消息。
-	 */
-	@Override
-	public void onApplicationEvent(DataUpdateEvent event) {
-		// TODO Auto-generated method stub
-		System.out.println(">>>>>>>>>DemoListener>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        System.out.println("收到了：" + event.getSource() + "消息;时间：" + event.getTimestamp());
-        System.out.println("消息：" + event.getId() + ":" + event.getMessage());
-
-	}
-	
-
-	public static void sendAllMessage() {
+	public void sendAllMessage() {
 		// TODO Auto-generated method stub
 		// 循环topics，取数，群发消息。
+		//遍历key
+		Enumeration e = topics.keys();
+
+		while( e. hasMoreElements() ){
+			Double k = (Double) e.nextElement();
+			String topic = topics.get(k);
+			String type = types.get(k);
+			// 根据ID取数据
+
+			DataViewer dv = dvs.get(k);
+			if(dv!=null) {
+			// 发送数据
+			// tagname : value
+				if(dv.queryById)
+					sendMessage(topic,dv.valuesByID());
+				else
+					sendMessage(topic,dv.valuesByTagName());
+			}
+		}
 	}
 }
+
+//	/**
+//	 * 收到数据更新完成消息，向客户端推送消息。
+//	 */
+//	@Override
+//	public void onApplicationEvent(DataUpdateEvent event) {
+//		// TODO Auto-generated method stub
+//		System.out.println(">>>>>>>>>DemoListener>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+//        System.out.println("收到了：" + event.getSource() + "消息;时间：" + event.getTimestamp());
+//        System.out.println("消息：" + event.getId() + ":" + event.getMessage());
+//
+//	}
+//	
 
 ///**
 //*

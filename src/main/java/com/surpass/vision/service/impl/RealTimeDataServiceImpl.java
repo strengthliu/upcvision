@@ -20,6 +20,7 @@ import com.surpass.vision.historyData.HistoryDataManager;
 import com.surpass.vision.lineAlertData.LineAlertDataManager;
 import com.surpass.vision.mapper.PointGroupDataMapper;
 import com.surpass.vision.mapper.UserSpaceDataMapper;
+import com.surpass.vision.pointGroup.PointGroupDataManager;
 import com.surpass.vision.realTimeData.RealTimeDataManager;
 import com.surpass.vision.server.Point;
 import com.surpass.vision.server.ServerManager;
@@ -125,7 +126,9 @@ public RealTimeData generateRealTimeDataFromPointGroupData(PointGroupData pgd) {
 	ArrayList<Point> pal = new ArrayList<>();
 	String[] pids = IDTools.splitID(pgd.getPoints());
 	for (int ipids = 0; ipids < pids.length; ipids++) {
-		Point p = ServerManager.getInstance().getPointByID(pids[ipids]);
+		String serverName = PointGroupDataManager.splitPointName(pids[ipids]);
+		String pName = PointGroupDataManager.splitPointName(pids[ipids]);
+		Point p = ServerManager.getInstance().getPointByID(serverName,pName);
 		pal.add(p);
 	}
 	realTimeData.setPointList(pal);

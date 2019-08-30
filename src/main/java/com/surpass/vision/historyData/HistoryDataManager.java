@@ -19,6 +19,7 @@ import com.surpass.vision.graph.GraphManager;
 import com.surpass.vision.lineAlertData.LineAlertDataManager;
 import com.surpass.vision.mapper.PointGroupDataMapper;
 import com.surpass.vision.mapper.UserSpaceDataMapper;
+import com.surpass.vision.pointGroup.PointGroupDataManager;
 import com.surpass.vision.realTimeData.RealTimeDataManager;
 import com.surpass.vision.server.Point;
 import com.surpass.vision.server.ServerManager;
@@ -29,7 +30,7 @@ import com.surpass.vision.user.UserManager;
 import com.surpass.vision.userSpace.UserSpaceManager;
 
 @Component
-public class HistoryDataManager {
+public class HistoryDataManager extends PointGroupDataManager {
 
 	@Reference
 	@Autowired
@@ -69,7 +70,9 @@ public class HistoryDataManager {
 			ArrayList<Point> pal = new ArrayList<>();
 			String[] pids = IDTools.splitID(pgd.getPoints());
 			for (int ipids = 0; ipids < pids.length; ipids++) {
-				Point p = ServerManager.getInstance().getPointByID(pids[ipids]);
+				String serverName = splitPointName(pids[ipids]);
+				String pName = splitPointName(pids[ipids]);
+				Point p = ServerManager.getInstance().getPointByID(serverName,pName);
 				pal.add(p);
 			}
 			historyData.setPointList(pal);

@@ -14,7 +14,7 @@ function newItemAction() {
 var itemID;
 var actionType = "realTimeData";
 function editItemAction(itemId) {
-	console.log(itemId);
+	//console.log(itemId);
 // alert(itemId);
 	itemID = itemId;
 $('#newItemAction_mid').modal('show');
@@ -99,7 +99,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 	if(serverList == null || serverList=="undefined"){
 		
 	}
-	console.log("2: "+JSON.stringify(selectedPoints));
+	// console.log("2: "+JSON.stringify(selectedPoints));
 	// console.log(JSON.stringify(userSpace));
 	var selectPointArray = new Array();
 	var i__ = 0;
@@ -175,14 +175,14 @@ function fixLocalRealTimeDataList_Delete(realTimeDataId){
 	}
 	if(realTimeDataId !=null && realTimeDataId !="undefined"){
 		var realTimeData = userSpace.realTimeData;
-		console.log("realTimeDataId="+JSON.stringify(realTimeDataId));
-		console.log(JSON.stringify(realTimeData[realTimeDataId]));
+		//console.log("realTimeDataId="+JSON.stringify(realTimeDataId));
+		//console.log(JSON.stringify(realTimeData[realTimeDataId]));
 		delete realTimeData[realTimeDataId];
 		delete userSpace.realTimeData[realTimeDataId];
 		// _.omit(realTimeData, [realTimeDataId]);
-		console.log(JSON.stringify(realTimeData[realTimeDataId]));
+		//console.log(JSON.stringify(realTimeData[realTimeDataId]));
 		userSpace.realTimeData = realTimeData;
-		console.log("after delete realTimeData => "+JSON.stringify(userSpace.realTimeData));
+		//console.log("after delete realTimeData => "+JSON.stringify(userSpace.realTimeData));
 		
 		updateRealTimeData();
 		return;
@@ -227,7 +227,7 @@ if (_realtimedataListKey.trim() == 'unclassify') {
 	_realtimeDatas = userSpace.realTimeData[""];
 } else
 	_realtimeDatas = userSpace.realTimeData;
-console.log("realTimeData => "+JSON.stringify(userSpace.realTimeData));
+//console.log("realTimeData => "+JSON.stringify(userSpace.realTimeData));
 
 // console.log("graphs = "+JSON.stringify(userSpace.graphs[""]));
 
@@ -275,6 +275,6 @@ if (_realtimeDatas != null && _realtimeDatas != "undefined")
 								+ realtimeDataList_ui_item_innerHTML;
 					});
 realtimeDataList_ui.innerHTML = realtimeDataList_ui_innerHTML;
-console.log(realtimeDataList_ui_innerHTML);
+//console.log(realtimeDataList_ui_innerHTML);
 
 // console.log(" in _gallery.html userSpace="+JSON.stringify(userSpace));

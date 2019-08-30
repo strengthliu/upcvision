@@ -24,6 +24,8 @@ public class MyChannelInterceptor implements ChannelInterceptor{
 
         //用户已经断开连接
         if(StompCommand.DISCONNECT.equals(command)){
+        	// 从订阅中去掉一个
+        	
             String user = "";
             Principal principal = accessor.getUser();
             if(principal != null && StringUtils.isEmpty(principal.getName())){

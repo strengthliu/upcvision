@@ -4,6 +4,7 @@
 // alert("newDataItem");
 var selectedPoints = new Set();
 var targetName = "";
+var serverName = "";
 
 
 if(serverList == null || serverList=="undefined"){
@@ -67,7 +68,7 @@ if(serverList == null || serverList=="undefined"){
 
 
 function buildNewItemUI(serverInfos) {
-	console.log("buildNewItemUI");
+	// console.log("buildNewItemUI");
 	// 清空服务器选择列表
 	$("#newItem_ServerSelectSect").html("");
 	$("#newItem_ServerSelectSect").empty();
@@ -106,11 +107,16 @@ function buildNewItemUI(serverInfos) {
 	var pointLeftBox = document.getElementById("newItem_pointlistright");
 	pointLeftBox.innerHTML="";
 	
+	serverName = $("#newItem_ServerSelectSect").val();
+	// console.log(" 1  => "+$("#newItem_ServerSelectSect").val()+" | "+$("#newItem_ServerSelectSect").text);
 	// 添加选择了服务器事件
 	$("#newItem_ServerSelectSect").change(function(){
 		$("#newItem_DeviceSelectSect").html("");
 		$("#newItem_DeviceSelectSect").empty();
-
+		
+		serverName = $("#newItem_ServerSelectSect").val();
+		// console.log($("#newItem_ServerSelectSect").val()+" | "+$("#newItem_ServerSelectSect").text);
+		
 		var deviceInfos = serverInfos[$("#newItem_ServerSelectSect").val()];
 		Object.keys(deviceInfos).forEach(function(keyDevice){
 			$("#newItem_DeviceSelectSect").append("<option value='Value'>"+keyDevice+"</option>");  // 为Select追加一个Option(下拉项)
@@ -226,7 +232,7 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 		newItem_pointlistleft.removeChild(targetDiv);
 		// 右侧添加
 		newItem_pointlistright.appendChild(targetDiv);
-		selectedPoints.add(elemId);
+		selectedPoints.add(serverName+"."+elemId);
 	}else {
 		targetCheck.checked = false;
 		var targetDiv = document.getElementById("div"+elemId);
@@ -234,7 +240,7 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 		newItem_pointlistright.removeChild(targetDiv);
 		// 右侧添加
 		newItem_pointlistleft.appendChild(targetDiv);
-		selectedPoints.delete(elemId);
+		selectedPoints.delete(serverName+"."+elemId);
 
 	}
 }
@@ -262,7 +268,7 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 			Object.keys(item.pointList).forEach(function(key){
 				var id__= item.pointList[key].tagName;
 				console.log(id__);
-				selectedPoints.add(id__);
+				selectedPoints.add(serverName+"."+id__);
 				newDataItem_leftboxitemcheck(id__,true);
 			});
 			

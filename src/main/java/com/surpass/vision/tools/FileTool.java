@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.FileList;
 import com.surpass.vision.graph.GraphManager;
+import com.surpass.vision.pointGroup.PointGroupDataManager;
 import com.surpass.vision.schedule.UpdateGraphDirctory;
 import com.surpass.vision.server.ServerManager;
 import com.surpass.vision.service.RedisService;
@@ -172,7 +173,9 @@ public class FileTool {
 						Element e = docs.get(idocs);
 						String tag = e.attr(GlobalConsts.PointID);
 						if (!StringUtil.isBlank(tag)) {
-							if(sm.getPointByID(tag)!=null) {
+							String serverName = PointGroupDataManager.splitServerName(tag);
+							String tagName = PointGroupDataManager.splitPointName(tag);
+							if(sm.getPointByID(serverName,tagName)!=null) {
 								pointIDs.add(tag);
 								// LOGGER.info("检查点位："+tag+" => "+sm.getPointByID(tag));
 							}

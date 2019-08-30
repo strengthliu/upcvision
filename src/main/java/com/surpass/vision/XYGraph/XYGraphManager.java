@@ -13,6 +13,7 @@ import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.User;
 import com.surpass.vision.domain.XYGraph;
 import com.surpass.vision.mapper.PointGroupDataMapper;
+import com.surpass.vision.pointGroup.PointGroupDataManager;
 import com.surpass.vision.server.Point;
 import com.surpass.vision.server.ServerManager;
 import com.surpass.vision.service.PointGroupService;
@@ -20,7 +21,7 @@ import com.surpass.vision.service.RedisService;
 import com.surpass.vision.tools.IDTools;
 import com.surpass.vision.user.UserManager;
 @Component
-public class XYGraphManager {
+public class XYGraphManager extends PointGroupDataManager {
 	@Reference
 	@Autowired
 	RedisService redisService;
@@ -77,8 +78,10 @@ public class XYGraphManager {
 			xYGraph.setPoints(pgd.getPoints());
 			ArrayList<Point> pal = new ArrayList<>();
 			String [] pids = IDTools.splitID(pgd.getPoints());
-			for(int ipids=0;ipids<pids.length;ipids++) {
-				Point p = ServerManager.getInstance().getPointByID(pids[ipids]);
+			for (int ipids = 0; ipids < pids.length; ipids++) {
+				String serverName = splitPointName(pids[ipids]);
+				String pName = splitPointName(pids[ipids]);
+				Point p = ServerManager.getInstance().getPointByID(serverName,pName);
 				pal.add(p);
 			}
 			xYGraph.setPointList(pal);

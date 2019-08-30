@@ -222,6 +222,7 @@ function init(){
 	targetName = "";
 	targetDesc = "";
 	
+	
 	// 重置步骤数
 	stepCount = 2;
 	currentStep = 1;
@@ -243,6 +244,8 @@ function init(){
 	// 重置左侧框
 		// 添加默认左侧点位选择列表
 	var defaultDevice = serverList[$("#newItem_ServerSelectSect").val()].devices[$("#newItem_DeviceSelectSect").val()-1];
+	serverName = $("#newItem_ServerSelectSect").val();
+	//console.log(" 2  => "+$("#newItem_ServerSelectSect").val()+" | "+$("#newItem_ServerSelectSect").text);
 	var defaultPoints = defaultDevice.points;
 	//console.log(JSON.stringify(defaultDevice));
 	var pointLeftBox = document.getElementById("newItem_pointlistleft");

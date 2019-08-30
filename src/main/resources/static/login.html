@@ -26,8 +26,27 @@
 <script src="js/stomp.min.js"></script>
 <script src="js/domain.js"></script>
 <script src="js/app.js"></script>
+<script type="text/javascript">
+	/* 用户登录验证 */
+	if (localStorage.user != null && localStorage.user != 'undefined') {
 
-<script>
+		user = JSON.parse(localStorage.user);
+		token = localStorage.token;
+		//alert("token="+token+"  uid="+user.id);
+		uname = user.name;
+		uid = user.id;
+		checkRight(uid, token,"login.html","index.html");
+		/*
+		getUserSpace(uid, token, function() {
+			location.href = "index.html";
+		});
+		*/
+		//if(userSpace == null || userSpace == "undefined"){
+		//	userSpace = getUserSpace(uid,token);
+		//}
+		// alert("user: "+JSON.stringify(userSpace));
+	} 
+
 
 	function login(){
 	      var uname = document.getElementById("exampleInputEmail1").value;

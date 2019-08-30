@@ -11,6 +11,7 @@ import org.springframework.data.annotation.Reference;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import com.surpass.vision.appCfg.GlobalConsts;
@@ -60,7 +61,9 @@ public class RealTimeDataManager extends PointGroupDataManager {
 		ArrayList<Point> pal = new ArrayList<>();
 		String[] pids = IDTools.splitID(pgd.getPoints());
 		for (int ipids = 0; ipids < pids.length; ipids++) {
-			Point p = ServerManager.getInstance().getPointByID(pids[ipids]);
+			String serverName = splitServerName(pids[ipids]);
+			String pName = splitPointName(pids[ipids]);
+			Point p = ServerManager.getInstance().getPointByID(serverName,pName);
 			pal.add(p);
 		}
 		realTimeData.setPointList(pal);
@@ -127,7 +130,12 @@ public class RealTimeDataManager extends PointGroupDataManager {
 		pgd.setName(name);
 		pgd.setOtherrule2(otherrule2);
         String pointsString = "";
-        for(Object jstr:points){
+        for(int i = 0;i<points.size();i++) {
+        	
+        	String jstr = points.getString(i);
+//        	int _i = jstr.indexOf()
+//        	String serverName = jstr.getString("serverName");
+//        	String tagName = jstr.getString("tagName");
         	pointsString = pointsString+jstr+GlobalConsts.Key_splitChar;
             }
         if(pointsString.endsWith(GlobalConsts.Key_splitChar)) 

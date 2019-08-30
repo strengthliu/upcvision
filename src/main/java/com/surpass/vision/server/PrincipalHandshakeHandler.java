@@ -26,7 +26,9 @@ public class PrincipalHandshakeHandler  extends DefaultHandshakeHandler{
         System.out.println("determineUser");
     	HttpSession session = SpringContextUtils.getSession();
         User loginUser = (User) session.getAttribute(GlobalConsts.SESSION_USER);
-
+        
+        // 先不做用户处理。
+        if(true) return new MyPrincipal("");
         if(loginUser != null){
             logger.debug(MessageFormat.format("WebSocket连接开始创建Principal，用户：{0}", loginUser.getName()));
             return new MyPrincipal(loginUser.getName());

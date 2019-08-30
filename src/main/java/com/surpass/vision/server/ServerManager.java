@@ -20,26 +20,28 @@ import com.surpass.vision.tools.IDTools;
 @Component
 public class ServerManager {
 
-	static Hashtable<String,Server> servers = new Hashtable<String,Server>();
+	public static Server defaultServer;
+	static Hashtable<String, Server> servers = new Hashtable<String, Server>();
 
 	public static Hashtable<String, Server> getServers() {
 		return servers;
 	}
 
-	//@Value("${gc.library}")
+	// @Value("${gc.library}")
 	private String gcLibrary = "geC.dll";
 
 	private JGecService gec;
-	
+
 	@Reference
 	@Autowired
 	RedisService redisService;
 
 	public String name = "s1";
-	
+
 	List<Double> pointID;
+
 	public static void main(String[] args) {
-		
+
 		// TODO Auto-generated method stub
 		ServerManager.getInstance().updateServerInfo();
 //		System.out.println(System.getProperty(File.encoding));
@@ -49,20 +51,23 @@ public class ServerManager {
 		ServerManager s2 = new ServerManager();
 		s2.instance.name = "bbb";
 		System.out.println(ServerManager.getInstance().name);
-		
+
 	}
+
 	private static ServerManager instance;
+
 	public static ServerManager getInstance() {
-		if(instance == null) instance = new ServerManager();
+		if (instance == null)
+			instance = new ServerManager();
 		return instance;
 	}
-	
+
 	public ServerManager() {
 		super();
 		try {
 			// System.out.println("gcLibrary = "+gcLibrary);
 			gec = gec();
-			if(instance == null)
+			if (instance == null)
 				instance = this;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -107,90 +112,95 @@ public class ServerManager {
 //
 //实型字段域值
 
-
 	private void updateServerInfo() {
 		List<String> servs;
 		try {
 			//
 			servs = gec.DBECEnumServerName();
-			servers = new Hashtable<String,Server>();
+			servers = new Hashtable<String, Server>();
 			// 取服务器信息
 			for (int iserver = 0; iserver < servs.size(); iserver++) {
 				Server server = new Server();
 				String serverName = servs.get(iserver);
 				server.setServerName(serverName);
+				defaultServer = server;
 				// 取装置信息
-				
-				List<String> devices ;
-				try{
+
+				List<String> devices;
+				try {
 					devices = gec.DBECEnumDeviceName(serverName);
-				}catch(Exception e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 					throw new IllegalStateException("实时数据库服务运行错误，请查看是否已经正常启动。");
 				}
-				
+
 				for (int idevice = 0; idevice < devices.size(); idevice++) {
 					String deviceName = devices.get(idevice);
 					Device device = new Device();
 					device.setDeviceName(deviceName);
 					Long deviceId = gec.DBECGetDeviceID(serverName, deviceName);
 					device.setId(deviceId);
-					String deviceNote = gec.DBECGetDeviceNote(serverName, deviceName, deviceId, GlobalConsts.DeviceNoteLength);
+					String deviceNote = gec.DBECGetDeviceNote(serverName, deviceName, deviceId,
+							GlobalConsts.DeviceNoteLength);
 					deviceNote = deviceNote.trim();
-					// System.out.println("Encoding: "+EncodingTools.getEncoding(deviceNote)+"  "+Charset.defaultCharset());
+					// System.out.println("Encoding: "+EncodingTools.getEncoding(deviceNote)+"
+					// "+Charset.defaultCharset());
 					byte[] b;
 					try {
 						b = deviceNote.getBytes("GB2312");
 //						b = deviceNote.getBytes();
 						deviceNote = new String(b, Charset.defaultCharset());
 						// System.out.println(deviceNote);
-						//b = deviceNote.getBytes(Charset.defaultCharset());
+						// b = deviceNote.getBytes(Charset.defaultCharset());
 //						deviceNote = new String(b, Charset.defaultCharset());//解码:用什么字符集编码就用什么字符集解码
 //						deviceNote = new String(b, "utf-8");//解码:用什么字符集编码就用什么字符集解码
 //						System.out.println(deviceNote);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}//编码  
-					
+					} // 编码
+
 					device.setDeviceNote(deviceNote);
 					// 取点位信息
 					List<Long> pointIds = gec.DBECEnumTagIDOfDeviceByDeviceName(serverName, deviceName);
-					for(int ipoint=0;ipoint<pointIds.size();ipoint++) {
+					for (int ipoint = 0; ipoint < pointIds.size(); ipoint++) {
 						Point point = new Point();
 						Long pointId = pointIds.get(ipoint);
 						//
-						String tagName = gec.DBECGetTagName(serverName,pointId);
+						String tagName = gec.DBECGetTagName(serverName, pointId);
 //						gec.DBECGetDeviceNote(lpszServerName, lpszDeviceName, nDeviceID, nBufLen)
 						String desc = "";
 						try {
 							desc = gec.DBECGetTagStringField(serverName, deviceName, pointId, "");
-						}catch(Exception e) {
+						} catch (Exception e) {
 							// e.printStackTrace();
 						}
-						if(StringUtil.isBlank(desc)) desc = "未知描述";
+						if (StringUtil.isBlank(desc))
+							desc = "未知描述";
 						tagName = tagName.trim();
-						//二次
+						// 二次
 						point.setDeviceName(deviceName);
 						point.setId(pointId);
 						point.setServerName(serverName);
 						point.setTagName(tagName);
 						point.setDesc(desc);
-						// System.out.println(serverName+" - "+deviceName+" - "+deviceNote+" - "+tagName+" - "+pointId+" - "+point.id);
-						// 
+						// System.out.println(serverName+" - "+deviceName+" - "+deviceNote+" -
+						// "+tagName+" - "+pointId+" - "+point.id);
+						//
 						device.addPoint(point);
 						server.addPoint(point);
 //						System.out.println(GlobalConsts.Key_Point_pre);
 //						System.out.println(point.id.toString());
 						// 使用tag做key
-						redisService.set(GlobalConsts.Key_Point_pre + point.tagName.toString(), point);
+						redisService.set(GlobalConsts.Key_Point_pre + serverName + GlobalConsts.Key_splitCharServerPoint
+								+ point.tagName.toString(), point);
 					}
 					server.addDevice(device);
-					redisService.set(GlobalConsts.Key_Device_pre_+IDTools.toString(device.id), device);
+					redisService.set(GlobalConsts.Key_Device_pre_ + IDTools.toString(device.id), device);
 				}
-				servers.put(server.getServerName(),server);
-				redisService.set(GlobalConsts.Key_Server_pre_+server.serverName, server);
-				
+				servers.put(server.getServerName(), server);
+				redisService.set(GlobalConsts.Key_Server_pre_ + server.serverName, server);
+
 			}
 		} catch (GecException e) {
 			// TODO Auto-generated catch block
@@ -203,28 +213,50 @@ public class ServerManager {
 		return new JGecService(gcLibrary);
 	}
 
-	public Point getPointByID(String pointKey) {
-		//gec.g
-		//gec.DBECBatchGetTagRealField(lpszServerName, pnIDArray, lpszFieldName)
-		return (Point)redisService.get(GlobalConsts.Key_Point_pre+pointKey);
+	public Point getPointByID(String serverName, String pointKey) {
+		if (StringUtil.isBlank(serverName))
+			serverName = defaultServer.getServerName();
+		// gec.g
+		// gec.DBECBatchGetTagRealField(lpszServerName, pnIDArray, lpszFieldName)
+		return (Point) redisService
+				.get(GlobalConsts.Key_Point_pre + serverName + GlobalConsts.Key_splitCharServerPoint + pointKey);
 	}
+
 	private static boolean inited = false;
+
 	public static boolean inited() {
 		return inited;
 	}
+
 	/**
 	 * 初始化服务器、点位等信息到缓存。
 	 */
 	public static void init() {
 		ServerManager.getInstance().updateServerInfo();
 		inited = true;
-		
+
 	}
 
-	public List getPointValue(List<Long> idList) {
+	public List getPointValue(String srvName, List<Long> idList, String fieldName) {
 		// TODO Auto-generated method stub
-		return gec.DBECBatchGetTagRealField("", idList, "");
+		if (StringUtil.isBlank(fieldName))
+			fieldName = "FN_RTVALUE";
 
+		try {
+			return gec.DBECBatchGetTagRealField(srvName, idList, fieldName);
+		} catch (GecException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+
+	public static boolean hasServerName(String serverName) {
+		if (servers.containsKey(serverName))
+			return true;
+		else
+			return false;
 	}
 
 }

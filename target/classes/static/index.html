@@ -45,7 +45,7 @@
 		//alert("token="+token+"  uid="+user.id);
 		uname = user.name;
 		uid = user.id;
-		checkRight(uid, token);
+		checkRight(uid, token, "index.html",null);
 		getUserSpace(uid, token, function() {
 		});
 		//if(userSpace == null || userSpace == "undefined"){
@@ -498,7 +498,7 @@
 			function hideLoading() {
 				var currentTime = Date.now();
 				var difference = currentTime - loadStartTime;
-				console.log(difference);
+				//console.log(difference);
 				if (difference < 500)
 					loadStartTime = 0;
 				else {

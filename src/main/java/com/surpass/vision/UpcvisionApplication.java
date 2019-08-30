@@ -16,6 +16,7 @@ import org.springframework.context.annotation.ImportResource;
 //import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 //import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 @EnableAutoConfiguration
@@ -40,6 +41,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 @MapperScan(basePackages={"com.surpass.vision.mapper"})
 @EnableAsync
+@EnableScheduling
 @SpringBootApplication
 public class UpcvisionApplication {
 
@@ -70,10 +72,23 @@ public class UpcvisionApplication {
             executor.setMaxPoolSize(20);
             executor.setQueueCapacity(200);
             executor.setKeepAliveSeconds(60);
-            executor.setThreadNamePrefix("taskExecutor-");
+            executor.setThreadNamePrefix("postMessageExecutor-");
             executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
             return executor;
         }
+        
+        @Bean("pointListUpdateExecutor")
+        public Executor pointListUpdateExecutor() {
+            ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+            executor.setCorePoolSize(10);
+            executor.setMaxPoolSize(20);
+            executor.setQueueCapacity(200);
+            executor.setKeepAliveSeconds(60);
+            executor.setThreadNamePrefix("pointListUpdateExecutor-");
+            executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+            return executor;
+        }
+
     }
 //    @Override  
 //    public void customize(ConfigurableEmbeddedServletContainer container) {
