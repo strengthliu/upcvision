@@ -23,8 +23,8 @@ public class DataViewer {
 
 	ServerPoint[] sps;
 	// Long[] ids;
-	Long[] datas;
-	// String[] tagNames;
+	Long[] ids;
+	String[] tagNames;
 
 //	Integer []cacheInd;
 	Ind[] ind;
@@ -80,11 +80,12 @@ public class DataViewer {
 //	public void setTagNames(String[] tagNames) {
 //		this.tagNames = tagNames;
 //	}
-	public HashMap<String, Long> valuesByTagName() {
-		HashMap<String, Long> ret = new HashMap<String, Long>();
-		if (datas != null)
-			for (int i = 0, j = 0; i < sps.length; i++, j++) {
-				ret.put(sps[i].tagNames[i], datas[j]);
+	public HashMap<String, Double> valuesByTagName() {
+		HashMap<String, Double> ret = new HashMap<String, Double>();
+		if (ind != null)
+			for (int i = 0; i < ind.length; i++) {
+				System.out.println("build data by tagName: "+tagNames[i]+" = "+ind[i].getValue());
+				ret.put(tagNames[i], ind[i].getValue());
 			}
 		else {
 //			System.out.println("DataViewer.values datas为空。");
@@ -92,14 +93,15 @@ public class DataViewer {
 		return ret;
 	}
 
-	public HashMap<Long, Long> valuesByID() {
-		HashMap<Long, Long> ret = new HashMap<Long, Long>();
-		if (datas != null)
-			for (int i = 0, j = 0; i < sps.length; i++, j++) {
-				ret.put(sps[i].ids[i], datas[j]);
+	public HashMap<Long, Double> valuesByID() {
+		HashMap<Long, Double> ret = new HashMap<Long, Double>();
+		if (ind != null)
+			for (int i = 0; i < ind.length; i++) {
+				System.out.println("build data by id: "+ids[i]+" = "+ind[i].getValue());
+				ret.put(ids[i], ind[i].getValue());
 			}
 		else {
-//			System.out.println("DataViewer.values datas为空。");
+			System.out.println("DataViewer.values datas为空。");
 		}
 		return ret;
 	}

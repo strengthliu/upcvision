@@ -34,7 +34,7 @@ class _Data {
 	 * 
 	 * @author 刘强 2019年8月26日 下午4:29:26
 	 */
-	volatile Long[] values = new Long[maxCapacity];
+	volatile Double[] values = new Double[maxCapacity];
 
 	/**
 	 * 当前各点位被使用的数字，如果为0，则可以删除。 删除时执行lazy模式。 ---------------------------------------
@@ -83,29 +83,29 @@ class _Data {
 
 	
 	// 获取Unsafe对象，Unsafe的作用是提供CAS操作
-	private static final Unsafe unsafe = Unsafe.getUnsafe();
-	private static long valueOffset;
-	static {
-		try {
-			valueOffset = unsafe.objectFieldOffset(_Data.class.getDeclaredField("values"));
-		} catch (Exception ex) {
-			throw new Error(ex);
-		}
-	}
+//	private static final Unsafe unsafe = Unsafe.getUnsafe();
+//	private static long valueOffset;
+//	static {
+//		try {
+//			valueOffset = unsafe.objectFieldOffset(_Data.class.getDeclaredField("values"));
+//		} catch (Exception ex) {
+//			throw new Error(ex);
+//		}
+//	}
 
 	@SuppressWarnings({ "restriction" })
-	public void updateValue(int i, Long value) {
+	public void updateValue(int i, Double value) {
 		// TODO: 用UnSafe拷贝内存，替换赋值方法。需要测试一下，性能上是不是有较大提升。
-//		this.values[i] = value;
+		this.values[i] = value;
 
-		Field f = null;
-		try {
-			f = _Data.class.getDeclaredField("values");
-		} catch (NoSuchFieldException | SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        unsafe.putInt(value, unsafe.objectFieldOffset(f), i*64);
+//		Field f = null;
+//		try {
+//			f = _Data.class.getDeclaredField("values");
+//		} catch (NoSuchFieldException | SecurityException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//        unsafe.putInt(value, unsafe.objectFieldOffset(f), i*64);
         
 //    	long addressOfObject=getAddressOfObject(unsafe, b);
 //    	unsafe.copyMemory(b, 16, null, addressOfObject, N); 

@@ -9,7 +9,7 @@ var socket = null;
 socket = new SockJS('/socketServer');
 // alert("websocket connected 1.");
 var stompClient = Stomp.over(socket);
-var subscribe;
+var subscribe = null;
 var connected = false;
 
 function loginByUserPassWord(uname, pwd) {
@@ -183,3 +183,17 @@ function checkRight(uid, token, loginPage,sucessPage) {
 	// alert(JSON.stringify(localStorage.user));
 	// document.getElementById("name").value = localStorage.weixinname;
 }
+
+
+function disconnect() {
+	if (stompClient !== null) {
+		if(subscribe!=null && subscribe!="undefined")
+			subscribe.unsubscribe();
+		stompClient.disconnect();
+	}
+	setConnected(false);
+
+	console.log("Disconnected");
+}
+
+

@@ -56,7 +56,7 @@ public class PointList {
 		int ind;
 		_Data d;
 
-		public Long getValue() {
+		public Double getValue() {
 			return d.values[ind];
 		}
 	}
@@ -120,6 +120,8 @@ public class PointList {
 		}
 		// int[] ind = new int[_ind_c];
 		Ind[] iind = new Ind[_ind_c];// 数据点引用
+		Long[] idind = new Long[_ind_c];// 数据点引用
+		String[] tagnameind = new String[_ind_c];
 		// 一个个ServerPoint遍历
 		for (int inddv = 0; inddv < dvs.sps.length; inddv++) {
 			ServerPoint dv = dvs.sps[inddv];
@@ -178,6 +180,8 @@ public class PointList {
 					Ind _ind = addNewPoint(datas.get(dataIndex), p[indp]);
 					// 把引用Ind加入到返回数组中
 					iind[indp] = _ind;
+					idind[indp] = p[indp].id;
+					tagnameind[indp] = p[indp].tagName;
 
 				} else {
 					// 如果当前正在更新数据，可以填加点在数组的尾部
@@ -254,6 +258,8 @@ public class PointList {
 								Ind _ind = addNewPoint(datas.get(dataIndex), p[indp]);
 								// 把引用Ind加入到返回数组中
 								iind[indp] = _ind;
+								idind[indp] = p[indp].id;
+								tagnameind[indp] = p[indp].tagName;
 							}
 						} else { // 否则就追加一个点进去
 							// 选择缓冲区
@@ -275,6 +281,8 @@ public class PointList {
 							Ind _ind = addNewPoint(datas.get(dataIndex), p[indp]);
 							// 把引用Ind加入到返回数组中
 							iind[indp] = _ind;
+							idind[indp] = p[indp].id;
+							tagnameind[indp] = p[indp].tagName;
 						}
 					}
 				}
@@ -282,6 +290,9 @@ public class PointList {
 		}
 		// 构建
 		dvs.ind = iind;
+		dvs.ids = idind;
+		dvs.tagNames = tagnameind;
+
 		viewers.put(dvs.pointGroupID, dvs);
 		return dvs;
 //		boolean ret;
@@ -414,7 +425,7 @@ public class PointList {
 	@Scheduled(cron = "*/1 * * * * *")
 	public void doUpdateValue() {
 		for (int i = 0; i < datas.size(); i++) {
-			System.out.println("更新数据缓存区" + i);
+//			System.out.println("更新数据缓存区" + i);
 			updateValue(i);
 		}
 	}
@@ -427,7 +438,7 @@ public class PointList {
 	 */
 	@Async("pointListUpdateExecutor")
 	public void updateValue(int indData) {
-		System.out.println("updateValue in ");
+//		System.out.println("updateValue in ");
 		boolean ret;
 		do {
 			AtomicReference<_Data> stacks = new AtomicReference<_Data>(datas.get(indData));
@@ -458,12 +469,13 @@ public class PointList {
 		} while (!canUpdate);
 
 		// 开始更新
-		List<Long> _values = ServerManager.getInstance().getPointValue(datas.get(indData).serverName,
+		List<Double> _values = ServerManager.getInstance().getPointValue(datas.get(indData).serverName,
 				datas.get(indData).pointIds, "FN_RTVALUE");
 		int count = _values.size();
 		for(int i=0;i<count;i++) {
-//			datas.get(indData).values[i] = _values.get(i);
-			datas.get(indData).updateValue(i,_values.get(i));
+			datas.get(indData).values[i] = _values.get(i);
+//			datas.get(indData).updateValue(i,_values.get(i));
+			System.out.println("data_"+i+" = "+_values.get(i));
 		}
 
 		

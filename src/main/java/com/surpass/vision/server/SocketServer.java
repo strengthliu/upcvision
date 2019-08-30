@@ -126,6 +126,7 @@ public class SocketServer {
 	
 	@Async("postMessageExecutor")
 	public void sendMessage(String topic,HashMap message) {
+		System.out.println(topic+""+message);
         messagingTemplate.convertAndSend(topic, message);
 	}
 
@@ -142,10 +143,13 @@ public class SocketServer {
 			String type = types.get(k);
 			// 根据ID取数据
 
+//			System.out.println("按主题列表群发消息.."+topic);
+			
 			DataViewer dv = dvs.get(k);
 			if(dv!=null) {
 			// 发送数据
 			// tagname : value
+				dv.valuesByID();
 				if(dv.queryById)
 					sendMessage(topic,dv.valuesByID());
 				else

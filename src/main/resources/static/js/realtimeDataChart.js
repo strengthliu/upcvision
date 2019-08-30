@@ -3,6 +3,7 @@
  */
 
 var gl = new Array();
+var charts = new Object();
 
 console.log("_realtimeDataDetailKey: " + _realtimeDataDetailKey);
 
@@ -47,13 +48,15 @@ function updateRealTimeDataChart(ruserSpace) {
 			value : 0,
 			min : 0,
 			max : 100,
-			title : "一级电脱盐混合阀压差",
+			title : pointList[indpl].desc,//"一级电脱盐混合阀压差",
 			label : "度",
 			donut : true,
 			gaugeWidthScale : 0.6,
 			counter : true,
 			hideInnerShadow : true
 		});
+		var _tagName_ = pointList[indpl].tagName;
+		charts[_tagName_] = indpl;
 		gl[indpl] = gt;
 	}
 }
@@ -77,6 +80,12 @@ function refreshGage() {
  */
 function menuFunc(key, options) {
 	switch (key) {
+	case "reconnect":
+		connect();
+		break;
+	case "disconnect":
+		stompClient.disconnect();
+		break;
 	case "edit":
 		stompClient.send("/app/aaa", {
 			atytopic : "greetings"
@@ -103,12 +112,12 @@ function menuFunc(key, options) {
 			selector : '#ui-realtimeDataPoints',
 			callback : menuFunc,
 			items : {
-				"share" : {
-					name : "分享",
+				"disconnect" : {
+					name : "断开连接数据",
 					icon : "share"
 				},
-				"edit" : {
-					name : "修改",
+				"reconnect" : {
+					name : "重新连接数据",
 					icon : "edit"
 				},
 				"delete" : {
@@ -147,7 +156,8 @@ function loginWebsocket() {
 		return;
 		}
 	else {
-		// subscribe.unsubscribe();
+		if(subscribe!=null && subscribe!="undefined")
+			subscribe.unsubscribe();
 		stompClient.send("/app/aaa", {
 			atytopic : _realtimeDataDetailKey,
 			type : 'realtimeData',
@@ -156,9 +166,12 @@ function loginWebsocket() {
 			'type' : 'realtimeData',
 			'id' : _realtimeDataDetailKey+""
 		}));
-		subscribe = stompClient.subscribe('/topic/realTimeData/'
+		// 接收消息设置
+		subscribe = stompClient.subscribe('/topic/Key_RealTimeData_pre_/'
 				+ _realtimeDataDetailKey, function(data) {
-			console.log(JSON.stringify(data));
+			// alert("websocket connected 3.");
+			// 收到消息后处理
+			refreshData(data);
 		});
 	}
 }
@@ -175,7 +188,14 @@ function connect() {
 	stompClient.heartbeat.outgoing = 10000; // 客户端每20000ms发送一次心跳检测
 	stompClient.heartbeat.incoming = 10000;     // client接收serever端的心跳检测
 	// 连接服务器
-	stompClient.connect({}, function(frame) {
+	var headers = {
+		    login: user.id,
+		    token: token,
+		    // additional header
+		    'client-id': 'my-client-id'
+		};
+
+	stompClient.connect(headers, function(frame) {
 		setConnected(true);
 		console.log("websocket connected." + _realtimeDataDetailKey + "  .");
 		// console.log('Connected: ' + frame);
@@ -224,10 +244,14 @@ function connect() {
 }
 
 function refreshData(data) {
-	console.log("socket data: "+JSON.stringify(data));
-	// var id= "point_"+pointList[indpl].tagName,
-	for (var indpl = 0; indpl < gl.length; indpl++) {
-// gl[indpl].refresh(data.body[pointList[indpl].tagName]);
+	var pointList_ = JSON.parse(data.body);
+	for(var key in pointList_){
+		for(var p in gl){
+			//console.log(gl[p].config.id + "  ==  "+"point_" + key );
+			if(gl[p].config.id == "point_" + key){
+				gl[p].refresh(pointList_[key]);
+			}
+		}
 	}
 }
 
@@ -256,15 +280,3 @@ function pullUnreadMessage(destination) {
 	});
 }
 
-function disconnect() {
-	if (stompClient !== null) {
-		stompClient.disconnect();
-	}
-	setConnected(false);
-
-	console.log("Disconnected");
-}
-
-function showGreeting(message) {
-	console.log(message);
-}

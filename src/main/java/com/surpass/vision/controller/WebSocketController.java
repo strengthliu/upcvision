@@ -102,21 +102,22 @@ public class WebSocketController {
         }
         String topicRequest = "/topic/"+type+"/"+id;
         socketServer.addRequest(type,topicRequest,Double.valueOf(id));
-        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
-        try {
-			Thread.sleep(500);
-	        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
-			Thread.sleep(500);
-	        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
-			Thread.sleep(500);
-	        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
         
-        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
-        this.messagingTemplate.convertAndSend("/topic/greeting/11", new Greeting("Hello1," + topic + "!"));
+//        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
+//        try {
+//			Thread.sleep(500);
+//	        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
+//			Thread.sleep(500);
+//	        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
+//			Thread.sleep(500);
+//	        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+        
+//        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
+//        this.messagingTemplate.convertAndSend("/topic/greeting/11", new Greeting("Hello1," + topic + "!"));
         
     }
  
