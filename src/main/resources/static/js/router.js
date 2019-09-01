@@ -8,6 +8,8 @@
 
 	var _realtimeDataDetailKey;
     function routeTo(diagram,key){
+    	if(unsubscribe!=null && unsubscribe!="undefined")
+    		unsubscribe();
     	switch(diagram){
     	case "diagramList":
     		if(key=='未分类') key = "unclassify";

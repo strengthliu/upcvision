@@ -35,14 +35,14 @@ public class UserManager {
 	}
 	
 	public UserInfo getUserInfoByID(String userId) {
-		UserInfo ui = (UserInfo)redisService.get(GlobalConsts.Key_UserInfo_Pre+IDTools.toString(userId));
+		UserInfo ui = (UserInfo)redisService.get(GlobalConsts.Key_UserInfo_Pre_+IDTools.toString(userId));
 		if(ui!=null)
 			return ui;
 		else {
 			// 到数据库里取
 			ui = userService.getUserById(Double.valueOf(userId));
 			if(ui != null) {
-				redisService.set(GlobalConsts.Key_UserInfo_Pre+IDTools.toString(userId), ui);
+				redisService.set(GlobalConsts.Key_UserInfo_Pre_+IDTools.toString(userId), ui);
 				return ui;
 			}
 		}
@@ -50,16 +50,16 @@ public class UserManager {
 	}
 	
 	public void setUserInfo(UserInfo user) {
-		redisService.set(GlobalConsts.Key_UserInfo_Pre+IDTools.toString(user.getId()),user);
+		redisService.set(GlobalConsts.Key_UserInfo_Pre_+IDTools.toString(user.getId()),user);
 	}
 
 	// 初始化用户信息到缓存
 	public void init() {
 		List<UserInfo> users = userService.getAllUsers();
 		for(int i=0;i<users.size();i++) {
-			redisService.set(GlobalConsts.Key_UserInfo_Pre+IDTools.toString(users.get(i).getId()), users.get(i));
+			redisService.set(GlobalConsts.Key_UserInfo_Pre_+IDTools.toString(users.get(i).getId()), users.get(i));
 		}
-		redisService.set(GlobalConsts.Key_UserInfo_Pre+"all", users);
+		redisService.set(GlobalConsts.Key_UserInfo_Pre_+"all", users);
 
 	}
 
@@ -77,7 +77,7 @@ public class UserManager {
 
 	public HashMap<String,User> getUserList() {
 		HashMap<String,User> ret = new HashMap<String,User>();
-		List<UserInfo> users = (List<UserInfo>)redisService.get(GlobalConsts.Key_UserInfo_Pre+"all");
+		List<UserInfo> users = (List<UserInfo>)redisService.get(GlobalConsts.Key_UserInfo_Pre_+"all");
 		if(users == null || users.size()==0) {
 			init();
 			return getUserList();

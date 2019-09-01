@@ -84,6 +84,10 @@ public class UserSpaceManager {
 //	ServerManager serverManager;
 	@Autowired
 	GraphDataManager graphDataManager;
+	@Autowired
+	GraphManager graphManager;
+
+//	Object graphManager;
 
 	@Autowired
 	PointGroupService pointGroupService;
@@ -134,6 +138,8 @@ public class UserSpaceManager {
 		redisService.set(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(uid), us);
 		try {
 		UserSpace t = (UserSpace)redisService.get(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(uid));
+		// 更新数据库用户空间表
+		userSpaceService.updateUserSpace(uid,us);
 		}catch(Exception e) {
 			e.printStackTrace();
 			
@@ -165,9 +171,10 @@ public class UserSpaceManager {
 		if (user.getRole() == 1)
 			return buildAdminUserSpace(user);
 		LOGGER.info(new Date().toGMTString() + " 开始为用户初始化用户空间..");
+		// 从数据库中取出用户信息
 		UserSpaceData usd = userSpaceService.getUserSpaceById(userID);
 		Double uid = null;
-		if (usd == null) {
+		if (usd == null) { // 如果数据库中没有记录，就新建一个
 			usd = new UserSpaceData();
 			uid = userID;
 		}
@@ -176,13 +183,14 @@ public class UserSpaceManager {
 		// userManager.getUserByID(uid.toString());//.selectByPrimaryKey(uid);
 		us.setUser(user);
 		UserRight right;
-		// 图形
+		// 图形设置图形信息
 		String graphs = usd.getGraphs();
 		Hashtable<String, Graph> gh = null;
 		if (StringUtil.isBlank(graphs))
 			gh = new Hashtable<String, Graph>();
-		else
+		else // 
 			gh = graphDataManager.getGraphHashtableByKeys(graphs);
+		// 重新整理成以目录为key，值是一个图形列表的形式
 		Hashtable<String, ArrayList<Graph>> gl = graphDataManager.rebuildGraph(gh);
 		us.setGraphs(gl);
 		// XY图
@@ -191,7 +199,7 @@ public class UserSpaceManager {
 		if (StringUtil.isBlank(xygraph))
 			xyGraph = new Hashtable<String, XYGraph>();
 		else
-			xyGraph = xYGraphManager.getXYGraphHashtabelByKeys(xygraph);
+			xyGraph = xYGraphManager.getXYGraphHashtableByKeys(xygraph);
 		us.setXyGraph(xyGraph);
 		// 实时数据
 		String realtimedata = usd.getRealtimedata();
@@ -234,6 +242,8 @@ public class UserSpaceManager {
 		} else
 			throw new IllegalStateException("参数错误，只能有一个token。");
 		us.setToken(tk);
+		// 保存用户空间数据到数据库
+//		userSpaceService.set
 		setUserSpace(us);
 		return us;
 	}
@@ -253,7 +263,7 @@ public class UserSpaceManager {
 		Hashtable<String, ArrayList<Graph>> graphList = graphDataManager.rebuildGraph(graph);
 		us.setGraphs(graphList);
 		
-		Hashtable<String, XYGraph> xyGraph = xYGraphManager.getAdminXYGraphHashtabel();
+		Hashtable<String, XYGraph> xyGraph = xYGraphManager.getAdminXYGraphHashtable();
 		us.setXyGraph(xyGraph);
 		Hashtable<String, RealTimeData> realTimeData = realTimeDataManager.getAdminRealTimeDataHashtable();
 		us.setRealTimeData(realTimeData);
@@ -292,6 +302,7 @@ public class UserSpaceManager {
 				&& token.contentEquals(getUserSpaceRigidly(uid).getToken());
 	}
 
+	/** ---------------- realtimedata begin ------------------------- **/
 	public void updateRealTimeData( RealTimeData rtd,Double oldRtdId) {
 		RealTimeData oldRtd = null;
 		if(oldRtdId == null || oldRtdId==0)
@@ -333,8 +344,12 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
+		this.realTimeDataManager.updateRealTimeData(rtd);
 	}
+	/** ---------------- realtimedata end ------------------------- **/
 
+	
+	/** ---------------- linealertdata begin ------------------------- **/
 	public void updateLineAlertData(LineAlertData rtd, Double oldRtdId) {
 		if(rtd == null) return;
 		LineAlertData oldRtd = null;
@@ -360,7 +375,194 @@ public class UserSpaceManager {
 			hrtd.put(IDTools.toString(rtd.getId()), rtd);
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
+		this.lineAlertDataManager.updateLineAlertData(rtd);
 	}
+	/** ---------------- linealertdata end ------------------------- **/
+	
+	/** ---------------- alertdata begin ------------------------- **/
+	public void updateAlertData( AlertData rtd,Double oldRtdId) {
+		AlertData oldRtd = null;
+		if(oldRtdId == null || oldRtdId==0)
+			oldRtd = new AlertData();
+		else 
+			oldRtd = alertDataManager.getAlertDataByKeys(oldRtdId);
+		if(rtd == null) { // 是删除
+			return;
+		}
+		updateAlertData(rtd,oldRtd);
+	}
+	
+	public void updateAlertData( AlertData rtd,AlertData oldRtd) {
+		if(rtd == null) rtd = new AlertData();// 第一个参数为空，就是要删除后面那个
+		// 跟这个RealTimeData对比用户，取出差别
+		// 
+		@SuppressWarnings("unchecked")
+		Set<String> rightChangesaggrandizement = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyAggrandizement);
+		@SuppressWarnings("unchecked")
+		Set<String> rightChangesdecreament = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyDecrement);
+		// 根据 这些用户,取的他们UserSpace，更新他们的realTimeData字段，再写回缓存。
+		// 增加新授权的用户的空间数据
+		Iterator<String> it = rightChangesaggrandizement.iterator();
+		while (it.hasNext()) {
+			String uids = it.next();
+			// 从缓存中取出RealTimeData
+			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
+			Hashtable<String,AlertData> hrtd = us.getAlertData();
+			hrtd.put(IDTools.toString(rtd.getId()), rtd);
+			this.setUserSpace(Double.valueOf(uids), us);
+		}
+		// 去掉删除权限的用户空间数据
+		Iterator<String> it1 = rightChangesdecreament.iterator();
+		while (it1.hasNext()) {
+			String uids = it1.next();
+			// 从缓存中取出RealTimeData
+			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
+			Hashtable<String,RealTimeData> hrtd = us.getRealTimeData();
+			hrtd.remove(IDTools.toString(oldRtd.getId()));
+			this.setUserSpace(Double.valueOf(uids), us);
+		}
+		this.alertDataManager.updateAlertData(rtd);
+	}
+	/** ---------------- alertdata end ------------------------- **/
+
+	/** ---------------- historydata begin ------------------------- **/
+	public void updateHistoryData( HistoryData rtd,Double oldRtdId) {
+		HistoryData oldRtd = null;
+		if(oldRtdId == null || oldRtdId==0)
+			oldRtd = new HistoryData();
+		else 
+			oldRtd = historyDataManager.getHistoryDataByKeys(oldRtdId);
+		if(rtd == null) { // 是删除
+			return;
+		}
+		updateHistoryData(rtd,oldRtd);
+	}
+	
+	public void updateHistoryData( HistoryData rtd,HistoryData oldRtd) {
+		if(rtd == null) rtd = new HistoryData();// 第一个参数为空，就是要删除后面那个
+		// 跟这个RealTimeData对比用户，取出差别
+		// 
+		@SuppressWarnings("unchecked")
+		Set<String> rightChangesaggrandizement = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyAggrandizement);
+		@SuppressWarnings("unchecked")
+		Set<String> rightChangesdecreament = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyDecrement);
+		// 根据 这些用户,取的他们UserSpace，更新他们的realTimeData字段，再写回缓存。
+		// 增加新授权的用户的空间数据
+		Iterator<String> it = rightChangesaggrandizement.iterator();
+		while (it.hasNext()) {
+			String uids = it.next();
+			// 从缓存中取出RealTimeData
+			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
+			Hashtable<String,HistoryData> hrtd = us.getHistoryData();
+			hrtd.put(IDTools.toString(rtd.getId()), rtd);
+			this.setUserSpace(Double.valueOf(uids), us);
+		}
+		// 去掉删除权限的用户空间数据
+		Iterator<String> it1 = rightChangesdecreament.iterator();
+		while (it1.hasNext()) {
+			String uids = it1.next();
+			// 从缓存中取出RealTimeData
+			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
+			Hashtable<String,RealTimeData> hrtd = us.getRealTimeData();
+			hrtd.remove(IDTools.toString(oldRtd.getId()));
+			this.setUserSpace(Double.valueOf(uids), us);
+		}
+		this.historyDataManager.updateHistoryData(rtd);
+	}
+	/** ---------------- historydata end ------------------------- **/
+
+	
+	/** ---------------- xygraphdata begin ------------------------- **/
+	public void updateXYGraph( XYGraph rtd,Double oldRtdId) {
+		XYGraph oldRtd = null;
+		if(oldRtdId == null || oldRtdId==0)
+			oldRtd = new XYGraph();
+		else 
+			oldRtd = xYGraphManager.getXYGraphByKeys(oldRtdId);
+		if(rtd == null) { // 是删除
+			return;
+		}
+		updateXYGraph(rtd,oldRtd);
+	}
+	
+	public void updateXYGraph( XYGraph rtd,XYGraph oldRtd) {
+		if(rtd == null) rtd = new XYGraph();// 第一个参数为空，就是要删除后面那个
+		// 跟这个RealTimeData对比用户，取出差别
+		// 
+		@SuppressWarnings("unchecked")
+		Set<String> rightChangesaggrandizement = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyAggrandizement);
+		@SuppressWarnings("unchecked")
+		Set<String> rightChangesdecreament = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyDecrement);
+		// 根据 这些用户,取的他们UserSpace，更新他们的realTimeData字段，再写回缓存。
+		// 增加新授权的用户的空间数据
+		Iterator<String> it = rightChangesaggrandizement.iterator();
+		while (it.hasNext()) {
+			String uids = it.next();
+			// 从缓存中取出RealTimeData
+			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
+			Hashtable<String,XYGraph> hrtd = us.getXyGraph();
+			hrtd.put(IDTools.toString(rtd.getId()), rtd);
+			this.setUserSpace(Double.valueOf(uids), us);
+		}
+		// 去掉删除权限的用户空间数据
+		Iterator<String> it1 = rightChangesdecreament.iterator();
+		while (it1.hasNext()) {
+			String uids = it1.next();
+			// 从缓存中取出RealTimeData
+			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
+			Hashtable<String,RealTimeData> hrtd = us.getRealTimeData();
+			hrtd.remove(IDTools.toString(oldRtd.getId()));
+			this.setUserSpace(Double.valueOf(uids), us);
+		}
+		this.xYGraphManager.updateXYGraph(rtd);
+	}
+	/** ---------------- xygraphdata end ------------------------- **/
+
+	/** ---------------- graph begin ------------------------- **/
+	public void updateGraph( Graph rtd,Double oldRtdId) {
+		Graph oldRtd = null;
+		if(oldRtdId == null || oldRtdId==0)
+			oldRtd = new Graph();
+		else 
+			oldRtd = graphDataManager.getGraphByKeys(oldRtdId);
+		if(rtd == null) { // 是删除
+			return;
+		}
+		updateGraph(rtd,oldRtd);
+	}
+	
+	public void updateGraph( Graph rtd,Graph oldRtd) {
+		if(rtd == null) rtd = new Graph();// 第一个参数为空，就是要删除后面那个
+		// 跟这个RealTimeData对比用户，取出差别
+		// 
+		@SuppressWarnings("unchecked")
+		Set<String> rightChangesaggrandizement = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyAggrandizement);
+		@SuppressWarnings("unchecked")
+		Set<String> rightChangesdecreament = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyDecrement);
+		// 根据 这些用户,取的他们UserSpace，更新他们的realTimeData字段，再写回缓存。
+		// 增加新授权的用户的空间数据
+		Iterator<String> it = rightChangesaggrandizement.iterator();
+		while (it.hasNext()) {
+			String uids = it.next();
+			// 从缓存中取出
+			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
+			Hashtable<String, ArrayList<Graph>> hrtd = us.getGraphs();
+//			hrtd.put(IDTools.toString(rtd.getId()), rtd);
+			this.setUserSpace(Double.valueOf(uids), us);
+		}
+		// 去掉删除权限的用户空间数据
+		Iterator<String> it1 = rightChangesdecreament.iterator();
+		while (it1.hasNext()) {
+			String uids = it1.next();
+			// 从缓存中取出RealTimeData
+			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
+			Hashtable<String,RealTimeData> hrtd = us.getRealTimeData();
+			hrtd.remove(IDTools.toString(oldRtd.getId()));
+			this.setUserSpace(Double.valueOf(uids), us);
+		}
+		this.graphManager.updateGraph(rtd);
+	}
+	/** ---------------- graph end ------------------------- **/
 
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Reference;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.surpass.vision.domain.RealTimeData;
@@ -59,6 +60,19 @@ public class UserSpaceServiceImpl implements UserSpaceService {
 	@Override
 	public UserSpaceData getUserSpaceById(Double userID) {
 		return userSpaceDataMapper.selectByPrimaryKey(userID);
+	}
+
+	@Async("taskExecutor")
+	@Override
+	public void updateUserSpace(Double uid, UserSpace us) {
+		UserSpaceData usdm = us.createUserSpaceData();
+		UserSpaceData usd = usdMapper.selectByPrimaryKey(uid);
+		if(usd == null) { // 插入
+			usdMapper.insert(usdm);
+		} else {
+			usdMapper.updateByPrimaryKey(usdm);
+		}
+		
 	}
 
 }

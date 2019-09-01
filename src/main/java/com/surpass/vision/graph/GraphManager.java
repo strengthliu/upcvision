@@ -3,12 +3,14 @@ package com.surpass.vision.graph;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Reference;
 import org.springframework.stereotype.Component;
 
+import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.Graph;
 import com.surpass.vision.service.RedisService;
@@ -16,7 +18,7 @@ import com.surpass.vision.tools.FileTool;
 import com.surpass.vision.tools.IDTools;
 
 @Component 
-public class GraphManager {
+public class GraphManager extends GraphDataManager {
 
 	@Reference
 	@Autowired
@@ -184,6 +186,19 @@ System.out.println(aa.length);
 		}
 		
 	}
+
+	public Graph updateShareRight(Double id, List<String> userIds) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void updateGraph(Graph rtd) {
+		// 更新数据库
+		pointGroupService.updatePointGroupItem(rtd);
+		// 写缓存RealTimeData，返回
+		redisService.set(GlobalConsts.Key_Graph_pre_+IDTools.toString(rtd.getId()),rtd);
+	}
+
 
 
 

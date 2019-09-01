@@ -1,11 +1,14 @@
 package com.surpass.vision.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Reference;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,149 +22,120 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.mchange.rmi.NotAuthorizedException;
+import com.surpass.vision.appCfg.GlobalConsts;
+import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.FileList;
+import com.surpass.vision.domain.Graph;
+import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.exception.ExceptionEnum;
 import com.surpass.vision.exception.GirlFriendNotFoundException;
 import com.surpass.vision.exception.ResponseBean;
+import com.surpass.vision.graph.GraphManager;
 import com.surpass.vision.service.AuthorcationService;
 import com.surpass.vision.service.GraphService;
 
 @RestController
 //@RequestMapping("/v1")
-public class GraphController {
+public class GraphController extends BaseController {
 
-		@Reference
-		@Autowired
-		GraphService gs;
-		
-		@Reference
-		@Autowired
-		AuthorcationService as;
+	@Reference
+	@Autowired
+	GraphManager graphManager;
 
-		@RequestMapping(value = "getAllGraph", method = { RequestMethod.POST, RequestMethod.GET })
-		public @ResponseBody JSONObject getAllGraph(@RequestBody JSONObject user,HttpServletRequest request)
-				throws Exception {
-			/**
-			 * 
-			 * 简化处理，不考虑本地化及TOKEN伪造问题
-			 * 也没采用Spring-Security，单纯使用 token模式。
-			 *
-			 Locale local = request.getLocale();
-			 String language = local.getDisplayLanguage();
-			 String remoteAddr = request.getRemoteAddr();
-			*/
-		 	JSONObject ret = new JSONObject();
-			Integer uid = user.getInteger("uid");
-			String token = user.getString("token");
-			if(!as.tokenVerification(uid, token)) {
-//				throw new NotAuthorizedException("You Don't Have Permission");
-				ret.put("resultCode", "401");
-				return ret;
+	/**
+	 * 获取指定用户的实时数据列表
+	 * 
+	 * @param user
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "getGraphList", method = { RequestMethod.POST, RequestMethod.GET })
+	public ToWeb getGraphList(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
+		Double uid = user.getDouble("uid");
+		String token = user.getString("token");
+		// 认证+权限
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getGraphList);
+		if (!StringUtil.isBlank(ret.getStatus()))
+			return ret;
+
+		// 取出用户空间
+		UserSpace us = userSpaceManager.getUserSpace(Double.valueOf(uid));
+		if (us == null) {
+			// token = TokenTools.genToken(uid.toString());
+			try {
+				us = userSpaceManager.buildUserSpace(Double.valueOf(uid), token);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
 			}
-				
-			Integer version = user.getInteger("version");
-			if(version == null) version =0;
+		}
+
+		// 先到用户空间里找，没有就建用户空间，
+		if (us != null) {
+			Hashtable<String, ArrayList<Graph>> data = us.getGraphs();
+			ret.setMsg("成功");
+			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+//				ret.setData();
+//				ret.setData("data", data);
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			hm.put("Graph", hm);
+//				hm.put("userInfo", us.getUser());
+			ret.setData(hm);
+			return ret;
+		} else {
+			ret.setStatus(GlobalConsts.ResultCode_FAIL);
+			ret.setMsg("用户信息非法，请重新登录。");
+			ret.setRedirectUrl("login.html");
+			return ret;
+		}
+
+	}
+
+	
+	@RequestMapping(value = "shareRightGraph", method = { RequestMethod.POST, RequestMethod.GET })
+	public ToWeb shareRight(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
+		Double uid = user.getDouble("uid");
+		String token = user.getString("token");
+		// 认证+权限
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_shareGraph);
+		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+			return ret;
+
+		// 取出参数
+		// var data={'uid':uid,'token':token,'userIds':Array.from(selectedUsers),'type':"Graph"};
+		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
+		JSONArray juserIds = user.getJSONArray("userIds");
+		String type = user.getString("type");
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
 			
-			int v = gs.getCurrentVersion();
-			if(v==version) {
-				/***
-				 * type=1,是相邻版本，返回更新
-				 * type=0是相同版本，什么都不用做
-				 * type=2是版本错误，可能差了多于1个版本，重新导入服务端完整数据
-				 */
-				// 
-				ret.put("resultCode", "200");
-				ret.put("type", "0");
-				return ret;
-			}
-			else if(v==version+1) {
-				ret.put("type", "1"); 
-				ret.put("version", v);
-				JSONArray ja = new JSONArray();
-				ArrayList<FileList> upd = gs.getCurrentUpdate();
-				System.out.println(upd.size());
-				for(int i=0;i<upd.size();i++) {
-					JSONObject jo = new JSONObject();
-					FileList fl = upd.get(i);
-					jo.put("change",fl.getChanged());
-					jo.put("name",fl.getName());
-					jo.put("path",fl.getPath());
-					jo.put("isFile",fl.isFile());
-					System.out.println(fl.getName());
-					ja.add(jo);
-				}
-				ret.put("change",ja);
-				return ret;
-			} else {
-//				List<Graph> graphs = gs.getGraph(uid)
-				FileList fl = gs.getCurrentFileList();
-				if(fl==null) {
-					ret.put("type", "0");
-					return ret;
-				}
-				ret.put("type", "2");
-				ret.put("version", v);
-				ret.put("fl", fl);
-				return ret;
-			}
-//			return ret;
+		}else {
+			id = Double.valueOf(idstr);
 		}
-		
-//	    @ExceptionHandler(GirlFriendNotFoundException.class)
-//	    @ResponseBody
-//	    public ResponseBean handleGirlFriendNotFound(GirlFriendNotFoundException exception){
-////	        loggerError(exception);
-//	        return new ResponseBean(ExceptionEnum.GIRL_FRIEND_NOT_FOUND);
-//	    }
-	    
-		@RequestMapping(value = "getGraphChange", method = { RequestMethod.POST, RequestMethod.GET })
-		public @ResponseBody JSONObject getChange(@RequestBody JSONObject ver,HttpServletRequest request)
-				throws Exception {
-			if(true)
-			throw new GirlFriendNotFoundException("You Don't Have Permission");
+			
+		List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
+		// TODO: 检查参数合法性
 
-			JSONObject ret = new JSONObject();
-			int v = gs.getCurrentVersion();
-			Integer version = Integer.parseInt(ver.getString("ver"));
-			if(v==version) {
-				/***
-				 * type=1,是相邻版本，返回更新
-				 * type=0是相同版本，什么都不用做
-				 * type=2是版本错误，可能差了多于1个版本，重新导入服务端完整数据
-				 */
-				// 
-				ret.put("type", "0");
+		try {
+			Graph rtd = graphManager.updateShareRight(id,userIds);
+			if (rtd != null) {
+				// 更新用户空间
+				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
+				userSpaceManager.updateGraph(rtd,Double.valueOf(0));
+				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+				ret.setMsg("成功");
+				ret.setData("data",rtd);
+				ret.setRefresh(true);
 				return ret;
-			}
-			else if(v==version+1) {
-				ret.put("type", "1"); 
-				ret.put("version", v);
-				JSONArray ja = new JSONArray();
-				ArrayList<FileList> upd = gs.getCurrentUpdate();
-				System.out.println(upd.size());
-				for(int i=0;i<upd.size();i++) {
-					JSONObject jo = new JSONObject();
-					FileList fl = upd.get(i);
-					jo.put("change",fl.getChanged());
-					jo.put("name",fl.getName());
-					jo.put("path",fl.getPath());
-					jo.put("isFile",fl.isFile());
-					System.out.println(fl.getName());
-					ja.add(jo);
-				}
-				ret.put("change",ja);
-				return ret;
-			} else {
-				FileList fl = gs.getCurrentFileList();
-				if(fl==null) {
-					ret.put("type", "0");
-					return ret;
-				}
-				ret.put("type", "2");
-				ret.put("version", v);
-				ret.put("fl", fl);
-				return ret;
-			}
+			} else
+				throw new Exception();
+		} catch (Exception e) {
+			e.printStackTrace();
+			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
+			ret.setMsg("异常失败");
+			return ret;
 		}
-
+	}
 }
+

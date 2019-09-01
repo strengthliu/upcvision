@@ -6,13 +6,20 @@ import java.util.Hashtable;
 public class Point implements Serializable {
 	Long id;
 	String tagName;
-	String desc;
+	String desc; // FN_TAGNOTE
 	String deviceName;
 	String serverName;
-	long tagType;
+	String enunit; // 数据单位 ，FN_ENUNITS
+	String tagType; // 位号类型，FN_TAGTYPE
 	
 	public Long getId() {
 		return id;
+	}
+	public String getEnunit() {
+		return enunit;
+	}
+	public void setEnunit(String enunit) {
+		this.enunit = enunit;
 	}
 	public String getDesc() {
 		return desc;
@@ -20,10 +27,10 @@ public class Point implements Serializable {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	public long getTagType() {
+	public String getTagType() {
 		return tagType;
 	}
-	public void setTagType(long tagType) {
+	public void setTagType(String tagType) {
 		this.tagType = tagType;
 	}
 	public Hashtable<String, Float> getValues() {

@@ -29,11 +29,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/dev/upcvision/libs/gecDll.jar">
-		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/dev/upcvision/src/tools"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="C:/dev/xiangmu/WebRoot/WEB-INF/lib/jna-4.5.1.jar"/>
 	<classpathentry kind="lib" path="C:/dev/xiangmu/WebRoot/WEB-INF/lib/jstl-1.2.jar"/>
 	<classpathentry kind="lib" path="C:/dev/upcvision/libs/fop-transcoder-allinone-2.3.jar"/>
@@ -45,5 +40,6 @@
 	<classpathentry kind="lib" path="C:/dev/upcvision/libs/xml-apis-ext-1.3.04.jar"/>
 	<classpathentry kind="lib" path="C:/dev/upcvision/libs/xmlgraphics-commons-2.3.jar"/>
 	<classpathentry kind="lib" path="C:/dev/upcvision/libs/batik-all-1.11.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/javaDll"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

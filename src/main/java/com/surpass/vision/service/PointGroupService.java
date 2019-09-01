@@ -16,12 +16,15 @@ public interface PointGroupService {
 
 	public List<PointGroupData> getAdminLineAlertData();
 	
+	public List<PointGroupData> getAdminGraphData();
+
 	public Object newPointGroupData(PointGroupData pgd);
 
 	public void deletePointGroupItem(Double id);
 
-	public PointGroupData getRealTimeDataByID(Double itemId);
-
 	public void updatePointGroupItem(PointGroupData pgd);
+
+	public PointGroupData getPointGroupDataByID(Double itemId);
+
 
 }

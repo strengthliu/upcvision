@@ -1,6 +1,8 @@
 package com.surpass.vision.server;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
+import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.Hashtable;
 import java.util.List;
@@ -41,16 +43,25 @@ public class ServerManager {
 	List<Double> pointID;
 
 	public static void main(String[] args) {
-
+		String a = "看文"; // utf-8
+//		String a1 = new String("看文","utf-8");
+		try {
+			byte[] b = a.getBytes("gbk");
+			String c = new String(b, "gbk");
+			System.out.println(c);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// TODO Auto-generated method stub
 		ServerManager.getInstance().updateServerInfo();
 //		System.out.println(System.getProperty(File.encoding));
 //		ServerManager.
-		ServerManager s1 = new ServerManager();
-		s1.instance.name = "aaa";
-		ServerManager s2 = new ServerManager();
-		s2.instance.name = "bbb";
-		System.out.println(ServerManager.getInstance().name);
+//		ServerManager s1 = new ServerManager();
+//		s1.instance.name = "aaa";
+//		ServerManager s2 = new ServerManager();
+//		s2.instance.name = "bbb";
+//		System.out.println(ServerManager.getInstance().name);
 
 	}
 
@@ -113,6 +124,8 @@ public class ServerManager {
 //实型字段域值
 
 	private void updateServerInfo() {
+//		String[] encodeString = {"",""};
+		boolean t = true;
 		List<String> servs;
 		try {
 			//
@@ -140,66 +153,48 @@ public class ServerManager {
 					device.setDeviceName(deviceName);
 					Long deviceId = gec.DBECGetDeviceID(serverName, deviceName);
 					device.setId(deviceId);
-					String deviceNote = gec.DBECGetDeviceNote(serverName, deviceName, deviceId,
-							GlobalConsts.DeviceNoteLength);
+					String deviceNote = gec.DBECGetDeviceNote(serverName, deviceName, deviceId);//transByteToString(buffer);
 					deviceNote = deviceNote.trim();
-					// System.out.println("Encoding: "+EncodingTools.getEncoding(deviceNote)+"
-					// "+Charset.defaultCharset());
-					byte[] b;
-					try {
-						b = deviceNote.getBytes("GB2312");
-//						b = deviceNote.getBytes();
-						deviceNote = new String(b, Charset.defaultCharset());
-						// System.out.println(deviceNote);
-						// b = deviceNote.getBytes(Charset.defaultCharset());
-//						deviceNote = new String(b, Charset.defaultCharset());//解码:用什么字符集编码就用什么字符集解码
-//						deviceNote = new String(b, "utf-8");//解码:用什么字符集编码就用什么字符集解码
-//						System.out.println(deviceNote);
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} // 编码
-
 					device.setDeviceNote(deviceNote);
 					// 取点位信息
 					List<Long> pointIds = gec.DBECEnumTagIDOfDeviceByDeviceName(serverName, deviceName);
+					ByteBuffer tagbuffer = ByteBuffer.allocate(GlobalConsts.DeviceNoteLength);
 					for (int ipoint = 0; ipoint < pointIds.size(); ipoint++) {
 						Point point = new Point();
 						Long pointId = pointIds.get(ipoint);
 						//
 						String tagName = gec.DBECGetTagName(serverName, pointId);
-//						gec.DBECGetDeviceNote(lpszServerName, lpszDeviceName, nDeviceID, nBufLen)
-						String desc = "";
-						try {
-							desc = gec.DBECGetTagStringField(serverName, deviceName, pointId, "");
-						} catch (Exception e) {
-							// e.printStackTrace();
-						}
-						if (StringUtil.isBlank(desc))
-							desc = "未知描述";
 						tagName = tagName.trim();
+						String tagdesc = gec.DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGNOTE");
+						System.out.println("pointid: "+pointId+"  tagdesc: " + tagdesc);
+						if (StringUtil.isBlank(tagdesc))
+							tagdesc = "未知描述";
+						String enunit = gec.DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_ENUNITS");
+						System.out.println(enunit);
+						String tagType = gec.DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGTYPE");
+						tagType = tagType.trim();
+						point.setEnunit(enunit);
+						point.setTagType(tagType);
 						// 二次
 						point.setDeviceName(deviceName);
 						point.setId(pointId);
 						point.setServerName(serverName);
 						point.setTagName(tagName);
-						point.setDesc(desc);
-						// System.out.println(serverName+" - "+deviceName+" - "+deviceNote+" -
-						// "+tagName+" - "+pointId+" - "+point.id);
-						//
+						point.setDesc(tagdesc);
 						device.addPoint(point);
 						server.addPoint(point);
-//						System.out.println(GlobalConsts.Key_Point_pre);
-//						System.out.println(point.id.toString());
 						// 使用tag做key
-						redisService.set(GlobalConsts.Key_Point_pre + serverName + GlobalConsts.Key_splitCharServerPoint
-								+ point.tagName.toString(), point);
+//						if (redisService != null)
+							redisService.set(GlobalConsts.Key_Point_pre + serverName
+									+ GlobalConsts.Key_splitCharServerPoint + point.tagName.toString(), point);
 					}
 					server.addDevice(device);
-					redisService.set(GlobalConsts.Key_Device_pre_ + IDTools.toString(device.id), device);
+//					if (redisService != null)
+						redisService.set(GlobalConsts.Key_Device_pre_ + IDTools.toString(device.id), device);
 				}
 				servers.put(server.getServerName(), server);
-				redisService.set(GlobalConsts.Key_Server_pre_ + server.serverName, server);
+//				if (redisService != null)
+					redisService.set(GlobalConsts.Key_Server_pre_ + server.serverName, server);
 
 			}
 		} catch (GecException e) {
@@ -209,6 +204,17 @@ public class ServerManager {
 
 	}
 
+	private String transByteToString(ByteBuffer buffer) {
+		byte[] sb = buffer.array();
+		String deviceNote = null;
+		try {
+			deviceNote = new String(sb, "GBK");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return deviceNote = deviceNote.trim();
+	}
 	private JGecService gec() throws Exception {
 		return new JGecService(gcLibrary);
 	}

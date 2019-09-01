@@ -2,9 +2,11 @@ package com.surpass.vision.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Hashtable;
 
 import com.alibaba.fastjson.JSONObject;
+import com.surpass.vision.appCfg.GlobalConsts;
 
 public class UserSpace implements Serializable {
 	
@@ -120,4 +122,86 @@ public class UserSpace implements Serializable {
 		// TODO:
 		return null;
 	}
+
+	public UserSpaceData createUserSpaceData() {
+		UserSpaceData usd = new UserSpaceData();
+		usd.setUid(this.user.getId());
+		int count = 0;
+		// graphs
+		Enumeration<String> egraphs = this.graphs.keys();
+		String graphs = "";
+		while(egraphs.hasMoreElements()) {
+			graphs += egraphs.nextElement().toString();
+			count++;
+			if(count<this.graphs.size())
+				graphs += GlobalConsts.Key_splitChar;
+		}
+		count = 0;
+		usd.setGraphs(graphs);
+
+		// historydata
+		Enumeration<String> ehistory = this.historyData.keys();
+		String historydata = "";
+		while(ehistory.hasMoreElements()) {
+			historydata += ehistory.nextElement().toString();
+			count++;
+			if(count<this.alertData.size())
+				historydata += GlobalConsts.Key_splitChar;
+		}
+		count = 0;
+		usd.setHistorydata(historydata);
+
+
+		// linealertdata
+		Enumeration<String> elinealert = this.lineAlertData.keys();
+		String linealertdata = "";
+		while(elinealert.hasMoreElements()) {
+			linealertdata += elinealert.nextElement().toString();
+			count++;
+			if(count<this.lineAlertData.size())
+				linealertdata += GlobalConsts.Key_splitChar;
+		}
+		count = 0;
+		usd.setLinealertdata(linealertdata);
+
+		// realtimedata
+		Enumeration<String> erealtime = this.realTimeData.keys();
+		String realtimedata = "";
+		while(erealtime.hasMoreElements()) {
+			realtimedata += erealtime.nextElement().toString();
+			count++;
+			if(count<this.realTimeData.size())
+				realtimedata += GlobalConsts.Key_splitChar;
+		}
+		count = 0;
+		usd.setRealtimedata(realtimedata);
+
+		// xygraphdata
+		Enumeration<String> exygraph = this.xyGraph.keys();
+		String xygraphdata = "";
+		while(exygraph.hasMoreElements()) {
+			xygraphdata += exygraph.nextElement().toString();
+			count++;
+			if(count<this.xyGraph.size())
+				xygraphdata += GlobalConsts.Key_splitChar;
+		}
+		count = 0;
+		usd.setXygraph(xygraphdata);
+
+		// alertdata
+		Enumeration<String> ealert = this.alertData.keys();
+		String alertdata = "";
+		while(ealert.hasMoreElements()) {
+			alertdata += ealert.nextElement().toString();
+			count++;
+			if(count<this.alertData.size())
+			alertdata += GlobalConsts.Key_splitChar;
+		}
+		count = 0;
+		usd.setAlertdata(alertdata);
+
+		return usd;
+	}
+
+
 }

@@ -97,7 +97,7 @@ public class WebSocketController {
         	type = GlobalConsts.Key_RealTimeData_pre_;
         	break;
         case "alertData":
-        	type = GlobalConsts.key_AlertData_pre;
+        	type = GlobalConsts.Key_AlertData_pre_;
         	break;
         }
         String topicRequest = "/topic/"+type+"/"+id;

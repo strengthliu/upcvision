@@ -44,7 +44,15 @@ public class PointGroup extends PointGroupData implements Serializable{
 	User createrUser; // 创建者
 	Double id;
 	String name;
-	
+	String desc;
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
 	// 权限信息
 	User ownerUser; // 拥有者，默认为创建者
 	// 点位信息

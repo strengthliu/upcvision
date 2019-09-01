@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.surpass.vision.domain.RealTimeData;
+import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.domain.UserSpaceData;
 
 public interface UserSpaceService {
@@ -21,6 +22,8 @@ public interface UserSpaceService {
 	void updateRealTimeDataList(RealTimeData rtd);
 
 	UserSpaceData getUserSpaceById(Double userID);
+
+	void updateUserSpace(Double uid, UserSpace us);
 
 
 

@@ -52,11 +52,11 @@ public class InitServiceRunner implements CommandLineRunner {
 		System.out.println(new Date().toLocaleString()+"====>> 开始初始化实时数据组缓存...");
 		start = System.currentTimeMillis();
 		realTimeDataManager.getAdminRealTimeDataHashtable();
-		// 初始化图形缓存
 		
 		
 		end = System.currentTimeMillis();
 		System.out.println(new Date().toLocaleString()+"====>> 初始化实时数据组缓存结束，用时"+(end-start)/1000+"秒");
+		// 初始化图形缓存
 		// 初始化目录
 		System.out.println(new Date().toLocaleString()+"====>> 开始初始化图形目录数据...");
 		start = System.currentTimeMillis();

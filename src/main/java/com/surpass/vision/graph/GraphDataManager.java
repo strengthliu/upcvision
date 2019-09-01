@@ -14,23 +14,33 @@ import org.springframework.stereotype.Component;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.Graph;
+import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.domain.PointGroupData;
+import com.surpass.vision.domain.RealTimeData;
 import com.surpass.vision.domain.User;
 import com.surpass.vision.mapper.PointGroupDataMapper;
+import com.surpass.vision.pointGroup.PointGroupDataManager;
+import com.surpass.vision.server.Point;
+import com.surpass.vision.server.ServerManager;
+import com.surpass.vision.service.PointGroupService;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.tools.IDTools;
 import com.surpass.vision.user.UserManager;
 import com.surpass.vision.utils.StringUtil;
 
 @Component
-public class GraphDataManager {
+public class GraphDataManager extends PointGroupDataManager {
 
 	@Reference
 	@Autowired
 	RedisService redisService;
 
+//	@Autowired
+//	PointGroupDataMapper pointGroupDataMapper;
+
 	@Autowired
-	PointGroupDataMapper pointGroupDataMapper;
+	PointGroupService pointGroupService;
+	// TODO Auto-generated method stub
 
 	@Reference
 	@Autowired
@@ -76,7 +86,7 @@ public class GraphDataManager {
 	 */
 	public Graph getAdminGraphHashtable() {
 		// 从数据库中取出所有图信息
-		List<PointGroupData> pgdl = pointGroupDataMapper.getAdminGraphData();
+		List<PointGroupData> pgdl = pointGroupService.getAdminGraphData();
 		// 把目录填写上权限信息
 		Hashtable<String, PointGroupData> pgdh = new Hashtable<String, PointGroupData>();
 		for (int i = 0; i < pgdl.size(); i++) {
@@ -117,7 +127,7 @@ public class GraphDataManager {
 				if (creater == null)
 					throw new IllegalStateException("没有'" + createrId + "'这个用户id。");
 			}
-			ret.setCreater(creater);
+			ret.setCreaterUser(creater); // 
 
 			// ------------------ 设置拥有者 -------------------
 			ret.setId(Double.valueOf(pgd.getId()));
@@ -125,7 +135,7 @@ public class GraphDataManager {
 			User owner = userManager.getUserByID(ownerId);
 			if (owner == null)
 				throw new IllegalStateException("没有'" + ownerId + "'这个用户id。");
-			ret.setCreater(owner);
+			ret.setOwnerUser(owner);
 
 			// ------------------ 设置分享者 -------------------
 			String sharedIds = pgd.getShared();
@@ -259,6 +269,76 @@ public class GraphDataManager {
 			}
 		}
 		return ret;
+	}
+	
+	public Graph updateShareRight(Double itemId, List<String> userIdsid) {
+		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
+		if(pgd == null) {
+			throw new IllegalStateException("没有id为"+itemId+"这个数据");
+		}
+		String sharedUserIDs = "";
+		if(userIdsid != null) {
+			sharedUserIDs = IDTools.merge(userIdsid.toArray());
+		}
+		pgd.setShared(sharedUserIDs);
+		// 更新数据库
+		pointGroupService.updatePointGroupItem(pgd);
+		
+		// 更新缓存
+		Graph rtd = this.copyFromPointGroupData(pgd);
+		// 写缓存HistoryData，返回
+		redisService.set(GlobalConsts.Key_HistoryData_pre_+IDTools.toString(rtd.getId()),rtd);
+
+		return rtd;
+	}
+
+
+	public Graph copyFromPointGroupData(PointGroupData pgd) {
+		if (pgd == null)
+			return null;
+		Graph graph = new Graph();
+
+		graph.setCreater(pgd.getCreater());
+		graph.setCreaterUser(userManager.getUserByID(pgd.getCreater()));
+
+		graph.setId(pgd.getId());
+		graph.setName(pgd.getName());
+		graph.setOtherrule1(pgd.getOtherrule1());
+		graph.setOtherrule2(pgd.getOtherrule2());
+		graph.setDesc(pgd.getOtherrule2());
+
+		graph.setOwner(pgd.getOwner());
+		graph.setOwnerUser(userManager.getUserByID(pgd.getOwner()));
+
+		graph.setPoints(pgd.getPoints());
+		ArrayList<Point> pal = new ArrayList<>();
+		String[] pids = IDTools.splitID(pgd.getPoints());
+		for (int ipids = 0; ipids < pids.length; ipids++) {
+			String serverName = splitServerName(pids[ipids]);
+			String pName = splitPointName(pids[ipids]);
+			Point p = ServerManager.getInstance().getPointByID(serverName,pName);
+			pal.add(p);
+		}
+		graph.setPointList(pal);
+
+		graph.setShared(pgd.getShared());
+		ArrayList<User> ul = new ArrayList<User>();
+		String[] sharedIds = IDTools.splitID(pgd.getShared());
+		for (int isharedIDs = 0; isharedIDs < sharedIds.length; isharedIDs++) {
+			User u = userManager.getUserByID(sharedIds[isharedIDs]);
+			ul.add(u);
+		}
+		graph.setSharedUsers(ul);
+
+		graph.setType(pgd.getType());
+
+		return graph;
+	}
+
+	public Graph getGraphByKeys(Double oldRtdId) {
+		Graph rtd = (Graph)redisService.get(GlobalConsts.Key_Graph_pre_+IDTools.toString(oldRtdId));
+		return rtd;
+
 	}
 
 }

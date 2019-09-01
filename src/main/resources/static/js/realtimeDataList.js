@@ -14,7 +14,7 @@ function newItemAction() {
 var itemID;
 var actionType = "realTimeData";
 function editItemAction(itemId) {
-	//console.log(itemId);
+	// console.log(itemId);
 // alert(itemId);
 	itemID = itemId;
 $('#newItemAction_mid').modal('show');
@@ -40,12 +40,7 @@ console.log("deleteItemAction");
 		// 成功返回之后调用的函数
 		success : function(data) {
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
-				// console.log("server info : "+JSON.stringify(data.data.data));
 				var realTimeDataId = data.data.data;
-				// console.log("data.data="+JSON.stringify(data));
-				// console.log("realTimeDataId="+realTimeDataId);
-				// console.log("data="+JSON.stringify(data,null,2));
-				// $('#newItemAction_mid').modal('hide');
 				fixLocalRealTimeDataList_Delete(realTimeDataId);
 				if(data.refresh) routeTo('realtimedataList','');
 				// 
@@ -53,26 +48,15 @@ console.log("deleteItemAction");
 				alert("失败 ： "+data.msg);
 			}
 			hideLoading();
-			// alert("本地存储："+localStorage.user);
-			// window.location.href = "index.html";
 		},
 		// 调用执行后调用的函数
 		complete : function(XMLHttpRequest, textStatus) {
-			// alert(XMLHttpRequest.responseText);
-			// alert(textStatus);
 			hideLoading();
 		
 		},
 		// 调用出错执行的函数
 		error : function(jqXHR, textStatus, errorThrown) {
 			/* 弹出jqXHR对象的信息 */
-			// alert(jqXHR.responseText);
-			// alert(jqXHR.status);
-			// alert(jqXHR.readyState);
-			// alert(jqXHR.statusText);
-			/* 弹出其他两个参数的信息 */
-			// alert(textStatus);
-			// alert(errorThrown);
 			hideLoading();
 		}
 	});
@@ -96,11 +80,8 @@ function shareItemAction(itemId) {
  * @returns
  */
 function submitNewDataItem(selectedPoints,targetName,targetDesc){
-	if(serverList == null || serverList=="undefined"){
-		
-	}
-	// console.log("2: "+JSON.stringify(selectedPoints));
-	// console.log(JSON.stringify(userSpace));
+
+	console.log("realtimedata.js => submitNewDataItem 1 "+targetName +"  "+targetDesc);
 	var selectPointArray = new Array();
 	var i__ = 0;
 	for (let e of selectedPoints) {
@@ -108,7 +89,8 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		i__++;
 		}
 
-	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc.value,'id':itemID};
+	console.log("realtimedata.js => submitNewDataItem 2");
+	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID};
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -127,6 +109,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		success : function(data) {
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
+				console.log("realtimedata.js => submitNewDataItem 3");
 				var realTimeData = data.data.data;
 				$('#newItemAction_mid').modal('hide');
 				fixLocalRealTimeDataList(realTimeData);
@@ -142,6 +125,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		complete : function(XMLHttpRequest, textStatus) {
 			// alert(XMLHttpRequest.responseText);
 			// alert(textStatus);
+			console.log("realtimedata.js => submitNewDataItem 4");
 			hideLoading();
 		
 		},
@@ -155,6 +139,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 			/* 弹出其他两个参数的信息 */
 			// alert(textStatus);
 			// alert(errorThrown);
+			console.log("realtimedata.js => submitNewDataItem 5");
 			hideLoading();
 		}
 	});
@@ -175,16 +160,19 @@ function fixLocalRealTimeDataList_Delete(realTimeDataId){
 	}
 	if(realTimeDataId !=null && realTimeDataId !="undefined"){
 		var realTimeData = userSpace.realTimeData;
-		//console.log("realTimeDataId="+JSON.stringify(realTimeDataId));
-		//console.log(JSON.stringify(realTimeData[realTimeDataId]));
+		// console.log("realTimeDataId="+JSON.stringify(realTimeDataId));
+		// console.log(JSON.stringify(realTimeData[realTimeDataId]));
 		delete realTimeData[realTimeDataId];
 		delete userSpace.realTimeData[realTimeDataId];
 		// _.omit(realTimeData, [realTimeDataId]);
-		//console.log(JSON.stringify(realTimeData[realTimeDataId]));
+		// console.log(JSON.stringify(realTimeData[realTimeDataId]));
 		userSpace.realTimeData = realTimeData;
-		//console.log("after delete realTimeData => "+JSON.stringify(userSpace.realTimeData));
+		// console.log("after delete realTimeData =>
+		// "+JSON.stringify(userSpace.realTimeData));
 		
 		updateRealTimeData();
+		updateRealTimeDataListFrame();
+		cancel11();
 		return;
 	}
 	
@@ -199,10 +187,10 @@ function fixLocalRealTimeDataList_Delete(realTimeDataId){
  */
 function fixLocalRealTimeDataList(realTimeData){
 	// $('#newItemAction_mid').modal('hide');
-	cancel();
-	
+	console.log("fixLocalRealTimeDataList 1");
 	if(userSpace==null || userSpace=="undefined"){
 		getUserSpace(user.id,token,fixLocalRealTimeDataList);
+		cancel11();
 		return;
 	}
 	if(realTimeData.owner !=null && realTimeData.owner !="undefined"){
@@ -210,71 +198,102 @@ function fixLocalRealTimeDataList(realTimeData){
 		// realTimeDataList = realTimeDataList.realTimeData;
 		
 		updateRealTimeData();
+		updateRealTimeDataListFrame();
+		cancel11();
 		return;
 	}
-
 }
 
-console.log("_realtimedataListKey = " + _realtimedataListKey);
-var _realtimeDatas;
-// TODO: 如果key为空，就是异常，待处理。
-if (_realtimedataListKey == null || _realtimedataListKey == "undefined")
-	_realtimedataListKey = "";
+updateRealTimeDataListFrame();
 
-if (_realtimedataListKey.trim() == 'unclassify') {
-	alert(_realtimedataListKey);
-	_realtimedataListKey = "";
-	_realtimeDatas = userSpace.realTimeData[""];
-} else
-	_realtimeDatas = userSpace.realTimeData;
-//console.log("realTimeData => "+JSON.stringify(userSpace.realTimeData));
+function updateRealTimeDataListFrame(){
+	console.log("_realtimedataListKey = " + _realtimedataListKey);
+	var _realtimeDatas;
+	// TODO: 如果key为空，就是异常，待处理。
+	if (_realtimedataListKey == null || _realtimedataListKey == "undefined")
+		_realtimedataListKey = "";
+	
+	if (_realtimedataListKey.trim() == 'unclassify') {
+		alert(_realtimedataListKey);
+		_realtimedataListKey = "";
+		_realtimeDatas = userSpace.realTimeData[""];
+	} else {
+		_realtimeDatas = userSpace.realTimeData;
+	}
+	
+	// 如果当前主页面不是实时数据这页，就不刷新了
+	var realtimeDataList_ui = document.getElementById("realtimeDataList_ui");
+	if(realtimeDataList_ui==null || realtimeDataList_ui=="undefined") return;
 
-// console.log("graphs = "+JSON.stringify(userSpace.graphs[""]));
+	var realtimeDataList_ui_innerHTML = "";
+	if (_realtimeDatas != null && _realtimeDatas != "undefined") {
+		Object
+				.keys(_realtimeDatas)
+				.forEach(
+						function(key) {
+							var _realtimeData = _realtimeDatas[key];
+							if(_realtimeData!=null && _realtimeData!="undefined"){
+								var realtimeDataList_ui_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">';
+								realtimeDataList_ui_item_innerHTML += '<figure class="effect-text-in">';
+								realtimeDataList_ui_item_innerHTML += '<img src="'
+										+ _realtimeData.img + '" alt="image" ';
+								
+								realtimeDataList_ui_item_innerHTML += 'onclick="routeTo('
+									+ "'"
+									+ "realtimedataDetail','"
+									+ _realtimeData.id + "'" + ')"/>';
+								realtimeDataList_ui_item_innerHTML += '<figcaption onclick="routeTo('
+									+ "'"
+									+ "realtimedataDetail','"
+									+ _realtimeData.id + "'" + ')"><h4>'
+										+ _realtimeData.name
+										+ '</h4><div>'
+										+'<h5></h5>'
+										+'<h5>创建者：'+_realtimeData.createrUser.name + '</h5>';
+								var shareStr = "";
+								if(_realtimeData.sharedUsers.length>0){
+									shareStr += '<h6>'+'分享给了 : ';
+									var indsharet1 = 3;
+									var indsharet2 = _realtimeData.sharedUsers.length;
+									var shareUsers = _realtimeData.sharedUsers;
+									for(var iindshare=0;iindshare<shareUsers.length;iindshare++){
+										var indshare = shareUsers[iindshare];
+										// console.log(JSON.stringify(indshare));
+										shareStr += indshare.name+"、";
+										indsharet1--;
+										if(indsharet1<0){
+											shareStr = shareStr.slice(0,shareStr.length-1);
+											realtimeDataList_ui_item_innerHTML += "等3人、";
+										}
+									}
+									shareStr = shareStr.slice(0,shareStr.length-1);
+									realtimeDataList_ui_item_innerHTML += shareStr;
+									realtimeDataList_ui_item_innerHTML +='</h6>';
+									// console.log(realtimeDataList_ui_item_innerHTML);
+								}
 
-var realtimeDataList_ui = document.getElementById("realtimeDataList_ui");
-var realtimeDataList_ui_innerHTML = "";
-if (_realtimeDatas != null && _realtimeDatas != "undefined")
-	Object
-			.keys(_realtimeDatas)
-			.forEach(
-					function(key) {
-						var _realtimeData = _realtimeDatas[key];
-						var realtimeDataList_ui_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">';
+								realtimeDataList_ui_item_innerHTML +='<p>'+_realtimeData.desc + '</p>'+'</div></figcaption>';
+								realtimeDataList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
+								realtimeDataList_ui_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
+								realtimeDataList_ui_item_innerHTML += 'shareItemAction(\''+_realtimeData.id+'\')">Share</button>';
+								realtimeDataList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
+								realtimeDataList_ui_item_innerHTML += 'deleteItemAction(\''+_realtimeData.id+'\')">';
+								realtimeDataList_ui_item_innerHTML += '<i class="mdi mdi-delete"></i>';
+								realtimeDataList_ui_item_innerHTML += '</button>';
+								realtimeDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
+								realtimeDataList_ui_item_innerHTML += 'editItemAction(\''+_realtimeData.id+'\')">';
+								realtimeDataList_ui_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
+								realtimeDataList_ui_item_innerHTML += '</button></div>';
+		
+								realtimeDataList_ui_item_innerHTML += '</figure></div>';
+								 // console.log(realtimeDataList_ui_item_innerHTML);
+								realtimeDataList_ui_innerHTML = realtimeDataList_ui_innerHTML
+										+ realtimeDataList_ui_item_innerHTML;
+							}
+						});
+					}
+						
+	
+	realtimeDataList_ui.innerHTML = realtimeDataList_ui_innerHTML;
 
-						realtimeDataList_ui_item_innerHTML += '<figure class="effect-text-in">';
-
-						realtimeDataList_ui_item_innerHTML += '<img src="'
-								+ _realtimeData.img + '" alt="image" ';
-						realtimeDataList_ui_item_innerHTML += 'onclick="routeTo('
-							+ "'"
-							+ "realtimedataDetail','"
-							+ _realtimeData.id + "'" + ')"/>';
-
-						realtimeDataList_ui_item_innerHTML += '<figcaption onclick="routeTo('
-							+ "'"
-							+ "realtimedataDetail','"
-							+ _realtimeData.id + "'" + ')"><h4>'
-								+ _realtimeData.name
-								+ '</h4><p>'
-								+ _realtimeData.path + '</p></figcaption>';
-						realtimeDataList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
-						realtimeDataList_ui_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
-						realtimeDataList_ui_item_innerHTML += 'shareItemAction(\''+_realtimeData.id+'\')">Share</button>';
-						realtimeDataList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
-						realtimeDataList_ui_item_innerHTML += 'deleteItemAction(\''+_realtimeData.id+'\')">';
-						realtimeDataList_ui_item_innerHTML += '<i class="mdi mdi-delete"></i>';
-						realtimeDataList_ui_item_innerHTML += '</button>';
-						realtimeDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
-						realtimeDataList_ui_item_innerHTML += 'editItemAction(\''+_realtimeData.id+'\')">';
-						realtimeDataList_ui_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
-						realtimeDataList_ui_item_innerHTML += '</button></div>';
-
-						realtimeDataList_ui_item_innerHTML += '</figure></div>';
-						// console.log(diagram_gallery_item_innerHTML);
-						realtimeDataList_ui_innerHTML = realtimeDataList_ui_innerHTML
-								+ realtimeDataList_ui_item_innerHTML;
-					});
-realtimeDataList_ui.innerHTML = realtimeDataList_ui_innerHTML;
-//console.log(realtimeDataList_ui_innerHTML);
-
-// console.log(" in _gallery.html userSpace="+JSON.stringify(userSpace));
+}

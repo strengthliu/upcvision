@@ -26,7 +26,7 @@ public class PrincipalHandshakeHandler  extends DefaultHandshakeHandler{
         System.out.println("determineUser");
     	HttpSession session = SpringContextUtils.getSession();
         User loginUser = (User) session.getAttribute(GlobalConsts.SESSION_USER);
-        
+//        request.getRemoteAddress()
         // 先不做用户处理。
         if(true) return new MyPrincipal("");
         if(loginUser != null){

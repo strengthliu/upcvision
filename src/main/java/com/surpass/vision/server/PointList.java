@@ -475,7 +475,7 @@ public class PointList {
 		for(int i=0;i<count;i++) {
 			datas.get(indData).values[i] = _values.get(i);
 //			datas.get(indData).updateValue(i,_values.get(i));
-			System.out.println("data_"+i+" = "+_values.get(i));
+//			System.out.println("data_"+i+" = "+_values.get(i));
 		}
 
 		

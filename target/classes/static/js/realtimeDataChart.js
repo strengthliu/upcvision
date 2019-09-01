@@ -17,6 +17,9 @@ if (userSpace == null || userSpace == "undefined") {
 } else
 	updateRealTimeDataChart(userSpace);
 
+/**
+ * 画点图
+ */
 function updateRealTimeDataChart(ruserSpace) {
 	var pointGroup = ruserSpace.realTimeData[_realtimeDataDetailKey];
 	var uirealtimeDataPoints = document.getElementById("ui-realtimeDataPoints");
@@ -25,7 +28,7 @@ function updateRealTimeDataChart(ruserSpace) {
 		return;
 	var pointList = pointGroup.pointList;
 	var innerHtml = "";
-	console.log("pointList" + JSON.stringify(pointList));
+	// console.log("pointList" + JSON.stringify(pointList));
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
 // console.log(" updateRealTimeDataChart=> "+JSON.stringify(pointList[indpl]));
 		try{
@@ -49,7 +52,7 @@ function updateRealTimeDataChart(ruserSpace) {
 			min : 0,
 			max : 100,
 			title : pointList[indpl].desc,//"一级电脱盐混合阀压差",
-			label : "度",
+			label : pointList[indpl].enunit,
 			donut : true,
 			gaugeWidthScale : 0.6,
 			counter : true,
@@ -65,11 +68,24 @@ function updateRealTimeDataChart(ruserSpace) {
  * 
  * @returns
  */
-function refreshGage() {
-	for (var indpl = 0; indpl < gl.length; indpl++) {
-		gl[indpl].refresh(getRandomInt(50, 100));
+
+function refreshData(data) {
+	var pointList_ = JSON.parse(data.body);
+	for(var key in pointList_){
+		for(var p in gl){
+			//console.log(gl[p].config.id + "  ==  "+"point_" + key );
+			if(gl[p].config.id == "point_" + key){
+				gl[p].refresh(pointList_[key]);
+			}
+		}
 	}
 }
+
+//function refreshGage() {
+//	for (var indpl = 0; indpl < gl.length; indpl++) {
+//		gl[indpl].refresh(getRandomInt(50, 100));
+//	}
+//}
 // setInterval(refreshGage, 1000);
 
 /**
@@ -81,10 +97,12 @@ function refreshGage() {
 function menuFunc(key, options) {
 	switch (key) {
 	case "reconnect":
+		disconnect();
 		connect();
 		break;
 	case "disconnect":
-		stompClient.disconnect();
+		disconnect();
+		//stompClient.disconnect();
 		break;
 	case "edit":
 		stompClient.send("/app/aaa", {
@@ -156,6 +174,7 @@ function loginWebsocket() {
 		return;
 		}
 	else {
+		console.log("当前存在");
 		if(subscribe!=null && subscribe!="undefined")
 			subscribe.unsubscribe();
 		stompClient.send("/app/aaa", {
@@ -241,18 +260,6 @@ function connect() {
 	},function(message){
 		console.log(message);
 	});
-}
-
-function refreshData(data) {
-	var pointList_ = JSON.parse(data.body);
-	for(var key in pointList_){
-		for(var p in gl){
-			//console.log(gl[p].config.id + "  ==  "+"point_" + key );
-			if(gl[p].config.id == "point_" + key){
-				gl[p].refresh(pointList_[key]);
-			}
-		}
-	}
 }
 
 // 从服务器拉取未读消息

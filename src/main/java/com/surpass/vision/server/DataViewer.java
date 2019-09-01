@@ -84,7 +84,7 @@ public class DataViewer {
 		HashMap<String, Double> ret = new HashMap<String, Double>();
 		if (ind != null)
 			for (int i = 0; i < ind.length; i++) {
-				System.out.println("build data by tagName: "+tagNames[i]+" = "+ind[i].getValue());
+//				System.out.println("build data by tagName: "+tagNames[i]+" = "+ind[i].getValue());
 				ret.put(tagNames[i], ind[i].getValue());
 			}
 		else {
@@ -97,7 +97,7 @@ public class DataViewer {
 		HashMap<Long, Double> ret = new HashMap<Long, Double>();
 		if (ind != null)
 			for (int i = 0; i < ind.length; i++) {
-				System.out.println("build data by id: "+ids[i]+" = "+ind[i].getValue());
+//				System.out.println("build data by id: "+ids[i]+" = "+ind[i].getValue());
 				ret.put(ids[i], ind[i].getValue());
 			}
 		else {

@@ -50,19 +50,10 @@ function doShareActionToServer(){
 		success : function(data) {
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
-				var realTimeData = data.data;
-				// console.log("data.data="+JSON.stringify(data));
-				// console.log("realTimeDataId="+realTimeDataId);
+				var realTimeData = data.data.data;
 				userSpace.realTimeData[realTimeData.id]=realTimeData;
-				console.log("data=" + JSON.stringify(data, null, 2));
-				console.log("data=" + JSON.stringify(userSpace.realTimeData[realTimeData.id], null, 2));
 				$('#shareItemAction_mid').modal('hide');
-//				users = userList;
-//				fillUserUI(userList);
-				// $('#newItemAction_mid').modal('hide');
-//				fixLocalRealTimeDataList(realTimeData);
-				// if(data.refresh) routeTo('realtimedataList','');
-				// 
+				updateRealTimeDataListFrame();
 			} else {
 				alert("失败 ： " + data.msg);
 			}

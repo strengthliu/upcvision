@@ -32,10 +32,10 @@ import com.surpass.vision.server.Point;
  * @version: v1.0  
  * ---------------------------------------
  */
-public class Graph implements Serializable {
+public class Graph extends PointGroup implements Serializable {
 	int changed;
 	Hashtable<String,Graph> children;
-	User creater; // 创建者
+//	User creater; // 创建者
 	Double id;
 	boolean isFile;
 	boolean isSVG;
@@ -94,9 +94,6 @@ public class Graph implements Serializable {
 		return children;
 	}
 
-	public User getCreater() {
-		return creater;
-	}
 
 	public Double getId() {
 		return id;
@@ -114,23 +111,9 @@ public class Graph implements Serializable {
 		return otherrule2;
 	}
 
-	public User getOwner() {
-		return owner;
-	}
 
 	public String getPath() {
 		return path;
-	}
-	public List<Point> getPoints() {
-		return points;
-	}
-
-//	public ArrayList<String> getPointIDs() {
-//		return pointIDs;
-//	}
-
-	public List<User> getShared() {
-		return shared;
 	}
 	public int isChanged() {
 		return changed;
@@ -149,10 +132,6 @@ public class Graph implements Serializable {
 
 	public void setChildren(Hashtable<String,Graph> children) {
 		this.children = children;
-	}
-
-	public void setCreater(User creater) {
-		this.creater = creater;
 	}
 
 	public void setFile(boolean isFile) {

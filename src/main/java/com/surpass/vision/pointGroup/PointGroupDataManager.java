@@ -17,6 +17,7 @@ import org.springframework.data.annotation.Reference;
 import org.springframework.stereotype.Component;
 
 import com.surpass.vision.appCfg.GlobalConsts;
+import com.surpass.vision.domain.Graph;
 import com.surpass.vision.domain.PointGroup;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.RealTimeData;

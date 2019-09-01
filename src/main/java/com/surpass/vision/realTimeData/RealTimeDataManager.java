@@ -53,6 +53,7 @@ public class RealTimeDataManager extends PointGroupDataManager {
 		realTimeData.setName(pgd.getName());
 		realTimeData.setOtherrule1(pgd.getOtherrule1());
 		realTimeData.setOtherrule2(pgd.getOtherrule2());
+		realTimeData.setDesc(pgd.getOtherrule2());
 
 		realTimeData.setOwner(pgd.getOwner());
 		realTimeData.setOwnerUser(userManager.getUserByID(pgd.getOwner()));
@@ -194,8 +195,7 @@ public class RealTimeDataManager extends PointGroupDataManager {
 	}
 
 	public RealTimeData updateShareRight(Double itemId, List<String> userIdsid) {
-		// TODO Auto-generated method stub
-		PointGroupData pgd = pointGroupService.getRealTimeDataByID(itemId);
+		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
 		if(pgd == null) {
 			throw new IllegalStateException("没有id为"+itemId+"这个数据");
 		}
@@ -213,6 +213,13 @@ public class RealTimeDataManager extends PointGroupDataManager {
 		redisService.set(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(rtd.getId()),rtd);
 
 		return rtd;
+	}
+
+	public void updateRealTimeData(RealTimeData rtd) {
+		// 更新数据库
+		pointGroupService.updatePointGroupItem(rtd);
+		// 写缓存RealTimeData，返回
+		redisService.set(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(rtd.getId()),rtd);
 	}
 
 

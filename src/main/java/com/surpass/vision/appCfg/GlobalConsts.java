@@ -33,12 +33,16 @@ public final class GlobalConsts {
      * Redis中Key的定义
      */
 	public static final String Key_UserSpace_pre_ = "Key_UserSpace_pre_"; // 用户空间key前缀
-	public static final String Key_UserInfo_Pre = "Key_UserInfo_Pre"; // 用户key前缀
+	public static final String Key_UserInfo_Pre_ = "Key_UserInfo_Pre_"; // 用户key前缀
     public final static String Key_Graph_pre_ = "Key_Graph_pre_"; // 图形key前缀
 	public static final String Key_HistoryData_pre_ = "Key_HistoryData_pre_"; // 历史数据组key前缀
 	public static final String Key_RealTimeData_pre_ = "Key_RealTimeData_pre_";
-	public static final String key_AlertData_pre = "key_AlertData_pre";
-	
+	public static final String Key_AlertData_pre_ = "Key_AlertData_pre_";
+	public static final String Key_LineAlertData_pre_ = "Key_LineAlertData_pre_";
+	public static final String Key_XYGraph_pre_ = "Key_XYGraph_pre_";
+
+//	public static final String Key_AlertData_pre_ = null;
+
 	public static final String Key_Point_pre = "Key_Point_pre";
 	public static final String Key_Device_pre_ = "Key_Device_pre_";
 	public static final String Key_Server_pre_ = "Key_Server_pre_";
@@ -84,7 +88,16 @@ public final class GlobalConsts {
 	public static final String Operation_createOrUpdateRealTimeData = "Operation_createOrUpdateRealTimeData";
 	public static final String Operation_createOrUpdateLineAlertData = "Operation_createOrUpdateLineAlertData";
 	public static final String Operation_getRealTimeDataList = "Operation_getRealTimeDataList";
-	
+	public static final String Operation_getAlertDataList = "Operation_getAlertDataList";
+	public static final String Operation_createOrUpdateAlertData = "Operation_createOrUpdateAlertData";
+	public static final String Operation_getHistoryDataList = "Operation_getHistoryDataList";
+	public static final String Operation_createOrUpdateHistoryData = "Operation_createOrUpdateHistoryData";
+	public static final String Operation_getLineAlertDataList = "Operation_getLineAlertDataList";
+	public static final String Operation_getXYGraphList = "Operation_getXYGraphList";
+	public static final String Operation_createOrUpdateXYGraph = "Operation_createOrUpdateXYGraph";
+	public static final String Operation_getGraphList = "Operation_getGraphList";
+	public static final String Operation_shareGraph = "Operation_shareGraph";
+
 	
 	public static final String KeyAggrandizement = "KeyAggrandizement"; // 增加
 	public static final String KeyDecrement = "KeyDecrement"; // 减少

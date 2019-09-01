@@ -40,6 +40,12 @@ public class PointGroupServiceImpl implements PointGroupService {
 		return pointGroupDataMapper.getAdminLineAlertData();	
 	}
 	
+
+	@Override
+	public List<PointGroupData> getAdminGraphData() {
+		return pointGroupDataMapper.getAdminGraphData();	
+	}
+
 	@Async("taskExecutor")
 	@Override
 	public Object newPointGroupData(PointGroupData pgd) {
@@ -61,7 +67,7 @@ public class PointGroupServiceImpl implements PointGroupService {
 
 
 	@Override
-	public PointGroupData getRealTimeDataByID(Double itemId) {
+	public PointGroupData getPointGroupDataByID(Double itemId) {
 		
 		return pointGroupDataMapper.selectByPrimaryKey(Double.valueOf(itemId));
 	}
@@ -71,5 +77,11 @@ public class PointGroupServiceImpl implements PointGroupService {
 	public void updatePointGroupItem(PointGroupData pgd) {
 		pointGroupDataMapper.updateByPrimaryKeySelective(pgd);
 	}
+
+//	@Override
+//	public PointGroupData getAlertDataByID(Double itemId) {
+//		
+//		return pointGroupDataMapper.selectByPrimaryKey(Double.valueOf(itemId));
+//	}
 
 }

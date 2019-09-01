@@ -484,32 +484,7 @@
 		</div>
 		<script>
 			$("#loading").hide();
-			var loadStartTime;
-			function showLoading() {
-				loadStartTime = Date.now();
-				setTimeout(function() {
-					_showLoading();
-				}, 500);
-			}
-			function _showLoading() {
-				if (loadStartTime != 0)
-					$("#loading").show();
-			}
-			function hideLoading() {
-				var currentTime = Date.now();
-				var difference = currentTime - loadStartTime;
-				//console.log(difference);
-				if (difference < 500)
-					loadStartTime = 0;
-				else {
-					if (difference < 1000) {
-						setTimeout(function() {
-							$("#loading").hide();
-						}, 1000);
-					} else
-						$("#loading").hide();
-				}
-			}
+
 		</script>
 			<!--  ************************************ 访问服务器遮罩  end ************************************  -->
 

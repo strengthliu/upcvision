@@ -6,7 +6,7 @@ var selectedPoints = new Set();
 var targetName = "";
 var serverName = "";
 
-
+// 确保服务器和点位数据
 if(serverList == null || serverList=="undefined"){
 	// alert("newDataItem1");
 
@@ -66,7 +66,7 @@ if(serverList == null || serverList=="undefined"){
 	buildNewItemUI(serverList);
 }
 
-
+// 构建服务器、设备及点位
 function buildNewItemUI(serverInfos) {
 	// console.log("buildNewItemUI");
 	// 清空服务器选择列表
@@ -108,14 +108,16 @@ function buildNewItemUI(serverInfos) {
 	pointLeftBox.innerHTML="";
 	
 	serverName = $("#newItem_ServerSelectSect").val();
-	// console.log(" 1  => "+$("#newItem_ServerSelectSect").val()+" | "+$("#newItem_ServerSelectSect").text);
+	// console.log(" 1 => "+$("#newItem_ServerSelectSect").val()+" |
+	// "+$("#newItem_ServerSelectSect").text);
 	// 添加选择了服务器事件
 	$("#newItem_ServerSelectSect").change(function(){
 		$("#newItem_DeviceSelectSect").html("");
 		$("#newItem_DeviceSelectSect").empty();
 		
 		serverName = $("#newItem_ServerSelectSect").val();
-		// console.log($("#newItem_ServerSelectSect").val()+" | "+$("#newItem_ServerSelectSect").text);
+		// console.log($("#newItem_ServerSelectSect").val()+" |
+		// "+$("#newItem_ServerSelectSect").text);
 		
 		var deviceInfos = serverInfos[$("#newItem_ServerSelectSect").val()];
 		Object.keys(deviceInfos).forEach(function(keyDevice){
@@ -152,6 +154,7 @@ function buildNewItemUI(serverInfos) {
 	});
 }
 
+// 左侧点击过滤
 function filterNewItem_pointlistleft(){
 	var filterTagName = document.getElementById("newItem_pointfilterpointname").value;
 	var filterTagDesc = document.getElementById("newItem_pointfilterpointdesc").value;
@@ -216,6 +219,7 @@ function filterNewItem_pointlistleft(){
 	}
 }
 
+// 点击左侧框选择操作
 function newDataItem_leftboxitemcheck(elemId,editAction) {
 	if(editAction==null || editAction=="undefined")
 		editAction = false;
@@ -244,10 +248,12 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 
 	}
 }
-	function editItem(){
+
+// 编辑按钮
+function editItem(){
 	var item;
 	// 编辑
-	console.log("data =>"+actionType+"  "+itemID);
+	 console.log("data =>"+actionType+"  "+itemID);
 	if(actionType!=null && actionType!="undefined" && itemID!=null && itemID!="undefined"){
 		switch(actionType){
 			case "realTimeData":
@@ -258,21 +264,24 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 		}
 		console.log("data =>"+JSON.stringify(item));
 		if(item!=null && item!="undefined"){
-			targetName = item.name;
-			var psel = document.getElementById("targetName");
-			psel.value = targetName;
+			targetName = item.name; // 设置名称
+			var psel = document.getElementById("_targetNameUI");
+			psel.value = targetName; // 设置名称显示
+			
 			var pseld = document.getElementById("targetDesc");
 			targetDesc = item.desc;
-			pseld.value = targetDesc;
-			
+			pseld.value = targetDesc;// 设置描述显示
+			selectedPoints = new Set();
 			Object.keys(item.pointList).forEach(function(key){
 				var id__= item.pointList[key].tagName;
-				console.log(id__);
+				console.log(" id = "+id__);
 				selectedPoints.add(serverName+"."+id__);
 				newDataItem_leftboxitemcheck(id__,true);
 			});
+			console.log("这个项目有"+selectedPoints.size+"个点");
+			
 			
 		}
 	}
-	}
+}
 
