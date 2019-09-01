@@ -148,11 +148,21 @@ public class GraphDataManager extends PointGroupDataManager {
 					throw new IllegalStateException("没有'" + ownerId + "'这个用户id。");
 				shares.add(share);
 			}
-			ret.setShared(shares);
+			ret.setSharedUsers(shares);
 
 			ret.setOtherrule1(pgd.getOtherrule2());
 			ret.setOtherrule2(pgd.getOtherrule1());
+		} else {
+			Double id = IDTools.newID();
+			ret.setId(id);
+			// TODO: 处理数据库和缓存
+			// 数据库中创建一条
+			this.pointGroupService.newPointGroupData(ret);
+			// 更新缓存
+			redisService.set(GlobalConsts.Key_HistoryData_pre_+IDTools.toString(ret.getId()),ret);
+			
 		}
+		
 		return ret;
 	}
 
@@ -212,7 +222,6 @@ public class GraphDataManager extends PointGroupDataManager {
 			});
 			ret.setChildren(children);
 		}
-
 		return ret;
 	}
 	
@@ -333,12 +342,6 @@ public class GraphDataManager extends PointGroupDataManager {
 		graph.setType(pgd.getType());
 
 		return graph;
-	}
-
-	public Graph getGraphByKeys(Double oldRtdId) {
-		Graph rtd = (Graph)redisService.get(GlobalConsts.Key_Graph_pre_+IDTools.toString(oldRtdId));
-		return rtd;
-
 	}
 
 }

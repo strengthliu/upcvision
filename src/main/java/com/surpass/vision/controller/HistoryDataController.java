@@ -19,7 +19,9 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.common.ToWeb;
+import com.surpass.vision.domain.AlertData;
 import com.surpass.vision.domain.HistoryData;
+import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.historyData.HistoryDataManager;
 import com.surpass.vision.service.AuthorcationService;
@@ -46,7 +48,8 @@ public class HistoryDataController extends BaseController {
 			Double uid = user.getDouble("uid");
 			String token = user.getString("token");
 			// 认证+权限
-			ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getHistoryDataList);
+			UserRight ur = new UserRight();
+			ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getHistoryDataList,ur);
 			if (!StringUtil.isBlank(ret.getStatus()))
 				return ret;
 
@@ -110,8 +113,18 @@ public class HistoryDataController extends BaseController {
 		public ToWeb newHistoryDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 			Double uid = user.getDouble("uid");
 			String token = user.getString("token");
+			String idstr = user.getString("id");
+			Double idd = null ;
+			if(StringUtil.isBlank(idstr)) {
+				
+			}else {
+				idd = Double.valueOf(idstr);
+			}
+			
 			// 认证+权限
-			ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateHistoryData);
+			HistoryData g = this.historyDataManager.getHistoryDataByKeys(idd);
+			UserRight ur = g.getRight(uid);
+			ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createHistoryData,ur);
 			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 				return ret;
 
@@ -152,8 +165,18 @@ public class HistoryDataController extends BaseController {
 		public ToWeb deleteHistoryDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 			Double uid = user.getDouble("uid");
 			String token = user.getString("token");
+			String idstr = user.getString("id");
+			Double idd = null ;
+			if(StringUtil.isBlank(idstr)) {
+				
+			}else {
+				idd = Double.valueOf(idstr);
+			}
+			
 			// 认证+权限
-			ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateHistoryData);
+			HistoryData g = this.historyDataManager.getHistoryDataByKeys(idd);
+			UserRight ur = g.getRight(uid);
+			ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateHistoryData,ur);
 			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 				return ret;
 
@@ -199,8 +222,18 @@ public class HistoryDataController extends BaseController {
 		public ToWeb shareRight(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 			Double uid = user.getDouble("uid");
 			String token = user.getString("token");
+			String idstr = user.getString("id");
+			Double id = null ;
+			if(StringUtil.isBlank(idstr)) {
+				
+			}else {
+				id = Double.valueOf(idstr);
+			}
+			
 			// 认证+权限
-			ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateHistoryData);
+			HistoryData g = this.historyDataManager.getHistoryDataByKeys(id);
+			UserRight ur = g.getRight(uid);
+			ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateHistoryData,ur);
 			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 				return ret;
 
@@ -209,14 +242,6 @@ public class HistoryDataController extends BaseController {
 			// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
 			JSONArray juserIds = user.getJSONArray("userIds");
 			String type = user.getString("type");
-			String idstr = user.getString("id");
-			Double id = null ;
-			if(StringUtil.isBlank(idstr)) {
-				
-			}else {
-				id = Double.valueOf(idstr);
-			}
-				
 			List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
 			// TODO: 检查参数合法性
 

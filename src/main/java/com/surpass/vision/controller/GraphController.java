@@ -26,6 +26,7 @@ import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.Graph;
+import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.exception.ExceptionEnum;
 import com.surpass.vision.exception.GirlFriendNotFoundException;
@@ -55,7 +56,9 @@ public class GraphController extends BaseController {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getGraphList);
+		UserRight ur = new UserRight();
+		
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getGraphList,ur);
 		if (!StringUtil.isBlank(ret.getStatus()))
 			return ret;
 
@@ -96,8 +99,19 @@ public class GraphController extends BaseController {
 	public ToWeb shareRight(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			
+		}else {
+			id = Double.valueOf(idstr);
+		}
+		
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_shareGraph);
+		Graph g = graphManager.getGraphByKeys(id);
+		UserRight ur = g.getRight(uid);
+		
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_shareGraph,ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 			return ret;
 
@@ -106,13 +120,6 @@ public class GraphController extends BaseController {
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
 		JSONArray juserIds = user.getJSONArray("userIds");
 		String type = user.getString("type");
-		String idstr = user.getString("id");
-		Double id = null ;
-		if(StringUtil.isBlank(idstr)) {
-			
-		}else {
-			id = Double.valueOf(idstr);
-		}
 			
 		List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
 		// TODO: 检查参数合法性

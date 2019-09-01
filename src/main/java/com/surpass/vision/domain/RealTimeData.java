@@ -2,6 +2,8 @@ package com.surpass.vision.domain;
 
 import java.io.Serializable;
 
+import com.surpass.vision.appCfg.GlobalConsts;
+
 public class RealTimeData extends PointGroup implements Serializable {
 
 //	public RealTimeData(PointGroupData pgd) {
@@ -9,7 +11,8 @@ public class RealTimeData extends PointGroup implements Serializable {
 //	}
 
 	public RealTimeData() {
-		// TODO Auto-generated constructor stub
+		super();
+		this.setType(GlobalConsts.Type_linealertdata_);
 	}
 
 }

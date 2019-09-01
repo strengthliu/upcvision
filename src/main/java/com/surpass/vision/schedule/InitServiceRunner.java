@@ -21,8 +21,8 @@ public class InitServiceRunner implements CommandLineRunner {
 	@Autowired
 	RedisService rs;
 	
-	@Autowired
-	UpdateGraphDirctory ug;
+//	@Autowired
+//	UpdateGraphDirctory ug;
 	
 	@Autowired
 	UserManager userManager;
@@ -61,7 +61,8 @@ public class InitServiceRunner implements CommandLineRunner {
 		System.out.println(new Date().toLocaleString()+"====>> 开始初始化图形目录数据...");
 		start = System.currentTimeMillis();
 		GraphManager.getInstance().reloadFileList(graphPath);
-		ug.updateGraphDirctory();
+		GraphManager.getInstance().updateGraphs();
+//		ug.updateGraphDirctory();
 		// 初始化服务器、装置
 		end = System.currentTimeMillis();
 		System.out.println(new Date().toLocaleString()+"====>> 初始化图形目录数据结束，用时"+(end-start)/1000+"秒");

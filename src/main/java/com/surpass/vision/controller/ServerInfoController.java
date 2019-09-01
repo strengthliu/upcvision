@@ -16,6 +16,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.common.Submit;
 import com.surpass.vision.common.ToWeb;
+import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.realTimeData.RealTimeDataManager;
 import com.surpass.vision.server.Server;
@@ -40,7 +41,8 @@ public class ServerInfoController extends BaseController {
 		String uid = uidToken.getString("uid");
 		String token = uidToken.getString("token");
 		// 认证+权限
-		ToWeb ret = authercation(Double.valueOf(uid), token, GlobalConsts.Operation_getRealTimeDataList);
+		UserRight ur = new UserRight();
+		ToWeb ret = authercation(Double.valueOf(uid), token, GlobalConsts.Operation_getRealTimeDataList,ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && ret.getStatus()!=GlobalConsts.ResultCode_SUCCESS)
 			return ret;
 

@@ -11,7 +11,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.graph.GraphManager;
 
-public class FileList implements Serializable {
+public class FileList extends PointGroup implements Serializable {
 	/**
 	 * 0：没有变化
 	 * 1：该文件为新增文件
@@ -21,28 +21,20 @@ public class FileList implements Serializable {
 
 	Hashtable<String, FileList> children;
 
-	boolean isFile;
-
-	boolean isSVG;
 	String img;
-	public String getImg() {
-		return img;
-	}
 
-
-	public void setImg(String img) {
-		this.img = img;
-	}
-
+	boolean isFile;
+	boolean isSVG;
 	String name;
+
+
 	String path;
+
 	ArrayList<String> pointIDs;
 	public FileList() {
 		super();
 		this.children = new Hashtable<String, FileList>();
 	}
-	
-
 	public FileList(FileList repo) {
 		super();
 		this.isFile = repo.isFile;
@@ -51,7 +43,6 @@ public class FileList implements Serializable {
 		this.changed = repo.changed;
 		this.children = new Hashtable<String, FileList>(repo.children);
 	}
-
 	/**
 	 * 
 	 * @param child
@@ -70,6 +61,7 @@ public class FileList implements Serializable {
 		return true;
 
 	}
+	
 
 	/***
 	 * TODO: 改写这个方法 这个写的不好，这个方法应该放到外面才对，这样跟GraphManager耦合太大了。
@@ -168,6 +160,10 @@ public class FileList implements Serializable {
 		return children;
 	}
 
+	public String getImg() {
+		return img;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -209,6 +205,10 @@ public class FileList implements Serializable {
 
 	public void setFile(boolean isFile) {
 		this.isFile = isFile;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 //	Hashtable<String, FileList> change;

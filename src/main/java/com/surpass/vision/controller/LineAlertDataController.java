@@ -19,9 +19,11 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.common.ToWeb;
+import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.domain.LineAlertData;
 import com.surpass.vision.domain.LineAlertData;
 import com.surpass.vision.domain.RealTimeData;
+import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.lineAlertData.LineAlertDataManager;
 import com.surpass.vision.realTimeData.RealTimeDataManager;
@@ -48,7 +50,8 @@ public class LineAlertDataController extends BaseController {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getLineAlertDataList);
+		UserRight ur = new UserRight();
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getLineAlertDataList,ur);
 		if (!StringUtil.isBlank(ret.getStatus()))
 			return ret;
 
@@ -112,8 +115,18 @@ public class LineAlertDataController extends BaseController {
 	public ToWeb newLineAlertDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			
+		}else {
+			id = Double.valueOf(idstr);
+		}
+		
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateLineAlertData);
+		LineAlertData g = this.lineAlertDataManager.getLineAlertDataByKeys(id);
+		UserRight ur = g.getRight(uid);
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createLineAlertData,ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 			return ret;
 
@@ -124,13 +137,12 @@ public class LineAlertDataController extends BaseController {
 		String creater = owner;
 		JSONArray points = user.getJSONArray("points");
 		String otherrule2 = user.getString("desc");
-		String id=user.getString("id");
 
 		
 		// TODO: 检查参数合法性
 
 		try {
-			LineAlertData rtd = lineAlertDataManager.createLineAlertData(GlobalConsts.Type_linealertdata_, name, owner, creater,points,otherrule2,id);
+			LineAlertData rtd = lineAlertDataManager.createLineAlertData(GlobalConsts.Type_linealertdata_, name, owner, creater,points,otherrule2,idstr);
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
@@ -154,16 +166,25 @@ public class LineAlertDataController extends BaseController {
 	public ToWeb deleteLineAlertDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			
+		}else {
+			id = Double.valueOf(idstr);
+		}
+		
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateLineAlertData);
+		LineAlertData g = this.lineAlertDataManager.getLineAlertDataByKeys(id);
+		UserRight ur = g.getRight(uid);
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateLineAlertData,ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 			return ret;
 
 		// 取出参数
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
-		String id = user.getString("id");		
 		// 检查参数合法性
-		if(StringUtil.isBlank(id)) {
+		if(StringUtil.isBlank(idstr)) {
 			ret.setStatus(GlobalConsts.ResultCode_FAIL);
 			ret.setMsg("参数不正确，ID不能为空。");
 			return ret;
@@ -177,7 +198,7 @@ public class LineAlertDataController extends BaseController {
 				ret.setRefresh(true);
 				return ret;
 			}
-			rtd = lineAlertDataManager.deleteLineAlertData(id);
+			rtd = lineAlertDataManager.deleteLineAlertData(idstr);
 			if (rtd != null) {
 				// 更新用户空间
 				//UserSpace us = userSpaceManager.getUserSpaceRigidly(Long.valueOf(uid));
@@ -201,8 +222,18 @@ public class LineAlertDataController extends BaseController {
 	public ToWeb shareRight(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			
+		}else {
+			id = Double.valueOf(idstr);
+		}
+		
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateLineAlertData);
+		LineAlertData g = this.lineAlertDataManager.getLineAlertDataByKeys(id);
+		UserRight ur = g.getRight(uid);
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateLineAlertData,ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 			return ret;
 
@@ -211,13 +242,6 @@ public class LineAlertDataController extends BaseController {
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
 		JSONArray juserIds = user.getJSONArray("userIds");
 		String type = user.getString("type");
-		String idstr = user.getString("id");
-		Double id = null ;
-		if(StringUtil.isBlank(idstr)) {
-			
-		}else {
-			id = Double.valueOf(idstr);
-		}
 			
 		List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
 		// TODO: 检查参数合法性

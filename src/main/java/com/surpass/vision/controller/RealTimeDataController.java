@@ -64,7 +64,8 @@ public class RealTimeDataController extends BaseController {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getRealTimeDataList);
+		UserRight ur = new UserRight();
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getRealTimeDataList,ur);
 		if (!StringUtil.isBlank(ret.getStatus()))
 			return ret;
 
@@ -128,8 +129,18 @@ public class RealTimeDataController extends BaseController {
 	public ToWeb newRealTimeDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			
+		}else {
+			id = Double.valueOf(idstr);
+		}
+		
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateRealTimeData);
+		RealTimeData g = this.realTimeDataManager.getRealTimeDataByKeys(id);
+		UserRight ur = g.getRight(uid);
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createRealTimeData,ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 			return ret;
 
@@ -140,13 +151,12 @@ public class RealTimeDataController extends BaseController {
 		String creater = owner;
 		JSONArray points = user.getJSONArray("points");
 		String otherrule2 = user.getString("desc");
-		String id=user.getString("id");
 
 		
 		// TODO: 检查参数合法性
 
 		try {
-			RealTimeData rtd = realTimeDataManager.createRealTimeData(GlobalConsts.Type_realtimedata_, name, owner, creater,points,otherrule2,id);
+			RealTimeData rtd = realTimeDataManager.createRealTimeData(GlobalConsts.Type_realtimedata_, name, owner, creater,points,otherrule2,idstr);
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
@@ -170,16 +180,25 @@ public class RealTimeDataController extends BaseController {
 	public ToWeb deleteRealTimeDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			
+		}else {
+			id = Double.valueOf(idstr);
+		}
+		
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateRealTimeData);
+		RealTimeData g = this.realTimeDataManager.getRealTimeDataByKeys(id);
+		UserRight ur = g.getRight(uid);
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateRealTimeData,ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 			return ret;
 
 		// 取出参数
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
-		String id = user.getString("id");		
 		// 检查参数合法性
-		if(StringUtil.isBlank(id)) {
+		if(StringUtil.isBlank(idstr)) {
 			ret.setStatus(GlobalConsts.ResultCode_FAIL);
 			ret.setMsg("参数不正确，ID不能为空。");
 			return ret;
@@ -193,7 +212,7 @@ public class RealTimeDataController extends BaseController {
 				ret.setRefresh(true);
 				return ret;
 			}
-			rtd = realTimeDataManager.deleteRealTimeData(id);
+			rtd = realTimeDataManager.deleteRealTimeData(idstr);
 			if (rtd != null) {
 				// 更新用户空间
 				//UserSpace us = userSpaceManager.getUserSpaceRigidly(Long.valueOf(uid));
@@ -217,8 +236,18 @@ public class RealTimeDataController extends BaseController {
 	public ToWeb shareRight(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			
+		}else {
+			id = Double.valueOf(idstr);
+		}
+		
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateRealTimeData);
+		RealTimeData g = this.realTimeDataManager.getRealTimeDataByKeys(id);
+		UserRight ur = g.getRight(uid);
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateRealTimeData,ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 			return ret;
 
@@ -227,13 +256,6 @@ public class RealTimeDataController extends BaseController {
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
 		JSONArray juserIds = user.getJSONArray("userIds");
 		String type = user.getString("type");
-		String idstr = user.getString("id");
-		Double id = null ;
-		if(StringUtil.isBlank(idstr)) {
-			
-		}else {
-			id = Double.valueOf(idstr);
-		}
 			
 		List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
 		// TODO: 检查参数合法性

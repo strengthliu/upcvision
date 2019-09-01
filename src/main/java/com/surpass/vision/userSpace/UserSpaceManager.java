@@ -524,7 +524,7 @@ public class UserSpaceManager {
 		if(oldRtdId == null || oldRtdId==0)
 			oldRtd = new Graph();
 		else 
-			oldRtd = graphDataManager.getGraphByKeys(oldRtdId);
+			oldRtd = graphManager.getGraphByKeys(oldRtdId);
 		if(rtd == null) { // 是删除
 			return;
 		}

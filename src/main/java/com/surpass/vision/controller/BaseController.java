@@ -15,6 +15,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.RealTimeData;
+import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.user.UserManager;
 import com.surpass.vision.userSpace.UserSpaceManager;
@@ -50,20 +51,16 @@ public class BaseController {
 		return ret;
 	}
 
-	public ToWeb authercation(Double uid, String token, String opperation) {
+	public ToWeb authercation(Double uid, String token, String opperation, UserRight ur) {
 		ToWeb ret = authercation(uid,token);
 		if(!StringUtil.isBlank(ret.getStatus())) return ret;
 		
 		// 判断权限
 		UserSpace us = userSpaceManager.getUserSpaceRigidly(uid);
 		Integer role = us.getUser().getRole();
-		if(!userManager.hasRight(role,GlobalConsts.Operation_createOrUpdateRealTimeData)) {
-			// 没有权限
-			ret.setStatus(GlobalConsts.ResultCode_NO_PRIVILEGE);
-			ret.setMsg("您没有此操作权限，如果一定要执行这个操作，请联系组态人员或系统管理员。");
-			return ret;
-		}
-		if(!userManager.hasRight(role,GlobalConsts.Operation_createOrUpdateLineAlertData)) {
+		
+		
+		if(!userManager.hasRight(role,opperation,ur)) {
 			// 没有权限
 			ret.setStatus(GlobalConsts.ResultCode_NO_PRIVILEGE);
 			ret.setMsg("您没有此操作权限，如果一定要执行这个操作，请联系组态人员或系统管理员。");

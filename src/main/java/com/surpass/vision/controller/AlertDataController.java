@@ -20,6 +20,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.AlertData;
+import com.surpass.vision.domain.Graph;
+import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.alertData.AlertDataManager;
 import com.surpass.vision.service.AuthorcationService;
@@ -32,7 +34,7 @@ import com.surpass.vision.userSpace.UserSpaceManager;
 public class AlertDataController extends BaseController {
 
 	@Autowired
-	AlertDataManager AlertDataManager;
+	AlertDataManager alertDataManager;
 
 	@Autowired
 	UserManager userManager;
@@ -57,7 +59,8 @@ public class AlertDataController extends BaseController {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getAlertDataList);
+		UserRight ur = new UserRight();
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getAlertDataList,ur);
 		if (!StringUtil.isBlank(ret.getStatus()))
 			return ret;
 
@@ -121,8 +124,18 @@ public class AlertDataController extends BaseController {
 	public ToWeb newAlertDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
+		String idstr = user.getString("id");
+		Double idd = null ;
+		if(StringUtil.isBlank(idstr)) {
+			
+		}else {
+			idd = Double.valueOf(idstr);
+		}
+		
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateAlertData);
+		AlertData g = this.alertDataManager.getAlertDataByKeys(idd);
+		UserRight ur = g.getRight(uid);
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createAlertData,ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 			return ret;
 
@@ -139,7 +152,7 @@ public class AlertDataController extends BaseController {
 		// TODO: 检查参数合法性
 
 		try {
-			AlertData rtd = AlertDataManager.createAlertData(GlobalConsts.Type_alertdata_, name, owner, creater,points,otherrule2,id);
+			AlertData rtd = alertDataManager.createAlertData(GlobalConsts.Type_alertdata_, name, owner, creater,points,otherrule2,id);
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
@@ -163,8 +176,18 @@ public class AlertDataController extends BaseController {
 	public ToWeb deleteAlertDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
+		String idstr = user.getString("id");
+		Double idd = null ;
+		if(StringUtil.isBlank(idstr)) {
+			
+		}else {
+			idd = Double.valueOf(idstr);
+		}
+		
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateAlertData);
+		AlertData g = this.alertDataManager.getAlertDataByKeys(idd);
+		UserRight ur = g.getRight(uid);
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateAlertData,ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 			return ret;
 
@@ -179,14 +202,14 @@ public class AlertDataController extends BaseController {
 		}
 		Double rtdId = Double.valueOf(id);
 		try {
-			AlertData rtd = AlertDataManager.getAlertDataByKeys(rtdId);
+			AlertData rtd = alertDataManager.getAlertDataByKeys(rtdId);
 			if(rtd == null || StringUtil.isBlank(rtd.getOwner())) {
 				ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
 				ret.setMsg("没有指定ID的数据。");
 				ret.setRefresh(true);
 				return ret;
 			}
-			rtd = AlertDataManager.deleteAlertData(id);
+			rtd = alertDataManager.deleteAlertData(id);
 			if (rtd != null) {
 				// 更新用户空间
 				//UserSpace us = userSpaceManager.getUserSpaceRigidly(Long.valueOf(uid));
@@ -210,8 +233,18 @@ public class AlertDataController extends BaseController {
 	public ToWeb shareRight(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			
+		}else {
+			id = Double.valueOf(idstr);
+		}
+		
 		// 认证+权限
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createOrUpdateAlertData);
+		AlertData g = this.alertDataManager.getAlertDataByKeys(id);
+		UserRight ur = g.getRight(uid);
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateAlertData,ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 			return ret;
 
@@ -220,19 +253,12 @@ public class AlertDataController extends BaseController {
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
 		JSONArray juserIds = user.getJSONArray("userIds");
 		String type = user.getString("type");
-		String idstr = user.getString("id");
-		Double id = null ;
-		if(StringUtil.isBlank(idstr)) {
-			
-		}else {
-			id = Double.valueOf(idstr);
-		}
 			
 		List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
 		// TODO: 检查参数合法性
 
 		try {
-			AlertData rtd = AlertDataManager.updateShareRight(id,userIds);
+			AlertData rtd = alertDataManager.updateShareRight(id,userIds);
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));

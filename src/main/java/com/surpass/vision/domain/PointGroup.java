@@ -62,6 +62,11 @@ public class PointGroup extends PointGroupData implements Serializable{
 
 	String type;
 
+	public UserRight getRight(Double id) {
+		UserRight ur = new UserRight();
+		
+		return ur;
+	}
 	String img = "/images/samples/300x300/1.jpg";
 	public User getCreaterUser() {
 		return createrUser;

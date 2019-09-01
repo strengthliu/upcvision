@@ -75,7 +75,11 @@ public class PointGroupServiceImpl implements PointGroupService {
 	@Async("taskExecutor")
 	@Override
 	public void updatePointGroupItem(PointGroupData pgd) {
-		pointGroupDataMapper.updateByPrimaryKeySelective(pgd);
+		PointGroupData pgdt = pointGroupDataMapper.selectByPrimaryKey(pgd.getId());
+		if(pgdt != null)
+			pointGroupDataMapper.updateByPrimaryKeySelective(pgd);
+		else
+			pointGroupDataMapper.insert(pgd);
 	}
 
 //	@Override

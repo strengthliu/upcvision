@@ -35,6 +35,9 @@ public class GraphManager extends GraphDataManager {
 	private long beginUpdateTime = 0;
 	private boolean updating = false;
 	private FileList repo;
+	
+//	Hashtable<String, ArrayList<Graph>> children;
+	
 	private ArrayList<FileList> changed;
 	private GraphManager() {
 		super();
@@ -197,6 +200,22 @@ System.out.println(aa.length);
 		pointGroupService.updatePointGroupItem(rtd);
 		// 写缓存RealTimeData，返回
 		redisService.set(GlobalConsts.Key_Graph_pre_+IDTools.toString(rtd.getId()),rtd);
+	}
+
+	public void updateGraphs() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public Graph getGraphByKeys(Double oldRtdId) {
+		Graph rtd = (Graph)redisService.get(GlobalConsts.Key_Graph_pre_+IDTools.toString(oldRtdId));
+		// TODO: 如果没有，就从GraphManager
+		if(rtd == null) {
+//			this.children.h
+		}
+		return rtd;
+
 	}
 
 

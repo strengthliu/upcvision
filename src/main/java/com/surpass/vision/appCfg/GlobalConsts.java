@@ -85,16 +85,21 @@ public final class GlobalConsts {
 	/**
 	 * 权限功能名称
 	 */
-	public static final String Operation_createOrUpdateRealTimeData = "Operation_createOrUpdateRealTimeData";
-	public static final String Operation_createOrUpdateLineAlertData = "Operation_createOrUpdateLineAlertData";
+	public static final String Operation_createRealTimeData = "Operation_createRealTimeData";
+	public static final String Operation_updateRealTimeData = "Operation_updateRealTimeData";
+	public static final String Operation_createLineAlertData = "Operation_createLineAlertData";
+	public static final String Operation_updateLineAlertData = "Operation_updateLineAlertData";
 	public static final String Operation_getRealTimeDataList = "Operation_getRealTimeDataList";
 	public static final String Operation_getAlertDataList = "Operation_getAlertDataList";
-	public static final String Operation_createOrUpdateAlertData = "Operation_createOrUpdateAlertData";
+	public static final String Operation_createAlertData = "Operation_createAlertData";
+	public static final String Operation_updateAlertData = "Operation_updateAlertData";
 	public static final String Operation_getHistoryDataList = "Operation_getHistoryDataList";
-	public static final String Operation_createOrUpdateHistoryData = "Operation_createOrUpdateHistoryData";
+	public static final String Operation_createHistoryData = "Operation_createHistoryData";
+	public static final String Operation_updateHistoryData = "Operation_updateHistoryData";
 	public static final String Operation_getLineAlertDataList = "Operation_getLineAlertDataList";
 	public static final String Operation_getXYGraphList = "Operation_getXYGraphList";
-	public static final String Operation_createOrUpdateXYGraph = "Operation_createOrUpdateXYGraph";
+	public static final String Operation_createXYGraph = "Operation_createXYGraph";
+	public static final String Operation_updateXYGraph = "Operation_updateXYGraph";
 	public static final String Operation_getGraphList = "Operation_getGraphList";
 	public static final String Operation_shareGraph = "Operation_shareGraph";
 
