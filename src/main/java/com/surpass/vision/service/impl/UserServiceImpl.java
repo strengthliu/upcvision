@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Reference;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.surpass.vision.XYGraph.XYGraphManager;
@@ -49,16 +50,14 @@ public class UserServiceImpl implements UserService {
 //	RedisService redisService;
 
 
+//	@Async("taskExecutor")
 	@Override
-	public boolean newUser(UserInfo user) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean delUser(Integer userID) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delUser(Double userID) {
+		int r = userMapper.deleteByPrimaryKey(userID);
+		if(r>0)
+			return true;
+		else
+			return false;
 	}
 
 	@Override
@@ -69,6 +68,18 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<UserInfo> getAllUsers() {
 		return userMapper.selectAdminUserInfo();
+	}
+
+	
+	@Async("taskExecutor")
+	@Override
+	public void createOrUpdateUser(UserInfo ui) {
+		UserInfo ut = userMapper.selectByPrimaryKey(ui.getId());
+		if(ut==null) {
+			userMapper.insert(ui);
+		}else {
+			userMapper.updateByPrimaryKeySelective(ui);
+		}
 	}
 
 }

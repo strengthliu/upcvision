@@ -14,21 +14,33 @@
 	/**
     控制面板悬浮菜单
     */
-
+//	var _routeType;
+//	var _routeID;
+	
 	var mainPanel = document.getElementById("main");
+	// TODO: 增加权限
+//	if(user.id == _realtimeData.creater || user.id == _realtimeData.owner || user.role == 1){
 	var oppertionButton = document.createElement('div');
-	oppertionButton.innerHTML = ' <div class="info-nr" id="info-nr"> '+
+	var oppertionButton_innerHTML ="";
+	oppertionButton_innerHTML = ' <div class="info-nr" id="info-nr"> '+
 		'<div id="info-nr-phone" class="info-nr-phone"> '+
-	    '  <section id="toMenu"></section> '+
-	    '  <div class="menu_01"  data-toggle="modal" data-target="#newItemAction_mid" onclick="newItemAction();"></div> '+
-	    '  <div class="menu_02" onclick="editItemAction();"> </div> '+
-	    '  <div class="menu_03" onclick="deleteItemAction();"> </div> '+
-	    '  <div class="menu_04" onclick="shareItemAction();"> </div>   '+
-	    '</div>  '+
-		'</div>';
-		
+	    '  <section id="toMenu"></section> ';
+		if(user.role <=2)
+		{
+			oppertionButton_innerHTML += '  <div class="menu_01"  data-toggle="modal" data-target="#newItemAction_mid" onclick="newItemAction();"></div> ';
+		}
+//		if(user.id == _realtimeData.creater || user.id == _realtimeData.owner || user.role == 1){
+//		if(false)// 先停掉其他菜单
+		{ 
+			oppertionButton_innerHTML += '  <div class="menu_02" onclick="editItemAction();"> </div> ';
+			oppertionButton_innerHTML += '  <div class="menu_03" onclick="deleteItemAction();"> </div> ';
+			oppertionButton_innerHTML += '  <div class="menu_04" onclick="shareItemAction();"> </div>   ';
+		}
+			oppertionButton_innerHTML += '</div>  '+'</div>';
+			oppertionButton.innerHTML = oppertionButton_innerHTML;
+			console.log();
     switch(user.role){
-    case 1:
+    case 1: // 管理员什么都有
     	mainPanel.appendChild(oppertionButton);
         window.addEventListener("DOMContentLoaded", function () {
             $("#toMenu").click(function(){
@@ -41,7 +53,7 @@
         }, false);
 
     	break;
-    case 2:
+    case 2: // 组态用户
     	mainPanel.appendChild(oppertionButton);
         window.addEventListener("DOMContentLoaded", function () {
             $("#toMenu").click(function(){
@@ -53,7 +65,7 @@
             });
         }, false);
     	break;
-    case 3:
+    case 3: // 其他用户
     	break;
 
     }

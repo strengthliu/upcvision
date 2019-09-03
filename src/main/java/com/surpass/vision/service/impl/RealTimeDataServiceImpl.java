@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Reference;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.surpass.vision.XYGraph.XYGraphManager;
@@ -50,62 +51,64 @@ public class RealTimeDataServiceImpl implements RealTimeDataService {
 	@Autowired
 	PointGroupDataMapper pgdMapper;
 
-	@Override
-	public List<RealTimeData> getRealTimeDataList(Double uid) {
-		// TODO: 考虑一下设计是否合理。因为这里使用了uerSpaceManager，是否应该在uerSpaceManager中实现。
-		// 从用户空间里取
-//		List<RealTimeData> ret = userSpaceManager.getRealTimeData(uid);
-		// 如果没有
-		//if (ret == null) 
-
-			// 从数据库取
-			UserSpaceData usd = userSpaceDataMapper.selectByPrimaryKey(uid);
-			String srtd = usd.getRealtimedata();
-			if(StringUtil.isNullOrEmpty(srtd)) srtd = "";
-			String[] rtdIds = IDTools.splitID(srtd);
-			ArrayList<RealTimeData> rtdl = new ArrayList<RealTimeData>();
-			for (int i = 0; i < rtdIds.length; i++) {
-				PointGroupData pgd = pgdMapper.selectByPrimaryKey(Double.parseDouble(rtdIds[i]));
-				if (pgd != null) {
-					RealTimeData realTimeData = generateRealTimeDataFromPointGroupData(pgd);
-					rtdl.add(realTimeData);
-				}
-			}
-
-//			// 更新用户空间
-//			uss.updateRealTimeDataList(rtdl);
-
-
-		// 返回
-		return rtdl;
-	}
-
-	@Override
-	public RealTimeData newRealTimeData(String type, String name, String owner, String creater, String shared,
-			String points, String otherrule1, String otherrule2) {
-		// 构建对象
-		PointGroupData pg = new PointGroupData();
-		pg.setCreater(creater);
-		if (owner == null || owner == "")
-			owner = creater;
-		pg.setOwner(owner);
-		pg.setCreater(creater);
-		pg.setShared(shared);
-
-		pg.setName(name);
-		pg.setPoints(points);
-		pg.setOtherrule1(otherrule1);
-		pg.setOtherrule2(otherrule2);
-		// 写数据库
-		double id = pgdMapper.insert(pg);
-		pg.setId(Double.valueOf(id));
-		RealTimeData rtd = generateRealTimeDataFromPointGroupData(pg);
-//		// 更新用户空间
-//		uss.updateRealTimeDataList(rtd);
-
-		// 返回
-		return rtd;
-	}
+//	@Override
+//	public List<RealTimeData> getRealTimeDataList(Double uid) {
+//		// TODO: 考虑一下设计是否合理。因为这里使用了uerSpaceManager，是否应该在uerSpaceManager中实现。
+//		// 从用户空间里取
+////		List<RealTimeData> ret = userSpaceManager.getRealTimeData(uid);
+//		// 如果没有
+//		//if (ret == null) 
+//
+//			// 从数据库取
+//			UserSpaceData usd = userSpaceDataMapper.selectByPrimaryKey(uid);
+//			String srtd = usd.getRealtimedata();
+//			if(StringUtil.isNullOrEmpty(srtd)) srtd = "";
+//			String[] rtdIds = IDTools.splitID(srtd);
+//			ArrayList<RealTimeData> rtdl = new ArrayList<RealTimeData>();
+//			for (int i = 0; i < rtdIds.length; i++) {
+//				PointGroupData pgd = pgdMapper.selectByPrimaryKey(Double.parseDouble(rtdIds[i]));
+//				if (pgd != null) {
+//					RealTimeData realTimeData = generateRealTimeDataFromPointGroupData(pgd);
+//					rtdl.add(realTimeData);
+//				}
+//			}
+//
+////			// 更新用户空间
+////			uss.updateRealTimeDataList(rtdl);
+//
+//
+//		// 返回
+//		return rtdl;
+//	}
+//
+//	@Async("taskExecutor")
+//	@Override
+//	public RealTimeData newRealTimeData(String type, String name, String owner, String creater, String shared,
+//			String points, String otherrule1, String otherrule2) {
+//		// 构建对象
+//		PointGroupData pg = new PointGroupData();
+//		pg.setCreater(creater);
+//		if (owner == null || owner == "")
+//			owner = creater;
+//		pg.setOwner(owner);
+//		pg.setCreater(creater);
+//		pg.setShared(shared);
+//
+//		pg.setName(name);
+//		pg.setPoints(points);
+//		pg.setOtherrule1(otherrule1);
+//		pg.setOtherrule2(otherrule2);
+//		// 写数据库
+//		
+//		double id = pgdMapper.insert(pg);
+//		pg.setId(Double.valueOf(id));
+//		RealTimeData rtd = generateRealTimeDataFromPointGroupData(pg);
+////		// 更新用户空间
+////		uss.updateRealTimeDataList(rtd);
+//
+//		// 返回
+//		return rtd;
+//	}
 	
 public RealTimeData generateRealTimeDataFromPointGroupData(PointGroupData pgd) {
 	if(pgd==null) return null;

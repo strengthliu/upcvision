@@ -108,20 +108,35 @@ public class RealTimeDataManager extends PointGroupDataManager {
 		String[] keys = IDTools.splitID(realtimedataID);
 		for (int ik = 0; ik < keys.length; ik++) {
 			// 从缓存里取图
-			RealTimeData g = (RealTimeData) redisService.get(keys[ik]);
+			RealTimeData g = getRealTimeDataRigidlyByKey(keys[ik]);
 			if (g == null) {
-				// TODO: 如果没有, 从数据库里取
-
 				// 再设置缓存
-			}
-
-			ret.put(IDTools.toString(g.getId()), g);
+			}else
+				ret.put(IDTools.toString(g.getId()), g);
 		}
-		//
 		return ret;
 	}
 
 
+	private RealTimeData getRealTimeDataRigidlyByKey(String idstr) {
+		if(StringUtil.isBlank(idstr)) {
+			throw new IllegalStateException("id不能为空。");
+		}
+		Double id = Double.valueOf(idstr);
+		RealTimeData ret = this.getRealTimeDataByKeys(id);
+		if(ret == null) {
+			PointGroupData pgd = pointGroupService.getPointGroupDataByID(id);
+			ret = this.copyFromPointGroupData(pgd);
+			this.redisService.set(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(id), ret);
+		}
+		return ret;
+	}
+	
+	public RealTimeData getRealTimeDataByKeys(Double oldRtdId) {
+		RealTimeData rtd = (RealTimeData)redisService.get(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(oldRtdId));
+		return rtd;
+	}
+	
 	public RealTimeData createRealTimeData(String typeRealtimedata, String name, String owner, String creater,
 			JSONArray points, String otherrule2, String id2) {
 		RealTimeData ret ;
@@ -165,10 +180,7 @@ public class RealTimeDataManager extends PointGroupDataManager {
 		return ret;
 	}
 
-	public RealTimeData getRealTimeDataByKeys(Double oldRtdId) {
-		RealTimeData rtd = (RealTimeData)redisService.get(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(oldRtdId));
-		return rtd;
-	}
+
 
 	public RealTimeData deleteRealTimeData(String oldRtdIdStr) {
 		RealTimeData oldRtd = null;

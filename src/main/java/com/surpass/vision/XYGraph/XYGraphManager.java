@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import com.alibaba.fastjson.JSONArray;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.Graph;
+import com.surpass.vision.domain.LineAlertData;
 import com.surpass.vision.domain.XYGraph;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.User;
@@ -114,6 +115,41 @@ public class XYGraphManager extends PointGroupDataManager {
 			ret.put(IDTools.toString(g.getId()), g);
 		}
 		//
+		return ret;
+	}
+	/**
+	 * 从缓存里取数据，如果没有，再调用服务。
+	 * 
+	 * @param graphs
+	 * @return
+	 */
+	public Hashtable<String, XYGraph> getLineAlertDataHashtableByKeys(String LineAlertDataID) {
+		Hashtable<String, XYGraph> ret = new Hashtable<String, XYGraph>();
+		// 分隔key
+		String[] keys = IDTools.splitID(LineAlertDataID);
+		for (int ik = 0; ik < keys.length; ik++) {
+			// 从缓存里取图
+			XYGraph g = getXYGraphRigidlyByKey(keys[ik]);
+			if (g == null) {
+				// 再设置缓存
+			}else
+				ret.put(IDTools.toString(g.getId()), g);
+		}
+		return ret;
+	}
+
+
+	private XYGraph getXYGraphRigidlyByKey(String idstr) {
+		if(StringUtil.isBlank(idstr)) {
+			throw new IllegalStateException("id不能为空。");
+		}
+		Double id = Double.valueOf(idstr);
+		XYGraph ret = this.getXYGraphByKeys(id);
+		if(ret == null) {
+			PointGroupData pgd = pointGroupService.getPointGroupDataByID(id);
+			ret = this.copyFromPointGroupData(pgd);
+			this.redisService.set(GlobalConsts.Key_XYGraph_pre_+IDTools.toString(id), ret);
+		}
 		return ret;
 	}
 

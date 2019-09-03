@@ -1,7 +1,7 @@
 var userSpace = null;
 var serverList = null;
 var users = null;
-
+var userInfoList = null;
 /**
  * websocket变量。
  */
@@ -11,6 +11,14 @@ socket = new SockJS('/socketServer');
 var stompClient = Stomp.over(socket);
 var subscribe = null;
 var connected = false;
+
+function logout(){
+	localStorage.user = null;
+	user = null;
+	localStorage.token = null;
+	token = null;
+	window.location.href = "index.html";
+}
 
 function loginByUserPassWord(uname, pwd) {
 	var data = {
@@ -30,7 +38,7 @@ function loginByUserPassWord(uname, pwd) {
 		// 在请求之前调用的函数
 		beforeSend : function() {
 			showLoading();
-			hideLoading();
+//			hideLoading();
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
@@ -74,6 +82,7 @@ function loginByUserPassWord(uname, pwd) {
 		}
 	});
 }
+
 function getUserSpace(uid, token, sucessFucn) {
 
 	$.ajax({
@@ -104,7 +113,7 @@ function getUserSpace(uid, token, sucessFucn) {
 			if (userSpace == null || userSpace == "undefined") {
 				// console.log("getUserSpace -> set userSpace.");
 				userSpace = data.data.userSpace;
-				console.log(JSON.stringify(userSpace));
+				console.log("userspace: "+JSON.stringify(userSpace));
 				// return userSpace;
 				window.userSpace = userSpace;
 			}
@@ -128,6 +137,7 @@ function getUserSpace(uid, token, sucessFucn) {
 	});
 
 }
+
 function checkRight(uid, token, loginPage,sucessPage) {
 	// console.log("checkRight token="+token);
 	$.ajax({
@@ -252,11 +262,11 @@ function disconnect() {
 }
 
 function unsubscribe(){
-	console.log('unsubscribe');
 	if (stompClient !== null) {
 		if(subscribe!=null && subscribe!="undefined")
 			subscribe.unsubscribe();
 	}
+	console.log('unsubscribe');
 }
 
 var loadStartTime;
@@ -266,10 +276,12 @@ function showLoading() {
 		_showLoading();
 	}, 500);
 }
+
 function _showLoading() {
 	if (loadStartTime != 0)
 		$("#loading").show();
 }
+
 function hideLoading() {
 	var currentTime = Date.now();
 	var difference = currentTime - loadStartTime;

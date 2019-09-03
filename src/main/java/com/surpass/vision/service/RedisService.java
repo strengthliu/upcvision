@@ -45,4 +45,12 @@ public class RedisService {
 			return null;
 		}
 	}
+	public void delete(String key) {
+		// 更改在redis里面查看key编码问题
+		RedisSerializer redisSerializer = new StringRedisSerializer();
+		redisTemplate.setKeySerializer(redisSerializer);
+		redisTemplate.delete(key);
+		ValueOperations<String, Object> vo = redisTemplate.opsForValue();
+	}
+
 }

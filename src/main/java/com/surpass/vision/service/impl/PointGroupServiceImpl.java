@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.mapper.PointGroupDataMapper;
 import com.surpass.vision.service.PointGroupService;
+import com.surpass.vision.tools.IDTools;
 
 @Service
 public class PointGroupServiceImpl implements PointGroupService {
@@ -51,10 +52,13 @@ public class PointGroupServiceImpl implements PointGroupService {
 	public Object newPointGroupData(PointGroupData pgd) {
 		//如果有就更新，
 		PointGroupData _pgd = pointGroupDataMapper.selectByPrimaryKey(pgd.getId());
-		if(_pgd==null)
+		if(_pgd==null) {
+			if(pgd.getId()==null || pgd.getId()==0 )
+				pgd.setId(IDTools.newID());
 			pointGroupDataMapper.insert(pgd);
+		}
 		else
-			pointGroupDataMapper.updateByPrimaryKey(pgd);
+			pointGroupDataMapper.updateByPrimaryKeySelective(pgd);
 		return null;
 	}
 

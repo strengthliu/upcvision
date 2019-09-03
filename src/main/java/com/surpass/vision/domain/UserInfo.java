@@ -19,7 +19,17 @@ public class UserInfo extends User implements Serializable {
 
     private String desc;
 
-    public Double getId() {
+//    private String depart;?
+    
+//    public String getDepart() {
+//		return depart;
+//	}
+//
+//	public void setDepart(String depart) {
+//		this.depart = depart;
+//	}
+
+	public Double getId() {
         return id;
     }
 
@@ -82,4 +92,13 @@ public class UserInfo extends User implements Serializable {
     public void setDesc(String desc) {
         this.desc = desc == null ? null : desc.trim();
     }
+
+	public UserRight getRight(Double id2) {
+		UserRight ret = new UserRight();
+		if(id2==this.id) {
+			ret.setOwnner(true);
+		}
+		return ret;
+	}
+
 }

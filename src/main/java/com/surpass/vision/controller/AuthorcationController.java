@@ -1,10 +1,13 @@
 package com.surpass.vision.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,16 +18,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.common.Submit;
 import com.surpass.vision.common.ToWeb;
+import com.surpass.vision.domain.AlertData;
 import com.surpass.vision.domain.User;
 import com.surpass.vision.domain.UserInfo;
+import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
 //import com.surpass.vision.domain.UserInfo;
 import com.surpass.vision.service.LoginService;
 import com.surpass.vision.service.RedisService;
+import com.surpass.vision.tools.IDTools;
 import com.surpass.vision.tools.TokenTools;
 import com.surpass.vision.user.UserManager;
 import com.surpass.vision.userSpace.UserSpaceManager;
@@ -147,7 +154,136 @@ public class AuthorcationController extends BaseController {
 		return ret;
 	}
 
-    //http://localhost:8888/saveCity?cityName=北京&cityIntroduce=中国首都&cityId=1
+	@RequestMapping(value = "getUserInfoList", method = { RequestMethod.POST, RequestMethod.GET })
+	public ToWeb getUserInfoList(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
+		Double uid = user.getDouble("uid");
+		String token = user.getString("token");
+		// 认证+权限
+		UserRight ur = new UserRight();
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getUserInfo,ur);
+		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+			return ret;
+
+		// 如果请求者是管理员，就返回全部用户信息，否则就只返回他自己的信息。
+		List<UserInfo>  hus = null;
+		UserInfo ui =userManager.getUserInfoByID(IDTools.toString(uid));
+		if(ui!=null && ui.getRole() == 1)
+			hus = userManager.getUserInfoList();
+		else {
+			hus = new ArrayList<UserInfo>();
+			hus.add(ui);
+		}
+			
+		ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+		ret.putData("users", hus);
+		return ret;
+	}
+
+	@RequestMapping(value = "delUser", method = { RequestMethod.POST, RequestMethod.GET })
+	public ToWeb delUser(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
+		Double uid = user.getDouble("uid");
+		String token = user.getString("token");
+		ToWeb ret;
+		String idstr = user.getString("id");
+		if(StringUtil.isBlank(idstr)) {
+			ret = ToWeb.buildResult();
+			ret.setStatus(GlobalConsts.ResultCode_FAIL);
+			ret.setMsg("参数不正确，要删除的用户ID不能为空。");
+			return ret;
+		}
+		// 认证+权限
+		UserRight ur = new UserRight();
+		// 创建用户的权限与删除用户的权限一样
+		ret = authercation(uid, token, GlobalConsts.Operation_createUser,ur); 
+		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS))) {
+			return ret;
+		}
+		
+		boolean r1 = this.userSpaceManager.deleteUserSpace(Double.valueOf(idstr));
+		if(!r1) {
+			ret.setStatus(GlobalConsts.ResultCode_FAIL);	
+			ret.setMsg("删除用户空间失败，该用户还拥有他所创建的内容。确定要删除该用户，请联系统系统管理员。");
+		}
+		boolean r2 = userManager.deleteUser(Double.valueOf(idstr));
+		if(r2)
+			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+		else {
+			ret.setStatus(GlobalConsts.ResultCode_FAIL);	
+			ret.setMsg("删除用户信息失败，请联系系统管理员。");
+		}
+		ret.setData("data", idstr);
+		ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+		ret.setMsg("成功");
+		return ret;
+	}
+
+	@RequestMapping(value = "newUser", method = { RequestMethod.POST, RequestMethod.GET })
+	public ToWeb newUser(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
+		Double uid = user.getDouble("uid");
+		String token = user.getString("token");
+		
+		// 取出参数
+	    String name = user.getString("name");
+	    String pwd = user.getString("pwd");
+	    String email = user.getString("email");
+	    Integer role = user.getInteger("role");
+	    String photo = user.getString("photo");
+	    if(StringUtil.isBlank(photo)) {
+	    	photo = "../../images/faces/face1.jpg";
+	    }
+	    String mobile = user.getString("mobile");
+	    String depart = user.getString("depart");
+	    String desc = user.getString("desc");
+		// TODO: 检查参数合法性
+
+	    ToWeb ret ;
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			// 新建
+			// 认证+权限
+			UserRight ur = new UserRight();
+			ret = authercation(uid, token, GlobalConsts.Operation_createUser,ur);
+			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+				return ret;
+			id = IDTools.newID();		    
+
+		}else {
+			// 修改
+			id = Double.valueOf(idstr);
+			// 认证+权限
+			UserInfo g = this.userManager.getUserInfoByID(idstr);
+			UserRight ur = g.getRight(id);
+			ret = authercation(uid, token, GlobalConsts.Operation_updateAlertData,ur);
+			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+				return ret;
+
+		}
+		
+
+		try {
+		    UserInfo rtd = this.userManager.createUser(id,name,pwd,email,role,photo,mobile,depart,desc);
+			
+			if (rtd != null) {
+				// 更新用户空间
+//				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
+//				userSpaceManager.updateUserInfo(rtd,Double.valueOf(0));
+				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+				ret.setMsg("成功");
+				ret.setData("data",rtd);
+				ret.setRefresh(true);
+				return ret;
+			} else
+				throw new Exception();
+		} catch (Exception e) {
+			e.printStackTrace();
+			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
+			ret.setMsg("异常失败");
+			return ret;
+		}
+	}
+
+	//http://localhost:8888/saveCity?cityName=北京&cityIntroduce=中国首都&cityId=1
     @GetMapping(value = "saveCity")
     public String saveCity(int cityId,String cityName,String cityIntroduce){
     	UserInfo city = null ;//= new City(cityId,cityName,cityIntroduce);

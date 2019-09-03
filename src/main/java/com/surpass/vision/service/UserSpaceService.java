@@ -9,21 +9,10 @@ import com.surpass.vision.domain.UserSpaceData;
 
 public interface UserSpaceService {
 
-	/**
-	 * 更新一组实时数据
-	 * @param rtdl
-	 */
-	void updateRealTimeDataList(ArrayList<RealTimeData> rtdl);
-
-	/**
-	 * 更新实时数据
-	 * @param rtd
-	 */
-	void updateRealTimeDataList(RealTimeData rtd);
-
-	UserSpaceData getUserSpaceById(Double userID);
-
+//	UserSpaceData getUserSpaceById(Double userID);
+	public UserSpaceData getUserSpaceById(Double userID);
 	void updateUserSpace(Double uid, UserSpace us);
+	public boolean deleteUserSpace(Double uid);
 
 
 

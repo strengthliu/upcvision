@@ -3,6 +3,7 @@ package com.surpass.vision.userSpace;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
@@ -563,6 +564,90 @@ public class UserSpaceManager {
 		this.graphManager.updateGraph(rtd);
 	}
 	/** ---------------- graph end ------------------------- **/
+
+	public boolean deleteUserSpace(Double uid) {
+		UserSpace us = this.getUserSpaceRigidly(uid);
+		if(!us.canDelete()) return false;
+		Hashtable<String,RealTimeData> hr = us.getRealTimeData();
+		Enumeration<?> e = hr.elements();
+		while(e.hasMoreElements()) {
+			try {
+				PointGroup p = (PointGroup) e.nextElement();
+				List<String> ls = p.removeUser(p.getId());
+				realTimeDataManager.updateShareRight(p.getId(),ls);
+			}catch(Exception ex) {	}
+		}
+		
+		Hashtable<String,AlertData> ha = us.getAlertData();
+		e = ha.elements();
+		while(e.hasMoreElements()) {
+			try {
+				PointGroup p = (PointGroup) e.nextElement();
+				List<String> ls = p.removeUser(p.getId());
+				alertDataManager.updateShareRight(p.getId(),ls);
+			}catch(Exception ex) {	}
+		}
+
+		Hashtable<String,ArrayList<Graph>> hg = us.getGraphs();
+		e = hg.elements();
+		while(e.hasMoreElements()) {
+			try {
+				PointGroup p = (PointGroup) e.nextElement();
+				List<String> ls = p.removeUser(p.getId());
+				this.graphDataManager.updateShareRight(p.getId(),ls);
+			}catch(Exception ex) {	}
+		}
+
+		Hashtable<String,HistoryData> hh = us.getHistoryData();
+		e = hh.elements();
+		while(e.hasMoreElements()) {
+			try {
+				PointGroup p = (PointGroup) e.nextElement();
+				List<String> ls = p.removeUser(p.getId());
+				historyDataManager.updateShareRight(p.getId(),ls);
+			}catch(Exception ex) {	}
+		}
+
+		Hashtable<String,LineAlertData> hl = us.getLineAlertData();
+		e = hl.elements();
+		while(e.hasMoreElements()) {
+			try {
+				PointGroup p = (PointGroup) e.nextElement();
+				List<String> ls = p.removeUser(p.getId());
+				lineAlertDataManager.updateShareRight(p.getId(),ls);
+			}catch(Exception ex) {	}
+		}
+
+		Hashtable<String,XYGraph> hx = us.getXyGraph();
+		e = hx.elements();
+		while(e.hasMoreElements()) {
+			try {
+				PointGroup p = (PointGroup) e.nextElement();
+				List<String> ls = p.removeUser(p.getId());
+				xYGraphManager.updateShareRight(p.getId(),ls);
+			}catch(Exception ex) {	}
+		}
+
+		// 删除数据库
+		this.userSpaceService.deleteUserSpace(uid);
+		// 删除缓存
+		this.redisService.delete(GlobalConsts.Key_UserSpace_pre_+IDTools.toString(uid));
+		return true;
+	}
+
+	private boolean deleteUserSpace(Hashtable hp) {
+		Enumeration<?> e = hp.elements();
+		while(e.hasMoreElements()) {
+			try {
+				PointGroup p = (PointGroup) e.nextElement();
+				List<User> lu = p.getSharedUsers();
+				List<String> ls = p.removeUser(p.getId());
+//				IDTools.splitID(str, splitChar)
+				AlertData rtd = alertDataManager.updateShareRight(p.getId(),ls);
+			}catch(Exception ex) {	return false;}
+		}
+		return true;
+	}
 
 
 }

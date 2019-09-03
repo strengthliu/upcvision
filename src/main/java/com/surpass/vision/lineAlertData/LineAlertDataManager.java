@@ -13,6 +13,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.surpass.vision.XYGraph.XYGraphManager;
 import com.surpass.vision.alertData.AlertDataManager;
 import com.surpass.vision.appCfg.GlobalConsts;
+import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.domain.LineAlertData;
 import com.surpass.vision.domain.LineAlertData;
 import com.surpass.vision.domain.PointGroupData;
@@ -117,16 +118,27 @@ public class LineAlertDataManager extends PointGroupDataManager {
 		String[] keys = IDTools.splitID(LineAlertDataID);
 		for (int ik = 0; ik < keys.length; ik++) {
 			// 从缓存里取图
-			LineAlertData g = (LineAlertData) redisService.get(keys[ik]);
+			LineAlertData g = getLineAlertDataRigidlyByKey(keys[ik]);
 			if (g == null) {
-				// TODO: 如果没有, 从数据库里取
-
 				// 再设置缓存
-			}
-
-			ret.put(IDTools.toString(g.getId()), g);
+			}else
+				ret.put(IDTools.toString(g.getId()), g);
 		}
-		//
+		return ret;
+	}
+
+
+	private LineAlertData getLineAlertDataRigidlyByKey(String idstr) {
+		if(StringUtil.isBlank(idstr)) {
+			throw new IllegalStateException("id不能为空。");
+		}
+		Double id = Double.valueOf(idstr);
+		LineAlertData ret = this.getLineAlertDataByKeys(id);
+		if(ret == null) {
+			PointGroupData pgd = pointGroupService.getPointGroupDataByID(id);
+			ret = this.copyFromPointGroupData(pgd);
+			this.redisService.set(GlobalConsts.Key_LineAlertData_pre_+IDTools.toString(id), ret);
+		}
 		return ret;
 	}
 

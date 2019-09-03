@@ -30,7 +30,7 @@ function doShareActionToServer(){
 		uid = user.id;
 		token = localStorage.token;
 	}
-	console.log("dataItemId="+dataItemId);
+	console.log("dataItemId="+dataItemId+"  user:"+JSON.stringify(Array.from(selectedUsers)));
 	var data={'uid':uid,'token':token,'id':dataItemId,'userIds':Array.from(selectedUsers),'type':"realTimeData"};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -91,6 +91,8 @@ function doselectUser(id){
 		selectedUsers.add(id);
 	else
 		selectedUsers.delete(id);
+	console.log("dataItemId="+dataItemId+"  user:"+JSON.stringify(Array.from(selectedUsers)));
+	
 }
 function fillUserUI(users) {
 	if (userSpace == null || userSpace == "undefined") {
@@ -98,8 +100,9 @@ function fillUserUI(users) {
 	}
 	var shareItemGroupUI = document.getElementById("shareItemGroupUI");
 	var sharedUsers;
+	console.log("shareRight.js -> fillUserUI =>  shareType="+shareType);
 	switch (shareType) {
-	case "realTimeData":
+	case "realtimedatalist".toLowerCase():
 		var dataItem = userSpace.realTimeData[dataItemId];
 		if (dataItem == null || dataItem == "undefined") {
 			alert("没有这个实时数据，请联系系统管理员。");
@@ -108,7 +111,7 @@ function fillUserUI(users) {
 		sharedUsers = dataItem.sharedUsers;
 
 		break;
-	case "alertData":
+	case "alertData".toLowerCase():
 		break;
 	}
 	var shareItemGroupUI_innerHTML = "";
@@ -126,7 +129,7 @@ function fillUserUI(users) {
 								+ users[key].id + '"';
 						if (hasProperty(sharedUsers,key)){
 							shareItemGroupUI_item += 'checked="checked" onclick="doselectUser(\''+users[key].id +'\');">';
-							selectedUsers.add(users[key].id);
+							selectedUsers.add(users[key].id+"");
 						}
 						else{
 							shareItemGroupUI_item += ' onclick="doselectUser(\''+users[key].id +'\');">';
@@ -141,7 +144,14 @@ function fillUserUI(users) {
 
 }
 function hasProperty(arr,key1){
+	console.log("hasProperty:"+key1);
+	if(arr==null||arr=="undefined"){
+		console.log("arr==null||arr==undefined");
+		return false
+	}
 	for(var i=0;i<arr.length;i++){
+		console.log("hasProperty:"+key1);
+		
 		if(arr[i].id==key1) return true;
 		/*
 		Object.keys(arr[i]).forEach(

@@ -102,6 +102,9 @@ public final class GlobalConsts {
 	public static final String Operation_updateXYGraph = "Operation_updateXYGraph";
 	public static final String Operation_getGraphList = "Operation_getGraphList";
 	public static final String Operation_shareGraph = "Operation_shareGraph";
+	
+	public static final String Operation_createUser = "Operation_createUser";
+	public static final String Operation_getUserInfo = "Operation_getUserInfo";
 
 	
 	public static final String KeyAggrandizement = "KeyAggrandizement"; // 增加

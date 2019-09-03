@@ -36,26 +36,10 @@ public class UserSpaceServiceImpl implements UserSpaceService {
 	 * ---------------------------------------
 	 * @author 刘强 2019年7月29日 上午8:17:17 
 	 */
-	// @Reference
-	@Autowired
-	PointGroupDataMapper pgdMapper;
-
 	@Autowired
 	UserSpaceDataMapper usdMapper;
 
 
-
-	@Override
-	public void updateRealTimeDataList(ArrayList<RealTimeData> rtdl) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void updateRealTimeDataList(RealTimeData rtd) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public UserSpaceData getUserSpaceById(Double userID) {
@@ -70,9 +54,16 @@ public class UserSpaceServiceImpl implements UserSpaceService {
 		if(usd == null) { // 插入
 			usdMapper.insert(usdm);
 		} else {
-			usdMapper.updateByPrimaryKey(usdm);
+			usdMapper.updateByPrimaryKeySelective(usdm);
 		}
 		
+	}
+
+	@Override
+	public boolean deleteUserSpace(Double uid) {
+		int i = usdMapper.deleteByPrimaryKey(uid);
+		if(i==1) return true;
+		else return false;
 	}
 
 }

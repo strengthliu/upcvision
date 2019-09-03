@@ -129,20 +129,7 @@ public class RealTimeDataController extends BaseController {
 	public ToWeb newRealTimeDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
-		String idstr = user.getString("id");
-		Double id = null ;
-		if(StringUtil.isBlank(idstr)) {
-			
-		}else {
-			id = Double.valueOf(idstr);
-		}
 		
-		// 认证+权限
-		RealTimeData g = this.realTimeDataManager.getRealTimeDataByKeys(id);
-		UserRight ur = g.getRight(uid);
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createRealTimeData,ur);
-		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
-			return ret;
 
 		// 取出参数
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
@@ -151,9 +138,29 @@ public class RealTimeDataController extends BaseController {
 		String creater = owner;
 		JSONArray points = user.getJSONArray("points");
 		String otherrule2 = user.getString("desc");
-
+		ToWeb ret;
 		
 		// TODO: 检查参数合法性
+
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			// 认证+权限
+			RealTimeData g = this.realTimeDataManager.getRealTimeDataByKeys(id);
+			UserRight ur = g.getRight(uid);
+			ret = authercation(uid, token, GlobalConsts.Operation_createRealTimeData,ur);
+			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+				return ret;
+			
+		}else {
+			id = Double.valueOf(idstr);
+		// 认证+权限
+		RealTimeData g = this.realTimeDataManager.getRealTimeDataByKeys(id);
+		UserRight ur = g.getRight(uid);
+		ret = authercation(uid, token, GlobalConsts.Operation_updateRealTimeData,ur);
+		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+			return ret;
+		}
 
 		try {
 			RealTimeData rtd = realTimeDataManager.createRealTimeData(GlobalConsts.Type_realtimedata_, name, owner, creater,points,otherrule2,idstr);

@@ -7,12 +7,22 @@
  */
 // 新建
 function newItemAction() {
+	if(user.id == _realtimeData.creater || user.id == _realtimeData.owner || user.role == 1){
+
 	// alert("realtimeDataList.newItemAction");
-	$('#newItemAction_mid').modal('show');
+		$('#newItemAction_mid').modal('show');
+	}else {
+		alert("您没有权限进行新建操作。");
+	}
 	
 }
-var itemID;
-var actionType = "realTimeData";
+
+//_routeType = diagram;
+//_routeID = key;
+
+var itemID = _routeID;
+var actionType = _routeType;//"realTimeData";
+
 function editItemAction(itemId) {
 	// console.log(itemId);
 // alert(itemId);
@@ -66,7 +76,7 @@ console.log("deleteItemAction");
 var dataItemId;
 function shareItemAction(itemId) {
 	dataItemId = itemId;
-	shareType = "realTimeData";
+	shareType = _routeType;//"realTimeData";
 	$('#shareItemAction_mid').modal('show');
 	loadUsers();
 }
@@ -274,18 +284,23 @@ function updateRealTimeDataListFrame(){
 
 								realtimeDataList_ui_item_innerHTML +='<p>'+_realtimeData.desc + '</p>'+'</div></figcaption>';
 								realtimeDataList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
-								realtimeDataList_ui_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
-								realtimeDataList_ui_item_innerHTML += 'shareItemAction(\''+_realtimeData.id+'\')">Share</button>';
-								realtimeDataList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
-								realtimeDataList_ui_item_innerHTML += 'deleteItemAction(\''+_realtimeData.id+'\')">';
-								realtimeDataList_ui_item_innerHTML += '<i class="mdi mdi-delete"></i>';
-								realtimeDataList_ui_item_innerHTML += '</button>';
-								realtimeDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
-								realtimeDataList_ui_item_innerHTML += 'editItemAction(\''+_realtimeData.id+'\')">';
-								realtimeDataList_ui_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
-								realtimeDataList_ui_item_innerHTML += '</button></div>';
-		
-								realtimeDataList_ui_item_innerHTML += '</figure></div>';
+								// TODO: 判断权限
+								if(user.id == _realtimeData.creater || user.id == _realtimeData.owner || user.role == 1){
+									realtimeDataList_ui_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
+									realtimeDataList_ui_item_innerHTML += 'shareItemAction(\''+_realtimeData.id+'\')">Share</button>';
+								
+									realtimeDataList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
+									realtimeDataList_ui_item_innerHTML += 'deleteItemAction(\''+_realtimeData.id+'\')">';
+									realtimeDataList_ui_item_innerHTML += '<i class="mdi mdi-delete"></i>';
+									realtimeDataList_ui_item_innerHTML += '</button>';
+									
+									realtimeDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
+									realtimeDataList_ui_item_innerHTML += 'editItemAction(\''+_realtimeData.id+'\')">';
+									realtimeDataList_ui_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
+									realtimeDataList_ui_item_innerHTML += '</button>';
+								}
+
+								realtimeDataList_ui_item_innerHTML += '</div></figure></div>';
 								 // console.log(realtimeDataList_ui_item_innerHTML);
 								realtimeDataList_ui_innerHTML = realtimeDataList_ui_innerHTML
 										+ realtimeDataList_ui_item_innerHTML;

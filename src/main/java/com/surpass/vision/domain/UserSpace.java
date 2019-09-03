@@ -203,5 +203,34 @@ public class UserSpace implements Serializable {
 		return usd;
 	}
 
+	public boolean canDelete() {
+		Hashtable<String,RealTimeData> hr = getRealTimeData();
+		if(!canDelete(hr)) return false;
+		Hashtable<String,AlertData> ha = getAlertData();
+		if(!canDelete(ha)) return false;
+//		Hashtable<String,ArrayList<Graph>> hg = getGraphs();
+		Hashtable<String,HistoryData> hh = getHistoryData();
+		if(!canDelete(hh)) return false;
+		Hashtable<String,LineAlertData> hl = getLineAlertData();
+		if(!canDelete(hl)) return false;
+		Hashtable<String,XYGraph> hx = getXyGraph();
+		if(!canDelete(hx)) return false;
 
+		return true;
+	}
+
+	private boolean canDelete(Hashtable hp) {
+		Enumeration<?> e = hp.elements();
+		while(e.hasMoreElements()) {
+			try {
+				PointGroup p = (PointGroup) e.nextElement();
+				UserRight ur = p.getRight(this.user.getId());
+				if(ur.isCreater() || ur.isOwnner()) 
+					return false;
+			}catch(Exception ex) {
+				
+			}
+		}
+		return true;
+	}
 }

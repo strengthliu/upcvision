@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Reference;
@@ -26,7 +27,6 @@ import com.surpass.vision.service.PointGroupService;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.tools.IDTools;
 import com.surpass.vision.user.UserManager;
-import com.surpass.vision.utils.StringUtil;
 
 @Component
 public class GraphDataManager extends PointGroupDataManager {
@@ -66,16 +66,31 @@ public class GraphDataManager extends PointGroupDataManager {
 		String[] keys = IDTools.splitID(graphs);
 		for (int ik = 0; ik < keys.length; ik++) {
 			// 从缓存里取图
-			Graph g = (Graph) redisService.get(keys[ik]);
+			Graph g = this.getGraphRigidlyByKeys(keys[ik]);;
 			if (g == null) {
-				// TODO: 如果没有, 从数据库里取
-
-				// 再设置缓存
 			}
 
 			ret.put(g.getName(), g);
 		}
 		//
+		return ret;
+	}
+	private Graph getGraphRigidlyByKeys(String idstr) {
+		if(StringUtil.isBlank(idstr)) {
+			throw new IllegalStateException("id不能为空。");
+		}
+		Double id = Double.valueOf(idstr);
+		Graph ret = this.getGraphByKeys(idstr);
+		if(ret == null) {
+			PointGroupData pgd = pointGroupService.getPointGroupDataByID(id);
+			ret = this.copyFromPointGroupData(pgd);
+			this.redisService.set(GlobalConsts.Key_Graph_pre_+IDTools.toString(id), ret);
+		}
+		return ret;	
+	}
+	
+	private Graph getGraphByKeys(String key) {
+		Graph ret = (Graph) redisService.get(GlobalConsts.Key_Graph_pre_+key);
 		return ret;
 	}
 
