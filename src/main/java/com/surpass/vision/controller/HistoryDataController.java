@@ -113,20 +113,6 @@ public class HistoryDataController extends BaseController {
 		public ToWeb newHistoryDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 			Double uid = user.getDouble("uid");
 			String token = user.getString("token");
-			String idstr = user.getString("id");
-			Double idd = null ;
-			if(StringUtil.isBlank(idstr)) {
-				
-			}else {
-				idd = Double.valueOf(idstr);
-			}
-			
-			// 认证+权限
-			HistoryData g = this.historyDataManager.getHistoryDataByKeys(idd);
-			UserRight ur = g.getRight(uid);
-			ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createHistoryData,ur);
-			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
-				return ret;
 
 			// 取出参数
 			// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
@@ -135,13 +121,34 @@ public class HistoryDataController extends BaseController {
 			String creater = owner;
 			JSONArray points = user.getJSONArray("points");
 			String otherrule2 = user.getString("desc");
-			String id=user.getString("id");
-
+			String otherrule1 = user.getString("rule");
+			ToWeb ret;
 			
 			// TODO: 检查参数合法性
 
+			String idstr = user.getString("id");
+			Double id = null ;
+			if(StringUtil.isBlank(idstr)) {
+				// 认证+权限
+				UserRight ur = new UserRight();
+				ret = authercation(uid, token, GlobalConsts.Operation_createHistoryData,ur);
+				if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+					return ret;
+				
+			}else {
+				id = Double.valueOf(idstr);
+			// 认证+权限
+			HistoryData g = this.historyDataManager.getHistoryDataByKeys(id);
+			UserRight ur = g.getRight(uid);
+			ret = authercation(uid, token, GlobalConsts.Operation_updateHistoryData,ur);
+			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+				return ret;
+			}
+
+			// TODO: 检查参数合法性
+
 			try {
-				HistoryData rtd = historyDataManager.createHistoryData(GlobalConsts.Type_historydata_, name, owner, creater,points,otherrule2,id);
+				HistoryData rtd = historyDataManager.createHistoryData(GlobalConsts.Type_historydata_, name, owner, creater,points,otherrule2,otherrule1,idstr);
 				if (rtd != null) {
 					// 更新用户空间
 					UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));

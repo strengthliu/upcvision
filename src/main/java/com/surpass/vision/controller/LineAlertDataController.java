@@ -115,20 +115,6 @@ public class LineAlertDataController extends BaseController {
 	public ToWeb newLineAlertDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
-		String idstr = user.getString("id");
-		Double id = null ;
-		if(StringUtil.isBlank(idstr)) {
-			
-		}else {
-			id = Double.valueOf(idstr);
-		}
-		
-		// 认证+权限
-		LineAlertData g = this.lineAlertDataManager.getLineAlertDataByKeys(id);
-		UserRight ur = g.getRight(uid);
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createLineAlertData,ur);
-		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
-			return ret;
 
 		// 取出参数
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
@@ -137,12 +123,34 @@ public class LineAlertDataController extends BaseController {
 		String creater = owner;
 		JSONArray points = user.getJSONArray("points");
 		String otherrule2 = user.getString("desc");
-
+		String otherrule1 = user.getString("rule");
+		ToWeb ret;
 		
 		// TODO: 检查参数合法性
 
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			// 认证+权限
+			UserRight ur = new UserRight();
+			ret = authercation(uid, token, GlobalConsts.Operation_createLineAlertData,ur);
+			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+				return ret;
+			
+		}else {
+			id = Double.valueOf(idstr);
+		// 认证+权限
+			LineAlertData g = this.lineAlertDataManager.getLineAlertDataByKeys(id);
+		UserRight ur = g.getRight(uid);
+		ret = authercation(uid, token, GlobalConsts.Operation_updateLineAlertData,ur);
+		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+			return ret;
+		}
+
+		// TODO: 检查参数合法性
+
 		try {
-			LineAlertData rtd = lineAlertDataManager.createLineAlertData(GlobalConsts.Type_linealertdata_, name, owner, creater,points,otherrule2,idstr);
+			LineAlertData rtd = lineAlertDataManager.createLineAlertData(GlobalConsts.Type_linealertdata_, name, owner, creater,points,otherrule2,otherrule1,idstr);
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));

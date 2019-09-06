@@ -72,7 +72,7 @@
 		
 
 		/* 刷新XY图结构*/
-		var xydiagrams = userSpace.xygraph;
+		var xydiagrams = userSpace.xyGraph;
 		if(xydiagrams == null || xydiagrams == "undefined") xydiagrams = {};
 		var uixydiagram = document.getElementById("ui-xydiagram");
 
@@ -91,7 +91,7 @@
 								if(key == "") key = "未分类";
 
 								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'xydiagramList','"+key+"');"+'">'
-										+ key + '</text></li>';
+										+ xydiagram.name + '</text></li>';
 								itemsHtml = itemsHtml + item;
 								// // console.log(key,obj[key]);
 							}
@@ -199,7 +199,7 @@
 								if(key == "") key = "未分类";
 
 								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'alertdataList','"+key+"');"+'">'
-										+ key + '</text></li>';
+										+ alertdata.name + '</text></li>';
 								itemsHtml = itemsHtml + item;
 								// // console.log(key,obj[key]);
 							}
@@ -250,7 +250,7 @@
 								if(key == "") key = "未分类";
 
 								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'historydataList','"+key+"');"+'">'
-										+ key + '</text></li>';
+										+ historydata.name + '</text></li>';
 								itemsHtml = itemsHtml + item;
 								// // console.log(key,obj[key]);
 							}

@@ -345,7 +345,7 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
-		this.realTimeDataManager.updateRealTimeData(rtd);
+//		this.realTimeDataManager.updateRealTimeData(rtd);
 	}
 	/** ---------------- realtimedata end ------------------------- **/
 
@@ -422,7 +422,7 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
-		this.alertDataManager.updateAlertData(rtd);
+//		this.alertDataManager.updateAlertData(rtd);
 	}
 	/** ---------------- alertdata end ------------------------- **/
 
@@ -468,7 +468,7 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
-		this.historyDataManager.updateHistoryData(rtd);
+//		this.historyDataManager.updateHistoryData(rtd);
 	}
 	/** ---------------- historydata end ------------------------- **/
 
@@ -515,7 +515,7 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
-		this.xYGraphManager.updateXYGraph(rtd);
+//		this.xYGraphManager.updateXYGraph(rtd);
 	}
 	/** ---------------- xygraphdata end ------------------------- **/
 
@@ -561,7 +561,7 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
-		this.graphManager.updateGraph(rtd);
+//		this.graphManager.updateGraph(rtd);
 	}
 	/** ---------------- graph end ------------------------- **/
 

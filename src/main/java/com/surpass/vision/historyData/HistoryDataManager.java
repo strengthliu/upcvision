@@ -149,13 +149,14 @@ public class HistoryDataManager extends PointGroupDataManager {
 	
 
 	public HistoryData createHistoryData(String typeHistoryData, String name, String owner, String creater,
-			JSONArray points, String otherrule2, String id2) {
+			JSONArray points, String otherrule2, String otherrule1, String id2) {
 		HistoryData ret ;
 		PointGroupData pgd = new PointGroupData();
 		pgd.setCreater(creater);
 		pgd.setOwner(owner);
 		pgd.setName(name);
 		pgd.setOtherrule2(otherrule2);
+		pgd.setOtherrule1(otherrule1);
         String pointsString = "";
         for(int i = 0;i<points.size();i++) {
         	
@@ -211,6 +212,9 @@ public class HistoryDataManager extends PointGroupDataManager {
 			
 			// 删除一条数据库记录
 			pointGroupService.deletePointGroupItem(oldRtdId);	
+			// 删除缓存
+			redisService.delete(GlobalConsts.Key_HistoryData_pre_+oldRtdId);
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

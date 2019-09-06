@@ -60,7 +60,14 @@ public class AuthorcationController extends BaseController {
 		String uname = user.getString("uname");
 		String pwd = user.getString("pwd");
 		System.out.println(uname+" "+pwd);
-		UserInfo ui = login.VerificationAccount(uname, pwd); 
+		UserInfo ui = null;
+		try {
+			ui = login.VerificationAccount(uname, pwd); 
+		}catch(Exception e) {
+//			tw.setStatus(GlobalConsts.ResultCode_AuthericationError);
+//			tw.setMsg(e.toString());
+//			return tw;
+		}
 		// TODO 没有这个用户
 		if(ui==null) {
 			tw.setStatus(GlobalConsts.ResultCode_FAIL);

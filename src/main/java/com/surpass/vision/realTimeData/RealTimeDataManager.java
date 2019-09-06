@@ -197,6 +197,9 @@ public class RealTimeDataManager extends PointGroupDataManager {
 			
 			// 删除一条数据库记录
 			pointGroupService.deletePointGroupItem(oldRtdId);	
+			// 删除缓存
+			redisService.delete(GlobalConsts.Key_RealTimeData_pre_+oldRtdId);
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

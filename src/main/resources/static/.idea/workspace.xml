@@ -2,37 +2,81 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b172598f-23e5-4454-a2ad-f53c8ac56c8c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_userManage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/userManage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/apps/userManage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_newDataItem_selectDatas_alert.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_newDataItem_selectDatas_history.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_newDataItem_selectDatas_lineAlert.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_newDataItem_selectDatas_xyGraph.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/bootstrap-datetimepicker.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/c3.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/farbtastic.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/jquery-ui-timepicker-addon.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/jquery.datetimepicker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-datetimepicker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/d3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/farbtastic.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/jquery-ui-timepicker-addon.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/jquery.datetimepicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/jquerydatatimepickeraddon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/jsGridDateField.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/jscolor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../database.db3" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../database.db3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/appCfg/GlobalConsts.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/appCfg/GlobalConsts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/XYGraph/XYGraphManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/XYGraph/XYGraphManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/alertData/AlertDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/alertData/AlertDataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/controller/AlertDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/controller/AlertDataController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/controller/AuthorcationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/controller/AuthorcationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/controller/HistoryDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/controller/HistoryDataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/controller/LineAlertDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/controller/LineAlertDataController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/controller/RealTimeDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/controller/RealTimeDataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/domain/PointGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/domain/PointGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/domain/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/domain/UserInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/service/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/service/RedisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/user/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/user/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/controller/XYGraphController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/controller/XYGraphController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/historyData/HistoryDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/historyData/HistoryDataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/lineAlertData/LineAlertDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/lineAlertData/LineAlertDataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/realTimeData/RealTimeDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/realTimeData/RealTimeDataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/surpass/vision/userSpace/UserSpaceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/surpass/vision/userSpace/UserSpaceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/_gallery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_alertDataList.html" beforeDir="false" afterPath="$PROJECT_DIR$/_alertDataList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_datalist.html" beforeDir="false" afterPath="$PROJECT_DIR$/_datalist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_historDataList.html" beforeDir="false" afterPath="$PROJECT_DIR$/_historDataList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_historyDataChart.html" beforeDir="false" afterPath="$PROJECT_DIR$/_historyDataChart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_lineAlertDataList.html" beforeDir="false" afterPath="$PROJECT_DIR$/_lineAlertDataList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_newDataItem_selectDatas.html" beforeDir="false" afterPath="$PROJECT_DIR$/_newDataItem_selectDatas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_xyGraphList.html" beforeDir="false" afterPath="$PROJECT_DIR$/_xyGraphList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/mainPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/mainPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/alertDataList.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/alertDataList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/c3.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/c3_1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/historyDataChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/historyDataChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/historyDataList.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/historyDataList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/js-grid.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/js-grid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/lineAlertDataChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lineAlertDataChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/lineAlertDataList.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lineAlertDataList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/navagator.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/navagator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/newDataItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/newDataItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/realtimeDataList.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/realtimeDataList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/shareRight.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/shareRight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/xyGraphList.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/xyGraphList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/_gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/_gallery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/_alertDataList.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/_alertDataList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/_datalist.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/_datalist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/_historDataList.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/_historDataList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/_historyDataChart.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/_historyDataChart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/_lineAlertDataList.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/_lineAlertDataList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/_newDataItem_selectDatas.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/_newDataItem_selectDatas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/_xyGraphList.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/_xyGraphList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/mainPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/mainPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/alertDataList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/alertDataList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/historyDataChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/historyDataChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/historyDataList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/historyDataList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/js-grid.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/js-grid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/lineAlertDataChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/lineAlertDataChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/lineAlertDataList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/lineAlertDataList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/navagator.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/navagator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/newDataItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/newDataItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/realtimeDataList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/realtimeDataList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/shareRight.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/shareRight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../target/classes/static/js/xyGraphList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../target/classes/static/js/xyGraphList.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +143,7 @@
       <workItem from="1566020912898" duration="5879000" />
       <workItem from="1566306758794" duration="599000" />
       <workItem from="1566387110027" duration="3880000" />
-      <workItem from="1567220395986" duration="10078000" />
+      <workItem from="1567220395986" duration="24787000" />
     </task>
     <servers />
   </component>

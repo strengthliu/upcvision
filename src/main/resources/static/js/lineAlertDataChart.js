@@ -5,10 +5,11 @@
 var gl = new Array();
 var charts = new Object();
 
-console.log("_realtimeDataDetailKey: " + _realtimeDataDetailKey);
+console.log("_lineAlertDataDetailKey: " + _routeID);
+var _lineAlertDataDetailKey = _routeID;
 
 function newItemAction() {
-	alert("realtimeData.js newItemAction。 从mainPanel中调用的。");
+	alert("lineAlertData.js newItemAction。 从mainPanel中调用的。");
 }
 
 if (userSpace == null || userSpace == "undefined") {
@@ -21,8 +22,8 @@ if (userSpace == null || userSpace == "undefined") {
  * 画点图
  */
 function updateLineAlertDataChart(ruserSpace) {
-	var pointGroup = ruserSpace.lineAlertData[_realtimeDataDetailKey];
-	var uirealtimeDataPoints = document.getElementById("ui-realtimeDataPoints");
+	var pointGroup = ruserSpace.lineAlertData[_lineAlertDataDetailKey];
+	var uilineAlertDataPoints = document.getElementById("ui-lineAlertDataPoints");
 	 console.log(" updateLineAlertDataChart => "+JSON.stringify(pointGroup));
 	if (pointGroup == null || pointGroup == "undefined")
 		return;
@@ -40,8 +41,8 @@ function updateLineAlertDataChart(ruserSpace) {
 			
 		}
 	}
-	uirealtimeDataPoints.innerHTML = innerHtml;
-	console.log(uirealtimeDataPoints.innerHTML);
+	uilineAlertDataPoints.innerHTML = innerHtml;
+	console.log(uilineAlertDataPoints.innerHTML);
 
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
 		console.log();
@@ -127,7 +128,7 @@ function menuFunc(key, options) {
 	}
 	if (user.role < 3)
 		$.contextMenu({
-			selector : '#ui-realtimeDataPoints',
+			selector : '#ui-lineAlertDataPoints',
 			callback : menuFunc,
 			items : {
 				"disconnect" : {
@@ -153,7 +154,7 @@ function menuFunc(key, options) {
 		});
 })(jQuery);
 
-// var _realtimeDataDetailKey = null;
+// var _lineAlertDataDetailKey = null;
 function setConnected(connected) {
 	// $("#connect").prop("disabled", connected);
 	// $("#disconnect").prop("disabled", !connected);
@@ -178,16 +179,16 @@ function loginWebsocket() {
 		if(subscribe!=null && subscribe!="undefined")
 			subscribe.unsubscribe();
 		stompClient.send("/app/aaa", {
-			atytopic : _realtimeDataDetailKey,
-			type : 'realtimeData',
-			id : _realtimeDataDetailKey+""
+			atytopic : _lineAlertDataDetailKey,
+			type : 'lineAlertData',
+			id : _lineAlertDataDetailKey+""
 		}, JSON.stringify({
-			'type' : 'realtimeData',
-			'id' : _realtimeDataDetailKey+""
+			'type' : 'lineAlertData',
+			'id' : _lineAlertDataDetailKey+""
 		}));
 		// 接收消息设置
 		subscribe = stompClient.subscribe('/topic/Key_LineAlertData_pre_/'
-				+ _realtimeDataDetailKey, function(data) {
+				+ _lineAlertDataDetailKey, function(data) {
 			// alert("websocket connected 3.");
 			// 收到消息后处理
 			refreshData(data);
@@ -216,23 +217,23 @@ function connect() {
 
 	stompClient.connect(headers, function(frame) {
 		setConnected(true);
-		console.log("websocket connected." + _realtimeDataDetailKey + "  .");
+		console.log("websocket connected." + _lineAlertDataDetailKey + "  .");
 		// console.log('Connected: ' + frame);
 
 		// 发送消息给服务器
 		stompClient.send("/app/aaa", {
-			atytopic : _realtimeDataDetailKey,
+			atytopic : _lineAlertDataDetailKey,
 			type : 'Key_LineAlertData_pre_',
-			id : _realtimeDataDetailKey
+			id : _lineAlertDataDetailKey
 		}, JSON.stringify({
-			'type' : 'realtimeData',
-			'id' : _realtimeDataDetailKey
+			'type' : 'lineAlertData',
+			'id' : _lineAlertDataDetailKey
 		}));
 		// 连接成功后，主动拉取未读消息
 		// pullUnreadMessage("/topic/reply");
 		// 接收消息设置
 		subscribe = stompClient.subscribe('/topic/Key_LineAlertData_pre_/'
-				+ _realtimeDataDetailKey, function(data) {
+				+ _lineAlertDataDetailKey, function(data) {
 			// alert("websocket connected 3.");
 			// 收到消息后处理
 			refreshData(data);

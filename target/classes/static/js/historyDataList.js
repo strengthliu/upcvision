@@ -7,14 +7,12 @@
  */
 // 新建
 function newItemAction() {
-	if(user.id == _historyData.creater || user.id == _historyData.owner || user.role == 1){
-
-	// alert("historyDataList.newItemAction");
+	if(user.id == 2 || user.role == 1){
+	// alert("xyGraphList.newItemAction");
 		$('#newItemAction_mid').modal('show');
 	}else {
 		alert("您没有权限进行新建操作。");
 	}
-	
 }
 
 //_routeType = diagram;
@@ -27,7 +25,15 @@ function editItemAction(itemId) {
 	// console.log(itemId);
 // alert(itemId);
 	itemID = itemId;
-$('#newItemAction_mid').modal('show');
+	actionType = "historyData";
+	var _historyData = userSpace.historyData[itemId];
+	if(user.id == _historyData.creater || user.id == _historyData.owner || user.role == 1){
+			$('#newItemAction_mid').modal('show');
+		}else {
+			alert("您没有权限进行新建操作。");
+			return;
+		}
+
 editItem();
 }
 function deleteItemAction(itemId) {
@@ -52,7 +58,7 @@ console.log("deleteItemAction");
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
 				var historyDataId = data.data.data;
 				fixLocalHistoryDataList_Delete(historyDataId);
-				if(data.refresh) routeTo('realtimedataList','');
+				if(data.refresh) routeTo('historydataList','');
 				// 
 			} else {
 				alert("失败 ： "+data.msg);
@@ -89,18 +95,24 @@ function shareItemAction(itemId) {
  * @param targetDesc
  * @returns
  */
-function submitNewDataItem(selectedPoints,targetName,targetDesc){
-
-	console.log("realtimedata.js => submitNewDataItem 1 "+targetName +"  "+targetDesc);
+function submitNewDataItem(selectedPoints,_selectedPoints, targetName, targetDesc,relativetime, starttime, terminaltime){
+	console.log("historydata.js => submitNewDataItem 1 "+targetName +"  "+targetDesc);
 	var selectPointArray = new Array();
 	var i__ = 0;
 	for (let e of selectedPoints) {
 		selectPointArray[i__] = e;
 		i__++;
-		}
+	}
 
-	console.log("realtimedata.js => submitNewDataItem 2");
-	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID};
+	console.log(""+JSON.stringify(_selectedPoints));
+	console.log("historydata.js => submitNewDataItem 2");
+	var rule = new Object();
+	rule._selectedPoints = _selectedPoints;
+	rule.relativetime = relativetime;
+	rule.starttime = starttime;
+	rule.terminaltime = terminaltime;
+	console.log("otherrule = "+JSON.stringify(rule));
+	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID,'rule':rule};
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -119,7 +131,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		success : function(data) {
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
-				console.log("realtimedata.js => submitNewDataItem 3");
+				console.log("historydata.js => submitNewDataItem 3");
 				var historyData = data.data.data;
 				$('#newItemAction_mid').modal('hide');
 				fixLocalHistoryDataList(historyData);
@@ -135,7 +147,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		complete : function(XMLHttpRequest, textStatus) {
 			// alert(XMLHttpRequest.responseText);
 			// alert(textStatus);
-			console.log("realtimedata.js => submitNewDataItem 4");
+			console.log("historydata.js => submitNewDataItem 4");
 			hideLoading();
 		
 		},
@@ -149,7 +161,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 			/* 弹出其他两个参数的信息 */
 			// alert(textStatus);
 			// alert(errorThrown);
-			console.log("realtimedata.js => submitNewDataItem 5");
+			console.log("historydata.js => submitNewDataItem 5");
 			hideLoading();
 		}
 	});
@@ -250,11 +262,11 @@ function updateHistoryDataListFrame(){
 								
 								historyDataList_ui_item_innerHTML += 'onclick="routeTo('
 									+ "'"
-									+ "realtimedataDetail','"
+									+ "historydataDetail','"
 									+ _historyData.id + "'" + ')"/>';
 								historyDataList_ui_item_innerHTML += '<figcaption onclick="routeTo('
 									+ "'"
-									+ "realtimedataDetail','"
+									+ "historydataDetail','"
 									+ _historyData.id + "'" + ')"><h4>'
 										+ _historyData.name
 										+ '</h4><div>'

@@ -30,7 +30,8 @@
           {
             name: "Address",
             type: "text",
-            width: 200
+            width: 200,
+            editing: false
           },
           {
             name: "Country",
@@ -38,6 +39,7 @@
             items: db.countries,
             valueField: "Id",
             textField: "Name"
+            	
           },
           {
             name: "Married",
@@ -65,7 +67,6 @@
         ]
       });
     }
-
 
     //Static
     if ($("#js-grid-static").length) {
@@ -148,7 +149,8 @@
           {
             name: "Address",
             type: "text",
-            width: 200
+            width: 200,
+            disabled: true
           },
           {
             name: "Country",

@@ -7,14 +7,12 @@
  */
 // 新建
 function newItemAction() {
-	if(user.id == _realtimeData.creater || user.id == _realtimeData.owner || user.role == 1){
-
+	if(user.id == 2 || user.role == 1){
 	// alert("xyGraphList.newItemAction");
 		$('#newItemAction_mid').modal('show');
 	}else {
 		alert("您没有权限进行新建操作。");
 	}
-	
 }
 
 //_routeType = diagram;
@@ -27,7 +25,14 @@ function editItemAction(itemId) {
 	// console.log(itemId);
 // alert(itemId);
 	itemID = itemId;
-$('#newItemAction_mid').modal('show');
+	actionType = "xyGraph";
+	var _xyGraph = userSpace.xyGraph[itemId];
+	if(user.id == _xyGraph.creater || user.id == _xyGraph.owner || user.role == 1){
+			$('#newItemAction_mid').modal('show');
+		}else {
+			alert("您没有权限进行新建操作。");
+			return;
+		}
 editItem();
 }
 function deleteItemAction(itemId) {
@@ -52,7 +57,7 @@ console.log("deleteItemAction");
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
 				var xyGraphId = data.data.data;
 				fixLocalXYGraphList_Delete(xyGraphId);
-				if(data.refresh) routeTo('realtimedataList','');
+				if(data.refresh) routeTo('xygraphList','');
 				// 
 			} else {
 				alert("失败 ： "+data.msg);
@@ -91,7 +96,7 @@ function shareItemAction(itemId) {
  */
 function submitNewDataItem(selectedPoints,targetName,targetDesc){
 
-	console.log("realtimedata.js => submitNewDataItem 1 "+targetName +"  "+targetDesc);
+	console.log("xygraph.js => submitNewDataItem 1 "+targetName +"  "+targetDesc);
 	var selectPointArray = new Array();
 	var i__ = 0;
 	for (let e of selectedPoints) {
@@ -99,7 +104,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		i__++;
 		}
 
-	console.log("realtimedata.js => submitNewDataItem 2");
+	console.log("xygraph.js => submitNewDataItem 2");
 	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -119,7 +124,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		success : function(data) {
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
-				console.log("realtimedata.js => submitNewDataItem 3");
+				console.log("xygraph.js => submitNewDataItem 3");
 				var xyGraph = data.data.data;
 				$('#newItemAction_mid').modal('hide');
 				fixLocalXYGraphList(xyGraph);
@@ -135,7 +140,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		complete : function(XMLHttpRequest, textStatus) {
 			// alert(XMLHttpRequest.responseText);
 			// alert(textStatus);
-			console.log("realtimedata.js => submitNewDataItem 4");
+			console.log("xygraph.js => submitNewDataItem 4");
 			hideLoading();
 		
 		},
@@ -149,7 +154,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 			/* 弹出其他两个参数的信息 */
 			// alert(textStatus);
 			// alert(errorThrown);
-			console.log("realtimedata.js => submitNewDataItem 5");
+			console.log("xygraph.js => submitNewDataItem 5");
 			hideLoading();
 		}
 	});
@@ -180,7 +185,7 @@ function fixLocalXYGraphList_Delete(xyGraphId){
 		// console.log("after delete xyGraph =>
 		// "+JSON.stringify(userSpace.xyGraph));
 		
-		updateXYGraph();
+		updateXYDiagram();
 		updateXYGraphListFrame();
 		cancel11();
 		return;
@@ -207,7 +212,7 @@ function fixLocalXYGraphList(xyGraph){
 		userSpace.xyGraph[xyGraph.id]=xyGraph;
 		// xyGraphList = xyGraphList.xyGraph;
 		
-		updateXYGraph();
+		updateXYDiagram();
 		updateXYGraphListFrame();
 		cancel11();
 		return;
@@ -218,7 +223,7 @@ updateXYGraphListFrame();
 
 function updateXYGraphListFrame(){
 	console.log("_routeID = " + _routeID);
-	var _realtimeDatas;
+	var _xyGraph;
 	// TODO: 如果key为空，就是异常，待处理。
 	if (_routeID == null || _routeID == "undefined")
 		_routeID = "";
@@ -226,9 +231,9 @@ function updateXYGraphListFrame(){
 	if (_routeID.trim() == 'unclassify') {
 		alert(_routeID);
 		_routeID = "";
-		_realtimeDatas = userSpace.xyGraph[""];
+		_xyGraph = userSpace.xyGraph[""];
 	} else {
-		_realtimeDatas = userSpace.xyGraph;
+		_xyGraph = userSpace.xyGraph;
 	}
 	
 	// 如果当前主页面不是实时数据这页，就不刷新了
@@ -236,12 +241,12 @@ function updateXYGraphListFrame(){
 	if(xyGraphList_ui==null || xyGraphList_ui=="undefined") return;
 
 	var xyGraphList_ui_innerHTML = "";
-	if (_realtimeDatas != null && _realtimeDatas != "undefined") {
+	if (_xyGraph != null && _xyGraph != "undefined") {
 		Object
-				.keys(_realtimeDatas)
+				.keys(_xyGraph)
 				.forEach(
 						function(key) {
-							var _realtimeData = _realtimeDatas[key];
+							var _realtimeData = _xyGraph[key];
 							if(_realtimeData!=null && _realtimeData!="undefined"){
 								var xyGraphList_ui_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">';
 								xyGraphList_ui_item_innerHTML += '<figure class="effect-text-in">';
@@ -250,11 +255,11 @@ function updateXYGraphListFrame(){
 								
 								xyGraphList_ui_item_innerHTML += 'onclick="routeTo('
 									+ "'"
-									+ "realtimedataDetail','"
+									+ "xygraphDetail','"
 									+ _realtimeData.id + "'" + ')"/>';
 								xyGraphList_ui_item_innerHTML += '<figcaption onclick="routeTo('
 									+ "'"
-									+ "realtimedataDetail','"
+									+ "xygraphDetail','"
 									+ _realtimeData.id + "'" + ')"><h4>'
 										+ _realtimeData.name
 										+ '</h4><div>'

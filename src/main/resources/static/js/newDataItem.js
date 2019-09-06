@@ -3,6 +3,7 @@
  */
 // alert("newDataItem");
 var selectedPoints = new Set();
+var _selectedPoints = new Array();
 var targetName = "";
 var serverName = "";
 
@@ -237,6 +238,16 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 		// 右侧添加
 		newItem_pointlistright.appendChild(targetDiv);
 		selectedPoints.add(serverName+"."+elemId);
+		var p = {'server':serverName,
+				'tagName':elemId,
+				'alertInterval':0,
+				"stageValue":0,
+				"upperLimit":0,
+				"floorLimit":0,
+				"color":"#ffe74c",
+				"isx":false
+				};
+		_selectedPoints.push(p);
 	}else {
 		targetCheck.checked = false;
 		var targetDiv = document.getElementById("div"+elemId);
@@ -245,6 +256,20 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 		// 右侧添加
 		newItem_pointlistleft.appendChild(targetDiv);
 		selectedPoints.delete(serverName+"."+elemId);
+		var p = {'server':serverName,
+				'tagName':elemId,
+				'alertInterval':0,
+				"stageValue":0,
+				"upperLimit":0,
+				"floorLimit":0,
+				"color":"#ffe74c",
+				"isx":false,
+				"relativetime":0,
+				"starttime":"",
+				"terminaltime":""
+				};
+
+		_selectedPoints.splice(p);
 
 	}
 }
@@ -255,11 +280,21 @@ function editItem(){
 	// 编辑
 	 console.log("data =>"+actionType+"  "+itemID);
 	if(actionType!=null && actionType!="undefined" && itemID!=null && itemID!="undefined"){
-		switch(actionType){
-			case "realTimeData":
+		switch(actionType.toLowerCase()){
+			case "realTimeData".toLowerCase():
 				item = userSpace.realTimeData[itemID];
 				break;
-			case "alertData":
+			case "alertData".toLowerCase():
+				item = userSpace.alertData[itemID];
+				break;
+			case "historyData".toLowerCase():
+				item = userSpace.historyData[itemID];
+				break;
+			case "lineAlertData".toLowerCase():
+				item = userSpace.lineAlertData[itemID];
+				break;
+			case "xyGraph".toLowerCase():
+				item = userSpace.xyGraph[itemID];
 				break;
 		}
 		console.log("data =>"+JSON.stringify(item));
@@ -271,16 +306,18 @@ function editItem(){
 			var pseld = document.getElementById("targetDesc");
 			targetDesc = item.desc;
 			pseld.value = targetDesc;// 设置描述显示
-			selectedPoints = new Set();
+			var selectedPoints = new Set();
+			
 			Object.keys(item.pointList).forEach(function(key){
 				var id__= item.pointList[key].tagName;
 				console.log(" id = "+id__);
 				selectedPoints.add(serverName+"."+id__);
 				newDataItem_leftboxitemcheck(id__,true);
 			});
-			console.log("这个项目有"+selectedPoints.size+"个点");
-			
-			
+			if(actionType.toLowerCase() == "historyData".toLowerCase()){
+				var _selectedPoints = item.otherrule1._selectedPoints;
+				fillAttribute(item.otherrule1);
+			}
 		}
 	}
 }

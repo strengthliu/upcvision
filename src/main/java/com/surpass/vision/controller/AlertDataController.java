@@ -21,6 +21,7 @@ import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.AlertData;
 import com.surpass.vision.domain.Graph;
+import com.surpass.vision.domain.RealTimeData;
 import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.alertData.AlertDataManager;
@@ -124,20 +125,6 @@ public class AlertDataController extends BaseController {
 	public ToWeb newAlertDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
-		String idstr = user.getString("id");
-		Double idd = null ;
-		if(StringUtil.isBlank(idstr)) {
-			
-		}else {
-			idd = Double.valueOf(idstr);
-		}
-		
-		// 认证+权限
-		AlertData g = this.alertDataManager.getAlertDataByKeys(idd);
-		UserRight ur = g.getRight(uid);
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createAlertData,ur);
-		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
-			return ret;
 
 		// 取出参数
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
@@ -146,13 +133,39 @@ public class AlertDataController extends BaseController {
 		String creater = owner;
 		JSONArray points = user.getJSONArray("points");
 		String otherrule2 = user.getString("desc");
-		String id=user.getString("id");
+		String otherrule1 = user.getString("rule");
+		ToWeb ret;
+		
+		// TODO: 检查参数合法性
+
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			// 认证+权限
+			UserRight ur = new UserRight();
+			ret = authercation(uid, token, GlobalConsts.Operation_createAlertData,ur);
+			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+				return ret;
+			
+		}else {
+			id = Double.valueOf(idstr);
+		// 认证+权限
+			AlertData g = this.alertDataManager.getAlertDataByKeys(id);
+		UserRight ur = g.getRight(uid);
+		ret = authercation(uid, token, GlobalConsts.Operation_updateAlertData,ur);
+		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+			return ret;
+		}
+
+		
+		// 取出参数
+		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
 
 		
 		// TODO: 检查参数合法性
 
 		try {
-			AlertData rtd = alertDataManager.createAlertData(GlobalConsts.Type_alertdata_, name, owner, creater,points,otherrule2,id);
+			AlertData rtd = alertDataManager.createAlertData(GlobalConsts.Type_alertdata_, name, owner, creater,points,otherrule2,otherrule1,idstr);
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));

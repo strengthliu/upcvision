@@ -7,14 +7,12 @@
  */
 // 新建
 function newItemAction() {
-	if(user.id == _realtimeData.creater || user.id == _realtimeData.owner || user.role == 1){
-
-	// alert("lineAlertDataList.newItemAction");
+	if(user.id == 2 || user.role == 1){
+	// alert("xyGraphList.newItemAction");
 		$('#newItemAction_mid').modal('show');
 	}else {
 		alert("您没有权限进行新建操作。");
 	}
-	
 }
 
 //_routeType = diagram;
@@ -27,7 +25,14 @@ function editItemAction(itemId) {
 	// console.log(itemId);
 // alert(itemId);
 	itemID = itemId;
-$('#newItemAction_mid').modal('show');
+	actionType = "lineAlertData";
+	var _lineAlertData = userSpace.lineAlertData[itemId];
+	if(user.id == _lineAlertData.creater || user.id == _lineAlertData.owner || user.role == 1){
+			$('#newItemAction_mid').modal('show');
+		}else {
+			alert("您没有权限进行新建操作。");
+			return;
+		}
 editItem();
 }
 function deleteItemAction(itemId) {
@@ -52,7 +57,7 @@ console.log("deleteItemAction");
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
 				var lineAlertDataId = data.data.data;
 				fixLocalLineAlertDataList_Delete(lineAlertDataId);
-				if(data.refresh) routeTo('realtimedataList','');
+				if(data.refresh) routeTo('linalertdataList','');
 				// 
 			} else {
 				alert("失败 ： "+data.msg);
@@ -91,7 +96,7 @@ function shareItemAction(itemId) {
  */
 function submitNewDataItem(selectedPoints,targetName,targetDesc){
 
-	console.log("realtimedata.js => submitNewDataItem 1 "+targetName +"  "+targetDesc);
+	console.log("linalertdata.js => submitNewDataItem 1 "+targetName +"  "+targetDesc);
 	var selectPointArray = new Array();
 	var i__ = 0;
 	for (let e of selectedPoints) {
@@ -99,7 +104,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		i__++;
 		}
 
-	console.log("realtimedata.js => submitNewDataItem 2");
+	console.log("linalertdata.js => submitNewDataItem 2");
 	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -119,7 +124,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		success : function(data) {
 			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
-				console.log("realtimedata.js => submitNewDataItem 3");
+				console.log("linalertdata.js => submitNewDataItem 3");
 				var lineAlertData = data.data.data;
 				$('#newItemAction_mid').modal('hide');
 				fixLocalLineAlertDataList(lineAlertData);
@@ -135,7 +140,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		complete : function(XMLHttpRequest, textStatus) {
 			// alert(XMLHttpRequest.responseText);
 			// alert(textStatus);
-			console.log("realtimedata.js => submitNewDataItem 4");
+			console.log("linalertdata.js => submitNewDataItem 4");
 			hideLoading();
 		
 		},
@@ -149,7 +154,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 			/* 弹出其他两个参数的信息 */
 			// alert(textStatus);
 			// alert(errorThrown);
-			console.log("realtimedata.js => submitNewDataItem 5");
+			console.log("linalertdata.js => submitNewDataItem 5");
 			hideLoading();
 		}
 	});
@@ -218,7 +223,7 @@ updateLineAlertDataListFrame();
 
 function updateLineAlertDataListFrame(){
 	console.log("_routeID = " + _routeID);
-	var _realtimeDatas;
+	var _lineAlertDatas;
 	// TODO: 如果key为空，就是异常，待处理。
 	if (_routeID == null || _routeID == "undefined")
 		_routeID = "";
@@ -226,9 +231,9 @@ function updateLineAlertDataListFrame(){
 	if (_routeID.trim() == 'unclassify') {
 		alert(_routeID);
 		_routeID = "";
-		_realtimeDatas = userSpace.lineAlertData[""];
+		_lineAlertDatas = userSpace.lineAlertData[""];
 	} else {
-		_realtimeDatas = userSpace.lineAlertData;
+		_lineAlertDatas = userSpace.lineAlertData;
 	}
 	
 	// 如果当前主页面不是实时数据这页，就不刷新了
@@ -236,36 +241,36 @@ function updateLineAlertDataListFrame(){
 	if(lineAlertDataList_ui==null || lineAlertDataList_ui=="undefined") return;
 
 	var lineAlertDataList_ui_innerHTML = "";
-	if (_realtimeDatas != null && _realtimeDatas != "undefined") {
+	if (_lineAlertDatas != null && _lineAlertDatas != "undefined") {
 		Object
-				.keys(_realtimeDatas)
+				.keys(_lineAlertDatas)
 				.forEach(
 						function(key) {
-							var _realtimeData = _realtimeDatas[key];
-							if(_realtimeData!=null && _realtimeData!="undefined"){
+							var _lineAlertData = _lineAlertDatas[key];
+							if(_lineAlertData!=null && _lineAlertData!="undefined"){
 								var lineAlertDataList_ui_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">';
 								lineAlertDataList_ui_item_innerHTML += '<figure class="effect-text-in">';
 								lineAlertDataList_ui_item_innerHTML += '<img src="'
-										+ _realtimeData.img + '" alt="image" ';
+										+ _lineAlertData.img + '" alt="image" ';
 								
 								lineAlertDataList_ui_item_innerHTML += 'onclick="routeTo('
 									+ "'"
-									+ "realtimedataDetail','"
-									+ _realtimeData.id + "'" + ')"/>';
+									+ "linalertdataDetail','"
+									+ _lineAlertData.id + "'" + ')"/>';
 								lineAlertDataList_ui_item_innerHTML += '<figcaption onclick="routeTo('
 									+ "'"
-									+ "realtimedataDetail','"
-									+ _realtimeData.id + "'" + ')"><h4>'
-										+ _realtimeData.name
+									+ "linalertdataDetail','"
+									+ _lineAlertData.id + "'" + ')"><h4>'
+										+ _lineAlertData.name
 										+ '</h4><div>'
 										+'<h5></h5>'
-										+'<h5>创建者：'+_realtimeData.createrUser.name + '</h5>';
+										+'<h5>创建者：'+_lineAlertData.createrUser.name + '</h5>';
 								var shareStr = "";
-								if(_realtimeData.sharedUsers.length>0){
+								if(_lineAlertData.sharedUsers.length>0){
 									shareStr += '<h6>'+'分享给了 : ';
 									var indsharet1 = 3;
-									var indsharet2 = _realtimeData.sharedUsers.length;
-									var shareUsers = _realtimeData.sharedUsers;
+									var indsharet2 = _lineAlertData.sharedUsers.length;
+									var shareUsers = _lineAlertData.sharedUsers;
 									for(var iindshare=0;iindshare<shareUsers.length;iindshare++){
 										var indshare = shareUsers[iindshare];
 										// console.log(JSON.stringify(indshare));
@@ -282,20 +287,20 @@ function updateLineAlertDataListFrame(){
 									// console.log(lineAlertDataList_ui_item_innerHTML);
 								}
 
-								lineAlertDataList_ui_item_innerHTML +='<p>'+_realtimeData.desc + '</p>'+'</div></figcaption>';
+								lineAlertDataList_ui_item_innerHTML +='<p>'+_lineAlertData.desc + '</p>'+'</div></figcaption>';
 								lineAlertDataList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 								// TODO: 判断权限
-								if(user.id == _realtimeData.creater || user.id == _realtimeData.owner || user.role == 1){
+								if(user.id == _lineAlertData.creater || user.id == _lineAlertData.owner || user.role == 1){
 									lineAlertDataList_ui_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
-									lineAlertDataList_ui_item_innerHTML += 'shareItemAction(\''+_realtimeData.id+'\')">Share</button>';
+									lineAlertDataList_ui_item_innerHTML += 'shareItemAction(\''+_lineAlertData.id+'\')">Share</button>';
 								
 									lineAlertDataList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
-									lineAlertDataList_ui_item_innerHTML += 'deleteItemAction(\''+_realtimeData.id+'\')">';
+									lineAlertDataList_ui_item_innerHTML += 'deleteItemAction(\''+_lineAlertData.id+'\')">';
 									lineAlertDataList_ui_item_innerHTML += '<i class="mdi mdi-delete"></i>';
 									lineAlertDataList_ui_item_innerHTML += '</button>';
 									
 									lineAlertDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
-									lineAlertDataList_ui_item_innerHTML += 'editItemAction(\''+_realtimeData.id+'\')">';
+									lineAlertDataList_ui_item_innerHTML += 'editItemAction(\''+_lineAlertData.id+'\')">';
 									lineAlertDataList_ui_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
 									lineAlertDataList_ui_item_innerHTML += '</button>';
 								}

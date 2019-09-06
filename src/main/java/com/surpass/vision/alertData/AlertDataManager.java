@@ -126,13 +126,14 @@ public class AlertDataManager extends PointGroupDataManager {
 
 
 	public AlertData createAlertData(String typeAlertdata, String name, String owner, String creater,
-			JSONArray points, String otherrule2, String id2) {
+			JSONArray points, String otherrule2, String otherrule1, String id) {
 		AlertData ret ;
 		PointGroupData pgd = new PointGroupData();
 		pgd.setCreater(creater);
 		pgd.setOwner(owner);
 		pgd.setName(name);
 		pgd.setOtherrule2(otherrule2);
+		pgd.setOtherrule1(otherrule1);
         String pointsString = "";
         for(int i = 0;i<points.size();i++) {
         	
@@ -146,10 +147,10 @@ public class AlertDataManager extends PointGroupDataManager {
         	pointsString = pointsString.substring(0,pointsString.length()-GlobalConsts.Key_splitChar.length());
         pgd.setPoints(pointsString);
         Double _id ;
-        if(StringUtil.isBlank(id2))
+        if(StringUtil.isBlank(id))
         	_id = IDTools.newID();
         else
-        	_id = Double.valueOf(id2);
+        	_id = Double.valueOf(id);
         pgd.setId(_id);
         pgd.setType(GlobalConsts.Type_alertdata_);
         ret = copyFromPointGroupData(pgd);
@@ -188,6 +189,9 @@ public class AlertDataManager extends PointGroupDataManager {
 			
 			// 删除一条数据库记录
 			pointGroupService.deletePointGroupItem(oldRtdId);	
+			// 删除缓存
+			redisService.delete(GlobalConsts.Key_AlertData_pre_+oldRtdId);
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -211,7 +215,8 @@ public class AlertDataManager extends PointGroupDataManager {
 		// 更新数据库
 		pointGroupService.updatePointGroupItem(pgd);
 		
-		// 更新缓存
+		// 更新缓存 
+		// TODO: 现在出现当用户删除以后，数据的共享用户是两个空值，怀疑是这里的问题
 		AlertData rtd = this.copyFromPointGroupData(pgd);
 		// 写缓存AlertData，返回
 		redisService.set(GlobalConsts.Key_AlertData_pre_+IDTools.toString(rtd.getId()),rtd);

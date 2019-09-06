@@ -129,7 +129,6 @@ public class RealTimeDataController extends BaseController {
 	public ToWeb newRealTimeDataGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
-		
 
 		// 取出参数
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
@@ -138,6 +137,7 @@ public class RealTimeDataController extends BaseController {
 		String creater = owner;
 		JSONArray points = user.getJSONArray("points");
 		String otherrule2 = user.getString("desc");
+		String otherrule1 = user.getString("rule");
 		ToWeb ret;
 		
 		// TODO: 检查参数合法性
@@ -146,8 +146,7 @@ public class RealTimeDataController extends BaseController {
 		Double id = null ;
 		if(StringUtil.isBlank(idstr)) {
 			// 认证+权限
-			RealTimeData g = this.realTimeDataManager.getRealTimeDataByKeys(id);
-			UserRight ur = g.getRight(uid);
+			UserRight ur = new UserRight();
 			ret = authercation(uid, token, GlobalConsts.Operation_createRealTimeData,ur);
 			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 				return ret;

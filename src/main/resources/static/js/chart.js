@@ -29,6 +29,20 @@ $(function() {
       fill: false
     }]
   };
+
+  setTimeout(function() {
+    data.labels = ["2014", "2015", "2016", "2017", "2018", "2019"];
+    data.datasets[0].data = [19, 3, 5, 2, 3, 5];
+    console.log(" === 1");
+  }, 1500);
+
+  
+  setTimeout(function() {
+    data.labels = ["2015", "2016", "2017", "2018", "2019", "2020"];
+    data.datasets[0].data = [3, 5, 2, 3, 5, 11];
+    console.log(" === 2");
+  }, 2000);
+
   var multiLineData = {
     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
     datasets: [{

@@ -21,6 +21,7 @@ import com.surpass.vision.XYGraph.XYGraphManager;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.XYGraph;
+import com.surpass.vision.domain.LineAlertData;
 import com.surpass.vision.domain.RealTimeData;
 import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
@@ -112,20 +113,6 @@ public class XYGraphController extends BaseController{
 	public ToWeb newXYGraphGroup(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
-		String idstr = user.getString("id");
-		Double id = null ;
-		if(StringUtil.isBlank(idstr)) {
-			
-		}else {
-			id = Double.valueOf(idstr);
-		}
-		
-		// 认证+权限
-		XYGraph g = this.xYGraphManager.getXYGraphByKeys(id);
-		UserRight ur = g.getRight(uid);
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_createXYGraph,ur);
-		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
-			return ret;
 
 		// 取出参数
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
@@ -134,10 +121,32 @@ public class XYGraphController extends BaseController{
 		String creater = owner;
 		JSONArray points = user.getJSONArray("points");
 		String otherrule2 = user.getString("desc");
+		String otherrule1 = user.getString("rule");
+		ToWeb ret;
+		
 		// TODO: 检查参数合法性
 
+		String idstr = user.getString("id");
+		Double id = null ;
+		if(StringUtil.isBlank(idstr)) {
+			// 认证+权限
+			UserRight ur = new UserRight();
+			ret = authercation(uid, token, GlobalConsts.Operation_createXYGraph,ur);
+			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+				return ret;
+			
+		}else {
+			id = Double.valueOf(idstr);
+		// 认证+权限
+			XYGraph g = this.xYGraphManager.getXYGraphByKeys(id);
+		UserRight ur = g.getRight(uid);
+		ret = authercation(uid, token, GlobalConsts.Operation_updateXYGraph,ur);
+		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+			return ret;
+		}
+
 		try {
-			XYGraph rtd = xYGraphManager.createXYGraph(GlobalConsts.Type_xygraph_, name, owner, creater,points,otherrule2,idstr);
+			XYGraph rtd = xYGraphManager.createXYGraph(GlobalConsts.Type_xygraph_, name, owner, creater,points,otherrule2,otherrule1,idstr);
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));

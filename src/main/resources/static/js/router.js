@@ -42,8 +42,10 @@
     	    $("#mainPanel").load("_alertdataList.html");
     		break;
     	case "historydataList".toLowerCase():
-    		
     	    $("#mainPanel").load("_historDataList.html");
+    		break;
+    	case "historydatadetail".toLowerCase():
+    	    $("#mainPanel").load("_historyDataChart.html");
     		break;
     	case "directreportingdataList".toLowerCase():
     		_linealertdataListKey = key;

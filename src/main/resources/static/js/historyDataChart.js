@@ -5,8 +5,8 @@
 var gl = new Array();
 var charts = new Object();
 
-console.log("_historyDataDetailKey: " + _historyDataDetailKey);
-
+console.log("_historyDataDetailKey: " + _routeID);
+var _historyDataDetailKey = _routeID;
 function newItemAction() {
 	alert("historyData.js newItemAction。 从mainPanel中调用的。");
 }
@@ -17,11 +17,13 @@ if (userSpace == null || userSpace == "undefined") {
 } else
 	updateHistoryDataChart(userSpace);
 
+
+
 /**
  * 画点图
  */
 function updateHistoryDataChart(ruserSpace) {
-	var pointGroup = ruserSpace.realTimeData[_historyDataDetailKey];
+	var pointGroup = ruserSpace.historyData[_historyDataDetailKey];
 	var uihistoryDataPoints = document.getElementById("ui-historyDataPoints");
 	 console.log(" updateHistoryDataChart => "+JSON.stringify(pointGroup));
 	if (pointGroup == null || pointGroup == "undefined")
@@ -81,6 +83,172 @@ function refreshData(data) {
 	}
 }
 
+/**
+ * 更新线图
+ * @returns
+ */
+//updateLineChart();
+
+/**
+ * 总值
+ */
+var _data;
+var _dataCount;
+/**
+ * 当前值范围
+ */
+var cdata;
+var cdataCount;
+
+/**
+ * x轴范围，y轴范围
+ */
+
+/**
+ * 向前，向后
+ */
+function _forward(newData){
+	c3LineChart.flow({
+        columns: [
+            ['x', '2013-03-01', '2013-03-02'],
+            ['data1', 200, 300],
+            ['data2', 150, 250],
+            ['data3', 100, 100]
+        ],
+        length: 2,
+        duration: 1000,
+        done:function (){
+        	}
+    }
+}
+
+function _backward(){
+	
+}
+/** 
+ * x轴放大缩小
+ */
+function zoomin_x(){
+	c3LineChart.axis.min({x: -10});
+}
+function zoomout_x(){
+	
+}
+function zoomin_y(){
+	c3LineChart.axis.min({x: -10});
+}
+function zoomout_y(){
+	
+}
+
+ /**
+  * 换X轴
+  */
+function changex(){
+	
+}
+
+/**
+ * 刷新值
+ * 
+ */
+function addData(newData){
+	c3LineChart.flow({
+        columns: [
+            ['x', '2013-03-01', '2013-03-02'],
+            ['data1', 200, 300],
+            ['data2', 150, 250],
+            ['data3', 100, 100]
+        ],
+        length: 2,
+        duration: 1000,
+        done:function (){
+        	}
+    }
+}
+
+var c3LineChart ;
+(function($) {
+	  'use strict';
+	  c3LineChart = c3.generate({
+	    bindto: '#ui-historyDataLineChart',
+	    data: {
+	        x: 'x',
+	      columns: [
+	            ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+	            ['data1', 130, 150, 200, 300, 200, 100]
+	      ],
+	      type: 'spline'
+	    },
+	    grid: {
+	        x: {
+	            show: true
+	        },
+	        y: {
+	            show: true
+	        }
+	    },
+	    color: {
+	      pattern: ['rgba(88,216,163,1)', 'rgba(237,28,36,0.6)', 'rgba(4,189,254,0.6)']
+	    },
+	    padding: {
+	      top: 0,
+	      right: 0,
+	      bottom: 30,
+	      left: 0,
+	    }
+	  });
+
+
+})(jQuery);
+
+setTimeout(function () {
+    chart.axis.labels({y2: 'New Y2 Axis Label'});
+}, 1000);
+
+setTimeout(function () {
+    chart.axis.labels({y: 'New Y Axis Label', y2: 'New Y2 Axis Label Again'});
+}, 2000);
+
+setTimeout(function() {
+    c3LineChart.load({
+      columns: [
+//          ['x', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06', '2013-01-07'],
+        ['data1', 130, 150, 200, 300, 200, 100]
+      ]
+    });
+  }, 1000);
+
+  setTimeout(function() {
+    c3LineChart.load({
+      columns: [
+//          ['x', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06', '2013-01-07', '2013-01-08'],
+        ['data1', 150, 200, 300, 200, 100,150]
+      ]
+    });
+  }, 1500);
+  setTimeout(function() {
+	    c3LineChart.load({
+	      columns: [
+//	            ['x', '2013-01-04', '2013-01-05', '2013-01-06', '2013-01-07', '2013-01-08', '2013-01-09'],
+	          ['data1', 200, 300, 200, 100,150,159]
+	      ]
+	    });
+	  }, 2000);
+  setTimeout(function() {
+	    c3LineChart.load({
+	      columns: [
+//	            ['x', '2013-01-04', '2013-01-05', '2013-01-06', '2013-01-07', '2013-01-08', '2013-01-09'],
+	          ['data1', 300, 200, 100,150,159,187]
+	      ]
+	    });
+	  }, 2500);
+
+//  setTimeout(function() {
+//    c3LineChart.unload({
+//      ids: 'data1'
+//    });
+//  }, 2000);
 //function refreshGage() {
 //	for (var indpl = 0; indpl < gl.length; indpl++) {
 //		gl[indpl].refresh(getRandomInt(50, 100));
