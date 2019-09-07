@@ -4,6 +4,7 @@
 
 var gl = new Array();
 var charts = new Object();
+var _alertDataDetailKey = _routeID;
 
 console.log("_alertDataDetailKey: " + _alertDataDetailKey);
 
@@ -21,7 +22,7 @@ if (userSpace == null || userSpace == "undefined") {
  * 画点图
  */
 function updateAlertDataChart(ruserSpace) {
-	var pointGroup = ruserSpace.realTimeData[_alertDataDetailKey];
+	var pointGroup = ruserSpace.alertData[_alertDataDetailKey];
 	var uialertDataPoints = document.getElementById("ui-alertDataPoints");
 	 console.log(" updateAlertDataChart => "+JSON.stringify(pointGroup));
 	if (pointGroup == null || pointGroup == "undefined")

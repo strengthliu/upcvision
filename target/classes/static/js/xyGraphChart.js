@@ -4,11 +4,12 @@
 
 var gl = new Array();
 var charts = new Object();
+var _xyGraphDetailKey = _routeID;
 
-console.log("_realtimeDataDetailKey: " + _realtimeDataDetailKey);
+console.log("_xyGraphDetailKey: " + _xyGraphDetailKey);
 
 function newItemAction() {
-	alert("realtimeData.js newItemAction。 从mainPanel中调用的。");
+	alert("xyGraph.js newItemAction。 从mainPanel中调用的。");
 }
 
 if (userSpace == null || userSpace == "undefined") {
@@ -21,8 +22,8 @@ if (userSpace == null || userSpace == "undefined") {
  * 画点图
  */
 function updateXYGraphChart(ruserSpace) {
-	var pointGroup = ruserSpace.xyGraph[_realtimeDataDetailKey];
-	var uirealtimeDataPoints = document.getElementById("ui-realtimeDataPoints");
+	var pointGroup = ruserSpace.xyGraph[_xyGraphDetailKey];
+	var uixyGraphPoints = document.getElementById("ui-xyGraphPoints");
 	 console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
 	if (pointGroup == null || pointGroup == "undefined")
 		return;
@@ -40,8 +41,8 @@ function updateXYGraphChart(ruserSpace) {
 			
 		}
 	}
-	uirealtimeDataPoints.innerHTML = innerHtml;
-	console.log(uirealtimeDataPoints.innerHTML);
+	uixyGraphPoints.innerHTML = innerHtml;
+	console.log(uixyGraphPoints.innerHTML);
 
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
 		console.log();
@@ -79,15 +80,260 @@ function refreshData(data) {
 			}
 		}
 	}
+	addData(data.body,cdata,cdataCount);
+
+	_forward(data.body);
+	// 刷新表格
+	refreshDataTable(cdata);
+
 }
 
-//function refreshGage() {
-//	for (var indpl = 0; indpl < gl.length; indpl++) {
-//		gl[indpl].refresh(getRandomInt(50, 100));
-//	}
-//}
-// setInterval(refreshGage, 1000);
+function refreshDataTable(_cdata){
+	var _datatableUI = document.getElementById("_datatableUI");
+	_datatableUI.innerHTML = "";
+	var _thead = document.createElement("thead");
+	var _tbody = document.createElement("tbody");
 
+//	console.log("refreshDataTable - _cdata "+JSON.stringify(_cdata));
+//	alert();
+	for(var coli = 0;coli<_cdata.length;coli++){
+		var _tr = document.createElement("tr");  
+		for(var rowi = 0;rowi<_cdata[coli].length;rowi++){
+//			console.log('fdsafdsa')
+			var _td = document.createElement("td"); 
+			var _value = _cdata[coli][rowi];
+			switch(typeof _value){
+//			console.log(" typeof => "+typeof(_value));			
+			case 'number':
+				_td.innerText = (Math.round(_value * 10000)) / 10000+"";		
+				break;
+			case 'string':
+				_td.innerText = _cdata[coli][rowi];//_timeStr;
+				break;
+			default:
+				var _t = new Date(_cdata[coli][rowi]);
+				_td.innerText = _t.Format("hh:mm:ss");//_timeStr;					
+//				_td.innerText = _cdata[coli][rowi];//_timeStr;
+				break;
+			}
+			_tr.append(_td);
+		}
+
+		//		console.log(" _cdata[coli] "+JSON.stringify(_cdata[coli]));
+		if(_cdata[coli][0]=="time"){
+			_thead.append(_tr);
+			_datatableUI.prepend(_thead);
+		}
+		else
+			_tbody.append(_tr);
+	}
+	_datatableUI.append(_tbody);
+
+}
+/**
+ * 更新线图
+ * 
+ * @returns
+ */
+// updateLineChart();
+/**
+ * 总值
+ */
+var _data = new Array();
+var _dataCount = 1000;
+
+/**
+ * 当前值范围
+ */
+var cdata = new Array();
+var cdataCount = 10;
+
+/**
+ * x轴范围，y轴范围
+ */
+
+/**
+ * 向前，向后
+ */
+function _forward(_newData) {
+
+	c3LineChart.load({
+		columns : cdata
+	});
+	c3LineChart.axis.min({
+		y : _minY - (_maxY-_minY)/2 * _rateY
+	});
+	c3LineChart.axis.max({
+		y : _maxY + (_maxY-_minY)/2 * _rateY 
+	});
+
+}
+
+function _backward() {
+
+}
+var _maxX = 0;
+var _minX = 0;
+var _rateX = 1;
+
+/**
+ * x轴放大缩小
+ */
+function zoomin_x() {
+	_rateX = _rateX /2;
+	cdataCount = cdataCount * 1.5;
+	console.log("cdataCount = "+cdataCount);
+}
+
+function zoomout_x() {
+	_rateX = _rateX *2;
+	cdataCount = cdataCount / 1.5;
+	console.log("cdataCount = "+cdataCount);
+}
+var _maxY = 0;
+var _minY = 0;
+var _rateY = 1;
+function zoomin_y() {
+	_rateY = _rateY / 2
+	console.log(" _rateY = "+_rateY);
+}
+function zoomout_y() {
+	_rateY = _rateY * 2
+	console.log(" _rateY = "+_rateY);
+}
+
+/**
+ * 换X轴
+ */
+function changex() {
+
+}
+
+/**
+ * 刷新值
+ * 
+ */
+function addData(newData,_data_,cdatacount) {
+	if( typeof newData == "string"){
+//		alert("字符串了");
+		newData = JSON.parse(newData);
+	}
+	var _d_ = newData;
+	var _ctime = new Date();//.Format('yyyy-MM-dd hh:mm:ss');
+	var _time = true;
+	//console.log("addData at time -> "+_ctime);
+	Object.keys(_d_).forEach(function(key) {
+
+		// 向cdata中添加
+		var _time = true;
+		for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
+			var pname = _data_[ind_data][0];
+			if (pname != null && pname != "undefined") {
+				if (pname == key) {
+					if(_data_[ind_data].length==2 && _data_[ind_data][1]==0)
+						_data_[ind_data][1] = _d_[key];
+					else
+						_data_[ind_data].push(_d_[key]);
+					if(_maxY < _d_[key]) _maxY = _d_[key];
+					if(_minY > _d_[key]||_minY==0) _minY = _d_[key];
+					if (_data_[ind_data].length > cdatacount) {
+//						console.log("before splice => "+JSON.stringify(_data_[ind_data]));
+						_data_[ind_data].splice(1,1);
+//						console.log("after splice => "+JSON.stringify(_data_[ind_data]));
+					}
+					if(key == "time")
+						_time = false;
+				}
+			}
+		}
+
+		//console.log("cdata => "+JSON.stringify(cdata));
+		// console.log(key, obj[key]);
+	});
+	if (_time) {
+		for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
+			var pname = _data_[ind_data][0];
+			if (pname == "time") {
+				_data_[ind_data].push(_ctime);
+				if (_data_[ind_data].length > cdatacount) {
+//					console.log("before splice => "+JSON.stringify(_data_[ind_data]));
+					_data_[ind_data].splice(1,1);
+//					console.log("after splice => "+JSON.stringify(_data_[ind_data]));
+				}
+				break;
+			}
+		}
+	}
+
+}
+
+var c3LineChart;
+(function($) {
+	'use strict';
+	var cols = new Array();
+	var pointGroup = userSpace.xyGraph[_xyGraphDetailKey];
+	var pointList = pointGroup.pointList;
+	//console.log("pointList -> "+JSON.stringify(pointList));
+	var _time_ = new Array();
+	_time_.push('time',new Date());
+	cols.push(_time_);
+
+	for (var indpl = 0; indpl < pointList.length; indpl++) {
+		var _c_ = new Array();
+		_c_.push(pointList[indpl].tagName,0);
+		
+		cols.push(_c_);
+	}
+	cdata=cols;
+	_data=cols;
+	c3LineChart = c3.generate({
+		bindto : '#ui-xyGraphLineChart',
+		data : {
+			x : 'time',
+			xFormat : '%Y',
+			columns : cols,
+			type : 'spline',
+	        axes: {
+	        	CJY_XT31101_8: 'y',
+	        }
+		},
+		grid : {
+			x : {
+				show : true
+			},
+			y : {
+				show : true
+			}
+		},
+		color : {
+			pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
+					'rgba(4,189,254,0.6)' ]
+		},
+		padding : {
+			top : 0,
+			right : 0,
+			bottom : 30,
+			left : 0,
+		},
+		axis : {
+			x : {
+				type : 'timeseries',
+				// if true, treat x value as localtime (Default)
+				// if false, convert to UTC internally
+				localtime : false,
+				tick : {
+					format : '%Y-%m-%d %H:%M:%S'
+				}
+			},
+			y : {
+				show: true,
+				label: 'Y2 Axis Label'
+			}
+		}
+	});
+
+})(jQuery);
+//
 /**
  * 右键菜单
  * 
@@ -127,7 +373,7 @@ function menuFunc(key, options) {
 	}
 	if (user.role < 3)
 		$.contextMenu({
-			selector : '#ui-realtimeDataPoints',
+			selector : '#ui-xyGraphPoints',
 			callback : menuFunc,
 			items : {
 				"disconnect" : {
@@ -153,7 +399,7 @@ function menuFunc(key, options) {
 		});
 })(jQuery);
 
-// var _realtimeDataDetailKey = null;
+// var _xyGraphDetailKey = null;
 function setConnected(connected) {
 	// $("#connect").prop("disabled", connected);
 	// $("#disconnect").prop("disabled", !connected);
@@ -178,16 +424,16 @@ function loginWebsocket() {
 		if(subscribe!=null && subscribe!="undefined")
 			subscribe.unsubscribe();
 		stompClient.send("/app/aaa", {
-			atytopic : _realtimeDataDetailKey,
-			type : 'realtimeData',
-			id : _realtimeDataDetailKey+""
+			atytopic : _xyGraphDetailKey,
+			type : 'xyGraph',
+			id : _xyGraphDetailKey+""
 		}, JSON.stringify({
-			'type' : 'realtimeData',
-			'id' : _realtimeDataDetailKey+""
+			'type' : 'xyGraph',
+			'id' : _xyGraphDetailKey+""
 		}));
 		// 接收消息设置
 		subscribe = stompClient.subscribe('/topic/Key_XYGraph_pre_/'
-				+ _realtimeDataDetailKey, function(data) {
+				+ _xyGraphDetailKey, function(data) {
 			// alert("websocket connected 3.");
 			// 收到消息后处理
 			refreshData(data);
@@ -216,23 +462,23 @@ function connect() {
 
 	stompClient.connect(headers, function(frame) {
 		setConnected(true);
-		console.log("websocket connected." + _realtimeDataDetailKey + "  .");
+		console.log("websocket connected." + _xyGraphDetailKey + "  .");
 		// console.log('Connected: ' + frame);
 
 		// 发送消息给服务器
 		stompClient.send("/app/aaa", {
-			atytopic : _realtimeDataDetailKey,
+			atytopic : _xyGraphDetailKey,
 			type : 'Key_XYGraph_pre_',
-			id : _realtimeDataDetailKey
+			id : _xyGraphDetailKey
 		}, JSON.stringify({
-			'type' : 'realtimeData',
-			'id' : _realtimeDataDetailKey
+			'type' : 'xyGraph',
+			'id' : _xyGraphDetailKey
 		}));
 		// 连接成功后，主动拉取未读消息
 		// pullUnreadMessage("/topic/reply");
 		// 接收消息设置
 		subscribe = stompClient.subscribe('/topic/Key_XYGraph_pre_/'
-				+ _realtimeDataDetailKey, function(data) {
+				+ _xyGraphDetailKey, function(data) {
 			// alert("websocket connected 3.");
 			// 收到消息后处理
 			refreshData(data);

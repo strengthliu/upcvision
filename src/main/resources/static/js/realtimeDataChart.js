@@ -4,6 +4,7 @@
 
 var gl = new Array();
 var charts = new Object();
+var _realtimeDataDetailKey = _routeID;
 
 console.log("_realtimeDataDetailKey: " + _realtimeDataDetailKey);
 
@@ -23,14 +24,12 @@ if (userSpace == null || userSpace == "undefined") {
 function updateRealTimeDataChart(ruserSpace) {
 	var pointGroup = ruserSpace.realTimeData[_realtimeDataDetailKey];
 	var uirealtimeDataPoints = document.getElementById("ui-realtimeDataPoints");
-	 console.log(" updateRealTimeDataChart => "+JSON.stringify(pointGroup));
+//	 console.log(" updateRealTimeDataChart => "+JSON.stringify(pointGroup));
 	if (pointGroup == null || pointGroup == "undefined")
 		return;
 	var pointList = pointGroup.pointList;
 	var innerHtml = "";
-	// console.log("pointList" + JSON.stringify(pointList));
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
-// console.log(" updateRealTimeDataChart=> "+JSON.stringify(pointList[indpl]));
 		try{
 			// 页面加一块
 			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
@@ -41,10 +40,9 @@ function updateRealTimeDataChart(ruserSpace) {
 		}
 	}
 	uirealtimeDataPoints.innerHTML = innerHtml;
-	console.log(uirealtimeDataPoints.innerHTML);
 
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		console.log();
+		//console.log();
 		// 对象加一条
 		var gt = new JustGage({
 			id : "point_" + pointList[indpl].tagName,
@@ -79,15 +77,256 @@ function refreshData(data) {
 			}
 		}
 	}
+	addData(data.body,cdata,cdataCount);
+	_forward(data.body);
+	// 刷新表格
+	refreshDataTable(cdata);
+
 }
 
-//function refreshGage() {
-//	for (var indpl = 0; indpl < gl.length; indpl++) {
-//		gl[indpl].refresh(getRandomInt(50, 100));
-//	}
-//}
-// setInterval(refreshGage, 1000);
+function refreshDataTable(_cdata){
+	var _datatableUI = document.getElementById("_datatableUI");
+	_datatableUI.innerHTML = "";
+	var _thead = document.createElement("thead");
+	var _tbody = document.createElement("tbody");
 
+//	console.log("refreshDataTable - _cdata "+JSON.stringify(_cdata));
+//	alert();
+	for(var coli = 0;coli<_cdata.length;coli++){
+		var _tr = document.createElement("tr");  
+		for(var rowi = 0;rowi<_cdata[coli].length;rowi++){
+//			console.log('fdsafdsa')
+			var _td = document.createElement("td"); 
+			var _value = _cdata[coli][rowi];
+			switch(typeof _value){
+//			console.log(" typeof => "+typeof(_value));			
+			case 'number':
+				_td.innerText = (Math.round(_value * 10000)) / 10000+"";		
+				break;
+			case 'string':
+				_td.innerText = _cdata[coli][rowi];//_timeStr;
+				break;
+			default:
+				var _t = new Date(_cdata[coli][rowi]);
+				_td.innerText = _t.Format("hh:mm:ss");//_timeStr;					
+//				_td.innerText = _cdata[coli][rowi];//_timeStr;
+				break;
+			}
+			_tr.append(_td);
+		}
+
+		//		console.log(" _cdata[coli] "+JSON.stringify(_cdata[coli]));
+		if(_cdata[coli][0]=="time"){
+			_thead.append(_tr);
+			_datatableUI.prepend(_thead);
+		}
+		else
+			_tbody.append(_tr);
+	}
+	_datatableUI.append(_tbody);
+
+}
+/**
+ * 更新线图
+ * 
+ * @returns
+ */
+// updateLineChart();
+/**
+ * 总值
+ */
+var _data = new Array();
+var _dataCount = 1000;
+
+/**
+ * 当前值范围
+ */
+var cdata = new Array();
+var cdataCount = 10;
+
+/**
+ * x轴范围，y轴范围
+ */
+
+/**
+ * 向前，向后
+ */
+function _forward(_newData) {
+
+	c3LineChart.load({
+		columns : cdata
+	});
+	c3LineChart.axis.min({
+		y : _minY - (_maxY-_minY)/2 * _rateY
+	});
+	c3LineChart.axis.max({
+		y : _maxY + (_maxY-_minY)/2 * _rateY 
+	});
+
+}
+
+function _backward() {
+
+}
+var _maxX = 0;
+var _minX = 0;
+var _rateX = 1;
+
+/**
+ * x轴放大缩小
+ */
+function zoomin_x() {
+	_rateX = _rateX /2;
+	cdataCount = cdataCount * 1.5;
+	//console.log("cdataCount = "+cdataCount);
+}
+
+function zoomout_x() {
+	_rateX = _rateX *2;
+	cdataCount = cdataCount / 1.5;
+	//console.log("cdataCount = "+cdataCount);
+}
+var _maxY = 0;
+var _minY = 0;
+var _rateY = 1;
+function zoomin_y() {
+	_rateY = _rateY / 2
+	//console.log(" _rateY = "+_rateY);
+}
+function zoomout_y() {
+	_rateY = _rateY * 2
+	//console.log(" _rateY = "+_rateY);
+}
+
+/**
+ * 换X轴
+ */
+function changex() {
+
+}
+
+/**
+ * 刷新值
+ * 
+ */
+function addData(newData,_data_,cdatacount) {
+	if( typeof newData == "string"){
+//		alert("字符串了");
+		newData = JSON.parse(newData);
+	}
+	var _d_ = newData;
+	var _ctime = new Date();//.Format('yyyy-MM-dd hh:mm:ss');
+	var _time = true;
+	//console.log("addData at time -> "+_ctime);
+	Object.keys(_d_).forEach(function(key) {
+
+		// 向cdata中添加
+		var _time = true;
+		for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
+			var pname = _data_[ind_data][0];
+			if (pname != null && pname != "undefined") {
+				if (pname == key) {
+					if(_data_[ind_data].length==2 && _data_[ind_data][1]==0)
+						_data_[ind_data][1] = _d_[key];
+					else
+						_data_[ind_data].push(_d_[key]);
+					if(_maxY < _d_[key]) _maxY = _d_[key];
+					if(_minY > _d_[key]||_minY==0) _minY = _d_[key];
+					if (_data_[ind_data].length > cdatacount) {
+//						console.log("before splice => "+JSON.stringify(_data_[ind_data]));
+						_data_[ind_data].splice(1,1);
+//						console.log("after splice => "+JSON.stringify(_data_[ind_data]));
+					}
+					if(key == "time")
+						_time = false;
+				}
+			}
+		}
+
+		//console.log("cdata => "+JSON.stringify(cdata));
+		// console.log(key, obj[key]);
+	});
+	if (_time) {
+		for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
+			var pname = _data_[ind_data][0];
+			if (pname == "time") {
+				_data_[ind_data].push(_ctime);
+				if (_data_[ind_data].length > cdatacount) {
+//					console.log("before splice => "+JSON.stringify(_data_[ind_data]));
+					_data_[ind_data].splice(1,1);
+//					console.log("after splice => "+JSON.stringify(_data_[ind_data]));
+				}
+				break;
+			}
+		}
+	}
+
+}
+
+var _realtimeDataDetailKey = _routeID;
+var c3LineChart;
+(function($) {
+	'use strict';
+	var cols = new Array();
+	console.log("==== debug 1");
+	console.log("_realTimeDataDetailKey =>>>>> "+_routeID);
+	var pointGroup = userSpace.realTimeData[_routeID];
+	console.log("==== debug 2");
+	var pointList = pointGroup.pointList;
+	//console.log("pointList -> "+JSON.stringify(pointList));
+	var _time_ = new Array();
+	_time_.push('time',new Date());
+	cols.push(_time_);
+
+	for (var indpl = 0; indpl < pointList.length; indpl++) {
+		var _c_ = new Array();
+		_c_.push(pointList[indpl].tagName,0);
+		
+		cols.push(_c_);
+	}
+	cdata=cols;
+	_data=cols;
+	c3LineChart = c3.generate({
+		bindto : '#ui-realTimeDataLineChart',
+		data : {
+			x : 'time',
+			xFormat : '%Y',
+			columns : cols,
+			type : 'spline'
+		},
+		grid : {
+			x : {
+				show : true
+			},
+			y : {
+				show : true
+			}
+		},
+		color : {
+			pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
+					'rgba(4,189,254,0.6)' ]
+		},
+		padding : {
+			top : 0,
+			right : 0,
+			bottom : 30,
+			left : 0,
+		},
+		axis : {
+			x : {
+				type : 'timeseries',
+				// if true, treat x value as localtime (Default)
+				// if false, convert to UTC internally
+				localtime : false,
+				tick : {
+					format : '%Y-%m-%d %H:%M:%S'
+				}
+			}
+		}
+	});
+
+})(jQuery);
+//
 /**
  * 右键菜单
  * 

@@ -90,7 +90,7 @@
 								var xydiagram = xydiagrams[key];
 								if(key == "") key = "未分类";
 
-								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'xydiagramList','"+key+"');"+'">'
+								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'xyGraphDetail','"+key+"');"+'">'
 										+ xydiagram.name + '</text></li>';
 								itemsHtml = itemsHtml + item;
 								// // console.log(key,obj[key]);
@@ -198,7 +198,7 @@
 								var alertdata = alertdatas[key];
 								if(key == "") key = "未分类";
 
-								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'alertdataList','"+key+"');"+'">'
+								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'alertdataDetail','"+key+"');"+'">'
 										+ alertdata.name + '</text></li>';
 								itemsHtml = itemsHtml + item;
 								// // console.log(key,obj[key]);
@@ -300,7 +300,7 @@
 								var directreportingdata = directreportingdatas[key];
 								if(key == "") key = "未分类";
 
-								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'directreportingdataList','"+key+"');"+'">'
+								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'linalertdataDetail','"+key+"');"+'">'
 										+ directreportingdata.name + '</text></li>';
 								itemsHtml = itemsHtml + item;
 								// // console.log(key,obj[key]);

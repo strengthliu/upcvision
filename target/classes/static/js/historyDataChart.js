@@ -17,29 +17,28 @@ if (userSpace == null || userSpace == "undefined") {
 } else
 	updateHistoryDataChart(userSpace);
 
-
-
 /**
  * 画点图
  */
 function updateHistoryDataChart(ruserSpace) {
 	var pointGroup = ruserSpace.historyData[_historyDataDetailKey];
 	var uihistoryDataPoints = document.getElementById("ui-historyDataPoints");
-	 console.log(" updateHistoryDataChart => "+JSON.stringify(pointGroup));
+	console.log(" updateHistoryDataChart => " + JSON.stringify(pointGroup));
 	if (pointGroup == null || pointGroup == "undefined")
 		return;
 	var pointList = pointGroup.pointList;
 	var innerHtml = "";
 	// console.log("pointList" + JSON.stringify(pointList));
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
-// console.log(" updateHistoryDataChart=> "+JSON.stringify(pointList[indpl]));
-		try{
+		// console.log(" updateHistoryDataChart=>
+		// "+JSON.stringify(pointList[indpl]));
+		try {
 			// 页面加一块
 			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
 					+ pointList[indpl].tagName + '"></div></div>';
 			innerHtml += item;
-		}catch(e){
-			
+		} catch (e) {
+
 		}
 	}
 	uihistoryDataPoints.innerHTML = innerHtml;
@@ -53,7 +52,7 @@ function updateHistoryDataChart(ruserSpace) {
 			value : 0,
 			min : 0,
 			max : 100,
-			title : pointList[indpl].desc,//"一级电脱盐混合阀压差",
+			title : pointList[indpl].desc,// "一级电脱盐混合阀压差",
 			label : pointList[indpl].enunit,
 			donut : true,
 			gaugeWidthScale : 0.6,
@@ -72,33 +71,83 @@ function updateHistoryDataChart(ruserSpace) {
  */
 
 function refreshData(data) {
+	
 	var pointList_ = JSON.parse(data.body);
-	for(var key in pointList_){
-		for(var p in gl){
-			//console.log(gl[p].config.id + "  ==  "+"point_" + key );
-			if(gl[p].config.id == "point_" + key){
+	// console.log("current Time = "+new Date()+" data:"+data.body);
+	addData(data.body,cdata,cdataCount);
+	// 刷新显示点图
+	for ( var key in pointList_) {
+		for ( var p in gl) {
+			// console.log(gl[p].config.id + " == "+"point_" + key );
+			if (gl[p].config.id == "point_" + key) {
 				gl[p].refresh(pointList_[key]);
 			}
 		}
 	}
+	_forward(data.body);
+	// 刷新表格
+	refreshDataTable(cdata);
 }
 
+function refreshDataTable(_cdata){
+	var _datatableUI = document.getElementById("_datatableUI");
+	_datatableUI.innerHTML = "";
+	var _thead = document.createElement("thead");
+	var _tbody = document.createElement("tbody");
+
+//	console.log("refreshDataTable - _cdata "+JSON.stringify(_cdata));
+//	alert();
+	for(var coli = 0;coli<_cdata.length;coli++){
+		var _tr = document.createElement("tr");  
+		for(var rowi = 0;rowi<_cdata[coli].length;rowi++){
+//			console.log('fdsafdsa')
+			var _td = document.createElement("td"); 
+			var _value = _cdata[coli][rowi];
+			switch(typeof _value){
+//			console.log(" typeof => "+typeof(_value));			
+			case 'number':
+				_td.innerText = (Math.round(_value * 10000)) / 10000+"";		
+				break;
+			case 'string':
+				_td.innerText = _cdata[coli][rowi];//_timeStr;
+				break;
+			default:
+				var _t = new Date(_cdata[coli][rowi]);
+				_td.innerText = _t.Format("hh:mm:ss");//_timeStr;					
+//				_td.innerText = _cdata[coli][rowi];//_timeStr;
+				break;
+			}
+			_tr.append(_td);
+		}
+
+		//		console.log(" _cdata[coli] "+JSON.stringify(_cdata[coli]));
+		if(_cdata[coli][0]=="time"){
+			_thead.append(_tr);
+			_datatableUI.prepend(_thead);
+		}
+		else
+			_tbody.append(_tr);
+	}
+	_datatableUI.append(_tbody);
+
+}
 /**
  * 更新线图
+ * 
  * @returns
  */
-//updateLineChart();
-
+// updateLineChart();
 /**
  * 总值
  */
-var _data;
-var _dataCount;
+var _data = new Array();
+var _dataCount = 1000;
+
 /**
  * 当前值范围
  */
-var cdata;
-var cdataCount;
+var cdata = new Array();
+var cdataCount = 10;
 
 /**
  * x轴范围，y轴范围
@@ -107,153 +156,252 @@ var cdataCount;
 /**
  * 向前，向后
  */
-function _forward(newData){
-	c3LineChart.flow({
-        columns: [
-            ['x', '2013-03-01', '2013-03-02'],
-            ['data1', 200, 300],
-            ['data2', 150, 250],
-            ['data3', 100, 100]
-        ],
-        length: 2,
-        duration: 1000,
-        done:function (){
-        	}
-    }
+function _forward(_newData) {
+
+	c3LineChart.load({
+		columns : cdata
+	});
+	c3LineChart.axis.min({
+		y : _minY - (_maxY-_minY)/2 * _rateY
+	});
+	c3LineChart.axis.max({
+		y : _maxY + (_maxY-_minY)/2 * _rateY 
+	});
+
 }
 
-function _backward(){
-	
+function _backward() {
+
 }
-/** 
+var _maxX = 0;
+var _minX = 0;
+var _rateX = 1;
+
+/**
  * x轴放大缩小
  */
-function zoomin_x(){
-	c3LineChart.axis.min({x: -10});
-}
-function zoomout_x(){
-	
-}
-function zoomin_y(){
-	c3LineChart.axis.min({x: -10});
-}
-function zoomout_y(){
-	
+function zoomin_x() {
+	_rateX = _rateX /2;
+	cdataCount = cdataCount * 1.5;
+	console.log("cdataCount = "+cdataCount);
 }
 
- /**
-  * 换X轴
-  */
-function changex(){
-	
+function zoomout_x() {
+	_rateX = _rateX *2;
+	cdataCount = cdataCount / 1.5;
+	console.log("cdataCount = "+cdataCount);
+}
+var _maxY = 0;
+var _minY = 0;
+var _rateY = 1;
+function zoomin_y() {
+	_rateY = _rateY / 2
+	console.log(" _rateY = "+_rateY);
+}
+function zoomout_y() {
+	_rateY = _rateY * 2
+	console.log(" _rateY = "+_rateY);
+}
+
+/**
+ * 换X轴
+ */
+function changex() {
+
 }
 
 /**
  * 刷新值
  * 
  */
-function addData(newData){
-	c3LineChart.flow({
-        columns: [
-            ['x', '2013-03-01', '2013-03-02'],
-            ['data1', 200, 300],
-            ['data2', 150, 250],
-            ['data3', 100, 100]
-        ],
-        length: 2,
-        duration: 1000,
-        done:function (){
-        	}
-    }
+function addData(newData,_data_,cdatacount) {
+	if( typeof newData == "string"){
+//		alert("字符串了");
+		newData = JSON.parse(newData);
+	}
+	var _d_ = newData;
+	var _ctime = new Date();//.Format('yyyy-MM-dd hh:mm:ss');
+	var _time = true;
+	//console.log("addData at time -> "+_ctime);
+	Object.keys(_d_).forEach(function(key) {
+
+		// 向cdata中添加
+		var _time = true;
+		for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
+			var pname = _data_[ind_data][0];
+			if (pname != null && pname != "undefined") {
+				if (pname == key) {
+					if(_data_[ind_data].length==2 && _data_[ind_data][1]==0)
+						_data_[ind_data][1] = _d_[key];
+					else
+						_data_[ind_data].push(_d_[key]);
+					if(_maxY < _d_[key]) _maxY = _d_[key];
+					if(_minY > _d_[key]||_minY==0) _minY = _d_[key];
+					if (_data_[ind_data].length > cdatacount) {
+//						console.log("before splice => "+JSON.stringify(_data_[ind_data]));
+						_data_[ind_data].splice(1,1);
+//						console.log("after splice => "+JSON.stringify(_data_[ind_data]));
+					}
+					if(key == "time")
+						_time = false;
+				}
+			}
+		}
+
+		//console.log("cdata => "+JSON.stringify(cdata));
+		// console.log(key, obj[key]);
+	});
+	if (_time) {
+		for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
+			var pname = _data_[ind_data][0];
+			if (pname == "time") {
+				_data_[ind_data].push(_ctime);
+				if (_data_[ind_data].length > cdatacount) {
+//					console.log("before splice => "+JSON.stringify(_data_[ind_data]));
+					_data_[ind_data].splice(1,1);
+//					console.log("after splice => "+JSON.stringify(_data_[ind_data]));
+				}
+				break;
+			}
+		}
+	}
+
 }
 
-var c3LineChart ;
+var c3LineChart;
 (function($) {
-	  'use strict';
-	  c3LineChart = c3.generate({
-	    bindto: '#ui-historyDataLineChart',
-	    data: {
-	        x: 'x',
-	      columns: [
-	            ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
-	            ['data1', 130, 150, 200, 300, 200, 100]
-	      ],
-	      type: 'spline'
-	    },
-	    grid: {
-	        x: {
-	            show: true
-	        },
-	        y: {
-	            show: true
-	        }
-	    },
-	    color: {
-	      pattern: ['rgba(88,216,163,1)', 'rgba(237,28,36,0.6)', 'rgba(4,189,254,0.6)']
-	    },
-	    padding: {
-	      top: 0,
-	      right: 0,
-	      bottom: 30,
-	      left: 0,
-	    }
-	  });
+	'use strict';
+	var cols = new Array();
+	var pointGroup = userSpace.historyData[_historyDataDetailKey];
+	var pointList = pointGroup.pointList;
+	//console.log("pointList -> "+JSON.stringify(pointList));
+	var _time_ = new Array();
+	_time_.push('time',new Date());
+	cols.push(_time_);
 
+	for (var indpl = 0; indpl < pointList.length; indpl++) {
+		var _c_ = new Array();
+		_c_.push(pointList[indpl].tagName,0);
+		
+		cols.push(_c_);
+	}
+	cdata=cols;
+	_data=cols;
+	c3LineChart = c3.generate({
+		bindto : '#ui-historyDataLineChart',
+		data : {
+			x : 'time',
+			xFormat : '%Y',
+			columns : cols,
+			type : 'spline',
+	        axes: {
+	        	CJY_XT31101_8: 'y',
+	        }
+		},
+		grid : {
+			x : {
+				show : true
+			},
+			y : {
+				show : true
+			}
+		},
+		color : {
+			pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
+					'rgba(4,189,254,0.6)' ]
+		},
+		padding : {
+			top : 0,
+			right : 0,
+			bottom : 30,
+			left : 0,
+		},
+		axis : {
+			x : {
+				type : 'timeseries',
+				// if true, treat x value as localtime (Default)
+				// if false, convert to UTC internally
+				localtime : false,
+				tick : {
+					format : '%Y-%m-%d %H:%M:%S'
+				}
+			},
+			y : {
+				show: true,
+				label: 'Y2 Axis Label'
+			}
+		}
+	});
 
 })(jQuery);
+//
+//setTimeout(function() {
+//	c3LineChart.axis.labels({
+//		y2 : 'New Y2 Axis Label'
+//	});
+//}, 1000);
+//
+//setTimeout(function() {
+//	c3LineChart.axis.labels({
+//		y : 'New Y Axis Label',
+//		y2 : 'New Y2 Axis Label Again'
+//	});
+//}, 2000);
+//
+//setTimeout(function() {
+//	c3LineChart.load({
+//		columns : [
+//		// ['x', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05',
+//		// '2013-01-06', '2013-01-07'],
+//		[ 'data1', 130, 150, 200, 300, 200, 100 ] ]
+//	});
+//}, 1000);
+//
+//setTimeout(function() {
+//	c3LineChart.load({
+//		columns : [
+//		// ['x', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06',
+//		// '2013-01-07', '2013-01-08'],
+//		[ 'data1', 150, 200, 300, 200, 100, 150 ] ]
+//	});
+//}, 1500);
+//setTimeout(function() {
+//	c3LineChart.load({
+//		columns : [
+//		// ['x', '2013-01-04', '2013-01-05', '2013-01-06', '2013-01-07',
+//		// '2013-01-08', '2013-01-09'],
+//		[ 'data1', 200, 300, 200, 100, 150, 159 ] ]
+//	});
+//}, 2000);
+//setTimeout(function() {
+//	c3LineChart.load({
+//		columns : [
+//		// ['x', '2013-01-04', '2013-01-05', '2013-01-06', '2013-01-07',
+//		// '2013-01-08', '2013-01-09'],
+//		[ 'data1', 300, 200, 100, 150, 159, 187 ] ]
+//	});
+//}, 2500);
+//
+//setTimeout(function() {
+//	c3LineChart.flow({
+//		columns : [ [ 'data1', 200, 300 ], ],
+//		length : 2,
+//		duration : 1000,
+//		done : function() {
+//		}
+//	})
+//}, 3000);
 
-setTimeout(function () {
-    chart.axis.labels({y2: 'New Y2 Axis Label'});
-}, 1000);
-
-setTimeout(function () {
-    chart.axis.labels({y: 'New Y Axis Label', y2: 'New Y2 Axis Label Again'});
-}, 2000);
-
-setTimeout(function() {
-    c3LineChart.load({
-      columns: [
-//          ['x', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06', '2013-01-07'],
-        ['data1', 130, 150, 200, 300, 200, 100]
-      ]
-    });
-  }, 1000);
-
-  setTimeout(function() {
-    c3LineChart.load({
-      columns: [
-//          ['x', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06', '2013-01-07', '2013-01-08'],
-        ['data1', 150, 200, 300, 200, 100,150]
-      ]
-    });
-  }, 1500);
-  setTimeout(function() {
-	    c3LineChart.load({
-	      columns: [
-//	            ['x', '2013-01-04', '2013-01-05', '2013-01-06', '2013-01-07', '2013-01-08', '2013-01-09'],
-	          ['data1', 200, 300, 200, 100,150,159]
-	      ]
-	    });
-	  }, 2000);
-  setTimeout(function() {
-	    c3LineChart.load({
-	      columns: [
-//	            ['x', '2013-01-04', '2013-01-05', '2013-01-06', '2013-01-07', '2013-01-08', '2013-01-09'],
-	          ['data1', 300, 200, 100,150,159,187]
-	      ]
-	    });
-	  }, 2500);
-
-//  setTimeout(function() {
-//    c3LineChart.unload({
-//      ids: 'data1'
-//    });
-//  }, 2000);
-//function refreshGage() {
-//	for (var indpl = 0; indpl < gl.length; indpl++) {
-//		gl[indpl].refresh(getRandomInt(50, 100));
-//	}
-//}
+// setTimeout(function() {
+// c3LineChart.unload({
+// ids: 'data1'
+// });
+// }, 2000);
+// function refreshGage() {
+// for (var indpl = 0; indpl < gl.length; indpl++) {
+// gl[indpl].refresh(getRandomInt(50, 100));
+// }
+// }
 // setInterval(refreshGage, 1000);
 
 /**
@@ -270,7 +418,7 @@ function menuFunc(key, options) {
 		break;
 	case "disconnect":
 		disconnect();
-		//stompClient.disconnect();
+		// stompClient.disconnect();
 		break;
 	case "edit":
 		stompClient.send("/app/aaa", {
@@ -321,37 +469,27 @@ function menuFunc(key, options) {
 		});
 })(jQuery);
 
-// var _historyDataDetailKey = null;
 function setConnected(connected) {
-	// $("#connect").prop("disabled", connected);
-	// $("#disconnect").prop("disabled", !connected);
-	// if (connected) {
-	// $("#conversation").show();
-	// } else {
-	// $("#conversation").hide();
-	// }
-	// $("#greetings").html("");
 }
 
 loginWebsocket();
 
 function loginWebsocket() {
-	if(socket.readyState!=1){
+	if (socket.readyState != 1) {
 		alert("未连接。");
 		connect();
 		return;
-		}
-	else {
+	} else {
 		console.log("当前存在");
-		if(subscribe!=null && subscribe!="undefined")
+		if (subscribe != null && subscribe != "undefined")
 			subscribe.unsubscribe();
 		stompClient.send("/app/aaa", {
 			atytopic : _historyDataDetailKey,
 			type : 'historyData',
-			id : _historyDataDetailKey+""
+			id : _historyDataDetailKey + ""
 		}, JSON.stringify({
 			'type' : 'historyData',
-			'id' : _historyDataDetailKey+""
+			'id' : _historyDataDetailKey + ""
 		}));
 		// 接收消息设置
 		subscribe = stompClient.subscribe('/topic/Key_HistoryData_pre_/'
@@ -373,14 +511,14 @@ function connect() {
 	// alert("websocket connected 1.");
 	stompClient = Stomp.over(socket);
 	stompClient.heartbeat.outgoing = 10000; // 客户端每20000ms发送一次心跳检测
-	stompClient.heartbeat.incoming = 10000;     // client接收serever端的心跳检测
+	stompClient.heartbeat.incoming = 10000; // client接收serever端的心跳检测
 	// 连接服务器
 	var headers = {
-		    login: user.id,
-		    token: token,
-		    // additional header
-		    'client-id': 'my-client-id'
-		};
+		login : user.id,
+		token : token,
+		// additional header
+		'client-id' : 'my-client-id'
+	};
 
 	stompClient.connect(headers, function(frame) {
 		setConnected(true);
@@ -425,7 +563,7 @@ function connect() {
 		stompClient.ws.onerror = function() {
 			connect();
 		}
-	},function(message){
+	}, function(message) {
 		console.log(message);
 	});
 }

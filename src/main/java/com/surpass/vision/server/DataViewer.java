@@ -1,6 +1,8 @@
 package com.surpass.vision.server;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import org.springframework.stereotype.Component;
@@ -20,7 +22,8 @@ public class DataViewer {
 		this.queryById = queryById;
 	}
 
-
+	
+	Date time ;
 	ServerPoint[] sps;
 	// Long[] ids;
 	Long[] ids;
@@ -90,6 +93,7 @@ public class DataViewer {
 		else {
 //			System.out.println("DataViewer.values datas为空。");
 		}
+		ret.put("time", Double.valueOf(time.toString()));
 		return ret;
 	}
 

@@ -126,7 +126,7 @@ public class SocketServer {
 	
 	@Async("postMessageExecutor")
 	public void sendMessage(String topic,HashMap message) {
-//		System.out.println(topic+""+message);
+		System.out.println(topic+""+message);
         messagingTemplate.convertAndSend(topic, message);
 	}
 

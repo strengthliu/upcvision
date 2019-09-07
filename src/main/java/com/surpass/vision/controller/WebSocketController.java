@@ -88,16 +88,28 @@ public class WebSocketController {
     @SendTo("/topic/realTimeData")
     public void greeting(@Header("atytopic") String topic,@Header("id") String id,@Header("type") String type, @Headers Map<String, Object> headers) {
         System.out.println("connected successfully....");
-        System.out.println(topic);
+        System.out.println(topic+"  "+ type);
         System.out.println(headers);
         // 添加一条主题
         if(StringUtil.isBlank(type)) type = GlobalConsts.Key_RealTimeData_pre_;
-        switch(type) {
-        case "realtimeData":
+        switch(type.toLowerCase()) {
+        case "realtimedata":
         	type = GlobalConsts.Key_RealTimeData_pre_;
         	break;
-        case "alertData":
+        case "alertdata":
         	type = GlobalConsts.Key_AlertData_pre_;
+        	break;
+        case "historydata":
+        	type = GlobalConsts.Key_HistoryData_pre_;
+        	break;
+        case "linealertdata":
+        	type = GlobalConsts.Key_LineAlertData_pre_;
+        	break;
+        case "xygraph":
+        	type = GlobalConsts.Key_XYGraph_pre_;
+        	break;
+        case "graph":
+        	type = GlobalConsts.Key_Graph_pre_;
         	break;
         }
         String topicRequest = "/topic/"+type+"/"+id;

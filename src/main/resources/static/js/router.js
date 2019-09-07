@@ -28,6 +28,10 @@
     		_xydiagramListKey = key;
     	    $("#mainPanel").load("_xyGraphList.html");
     		break;
+    	case "xyGraphDetail".toLowerCase():
+    		_xydiagramListKey = key;
+    	    $("#mainPanel").load("_xyGraphChart.html");
+    		break;
     	case "realtimedataList".toLowerCase():
     		_realtimedataListKey = key;
     	    $("#mainPanel").load("_realtimedataList.html");
@@ -41,17 +45,25 @@
     		
     	    $("#mainPanel").load("_alertdataList.html");
     		break;
+    	case "alertdataDetail".toLowerCase():
+    		
+    	    $("#mainPanel").load("_alertdataChart.html");
+    		break;
     	case "historydataList".toLowerCase():
     	    $("#mainPanel").load("_historDataList.html");
     		break;
     	case "historydatadetail".toLowerCase():
     	    $("#mainPanel").load("_historyDataChart.html");
     		break;
-    	case "directreportingdataList".toLowerCase():
+    	case "lineAlertdataList".toLowerCase():
     		_linealertdataListKey = key;
     	    $("#mainPanel").load("_lineAlertDataList.html");
     		break;
-    		
+    	case "linalertdataDetail".toLowerCase():
+    		_linealertdataListKey = key;
+    	    $("#mainPanel").load("_lineAlertDataChart.html");
+    		break;
+   		
     		//     
     	case "userManage".toLowerCase():
     		currentUser = key;

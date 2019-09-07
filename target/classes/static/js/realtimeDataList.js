@@ -15,11 +15,9 @@ function newItemAction() {
 	}
 }
 
-//_routeType = diagram;
-//_routeID = key;
 
 var itemID = _routeID;
-var actionType = _routeType;//"realTimeData";
+var actionType = _routeType;
 
 function editItemAction(itemId) {
 	// console.log(itemId);
@@ -36,7 +34,6 @@ function editItemAction(itemId) {
 editItem();
 }
 function deleteItemAction(itemId) {
-console.log("deleteItemAction");
 	var data={'uid':uid,'token':token,'id':itemId};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -298,7 +295,7 @@ function updateRealTimeDataListFrame(){
 	// 如果当前主页面不是实时数据这页，就不刷新了
 	var realtimeDataList_ui = document.getElementById("realtimeDataList_ui");
 	if(realtimeDataList_ui==null || realtimeDataList_ui=="undefined") return;
-	console.log("_realtimeDatas: "+JSON.stringify(_realtimeDatas));
+	//console.log("_realtimeDatas: "+JSON.stringify(_realtimeDatas));
 	var realtimeDataList_ui_innerHTML = "";
 	if (_realtimeDatas != null && _realtimeDatas != "undefined") {
 		Object
@@ -314,11 +311,11 @@ function updateRealTimeDataListFrame(){
 								
 								realtimeDataList_ui_item_innerHTML += 'onclick="routeTo('
 									+ "'"
-									+ "realtimedataDetail','"
+									+ "xyGraphDetail','"
 									+ _realtimeData.id + "'" + ')"/>';
 								realtimeDataList_ui_item_innerHTML += '<figcaption onclick="routeTo('
 									+ "'"
-									+ "realtimedataDetail','"
+									+ "xyGraphDetail','"
 									+ _realtimeData.id + "'" + ')"><h4>'
 										+ _realtimeData.name
 										+ '</h4><div>'
