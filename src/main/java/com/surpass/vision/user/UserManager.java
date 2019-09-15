@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 
+import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Reference;
 import org.springframework.stereotype.Component;
@@ -38,6 +39,7 @@ public class UserManager {
 	}
 
 	public UserInfo getUserInfoByID(String userId) {
+		if(StringUtil.isBlank(userId)) return null;
 		UserInfo ui = (UserInfo) redisService.get(GlobalConsts.Key_UserInfo_Pre_ + IDTools.toString(userId));
 		if(ui!=null&&(ui.getId()==0||ui.getId()==null)) {
 			System.out.println("什么鬼！！！");

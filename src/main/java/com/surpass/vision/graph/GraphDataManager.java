@@ -226,11 +226,20 @@ public class GraphDataManager extends PointGroupDataManager {
 		ret.setSVG(fl.isSVG());
 		ret.setName(fl.getName());
 		ret.setCreater(fl.getCreater());
+		ret.setCreaterUser(userManager.getUserByID(ret.getCreater()));
 		ret.setOwner(fl.getOwner());
+		ret.setOwnerUser(userManager.getUserByID(ret.getOwner()));
 		ret.setOtherrule1(fl.getOtherrule1());
 		ret.setOtherrule2(fl.getOtherrule2());
 		ret.setShared(fl.getShared());
-		
+		ArrayList<User> ul = new ArrayList<User>();
+		String[] sharedIds = IDTools.splitID(ret.getShared());
+		for (int isharedIDs = 0; isharedIDs < sharedIds.length; isharedIDs++) {
+			User u = userManager.getUserByID(sharedIds[isharedIDs]);
+			ul.add(u);
+		}
+		ret.setSharedUsers(ul);
+
 		
 		if (fl.isFile()) {
 			// 如果缓存里有，就直接返回。
@@ -241,6 +250,18 @@ public class GraphDataManager extends PointGroupDataManager {
 					ret.setPoints(pstr);
 				} else
 					ret.setPoints(fl.getPoints());
+				
+				ArrayList<Point> pal = new ArrayList<>();
+				String[] pids = IDTools.splitID(ret.getPoints());
+				for (int ipids = 0; ipids < pids.length; ipids++) {
+					String serverName = splitServerName(pids[ipids]);
+					String pName = splitPointName(pids[ipids]);
+					Point p = ServerManager.getInstance().getPointByID(serverName,pName);
+					pal.add(p);
+				}
+				ret.setPointList(pal);
+				
+				
 				ret.setType(fl.getType());
 
 				ret.setFileName(fl.getName());

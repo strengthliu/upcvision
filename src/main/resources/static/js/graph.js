@@ -71,13 +71,17 @@ function menuFunc(key, options) {
 
 function refreshData(data) {
 	var ids = document.getElementsByTagName("text");
-//	Object.keys(data).forEach(functin(key)){
-//		for(var indid =0;indid<ids.length;indid++){
-//			if(key==ids[indid]){
-//				ids[indid].innerHTML = data[key];
-//			}
-//		}
-//	});
+	console.log(" graph refreshData:"+JSON.stringify(data));
+	var _data = JSON.parse(data.body);
+
+	Object.keys(_data).forEach(function(key){
+		var ele = document.getElementById(key);
+		if(ele!=null && ele!="undefined"){
+			ele.innerHTML =  _data[key];
+		}else{
+			console.log("no element named "+key);
+		}
+	});
 }
 
 // var _xyGraphDetailKey = null;
@@ -95,31 +99,35 @@ function setConnected(connected) {
 loginWebsocket();
 
 function loginWebsocket() {
-	if(socket.readyState!=1){
-		alert("未连接。");
-		connect();
+	if(!connected) {
+		connect(graphSubscribe);
 		return;
-		}
+	}
 	else {
 		console.log("当前存在");
-		if(subscribe!=null && subscribe!="undefined")
-			subscribe.unsubscribe();
-		stompClient.send("/app/aaa", {
-			atytopic : _graphId,
-			type : 'graph',
-			id : _graphId+""
-		}, JSON.stringify({
-			'type' : 'graph',
-			'id' : _graphId+""
-		}));
-		// 接收消息设置
-		subscribe = stompClient.subscribe('/topic/Key_Graph_pre_/'
-				+ _graphId, function(data) {
-			// alert("websocket connected 3.");
-			// 收到消息后处理
-			refreshData(data);
-		});
+		graphSubscribe();
 	}
+}
+
+function graphSubscribe(){
+	if(subscribe!=null && subscribe!="undefined")
+		subscribe.unsubscribe();
+	stompClient.send("/app/aaa", {
+		atytopic : _graphId,
+		type : 'graph',
+		id : _graphId+""
+	}, JSON.stringify({
+		'type' : 'graph',
+		'id' : _graphId+""
+	}));
+	// 接收消息设置
+	subscribe = stompClient.subscribe('/topic/Key_Graph_pre_/'
+			+ _graphId, function(data) {
+		// alert("websocket connected 3.");
+		// 收到消息后处理
+		refreshData(data);
+	});
+	
 }
 
 function connectlocal() {

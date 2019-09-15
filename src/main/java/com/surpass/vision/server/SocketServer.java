@@ -94,15 +94,16 @@ public class SocketServer {
 			AtomicInteger ai = used.get(id);
 			ai.getAndIncrement();
 		}else {
+			DataViewer dv = pointGroupDataManager.buildDataViewer(id,type);
+			if(dv==null) return;
+			dv = pointList.addPoints(dv);
+			dvs.put(id, dv);
 			topics.put(id, topic);
 			AtomicInteger ai = new AtomicInteger(0);
 			ai.getAndIncrement();
 			used.put(id, ai);
 			types.put(id,type);
-			DataViewer dv = pointGroupDataManager.buildDataViewer(id,type);
-			if(dv==null) return;
-			dv = pointList.addPoints(dv);
-			dvs.put(id, dv);
+
 		}
 	}
 	
