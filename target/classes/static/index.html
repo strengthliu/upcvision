@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>PearlUI Bootstrap4 高端响应式网站后台管理界面模板 - 代码库</title>
+<title>UPC VISION</title>
 <!-- plugins:css -->
 <link rel="stylesheet"
 	href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
@@ -124,20 +124,30 @@
 							aria-labelledby="languageDropdown">
 							<a class="dropdown-item" href="#"> 简体中文 </a>
 							<div class="dropdown-divider"></div>
+							<!-- 
 							<a class="dropdown-item" href="#"> English </a>
 							<div class="dropdown-divider"></div>
+							 -->
 						</div></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link count-indicator dropdown-toggle"
 						id="messageDropdown" href="#" data-toggle="dropdown"
-						aria-expanded="false"> <i class="mdi mdi-email-outline"></i> <span
-							class="count bg-warning">5</span>
+						aria-expanded="false"> <i class="mdi mdi-email-outline"></i> 
+						<!-- 
+						<span class="count bg-warning">5</span>
+						-->
 					</a>
 						<div
 							class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
 							aria-labelledby="messageDropdown">
 							<h6 class="p-3 mb-0">Messages</h6>
 							<div class="dropdown-divider"></div>
+							<a class="dropdown-item preview-item">
+								<div class="preview-item-content">
+									<h6 class="preview-subject ellipsis">没有新消息</h6>
+								</div>
+							</a>
+							<!-- 
 							<a class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<img src="images/faces/face4.jpg" alt="image"
@@ -149,68 +159,24 @@
 									<p class="text-muted">1 Minutes ago</p>
 								</div>
 							</a>
+ 							-->
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item preview-item">
-								<div class="preview-thumbnail">
-									<img src="images/faces/face2.jpg" alt="image"
-										class="profile-pic">
-								</div>
-								<div class="preview-item-content">
-									<h6 class="preview-subject ellipsis">Cregh sent you a
-										message</h6>
-									<p class="text-muted">15 Minutes ago</p>
-								</div>
-							</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item preview-item">
-								<div class="preview-thumbnail">
-									<img src="images/faces/face3.jpg" alt="image"
-										class="profile-pic">
-								</div>
-								<div class="preview-item-content">
-									<h6 class="preview-subject ellipsis">Profile picture
-										updated</h6>
-									<p class="text-muted">18 Minutes ago</p>
-								</div>
-							</a>
-							<div class="dropdown-divider"></div>
-							<h6 class="p-3 mb-0 text-center">4 new messages</h6>
+							<h6 class="p-3 mb-0 text-center">0 new messages</h6>
 						</div></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link count-indicator dropdown-toggle"
 						id="notificationDropdown" href="#" data-toggle="dropdown"> <i
-							class="mdi mdi-bell-outline"></i> <span class="count bg-danger">7</span>
+							class="mdi mdi-bell-outline"></i> 
+							<!-- 
+							<span class="count bg-danger">7</span>
+							 -->
 					</a>
 						<div
 							class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
 							aria-labelledby="notificationDropdown">
 							<h6 class="p-3 mb-0">Notifications</h6>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item preview-item">
-								<div class="preview-thumbnail">
-									<div class="preview-icon bg-success">
-										<i class="mdi mdi-calendar"></i>
-									</div>
-								</div>
-								<div class="preview-item-content">
-									<h6 class="preview-subject">Event today</h6>
-									<p class="text-muted ellipsis">Just a reminder that you
-										have an event today</p>
-								</div>
-							</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item preview-item">
-								<div class="preview-thumbnail">
-									<div class="preview-icon bg-warning">
-										<i class="mdi mdi-settings"></i>
-									</div>
-								</div>
-								<div class="preview-item-content">
-									<h6 class="preview-subject">Settings</h6>
-									<p class="text-muted ellipsis">Update dashboard</p>
-								</div>
-							</a>
-							<div class="dropdown-divider"></div>
+							<!-- 
 							<a class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<div class="preview-icon bg-info">
@@ -223,7 +189,14 @@
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
-							<h6 class="p-3 mb-0 text-center">See all notifications</h6>
+							 -->
+							<a class="dropdown-item preview-item">
+								<div class="preview-item-content">
+									<h6 class="preview-subject">没有通知</h6>
+								</div>
+							</a>
+							<div class="dropdown-divider"></div>
+							<h6 class="p-3 mb-0 text-center">查看所有通知</h6>
 						</div></li>
 					<li class="nav-item dropdown">
 						<!--            右侧的用户头像姓名     --> <a
@@ -523,7 +496,13 @@
 	<!-- endinject -->
 	<!-- Custom js for this page-->
 	<script src="js/dashboard.js"></script>
+<script type="text/javascript">
+var date1 = "";
+var date2 = "";
+var d = new Date();
+console.log(d);
 
+</script>
 	<!-- End custom js for this page-->
 </body>
 </html>

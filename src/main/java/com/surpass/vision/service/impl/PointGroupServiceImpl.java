@@ -2,10 +2,12 @@ package com.surpass.vision.service.impl;
 
 import java.util.List;
 
+import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.mapper.PointGroupDataMapper;
 import com.surpass.vision.service.PointGroupService;
@@ -49,7 +51,21 @@ public class PointGroupServiceImpl implements PointGroupService {
 
 	@Async("taskExecutor")
 	@Override
-	public Object newPointGroupData(PointGroupData pgd) {
+	public PointGroupData newPointGroupData(PointGroupData pgd) {
+		if(pgd instanceof FileList) {
+			PointGroupData pgd1 = new PointGroupData();
+			pgd1.setId(pgd.getId());
+			pgd1.setCreater(pgd.getCreater());
+			pgd1.setName(pgd.getName());
+			pgd1.setOtherrule1(pgd.getOtherrule1());
+			pgd1.setOtherrule2(pgd.getOtherrule2());
+			pgd1.setOwner(pgd.getOwner());
+			pgd1.setPoints(pgd.getPoints());
+			pgd1.setShared(pgd.getShared());
+			pgd1.setType(pgd.getType());
+			pgd = pgd1;
+		}
+		
 		//如果有就更新，
 		PointGroupData _pgd = pointGroupDataMapper.selectByPrimaryKey(pgd.getId());
 		if(_pgd==null) {
@@ -59,7 +75,7 @@ public class PointGroupServiceImpl implements PointGroupService {
 		}
 		else
 			pointGroupDataMapper.updateByPrimaryKeySelective(pgd);
-		return null;
+		return pgd;
 	}
 
 	@Async("taskExecutor")
@@ -84,6 +100,19 @@ public class PointGroupServiceImpl implements PointGroupService {
 			pointGroupDataMapper.updateByPrimaryKeySelective(pgd);
 		else
 			pointGroupDataMapper.insert(pgd);
+	}
+
+	@Override
+	public PointGroupData getPointGroupDataByName(String name) {
+		return pointGroupDataMapper.selectByName(name);	
+
+	}
+
+	@Override
+	public void updateByName(String owner, String creater, String shared, String points, String otherrule1,
+			String otherrule2, String name) {
+		pointGroupDataMapper.updateByName(owner, creater, shared, points, otherrule1,
+				otherrule2, name);
 	}
 
 //	@Override

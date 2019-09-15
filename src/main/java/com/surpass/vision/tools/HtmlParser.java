@@ -139,32 +139,41 @@ public class HtmlParser {
 		}
 		return sb.toString();
 	}
+	
+	public static Elements getScriptElement(Document doc) {
+//		doc.select(cssQuery)
+		return doc.getElementsByTag("script");
+	}
 	public static void main(String[] args) {
 		// String url = "http://www.baidu.com";
 		// String body = HtmlBody.getBody(url);
 		// System.out.println(body);
  
-		Document doc = Jsoup.parse(readHtml("./index.html"));
+		Document doc = Jsoup.parse(readHtml("C:\\dev\\upcvision\\src\\main\\resources\\static\\tu\\1BAN_ML.html"));
 		// 获取html的标题
-		String title = doc.select("title").text();
-		System.out.println(title);
-		// 获取按钮的文本
-		String btnText = doc.select("div div div div div form").select("#su").attr("value");
-		System.out.println(btnText);
-		// 获取导航栏文本
-		Elements elements = doc.select(".head_wrapper").select("#u1").select("a");
-		for (Element e : elements) {
-			System.out.println(e.text());
-		}
-		Document doc2 = Jsoup.parse(readHtml("./table.html"));
-		Element table = doc2.select("table").first();
-		List<List<String>> list = getTables(table);
-		for (List<String> list2 : list) {
-			for (String string : list2) {
-				System.out.print(string+",");
-			}
-			System.out.println();
-		}
+//		String title = doc.select("title").text();
+//		System.out.println(title);
+		Elements es = doc.getElementsByTag("script");
+		for(int i = 0;i<es.size();i++)
+			System.out.println(es.get(i).html());
+
+//		// 获取按钮的文本
+//		String btnText = doc.select("div div div div div form").select("#su").attr("value");
+//		System.out.println(btnText);
+//		// 获取导航栏文本
+//		Elements elements = doc.select(".head_wrapper").select("#u1").select("a");
+//		for (Element e : elements) {
+//			System.out.println(e.text());
+//		}
+//		Document doc2 = Jsoup.parse(readHtml("./table.html"));
+//		Element table = doc2.select("table").first();
+//		List<List<String>> list = getTables(table);
+//		for (List<String> list2 : list) {
+//			for (String string : list2) {
+//				System.out.print(string+",");
+//			}
+//			System.out.println();
+//		}
 	}
  
 }

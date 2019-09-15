@@ -40,10 +40,17 @@ public class BaseController {
 	
 	public ToWeb authercation(Double uid, String token) {
 		ToWeb ret = ToWeb.buildResult();
+		try {
 		if(!userSpaceManager.tokenVerification(uid, token)) {
 //			throw new NotAuthorizedException("You Don't Have Permission");
 			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
 			ret.setMsg("用户登录超时失效。请重新登录");
+			ret.setRedirectUrl("login.html");
+			return ret;
+		}
+		}catch(Exception e) {
+			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
+			ret.setMsg(e.getMessage());
 			ret.setRedirectUrl("login.html");
 			return ret;
 		}

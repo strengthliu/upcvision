@@ -7,6 +7,7 @@ public class MyPrincipal implements Principal {
 	    private String loginName;
 
 	    public MyPrincipal(String loginName) {
+	    	System.out.println("MyPrincipal("+loginName+")");
 	        this.loginName = loginName;
 	    }
 
@@ -14,7 +15,8 @@ public class MyPrincipal implements Principal {
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return null;
+    	System.out.println("MyPrincipal.getName");
+		return loginName;
 	}
 
 }

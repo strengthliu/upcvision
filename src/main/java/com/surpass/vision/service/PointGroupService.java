@@ -18,13 +18,18 @@ public interface PointGroupService {
 	
 	public List<PointGroupData> getAdminGraphData();
 
-	public Object newPointGroupData(PointGroupData pgd);
+	public PointGroupData newPointGroupData(PointGroupData pgd);
 
 	public void deletePointGroupItem(Double id);
 
 	public void updatePointGroupItem(PointGroupData pgd);
 
 	public PointGroupData getPointGroupDataByID(Double itemId);
+
+	public PointGroupData getPointGroupDataByName(String string);
+
+	public void updateByName(String owner, String creater, String shared, String points, String otherrule1,
+			String otherrule2, String name);
 
 
 }

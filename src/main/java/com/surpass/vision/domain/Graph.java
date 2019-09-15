@@ -34,15 +34,15 @@ import com.surpass.vision.server.Point;
  * ---------------------------------------
  */
 public class Graph extends FileList implements Serializable {
+	int changed;
+	Hashtable<String,Graph> children;
+	String fileName;
+	String urlPath;
+
 	public Graph() {
 		super();
 		this.setType(GlobalConsts.Type_graph_);
 	}
-	int changed;
-	Hashtable<String,Graph> children;
-	String fileName;
-
-	String urlPath;
 
 	public int getChanged() {
 		return changed;

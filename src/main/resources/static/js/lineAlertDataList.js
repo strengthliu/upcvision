@@ -103,9 +103,18 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		selectPointArray[i__] = e;
 		i__++;
 		}
+	console.log(""+JSON.stringify(_selectedPoints));
+	console.log("historydata.js => submitNewDataItem 2");
+	var rule = new Object();
+	rule._selectedPoints = _selectedPoints;
+//	rule.relativetime = relativetime;
+//	rule.starttime = starttime;
+//	rule.terminaltime = terminaltime;
+	console.log("otherrule = "+JSON.stringify(rule));
+	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID,'rule':JSON.stringify(rule)};
 
-	console.log("linalertdata.js => submitNewDataItem 2");
-	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID};
+//	console.log("linalertdata.js => submitNewDataItem 2");
+//	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID};
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",

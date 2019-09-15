@@ -84,6 +84,7 @@ public class SocketServer {
 	
 	// 解决ABA问题
 	AtomicStampedReference<PointsData> reference = new AtomicStampedReference<PointsData>(new PointsData(),1);
+	
 	/**
 	 * 增加一个新订阅
 	 * @param topic
@@ -99,6 +100,7 @@ public class SocketServer {
 			used.put(id, ai);
 			types.put(id,type);
 			DataViewer dv = pointGroupDataManager.buildDataViewer(id,type);
+			if(dv==null) return;
 			dv = pointList.addPoints(dv);
 			dvs.put(id, dv);
 		}
@@ -126,7 +128,7 @@ public class SocketServer {
 	
 	@Async("postMessageExecutor")
 	public void sendMessage(String topic,HashMap message) {
-		System.out.println(topic+""+message);
+//		System.out.println(topic+""+message);
         messagingTemplate.convertAndSend(topic, message);
 	}
 

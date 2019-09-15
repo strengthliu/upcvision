@@ -37,7 +37,7 @@
 									&& key != "undefined") {
 								var diagram = diagrams[key];
 								if(key == "") key = "未分类";
-								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'diagramList','"+key+"');"+'">'
+								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'diagramList','"+key+"','"+diagram.id+"');"+'">'
 										+ key + '</text></li>';
 								itemsHtml = itemsHtml + item;
 								// // console.log(key,obj[key]);

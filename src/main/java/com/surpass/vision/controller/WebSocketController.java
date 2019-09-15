@@ -140,8 +140,9 @@ public class WebSocketController {
      */
     @MessageMapping("/message")
     @SendToUser("/message")
-    public Greeting handleSubscribe() {
-        System.out.println("this is the @SubscribeMapping('/marco')");
+    public Greeting handleSubscribe(@Header("atytopic") String topic,@Header("id") String id,@Header("type") String type, @Headers Map<String, Object> headers) {
+        System.out.println("connected successfully....");
+        System.out.println(topic+"  "+ type);
         return new Greeting("I am a msg from SubscribeMapping('/macro').");
     }
  

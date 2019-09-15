@@ -24,7 +24,7 @@ if (userSpace == null || userSpace == "undefined") {
 function updateRealTimeDataChart(ruserSpace) {
 	var pointGroup = ruserSpace.realTimeData[_realtimeDataDetailKey];
 	var uirealtimeDataPoints = document.getElementById("ui-realtimeDataPoints");
-//	 console.log(" updateRealTimeDataChart => "+JSON.stringify(pointGroup));
+	 console.log(" updateRealTimeDataChart => "+JSON.stringify(ruserSpace));
 	if (pointGroup == null || pointGroup == "undefined")
 		return;
 	var pointList = pointGroup.pointList;
@@ -209,58 +209,76 @@ function changex() {
  * 刷新值
  * 
  */
-function addData(newData,_data_,cdatacount) {
-	if( typeof newData == "string"){
-//		alert("字符串了");
+function addData(newData, _data_, cdatacount) {
+	if (typeof newData == "string") {
 		newData = JSON.parse(newData);
 	}
 	var _d_ = newData;
-	var _ctime = new Date();//.Format('yyyy-MM-dd hh:mm:ss');
-	var _time = true;
-	//console.log("addData at time -> "+_ctime);
-	Object.keys(_d_).forEach(function(key) {
+	var _ctime = new Date();// .Format('yyyy-MM-dd hh:mm:ss');
+	var timeInd = 0;
 
-		// 向cdata中添加
-		var _time = true;
-		for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
-			var pname = _data_[ind_data][0];
-			if (pname != null && pname != "undefined") {
-				if (pname == key) {
-					if(_data_[ind_data].length==2 && _data_[ind_data][1]==0)
-						_data_[ind_data][1] = _d_[key];
-					else
-						_data_[ind_data].push(_d_[key]);
-					if(_maxY < _d_[key]) _maxY = _d_[key];
-					if(_minY > _d_[key]||_minY==0) _minY = _d_[key];
-					if (_data_[ind_data].length > cdatacount) {
-//						console.log("before splice => "+JSON.stringify(_data_[ind_data]));
-						_data_[ind_data].splice(1,1);
-//						console.log("after splice => "+JSON.stringify(_data_[ind_data]));
-					}
-					if(key == "time")
-						_time = false;
-				}
+	// 先处理时间段
+	for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
+		var pname = _data_[ind_data][0];
+		// 找到time段
+		if (pname == "time") {
+			// 如果没传入time段
+			if (_d_['time'] == null || _d_['time'] == "undefined")
+				_ctime = new Date();
+			else {
+				_ctime = new Date(_d_['time']);
 			}
+			if(_data_[ind_data][1]==0){
+				_data_[ind_data][1] = _ctime;
+			}else{
+				_data_[ind_data].push(_ctime);				
+			}
+			timeInd = ind_data;
 		}
-
-		//console.log("cdata => "+JSON.stringify(cdata));
-		// console.log(key, obj[key]);
-	});
-	if (_time) {
-		for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
-			var pname = _data_[ind_data][0];
-			if (pname == "time") {
-				_data_[ind_data].push(_ctime);
-				if (_data_[ind_data].length > cdatacount) {
-//					console.log("before splice => "+JSON.stringify(_data_[ind_data]));
-					_data_[ind_data].splice(1,1);
-//					console.log("after splice => "+JSON.stringify(_data_[ind_data]));
-				}
-				break;
-			}
+		// 如果当前数据量多于cdatacount，就从前面删除
+		if (_data_[ind_data].length > cdatacount) {
+			_data_[ind_data].splice(1, 1);
 		}
 	}
 
+	Object
+			.keys(_d_)
+			.forEach(
+					function(key) {
+						// 向cdata中添加
+						var _time = true;
+						var _timeD_ = null;
+						// 循环 新点值的每个值 -> 库值
+						for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
+							// 行名称
+							var pname = _data_[ind_data][0];
+							if (pname != null && pname != "undefined") {
+								if (pname == key) {
+									if (key == "time") {
+										// 不处理time了
+									} else {
+										if (_data_[ind_data].length == 2
+												&& _data_[ind_data][1] == 0)
+											_data_[ind_data][1] = _d_[key];
+										else {
+											var lastData = _data_[ind_data][_data_[ind_data].length - 1];
+											_timeD_ = _data_[timeInd][_data_[ind_data].length - 1];
+											// 添加值
+											_data_[ind_data].push(_d_[key]);
+										}
+										// 更新最大值和最小值
+										if (_maxY < _d_[key])
+											_maxY = _d_[key];
+										if (_minY > _d_[key] || _minY == 0)
+											_minY = _d_[key];
+										if (_data_[ind_data].length > cdatacount) {
+											_data_[ind_data].splice(1, 1);
+										}
+									}
+								}
+							}
+						}
+					});
 }
 
 var _realtimeDataDetailKey = _routeID;
@@ -275,7 +293,7 @@ var c3LineChart;
 	var pointList = pointGroup.pointList;
 	//console.log("pointList -> "+JSON.stringify(pointList));
 	var _time_ = new Array();
-	_time_.push('time',new Date());
+	_time_.push('time',0);
 	cols.push(_time_);
 
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
@@ -407,34 +425,51 @@ function setConnected(connected) {
 loginWebsocket();
 
 function loginWebsocket() {
-	if(socket.readyState!=1){
-		alert("未连接。");
-		connect();
+//	connect();
+//	var t=setTimeout(function(){realtimeSubscribe();},3000)
+	if(!connected){
+//		alert("未连接。");
+		connect(realtimeSubscribe);
+//		var t=setTimeout(realtimeSubscribe(),3000);
 		return;
 		}
 	else {
-		console.log("当前存在");
+		if(!testSocketConnected()){
+			connect(realtimeSubscribe);
+		}
+		console.log("当前存在socket连接");
 		if(subscribe!=null && subscribe!="undefined")
 			subscribe.unsubscribe();
-		stompClient.send("/app/aaa", {
-			atytopic : _realtimeDataDetailKey,
-			type : 'realtimeData',
-			id : _realtimeDataDetailKey+""
-		}, JSON.stringify({
-			'type' : 'realtimeData',
-			'id' : _realtimeDataDetailKey+""
-		}));
-		// 接收消息设置
-		subscribe = stompClient.subscribe('/topic/Key_RealTimeData_pre_/'
-				+ _realtimeDataDetailKey, function(data) {
-			// alert("websocket connected 3.");
-			// 收到消息后处理
-			refreshData(data);
-		});
+//		setTimeout(function(){realtimeSubscribe();},3000);
+		realtimeSubscribe();
 	}
 }
 
-function connect() {
+function realtimeSubscribe(){
+	console.log("realtimeSubscribe");
+	
+	// 发送消息给服务器
+	stompClient.send("/app/aaa", {
+		atytopic : _realtimeDataDetailKey,
+		type : 'Key_RealTimeData_pre_',
+		id : _realtimeDataDetailKey
+	}, JSON.stringify({
+		'type' : 'realtimeData',
+		'id' : _realtimeDataDetailKey
+	}));
+	// 连接成功后，主动拉取未读消息
+	// pullUnreadMessage("/topic/reply");
+	// 接收消息设置
+	subscribe = stompClient.subscribe('/topic/Key_RealTimeData_pre_/'
+			+ _realtimeDataDetailKey, function(data) {
+		// alert("websocket connected 3.");
+		// 收到消息后处理
+		refreshData(data);
+	});
+
+}
+
+function connect_bak(callback) {
 	sessionStorage.setItem('token', token);// 设置指定session值
 	sessionStorage.setItem('uid', user.id);// 设置指定session值
 
@@ -457,25 +492,7 @@ function connect() {
 		setConnected(true);
 		console.log("websocket connected." + _realtimeDataDetailKey + "  .");
 		// console.log('Connected: ' + frame);
-
-		// 发送消息给服务器
-		stompClient.send("/app/aaa", {
-			atytopic : _realtimeDataDetailKey,
-			type : 'Key_RealTimeData_pre_',
-			id : _realtimeDataDetailKey
-		}, JSON.stringify({
-			'type' : 'realtimeData',
-			'id' : _realtimeDataDetailKey
-		}));
-		// 连接成功后，主动拉取未读消息
-		// pullUnreadMessage("/topic/reply");
-		// 接收消息设置
-		subscribe = stompClient.subscribe('/topic/Key_RealTimeData_pre_/'
-				+ _realtimeDataDetailKey, function(data) {
-			// alert("websocket connected 3.");
-			// 收到消息后处理
-			refreshData(data);
-		});
+//		callback();
 
 		/**
 		 * // 接收消息设置。该方法是接收广播消息。 stompClient.subscribe('/topic/greeting/11',
@@ -499,6 +516,7 @@ function connect() {
 	},function(message){
 		console.log(message);
 	});
+
 }
 
 // 从服务器拉取未读消息

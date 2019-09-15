@@ -7,8 +7,9 @@
 	//var token = null;
 	var _routeType;
 	var _routeID;
+	var _graphId;
 	var _realtimeDataDetailKey;
-    function routeTo(diagram,key){
+    function routeTo(diagram,key,graphId){
     	if(unsubscribe!=null && unsubscribe!="undefined")
     		unsubscribe();
     	// 传递参数
@@ -21,7 +22,8 @@
     	    $("#mainPanel").load("_gallery.html");
     		break;
     	case "diagramDetail".toLowerCase():
-    	    _diagramShowKey = key;    		
+    	    _diagramShowKey = key; 
+    		_graphId = graphId;
     	    $("#mainPanel").load("_diagramShow.html");
     		break;
     	case "xydiagramList".toLowerCase():
@@ -37,7 +39,6 @@
     	    $("#mainPanel").load("_realtimedataList.html");
     		break;
     	case "realtimedataDetail".toLowerCase():
-    		console.log("realtimedataDetail");
     		_realtimeDataDetailKey = key;
     	    $("#mainPanel").load("_realtimeDataChart.html");
     		break;

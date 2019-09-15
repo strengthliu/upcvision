@@ -273,4 +273,19 @@
       otherRule2 = #{otherrule2,jdbcType=VARCHAR}
     where id = #{id,jdbcType=FLOAT}
   </update>
-</mapper>
+  <!-- 
+  <update id="updateByName" parameterType="com.surpass.vision.domain.PointGroupData">
+    update t_pointGroup
+    set type = #{type,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      owner = #{owner,jdbcType=VARCHAR},
+      creater = #{creater,jdbcType=VARCHAR},
+      shared = #{shared,jdbcType=VARCHAR},
+      points = #{points,jdbcType=VARCHAR},
+      otherRule1 = #{otherrule1,jdbcType=VARCHAR},
+      otherRule2 = #{otherrule2,jdbcType=VARCHAR}
+    where name = #{name,jdbcType=VARCHAR} and
+    	type = 'graph'
+  </update>
+   -->
+  </mapper>

@@ -298,7 +298,7 @@ public class UserSpaceManager {
 	}
 
 	public boolean tokenVerification(Double uid, String token) {
-		System.out.println(token + " == " + this.getUserSpace(uid).getToken());
+//		System.out.println(token + " == " + this.getUserSpace(uid).getToken());
 		return TokenTools.verificationToken(token, uid.toString())
 				&& token.contentEquals(getUserSpaceRigidly(uid).getToken());
 	}
@@ -311,7 +311,7 @@ public class UserSpaceManager {
 		else 
 			oldRtd = realTimeDataManager.getRealTimeDataByKeys(oldRtdId);
 		if(rtd == null) { // 是删除
-			return;
+			rtd = new RealTimeData();
 		}
 		updateRealTimeData(rtd,oldRtd);
 	}
@@ -345,14 +345,15 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
-//		this.realTimeDataManager.updateRealTimeData(rtd);
+//		if(rtd!=null)
+//			this.realTimeDataManager.updateRealTimeData(rtd);
 	}
 	/** ---------------- realtimedata end ------------------------- **/
 
 	
 	/** ---------------- linealertdata begin ------------------------- **/
 	public void updateLineAlertData(LineAlertData rtd, Double oldRtdId) {
-		if(rtd == null) return;
+		if(rtd == null) rtd = new LineAlertData();
 		LineAlertData oldRtd = null;
 		if(oldRtdId == null || oldRtdId==0)
 			oldRtd = new LineAlertData();
@@ -362,6 +363,22 @@ public class UserSpaceManager {
 	}
 	
 	public void updateLineAlertData( LineAlertData rtd,LineAlertData oldRtd) {
+		// 删除
+//		if(rtd==null) {
+//			List<User> usl = new ArrayList();
+//			usl.addAll(oldRtd.getSharedUsers());
+//			usl.add(oldRtd.getOwnerUser());
+////			usl.add(oldRtd.getCreaterUser()); // 现在创建者和所有者是一个人。
+//			for(int indU=0;indU<usl.size();indU++) {
+//				Double uids = usl.get(indU).getId();
+//				UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
+//				Hashtable<String,LineAlertData> hrtd = us.getLineAlertData();
+//				hrtd.remove(IDTools.toString(oldRtd.getId()));
+//				this.setUserSpace(Double.valueOf(uids), us);				
+//			}
+//			return;
+//		}
+		if(rtd==null) rtd = new LineAlertData();
 		// 跟这个RealTimeData对比用户，取出差别
 		// 
 		Set<String> rightChangesaggrandizement = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyAggrandizement);
@@ -376,7 +393,8 @@ public class UserSpaceManager {
 			hrtd.put(IDTools.toString(rtd.getId()), rtd);
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
-		this.lineAlertDataManager.updateLineAlertData(rtd);
+//		if(rtd!=null)
+//			this.lineAlertDataManager.updateLineAlertData(rtd);
 	}
 	/** ---------------- linealertdata end ------------------------- **/
 	
@@ -388,7 +406,7 @@ public class UserSpaceManager {
 		else 
 			oldRtd = alertDataManager.getAlertDataByKeys(oldRtdId);
 		if(rtd == null) { // 是删除
-			return;
+			rtd = new AlertData();
 		}
 		updateAlertData(rtd,oldRtd);
 	}
@@ -422,7 +440,8 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
-//		this.alertDataManager.updateAlertData(rtd);
+//		if(rtd!=null)
+//			this.alertDataManager.updateAlertData(rtd);
 	}
 	/** ---------------- alertdata end ------------------------- **/
 
@@ -434,7 +453,7 @@ public class UserSpaceManager {
 		else 
 			oldRtd = historyDataManager.getHistoryDataByKeys(oldRtdId);
 		if(rtd == null) { // 是删除
-			return;
+			rtd = new HistoryData();
 		}
 		updateHistoryData(rtd,oldRtd);
 	}
@@ -468,7 +487,8 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
-//		this.historyDataManager.updateHistoryData(rtd);
+//		if(rtd!=null)
+//			this.historyDataManager.updateHistoryData(rtd);
 	}
 	/** ---------------- historydata end ------------------------- **/
 
@@ -481,7 +501,7 @@ public class UserSpaceManager {
 		else 
 			oldRtd = xYGraphManager.getXYGraphByKeys(oldRtdId);
 		if(rtd == null) { // 是删除
-			return;
+			rtd = new XYGraph();
 		}
 		updateXYGraph(rtd,oldRtd);
 	}
@@ -515,7 +535,8 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
-//		this.xYGraphManager.updateXYGraph(rtd);
+//		if(rtd!=null)
+//			this.xYGraphManager.updateXYGraph(rtd);
 	}
 	/** ---------------- xygraphdata end ------------------------- **/
 
@@ -527,7 +548,7 @@ public class UserSpaceManager {
 		else 
 			oldRtd = graphManager.getGraphByKeys(oldRtdId);
 		if(rtd == null) { // 是删除
-			return;
+			throw new IllegalStateException("UserSpaceManager.updateGraph : 禁止删除图形。");
 		}
 		updateGraph(rtd,oldRtd);
 	}
@@ -561,7 +582,8 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
-//		this.graphManager.updateGraph(rtd);
+//		if(rtd!=null)
+//			this.graphManager.updateGraph(rtd);
 	}
 	/** ---------------- graph end ------------------------- **/
 

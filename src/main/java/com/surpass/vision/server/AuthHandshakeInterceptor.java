@@ -49,6 +49,7 @@ public class AuthHandshakeInterceptor implements HandshakeInterceptor {
     	
     	uid = hhds.getFirst("uid");
     	token = hhds.getFirst("token");
+    	System.out.println("beforeHandshake...");
     	// TODO: 先不做验证了，后面再补。
     	if(true)return true;
     	if(StringUtil.isBlank(token) || StringUtil.isBlank(uid)) {

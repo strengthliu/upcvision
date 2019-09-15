@@ -1,16 +1,144 @@
+
+//格式化日期
+Date.prototype.Format = function (fmt) {
+var o = {
+  "y+": this.getFullYear(),
+  "M+": this.getMonth() + 1,                 //月份
+  "d+": this.getDate(),                    //日
+  "h+": this.getHours(),                   //小时
+  "m+": this.getMinutes(),                 //分
+  "s+": this.getSeconds(),                 //秒
+  "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+  "S+": this.getMilliseconds()             //毫秒
+};
+for (var k in o) {
+  if (new RegExp("(" + k + ")").test(fmt)){
+    if(k == "y+"){
+      fmt = fmt.replace(RegExp.$1, ("" + o[k]).substr(4 - RegExp.$1.length));
+    }
+    else if(k=="S+"){
+      var lens = RegExp.$1.length;
+      lens = lens==1?3:lens;
+      fmt = fmt.replace(RegExp.$1, ("00" + o[k]).substr(("" + o[k]).length - 1,lens));
+    }
+    else{
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    }
+  }
+}
+return fmt;
+}
+
 var userSpace = null;
 var serverList = null;
 var users = null;
 var userInfoList = null;
+
+
 /**
  * websocket变量。
  */
-var socket = null;
-socket = new SockJS('/socketServer');
+var socket;
 // alert("websocket connected 1.");
-var stompClient = Stomp.over(socket);
-var subscribe = null;
-var connected = false;
+var stompClient;
+var subscribe;
+var connected;
+
+var socketRetryTimes = 3;
+
+connect();
+//避免刷新时
+function connect(callback) {
+	console.log(" app.js connect....");
+//	disconnect();
+//	if (socket.readyState == 1) {
+//		return;
+//	}
+	socket = new SockJS('/socketServer');
+	stompClient = Stomp.over(socket);
+
+	sessionStorage.setItem('token', token);// 设置指定session值
+	sessionStorage.setItem('uid', user.id);// 设置指定session值
+
+	// const id = localStorage.getItem("chat_id");
+	// var socket = new SockJS('ws://localhost:8888/socketServer/');
+	socket = new SockJS('/socketServer');
+	// alert("websocket connected 1.");
+	stompClient = Stomp.over(socket);
+	stompClient.heartbeat.outgoing = 10000; // 客户端每20000ms发送一次心跳检测
+	stompClient.heartbeat.incoming = 10000; // client接收serever端的心跳检测
+	// 连接服务器
+	var headers = {
+		login : user.id,
+		token : token,
+		// additional header
+		'client-id' : 'my-client-id'
+	};
+	if(socketRetryTimes>3){
+		socketRetryTimes=0;
+		alert("连续3次没有连接成功，请检查网络，或与系统管理员联系。");
+		return;
+	}else
+		socketRetryTimes++;
+	
+	stompClient.connect(headers, function(){
+		connected = true;
+		if(callback!=null && callback!="undefined")
+			callback();
+		});
+}
+function testSocketConnected(){
+	// 发送消息给服务器
+	try{
+	stompClient.send("/app/message", {
+		atytopic : "testMessage",
+		type : 'testMessage',
+		id : '122215432'
+	}, JSON.stringify({
+		'type' : 'testMessage',
+		'id' : 1234567
+	}));
+	return true;
+	}catch(error){
+		connected = false;
+		return false;
+	}
+
+}
+function disconnect() {
+	console.log('disconnect');
+//	if (socket.readyState != 1) {
+////		return;
+//	}
+	if (stompClient !== null) {
+		if(subscribe!=null && subscribe!="undefined")
+			subscribe.unsubscribe();
+		
+		stompClient.disconnect();
+		console.log('do disconnect');
+	}
+	connected = false;
+//	setConnected(false);
+
+	console.log("Disconnected");
+}
+
+function unsubscribe(){
+//	if(aabbcc == "undefined")
+//		console.log("yes");
+//	if(stompClient=="undefined" || stompClient==null )
+//		return;
+	try{
+	if (stompClient !== null) {
+		if(subscribe!=null && subscribe!="undefined")
+			subscribe.unsubscribe();
+	}
+	}catch(error){
+		
+	}
+	console.log('unsubscribe');
+}
+
 
 function logout(){
 	localStorage.user = null;
@@ -160,6 +288,8 @@ function checkRight(uid, token, loginPage,sucessPage) {
 		success : function(data) {
 			if (data.status != GlobalConsts.ResultCode_SUCCESS) { // 不成功
 				// alert(data.msg);
+				localStorage.user = null;
+				localStorage.token = null;
 				if (loginPage == null || loginPage == "undefined")
 					window.location.href = "login.html";
 				
@@ -187,86 +317,6 @@ function checkRight(uid, token, loginPage,sucessPage) {
 
 	// alert(JSON.stringify(localStorage.user));
 	// document.getElementById("name").value = localStorage.weixinname;
-}
-
-// 避免刷新时
-function connect(callback) {
-	if (socket.readyState == 1) {
-		return;
-	}
-	sessionStorage.setItem('token', token);// 设置指定session值
-	sessionStorage.setItem('uid', user.id);// 设置指定session值
-
-	// const id = localStorage.getItem("chat_id");
-	// var socket = new SockJS('ws://localhost:8888/socketServer/');
-	socket = new SockJS('/socketServer');
-	// alert("websocket connected 1.");
-	stompClient = Stomp.over(socket);
-	stompClient.heartbeat.outgoing = 10000; // 客户端每20000ms发送一次心跳检测
-	stompClient.heartbeat.incoming = 10000; // client接收serever端的心跳检测
-	// 连接服务器
-	var headers = {
-		login : user.id,
-		token : token,
-		// additional header
-		'client-id' : 'my-client-id'
-	};
-
-	stompClient.connect(headers, function(frame) {
-		setConnected(true);
-		if(callback!=null && callback!="undefinec")
-			console.log("websocket connected.");
-			callback;
-//		console.log("websocket connected." + _realtimeDataDetailKey + "  .");
-		// console.log('Connected: ' + frame);
-
-		/**
-		 * // 接收消息设置。该方法是接收广播消息。 stompClient.subscribe('/topic/greeting/11',
-		 * function(greeting){ showGreeting(JSON.parse(greeting.body).content);
-		 * }); //
-		 * 接收消息设置。该方法表示接收一对一消息，其主题是"/user/"+userId+"/message"，不同客户端具有不同的id。 //
-		 * 如果两个或多个客户端具有相同的id，那么服务器端给该userId发送消息时，这些客户端都可以收到。
-		 * stompClient.subscribe('/user/' + user.id +
-		 * '/message',function(greeting){
-		 * alert(JSON.parse(greeting.body).content);
-		 * showGreeting(JSON.parse(greeting.body).content); });
-		 * 
-		 */
-		// alert("websocket connected 2.");
-		stompClient.ws.onclose = function() {
-//			connect();
-		}
-		stompClient.ws.onerror = function() {
-			connect();
-		}
-	}, function(message) {
-		console.log(message);
-	});
-}
-
-function disconnect() {
-	console.log('disconnect');
-	if (socket.readyState != 1) {
-		return;
-	}
-	if (stompClient !== null) {
-		if(subscribe!=null && subscribe!="undefined")
-			subscribe.unsubscribe();
-		
-		stompClient.disconnect();
-		console.log('do disconnect');
-	}
-	setConnected(false);
-
-	console.log("Disconnected");
-}
-
-function unsubscribe(){
-	if (stompClient !== null) {
-		if(subscribe!=null && subscribe!="undefined")
-			subscribe.unsubscribe();
-	}
-	console.log('unsubscribe');
 }
 
 var loadStartTime;
@@ -321,33 +371,3 @@ function addLoadListener(fn){
     }
 }
 
-
-//格式化日期
-Date.prototype.Format = function (fmt) {
-var o = {
-  "y+": this.getFullYear(),
-  "M+": this.getMonth() + 1,                 //月份
-  "d+": this.getDate(),                    //日
-  "h+": this.getHours(),                   //小时
-  "m+": this.getMinutes(),                 //分
-  "s+": this.getSeconds(),                 //秒
-  "q+": Math.floor((this.getMonth() + 3) / 3), //季度
-  "S+": this.getMilliseconds()             //毫秒
-};
-for (var k in o) {
-  if (new RegExp("(" + k + ")").test(fmt)){
-    if(k == "y+"){
-      fmt = fmt.replace(RegExp.$1, ("" + o[k]).substr(4 - RegExp.$1.length));
-    }
-    else if(k=="S+"){
-      var lens = RegExp.$1.length;
-      lens = lens==1?3:lens;
-      fmt = fmt.replace(RegExp.$1, ("00" + o[k]).substr(("" + o[k]).length - 1,lens));
-    }
-    else{
-      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-    }
-  }
-}
-return fmt;
-}

@@ -2,6 +2,7 @@ package com.surpass.vision.graph;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Component;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.Graph;
+import com.surpass.vision.domain.PointGroupData;
+import com.surpass.vision.mapper.PointGroupDataMapper;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.tools.FileTool;
 import com.surpass.vision.tools.IDTools;
@@ -24,6 +27,9 @@ public class GraphManager extends GraphDataManager {
 	@Autowired
 	RedisService redisService;
 	
+	@Autowired
+	PointGroupDataMapper pointGroupDataMapper;
+
 	@Value("${upc.graphPath}")
 	private String graphPath;
 	
@@ -202,10 +208,56 @@ System.out.println(aa.length);
 		redisService.set(GlobalConsts.Key_Graph_pre_+IDTools.toString(rtd.getId()),rtd);
 	}
 
-	public void updateGraphs() {
-		// TODO Auto-generated method stub
-		
-	}
+//	public void updateGraphs() {
+//		// TODO Auto-generated method stub
+//		updateGraphs(repo);
+//	}
+//	
+//	public void updateGraphs(FileList fl) {
+//		// 如果是FileList一个文件，
+//		if(fl.isFile()) {
+//			Graph gt = null;
+//			Double itemId = fl.getId();
+//			if(itemId==null || itemId==Double.valueOf(0)) {
+//				itemId = IDTools.newID();
+//			} 
+//			
+//			// 如果数据库中有这条记录，就写到缓存里
+//			PointGroupData pgd = this.pointGroupService.getPointGroupDataByName(fl.getName());
+//			try {
+//			if(pgd!=null) {
+//				// TODO: 如果与数据库时的不一样，就更新数据库
+//				fl.setOwner(pgd.getOwner());
+//				fl.setCreater(pgd.getCreater());
+//				fl.setShared(pgd.getShared());
+//				fl.setOtherrule1(pgd.getOtherrule1());
+//				fl.setOtherrule2(pgd.getOtherrule2());
+//				fl.setDesc(pgd.getOtherrule1());
+//
+//				pointGroupDataMapper.updateByName(fl.getOwner(),fl.getCreater(),fl.getShared(),fl.getPoints(),fl.getOtherrule1(),fl.getOtherrule2(),fl.getName());
+//			} else {
+//				// 如果没有，就先写入数据库
+//				pointGroupDataMapper.insert(fl);
+//			}
+//			gt = this.copyFromPointGroupData(fl);
+//			// 再写入缓存
+//			this.redisService.set(GlobalConsts.Key_Graph_pre_+ IDTools.toString(gt.getId()), gt);
+//			}catch(Exception e) {
+//				System.out.println();
+//				e.printStackTrace();
+//			}
+//		} else {
+//			// 如果是目录，就循环他的子
+//			Hashtable<String,FileList> chs = repo.getChildren();
+//			if(chs==null||chs.size()<1)
+//				return;
+//			Enumeration<FileList> es = chs.elements();
+//			while(es.hasMoreElements()) {
+//				FileList flt = es.nextElement();
+//				updateGraphs(flt);
+//			}
+//		}
+//	}
 
 
 	public Graph getGraphByKeys(Double oldRtdId) {

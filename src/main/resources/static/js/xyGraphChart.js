@@ -5,7 +5,7 @@
 var gl = new Array();
 var charts = new Object();
 var _xyGraphDetailKey = _routeID;
-
+var x_axis = 'time';
 console.log("_xyGraphDetailKey: " + _xyGraphDetailKey);
 
 function newItemAction() {
@@ -45,7 +45,6 @@ function updateXYGraphChart(ruserSpace) {
 	console.log(uixyGraphPoints.innerHTML);
 
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		console.log();
 		// 对象加一条
 		var gt = new JustGage({
 			id : "point_" + pointList[indpl].tagName,
@@ -63,6 +62,14 @@ function updateXYGraphChart(ruserSpace) {
 		charts[_tagName_] = indpl;
 		gl[indpl] = gt;
 	}
+
+	var menuitem = document.getElementById("x_axisSelectButtonUIMenu");
+	var _innerHtml = '<a class="dropdown-item" onclick="changex(\'time\')">时间</a>';
+	for (var indpl = 0; indpl < pointList.length; indpl++) {
+		var _itemHtml = '<a class="dropdown-item" onclick="changex(\''+pointList[indpl].tagName+'\')">'+pointList[indpl].tagName+'</a>';
+		_innerHtml = _innerHtml + _itemHtml;
+	}
+	menuitem.innerHTML = _innerHtml;
 }
 /**
  * 刷新数据
@@ -100,7 +107,10 @@ function refreshDataTable(_cdata){
 		var _tr = document.createElement("tr");  
 		for(var rowi = 0;rowi<_cdata[coli].length;rowi++){
 //			console.log('fdsafdsa')
+			// 设为x轴
+			
 			var _td = document.createElement("td"); 
+			
 			var _value = _cdata[coli][rowi];
 			switch(typeof _value){
 //			console.log(" typeof => "+typeof(_value));			
@@ -108,7 +118,20 @@ function refreshDataTable(_cdata){
 				_td.innerText = (Math.round(_value * 10000)) / 10000+"";		
 				break;
 			case 'string':
-				_td.innerText = _cdata[coli][rowi];//_timeStr;
+				_td.innerText += _cdata[coli][rowi];//_timeStr;
+//				if(rowi==0){
+//					var _rbox = document.createElement("input");
+//					_rbox.type="radio";
+//					_rbox.id="xray";
+//					_rbox.name="xray";
+//					_rbox.value=_cdata[coli][rowi];
+//					 if(x_axis === _cdata[coli][rowi])
+//						 _rbox.setAttribute("checked","checked"); 
+//					 _rbox.addEventListener("click",changex(cdata[coli][rowi]));
+//					        console.log(" = "+x_axis);
+//
+//					_td.prepend(_rbox);
+//				}
 				break;
 			default:
 				var _t = new Date(_cdata[coli][rowi]);
@@ -205,66 +228,133 @@ function zoomout_y() {
 /**
  * 换X轴
  */
-function changex() {
-
+function changex(tname) {
+	console.log("click: ========================== "+tname);
+	var but = document.getElementById("x_axisSelectButtonUI");
+	but.innerHTML = tname;
+//	but.text = tname;
+	
+	c3LineChart = c3.generate({
+		bindto : '#ui-xyGraphLineChart',
+		data : {
+			x : tname,
+			xFormat : '%Y',
+			columns : cdata,
+			type : 'spline',
+	        axes: {
+	        	CJY_XT31101_8: 'y',
+	        }
+		},
+		grid : {
+			x : {
+				show : true
+			},
+			y : {
+				show : true
+			}
+		},
+		color : {
+			pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
+					'rgba(4,189,254,0.6)' ]
+		},
+		padding : {
+			top : 0,
+			right : 0,
+			bottom : 30,
+			left : 0,
+		},
+		axis : {
+			x : {
+				type : 'timeseries',
+				// if true, treat x value as localtime (Default)
+				// if false, convert to UTC internally
+				localtime : false,
+				tick : {
+					format : '%Y-%m-%d %H:%M:%S'
+				}
+			},
+			y : {
+				show: true,
+				label: 'Y2 Axis Label'
+			}
+		}
+	});
 }
 
 /**
  * 刷新值
  * 
  */
-function addData(newData,_data_,cdatacount) {
-	if( typeof newData == "string"){
-//		alert("字符串了");
+function addData(newData, _data_, cdatacount) {
+	if (typeof newData == "string") {
 		newData = JSON.parse(newData);
 	}
 	var _d_ = newData;
-	var _ctime = new Date();//.Format('yyyy-MM-dd hh:mm:ss');
-	var _time = true;
-	//console.log("addData at time -> "+_ctime);
-	Object.keys(_d_).forEach(function(key) {
+	var _ctime = new Date();// .Format('yyyy-MM-dd hh:mm:ss');
+	var timeInd = 0;
 
-		// 向cdata中添加
-		var _time = true;
-		for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
-			var pname = _data_[ind_data][0];
-			if (pname != null && pname != "undefined") {
-				if (pname == key) {
-					if(_data_[ind_data].length==2 && _data_[ind_data][1]==0)
-						_data_[ind_data][1] = _d_[key];
-					else
-						_data_[ind_data].push(_d_[key]);
-					if(_maxY < _d_[key]) _maxY = _d_[key];
-					if(_minY > _d_[key]||_minY==0) _minY = _d_[key];
-					if (_data_[ind_data].length > cdatacount) {
-//						console.log("before splice => "+JSON.stringify(_data_[ind_data]));
-						_data_[ind_data].splice(1,1);
-//						console.log("after splice => "+JSON.stringify(_data_[ind_data]));
-					}
-					if(key == "time")
-						_time = false;
-				}
+	// 先处理时间段
+	for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
+		var pname = _data_[ind_data][0];
+		// 找到time段
+		if (pname == "time") {
+			// 如果没传入time段
+			if (_d_['time'] == null || _d_['time'] == "undefined")
+				_ctime = new Date();
+			else {
+				_ctime = new Date(_d_['time']);
 			}
+			if(_data_[ind_data][1]==0){
+				_data_[ind_data][1] = _ctime;
+			}else{
+				_data_[ind_data].push(_ctime);				
+			}
+			timeInd = ind_data;
 		}
-
-		//console.log("cdata => "+JSON.stringify(cdata));
-		// console.log(key, obj[key]);
-	});
-	if (_time) {
-		for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
-			var pname = _data_[ind_data][0];
-			if (pname == "time") {
-				_data_[ind_data].push(_ctime);
-				if (_data_[ind_data].length > cdatacount) {
-//					console.log("before splice => "+JSON.stringify(_data_[ind_data]));
-					_data_[ind_data].splice(1,1);
-//					console.log("after splice => "+JSON.stringify(_data_[ind_data]));
-				}
-				break;
-			}
+		// 如果当前数据量多于cdatacount，就从前面删除
+		if (_data_[ind_data].length > cdatacount) {
+			_data_[ind_data].splice(1, 1);
 		}
 	}
 
+	Object
+			.keys(_d_)
+			.forEach(
+					function(key) {
+						// 向cdata中添加
+						var _time = true;
+						var _timeD_ = null;
+						// 循环 新点值的每个值 -> 库值
+						for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
+							// 行名称
+							var pname = _data_[ind_data][0];
+							if (pname != null && pname != "undefined") {
+								if (pname == key) {
+									if (key == "time") {
+										// 不处理time了
+									} else {
+										if (_data_[ind_data].length == 2
+												&& _data_[ind_data][1] == 0)
+											_data_[ind_data][1] = _d_[key];
+										else {
+											var lastData = _data_[ind_data][_data_[ind_data].length - 1];
+											_timeD_ = _data_[timeInd][_data_[ind_data].length - 1];
+											// 添加值
+											_data_[ind_data].push(_d_[key]);
+										}
+										// 更新最大值和最小值
+										if (_maxY < _d_[key])
+											_maxY = _d_[key];
+										if (_minY > _d_[key] || _minY == 0)
+											_minY = _d_[key];
+										if (_data_[ind_data].length > cdatacount) {
+											_data_[ind_data].splice(1, 1);
+										}
+									}
+								}
+							}
+						}
+					});
 }
 
 var c3LineChart;
@@ -275,7 +365,7 @@ var c3LineChart;
 	var pointList = pointGroup.pointList;
 	//console.log("pointList -> "+JSON.stringify(pointList));
 	var _time_ = new Array();
-	_time_.push('time',new Date());
+	_time_.push('time',0);
 	cols.push(_time_);
 
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
@@ -333,6 +423,7 @@ var c3LineChart;
 	});
 
 })(jQuery);
+
 //
 /**
  * 右键菜单

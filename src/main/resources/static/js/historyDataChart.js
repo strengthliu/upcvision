@@ -214,58 +214,76 @@ function changex() {
  * 刷新值
  * 
  */
-function addData(newData,_data_,cdatacount) {
-	if( typeof newData == "string"){
-//		alert("字符串了");
+function addData(newData, _data_, cdatacount) {
+	if (typeof newData == "string") {
 		newData = JSON.parse(newData);
 	}
 	var _d_ = newData;
-	var _ctime = new Date();//.Format('yyyy-MM-dd hh:mm:ss');
-	var _time = true;
-	//console.log("addData at time -> "+_ctime);
-	Object.keys(_d_).forEach(function(key) {
+	var _ctime = new Date();// .Format('yyyy-MM-dd hh:mm:ss');
+	var timeInd = 0;
 
-		// 向cdata中添加
-		var _time = true;
-		for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
-			var pname = _data_[ind_data][0];
-			if (pname != null && pname != "undefined") {
-				if (pname == key) {
-					if(_data_[ind_data].length==2 && _data_[ind_data][1]==0)
-						_data_[ind_data][1] = _d_[key];
-					else
-						_data_[ind_data].push(_d_[key]);
-					if(_maxY < _d_[key]) _maxY = _d_[key];
-					if(_minY > _d_[key]||_minY==0) _minY = _d_[key];
-					if (_data_[ind_data].length > cdatacount) {
-//						console.log("before splice => "+JSON.stringify(_data_[ind_data]));
-						_data_[ind_data].splice(1,1);
-//						console.log("after splice => "+JSON.stringify(_data_[ind_data]));
-					}
-					if(key == "time")
-						_time = false;
-				}
+	// 先处理时间段
+	for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
+		var pname = _data_[ind_data][0];
+		// 找到time段
+		if (pname == "time") {
+			// 如果没传入time段
+			if (_d_['time'] == null || _d_['time'] == "undefined")
+				_ctime = new Date();
+			else {
+				_ctime = new Date(_d_['time']);
 			}
+			if(_data_[ind_data][1]==0){
+				_data_[ind_data][1] = _ctime;
+			}else{
+				_data_[ind_data].push(_ctime);				
+			}
+			timeInd = ind_data;
 		}
-
-		//console.log("cdata => "+JSON.stringify(cdata));
-		// console.log(key, obj[key]);
-	});
-	if (_time) {
-		for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
-			var pname = _data_[ind_data][0];
-			if (pname == "time") {
-				_data_[ind_data].push(_ctime);
-				if (_data_[ind_data].length > cdatacount) {
-//					console.log("before splice => "+JSON.stringify(_data_[ind_data]));
-					_data_[ind_data].splice(1,1);
-//					console.log("after splice => "+JSON.stringify(_data_[ind_data]));
-				}
-				break;
-			}
+		// 如果当前数据量多于cdatacount，就从前面删除
+		if (_data_[ind_data].length > cdatacount) {
+			_data_[ind_data].splice(1, 1);
 		}
 	}
 
+	Object
+			.keys(_d_)
+			.forEach(
+					function(key) {
+						// 向cdata中添加
+						var _time = true;
+						var _timeD_ = null;
+						// 循环 新点值的每个值 -> 库值
+						for (var ind_data = 0; ind_data < _data_.length; ind_data++) {
+							// 行名称
+							var pname = _data_[ind_data][0];
+							if (pname != null && pname != "undefined") {
+								if (pname == key) {
+									if (key == "time") {
+										// 不处理time了
+									} else {
+										if (_data_[ind_data].length == 2
+												&& _data_[ind_data][1] == 0)
+											_data_[ind_data][1] = _d_[key];
+										else {
+											var lastData = _data_[ind_data][_data_[ind_data].length - 1];
+											_timeD_ = _data_[timeInd][_data_[ind_data].length - 1];
+											// 添加值
+											_data_[ind_data].push(_d_[key]);
+										}
+										// 更新最大值和最小值
+										if (_maxY < _d_[key])
+											_maxY = _d_[key];
+										if (_minY > _d_[key] || _minY == 0)
+											_minY = _d_[key];
+										if (_data_[ind_data].length > cdatacount) {
+											_data_[ind_data].splice(1, 1);
+										}
+									}
+								}
+							}
+						}
+					});
 }
 
 var c3LineChart;
@@ -276,7 +294,7 @@ var c3LineChart;
 	var pointList = pointGroup.pointList;
 	//console.log("pointList -> "+JSON.stringify(pointList));
 	var _time_ = new Array();
-	_time_.push('time',new Date());
+	_time_.push('time',0);
 	cols.push(_time_);
 
 	for (var indpl = 0; indpl < pointList.length; indpl++) {

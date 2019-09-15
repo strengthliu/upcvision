@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -164,25 +165,64 @@ public class FileTool {
 				// 解析文件
 				//System.out.println("1 readHtml="+fl.getName());
 
-				Document doc = Jsoup.parse(readHtml(fl.getWholePath()));
+				Document doc = Jsoup.parse(HtmlParser.readHtml(fl.getWholePath()));
 				// 判断文件是否是图形文件
 				ArrayList<String> pointIDs = new ArrayList<String>();
+//				if(file.getName().contains("A低油塔")) {
+//					System.out.println(doc.html());
+//				}
 				if (doc.select(GlobalConsts.GraphElement) != null) {
-					Elements docs = doc.select(GlobalConsts.PointTag);
+//					// 如果是图形文件，先删除所有js
+
+//					Elements scriptdocs = doc.getElementsByTag(GlobalConsts.ScriptElement);
+//					Elements scriptdocs = doc.getElementsByTag("script");
+//					System.out.println(fl.getWholePath());
+					Document doc1 = Jsoup.parse(HtmlParser.readHtml(fl.getWholePath()));
+//					System.out.println(doc1.html());
+					Elements scriptdocs = HtmlParser.getScriptElement(doc1);
+					if(scriptdocs!=null && scriptdocs.size()>0) {
+//						System.out.println(" script: "+scriptdocs.html());
+
+						for(int indscript=scriptdocs.size()-1;indscript>=0;indscript--) {
+							scriptdocs.get(indscript).remove();
+						}
+						String fileContent = doc.html();
+						fileContent.replace(" null", "");
+//						System.out.println("fileContent= "+ fileContent);
+						
+						file.delete();
+						file.createNewFile();
+						FileWriter fw = new FileWriter(file,true);
+						fw.write(fileContent);
+						fw.close();
+					}
+
+					Elements docs = doc.getElementsByTag(GlobalConsts.PointTag);
 					for (int idocs = 0; idocs < docs.size(); idocs++) {
 						Element e = docs.get(idocs);
 						String tag = e.attr(GlobalConsts.PointID);
 						if (!StringUtil.isBlank(tag)) {
+//							System.out.println("图形："+fl.getName()+"，tag="+tag);
 							String serverName = PointGroupDataManager.splitServerName(tag);
 							String tagName = PointGroupDataManager.splitPointName(tag);
 							if(sm.getPointByID(serverName,tagName)!=null) {
 								pointIDs.add(tag);
 								// LOGGER.info("检查点位："+tag+" => "+sm.getPointByID(tag));
 							}
+						}else {
+//							System.out.println("图形："+fl.getName()+"，tag="+tag);
 						}
 					}
 					fl.setSVG(true);
+					fl.setType(GlobalConsts.Type_graph_);
 					fl.setPointIDs(pointIDs);
+					fl.setPoints(IDTools.merge(pointIDs.toArray()));
+					// 设置ID
+					fl.setId(IDTools.newID());
+					// 设置creater
+					fl.setCreater(GlobalConsts.UserAdminID);
+					fl.setOwner(GlobalConsts.UserAdminID);
+//					file.get
 					//System.out.println(path);
 					// 生成图片
 					//String img = SVGTool.GetImageStr(fl.getPath()+File.pathSeparator+fl.getName());

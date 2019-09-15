@@ -311,11 +311,11 @@ function updateRealTimeDataListFrame(){
 								
 								realtimeDataList_ui_item_innerHTML += 'onclick="routeTo('
 									+ "'"
-									+ "xyGraphDetail','"
+									+ "realtimedataDetail','"
 									+ _realtimeData.id + "'" + ')"/>';
 								realtimeDataList_ui_item_innerHTML += '<figcaption onclick="routeTo('
 									+ "'"
-									+ "xyGraphDetail','"
+									+ "realtimedataDetail','"
 									+ _realtimeData.id + "'" + ')"><h4>'
 										+ _realtimeData.name
 										+ '</h4><div>'

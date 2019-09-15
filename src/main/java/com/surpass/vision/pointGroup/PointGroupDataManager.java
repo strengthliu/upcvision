@@ -210,8 +210,6 @@ public class PointGroupDataManager {
 
 		PointGroup pg = (PointGroup) redisService.get(type + IDTools.toString(k));
 
-//		 pointGroupService;
-		// TODO Auto-generated method stub
 		return pg;
 	}
 
@@ -219,13 +217,15 @@ public class PointGroupDataManager {
 		PointGroup pgd = getPointsByGroupId(k, type);
 		DataViewer dv = new DataViewer();
 		dv.setPointGroupID(k);
+		if(pgd==null) {
+			System.out.println();
+		}
 		List<Point> pl = pgd.getPointList();
+		if(pl==null) {
+			return null;
+		}
 		
 		HashMap<String,ServerPoint> sps = new HashMap<String,ServerPoint>();
-		
-//		Long[] ids = new Long[pl.size()];
-//		String[] tagNames = new String[pl.size()];
-
 		for (int i = 0; i < pl.size(); i++) {
 			String serverName = pl.get(i).getServerName();
 			ServerPoint sp;

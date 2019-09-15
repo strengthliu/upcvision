@@ -1,12 +1,14 @@
 package com.surpass.vision.mapper;
 
 import com.surpass.vision.appCfg.GlobalConsts;
+import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.PointGroupDataExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 public interface PointGroupDataMapper {
     long countByExample(PointGroupDataExample example);
@@ -56,6 +58,13 @@ public interface PointGroupDataMapper {
     @Select("select distinct * from t_pointGroup where type='"+GlobalConsts.Type_graph_+"'")
     @ResultMap("BaseResultMap")
 	List<PointGroupData> getAdminGraphData();
+
+    @Update({ "update t_pointGroup set owner = #{owner},creater = #{creater},shared = #{shared},points = #{points} ,otherRule2 = #{otherRule2},otherRule1 = #{otherRule1} where name = #{name} and type='"+GlobalConsts.Type_graph_+"\'" })
+	int updateByName(@Param("owner") String owner,@Param("creater") String creater,@Param("shared") String shared,@Param("points") String points,@Param("otherRule1") String otherRule1,@Param("otherRule2") String otherRule2,@Param("name") String name);
+
+    @Select("select distinct * from t_pointGroup where name=#{name} and type='"+GlobalConsts.Type_graph_+"\'")
+    @ResultMap("BaseResultMap")
+	PointGroupData selectByName(@Param("name") String name);
 
     
 }

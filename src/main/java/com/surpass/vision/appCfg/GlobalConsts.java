@@ -75,6 +75,7 @@ public final class GlobalConsts {
 	public static final String PointTag = "text";
 	public static final String PointID = "id";
 	public static final String GraphElement = "svg";
+	public static final String ScriptElement = "script";
 
 	// 设备中文注释的长度
 	public static final int DeviceNoteLength = 80;
@@ -113,6 +114,9 @@ public final class GlobalConsts {
 	
 	public static final String AJAX_REQUEST_HEADER = "XMLHttpRequest";     //Ajax请求的Header
 	public static final String SESSION_USER = "SESSION_USER";
+	
+	
+	public static final String UserAdminID = "2";
 
 
 

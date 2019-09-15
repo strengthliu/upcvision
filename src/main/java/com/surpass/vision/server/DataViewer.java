@@ -23,7 +23,7 @@ public class DataViewer {
 	}
 
 	
-	Date time ;
+	Long time ;
 	ServerPoint[] sps;
 	// Long[] ids;
 	Long[] ids;
@@ -83,8 +83,8 @@ public class DataViewer {
 //	public void setTagNames(String[] tagNames) {
 //		this.tagNames = tagNames;
 //	}
-	public HashMap<String, Double> valuesByTagName() {
-		HashMap<String, Double> ret = new HashMap<String, Double>();
+	public HashMap<String, Object> valuesByTagName() {
+		HashMap<String, Object> ret = new HashMap<String, Object>();
 		if (ind != null)
 			for (int i = 0; i < ind.length; i++) {
 //				System.out.println("build data by tagName: "+tagNames[i]+" = "+ind[i].getValue());
@@ -93,12 +93,14 @@ public class DataViewer {
 		else {
 //			System.out.println("DataViewer.values datas为空。");
 		}
-		ret.put("time", Double.valueOf(time.toString()));
+//		if(time == null) 
+			time = System.currentTimeMillis();
+		ret.put("time", time);
 		return ret;
 	}
 
-	public HashMap<Long, Double> valuesByID() {
-		HashMap<Long, Double> ret = new HashMap<Long, Double>();
+	public HashMap valuesByID() {
+		HashMap ret = new HashMap();
 		if (ind != null)
 			for (int i = 0; i < ind.length; i++) {
 //				System.out.println("build data by id: "+ids[i]+" = "+ind[i].getValue());
@@ -107,6 +109,9 @@ public class DataViewer {
 		else {
 			System.out.println("DataViewer.values datas为空。");
 		}
+//		if(time == null) 
+			time = System.currentTimeMillis();
+		ret.put("time", time);
 		return ret;
 	}
 

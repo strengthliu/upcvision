@@ -166,11 +166,11 @@ public class ServerManager {
 						String tagName = gec.DBECGetTagName(serverName, pointId);
 						tagName = tagName.trim();
 						String tagdesc = gec.DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGNOTE");
-						System.out.println("pointid: "+pointId+"  tagdesc: " + tagdesc);
+//						System.out.println("pointid: "+pointId+"  tagdesc: " + tagdesc);
 						if (StringUtil.isBlank(tagdesc))
 							tagdesc = "未知描述";
 						String enunit = gec.DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_ENUNITS");
-						System.out.println(enunit);
+//						System.out.println(enunit);
 						String tagType = gec.DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGTYPE");
 						tagType = tagType.trim();
 						point.setEnunit(enunit);
@@ -240,14 +240,14 @@ public class ServerManager {
 	public static void init() {
 		ServerManager.getInstance().updateServerInfo();
 		inited = true;
-
+		
 	}
 
 	public List getPointValue(String srvName, List<Long> idList, String fieldName) {
 		// TODO Auto-generated method stub
 		if (StringUtil.isBlank(fieldName))
 			fieldName = "FN_RTVALUE";
-
+//gec.DBACGetCurrentAlarm(lpszServerName, pnTagIDArray, pAlarmTypeArray, nArraySize, pValueArray, pOccuredTimeArray);
 		try {
 			return gec.DBECBatchGetTagRealField(srvName, idList, fieldName);
 		} catch (GecException e) {
