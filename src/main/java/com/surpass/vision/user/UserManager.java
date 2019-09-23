@@ -114,6 +114,8 @@ public class UserManager {
 				return false;
 		case GlobalConsts.Operation_getHistoryDataList:
 			return true;
+		case GlobalConsts.Operation_getHistoryData:
+			return true;
 		case GlobalConsts.Operation_createHistoryData:
 			if (ur.canCreate(role))
 				return true;

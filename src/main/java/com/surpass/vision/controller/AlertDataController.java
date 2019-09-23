@@ -1,5 +1,7 @@
 package com.surpass.vision.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
@@ -21,12 +23,15 @@ import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.AlertData;
 import com.surpass.vision.domain.Graph;
+import com.surpass.vision.domain.HistoryData;
+import com.surpass.vision.domain.PointAlertData;
 import com.surpass.vision.domain.RealTimeData;
 import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.alertData.AlertDataManager;
 import com.surpass.vision.service.AuthorcationService;
 import com.surpass.vision.service.GraphService;
+import com.surpass.vision.tools.TimeTools;
 import com.surpass.vision.user.UserManager;
 import com.surpass.vision.userSpace.UserSpaceManager;
 
@@ -98,21 +103,7 @@ public class AlertDataController extends BaseController {
 	}
 
 	
-	/**
-	 * 获取实时数据
-	 * 
-	 * @param user
-	 * @param request
-	 * @return
-	 * @throws Exception
-	 */
-	@RequestMapping(value = "getAlertData", method = { RequestMethod.POST, RequestMethod.GET })
-	public @ResponseBody JSONObject getAlertData(@RequestBody JSONObject user, HttpServletRequest request)
-			throws Exception {
-		// TODO
-		return null;
-	}
-	
+
 	/**
 	 * 新建一个实时数据列表
 	 * 
@@ -290,13 +281,98 @@ public class AlertDataController extends BaseController {
 			return ret;
 		}
 	}
+	/**
+	 * 获取实时数据
+	 * 
+	 * @param user
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "getAlertData", method = { RequestMethod.POST, RequestMethod.GET })
+	public ToWeb getAlertData(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
+		Double uid = user.getDouble("uid");
+		String token = user.getString("token");
+		String idstr = user.getString("id");
+		Double idd = null;
+		if (StringUtil.isBlank(idstr)) {
 
-//
-//    @MessageMapping("/hello/{index}")
-//    @SendTo("/topic/greetings/{index}")
-//    public Greeting greeting(HelloMessage message) throws Exception {
-//        Thread.sleep(1000); // simulated delay
-//        return new Greeting(HtmlUtils.htmlEscape(message.getName()) + ": "+HtmlUtils.htmlEscape(message.getContent()));
-//    }
+		} else {
+			idd = Double.valueOf(idstr);
+		}
 
+		// 认证+权限
+		AlertData g = this.alertDataManager.getAlertDataByKeys(idd);
+		UserRight ur = g.getRight(uid);
+		ToWeb ret = authercation(uid, token, GlobalConsts.Key_AlertData_pre_, ur);
+		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+			return ret;
+
+		// 取出参数
+		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
+		String id = user.getString("id");
+		// 检查参数合法性
+		if (StringUtil.isBlank(id)) {
+			ret.setStatus(GlobalConsts.ResultCode_FAIL);
+			ret.setMsg("参数不正确，ID不能为空。");
+			return ret;
+		}
+		Double rtdId = Double.valueOf(id);
+		
+		// 取时间参数
+		String beginTimeStr = user.getString("beginTime");
+		String endTimeStr = user.getString("endTime");
+		Date beginTime = null;
+		Long _beginTime = null;
+		Date endTime = null;
+		Long _endTime = null;
+		try {
+			if(StringUtil.isBlank(beginTimeStr))
+				beginTime=null;
+			else {
+				beginTime = new Date(beginTimeStr);
+				_beginTime = TimeTools.parseSecond(beginTime.getTime());
+			}
+			
+			if(StringUtil.isBlank(endTimeStr))
+				endTime=null;
+			else {
+				endTime = new Date(endTimeStr);
+				_endTime = TimeTools.parseSecond(endTime.getTime());
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+			ret.setMsg("日期格式不正确");
+			return ret;
+		}
+		try {
+			
+			List<PointAlertData> rtd = alertDataManager.getAlertData(g, _beginTime, _endTime);
+			
+//			HistoryData rtd = historyDataManager.getHistoryData(rtdId);
+			if (rtd == null ) {
+				ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+				ret.setMsg("没有指定ID的数据。");
+				ret.setRefresh(true);
+				return ret;
+			}
+			if (rtd != null) {
+				// 更新用户空间
+				// UserSpace us = userSpaceManager.getUserSpaceRigidly(Long.valueOf(uid));
+				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+				ret.setMsg("成功");
+				ret.setData("data", rtd);
+				ret.setRefresh(true);
+				return ret;
+			} else
+				throw new Exception();
+		} catch (Exception e) {
+			e.printStackTrace();
+			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
+			ret.setMsg("异常失败");
+			return ret;
+		}
+	}
 }

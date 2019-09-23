@@ -77,7 +77,7 @@ function refreshData(data) {
 	Object.keys(_data).forEach(function(key){
 		var ele = document.getElementById(key);
 		if(ele!=null && ele!="undefined"){
-			ele.innerHTML =  _data[key];
+			ele.innerHTML =  Math.round(_data[key]*10000)/10000;
 		}else{
 			console.log("no element named "+key);
 		}

@@ -2,74 +2,23 @@
  * 
  */
 
+// 图表组件
 var gl = new Array();
 var charts = new Object();
 
+// ID
 console.log("_historyDataDetailKey: " + _routeID);
 var _historyDataDetailKey = _routeID;
+
 function newItemAction() {
 	alert("historyData.js newItemAction。 从mainPanel中调用的。");
 }
 
-if (userSpace == null || userSpace == "undefined") {
-	console.log("userSpace 为空，重新到服务器去取。");
-	getUserSpace(user.id, token, updateHistoryDataChart);
-} else
-	updateHistoryDataChart(userSpace);
-
-/**
- * 画点图
- */
-function updateHistoryDataChart(ruserSpace) {
-	var pointGroup = ruserSpace.historyData[_historyDataDetailKey];
-	var uihistoryDataPoints = document.getElementById("ui-historyDataPoints");
-	console.log(" updateHistoryDataChart => " + JSON.stringify(pointGroup));
-	if (pointGroup == null || pointGroup == "undefined")
-		return;
-	var pointList = pointGroup.pointList;
-	var innerHtml = "";
-	// console.log("pointList" + JSON.stringify(pointList));
-	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		// console.log(" updateHistoryDataChart=>
-		// "+JSON.stringify(pointList[indpl]));
-		try {
-			// 页面加一块
-			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
-					+ pointList[indpl].tagName + '"></div></div>';
-			innerHtml += item;
-		} catch (e) {
-
-		}
-	}
-	uihistoryDataPoints.innerHTML = innerHtml;
-	console.log(uihistoryDataPoints.innerHTML);
-
-	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		console.log();
-		// 对象加一条
-		var gt = new JustGage({
-			id : "point_" + pointList[indpl].tagName,
-			value : 0,
-			min : 0,
-			max : 100,
-			title : pointList[indpl].desc,// "一级电脱盐混合阀压差",
-			label : pointList[indpl].enunit,
-			donut : true,
-			gaugeWidthScale : 0.6,
-			counter : true,
-			hideInnerShadow : true
-		});
-		var _tagName_ = pointList[indpl].tagName;
-		charts[_tagName_] = indpl;
-		gl[indpl] = gt;
-	}
-}
 /**
  * 刷新数据
  * 
  * @returns
  */
-
 function refreshData(data) {
 	
 	var pointList_ = JSON.parse(data.body);
@@ -79,7 +28,7 @@ function refreshData(data) {
 	for ( var key in pointList_) {
 		for ( var p in gl) {
 			// console.log(gl[p].config.id + " == "+"point_" + key );
-			if (gl[p].config.id == "point_" + key) {
+			if (gl[p].config.id == ("point_" + key)) {
 				gl[p].refresh(pointList_[key]);
 			}
 		}
@@ -95,32 +44,32 @@ function refreshDataTable(_cdata){
 	var _thead = document.createElement("thead");
 	var _tbody = document.createElement("tbody");
 
-//	console.log("refreshDataTable - _cdata "+JSON.stringify(_cdata));
-//	alert();
+// console.log("refreshDataTable - _cdata "+JSON.stringify(_cdata));
+// alert();
 	for(var coli = 0;coli<_cdata.length;coli++){
 		var _tr = document.createElement("tr");  
 		for(var rowi = 0;rowi<_cdata[coli].length;rowi++){
-//			console.log('fdsafdsa')
+// console.log('fdsafdsa')
 			var _td = document.createElement("td"); 
 			var _value = _cdata[coli][rowi];
 			switch(typeof _value){
-//			console.log(" typeof => "+typeof(_value));			
+// console.log(" typeof => "+typeof(_value));
 			case 'number':
 				_td.innerText = (Math.round(_value * 10000)) / 10000+"";		
 				break;
 			case 'string':
-				_td.innerText = _cdata[coli][rowi];//_timeStr;
+				_td.innerText = _cdata[coli][rowi];// _timeStr;
 				break;
 			default:
 				var _t = new Date(_cdata[coli][rowi]);
-				_td.innerText = _t.Format("hh:mm:ss");//_timeStr;					
-//				_td.innerText = _cdata[coli][rowi];//_timeStr;
+				_td.innerText = _t.Format("hh:mm:ss");// _timeStr;
+// _td.innerText = _cdata[coli][rowi];//_timeStr;
 				break;
 			}
 			_tr.append(_td);
 		}
 
-		//		console.log(" _cdata[coli] "+JSON.stringify(_cdata[coli]));
+		// console.log(" _cdata[coli] "+JSON.stringify(_cdata[coli]));
 		if(_cdata[coli][0]=="time"){
 			_thead.append(_tr);
 			_datatableUI.prepend(_thead);
@@ -153,26 +102,6 @@ var cdataCount = 10;
  * x轴范围，y轴范围
  */
 
-/**
- * 向前，向后
- */
-function _forward(_newData) {
-
-	c3LineChart.load({
-		columns : cdata
-	});
-	c3LineChart.axis.min({
-		y : _minY - (_maxY-_minY)/2 * _rateY
-	});
-	c3LineChart.axis.max({
-		y : _maxY + (_maxY-_minY)/2 * _rateY 
-	});
-
-}
-
-function _backward() {
-
-}
 var _maxX = 0;
 var _minX = 0;
 var _rateX = 1;
@@ -183,6 +112,7 @@ var _rateX = 1;
 function zoomin_x() {
 	_rateX = _rateX /2;
 	cdataCount = cdataCount * 1.5;
+	reloadDataToDiagram();
 	console.log("cdataCount = "+cdataCount);
 }
 
@@ -190,6 +120,7 @@ function zoomout_x() {
 	_rateX = _rateX *2;
 	cdataCount = cdataCount / 1.5;
 	console.log("cdataCount = "+cdataCount);
+	reloadDataToDiagram();
 }
 var _maxY = 0;
 var _minY = 0;
@@ -197,10 +128,13 @@ var _rateY = 1;
 function zoomin_y() {
 	_rateY = _rateY / 2
 	console.log(" _rateY = "+_rateY);
+	reloadDataToDiagram();
+
 }
 function zoomout_y() {
 	_rateY = _rateY * 2
 	console.log(" _rateY = "+_rateY);
+	reloadDataToDiagram();
 }
 
 /**
@@ -208,6 +142,255 @@ function zoomout_y() {
  */
 function changex() {
 
+}
+
+
+function reloadDataToDiagram(){
+	// UI加载数据，显示
+	// TODO: 增加flow效果
+	c3LineChart.load({
+		columns : cdata
+	});
+	c3LineChart.axis.min({
+		y : _minY - (_maxY-_minY)/2 * _rateY
+	});
+	c3LineChart.axis.max({
+		y : _maxY + (_maxY-_minY)/2 * _rateY 
+	});	
+}
+
+/**
+ * 向前，向后
+ */
+var oneStep = 0; // 点一下向前后，移动的点位数
+/**
+ * 向前（左）移动一次
+ * @returns
+ */
+function _forward() {
+	// 更新cdata数据
+	if(_dataIndex==null||_dataIndex=="undefined"){
+		for(var indrow=0;indrow<_data.length;indrow++){
+			_dataIndex[_data[indrow][0]]= indrow;
+		}						
+	}
+	oneStep = cdataCount*0.9;
+	var startTime;
+	if(currentStartTimeInd == null || currentStartTimeInd=="undefined"){
+		currentStartTimeInd =1;
+	}else{
+		if(currentStartTimeInd-oneStep>0) // 向左
+			currentStartTimeInd = currentStartTimeInd-oneStep;
+		else{
+			// TODO： 如果向左一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
+//			currentStartTimeInd
+			currentStartTimeInd = _data[_dataIndex['time']][1] - oneStep*1000;
+			getHistoryData(_historyDataDetailKey,currentStartTimeInd,_data[_dataIndex['time']][1],_forward);
+			return;
+		}
+	}
+	loadCData(startTime);
+	reloadDataToDiagram();
+
+}
+
+/**
+ * 向前，向后
+ */
+function _backward() {
+	// 更新cdata数据
+	if(_dataIndex==null||_dataIndex=="undefined"){
+		for(var indrow=0;indrow<_data.length;indrow++){
+			_dataIndex[_data[indrow][0]]= indrow;
+		}						
+	}
+	oneStep = cdataCount*0.9;
+	var startTime;
+	if(currentStartTimeInd == null || currentStartTimeInd=="undefined"){
+		currentStartTimeInd =1;
+	}else{
+		if(currentStartTimeInd+oneStep<_data[_dataIndex['time']].length) // 向左
+			currentStartTimeInd = currentStartTimeInd+oneStep;
+		else{
+			// TODO： 如果向左一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
+			currentStartTimeInd = _data[_dataIndex['time']].length;
+			getHistoryData(_historyDataDetailKey,currentStartTimeInd,currentStartTimeInd+oneStep,_backward);
+			return;
+		}
+	}
+	loadCData(startTime);
+	
+	reloadDataToDiagram();
+
+}
+
+
+/**
+ * 去服务器取数据，取回数据后，执行func方法
+ * @param func
+ * @returns
+ */
+function getHistoryData(_historyDataDetailKey,startTime,endTime,func){
+	
+}
+
+var currentStartTime;
+var currentStartTimeInd;
+function loadCData(startTime){
+	var _currentStartTimeInd = 0;
+	if(_dataIndex==null||_dataIndex=="undefined"){
+		for(var indrow=0;indrow<_data.length;indrow++){
+			_dataIndex[_data[indrow][0]]= indrow;
+		}						
+	}
+	var dataInd = 0;
+	var _datatime = _data[_dataIndex['time']];
+	for(var inddata = 0;inddata<_datatime.length;inddata++){
+		if(startTime <= _datatime[inddata]){
+			dataInd = inddata;
+			_currentStartTimeInd = dataInd;
+			break;
+		}
+	}
+	var _cdata = new Array();
+	for(var icdata=0;icdata<cdataCount;icdata++){
+		var rowd = new Array();
+		for(var rowcount=0;rowcount<_data.length;rowcount++){
+			if(dataInd+icdata<_data[rowcount].length)
+				rowd[rowcount].push(_data[rowcount][dataInd+icdata]);
+			else
+				break;
+		}
+		// 从前面把头添加上
+		rowd.splice(0,0,_data[rowcount][0]);
+		_cdata.push(rowd);
+	}
+	cdata = _cdata;
+	
+	currentStartTime = _data[_dataIndex['time']][1];
+	currentStartTimeInd = 1;
+
+	currentStartTime = startTime;
+	currentStartTimeInd = _currentStartTimeInd;
+}
+
+var _dataIndex;
+
+function addHistoryData(historyData){
+	// 数据不正常就返回
+	if(historyData==null|| historyData=="undefined")return;
+	// 第一次初始化，就直接赋值
+	console.log("historyData = "+JSON.stringify(historyData));
+	
+	_dataIndex = {};
+	if(_data ==null || _data=="undefined"){
+		_data = historyData;
+		for(var indrow=0;indrow<_data.length;indrow++){
+			_dataIndex[_data[indrow][0]]= indrow;
+		}				
+		currentStartTime = _data[_dataIndex['time']][1];
+		currentStartTimeInd = 1;
+	}
+	else {
+		for(var indrow=0;indrow<_data.length;indrow++){
+			_dataIndex[_data[indrow][0]]= indrow;
+		}				
+		// TODO: 添加到_data中
+		var historyIndex = {};
+		for(var indrow=0;indrow<historyData.length;indrow++){
+			historyIndex[historyData[indrow][0]]= indrow;
+		}
+		// 如果有时间轴，再继续操作
+		if(historyIndex['time']!=null && historyIndex['time']!="undefined"){
+			var timeArray = historyData[historyIndex['time']];
+			var _ind =0;
+			var _direct_f = 0; // 向后添加
+			var _direct_b = 0; // 向后添加
+			var _ind_history = 0;
+			var _ind_data = 0;
+			
+			// 先找到定位，决定向前后添加
+			if(timeArray[0]>_data[_dataIndex['time']][_data.length-1]){
+				_direct_f = _data.length-1;
+				_direct_b = -1;
+				// 全部向前插入
+				for(var datarow=0;datarow<_data.length;datarow++){
+					for(var indtime=timeArray.length-1;indtime>0;indtime--){
+						_data[datarow].splice(1,0,timeArray[indtime]);
+					}
+				}
+				return;
+			}
+			else if(timeArray[timeArray.length-1]<_data[_dataIndex['time']][0]){
+				_direct_f = -1;
+				_direct_b =0;
+				// 全部向后插入
+				for(var indtime=timeArray.length-1;indtime>0;indtime--){
+					_data[datarow].push(timeArray[indtime]);
+//					for(var indtime==0;indtime<timeArray.length-1;indtime++){
+//					}
+				}
+				return;
+			} // _data和historyData有交叉
+			else {
+				if(timeArray[0]>=_data[_dataIndex['time']][0]){
+					// 
+					for(var _inddata=0;_inddata<_data.length;_inddata++){
+						if(timeArray[0]<_data[_dataIndex['time']][_inddata]){
+							_direct_f = _inddata;
+							break;
+						}
+					}
+				}else {
+					_direct_f = -1;
+				}
+				
+				if(timeArray[timeArray.length-1]<=_data[_dataIndex['time']][_data.length-1]){
+					for(var _inddata=_data.length-1;_inddata>=0;_inddata--){
+						if(timeArray[0]>_data[_dataIndex['time']][_inddata]){
+							_direct_b = _inddata;
+							break;
+						}
+					}
+				}else {
+					_direct_b = -1;
+				}
+			}
+
+			for(var ind =1;ind <timeArray.length;ind++){
+				if(_direct_f>=0){ // 如果历史值开头在data范围，包括结尾。
+					// 找到定位，插入进去值
+					if(_direct_f<_data[_dataIndex['time']].length){ // 在_data的范围内
+						if(timeArray[ind]<_data[_dataIndex['time']][_direct_f]){
+							Ojbect.keys(_dataIndex).forEach(function(key){
+								if(key=='time'){
+									historyData[historyIndex['time']]
+									_data[_dataIndex['time']].splice(_direct_f,0,timeArray[ind]);
+								}else{
+									_data[_dataIndex[key]].splice(_direct_f,0,historyData[historyIndex[key]]);
+									
+								}
+								_direct_f++;
+							});
+						}
+					}else{
+						if(timeArray[ind]<_data[_dataIndex['time']][_direct_f]){
+							Ojbect.keys(_dataIndex).forEach(function(key){
+								if(key=='time'){
+									historyData[historyIndex['time']]
+									_data[_dataIndex['time']].push(timeArray[ind]);
+								}else{
+									_data[_dataIndex[key]].push(historyData[historyIndex[key]]);
+									
+								}
+								_direct_f++;
+							});
+						}
+					}					
+				}
+			}
+		}
+	}
 }
 
 /**
@@ -286,13 +469,76 @@ function addData(newData, _data_, cdatacount) {
 					});
 }
 
+
+getHistoryData();
+function getHistoryData(){
+// console.log("otherrule = "+JSON.stringify(rule));
+	var data={'uid':uid,'token':token,'id':_historyDataDetailKey,'beginTime':'','endTime':''};
+	$.ajax({
+		// 提交数据的类型 POST GET
+		type : "POST",
+		// 提交的网址
+		url : "getHistoryData",
+		// 提交的数据
+		data : JSON.stringify(data),
+		contentType : "application/json",
+		// 返回数据的格式
+		datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
+		// 在请求之前调用的函数
+		beforeSend : function() {
+			showLoading();
+		},
+		// 成功返回之后调用的函数
+		success : function(data) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
+				// console.log("server info : "+JSON.stringify(data.data.data));
+				console.log("historydata.js => submitNewDataItem 3");
+				var historyData = data.data.data;
+				console.log("historydata.js => historyData= "+JSON.stringify(historyData));
+				addHistoryData(historyData);
+// _data = historyData;
+// $('#newItemAction_mid').modal('hide');
+// fixLocalHistoryDataList(historyData);
+				// 
+			} else {
+				alert("失败 ： "+data.msg);
+			}
+			hideLoading();
+			// alert("本地存储："+localStorage.user);
+			// window.location.href = "index.html";
+		},
+		// 调用执行后调用的函数
+		complete : function(XMLHttpRequest, textStatus) {
+			// alert(XMLHttpRequest.responseText);
+			// alert(textStatus);
+			console.log("historydata.js => submitNewDataItem 4");
+			hideLoading();
+		
+		},
+		// 调用出错执行的函数
+		error : function(jqXHR, textStatus, errorThrown) {
+			/* 弹出jqXHR对象的信息 */
+			// alert(jqXHR.responseText);
+			// alert(jqXHR.status);
+			// alert(jqXHR.readyState);
+			// alert(jqXHR.statusText);
+			/* 弹出其他两个参数的信息 */
+			// alert(textStatus);
+			// alert(errorThrown);
+			console.log("historydata.js => submitNewDataItem 5");
+			hideLoading();
+		}
+	});
+
+}
+
 var c3LineChart;
 (function($) {
 	'use strict';
 	var cols = new Array();
 	var pointGroup = userSpace.historyData[_historyDataDetailKey];
 	var pointList = pointGroup.pointList;
-	//console.log("pointList -> "+JSON.stringify(pointList));
+	// console.log("pointList -> "+JSON.stringify(pointList));
 	var _time_ = new Array();
 	_time_.push('time',0);
 	cols.push(_time_);
@@ -352,75 +598,6 @@ var c3LineChart;
 	});
 
 })(jQuery);
-//
-//setTimeout(function() {
-//	c3LineChart.axis.labels({
-//		y2 : 'New Y2 Axis Label'
-//	});
-//}, 1000);
-//
-//setTimeout(function() {
-//	c3LineChart.axis.labels({
-//		y : 'New Y Axis Label',
-//		y2 : 'New Y2 Axis Label Again'
-//	});
-//}, 2000);
-//
-//setTimeout(function() {
-//	c3LineChart.load({
-//		columns : [
-//		// ['x', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05',
-//		// '2013-01-06', '2013-01-07'],
-//		[ 'data1', 130, 150, 200, 300, 200, 100 ] ]
-//	});
-//}, 1000);
-//
-//setTimeout(function() {
-//	c3LineChart.load({
-//		columns : [
-//		// ['x', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06',
-//		// '2013-01-07', '2013-01-08'],
-//		[ 'data1', 150, 200, 300, 200, 100, 150 ] ]
-//	});
-//}, 1500);
-//setTimeout(function() {
-//	c3LineChart.load({
-//		columns : [
-//		// ['x', '2013-01-04', '2013-01-05', '2013-01-06', '2013-01-07',
-//		// '2013-01-08', '2013-01-09'],
-//		[ 'data1', 200, 300, 200, 100, 150, 159 ] ]
-//	});
-//}, 2000);
-//setTimeout(function() {
-//	c3LineChart.load({
-//		columns : [
-//		// ['x', '2013-01-04', '2013-01-05', '2013-01-06', '2013-01-07',
-//		// '2013-01-08', '2013-01-09'],
-//		[ 'data1', 300, 200, 100, 150, 159, 187 ] ]
-//	});
-//}, 2500);
-//
-//setTimeout(function() {
-//	c3LineChart.flow({
-//		columns : [ [ 'data1', 200, 300 ], ],
-//		length : 2,
-//		duration : 1000,
-//		done : function() {
-//		}
-//	})
-//}, 3000);
-
-// setTimeout(function() {
-// c3LineChart.unload({
-// ids: 'data1'
-// });
-// }, 2000);
-// function refreshGage() {
-// for (var indpl = 0; indpl < gl.length; indpl++) {
-// gl[indpl].refresh(getRandomInt(50, 100));
-// }
-// }
-// setInterval(refreshGage, 1000);
 
 /**
  * 右键菜单
@@ -487,127 +664,180 @@ function menuFunc(key, options) {
 		});
 })(jQuery);
 
-function setConnected(connected) {
-}
 
-loginWebsocket();
+//
+//if (userSpace == null || userSpace == "undefined") {
+//	console.log("userSpace 为空，重新到服务器去取。");
+//	getUserSpace(user.id, token, updateHistoryDataChart);
+//} else
+//	updateHistoryDataChart(userSpace);
 
-function loginWebsocket() {
-	if (socket.readyState != 1) {
-		alert("未连接。");
-		connect();
-		return;
-	} else {
-		console.log("当前存在");
-		if (subscribe != null && subscribe != "undefined")
-			subscribe.unsubscribe();
-		stompClient.send("/app/aaa", {
-			atytopic : _historyDataDetailKey,
-			type : 'historyData',
-			id : _historyDataDetailKey + ""
-		}, JSON.stringify({
-			'type' : 'historyData',
-			'id' : _historyDataDetailKey + ""
-		}));
-		// 接收消息设置
-		subscribe = stompClient.subscribe('/topic/Key_HistoryData_pre_/'
-				+ _historyDataDetailKey, function(data) {
-			// alert("websocket connected 3.");
-			// 收到消息后处理
-			refreshData(data);
-		});
-	}
-}
+///**
+// * 画点图 getHistoryData
+// */
+//function updateHistoryDataChart(ruserSpace) {
+//	var pointGroup = ruserSpace.historyData[_historyDataDetailKey];
+//	var uihistoryDataPoints = document.getElementById("ui-historyDataPoints");
+//	console.log(" updateHistoryDataChart => " + JSON.stringify(pointGroup));
+//	if (pointGroup == null || pointGroup == "undefined")
+//		return;
+//	var pointList = pointGroup.pointList;
+//	var innerHtml = "";
+//	// console.log("pointList" + JSON.stringify(pointList));
+//	for (var indpl = 0; indpl < pointList.length; indpl++) {
+//		// console.log(" updateHistoryDataChart=>
+//		// "+JSON.stringify(pointList[indpl]));
+//		try {
+//			// 页面加一块
+//			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
+//					+ pointList[indpl].tagName + '"></div></div>';
+//			innerHtml += item;
+//		} catch (e) {
+//
+//		}
+//	}
+//	uihistoryDataPoints.innerHTML = innerHtml;
+//	console.log(uihistoryDataPoints.innerHTML);
+//
+//	for (var indpl = 0; indpl < pointList.length; indpl++) {
+//		console.log();
+//		// 对象加一条
+//		var gt = new JustGage({
+//			id : "point_" + pointList[indpl].tagName,
+//			value : 0,
+//			min : 0,
+//			max : 100,
+//			title : pointList[indpl].desc,// "一级电脱盐混合阀压差",
+//			label : pointList[indpl].enunit,
+//			donut : true,
+//			gaugeWidthScale : 0.6,
+//			counter : true,
+//			hideInnerShadow : true
+//		});
+//		var _tagName_ = pointList[indpl].tagName;
+//		charts[_tagName_] = indpl;
+//		gl[indpl] = gt;
+//	}
+//}
 
-function connect() {
-	sessionStorage.setItem('token', token);// 设置指定session值
-	sessionStorage.setItem('uid', user.id);// 设置指定session值
-
-	// const id = localStorage.getItem("chat_id");
-	// var socket = new SockJS('ws://localhost:8888/socketServer/');
-	socket = new SockJS('/socketServer');
-	// alert("websocket connected 1.");
-	stompClient = Stomp.over(socket);
-	stompClient.heartbeat.outgoing = 10000; // 客户端每20000ms发送一次心跳检测
-	stompClient.heartbeat.incoming = 10000; // client接收serever端的心跳检测
-	// 连接服务器
-	var headers = {
-		login : user.id,
-		token : token,
-		// additional header
-		'client-id' : 'my-client-id'
-	};
-
-	stompClient.connect(headers, function(frame) {
-		setConnected(true);
-		console.log("websocket connected." + _historyDataDetailKey + "  .");
-		// console.log('Connected: ' + frame);
-
-		// 发送消息给服务器
-		stompClient.send("/app/aaa", {
-			atytopic : _historyDataDetailKey,
-			type : 'Key_HistoryData_pre_',
-			id : _historyDataDetailKey
-		}, JSON.stringify({
-			'type' : 'historyData',
-			'id' : _historyDataDetailKey
-		}));
-		// 连接成功后，主动拉取未读消息
-		// pullUnreadMessage("/topic/reply");
-		// 接收消息设置
-		subscribe = stompClient.subscribe('/topic/Key_HistoryData_pre_/'
-				+ _historyDataDetailKey, function(data) {
-			// alert("websocket connected 3.");
-			// 收到消息后处理
-			refreshData(data);
-		});
-
-		/**
-		 * // 接收消息设置。该方法是接收广播消息。 stompClient.subscribe('/topic/greeting/11',
-		 * function(greeting){ showGreeting(JSON.parse(greeting.body).content);
-		 * }); //
-		 * 接收消息设置。该方法表示接收一对一消息，其主题是"/user/"+userId+"/message"，不同客户端具有不同的id。 //
-		 * 如果两个或多个客户端具有相同的id，那么服务器端给该userId发送消息时，这些客户端都可以收到。
-		 * stompClient.subscribe('/user/' + user.id +
-		 * '/message',function(greeting){
-		 * alert(JSON.parse(greeting.body).content);
-		 * showGreeting(JSON.parse(greeting.body).content); });
-		 * 
-		 */
-		// alert("websocket connected 2.");
-		stompClient.ws.onclose = function() {
-			connect();
-		}
-		stompClient.ws.onerror = function() {
-			connect();
-		}
-	}, function(message) {
-		console.log(message);
-	});
-}
-
-// 从服务器拉取未读消息
-function pullUnreadMessage(destination) {
-	$.ajax({
-		url : "/wsTemplate/pullUnreadMessage",
-		type : "POST",
-		dataType : "json",
-		async : true,
-		data : {
-			"destination" : destination
-		},
-		success : function(data) {
-			if (data.result != null) {
-				$.each(data.result, function(i, item) {
-					log(JSON.parse(item).content);
-				})
-			} else if (data.code != null && data.code == "500") {
-				layer.msg(data.msg, {
-					offset : 'auto',
-					icon : 2
-				});
-			}
-		}
-	});
-}
+// loginWebsocket();
+//
+// function loginWebsocket() {
+// if (socket.readyState != 1) {
+// alert("未连接。");
+// connect();
+// return;
+// } else {
+// console.log("当前存在");
+// if (subscribe != null && subscribe != "undefined")
+// subscribe.unsubscribe();
+// stompClient.send("/app/aaa", {
+// atytopic : _historyDataDetailKey,
+// type : 'historyData',
+// id : _historyDataDetailKey + ""
+// }, JSON.stringify({
+// 'type' : 'historyData',
+// 'id' : _historyDataDetailKey + ""
+// }));
+// // 接收消息设置
+// subscribe = stompClient.subscribe('/topic/Key_HistoryData_pre_/'
+// + _historyDataDetailKey, function(data) {
+// // alert("websocket connected 3.");
+// // 收到消息后处理
+// refreshData(data);
+// });
+// }
+// }
+//
+// function connect() {
+// sessionStorage.setItem('token', token);// 设置指定session值
+// sessionStorage.setItem('uid', user.id);// 设置指定session值
+//
+// // const id = localStorage.getItem("chat_id");
+// // var socket = new SockJS('ws://localhost:8888/socketServer/');
+// socket = new SockJS('/socketServer');
+// // alert("websocket connected 1.");
+// stompClient = Stomp.over(socket);
+// stompClient.heartbeat.outgoing = 10000; // 客户端每20000ms发送一次心跳检测
+// stompClient.heartbeat.incoming = 10000; // client接收serever端的心跳检测
+// // 连接服务器
+// var headers = {
+// login : user.id,
+// token : token,
+// // additional header
+// 'client-id' : 'my-client-id'
+// };
+//
+// stompClient.connect(headers, function(frame) {
+// setConnected(true);
+// console.log("websocket connected." + _historyDataDetailKey + " .");
+// // console.log('Connected: ' + frame);
+//
+// // 发送消息给服务器
+// stompClient.send("/app/aaa", {
+// atytopic : _historyDataDetailKey,
+// type : 'Key_HistoryData_pre_',
+// id : _historyDataDetailKey
+// }, JSON.stringify({
+// 'type' : 'historyData',
+// 'id' : _historyDataDetailKey
+// }));
+// // 连接成功后，主动拉取未读消息
+// // pullUnreadMessage("/topic/reply");
+// // 接收消息设置
+// subscribe = stompClient.subscribe('/topic/Key_HistoryData_pre_/'
+// + _historyDataDetailKey, function(data) {
+// // alert("websocket connected 3.");
+// // 收到消息后处理
+// refreshData(data);
+// });
+//
+// /**
+// * // 接收消息设置。该方法是接收广播消息。 stompClient.subscribe('/topic/greeting/11',
+// * function(greeting){ showGreeting(JSON.parse(greeting.body).content);
+// * }); //
+// * 接收消息设置。该方法表示接收一对一消息，其主题是"/user/"+userId+"/message"，不同客户端具有不同的id。 //
+// * 如果两个或多个客户端具有相同的id，那么服务器端给该userId发送消息时，这些客户端都可以收到。
+// * stompClient.subscribe('/user/' + user.id +
+// * '/message',function(greeting){
+// * alert(JSON.parse(greeting.body).content);
+// * showGreeting(JSON.parse(greeting.body).content); });
+// *
+// */
+// // alert("websocket connected 2.");
+// stompClient.ws.onclose = function() {
+// connect();
+// }
+// stompClient.ws.onerror = function() {
+// connect();
+// }
+// }, function(message) {
+// console.log(message);
+// });
+// }
+//
+// // 从服务器拉取未读消息
+// function pullUnreadMessage(destination) {
+// $.ajax({
+// url : "/wsTemplate/pullUnreadMessage",
+// type : "POST",
+// dataType : "json",
+// async : true,
+// data : {
+// "destination" : destination
+// },
+// success : function(data) {
+// if (data.result != null) {
+// $.each(data.result, function(i, item) {
+// log(JSON.parse(item).content);
+// })
+// } else if (data.code != null && data.code == "500") {
+// layer.msg(data.msg, {
+// offset : 'auto',
+// icon : 2
+// });
+// }
+// }
+// });
+// }
 

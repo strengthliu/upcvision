@@ -1,6 +1,7 @@
 package com.surpass.vision.alertData;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.surpass.vision.XYGraph.XYGraphManager;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.AlertData;
+import com.surpass.vision.domain.PointAlertData;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.AlertData;
 import com.surpass.vision.domain.User;
@@ -42,6 +44,10 @@ public class AlertDataManager extends PointGroupDataManager {
 
 	@Autowired
 	UserManager userManager;
+	
+	@Autowired
+	ServerManager serverManager;
+
 	
 	
 	public AlertData copyFromPointGroupData(PointGroupData pgd) {
@@ -229,6 +235,21 @@ public class AlertDataManager extends PointGroupDataManager {
 		pointGroupService.updatePointGroupItem(rtd);
 		// 写缓存RealTimeData，返回
 		redisService.set(GlobalConsts.Key_AlertData_pre_+IDTools.toString(rtd.getId()),rtd);
+	}
+
+	public List<PointAlertData> getAlertData(AlertData g, Long startTime, Long endTime) {
+		// TODO Auto-generated method stub
+		List<Point> pl =g.getPointList();
+		List<PointAlertData> pad = null;		
+		if(endTime==null || endTime==0) {
+			endTime = System.currentTimeMillis() /1000;
+		}
+		if(startTime==null || startTime==0) {
+			pad = serverManager.getPointAlertData(pl);
+		} else {
+			pad = serverManager.getHistoryPointAlertData(pl, startTime, endTime);
+		}
+		return pad;
 	}
 
 

@@ -141,7 +141,7 @@ function getUserList(fillUserUI) {
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				var userList = data.data.users;
 				// console.log("data.data="+JSON.stringify(data));

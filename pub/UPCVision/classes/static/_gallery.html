@@ -1,0 +1,147 @@
+
+<!-- Dummy Modal Ends -->
+<!-- Modal starts -->
+
+<!-- 新建图形弹出框 -->
+<div class="modal fade" id="newItemAction_mid" tabindex="-1"
+	role="dialog" aria-labelledby="newItemAction_mid" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel-2">Modal title</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>Modal body text goes here.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success">Submit</button>
+				<button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 分享图形弹出框 -->
+<!-- Modal Ends -->
+
+
+<div class="col-12">
+	<div class="card">
+		<div class="card-body">
+			<div class="row">
+				<div class="col-12">
+					<div id="diagram_gallery" class="row portfolio-grid">
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+							<figure class="effect-text-in">
+								<img src="./images/samples/300x300/1.jpg" alt="image" />
+								<figcaption>
+									<h4>Photography</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+								</figcaption>
+							</figure>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+							<figure class="effect-text-in">
+								<img src="./images/samples/300x300/1.jpg" alt="image" />
+								<figcaption>
+									<h4>Photography</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+								</figcaption>
+							</figure>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+							<figure class="effect-text-in">
+								<img src="./images/samples/300x300/2.jpg" alt="image" />
+								<figcaption>
+									<h4>Lifestyle</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+								</figcaption>
+							</figure>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+							<figure class="effect-text-in">
+								<img src="./images/samples/300x300/3.jpg" alt="image" />
+								<figcaption>
+									<h4>Tech Geeks</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+								</figcaption>
+							</figure>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+							<figure class="effect-text-in">
+								<img src="./images/samples/300x300/4.jpg" alt="image" />
+								<figcaption>
+									<h4>Explore World</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+								</figcaption>
+							</figure>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- partial -->
+
+<!-- main-panel ends -->
+<!-- page-body-wrapper ends -->
+<!-- container-scroller -->
+<!-- plugins:js -->
+<!-- endinject -->
+<!-- plugin js for this page -->
+<!-- -->
+
+<!-- end plugin js for this page -->
+
+<!-- Custom js for this page-->
+<script>
+	//	_routeType = diagram;
+	//	_routeID = key;
+
+	var _galleryKey = _routeID;
+	console.log("_galleryKey = " + _galleryKey);
+	var _graphs;
+	// TODO:  如果key为空，就是异常，待处理。
+	if (_galleryKey == null || _galleryKey == "undefined")
+		_galleryKey = "";
+
+	if (_galleryKey.trim() == 'unclassify') {
+		alert(_galleryKey);
+		_galleryKey = "";
+		_graphs = userSpace.graphs[""];
+	} else
+		_graphs = userSpace.graphs[_galleryKey];
+	console.log("graphs => " + JSON.stringify(userSpace));
+
+	// console.log("graphs = "+JSON.stringify(userSpace.graphs[""]));
+
+	var diagram_gallery = document.getElementById("diagram_gallery");
+	var diagram_gallery_innerHTML = "";
+	if (_graphs instanceof Array)
+		for (var ind = 0; ind < _graphs.length; ind++) {
+			var diagram_gallery_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12"';
+			diagram_gallery_item_innerHTML += 'onclick="routeTo(' + "'"
+					+ "diagramDetail','" + _graphs[ind].urlPath + "'" + ',\''+_graphs[ind].id+'\');">';
+			diagram_gallery_item_innerHTML += '<figure class="effect-text-in">';
+			diagram_gallery_item_innerHTML += '<img src="' + _graphs[ind].img + '" alt="image"/>';
+			diagram_gallery_item_innerHTML += '<figcaption><h4>'
+					+ _graphs[ind].name + '</h4><p>' + _graphs[ind].path
+					+ '</p></figcaption>';
+			diagram_gallery_item_innerHTML += '</figure></div>';
+
+			//console.log(diagram_gallery_item_innerHTML);
+			diagram_gallery_innerHTML = diagram_gallery_innerHTML
+					+ diagram_gallery_item_innerHTML;
+		}
+	diagram_gallery.innerHTML = diagram_gallery_innerHTML;
+
+</script>
+
+<script src="./js/light-gallery.js"></script>
+

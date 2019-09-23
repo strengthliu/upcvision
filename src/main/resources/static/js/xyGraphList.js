@@ -54,7 +54,7 @@ console.log("deleteItemAction");
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				var xyGraphId = data.data.data;
 				fixLocalXYGraphList_Delete(xyGraphId);
 				if(data.refresh) routeTo('xygraphList','');
@@ -122,7 +122,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				console.log("xygraph.js => submitNewDataItem 3");
 				var xyGraph = data.data.data;

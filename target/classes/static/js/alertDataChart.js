@@ -7,81 +7,128 @@ var charts = new Object();
 var _alertDataDetailKey = _routeID;
 
 console.log("_alertDataDetailKey: " + _alertDataDetailKey);
-
-function newItemAction() {
-	alert("alertData.js newItemAction。 从mainPanel中调用的。");
-}
-
-if (userSpace == null || userSpace == "undefined") {
-	console.log("userSpace 为空，重新到服务器去取。");
-	getUserSpace(user.id, token, updateAlertDataChart);
-} else
-	updateAlertDataChart(userSpace);
-
-/**
- * 画点图
- */
-function updateAlertDataChart(ruserSpace) {
-	var pointGroup = ruserSpace.alertData[_alertDataDetailKey];
-	var uialertDataPoints = document.getElementById("ui-alertDataPoints");
-	 console.log(" updateAlertDataChart => "+JSON.stringify(pointGroup));
-	if (pointGroup == null || pointGroup == "undefined")
-		return;
-	var pointList = pointGroup.pointList;
-	var innerHtml = "";
-	// console.log("pointList" + JSON.stringify(pointList));
-	for (var indpl = 0; indpl < pointList.length; indpl++) {
-// console.log(" updateAlertDataChart=> "+JSON.stringify(pointList[indpl]));
-		try{
-			// 页面加一块
-			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
-					+ pointList[indpl].tagName + '"></div></div>';
-			innerHtml += item;
-		}catch(e){
-			
-		}
-	}
-	uialertDataPoints.innerHTML = innerHtml;
-	console.log(uialertDataPoints.innerHTML);
-
-	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		console.log();
-		// 对象加一条
-		var gt = new JustGage({
-			id : "point_" + pointList[indpl].tagName,
-			value : 0,
-			min : 0,
-			max : 100,
-			title : pointList[indpl].desc,//"一级电脱盐混合阀压差",
-			label : pointList[indpl].enunit,
-			donut : true,
-			gaugeWidthScale : 0.6,
-			counter : true,
-			hideInnerShadow : true
-		});
-		var _tagName_ = pointList[indpl].tagName;
-		charts[_tagName_] = indpl;
-		gl[indpl] = gt;
-	}
-}
-/**
- * 刷新数据
- * 
- * @returns
- */
-
-function refreshData(data) {
-	var pointList_ = JSON.parse(data.body);
-	for(var key in pointList_){
-		for(var p in gl){
-			//console.log(gl[p].config.id + "  ==  "+"point_" + key );
-			if(gl[p].config.id == "point_" + key){
-				gl[p].refresh(pointList_[key]);
+getAlertData();
+function getAlertData(id,startTime,endTime){
+	if(startTime=="undefined") startTime = null;
+	if(endTime=="undefined") endTime = null;
+	var data={'uid':uid,'token':token,'id':_alertDataDetailKey,'startTime':startTime,'endTime':endTime};
+	$.ajax({
+		// 提交数据的类型 POST GET
+		type : "POST",
+		// 提交的网址
+		url : "getAlertData",
+		// 提交的数据
+		data: JSON.stringify(data),
+		contentType : "application/json",
+		// 返回数据的格式
+		datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
+		// 在请求之前调用的函数
+		beforeSend : function() {
+			showLoading();
+		},
+		// 成功返回之后调用的函数
+		success : function(data) {
+			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+				// console.log("server info : "+JSON.stringify(data.data.data));
+				var alertData = data.data.data;
+				console.log(JSON.stringify(alertData));
+				fillCdata(alertData);
+				refreshDataTable(cdata);
+			} else {
+				alert("失败 ： " + data.msg);
 			}
+			hideLoading();
+			// alert("本地存储："+localStorage.user);
+			// window.location.href = "index.html";
+		},
+		// 调用执行后调用的函数
+		complete : function(XMLHttpRequest, textStatus) {
+			// alert(XMLHttpRequest.responseText);
+			// alert(textStatus);
+			hideLoading();
+
+		},
+		// 调用出错执行的函数
+		error : function(jqXHR, textStatus, errorThrown) {
+			/* 弹出jqXHR对象的信息 */
+			// alert(jqXHR.responseText);
+			// alert(jqXHR.status);
+			// alert(jqXHR.readyState);
+			// alert(jqXHR.statusText);
+			/* 弹出其他两个参数的信息 */
+			// alert(textStatus);
+			// alert(errorThrown);
+			hideLoading();
 		}
-	}
+	});
 }
 
+function fillCdata(alertData){
+//	alertData = JSON.parse(alertData);
+	console.log(alertData);
+	cdata = new Array();
+	var ser = ['序号','位号','报警实值','报警类型','服务器名','报警开始时间','连续报警时间','高报警线','低报警线','高高报警线','低低报警线'];
+	cdata.push(ser);
+	for(var i=0;i<alertData.length;i++){
+		var sd = new Array();
+		sd.push(i);
+		sd.push(alertData[i].tagName);
+		sd.push(Math.round(alertData[i].alertValue*10000)/10000);
+		sd.push(alertData[i].alertType);
+		sd.push(alertData[i].serverName);
+		sd.push(new Date(alertData[i].occuredTime));
+		sd.push(alertData[i].duration)
+		sd.push(alertData[i].hiLimit);
+		sd.push(alertData[i].loLimit);
+		sd.push(alertData[i].hihiLimit);
+		sd.push(alertData[i].loloLimit);
+		cdata.push(sd);
+	}
+}
+/**
+ * 总值
+ */
+var _data = new Array();
+var _dataCount = 1000;
+
+/**
+ * 当前值范围
+ */
+var cdata = new Array();
+var cdataCount = 10;
+
+//************************ 表格 *****************************
+
+function refreshDataTable(_cdata){
+	var _datatableUI = document.getElementById("_datatableUI");
+	_datatableUI.innerHTML = "";
+	var _thead = document.createElement("thead");
+	var _tbody = document.createElement("tbody");
+
+// console.log("refreshDataTable - _cdata "+JSON.stringify(_cdata));
+// alert();
+	for(var coli = 0;coli<_cdata.length;coli++){
+		var _tr = document.createElement("tr");  
+		for(var rowi = 0;rowi<_cdata[coli].length;rowi++){
+// console.log('fdsafdsa')
+			var _td = document.createElement("td"); 
+			var _value = _cdata[coli][rowi];
+			_td.innerText = _cdata[coli][rowi];// _timeStr;
+
+			_tr.append(_td);
+		}
+
+		// console.log(" _cdata[coli] "+JSON.stringify(_cdata[coli]));
+		if(_cdata[coli][0]=="time"){
+			_thead.append(_tr);
+			_datatableUI.prepend(_thead);
+		}
+		else
+			_tbody.append(_tr);
+	}
+	_datatableUI.append(_tbody);
+
+}
 //function refreshGage() {
 //	for (var indpl = 0; indpl < gl.length; indpl++) {
 //		gl[indpl].refresh(getRandomInt(50, 100));
@@ -89,6 +136,8 @@ function refreshData(data) {
 //}
 // setInterval(refreshGage, 1000);
 
+
+//************************ 右键菜单 *****************************
 /**
  * 右键菜单
  * 
@@ -154,6 +203,9 @@ function menuFunc(key, options) {
 		});
 })(jQuery);
 
+
+
+//************************ websocke *****************************
 // var _alertDataDetailKey = null;
 function setConnected(connected) {
 	// $("#connect").prop("disabled", connected);
@@ -166,8 +218,9 @@ function setConnected(connected) {
 	// $("#greetings").html("");
 }
 
-loginWebsocket();
 
+
+//loginWebsocket();
 function loginWebsocket() {
 	if(socket.readyState!=1){
 		alert("未连接。");
@@ -286,5 +339,82 @@ function pullUnreadMessage(destination) {
 			}
 		}
 	});
+}
+
+
+function newItemAction() {
+	alert("alertData.js newItemAction。 从mainPanel中调用的。");
+}
+
+//if (userSpace == null || userSpace == "undefined") {
+//	console.log("userSpace 为空，重新到服务器去取。");
+//	getUserSpace(user.id, token, updateAlertDataChart);
+//} else
+//	updateAlertDataChart(userSpace);
+
+
+//************************ 画仪表盘图形 *****************************
+/**
+ * 画点图
+ */
+function updateAlertDataChart(ruserSpace) {
+	var pointGroup = ruserSpace.alertData[_alertDataDetailKey];
+	var uialertDataPoints = document.getElementById("ui-alertDataPoints");
+	 console.log(" updateAlertDataChart => "+JSON.stringify(pointGroup));
+	if (pointGroup == null || pointGroup == "undefined")
+		return;
+	var pointList = pointGroup.pointList;
+	var innerHtml = "";
+	// console.log("pointList" + JSON.stringify(pointList));
+	for (var indpl = 0; indpl < pointList.length; indpl++) {
+// console.log(" updateAlertDataChart=> "+JSON.stringify(pointList[indpl]));
+		try{
+			// 页面加一块
+			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
+					+ pointList[indpl].tagName + '"></div></div>';
+			innerHtml += item;
+		}catch(e){
+			
+		}
+	}
+	uialertDataPoints.innerHTML = innerHtml;
+	console.log(uialertDataPoints.innerHTML);
+
+	for (var indpl = 0; indpl < pointList.length; indpl++) {
+		console.log();
+		// 对象加一条
+		var gt = new JustGage({
+			id : "point_" + pointList[indpl].tagName,
+			value : 0,
+			min : 0,
+			max : 100,
+			title : pointList[indpl].desc,//"一级电脱盐混合阀压差",
+			label : pointList[indpl].enunit,
+			donut : true,
+			gaugeWidthScale : 0.6,
+			counter : true,
+			hideInnerShadow : true
+		});
+		var _tagName_ = pointList[indpl].tagName;
+		charts[_tagName_] = indpl;
+		gl[indpl] = gt;
+	}
+}
+/**
+ * 刷新数据
+ * 
+ * @returns
+ */
+
+function refreshData(data) {
+	var pointList_ = JSON.parse(data.body);
+	for(var key in pointList_){
+		for(var p in gl){
+			//console.log(gl[p].config.id + "  ==  "+"point_" + key );
+			if(gl[p].config.id == "point_" + key){
+				gl[p].refresh(pointList_[key]);
+			}
+		}
+	}
 }
 

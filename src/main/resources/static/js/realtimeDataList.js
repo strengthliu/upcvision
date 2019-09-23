@@ -51,7 +51,7 @@ function deleteItemAction(itemId) {
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				var realTimeDataId = data.data.data;
 				fixLocalRealTimeDataList_Delete(realTimeDataId);
 				if(data.refresh) routeTo('realtimedataList','');
@@ -99,7 +99,7 @@ function doShareActionToServer(){
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				var realTimeData = data.data.data;
 				userSpace.realTimeData[realTimeData.id]=realTimeData;
@@ -176,9 +176,10 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		beforeSend : function() {
 			showLoading();
 		},
+		
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				console.log("realtimedata.js => submitNewDataItem 3");
 				var realTimeData = data.data.data;
@@ -371,5 +372,4 @@ function updateRealTimeDataListFrame(){
 						
 	
 	realtimeDataList_ui.innerHTML = realtimeDataList_ui_innerHTML;
-
 }

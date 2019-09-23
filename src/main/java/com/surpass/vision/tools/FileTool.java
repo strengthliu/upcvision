@@ -172,31 +172,23 @@ public class FileTool {
 //					System.out.println(doc.html());
 //				}
 				if (doc.select(GlobalConsts.GraphElement) != null) {
+					/**
 //					// 如果是图形文件，先删除所有js
-
-//					Elements scriptdocs = doc.getElementsByTag(GlobalConsts.ScriptElement);
-//					Elements scriptdocs = doc.getElementsByTag("script");
-//					System.out.println(fl.getWholePath());
 					Document doc1 = Jsoup.parse(HtmlParser.readHtml(fl.getWholePath()));
-//					System.out.println(doc1.html());
 					Elements scriptdocs = HtmlParser.getScriptElement(doc1);
 					if(scriptdocs!=null && scriptdocs.size()>0) {
-//						System.out.println(" script: "+scriptdocs.html());
-
 						for(int indscript=scriptdocs.size()-1;indscript>=0;indscript--) {
 							scriptdocs.get(indscript).remove();
 						}
 						String fileContent = doc.html();
 						fileContent.replace(" null", "");
-//						System.out.println("fileContent= "+ fileContent);
-						
 						file.delete();
 						file.createNewFile();
 						FileWriter fw = new FileWriter(file,true);
 						fw.write(fileContent);
 						fw.close();
 					}
-
+					 */
 					Elements docs = doc.getElementsByTag(GlobalConsts.PointTag);
 					for (int idocs = 0; idocs < docs.size(); idocs++) {
 						Element e = docs.get(idocs);

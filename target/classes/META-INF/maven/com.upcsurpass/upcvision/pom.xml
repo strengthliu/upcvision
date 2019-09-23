@@ -14,6 +14,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>upcvision</name>
 	<description>UPCVision project for Spring Boot</description>
+	<packaging>jar</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -175,6 +176,18 @@
 			<artifactId>commons-lang</artifactId>
 			<version>2.6</version>
 		</dependency>
+		<!-- 
+		<dependency>
+			<groupId>com.surpass.realkits</groupId>
+			<artifactId>realkits</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		 -->
+		<dependency>
+			<groupId>com.sun.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>4.5.1</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
 		<dependency>
@@ -182,59 +195,74 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.8.3</version>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>net.bramp.unsafe</groupId>
-			<artifactId>unsafe-helper</artifactId>
-			<version>1.0</version>
-		</dependency>
-		 -->
+		<!-- <dependency> <groupId>net.bramp.unsafe</groupId> <artifactId>unsafe-helper</artifactId> 
+			<version>1.0</version> </dependency> -->
 		<!-- API文档生成 Maven jar包引入方式 -->
 		<!-- <dependency> <groupId>com.apidoc</groupId> <artifactId>apidoc</artifactId> 
 			<version>1.0.0</version> <scope>system</scope> <systemPath>${project.basedir}/src/main/resources/lib/apidoc-1.0.0.jar</systemPath> 
 			</dependency> -->
 
 		<!-- https://mvnrepository.com/artifact/com.alexkasko.unsafe/unsafe-tools -->
-		<!-- 
-		<dependency>
-			<groupId>com.alexkasko.unsafe</groupId>
-			<artifactId>unsafe-tools</artifactId>
-			<version>1.2</version>
-		</dependency>
- 		-->
+		<!-- <dependency> <groupId>com.alexkasko.unsafe</groupId> <artifactId>unsafe-tools</artifactId> 
+			<version>1.2</version> </dependency> -->
 	</dependencies>
 
 	<build>
 		<plugins>
+			<!-- <plugin> <groupId>org.asciidoctor</groupId> <artifactId>asciidoctor-maven-plugin</artifactId> 
+				<version>1.5.3</version> <executions> <execution> <id>generate-docs</id> 
+				<phase>prepare-package</phase> <goals> <goal>process-asciidoc</goal> </goals> 
+				<configuration> <backend>html</backend> <doctype>book</doctype> </configuration> 
+				</execution> </executions> <dependencies> <dependency> <groupId>org.springframework.restdocs</groupId> 
+				<artifactId>spring-restdocs-asciidoctor</artifactId> <version>${spring-restdocs.version}</version> 
+				</dependency> </dependencies> </plugin> -->
+			<!-- <plugin> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-maven-plugin</artifactId> 
+				</plugin> -->
 			<plugin>
-				<groupId>org.asciidoctor</groupId>
-				<artifactId>asciidoctor-maven-plugin</artifactId>
-				<version>1.5.3</version>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin </artifactId>
+				<configuration>
+					<fork>true</fork>
+					<mainClass>com.surpass.vision.UpcvisionApplication</mainClass>
+				</configuration>
 				<executions>
 					<execution>
-						<id>generate-docs</id>
-						<phase>prepare-package</phase>
 						<goals>
-							<goal>process-asciidoc</goal>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>com.surpass.vision.UpcvisionApplication</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-							<backend>html</backend>
-							<doctype>book</doctype>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>org.springframework.restdocs</groupId>
-						<artifactId>spring-restdocs-asciidoctor</artifactId>
-						<version>${spring-restdocs.version}</version>
-					</dependency>
-				</dependencies>
 			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
+
 		</plugins>
 	</build>
 

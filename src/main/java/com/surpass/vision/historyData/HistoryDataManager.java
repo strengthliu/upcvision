@@ -1,6 +1,9 @@
 package com.surpass.vision.historyData;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -16,7 +19,7 @@ import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.AlertData;
 import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.domain.PointGroupData;
-import com.surpass.vision.domain.RealTimeData;
+import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.domain.User;
 import com.surpass.vision.graph.GraphManager;
@@ -32,6 +35,7 @@ import com.surpass.vision.service.RedisService;
 import com.surpass.vision.tools.IDTools;
 import com.surpass.vision.user.UserManager;
 import com.surpass.vision.userSpace.UserSpaceManager;
+import com.surpass.vision.utils.Newton_interpolation;
 
 @Component
 public class HistoryDataManager extends PointGroupDataManager {
@@ -49,7 +53,8 @@ public class HistoryDataManager extends PointGroupDataManager {
 	@Autowired
 	PointGroupService pointGroupService;
 
-	
+	@Autowired
+	ServerManager serverManager;
 	
 	public HistoryData copyFromPointGroupData(PointGroupData pgd) {
 		if (pgd == null)
@@ -118,7 +123,7 @@ public class HistoryDataManager extends PointGroupDataManager {
 		String[] keys = IDTools.splitID(HistoryDataID);
 		for (int ik = 0; ik < keys.length; ik++) {
 			// 从缓存里取图
-			HistoryData g = getRealTimeDataRigidlyByKey(keys[ik]);
+			HistoryData g = getHistoryDataRigidlyByKey(keys[ik]);
 			if (g == null) {
 				// 再设置缓存
 			}else
@@ -128,7 +133,7 @@ public class HistoryDataManager extends PointGroupDataManager {
 	}
 
 
-	private HistoryData getRealTimeDataRigidlyByKey(String idstr) {
+	private HistoryData getHistoryDataRigidlyByKey(String idstr) {
 		if(StringUtil.isBlank(idstr)) {
 			throw new IllegalStateException("id不能为空。");
 		}
@@ -142,8 +147,8 @@ public class HistoryDataManager extends PointGroupDataManager {
 		return ret;
 	}
 	
-	public RealTimeData getRealTimeDataByKeys(Double oldRtdId) {
-		RealTimeData rtd = (RealTimeData)redisService.get(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(oldRtdId));
+	public HistoryData getHistoryDataByKeys(Double oldRtdId) {
+		HistoryData rtd = (HistoryData)redisService.get(GlobalConsts.Key_HistoryData_pre_+IDTools.toString(oldRtdId));
 		return rtd;
 	}
 	
@@ -190,11 +195,6 @@ public class HistoryDataManager extends PointGroupDataManager {
 		}
 		
 		return ret;
-	}
-
-	public HistoryData getHistoryDataByKeys(Double oldRtdId) {
-		HistoryData rtd = (HistoryData)redisService.get(GlobalConsts.Key_HistoryData_pre_+IDTools.toString(oldRtdId));
-		return rtd;
 	}
 
 	public HistoryData deleteHistoryData(String oldRtdIdStr) {
@@ -249,9 +249,93 @@ public class HistoryDataManager extends PointGroupDataManager {
 	public void updateHistoryData(HistoryData rtd) {
 		// 更新数据库
 		pointGroupService.updatePointGroupItem(rtd);
-		// 写缓存RealTimeData，返回
+		// 写缓存HistoryData，返回
 		redisService.set(GlobalConsts.Key_HistoryData_pre_+IDTools.toString(rtd.getId()),rtd);
 	}
 
+	public ArrayList getHistoryData(Double rtdId,long beginTime,long endTime) {
+		ArrayList ret = new ArrayList();
+		// 取出服务器和id
+		HistoryData rtd = this.getHistoryDataByKeys(rtdId);
+		List<Point> lp = rtd.getPointList();
+		
+		ArrayList[] dsy = new ArrayList[lp.size()];
+		ArrayList<Long>[] dstime1 = new ArrayList[lp.size()];
+		ArrayList<Long>[] dstime2 = new ArrayList[lp.size()];
+		// 循环取数据
+		for(int pointInd=0;pointInd<lp.size();pointInd++) {
+			String srvName = lp.get(pointInd).getServerName();
+			String tagName = lp.get(pointInd).getTagName();
+			long id = lp.get(pointInd).getId();
+	
+			HashMap<Long,Double> pd = serverManager.getPointHistoryValue(srvName, tagName, id, beginTime, endTime);
+			List<Long> lts = new ArrayList<Long>(pd.keySet());
+			Collections.sort(lts);
+			if(dsy[pointInd]==null) dsy[pointInd]=new ArrayList<Double>();
+			if(dstime1[pointInd]==null) dstime1[pointInd]=new ArrayList<Long>();
+			for(int indlts=0;indlts<lts.size();indlts++) {
+				dsy[pointInd].add(pd.get(lts.get(indlts)));
+				dstime1[pointInd].add(lts.get(indlts));
+			}
+		}
+		// 组织返回值
+		// 整理时间轴
+		ArrayList time=new ArrayList(); // 总时间轴
+		for(int pointInd=0;pointInd<lp.size();pointInd++) {
+			time.addAll(dstime1[pointInd]);
+		}
+//		Long[] atime = new Long[time.size()];
+		Long[] atime = (Long[]) time.toArray(new Long[time.size()]);
+		
+		// 整理数据
+		for(int pointInd=0;pointInd<lp.size();pointInd++) {
+			if(dstime2[pointInd]==null) dstime2[pointInd]= new ArrayList();
+			for(int itime=0;itime<time.size();itime++) {
+				if(!dstime1[pointInd].contains(time.get(itime))) {
+					dsy[pointInd].add(itime, null);
+					dstime2[pointInd].add((Long) time.get(itime));
+				}
+			}
+			
+		}
 
+		// 插值
+		for(int pointInd=0;pointInd<lp.size();pointInd++) {
+			Long[] _x = (Long[]) dstime2[pointInd].toArray(new Long[dstime2[pointInd].size()]);
+			Double[] _x_ = Newton_interpolation.castLongArrayToDoubleArray(_x);
+			Double[] _y = (Double[]) dsy[pointInd].toArray(new Double[dsy[pointInd].size()]);
+			Double[] _x0 = (Double[]) dstime2[pointInd].toArray(new Double[dstime2[pointInd].size()]);
+			Double[] _y0 = Newton_interpolation.Newton_inter_method(_x_,_y,_x0);
+			
+			for(int itime2=0;itime2<dstime2[pointInd].size();itime2++) {
+				int ind = inserToListOrdered(dstime2[pointInd].get(itime2),dstime1[pointInd]);
+				dsy[pointInd].add(ind, _y0[itime2]);
+			}
+		}
+
+		time.add(0, "time");
+		ret.add(time);
+		for(int pointInd=0;pointInd<lp.size();pointInd++) {
+			dsy[pointInd].add(0, lp.get(pointInd).getTagName());
+			ret.add(dsy[pointInd]);
+		}
+		return ret;
+	}
+
+
+	public int inserToListOrdered(Long e,ArrayList<Long> es) {
+		if(e<es.get(0)){
+			es.add(0, e);
+			return 0;
+		} 
+		
+		for(int i=0;i<es.size();i++) {
+			if(e>es.get(i)) {
+				es.add(i,e);
+				return i;
+			}
+		}
+		
+		return 0;
+	}
 }

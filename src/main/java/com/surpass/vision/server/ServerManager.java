@@ -3,8 +3,13 @@ package com.surpass.vision.server;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
+import java.nio.DoubleBuffer;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 
 import org.jsoup.helper.StringUtil;
@@ -12,8 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Reference;
 import org.springframework.stereotype.Component;
 
+import com.sun.jna.NativeLong;
 import com.surpass.realkits.JGecService;
 import com.surpass.realkits.exception.GecException;
+import com.surpass.vision.domain.PointAlertData;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.tools.EncodingTools;
@@ -243,6 +250,41 @@ public class ServerManager {
 		
 	}
 
+	/**
+	 * 取指定点位的历史值
+	 * @param srvName
+	 * @param tagName
+	 * @param id
+	 * @param beginTime
+	 * @param endTime
+	 */
+	public HashMap<Long, Double> getPointHistoryValue(String srvName,String tagName,long id,long beginTime,long endTime) {
+		HashMap<Long, Double> ret = new HashMap<Long, Double>();
+		List<Double> pValueArray = new ArrayList<Double>(); 
+		int size = Math.round((endTime - beginTime) /1000)+1;
+		List<Long> pnValueTimeArray = new ArrayList<Long>();
+		try {
+			gec.DBECGetTagRealHistory(srvName, tagName, id, beginTime/1000, endTime/1000, pValueArray, size, pnValueTimeArray);
+		} catch (GecException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("pValueArray.size() = "+pValueArray.size());
+		pValueArray.removeAll(Collections.singleton(null));
+		pnValueTimeArray.removeAll(Collections.singleton(null));
+		if(pValueArray.size() == pnValueTimeArray.size()) {
+			for(int i=0;i<pValueArray.size();i++) {
+				ret.put(pnValueTimeArray.get(i),pValueArray.get(i));
+			}
+		} else {
+			System.out.println("查询历史值时，返回的时间和值不对应。");
+		}
+	
+		return ret;
+	}
+
+
+	
 	public List getPointValue(String srvName, List<Long> idList, String fieldName) {
 		// TODO Auto-generated method stub
 		if (StringUtil.isBlank(fieldName))
@@ -251,18 +293,126 @@ public class ServerManager {
 		try {
 			return gec.DBECBatchGetTagRealField(srvName, idList, fieldName);
 		} catch (GecException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
-
 	}
-
+	
 	public static boolean hasServerName(String serverName) {
 		if (servers.containsKey(serverName))
 			return true;
 		else
 			return false;
+	}
+
+	
+	public List<PointAlertData> getPointAlertData(List<Point> pl) {
+		List<PointAlertData> ret = new ArrayList<PointAlertData>();
+		int nArraySize = pl.size();
+		HashMap<Long,Point> ph = new HashMap<Long,Point>();
+		Hashtable<String,List<Long>> sps = new Hashtable<String,List<Long>>();
+		for(int ind=0;ind<pl.size();ind++) {
+			ph.put(pl.get(ind).getId(), pl.get(ind));
+			String lpszServerName = pl.get(ind).getServerName();
+			if(sps.contains(lpszServerName)) {
+				sps.get(lpszServerName).add(pl.get(ind).getId());
+			} else {
+				ArrayList<Long> il = new ArrayList<Long>();
+				il.add(pl.get(ind).getId());
+				sps.put(lpszServerName, il);
+			}
+		}
+		for(Iterator<String> iterator=sps.keySet().iterator();iterator.hasNext();){
+			String lpszServerName=iterator.next();
+			
+			List<Long> pnTagIDArray = sps.get(lpszServerName);
+			List<Long> pAlarmTypeArray = new ArrayList<Long>();
+			List<Double> pValueArray = new ArrayList<Double>();
+			List<Long> pOccuredTimeArray = new ArrayList<Long>();
+			try {
+				gec.DBACGetCurrentAlarm(lpszServerName, pnTagIDArray, pAlarmTypeArray, nArraySize, pValueArray, pOccuredTimeArray);
+			
+				List<Double> hihiLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HIHILIMIT");
+				List<Double> hiLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HILIMIT");
+				List<Double> loloLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLOLIMIT");
+				List<Double> loLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLIMIT");
+				long serverTime = gec.DBECGetServerCurrentTime(lpszServerName);
+				for(int i=0;i<pnTagIDArray.size();i++) {
+					PointAlertData pad = new PointAlertData(ph.get(pnTagIDArray.get(i)));
+					pad.setOccuredTime(pOccuredTimeArray.get(i));
+					pad.setDuration(serverTime - pOccuredTimeArray.get(i));
+					pad.setAlertValue(pValueArray.get(i));
+					pad.setAlertType(pAlarmTypeArray.get(i));
+					pad.setHihiLimit(hihiLimit.get(i));
+					pad.setHiLimit(hiLimit.get(i));
+					pad.setLoLimit(loLimit.get(i));
+					pad.setLoloLimit(loloLimit.get(i));
+					ret.add(pad);
+				}
+			} catch (GecException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return ret;
+	}
+	
+	public List<PointAlertData> getHistoryPointAlertData(List<Point> pl, Long nBeginTime, Long nEndTime) {
+		List<PointAlertData> ret = new ArrayList<PointAlertData>();
+		int nArraySize = pl.size();
+		HashMap<Long,Point> ph = new HashMap<Long,Point>();
+		Hashtable<String,List<Long>> sps = new Hashtable<String,List<Long>>();
+		for(int ind=0;ind<pl.size();ind++) {
+			ph.put(pl.get(ind).getId(), pl.get(ind));
+			String lpszServerName = pl.get(ind).getServerName();
+			if(sps.contains(lpszServerName)) {
+				sps.get(lpszServerName).add(pl.get(ind).getId());
+			} else {
+				ArrayList<Long> il = new ArrayList<Long>();
+				il.add(pl.get(ind).getId());
+				sps.put(lpszServerName, il);
+			}
+		}
+		for(Iterator<String> iterator=sps.keySet().iterator();iterator.hasNext();){
+			String lpszServerName=iterator.next();
+			
+			List<Long> pnTagIDArray = sps.get(lpszServerName);
+			List<Long> pnAlarmTagIDArray = new ArrayList<Long>();
+			List<Long> pnAlarmCount = new ArrayList<Long>();
+			List<Long> pAlarmBeginTimeArray = new ArrayList<Long>();
+			List<Long> pAlarmEndTimeArray = new ArrayList<Long>();
+			List<Long> pAlarmTypeArray = new ArrayList<Long>();
+			List<Double> pValueArray = new ArrayList<Double>();
+			List<Long> pOccuredTimeArray = new ArrayList<Long>();
+			try {
+//				gec.DBACGetCurrentAlarm(lpszServerName, pnTagIDArray, pAlarmTypeArray, nArraySize, pValueArray, pOccuredTimeArray);
+				gec.DBACGetHistoryAlarm(lpszServerName, pnTagIDArray, nBeginTime, nEndTime, pnAlarmTagIDArray, nArraySize, pnAlarmCount, pAlarmBeginTimeArray, pAlarmEndTimeArray, pAlarmTypeArray);
+				
+				List<Double> hihiLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HIHILIMIT");
+				List<Double> hiLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HILIMIT");
+				List<Double> loloLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLOLIMIT");
+				List<Double> loLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLIMIT");
+
+				for(int i=0;i<nArraySize;i++) {
+					PointAlertData pad = new PointAlertData(ph.get(pnTagIDArray.get(i)));
+					pad.setOccuredTime(pOccuredTimeArray.get(i));
+					pad.setAlertValue(pValueArray.get(i));
+					pad.setAlertType(pAlarmTypeArray.get(i));
+					pad.setHihiLimit(hihiLimit.get(i));
+					pad.setHiLimit(hiLimit.get(i));
+					pad.setLoLimit(loLimit.get(i));
+					pad.setLoloLimit(loloLimit.get(i));
+					pad.setAlertBeginTime(pAlarmBeginTimeArray.get(i));
+					pad.setAlertEndTime(pAlarmEndTimeArray.get(i));
+					ret.add(pad);
+				}			
+			} catch (GecException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return ret;
 	}
 
 }

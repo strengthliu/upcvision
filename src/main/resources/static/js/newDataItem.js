@@ -31,9 +31,7 @@ if(serverList == null || serverList=="undefined"){
 			},
 			// 成功返回之后调用的函数
 			success : function(data) {
-				if (data.status == GlobalConsts.ResultCode_SUCCESS) {
-					// console.log("server info :
-					// "+JSON.stringify(data.data.data));
+				if (data.status == "000"){
 					serverList = data.data.data;
 					// console.log(JSON.stringify(serverList));
 					buildNewItemUI(serverList);

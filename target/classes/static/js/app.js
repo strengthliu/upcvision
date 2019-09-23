@@ -29,10 +29,16 @@ for (var k in o) {
 return fmt;
 }
 
+
+
 var userSpace = null;
 var serverList = null;
 var users = null;
 var userInfoList = null;
+var token;
+var user;
+var _galleryKey = null;
+
 
 
 /**
@@ -47,6 +53,15 @@ var connected;
 var socketRetryTimes = 3;
 
 connect();
+function checkToken(){
+	if(localStorage.user != null && localStorage.user != "undefined")
+		user = JSON.parse(localStorage.user);
+	if(localStorage.token != null && localStorage.token != "undefined")
+		token = localStorage.token;
+	// 如果没有token或user，通过检查权限，将重新登录。
+	if(user == null || token == null)
+		checkRight();
+}
 //避免刷新时
 function connect(callback) {
 	console.log(" app.js connect....");
@@ -56,7 +71,7 @@ function connect(callback) {
 //	}
 	socket = new SockJS('/socketServer');
 	stompClient = Stomp.over(socket);
-
+	checkToken();
 	sessionStorage.setItem('token', token);// 设置指定session值
 	sessionStorage.setItem('uid', user.id);// 设置指定session值
 
@@ -171,7 +186,7 @@ function loginByUserPassWord(uname, pwd) {
 		// 成功返回之后调用的函数
 		success : function(data) {
 			//console.log("登录成功返回： " + data);
-			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){//GlobalConsts.ResultCode_SUCCESS) {
 				// us = data.data;
 				userSpace = data.data.userSpace;
 				user = userSpace.user;
@@ -232,7 +247,7 @@ function getUserSpace(uid, token, sucessFucn) {
 		// 成功返回之后调用的函数
 		success : function(data) {
 			// console.log(JSON.stringify(data));
-			if (data.status != GlobalConsts.ResultCode_SUCCESS) { // 不成功
+			if (data.status != "000"){//GlobalConsts.ResultCode_SUCCESS) { // 不成功
 				alert(data.msg);
 				window.location.href = "login.html";
 
@@ -286,7 +301,7 @@ function checkRight(uid, token, loginPage,sucessPage) {
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status != GlobalConsts.ResultCode_SUCCESS) { // 不成功
+			if (data.status != "000"){//GlobalConsts.ResultCode_SUCCESS) { // 不成功
 				// alert(data.msg);
 				localStorage.user = null;
 				localStorage.token = null;

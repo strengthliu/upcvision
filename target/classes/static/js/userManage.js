@@ -41,7 +41,7 @@ function initLeftList() {
 			// 成功返回之后调用的函数
 			success : function(data) {
 				// console.log("登录成功返回： " + data);
-				if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+				if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 					// us = data.data;
 					userInfoList = data.data.users;
 					_userInfoList = userInfoList;
@@ -305,7 +305,7 @@ function deleteCurrentUser(){
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				
 				console.log(userInfoList);
 				var _userInfoList = new Array();
@@ -371,7 +371,7 @@ function updateUserInfoToServer(){
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				var d = data.data.data;
 				userInfoList.push(d);
 //				console.log(JSON.stringify(userInfoList));

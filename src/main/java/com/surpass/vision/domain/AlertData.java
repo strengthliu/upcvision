@@ -9,4 +9,5 @@ public class AlertData extends PointGroup implements Serializable {
 		super();
 		this.setType(GlobalConsts.Type_alertdata_);
 	}
+	
 }

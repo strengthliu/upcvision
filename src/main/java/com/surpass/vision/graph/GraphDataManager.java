@@ -392,6 +392,7 @@ public class GraphDataManager extends PointGroupDataManager {
 			while (nk.startsWith("\\"))
 				nk = nk.substring(1);
 			// if(nk.length()<=0) return ret1;
+			
 			ArrayList<Graph> gs = ret.get(nk);
 			if (gs == null)
 				gs = new ArrayList<Graph>();

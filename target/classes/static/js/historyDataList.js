@@ -55,7 +55,7 @@ console.log("deleteItemAction");
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				var historyDataId = data.data.data;
 				fixLocalHistoryDataList_Delete(historyDataId);
 				if(data.refresh) routeTo('historydataList','');
@@ -129,7 +129,7 @@ function submitNewDataItem(selectedPoints,_selectedPoints, targetName, targetDes
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				console.log("historydata.js => submitNewDataItem 3");
 				var historyData = data.data.data;

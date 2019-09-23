@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.surpass.vision.mapper.UserSpaceDataMapper">
+  <resultMap id="BaseResultMap" type="com.surpass.vision.domain.UserSpaceData">
+    <id column="uid" jdbcType="FLOAT" property="uid" />
+    <result column="right" jdbcType="VARCHAR" property="right" />
+    <result column="graphs" jdbcType="VARCHAR" property="graphs" />
+    <result column="xygraph" jdbcType="VARCHAR" property="xygraph" />
+    <result column="realtimedata" jdbcType="VARCHAR" property="realtimedata" />
+    <result column="alertdata" jdbcType="VARCHAR" property="alertdata" />
+    <result column="historydata" jdbcType="VARCHAR" property="historydata" />
+    <result column="linealertdata" jdbcType="VARCHAR" property="linealertdata" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    uid, right, graphs, xygraph, realtimedata, alertdata, historydata, linealertdata
+  </sql>
+  <select id="selectByExample" parameterType="com.surpass.vision.domain.UserSpaceDataExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_userSpace
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Double" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_userSpace
+    where uid = #{uid,jdbcType=FLOAT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Double">
+    delete from t_userSpace
+    where uid = #{uid,jdbcType=FLOAT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.surpass.vision.domain.UserSpaceDataExample">
+    delete from t_userSpace
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.surpass.vision.domain.UserSpaceData">
+    insert into t_userSpace (uid, right, graphs, 
+      xygraph, realtimedata, alertdata, 
+      historydata, linealertdata)
+    values (#{uid,jdbcType=FLOAT}, #{right,jdbcType=VARCHAR}, #{graphs,jdbcType=VARCHAR}, 
+      #{xygraph,jdbcType=VARCHAR}, #{realtimedata,jdbcType=VARCHAR}, #{alertdata,jdbcType=VARCHAR}, 
+      #{historydata,jdbcType=VARCHAR}, #{linealertdata,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.surpass.vision.domain.UserSpaceData">
+    insert into t_userSpace
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="right != null">
+        right,
+      </if>
+      <if test="graphs != null">
+        graphs,
+      </if>
+      <if test="xygraph != null">
+        xygraph,
+      </if>
+      <if test="realtimedata != null">
+        realtimedata,
+      </if>
+      <if test="alertdata != null">
+        alertdata,
+      </if>
+      <if test="historydata != null">
+        historydata,
+      </if>
+      <if test="linealertdata != null">
+        linealertdata,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=FLOAT},
+      </if>
+      <if test="right != null">
+        #{right,jdbcType=VARCHAR},
+      </if>
+      <if test="graphs != null">
+        #{graphs,jdbcType=VARCHAR},
+      </if>
+      <if test="xygraph != null">
+        #{xygraph,jdbcType=VARCHAR},
+      </if>
+      <if test="realtimedata != null">
+        #{realtimedata,jdbcType=VARCHAR},
+      </if>
+      <if test="alertdata != null">
+        #{alertdata,jdbcType=VARCHAR},
+      </if>
+      <if test="historydata != null">
+        #{historydata,jdbcType=VARCHAR},
+      </if>
+      <if test="linealertdata != null">
+        #{linealertdata,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.surpass.vision.domain.UserSpaceDataExample" resultType="java.lang.Long">
+    select count(*) from t_userSpace
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_userSpace
+    <set>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=FLOAT},
+      </if>
+      <if test="record.right != null">
+        right = #{record.right,jdbcType=VARCHAR},
+      </if>
+      <if test="record.graphs != null">
+        graphs = #{record.graphs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xygraph != null">
+        xygraph = #{record.xygraph,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realtimedata != null">
+        realtimedata = #{record.realtimedata,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alertdata != null">
+        alertdata = #{record.alertdata,jdbcType=VARCHAR},
+      </if>
+      <if test="record.historydata != null">
+        historydata = #{record.historydata,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linealertdata != null">
+        linealertdata = #{record.linealertdata,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_userSpace
+    set uid = #{record.uid,jdbcType=FLOAT},
+      right = #{record.right,jdbcType=VARCHAR},
+      graphs = #{record.graphs,jdbcType=VARCHAR},
+      xygraph = #{record.xygraph,jdbcType=VARCHAR},
+      realtimedata = #{record.realtimedata,jdbcType=VARCHAR},
+      alertdata = #{record.alertdata,jdbcType=VARCHAR},
+      historydata = #{record.historydata,jdbcType=VARCHAR},
+      linealertdata = #{record.linealertdata,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.surpass.vision.domain.UserSpaceData">
+    update t_userSpace
+    <set>
+      <if test="right != null">
+        right = #{right,jdbcType=VARCHAR},
+      </if>
+      <if test="graphs != null">
+        graphs = #{graphs,jdbcType=VARCHAR},
+      </if>
+      <if test="xygraph != null">
+        xygraph = #{xygraph,jdbcType=VARCHAR},
+      </if>
+      <if test="realtimedata != null">
+        realtimedata = #{realtimedata,jdbcType=VARCHAR},
+      </if>
+      <if test="alertdata != null">
+        alertdata = #{alertdata,jdbcType=VARCHAR},
+      </if>
+      <if test="historydata != null">
+        historydata = #{historydata,jdbcType=VARCHAR},
+      </if>
+      <if test="linealertdata != null">
+        linealertdata = #{linealertdata,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=FLOAT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.surpass.vision.domain.UserSpaceData">
+    update t_userSpace
+    set right = #{right,jdbcType=VARCHAR},
+      graphs = #{graphs,jdbcType=VARCHAR},
+      xygraph = #{xygraph,jdbcType=VARCHAR},
+      realtimedata = #{realtimedata,jdbcType=VARCHAR},
+      alertdata = #{alertdata,jdbcType=VARCHAR},
+      historydata = #{historydata,jdbcType=VARCHAR},
+      linealertdata = #{linealertdata,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=FLOAT}
+  </update>
+</mapper>
