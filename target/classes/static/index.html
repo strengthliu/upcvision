@@ -11,6 +11,8 @@
 	href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet"
 	href="vendors/iconfonts/puse-icons-feather/feather.css">
+<link rel="stylesheet" href="vendors/iconfonts/simple-line-icon/css/simple-line-icons.css">
+	
 <link rel="stylesheet" href="css/jquery.datetimepicker.css">
 <link rel="stylesheet" href="css/c3.css">
 <!-- endinject -->
@@ -21,6 +23,7 @@
 	href="vendors/iconfonts/puse-icons-feather/feather.css">
 <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
 <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
+
 <!-- endinject -->
 <!-- inject:css -->
 <link rel="stylesheet" href="css/style.css">
@@ -102,6 +105,15 @@
 					<li class="nav-item d-none d-lg-block"><a class="nav-link">
 							<i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
 					</a></li>
+					
+					<li class="nav-item d-none d-lg-block" onclick="stepBackward();"><a class="nav-link">
+							<i class="mdi mdi-step-backward" id="stepBackward"></i>
+					</a></li>
+					<li class="nav-item d-none d-lg-block"  onclick="stepForward();"><a class="nav-link">
+							<i class="mdi mdi-step-forward" id="stepForward"></i>
+					</a></li>
+					
+					<!-- 
 					<li class="nav-item">
 						<form
 							class="nav-link form-inline mt-2 mt-md-0 d-none d-lg-flex search">
@@ -109,6 +121,7 @@
 								placeholder="Search for something...">
 						</form>
 					</li>
+					 -->
 				</ul>
 
 				<ul class="navbar-nav navbar-nav-right">
@@ -418,6 +431,7 @@
 						</div></li>
 
 					<script>
+					//console.log("begin to build left navigator");
 						updateDiagram();
 						updateXYDiagram();
 						updateRealTimeData();

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
-import com.surpass.vision.appCfg.Config;
+import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.AlertData;
 import com.surpass.vision.domain.LineAlertData;
 import com.surpass.vision.domain.RealTimeData;
@@ -28,7 +28,7 @@ public class ToWeb {
         data = new HashMap<>();
         refresh = false;
         back = false;
-        status = Config.SUCCESS;
+        status = GlobalConsts.ResultCode_SUCCESS;
     }
 
     public static ToWeb buildResult(){

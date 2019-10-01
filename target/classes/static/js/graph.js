@@ -1,8 +1,29 @@
 /**
  * 
  */
-
-
+//var atags = document.getElementsByTagName("a");
+//for(var inda = 0;inda<atags.length;inda++){
+//	console.log("tag"+inda+" = ");
+//	console.log(JSON.stringify(Object.keys(atags[inda])));
+////	alert(atags[inda].attributes["xlink"]);
+//	atags[inda].onclick=function(){
+//		//atags[inda]
+////		alert(this.attributes["xlink:href"]);
+//		return false;
+//	}
+//}
+//编辑文章时阻止a标签跳转
+$(document).find("a").click(function(e){
+    //如果提供了事件对象，则这是一个非IE浏览器 
+        if ( e && e.preventDefault ) {
+                    //阻止默认浏览器动作(W3C) 
+                    e.preventDefault(); 
+            }else{
+                //IE中阻止函数器默认动作的方式 
+                window.event.returnValue = false; 
+                return false;
+            }    
+    });
 //
 /**
  * 右键菜单

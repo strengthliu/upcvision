@@ -75,7 +75,7 @@ public class GraphController extends BaseController {
 
 		// 先到用户空间里找，没有就建用户空间，
 		if (us != null) {
-			Hashtable<String, ArrayList<Graph>> data = us.getGraphs();
+			Graph data = us.getGraph();
 			ret.setMsg("成功");
 			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
 //				ret.setData();

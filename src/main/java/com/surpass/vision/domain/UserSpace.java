@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
@@ -13,7 +14,9 @@ public class UserSpace implements Serializable {
 	/**
 	 * 用户可见的图
 	 */
-	Hashtable<String, ArrayList<Graph>> graphs;
+//	ArrayList<Graph> graphs;
+	Graph graph;
+	
 	Hashtable<String,HistoryData> historyData;
 	Hashtable<String,LineAlertData> lineAlertData;
 	Hashtable<String,RealTimeData> realTimeData;
@@ -50,9 +53,9 @@ public class UserSpace implements Serializable {
 		return alertData;
 	}
 
-	public Hashtable<String, ArrayList<Graph>> getGraphs() {
-		return graphs;
-	}
+//	public Hashtable<String, ArrayList<Graph>> getGraphs() {
+//		return graphs;
+//	}
 
 	public Hashtable<String, HistoryData> getHistoryData() {
 		return historyData;
@@ -86,9 +89,9 @@ public class UserSpace implements Serializable {
 		this.alertData = alertData;
 	}
 
-	public void setGraphs(Hashtable<String, ArrayList<Graph>> graphs) {
-		this.graphs = graphs;
-	}
+//	public void setGraphs(Hashtable<String, ArrayList<Graph>> graphs) {
+//		this.graphs = graphs;
+//	}
 
 	public void setHistoryData(Hashtable<String, HistoryData> historyData) {
 		this.historyData = historyData;
@@ -123,21 +126,33 @@ public class UserSpace implements Serializable {
 		return null;
 	}
 
+	/**
+	 * 创建用户空间。
+	 * @return
+	 */
 	public UserSpaceData createUserSpaceData() {
 		UserSpaceData usd = new UserSpaceData();
 		usd.setUid(this.user.getId());
 		int count = 0;
 		// graphs
-		Enumeration<String> egraphs = this.graphs.keys();
-		String graphs = "";
-		while(egraphs.hasMoreElements()) {
-			graphs += egraphs.nextElement().toString();
-			count++;
-			if(count<this.graphs.size())
-				graphs += GlobalConsts.Key_splitChar;
+//		Enumeration<String> egraphs = this.graphs.keys();
+//		String graphs = "";
+//		while(egraphs.hasMoreElements()) {
+//			graphs += egraphs.nextElement().toString();
+//			count++;
+//			if(count<this.graphs.size())
+//				graphs += GlobalConsts.Key_splitChar;
+//		}
+//		count = 0;
+//		usd.setGraphs(graphs);
+		String idsStr = "";
+		List<Double> ids = this.graph.getIDList(null);
+		for(int i=0;i<ids.size();i++) {
+			idsStr = idsStr + GlobalConsts.Key_splitChar + ids.get(i);
 		}
-		count = 0;
-		usd.setGraphs(graphs);
+		if(idsStr.length()>=1)
+			idsStr = idsStr.substring(1);
+		usd.setGraphs(idsStr);
 
 		// historydata
 		Enumeration<String> ehistory = this.historyData.keys();
@@ -201,6 +216,14 @@ public class UserSpace implements Serializable {
 		usd.setAlertdata(alertdata);
 
 		return usd;
+	}
+
+	public Graph getGraph() {
+		return graph;
+	}
+
+	public void setGraph(Graph graph) {
+		this.graph = graph;
 	}
 
 	public boolean canDelete() {

@@ -3,6 +3,7 @@
  */
 	/* 刷新流程图目录结构*/
 	function updateDiagram() {
+		console.log("updateDiagram");
 		if (userSpace != null && userSpace != "undefined") {
 			// console.log("userSpace is not null");
 			doUpdateDiagram(userSpace);
@@ -21,7 +22,8 @@
 		
 		//// console.log(JSON.stringify(userSpace));
 		/* 刷新流程图目录结构*/
-		var diagrams = userSpace.graphs;
+		var diagrams = userSpace.graph.children;
+		console.log("diagrams = "+JSON.stringify(diagrams))
 		if(diagrams == null || diagrams == "undefined") diagrams = {};
 		var uiDiagram = document.getElementById("ui-diagram");
 

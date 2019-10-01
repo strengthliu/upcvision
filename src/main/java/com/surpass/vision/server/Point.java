@@ -3,6 +3,8 @@ package com.surpass.vision.server;
 import java.io.Serializable;
 import java.util.Hashtable;
 
+import com.surpass.vision.appCfg.GlobalConsts;
+
 public class Point implements Serializable {
 	Long id;
 	String tagName;
@@ -63,4 +65,7 @@ public class Point implements Serializable {
 
 	Hashtable<String,Float> values;
 	
+	public String wholeName() {
+		return this.serverName + GlobalConsts.Key_splitCharServerPoint + this.tagName;
+	}
 }

@@ -66,5 +66,9 @@ public interface PointGroupDataMapper {
     @ResultMap("BaseResultMap")
 	PointGroupData selectByName(@Param("name") String name);
 
+    @Select("select distinct * from t_pointGroup where type=#{type} and otherRule1=#{wholePath}")
+    @ResultMap("BaseResultMap")
+	PointGroupData selectByTypeAndOtherRule1(@Param("type") String type, @Param("wholePath") String wholePath);
+
     
 }

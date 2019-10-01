@@ -128,12 +128,16 @@ public class PointGroup extends PointGroupData implements Serializable{
 
 	public List<String> removeUser(Double id2) {
 		ArrayList<String> ret = new ArrayList<String>();
+		ArrayList<User> us = new ArrayList<User>();
 		for(int i=0;i<sharedUsers.size();i++) {
 			User u = sharedUsers.get(i);
 			if(u.getId() != id2) {
 				ret.add(IDTools.toString(u.getId()));
+				us.add(u);
 			}
 		}
+		this.setShared(IDTools.merge(ret.toArray()));
+		this.setSharedUsers(us);
 		return ret;
 	}
 

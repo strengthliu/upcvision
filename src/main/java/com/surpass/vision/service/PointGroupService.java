@@ -31,5 +31,7 @@ public interface PointGroupService {
 	public void updateByName(String owner, String creater, String shared, String points, String otherrule1,
 			String otherrule2, String name);
 
+	public PointGroupData getPointGroupDataByOtherRule1(String typeGraph, String wholePath);
+
 
 }

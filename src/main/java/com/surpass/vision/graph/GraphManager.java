@@ -16,6 +16,7 @@ import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.Graph;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.mapper.PointGroupDataMapper;
+import com.surpass.vision.server.ServerManager;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.tools.FileTool;
 import com.surpass.vision.tools.IDTools;
@@ -30,6 +31,16 @@ public class GraphManager extends GraphDataManager {
 	@Autowired
 	PointGroupDataMapper pointGroupDataMapper;
 
+	@Autowired
+	GraphDataManager graphDataManager;
+	
+	@Autowired
+	ServerManager serverManager;
+
+	
+	
+//	upc.graphServerPath=/images/graphImage
+
 	@Value("${upc.graphPath}")
 	private String graphPath;
 	
@@ -40,7 +51,7 @@ public class GraphManager extends GraphDataManager {
 	private String updater ="";
 	private long beginUpdateTime = 0;
 	private boolean updating = false;
-	private FileList repo;
+	private static FileList repo;
 	
 //	Hashtable<String, ArrayList<Graph>> children;
 	
@@ -137,22 +148,22 @@ System.out.println(aa.length);
 	}
 
 
-	public void addChildren(String pathName, Hashtable<String, FileList> children) {
-		// 如果当前库没有名字，说明是第一次更新，就初始化加入
-		if(GraphManager.getInstance().repo.getName() == null) {
-			GraphManager.getInstance().repo.setName(pathName);
-			GraphManager.getInstance().repo.setFile(false);
-			GraphManager.getInstance().repo.addChildren(children);
-			System.out.println("pathName:= "+pathName+"  graphPath="+graphPath);
-		} else {
-			// 从孩子中找指定名字的对象
-			FileList fl =repo.getChild(pathName);
-			if(fl!=null && !fl.isFile()) 
-				// 找到了这个孩子
-				fl.addChildren(children);
-		}
-		
-	}
+//	public void addChildren(String pathName, Hashtable<String, FileList> children) {
+//		// 如果当前库没有名字，说明是第一次更新，就初始化加入
+//		if(GraphManager.getInstance().repo.getName() == null) {
+//			GraphManager.getInstance().repo.setName(pathName);
+//			GraphManager.getInstance().repo.setFile(false);
+//			GraphManager.getInstance().repo.addChildren(children);
+//			System.out.println("pathName:= "+pathName+"  graphPath="+graphPath);
+//		} else {
+//			// 从孩子中找指定名字的对象
+//			FileList fl =repo.getChild(pathName);
+//			if(fl!=null && !fl.isFile()) 
+//				// 找到了这个孩子
+//				fl.addChildren(children);
+//		}
+//		
+//	}
 
 	public static boolean isUpdating() {
 		if(instance == null) return false;
@@ -188,7 +199,7 @@ System.out.println(aa.length);
 
 	public void reloadFileList(String graphPath2) {
 		try {
-			FileTool.find(graphPath2);
+			FileTool.find(graphPath2,serverManager,graphDataManager,graphPath,this.repo);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

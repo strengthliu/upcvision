@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.surpass.vision.appCfg.ServerConfig;
+import com.surpass.vision.graph.GraphDataManager;
 import com.surpass.vision.graph.GraphManager;
 import com.surpass.vision.realTimeData.RealTimeDataManager;
 import com.surpass.vision.server.ServerManager;
@@ -19,6 +21,12 @@ public class InitServiceRunner implements CommandLineRunner {
 	@Value("${upc.graphPath}")
 	private String graphPath;
 
+	@Autowired
+	GraphDataManager graphDataManager;
+	
+	@Autowired
+	ServerManager serverManager;
+	
 	@Autowired
 	RedisService rs;
 
@@ -33,6 +41,9 @@ public class InitServiceRunner implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		System.out.println("服务器根路径："+ServerConfig.getServerBase());
+
 		System.out.println(new Date().toLocaleString() + "===========================>> started.");
 		// TODO Auto-generated method stub
 

@@ -17,6 +17,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.server.Point;
@@ -48,6 +49,18 @@ public class Graph extends FileList implements Serializable {
 		return changed;
 	}
 
+	public List<Double> getIDList(ArrayList<Double> ret){
+		if(ret == null)
+			ret = new ArrayList<Double>();
+		ret.add(this.id);
+		if(this.children!=null) {
+			for(Map.Entry<String, Graph> entry: children.entrySet()){
+				entry.getValue().getIDList(ret);
+				}
+		}
+		return ret;
+	}
+	
 	@Override
 	public Hashtable getChildren() {
 		return this.children;
@@ -138,6 +151,7 @@ public class Graph extends FileList implements Serializable {
 	public void setUrlPath(String urlPath) {
 		this.urlPath = urlPath;
 	}
+
 	
 	// 更新数据方法
 	

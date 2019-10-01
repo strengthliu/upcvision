@@ -186,14 +186,15 @@ public class UserSpaceManager {
 		UserRight right;
 		// 图形设置图形信息
 		String graphs = usd.getGraphs();
-		Hashtable<String, Graph> gh = null;
+		Graph g = null;
 		if (StringUtil.isBlank(graphs))
-			gh = new Hashtable<String, Graph>();
+			g = new Graph();
 		else // 
-			gh = graphDataManager.getGraphHashtableByKeys(graphs);
+			g = graphDataManager.getGraphsByKeys(graphs);
 		// 重新整理成以目录为key，值是一个图形列表的形式
-		Hashtable<String, ArrayList<Graph>> gl = graphDataManager.rebuildGraph(gh);
-		us.setGraphs(gl);
+//		Hashtable<String, ArrayList<Graph>> gl = graphDataManager.rebuildGraph(gh);
+//		us.setGraph(graphs);
+		us.setGraph(g);
 		// XY图
 		String xygraph = usd.getXygraph();
 		Hashtable<String, XYGraph> xyGraph = null;
@@ -253,16 +254,17 @@ public class UserSpaceManager {
 		UserSpaceData usd;// = userSpaceDataMapper.selectByPrimaryKey(userID);
 		UserSpace us = new UserSpace();
 		us.setUser(user);
-		Graph gf = graphDataManager.getAdminGraphHashtable();
-		Hashtable<String, Graph> graph = new Hashtable<String, Graph>();
-		if (gf != null) {
-			graph.put(gf.getPath() + gf.getName(), gf);
-			Hashtable<String, ArrayList<Graph>> gl = graphDataManager.rebuildGraph(graph);
-			us.setGraphs(gl);
-		}
-		// 整理成单路径+文件的方式
-		Hashtable<String, ArrayList<Graph>> graphList = graphDataManager.rebuildGraph(graph);
-		us.setGraphs(graphList);
+		Graph gf = graphDataManager.getAdminGraph();
+//		
+//		Hashtable<String, Graph> graph = new Hashtable<String, Graph>();
+//		if (gf != null) {
+//			graph.put(gf.getPath() + gf.getName(), gf);
+//			Hashtable<String, ArrayList<Graph>> gl = graphDataManager.rebuildGraph(graph);
+//			us.setGraphs(gl);
+//		}
+//		// 整理成单路径+文件的方式
+//		Hashtable<String, ArrayList<Graph>> graphList = graphDataManager.rebuildGraph(graph);
+		us.setGraph(gf);
 		
 		Hashtable<String, XYGraph> xyGraph = xYGraphManager.getAdminXYGraphHashtable();
 		us.setXyGraph(xyGraph);
@@ -568,8 +570,9 @@ public class UserSpaceManager {
 			String uids = it.next();
 			// 从缓存中取出
 			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
-			Hashtable<String, ArrayList<Graph>> hrtd = us.getGraphs();
-//			hrtd.put(IDTools.toString(rtd.getId()), rtd);
+			Graph g = us.getGraph();
+			g.addChild(rtd);
+			us.setGraph(g);
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
 		// 去掉删除权限的用户空间数据
@@ -578,15 +581,30 @@ public class UserSpaceManager {
 			String uids = it1.next();
 			// 从缓存中取出RealTimeData
 			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
-			Hashtable<String,RealTimeData> hrtd = us.getRealTimeData();
-			hrtd.remove(IDTools.toString(oldRtd.getId()));
+			Graph g = us.getGraph();
+			g.removeUser(Double.valueOf(uids));
+			us.setGraph(g);
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
-//		if(rtd!=null)
-//			this.graphManager.updateGraph(rtd);
 	}
 	/** ---------------- graph end ------------------------- **/
 
+	private void updateGraphInDeleteUser(Graph g,Double uid) {
+		
+		try {
+			PointGroup p = (PointGroup) g;
+			List<String> ls = p.removeUser(uid);
+			this.graphDataManager.updateShareRight(p.getId(),ls);
+			if(g.getChildren()!=null) {
+				Enumeration<Graph> eg = g.getChildren().elements();
+				while(eg.hasMoreElements()) {
+					Graph _g = eg.nextElement();
+					updateGraphInDeleteUser(_g,uid);
+				}
+			}
+		}catch(Exception ex) {	}
+	}
+	
 	public boolean deleteUserSpace(Double uid) {
 		UserSpace us = this.getUserSpaceRigidly(uid);
 		if(!us.canDelete()) return false;
@@ -610,15 +628,8 @@ public class UserSpaceManager {
 			}catch(Exception ex) {	}
 		}
 
-		Hashtable<String,ArrayList<Graph>> hg = us.getGraphs();
-		e = hg.elements();
-		while(e.hasMoreElements()) {
-			try {
-				PointGroup p = (PointGroup) e.nextElement();
-				List<String> ls = p.removeUser(p.getId());
-				this.graphDataManager.updateShareRight(p.getId(),ls);
-			}catch(Exception ex) {	}
-		}
+		Graph hg = us.getGraph();
+		updateGraphInDeleteUser(hg,uid);
 
 		Hashtable<String,HistoryData> hh = us.getHistoryData();
 		e = hh.elements();

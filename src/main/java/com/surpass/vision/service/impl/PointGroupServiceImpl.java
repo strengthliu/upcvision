@@ -115,6 +115,11 @@ public class PointGroupServiceImpl implements PointGroupService {
 				otherrule2, name);
 	}
 
+	@Override
+	public PointGroupData getPointGroupDataByOtherRule1(String typeGraph, String wholePath) {
+		return pointGroupDataMapper.selectByTypeAndOtherRule1(typeGraph,wholePath.trim());
+	}
+
 //	@Override
 //	public PointGroupData getAlertDataByID(Double itemId) {
 //		
