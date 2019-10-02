@@ -261,10 +261,10 @@ public class ServerManager {
 	public HashMap<Long, Double> getPointHistoryValue(String srvName,String tagName,long id,long beginTime,long endTime) {
 		HashMap<Long, Double> ret = new HashMap<Long, Double>();
 		List<Double> pValueArray = new ArrayList<Double>(); 
-		int size = Math.round((endTime - beginTime) /1000)+1;
+		int size = Math.round((endTime - beginTime) )+1;
 		List<Long> pnValueTimeArray = new ArrayList<Long>();
 		try {
-			gec.DBECGetTagRealHistory(srvName, tagName, id, beginTime/1000, endTime/1000, pValueArray, size, pnValueTimeArray);
+			gec.DBECGetTagRealHistory(srvName, tagName, id, beginTime, endTime, pValueArray, size, pnValueTimeArray);
 		} catch (GecException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

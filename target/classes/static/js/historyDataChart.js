@@ -146,6 +146,7 @@ function changex() {
 
 
 function reloadDataToDiagram(){
+	
 	// UI加载数据，显示
 	// TODO: 增加flow效果
 	c3LineChart.load({
@@ -237,12 +238,14 @@ function getHistoryData(_historyDataDetailKey,startTime,endTime,func){
 var currentStartTime;
 var currentStartTimeInd;
 function loadCData(startTime){
+//	console.log("debug 1");
 	var _currentStartTimeInd = 0;
 	if(_dataIndex==null||_dataIndex=="undefined"){
 		for(var indrow=0;indrow<_data.length;indrow++){
 			_dataIndex[_data[indrow][0]]= indrow;
 		}						
 	}
+//	console.log("debug 2");
 	var dataInd = 0;
 	var _datatime = _data[_dataIndex['time']];
 	for(var inddata = 0;inddata<_datatime.length;inddata++){
@@ -252,23 +255,33 @@ function loadCData(startTime){
 			break;
 		}
 	}
+//	console.log("debug 3");
+//	console.log("debug "+JSON.stringify(_data));
+	
 	var _cdata = new Array();
-	for(var icdata=0;icdata<cdataCount;icdata++){
+//	console.log("cdataCount="+cdataCount);
+	for(var rowcount=0;rowcount<_data.length;rowcount++){
 		var rowd = new Array();
-		for(var rowcount=0;rowcount<_data.length;rowcount++){
-			if(dataInd+icdata<_data[rowcount].length)
-				rowd[rowcount].push(_data[rowcount][dataInd+icdata]);
+		for(var icdata=0;icdata<cdataCount;icdata++){
+			if(dataInd+icdata<_data[rowcount].length){
+				console.log("_data[rowcount][dataInd+icdata]="+_data[rowcount][dataInd+icdata]);
+				rowd.push(_data[rowcount][dataInd+icdata]);
+			}
 			else
 				break;
 		}
 		// 从前面把头添加上
+		console.log("debug 4 => "+JSON.stringify(rowd));
 		rowd.splice(0,0,_data[rowcount][0]);
+		console.log("debug 5 => "+JSON.stringify(rowd));
 		_cdata.push(rowd);
 	}
+	console.log("debug 6 => "+JSON.stringify(_cdata));
+
 	cdata = _cdata;
-	
-	currentStartTime = _data[_dataIndex['time']][1];
-	currentStartTimeInd = 1;
+//	console.log("cdata= "+JSON.stringify(cdata));
+//	currentStartTime = _data[_dataIndex['time']][1];
+//	currentStartTimeInd = 1;
 
 	currentStartTime = startTime;
 	currentStartTimeInd = _currentStartTimeInd;
@@ -280,10 +293,11 @@ function addHistoryData(historyData){
 	// 数据不正常就返回
 	if(historyData==null|| historyData=="undefined")return;
 	// 第一次初始化，就直接赋值
-	console.log("historyData = "+JSON.stringify(historyData));
+//	console.log("historyData = "+JSON.stringify(historyData));
 	
 	_dataIndex = {};
 	if(_data ==null || _data=="undefined"){
+		console.log("addHistoryData 1");
 		_data = historyData;
 		for(var indrow=0;indrow<_data.length;indrow++){
 			_dataIndex[_data[indrow][0]]= indrow;
@@ -292,39 +306,59 @@ function addHistoryData(historyData){
 		currentStartTimeInd = 1;
 	}
 	else {
+//		console.log("addHistoryData 2");
+		
+//		console.log("_dataIndex="+JSON.stringify(_dataIndex));
 		for(var indrow=0;indrow<_data.length;indrow++){
 			_dataIndex[_data[indrow][0]]= indrow;
-		}				
+		}			
+//		console.log("_data的坐标索引 ，_dataIndex="+JSON.stringify(_dataIndex));
 		// TODO: 添加到_data中
 		var historyIndex = {};
 		for(var indrow=0;indrow<historyData.length;indrow++){
 			historyIndex[historyData[indrow][0]]= indrow;
 		}
+//		console.log("historyData的坐标索引 ，historyIndex="+JSON.stringify(historyIndex));
 		// 如果有时间轴，再继续操作
 		if(historyIndex['time']!=null && historyIndex['time']!="undefined"){
+			// 时间轴
 			var timeArray = historyData[historyIndex['time']];
+//			console.log("timeArray = "+JSON.stringify(timeArray));
 			var _ind =0;
 			var _direct_f = 0; // 向后添加
 			var _direct_b = 0; // 向后添加
-			var _ind_history = 0;
-			var _ind_data = 0;
-			
+			var _ind_history = 0; // 历史数据序号
+			var _ind_data = 0; // _data序号
+//			console.log("_data['time']="+JSON.stringify(_data[_dataIndex['time']]));
 			// 先找到定位，决定向前后添加
-			if(timeArray[0]>_data[_dataIndex['time']][_data.length-1]){
+			// 如果历史数据时间轴的第一个数大于_data中的最后一个时间，就向后插入
+//			console.log("_data[_dataIndex['time']]="+JSON.stringify(_data[_dataIndex['time']]));
+//			console.log("_data[_dataIndex['time']][_data[_dataIndex['time']].length-1]="+JSON.stringify(_data[_dataIndex['time']][_data[_dataIndex['time']].length-1]));
+//			console.log("timeArray[1]="+timeArray[1]+"  _data[_dataIndex['time']][_data[_dataIndex['time']].length-1]="+_data[_dataIndex['time']][_data[_dataIndex['time']].length-1]);
+			if(timeArray[1]>_data[_dataIndex['time']][_data[_dataIndex['time']].length-1]){
 				_direct_f = _data.length-1;
 				_direct_b = -1;
-				// 全部向前插入
+				// 全部向后插入
 				for(var datarow=0;datarow<_data.length;datarow++){
-					for(var indtime=timeArray.length-1;indtime>0;indtime--){
-						_data[datarow].splice(1,0,timeArray[indtime]);
+//					console.log(_data[datarow][0]+".length = "+historyData[historyIndex[_data[datarow][0]]].length);
+					for(var indtime=1;indtime<timeArray.length-1;indtime++){
+//						
+						if(_data[datarow][0]=='time'){
+							// 如果是时间轴，就转换成时间。注意：服务返回值是秒，这里要用毫秒，所以得*1000。
+							var _date = new Date(historyData[historyIndex[_data[datarow][0]]][indtime]*1000);
+							_data[datarow].push(_date);							
+						}else
+							_data[datarow].push(historyData[historyIndex[_data[datarow][0]]][indtime]);
+//						_data[datarow].splice(1,0,timeArray[indtime]);
 					}
 				}
+				console.log("_data="+JSON.stringify(_data));
 				return;
 			}
 			else if(timeArray[timeArray.length-1]<_data[_dataIndex['time']][0]){
 				_direct_f = -1;
 				_direct_b =0;
-				// 全部向后插入
+				// 全部向前插入
 				for(var indtime=timeArray.length-1;indtime>0;indtime--){
 					_data[datarow].push(timeArray[indtime]);
 //					for(var indtime==0;indtime<timeArray.length-1;indtime++){
@@ -494,8 +528,10 @@ function getHistoryData(){
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				console.log("historydata.js => submitNewDataItem 3");
 				var historyData = data.data.data;
-				console.log("historydata.js => historyData= "+JSON.stringify(historyData));
+//				console.log("historydata.js => historyData= "+JSON.stringify(historyData));
 				addHistoryData(historyData);
+				loadCData(1569151501);
+				reloadDataToDiagram();
 // _data = historyData;
 // $('#newItemAction_mid').modal('hide');
 // fixLocalHistoryDataList(historyData);
@@ -559,7 +595,6 @@ var c3LineChart;
 			columns : cols,
 			type : 'spline',
 	        axes: {
-	        	CJY_XT31101_8: 'y',
 	        }
 		},
 		grid : {

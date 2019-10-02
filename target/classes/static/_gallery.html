@@ -187,25 +187,6 @@
 <script src="./js/light-gallery.js">
 
 
-function getGraphByName(graph,name){
-	console.log("1");
-	return graph;
-	if(name==null||name=="undefined") return graph;
-	console.log("2");
-	if(graph.name == name) return graph;
-	else {
-		console.log("3");
-		var children = graph.children;
-		if(children!=null){
-			Object.keys(children).forEach(function(key){
-				console.log("4"+key);
-				return getGraphByID(children[key],name);
-			});
-		}
-		console.log("5");
-		return null;
-	}
-}
 
 </script>
 

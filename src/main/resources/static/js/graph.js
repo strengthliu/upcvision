@@ -3,7 +3,10 @@
  */
 //var atags = document.getElementsByTagName("a");
 //for(var inda = 0;inda<atags.length;inda++){
-//	console.log("tag"+inda+" = ");
+//	console.log("tag"+inda+" = "+atags[inda].outerHTML);
+//	Object.keys(atags[inda]).forEach(function(key){
+//		console.log("atags[inda]["+key+"] = "+JSON.stringify(atags[inda][key]));
+//	});
 //	console.log(JSON.stringify(Object.keys(atags[inda])));
 ////	alert(atags[inda].attributes["xlink"]);
 //	atags[inda].onclick=function(){
@@ -12,18 +15,23 @@
 //		return false;
 //	}
 //}
-//编辑文章时阻止a标签跳转
-$(document).find("a").click(function(e){
-    //如果提供了事件对象，则这是一个非IE浏览器 
-        if ( e && e.preventDefault ) {
-                    //阻止默认浏览器动作(W3C) 
-                    e.preventDefault(); 
-            }else{
-                //IE中阻止函数器默认动作的方式 
-                window.event.returnValue = false; 
-                return false;
-            }    
-    });
+
+////编辑文章时阻止a标签跳转
+//$(document).find("a").click(function(e){
+//    //如果提供了事件对象，则这是一个非IE浏览器 
+//        if ( e && e.preventDefault ) {
+//        		console.log("preventDefault 阻止默认浏览器动作(W3C)");
+//                    //阻止默认浏览器动作(W3C) 
+//                    e.preventDefault(); 
+//            }else{
+//        		console.log("IE中阻止函数器默认动作");
+//                //IE中阻止函数器默认动作的方式 
+//                window.event.returnValue = false; 
+//                return false;
+//            }    
+//    });
+
+
 //
 /**
  * 右键菜单
@@ -130,25 +138,62 @@ function loginWebsocket() {
 	}
 }
 
+function getGraphByURLPath(graph,urlPath){
+	if(urlPath==null||urlPath=="undefined") return graph;
+	console.log("graph.urlPath="+graph.urlPath.toLowerCase()+"  ==  "+"urlPath="+urlPath.toLowerCase());
+	if(graph.urlPath.toLowerCase() == urlPath.toLowerCase()){
+		console.log("找到了");
+		_graphId = graph.id;
+		return graph;
+	}
+	else {
+		console.log(graph.urlPath.toLowerCase()+" 3");
+		var children = graph.children;
+		if(children!=null){
+			Object.keys(children).forEach(function(key){
+				console.log("4"+key);
+				var _g = getGraphByURLPath(children[key],urlPath);
+				if(_g!=null){ 
+//					break;
+					return _g;
+				}
+			});
+		}
+//		console.log("5");
+//		return null;
+	}
+}
+
+
 function graphSubscribe(){
-	if(subscribe!=null && subscribe!="undefined")
-		subscribe.unsubscribe();
-	stompClient.send("/app/aaa", {
-		atytopic : _graphId,
-		type : 'graph',
-		id : _graphId+""
-	}, JSON.stringify({
-		'type' : 'graph',
-		'id' : _graphId+""
-	}));
-	// 接收消息设置
-	subscribe = stompClient.subscribe('/topic/Key_Graph_pre_/'
-			+ _graphId, function(data) {
-		// alert("websocket connected 3.");
-		// 收到消息后处理
-		refreshData(data);
-	});
-	
+	if(userSpace==null|userSpace=="undefined"){
+		return getUserSpace(uid,token,graphSubscribe);
+	}else{
+		if(_graphId==null||_graphId=="undefined"){
+//			var g ;
+			getGraphByURLPath(userSpace.graph,_diagramShowKey);
+			if(_graphId == null || _graphId == "undefined"){
+				alert("没有这个图形。");
+			}
+		}
+		if(subscribe!=null && subscribe!="undefined")
+			subscribe.unsubscribe();
+		stompClient.send("/app/aaa", {
+			atytopic : _graphId,
+			type : 'graph',
+			id : _graphId+""
+		}, JSON.stringify({
+			'type' : 'graph',
+			'id' : _graphId+""
+		}));
+		// 接收消息设置
+		subscribe = stompClient.subscribe('/topic/Key_Graph_pre_/'
+				+ _graphId, function(data) {
+			// alert("websocket connected 3.");
+			// 收到消息后处理
+			refreshData(data);
+		});
+	}
 }
 
 function connectlocal() {

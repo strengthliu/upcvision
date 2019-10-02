@@ -282,8 +282,16 @@ public class HistoryDataManager extends PointGroupDataManager {
 		// 整理时间轴
 		ArrayList time=new ArrayList(); // 总时间轴
 		for(int pointInd=0;pointInd<lp.size();pointInd++) {
-			time.addAll(dstime1[pointInd]);
+			for(int dstime1Ind=0;dstime1Ind<dstime1[pointInd].size();dstime1Ind++) {
+				Long _t = dstime1[pointInd].get(dstime1Ind);
+				if(!time.contains(_t)) {
+					time.add(_t);
+				} else {
+//					System.out.println(" 包含时间点："+_t);
+				}
+			}
 		}
+		Collections.sort(time);
 //		Long[] atime = new Long[time.size()];
 		Long[] atime = (Long[]) time.toArray(new Long[time.size()]);
 		

@@ -1,6 +1,7 @@
 package com.surpass.vision.controller;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -313,15 +314,18 @@ public class HistoryDataController extends BaseController {
 		Date endTime = null;
 		Long _endTime = null;
 		try {
-			if(StringUtil.isBlank(beginTimeStr))
-				_beginTime=TimeTools.parseSecond(System.currentTimeMillis()-2000*1000);
+			if(StringUtil.isBlank(beginTimeStr)) {
+				SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				_beginTime=TimeTools.parseSecond(sDateFormat.parse("2019-09-22 19:00:00").getTime());
+			}
 			else {
 				beginTime = new Date(beginTimeStr);
 				_beginTime = TimeTools.parseSecond(beginTime.getTime());
 			}
 			
 			if(StringUtil.isBlank(endTimeStr)) {
-				_endTime=TimeTools.parseSecond(System.currentTimeMillis());
+				SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				_endTime=TimeTools.parseSecond(sDateFormat.parse("2019-09-22 21:00:00").getTime());
 			}
 			else {
 				endTime = new Date(endTimeStr);

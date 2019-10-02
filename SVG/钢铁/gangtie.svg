@@ -36,7 +36,7 @@
 <text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000080" font-size="13.500000" font-weight="bold" x="378" y="145" shape-type="buttontext">本体画面</text>
 </g>
 </a>
-<a xlink:href="炼铁厂\LTGRH102">
+<a onclick='routeTo("diagramDetail","/钢铁/炼铁厂/LTGRH102.svg")'>
 <g shape-type="button">
 <rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="307" y="172" width="141" height="33" shape-type="buttonrect"/>
 <text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000080" font-size="13.500000" font-weight="bold" x="378" y="195" shape-type="buttontext">炉体温度</text>
@@ -57,4 +57,4 @@
 <text font-family="隶书" text-anchor="start" fill="#FFFF00" shape-type="text" id="" font-size="17.750000" x="322" y="94">炼铁厂</text>
 <text font-family="楷体_GB2312" text-anchor="start" fill="#FF0000" shape-type="text" id="" font-size="21.500000" font-weight="bold" x="304" y="45">钢 铁</text>
 <rect shape-type="rectangle" x="219" y="106" width="325" height="456" fill="none" stroke="#000000" stroke-width="0"/>
-</svg>
+</svg>
