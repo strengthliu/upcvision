@@ -6,6 +6,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.List;
 
+import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Reference;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Component;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.Graph;
+import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.mapper.PointGroupDataMapper;
 import com.surpass.vision.server.ServerManager;
@@ -52,6 +54,20 @@ public class GraphManager extends GraphDataManager {
 	private long beginUpdateTime = 0;
 	private boolean updating = false;
 	private static FileList repo;
+	private static Graph graph;
+
+	static Graph graphs;
+
+	public static Graph getRootGraph() {
+		Graph ret = graphs.copyRootNode();
+		
+		return ret;
+	}
+	
+	public static Graph getGraphTree() {
+		return graphs;
+	}
+
 	
 //	Hashtable<String, ArrayList<Graph>> children;
 	
@@ -199,17 +215,53 @@ System.out.println(aa.length);
 
 	public void reloadFileList(String graphPath2) {
 		try {
-			FileTool.find(graphPath2,serverManager,graphDataManager,graphPath,this.repo);
+			FileTool.find(graphPath2,serverManager,graphDataManager,graphPath,repo);
+			graph = this.copyGraphFromFileList(repo, null);
+			graphs = graph.clone();
+			graphs.clearLeaf();
+			printGraph(graphs,null);
+			System.out.println("初始化图形目录树结束。");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
+	private void printGraph(Graph g,String tab) {
+		if(StringUtil.isBlank(tab))
+			tab = "    ";
+		System.out.println(tab+" "+g.getPath()+" - "+g.getName() + " isFile:" +g.isFile());
+		if(g.getChildren()!=null) {
+			Enumeration<?> e = g.getChildren().keys();
+			while(e.hasMoreElements()) {
+				String key = (String) e.nextElement();
+				Graph _g = (Graph) g.getChildren().get(key);
+				String _tab = tab + tab;
+				printGraph(_g,tab);
+			}
+		}
+	}
 
-	public Graph updateShareRight(Double id, List<String> userIds) {
+	public Graph updateShareRight(Double itemId, List<String> userIdsid) {
 		// TODO Auto-generated method stub
-		return null;
+		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
+		if(pgd == null) {
+			throw new IllegalStateException("没有id为"+itemId+"这个数据");
+		}
+		String sharedUserIDs = "";
+		if(userIdsid != null) {
+			sharedUserIDs = IDTools.merge(userIdsid.toArray());
+		}
+		pgd.setShared(sharedUserIDs);
+		// 更新数据库
+		pointGroupService.updatePointGroupItem(pgd);
+		
+		// 更新缓存
+		Graph rtd = this.copyFromPointGroupData(pgd);
+		// 写缓存HistoryData，返回
+		redisService.set(GlobalConsts.Key_Graph_pre_+IDTools.toString(rtd.getId()),rtd);
+
+		return rtd;	
 	}
 
 	public void updateGraph(Graph rtd) {

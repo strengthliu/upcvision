@@ -25,7 +25,13 @@
 	</div>
 </div>
 <!-- 分享图形弹出框 -->
-<!-- Modal Ends -->
+
+<div class="modal fade" id="shareItemAction_mid" tabindex="-1" role="dialog" aria-labelledby="shareItemAction_mid" >
+	<script>
+		$("#shareItemAction_mid").load("_shareRight.html");
+	</script>
+
+</div>
 
 
 <div class="col-12">
@@ -100,89 +106,8 @@
 <!-- end plugin js for this page -->
 
 <!-- Custom js for this page-->
-<script>
-	//	_routeType = diagram;
-	//	_routeID = key;
-	var _galleryKey = _graphId;//_routeID;
-	var _graphs;
-
-
-	function getGraphByID(graph,id){
-		if(id==null||id=="undefined") return graph;
-		if(graph.id == id) {
-			console.log("got it : id="+id);
-			_graphs = graph
-			return graph;
-		} else {
-			var children = graph.children;
-			if(children!=null){
-				Object.keys(children).forEach(function(key){
-					return getGraphByID(children[key],id);
-				});
-			} else {
-				console.log(" got null in getGraphByID");
-				return null;				
-			}
-		}
-	}
-	
-	// TODO:  如果key为空，就是异常，待处理。
-	if (_galleryKey == null || _galleryKey == "undefined")
-		_galleryKey = "";
-
-	if (_galleryKey.trim() == 'unclassify') {
-		alert(_galleryKey);
-		_galleryKey = "";
-		_graphs = userSpace.graph[""];
-	} else{
-		_graphs = getGraphByID(userSpace.graph,_graphId);
-		console.log("graph => " + JSON.stringify(getGraphByID(userSpace.graph,_graphId)));
-		//console.log("graph => " + JSON.stringify(_graphs));
-	}
-
-
-	console.log("debug xx2");
-	var children = _graphs.children;
-	console.log("debug xx3");
-
-	var diagram_gallery = document.getElementById("diagram_gallery");
-	var diagram_gallery_innerHTML = "";
-	if(children==null||children=="undefined"){
-		
-	}else{
-		Object.keys(children).forEach(function(key){
-			var _graph=children[key];
-			var diagram_gallery_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12"';
-			if(_graph.file && _graph.svg){
-				diagram_gallery_item_innerHTML += 'onclick="routeTo(' + "'"
-						+ "diagramDetail','" + _graph.urlPath + "'" + ',\''+_graph.id+'\');">';
-				diagram_gallery_item_innerHTML += '<figure class="effect-text-in">';
-				diagram_gallery_item_innerHTML += '<img src="' + _graph.img + '" alt="image"/>';
-				diagram_gallery_item_innerHTML += '<figcaption><h4>'
-						+ _graph.name + '</h4><p>' + _graph.path
-						+ '</p></figcaption>';
-			} else {
-				diagram_gallery_item_innerHTML += 'onclick="routeTo(' + "'"
-						+ "diagramList','" + _graph + "'" + ',\''+_graph.id+'\');">';
-				diagram_gallery_item_innerHTML += '<figure class="effect-text-in">';
-				diagram_gallery_item_innerHTML += '<img src="' + _graph.img + '" alt="image"/>';
-				diagram_gallery_item_innerHTML += '<figcaption><h4>'
-						+ _graph.name + '</h4><p>' + _graph.path
-						+ '</p></figcaption>';
-						//console.log(diagram_gallery_item_innerHTML);
-				
-			}
-			diagram_gallery_item_innerHTML += '</figure></div>';
-	
-			//console.log(diagram_gallery_item_innerHTML);
-			diagram_gallery_innerHTML = diagram_gallery_innerHTML
-					+ diagram_gallery_item_innerHTML;
-	
-		});
-	}
-	diagram_gallery.innerHTML = diagram_gallery_innerHTML;
-
-</script>
+<script src="js/graphList.js"></script>
+<script src="./js/shareRight.js">
 
 <script src="./js/light-gallery.js">
 

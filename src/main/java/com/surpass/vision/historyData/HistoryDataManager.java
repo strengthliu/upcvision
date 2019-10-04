@@ -213,7 +213,7 @@ public class HistoryDataManager extends PointGroupDataManager {
 			// 删除一条数据库记录
 			pointGroupService.deletePointGroupItem(oldRtdId);	
 			// 删除缓存
-			redisService.delete(GlobalConsts.Key_HistoryData_pre_+oldRtdId);
+			redisService.delete(GlobalConsts.Key_HistoryData_pre_+IDTools.toString(oldRtdId));
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

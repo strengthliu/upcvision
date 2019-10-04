@@ -246,31 +246,31 @@ function updateXYGraphListFrame(){
 				.keys(_xyGraph)
 				.forEach(
 						function(key) {
-							var _realtimeData = _xyGraph[key];
-							if(_realtimeData!=null && _realtimeData!="undefined"){
+							var _xyGraph_Data = _xyGraph[key];
+							if(_xyGraph_Data!=null && _xyGraph_Data!="undefined"){
 								var xyGraphList_ui_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">';
 								xyGraphList_ui_item_innerHTML += '<figure class="effect-text-in">';
 								xyGraphList_ui_item_innerHTML += '<img src="'
-										+ _realtimeData.img + '" alt="image" ';
+										+ _xyGraph_Data.img + '" alt="image" ';
 								
 								xyGraphList_ui_item_innerHTML += 'onclick="routeTo('
 									+ "'"
 									+ "xygraphDetail','"
-									+ _realtimeData.id + "'" + ')"/>';
+									+ _xyGraph_Data.id + "'" + ')"/>';
 								xyGraphList_ui_item_innerHTML += '<figcaption onclick="routeTo('
 									+ "'"
 									+ "xygraphDetail','"
-									+ _realtimeData.id + "'" + ')"><h4>'
-										+ _realtimeData.name
+									+ _xyGraph_Data.id + "'" + ')"><h4>'
+										+ _xyGraph_Data.name
 										+ '</h4><div>'
 										+'<h5></h5>'
-										+'<h5>创建者：'+_realtimeData.createrUser.name + '</h5>';
+										+'<h5>创建者：'+_xyGraph_Data.createrUser.name + '</h5>';
 								var shareStr = "";
-								if(_realtimeData.sharedUsers.length>0){
+								if(_xyGraph_Data.sharedUsers.length>0){
 									shareStr += '<h6>'+'分享给了 : ';
 									var indsharet1 = 3;
-									var indsharet2 = _realtimeData.sharedUsers.length;
-									var shareUsers = _realtimeData.sharedUsers;
+									var indsharet2 = _xyGraph_Data.sharedUsers.length;
+									var shareUsers = _xyGraph_Data.sharedUsers;
 									for(var iindshare=0;iindshare<shareUsers.length;iindshare++){
 										var indshare = shareUsers[iindshare];
 										// console.log(JSON.stringify(indshare));
@@ -287,20 +287,20 @@ function updateXYGraphListFrame(){
 									// console.log(xyGraphList_ui_item_innerHTML);
 								}
 
-								xyGraphList_ui_item_innerHTML +='<p>'+_realtimeData.desc + '</p>'+'</div></figcaption>';
+								xyGraphList_ui_item_innerHTML +='<p>'+_xyGraph_Data.desc + '</p>'+'</div></figcaption>';
 								xyGraphList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 								// TODO: 判断权限
-								if(user.id == _realtimeData.creater || user.id == _realtimeData.owner || user.role == 1){
+								if(user.id == _xyGraph_Data.creater || user.id == _xyGraph_Data.owner || user.role == 1){
 									xyGraphList_ui_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
-									xyGraphList_ui_item_innerHTML += 'shareItemAction(\''+_realtimeData.id+'\')">Share</button>';
+									xyGraphList_ui_item_innerHTML += 'shareItemAction(\''+_xyGraph_Data.id+'\')">Share</button>';
 								
 									xyGraphList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
-									xyGraphList_ui_item_innerHTML += 'deleteItemAction(\''+_realtimeData.id+'\')">';
+									xyGraphList_ui_item_innerHTML += 'deleteItemAction(\''+_xyGraph_Data.id+'\')">';
 									xyGraphList_ui_item_innerHTML += '<i class="mdi mdi-delete"></i>';
 									xyGraphList_ui_item_innerHTML += '</button>';
 									
 									xyGraphList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
-									xyGraphList_ui_item_innerHTML += 'editItemAction(\''+_realtimeData.id+'\')">';
+									xyGraphList_ui_item_innerHTML += 'editItemAction(\''+_xyGraph_Data.id+'\')">';
 									xyGraphList_ui_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
 									xyGraphList_ui_item_innerHTML += '</button>';
 								}

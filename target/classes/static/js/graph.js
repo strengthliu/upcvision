@@ -128,6 +128,8 @@ function setConnected(connected) {
 loginWebsocket();
 
 function loginWebsocket() {
+	console.log(" debug 1");
+
 	if(!connected) {
 		connect(graphSubscribe);
 		return;
@@ -150,31 +152,66 @@ function getGraphByURLPath(graph,urlPath){
 		console.log(graph.urlPath.toLowerCase()+" 3");
 		var children = graph.children;
 		if(children!=null){
+			var keys = new Array();
 			Object.keys(children).forEach(function(key){
 				console.log("4"+key);
-				var _g = getGraphByURLPath(children[key],urlPath);
-				if(_g!=null){ 
-//					break;
-					return _g;
-				}
+				keys.push(key);
+				children[key]
 			});
+			for(var i=0;i<keys.length;i++){
+				var child = children[keys[i]];
+				if(urlPath.toLowerCase().indexOf(child.urlPath)!=-1){
+					return getGraphByURLPath(child,urlPath);
+				}
+			}
 		}
-//		console.log("5");
-//		return null;
+		return null;
+	}
+}
+function getGraphByPath(graph,path){
+	if(path==null||path=="undefined") return graph;
+	//console.log("graph.wholePath="+graph.wholePath.toLowerCase()+"  ==  "+"path="+path.toLowerCase());
+	if(graph.wholePath.toLowerCase().indexOf(path.toLowerCase())!=-1){
+		//console.log("找到了");
+		_graphId = graph.id;
+		return graph;
+	}
+	else {
+		console.log(graph.wholePath.toLowerCase()+" 3");
+		var children = graph.children;
+		if(children!=null){
+			var keys = new Array();
+			Object.keys(children).forEach(function(key){
+				//console.log("4"+key);
+				keys.push(key);
+				children[key]
+			});
+			for(var i=0;i<keys.length;i++){
+				var child = children[keys[i]];
+				var t = getGraphByPath(child,path);
+				if(t!=null) return t;
+			}
+		}
+		return null;
 	}
 }
 
 
 function graphSubscribe(){
+	//console.log(" debug 1");
 	if(userSpace==null|userSpace=="undefined"){
 		return getUserSpace(uid,token,graphSubscribe);
 	}else{
 		if(_graphId==null||_graphId=="undefined"){
-//			var g ;
-			getGraphByURLPath(userSpace.graph,_diagramShowKey);
-			if(_graphId == null || _graphId == "undefined"){
-				alert("没有这个图形。");
+			//console.log(" graph.js -> graphSubscribe() -> getGraphByURLPath(graph,_diagramShowKey="+_diagramShowKey+")");
+			var g = getGraphByPath(userSpace.graph,_diagramShowKey);
+			if(g == null || g == "undefined" || g.id==null ||g.id=="undefined"){
+				alert("您没有查看这个图形的权限。");
+				return;
 			}
+			
+			_graphId = g.id;
+			
 		}
 		if(subscribe!=null && subscribe!="undefined")
 			subscribe.unsubscribe();

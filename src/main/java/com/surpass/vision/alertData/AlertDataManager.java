@@ -14,6 +14,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.surpass.vision.XYGraph.XYGraphManager;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.AlertData;
+import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.domain.PointAlertData;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.AlertData;
@@ -117,11 +118,11 @@ public class AlertDataManager extends PointGroupDataManager {
 		String[] keys = IDTools.splitID(AlertdataID);
 		for (int ik = 0; ik < keys.length; ik++) {
 			// 从缓存里取图
-			AlertData g = (AlertData) redisService.get(keys[ik]);
+			AlertData g = getAlertDataRigidlyByKey(keys[ik]);
+//					(AlertData) redisService.get(GlobalConsts.Key_AlertData_pre_+keys[ik]);
 			if (g == null) {
-				// TODO: 如果没有, 从数据库里取
-
-				// 再设置缓存
+				//TODO:  如果没有，就说明数据库中数据不一致了。得想个办法更新一下。
+//				throw new IllegalStateException("没有指定ID为"+keys[ik]+"的报警数据组。");
 			}
 
 			ret.put(IDTools.toString(g.getId()), g);
@@ -175,6 +176,20 @@ public class AlertDataManager extends PointGroupDataManager {
 		return ret;
 	}
 
+	private AlertData getAlertDataRigidlyByKey(String idstr) {
+		if(StringUtil.isBlank(idstr)) {
+			throw new IllegalStateException("id不能为空。");
+		}
+		Double id = Double.valueOf(idstr);
+		AlertData ret = this.getAlertDataByKeys(id);
+		if(ret == null) {
+			PointGroupData pgd = pointGroupService.getPointGroupDataByID(id);
+			ret = this.copyFromPointGroupData(pgd);
+			this.redisService.set(GlobalConsts.Key_HistoryData_pre_+IDTools.toString(id), ret);
+		}
+		return ret;
+	}
+	
 	public AlertData getAlertDataByKeys(Double oldRtdId) {
 		AlertData rtd = (AlertData)redisService.get(GlobalConsts.Key_AlertData_pre_+IDTools.toString(oldRtdId));
 		return rtd;

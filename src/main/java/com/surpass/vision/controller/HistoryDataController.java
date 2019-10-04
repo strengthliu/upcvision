@@ -174,6 +174,11 @@ public class HistoryDataController extends BaseController {
 
 		// 认证+权限
 		HistoryData g = this.historyDataManager.getHistoryDataByKeys(idd);
+		if(g==null) {
+			ToWeb ret = ToWeb.buildResult();
+			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+			ret.setMsg("没有指定ID的历史数据，请清除浏览器缓存再试。如果还有，请联系系统管理员。");
+		}
 		UserRight ur = g.getRight(uid);
 		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateHistoryData, ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))

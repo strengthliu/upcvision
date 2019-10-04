@@ -395,7 +395,16 @@ public class UserSpaceManager {
 			hrtd.put(IDTools.toString(rtd.getId()), rtd);
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
-//		if(rtd!=null)
+		// 去掉删除权限的用户空间数据
+		Iterator<String> it1 = rightChangesdecreament.iterator();
+		while (it1.hasNext()) {
+			String uids = it1.next();
+			// 从缓存中取出RealTimeData
+			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
+			Hashtable<String,LineAlertData> hrtd = us.getLineAlertData();
+			hrtd.remove(IDTools.toString(oldRtd.getId()));
+			this.setUserSpace(Double.valueOf(uids), us);
+		}//		if(rtd!=null)
 //			this.lineAlertDataManager.updateLineAlertData(rtd);
 	}
 	/** ---------------- linealertdata end ------------------------- **/
@@ -438,7 +447,7 @@ public class UserSpaceManager {
 			String uids = it1.next();
 			// 从缓存中取出RealTimeData
 			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
-			Hashtable<String,RealTimeData> hrtd = us.getRealTimeData();
+			Hashtable<String,AlertData> hrtd = us.getAlertData();
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
@@ -485,7 +494,7 @@ public class UserSpaceManager {
 			String uids = it1.next();
 			// 从缓存中取出RealTimeData
 			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
-			Hashtable<String,RealTimeData> hrtd = us.getRealTimeData();
+			Hashtable<String,HistoryData> hrtd = us.getHistoryData();
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
@@ -533,7 +542,7 @@ public class UserSpaceManager {
 			String uids = it1.next();
 			// 从缓存中取出RealTimeData
 			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
-			Hashtable<String,RealTimeData> hrtd = us.getRealTimeData();
+			Hashtable<String,XYGraph> hrtd = us.getXyGraph();
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
@@ -571,7 +580,16 @@ public class UserSpaceManager {
 			// 从缓存中取出
 			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
 			Graph g = us.getGraph();
-			g.addChild(rtd);
+			// 找出指定ID的graph的父亲
+			if(g==null || g.getId()==null) {
+				// 这个用户还没有图形。
+				g = GraphManager.getRootGraph().copyRootNode();// new Graph();
+			}
+			Graph pa = g.getParentByPath(oldRtd.getPath());
+			if(pa==null) // 如果为空，就是没提供原图形，只需要更新当前rtd就可以。
+				pa = g.getParentByPath(rtd.getPath());
+			// 修改其值
+			pa.addOrUpdateChild(rtd);
 			us.setGraph(g);
 			this.setUserSpace(Double.valueOf(uids), us);
 		}
@@ -582,7 +600,10 @@ public class UserSpaceManager {
 			// 从缓存中取出RealTimeData
 			UserSpace us = getUserSpaceRigidly(Double.valueOf(uids));
 			Graph g = us.getGraph();
-			g.removeUser(Double.valueOf(uids));
+			// 找出指定ID的graph的父亲
+			Graph pa = g.getParentByPath(oldRtd.getPath());
+			// 修改其值
+			pa.deleteChild(rtd);
 			us.setGraph(g);
 			this.setUserSpace(Double.valueOf(uids), us);
 		}

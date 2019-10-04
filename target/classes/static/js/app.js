@@ -249,6 +249,8 @@ function getUserSpace(uid, token, sucessFucn) {
 			// console.log(JSON.stringify(data));
 			if (data.status != "000"){//GlobalConsts.ResultCode_SUCCESS) { // 不成功
 				alert(data.msg);
+				localStorage.user = null;
+				localStorage.token = null;
 				window.location.href = "login.html";
 
 			}
@@ -262,7 +264,8 @@ function getUserSpace(uid, token, sucessFucn) {
 			}
 
 			// alert(" getUserSpace : "+JSON.stringify(window.userSpace));
-			sucessFucn(window.userSpace);
+			if(sucessFucn!=null && sucessFucn!="undefined")
+				sucessFucn(window.userSpace);
 			// localStorage.user = JSON.stringify(data);
 			// window.location.href ="index.html";
 			hideLoading();
@@ -275,6 +278,7 @@ function getUserSpace(uid, token, sucessFucn) {
 		// 调用出错执行的函数
 		error : function(jqXHR, textStatus, errorThrown) {
 			// 请求出错处理
+			
 			hideLoading();
 		}
 	});
