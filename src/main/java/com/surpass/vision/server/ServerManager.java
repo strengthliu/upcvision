@@ -284,6 +284,13 @@ public class ServerManager {
 	}
 
 
+	public Long getServerCurrentTime() {
+		return getServerCurrentTime(defaultServer.serverName);
+	}
+	
+	public Long getServerCurrentTime(String srvName) {
+		return gec.DBECGetServerCurrentTime(srvName)*1000;
+	}
 	
 	public List getPointValue(String srvName, List<Long> idList, String fieldName) {
 		// TODO Auto-generated method stub

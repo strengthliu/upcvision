@@ -23,7 +23,7 @@
 		//// console.log(JSON.stringify(userSpace));
 		/* 刷新流程图目录结构*/
 		var diagrams = userSpace.graph.children;
-		console.log("diagrams = "+JSON.stringify(diagrams))
+//		console.log("diagrams = "+JSON.stringify(diagrams))
 		if(diagrams == null || diagrams == "undefined") diagrams = {};
 		var uiDiagram = document.getElementById("ui-diagram");
 

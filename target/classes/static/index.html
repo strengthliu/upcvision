@@ -11,23 +11,15 @@
 	href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet"
 	href="vendors/iconfonts/puse-icons-feather/feather.css">
-<link rel="stylesheet" href="vendors/iconfonts/simple-line-icon/css/simple-line-icons.css">
-	
+<link rel="stylesheet"
+	href="vendors/iconfonts/simple-line-icon/css/simple-line-icons.css">
+
 <link rel="stylesheet" href="css/jquery.datetimepicker.css">
 <link rel="stylesheet" href="css/c3.css">
-<!-- endinject -->
-<!-- plugins:css -->
-<link rel="stylesheet"
-	href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-<link rel="stylesheet"
-	href="vendors/iconfonts/puse-icons-feather/feather.css">
 <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
 <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
 
-<!-- endinject -->
-<!-- inject:css -->
 <link rel="stylesheet" href="css/style.css">
-<!-- endinject -->
 <link rel="shortcut icon" href="images/favicon.png" />
 
 <!-- plugin css for this page -->
@@ -68,23 +60,8 @@
 		location.href = "login.html";
 	}
 
-	function addLoadEvent(func) {
-		//把现有的 window.onload 事件处理函数的值存入变量
-		var oldOnload = window.onload;
-		if (typeof window.onload != "function") {
-			//如果这个处理函数还没有绑定任何函数，就像平时那样添加新函数
-			window.onload = func;
-		} else {
-			//如果处理函数已经绑定了一些函数，就把新函数添加到末尾
-			window.onload = function() {
-				oldOnload();
-				func();
-			}
-		}
-	}
+
 </script>
-
-
 </head>
 <body>
 	<div class="container-scroller">
@@ -107,14 +84,16 @@
 					<li class="nav-item d-none d-lg-block"><a class="nav-link">
 							<i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
 					</a></li>
-					
-					<li class="nav-item d-none d-lg-block" onclick="stepBackward();"><a class="nav-link">
-							<i class="mdi mdi-step-backward" id="stepBackward"></i>
+
+					<li class="nav-item d-none d-lg-block" onclick="stepBackward();"><a
+						class="nav-link"> <i class="mdi mdi-step-backward"
+							id="stepBackward"></i>
 					</a></li>
-					<li class="nav-item d-none d-lg-block"  onclick="stepForward();"><a class="nav-link">
-							<i class="mdi mdi-step-forward" id="stepForward"></i>
+					<li class="nav-item d-none d-lg-block" onclick="stepForward();"><a
+						class="nav-link"> <i class="mdi mdi-step-forward"
+							id="stepForward"></i>
 					</a></li>
-					
+
 					<!-- 
 					<li class="nav-item">
 						<form
@@ -235,6 +214,7 @@
 		<!-- partial -->
 		<div class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_settings-panel.html -->
+			<!-- 
 			<div class="theme-setting-wrapper">
 				<div id="settings-trigger">
 					<i class="mdi mdi-settings"></i>
@@ -295,6 +275,7 @@
 					</div>
 				</div>
 			</div>
+			 -->
 			<!-- partial -->
 			<!-- partial:partials/_sidebar.html -->
 			<nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -424,7 +405,7 @@
 						</div></li>
 
 					<script>
-					//console.log("begin to build left navigator");
+						//console.log("begin to build left navigator");
 						updateDiagram();
 						updateXYDiagram();
 						updateRealTimeData();
@@ -434,22 +415,19 @@
 					</script>
 
 					<!-- *******************************  用户管理 ******************************* -->
-					<li class="nav-item nav-category">
-					<span class="nav-link">用户管理</span>
+					<li class="nav-item nav-category"><span class="nav-link">用户管理</span>
 					</li>
-					<li class="nav-item" onclick="routeTo('userManage','')">
-					<span class="nav-link"> <i class="icon-lock menu-icon"></i> 
-						<span class="menu-title">用户管理</span>
-					</span>
-					</li>
+					<li class="nav-item" onclick="routeTo('userManage','')"><span
+						class="nav-link"> <i class="icon-lock menu-icon"></i> <span
+							class="menu-title">用户管理</span>
+					</span></li>
 
 
 				</ul>
 			</nav>
 
 			<!-- ************************************ 主窗口 ************************************  -->
-			<div class="main-panel" id="main">
-			</div>
+			<div class="main-panel" id="main"></div>
 			<script>
 				$("#main").load("_mainPanel.html");
 			</script>
@@ -457,13 +435,19 @@
 
 			<!--  ************************************ 主窗口  end ************************************  -->
 		</div>
-		
-        <footer class="footer">
-          <div class="container-fluid clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018 <a href="http://www.dmaku.com/" target="_blank">石大赛普</a>. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> made with <i class="mdi mdi-heart text-danger"></i>strength.liu@qq.com</span>
-          </div>
-        </footer>
+
+		<footer class="footer">
+			<div class="container-fluid clearfix">
+				<span
+					class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright
+					© 2018 <a href="http://www.dmaku.com/" target="_blank">石大赛普</a>.
+					All rights reserved.
+				</span> <span
+					class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+					made with <i class="mdi mdi-heart text-danger"></i>strength.liu@qq.com
+				</span>
+			</div>
+		</footer>
 
 		<!--  ************************************ 访问服务器遮罩  start ************************************  -->
 		<div class="row" id="loading">

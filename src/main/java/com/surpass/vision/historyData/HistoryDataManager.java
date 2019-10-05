@@ -3,6 +3,7 @@ package com.surpass.vision.historyData;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
@@ -286,6 +287,7 @@ public class HistoryDataManager extends PointGroupDataManager {
 				Long _t = dstime1[pointInd].get(dstime1Ind);
 				if(!time.contains(_t)) {
 					time.add(_t);
+//					System.out.println("查询历史数据返回时间： "+ _t + "  ： "+new Date(_t*1000));
 				} else {
 //					System.out.println(" 包含时间点："+_t);
 				}

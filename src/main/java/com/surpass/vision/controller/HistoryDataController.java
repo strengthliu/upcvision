@@ -324,8 +324,8 @@ public class HistoryDataController extends BaseController {
 				_beginTime=TimeTools.parseSecond(sDateFormat.parse("2019-09-22 19:00:00").getTime());
 			}
 			else {
-				beginTime = new Date(beginTimeStr);
-				_beginTime = TimeTools.parseSecond(beginTime.getTime());
+//				beginTime = new Date(beginTimeStr);
+				_beginTime = TimeTools.parseSecond(Long.valueOf(beginTimeStr));
 			}
 			
 			if(StringUtil.isBlank(endTimeStr)) {
@@ -333,8 +333,8 @@ public class HistoryDataController extends BaseController {
 				_endTime=TimeTools.parseSecond(sDateFormat.parse("2019-09-22 21:00:00").getTime());
 			}
 			else {
-				endTime = new Date(endTimeStr);
-				_endTime = TimeTools.parseSecond(endTime.getTime());
+//				endTime = new Date(endTimeStr);
+				_endTime = TimeTools.parseSecond(Long.valueOf(endTimeStr));
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

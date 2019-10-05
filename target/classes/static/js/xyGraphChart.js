@@ -410,14 +410,15 @@ var c3LineChart;
 				type : 'timeseries',
 				// if true, treat x value as localtime (Default)
 				// if false, convert to UTC internally
-				localtime : false,
+				localtime : true,
 				tick : {
 					format : '%Y-%m-%d %H:%M:%S'
 				}
 			},
 			y : {
-				show: true,
-				label: 'Y2 Axis Label'
+				show: true
+//				,
+//				label: 'Y2 Axis Label'
 			}
 		}
 	});

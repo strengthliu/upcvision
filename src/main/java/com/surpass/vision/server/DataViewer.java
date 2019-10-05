@@ -94,7 +94,7 @@ public class DataViewer {
 //			System.out.println("DataViewer.values datas为空。");
 		}
 //		if(time == null) 
-			time = System.currentTimeMillis();
+			time = ServerManager.getInstance().getServerCurrentTime();
 		ret.put("time", time);
 		return ret;
 	}
@@ -110,7 +110,8 @@ public class DataViewer {
 			System.out.println("DataViewer.values datas为空。");
 		}
 //		if(time == null) 
-			time = System.currentTimeMillis();
+//			time = System.currentTimeMillis();
+		time = ServerManager.getInstance().getServerCurrentTime();
 		ret.put("time", time);
 		return ret;
 	}
