@@ -190,19 +190,30 @@ public class Graph extends FileList implements Serializable,Cloneable {
 		return this;
 	}
 
+	/**
+	 * 添加或修改一个子。按目录结构，如果不是直接的子，就把中间的孩子们都补齐。
+	 * @param rtd
+	 */
 	public void addOrUpdateChild(Graph rtd) {
 		if(this.children==null) {
 			this.children = new Hashtable<String,Graph>();
 		}
-		if(rtd.getId()==null) {
-			System.out.println("rtd.getId()="+rtd.getId());
-			this.children.remove(rtd.getPath());
+		if(rtd==null) return;
+		
+		if(rtd.getId()==null) { // 删除
+			System.out.println("rtd.getId()="+rtd.getId()+" ret.getName()="+rtd.getName());
+			if(StringUtil.isBlank(rtd.getPath()))
+					return;
+			else
+				this.children.remove(rtd.getPath());
 		}
 		else {
 			// 如果rtd的目录不是this的目录，就说明，级别不对
-			if(!StringUtil.isBlank(this.getPath()) && rtd.getPath().contentEquals(this.getPath()))		
-				this.children.put(rtd.getWholePath(), rtd);		
-			else {
+//			if(!StringUtil.isBlank(this.getPath()) && rtd.getPath().contentEquals(this.getPath())) {		
+//				this.children.put(rtd.getWholePath(), rtd);	
+//			}
+//			else 
+			{
 				boolean hasYangChild = false;
 				if(this.children==null) {
 					this.children = new Hashtable<String,Graph>();
@@ -224,33 +235,78 @@ public class Graph extends FileList implements Serializable,Cloneable {
 				}
 				// 已经到了最接近层，this就是yangChild
 				if(!hasYangChild) {
-					Graph g = GraphManager.getGraphTree();
+					Graph graphTree = GraphManager.getGraphTree();
 					// 从树中找到yangChild的孩子中，rtd这一支的树，叫yangPar
-					Graph _g = (Graph) g.getChild(this.getPath());
-					Graph _g_ = _g.cutForChild(rtd);
+					Graph thisTreeNode = (Graph) graphTree.getChildByPath(this.getPath());
+					if(thisTreeNode == null) {
+						System.out.println("path="+this.getPath());
+					}
+					
+					Graph _g = thisTreeNode.cutForChild(rtd);
+					// 在yangPar中加入rtd这个孩子
+					if(_g.getPath().contentEquals(rtd.getPath()))
+						_g.children.put(rtd.getWholePath(), rtd);
+					else {
+						System.out.println("_g不是rtd是亲爹。");
+						throw new IllegalStateException("_g不是rtd是亲爹。");
+					}
+					
 					Graph _gChild = null ;
-					if(_g.children.size()==1) {
-						Collection<?> c = _g.children.values();
+					if(thisTreeNode.children.size()==1) {
+						Collection<?> c = thisTreeNode.children.values();
 						_gChild = (Graph) c.toArray()[0];
 					} else {
+						System.out.println(_g.children.size());
 						throw new IllegalStateException("初始化时没有注册过"+_g.getPath()+"这个目录。");
 					}
-					if(_gChild==null) {
-						// 处理异常
-					} else {
-						_g = _gChild;
-					}
-					// 在yangPar中加入rtd这个孩子
-					_g_.children.put(rtd.getWholePath(), rtd);
-					// yangChild中加入yangPar这个孩子
-					this.children.put(_g.getPath(), _g);
+					this.children.put(_gChild.getWholePath(), _gChild);
 				}
 			}
 		}
 	}
 
+	/**
+	 * 返回指pathName的孩子。
+	 * 
+	 * TODO: 可能有BUG
+	 * 
+	 * @param pathName
+	 * @return
+	 */
+private Graph getChildByPath(String pathName) {
+		if(StringUtil.isBlank(pathName))
+			return null;
+		if (this.name.equals(pathName))
+			return this;
+		if (pathName.contains(this.name)) {
+			if (this.children == null) {
+				return null;
+			}
+			Enumeration<String> e = this.children.keys();
+			while(e.hasMoreElements()) {
+				String key = (String) e.nextElement();
+				Graph f = this.children.get(key);
+				if(pathName.contains(f.getPath())) {
+					return f.getChildByPath(pathName);
+				}
+			}
+		}
+		return null;
+	}
+
+//	private void copyGraph(Graph g) {
+//		this.setChildren(g.getChildren());
+//		this.setCreater(g.getCreater());
+//		this.setCreaterUser(g.getCreaterUser());
+//		this.setDesc(g.getDesc());
+//		this.set
+//	}
 	
-	
+	/**
+	 * 为了孩子rtd减去自己的所有分支，只保留rtd这一系。返回最近rtd的那个孩子。
+	 * @param rtd
+	 * @return
+	 */
 	private Graph cutForChild(Graph rtd) {
 		if(this.getPath().contentEquals(rtd.getPath())) {
 			this.children = new Hashtable<String,Graph>();
@@ -259,15 +315,18 @@ public class Graph extends FileList implements Serializable,Cloneable {
 		else {
 			if(this.children!=null) {
 				Enumeration<String> e = this.children.keys();
+				Graph _g = null;
 				while(e.hasMoreElements()) {
 					String key = (String) e.nextElement();
 					Graph g = this.children.get(key);
 					if(rtd.getPath().contains(g.getPath())) {
-						g.cutForChild(rtd);
+						_g = g.cutForChild(rtd);
 					} else {
 						this.children.remove(key);
 					}
 				}
+				if(_g!=null)
+					return _g;
 				return this;
 			}else
 				return this;

@@ -196,7 +196,7 @@ public class UserManager {
 		List<UserInfo> ul = getUserInfoList();
 		for (int i = 0; i < ul.size(); i++) {
 			UserInfo u = ul.get(i);
-			if (u.getId() == ui.getId()) {
+			if (u.getId().equals(ui.getId())) {
 				ul.set(i, ui);
 				redisService.set(GlobalConsts.Key_UserInfo_Pre_ + "all", ul);
 				return ui;

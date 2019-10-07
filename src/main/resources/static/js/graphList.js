@@ -67,6 +67,7 @@ function doShareActionToServer(){
 			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				var graph = data.data.data;
+				console.log("graph:=> "+JSON.stringify(graph));
 				var _g = getGraphByID(userSpace.graph,graph.id);
 				_g.shared = graph.shared;
 				_g.sharedUsers = graph.sharedUsers;
@@ -391,9 +392,9 @@ function updateGraphListFrame(){
 				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramDetail\',\'' + _graph.urlPath + '\',\''+_graph.id+'\');"/>';
 //alert("_graph.urlPath = "+_graph.urlPath);
 				diagram_gallery_item_innerHTML += '<figcaption';
-				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramDetail\',\'' + _graph.urlPath + '\',\''+_graph.id+'\');"/>';
+				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramDetail\',\'' + _graph.urlPath + '\',\''+_graph.id+'\');">';
 
-				diagram_gallery_item_innerHTML += ' ><div><h5>创建者：</h5></div><h4>'
+				diagram_gallery_item_innerHTML += '<h4>'
 						+ _graph.name + '</h4><p>' + _graph.path
 						+ '</p></figcaption>';
 				diagram_gallery_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';

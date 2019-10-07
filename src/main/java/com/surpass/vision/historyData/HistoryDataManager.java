@@ -182,18 +182,18 @@ public class HistoryDataManager extends PointGroupDataManager {
         	_id = Double.valueOf(id2);
         pgd.setId(_id);
         pgd.setType(GlobalConsts.Type_historydata_);
-        ret = copyFromPointGroupData(pgd);
         
 		// 异步处理:
 		try {
-			// 先写缓存HistoryData，返回
-			redisService.set(GlobalConsts.Key_HistoryData_pre_+IDTools.toString(_id),ret);
 			// 创建一条数据库记录
 			pointGroupService.newPointGroupData(pgd);	
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new IllegalStateException("新建实时数据失败。");
 		}
+        ret = copyFromPointGroupData(pgd);
+		// 先写缓存HistoryData，返回
+		redisService.set(GlobalConsts.Key_HistoryData_pre_+IDTools.toString(_id),ret);
 		
 		return ret;
 	}
@@ -314,7 +314,14 @@ public class HistoryDataManager extends PointGroupDataManager {
 			Long[] _x = (Long[]) dstime2[pointInd].toArray(new Long[dstime2[pointInd].size()]);
 			Double[] _x_ = Newton_interpolation.castLongArrayToDoubleArray(_x);
 			Double[] _y = (Double[]) dsy[pointInd].toArray(new Double[dsy[pointInd].size()]);
-			Double[] _x0 = (Double[]) dstime2[pointInd].toArray(new Double[dstime2[pointInd].size()]);
+			Double[] _x0 = null;
+			try {
+				_x0 = (Double[]) dstime2[pointInd].toArray(new Double[dstime2[pointInd].size()]);
+			}catch(Exception e) {
+				for(int i=0;i<dstime2[pointInd].size();i++) {
+					System.out.println(dstime2[pointInd].get(i));
+				}
+			}
 			Double[] _y0 = Newton_interpolation.Newton_inter_method(_x_,_y,_x0);
 			
 			for(int itime2=0;itime2<dstime2[pointInd].size();itime2++) {

@@ -164,18 +164,18 @@ public class RealTimeDataManager extends PointGroupDataManager {
         	_id = Double.valueOf(id2);
         pgd.setId(_id);
         pgd.setType(GlobalConsts.Type_realtimedata_);
-        ret = copyFromPointGroupData(pgd);
         
 		// 异步处理:
 		try {
-			// 先写缓存RealTimeData，返回
-			redisService.set(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(_id),ret);
 			// 创建一条数据库记录
 			pointGroupService.newPointGroupData(pgd);	
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new IllegalStateException("新建实时数据失败。");
 		}
+        ret = copyFromPointGroupData(pgd);
+		// 先写缓存RealTimeData，返回
+		redisService.set(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(_id),ret);
 		
 		return ret;
 	}

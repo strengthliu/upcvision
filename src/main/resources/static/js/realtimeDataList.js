@@ -7,7 +7,7 @@
  */
 // 新建
 function newItemAction() {
-	if(user.id == 2 || user.role == 1){
+	if(user.id == 2 || user.role <= 2){
 	// alert("xyGraphList.newItemAction");
 		$('#newItemAction_mid').modal('show');
 	}else {

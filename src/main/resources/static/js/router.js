@@ -10,12 +10,12 @@ var _routeID;
 var _graphId;
 var routeList;
 var historyStepCount = 50;
-var currentStep;
+var currentStepInRouteList;
 var _realtimeDataDetailKey;
 
-console.log("2222222 = " + currentStep);
+console.log("2222222 = " + currentStepInRouteList);
 function routeTo(diagram, key, graphId) {
-	console.log("11111 = " + currentStep);
+	console.log("11111 = " + currentStepInRouteList);
 
 	// 初始化步数记录
 	if (routeList == null || routeList == "undefined") {
@@ -25,34 +25,34 @@ function routeTo(diagram, key, graphId) {
 		else
 			routeList = JSON.parse(localStorage.routeList);
 	}
-	if(currentStep!=currentStep){
+	if(currentStepInRouteList!=currentStepInRouteList){
 		console.log("重新初始化频数");
-		currentStep = -1;
+		currentStepInRouteList = -1;
 	}
 	
-	if (currentStep == null || currentStep == "undefined"
-			|| currentStep == 'NaN') {
-		if (localStorage.currentStep == null
-				|| localStorage.currentStep == "undefined") {
+	if (currentStepInRouteList == null || currentStepInRouteList == "undefined"
+			|| currentStepInRouteList == 'NaN') {
+		if (localStorage.currentStepInRouteList == null
+				|| localStorage.currentStepInRouteList == "undefined") {
 			console.log("if");
-			currentStep = -1;
+			currentStepInRouteList = -1;
 		} else {
 			console.log("else");
-			currentStep = parseInt(localStorage.currentStep);
+			currentStepInRouteList = parseInt(localStorage.currentStepInRouteList);
 		}
 	}
-	console.log("currentStep=" + currentStep + "  routeList.length="
+	console.log("currentStepInRouteList=" + currentStepInRouteList + "  routeList.length="
 			+ routeList.length);
-	// console.log("currentStep= "+currentStep);
+	// console.log("currentStepInRouteList= "+currentStepInRouteList);
 	// 如果当前参数diagram为空，就是点了前进后退
 	if (diagram == null || diagram == "undefined") {
 		console.log("点了前进后退");
 		// 如果当前步骤数在记录范围，就跳转
-		if (currentStep < routeList.length && currentStep >= 0) {
+		if (currentStepInRouteList < routeList.length && currentStepInRouteList >= 0) {
 			// 传递参数
-			_routeType = routeList[currentStep]._routeType;
-			_routeID = routeList[currentStep]._routeID;
-			_graphId = routeList[currentStep]._graphId;
+			_routeType = routeList[currentStepInRouteList]._routeType;
+			_routeID = routeList[currentStepInRouteList]._routeID;
+			_graphId = routeList[currentStepInRouteList]._graphId;
 			diagram = _routeType.toLowerCase();
 			key = _routeID;
 			graphId = _graphId;
@@ -60,25 +60,25 @@ function routeTo(diagram, key, graphId) {
 		} else {
 			alert("已经到头了。");
 			// TODO: 应该设置页面显示不能点击。现在是因为没有这个图标，就先提示。
-			if (currentStep < 0)
-				currentStep = 0;
-			if (currentStep > routeList.length - 1)
-				currentStep = routeList.length - 1;
-			localStorage.currentStep = currentStep+"";
+			if (currentStepInRouteList < 0)
+				currentStepInRouteList = 0;
+			if (currentStepInRouteList > routeList.length - 1)
+				currentStepInRouteList = routeList.length - 1;
+			localStorage.currentStepInRouteList = currentStepInRouteList+"";
 
 			return;
 		}
 	} else {
 		// 如果当前是最后一步，就是正常点进来的
-		if (currentStep == routeList.length - 1) {
+		if (currentStepInRouteList == routeList.length - 1) {
 
 		} else { // 否则就是上一步下一步后，点了跳转功能
 			// 删除当前步后面的记录
-			console.log("前进后退后，中间点了正常跳转功能。前：  currentStep=" + currentStep
+			console.log("前进后退后，中间点了正常跳转功能。前：  currentStepInRouteList=" + currentStepInRouteList
 					+ "  routeList.length=" + routeList.length);
-			routeList.splice(currentStep + 1, routeList.length - currentStep
+			routeList.splice(currentStepInRouteList + 1, routeList.length - currentStepInRouteList
 					- 1);
-			console.log("前进后退后，中间点了正常跳转功能。后：  currentStep=" + currentStep
+			console.log("前进后退后，中间点了正常跳转功能。后：  currentStepInRouteList=" + currentStepInRouteList
 					+ "  routeList.length=" + routeList.length);
 		}
 		// 传递参数
@@ -97,10 +97,10 @@ function routeTo(diagram, key, graphId) {
 
 		localStorage.routeList = JSON.stringify(routeList);
 
-		currentStep++;
-		localStorage.currentStep = currentStep+"";
+		currentStepInRouteList++;
+		localStorage.currentStepInRouteList = currentStepInRouteList+"";
 
-		console.log("执行正常跳转后，currentStep=" + currentStep
+		console.log("执行正常跳转后，currentStepInRouteList=" + currentStepInRouteList
 				+ "  routeList.length=" + routeList.length);
 	}
 
@@ -172,24 +172,24 @@ function routeTo(diagram, key, graphId) {
 }
 
 function stepBackward() {
-	if (localStorage.currentStep == null
-			|| localStorage.currentStep == "undefined") {
+	if (localStorage.currentStepInRouteList == null
+			|| localStorage.currentStepInRouteList == "undefined") {
 		console.log("1111");
-		currentStep = -1;
+		currentStepInRouteList = -1;
 	} else {
-		console.log("2222 = "+localStorage.currentStep);
-		currentStep = parseInt(localStorage.currentStep);
+		console.log("2222 = "+localStorage.currentStepInRouteList);
+		currentStepInRouteList = parseInt(localStorage.currentStepInRouteList);
 	}
-	currentStep--;
+	currentStepInRouteList--;
 	routeTo();
 }
 function stepForward() {
-	if (localStorage.currentStep == null
-			|| localStorage.currentStep == "undefined") {
-		currentStep = -1;
+	if (localStorage.currentStepInRouteList == null
+			|| localStorage.currentStepInRouteList == "undefined") {
+		currentStepInRouteList = -1;
 	} else {
-		currentStep = parseInt(localStorage.currentStep);
+		currentStepInRouteList = parseInt(localStorage.currentStepInRouteList);
 	}
-	currentStep++;
+	currentStepInRouteList++;
 	routeTo();
 }

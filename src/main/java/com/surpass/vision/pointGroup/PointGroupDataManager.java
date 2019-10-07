@@ -221,7 +221,7 @@ public class PointGroupDataManager {
 			System.out.println();
 		}
 		List<Point> pl = pgd.getPointList();
-		if(pl==null) {
+		if(pl==null || pl.size()==0) {
 			return null;
 		}
 		

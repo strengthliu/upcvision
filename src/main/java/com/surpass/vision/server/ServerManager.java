@@ -301,8 +301,9 @@ public class ServerManager {
 			return gec.DBECBatchGetTagRealField(srvName, idList, fieldName);
 		} catch (GecException e) {
 			e.printStackTrace();
+			return new ArrayList();
 		}
-		return null;
+//		return null;
 	}
 	
 	public static boolean hasServerName(String serverName) {

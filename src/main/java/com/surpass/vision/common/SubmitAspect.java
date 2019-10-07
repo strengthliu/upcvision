@@ -39,6 +39,7 @@ public class SubmitAspect {
         try {
             return pjp.proceed();
         } catch (Throwable throwable) {
+        	throwable.printStackTrace();
             throw new RuntimeException("服务器异常");
         } finally {
             //如果演示的话需要注释该代码,手动将缓存清除，实际应该放开

@@ -93,8 +93,9 @@ public class DataViewer {
 		else {
 //			System.out.println("DataViewer.values datas为空。");
 		}
-//		if(time == null) 
-			time = ServerManager.getInstance().getServerCurrentTime();
+//		if(time == null) // 返回的实时数据是没有时间的
+			time = System.currentTimeMillis();
+//			time = ServerManager.getInstance().getServerCurrentTime();
 		ret.put("time", time);
 		return ret;
 	}
@@ -110,8 +111,8 @@ public class DataViewer {
 			System.out.println("DataViewer.values datas为空。");
 		}
 //		if(time == null) 
-//			time = System.currentTimeMillis();
-		time = ServerManager.getInstance().getServerCurrentTime();
+			time = System.currentTimeMillis();
+//		time = ServerManager.getInstance().getServerCurrentTime();
 		ret.put("time", time);
 		return ret;
 	}

@@ -32,16 +32,22 @@ public class FileList extends PointGroup implements Serializable {
 		this.children = new Hashtable<String, FileList>();
 	}
 
-	public FileList(FileList repo) {
-		super();
-		this.isFile = repo.isFile;
-		this.name = repo.getName();
-		this.path = repo.getPath();
-		this.changed = repo.changed;
-		this.children = new Hashtable<String, FileList>(repo.children);
-	}
+//	public FileList(FileList repo) {
+//		super();
+//		this.isFile = repo.isFile;
+//		this.name = repo.getName();
+//		this.path = repo.getPath();
+//		this.changed = repo.changed;
+//		this.children = new Hashtable<String, FileList>(repo.children);
+//	}
 
-	private Hashtable<Double, FileList> inds = new Hashtable<Double, FileList>();
+	/**
+	 * 用ID索引的FileList。
+	 * 所有的子都共用这一个。
+	 * ---------------------------------------
+	 * @author 刘强 2019年10月6日 下午1:04:06 
+	 */
+	private static Hashtable<Double, FileList> inds = new Hashtable<Double, FileList>();//GraphManager.getInds();
 
 	/**
 	 * 
@@ -196,44 +202,57 @@ public class FileList extends PointGroup implements Serializable {
 		return changed;
 	}
 
-	/**
-	 * TODO: 可能有BUG
-	 * 
-	 * @param pathName
-	 * @return
-	 */
-	public FileList getChild(String pathName) {
-		if (this.name.equals(pathName))
-			return this;
-		if (pathName.contains(this.name)) {
-			if (this.children == null) {
-				return null;
-			}
-			String[] names = this.name.split("\\" + File.separator);
-			String[] pathNames = pathName.split("\\" + File.separator);
-			String nextChildName = "";
-			for (int i = 0; i < pathNames.length; i++) {
-				if (nextChildName.length() == 0)
-					nextChildName = pathNames[i];
-				else
-					nextChildName = nextChildName + File.separator + pathNames[i];
-				if (i > names.length)
-					break;
-			}
-			if (this.children.containsKey(nextChildName)) {
-				FileList fl = this.children.get(nextChildName);
-				if (fl != null && !fl.isFile) {
-					if (nextChildName.contentEquals(pathName))
-						return fl;
-					else
-						return fl.getChild(pathName);
-				}
-			} else {
-				return null;
-			}
-		}
-		return null;
-	}
+//	/**
+//	 * 返回指pathName的孩子。
+//	 * 
+//	 * TODO: 可能有BUG
+//	 * 
+//	 * @param pathName
+//	 * @return
+//	 */
+//	public FileList getChild(String pathName) {
+//		if(StringUtil.isBlank(pathName))
+//			return null;
+//		if (this.name.equals(pathName))
+//			return this;
+//		if (pathName.contains(this.name)) {
+//			if (this.children == null) {
+//				return null;
+//			}
+////			String[] names = this.name.split("\\" + File.separator);
+////			String[] pathNames = pathName.split("\\" + File.separator);
+////			String nextChildName = "";
+////			for (int i = 0; i < pathNames.length; i++) {
+////				if (nextChildName.length() == 0)
+////					nextChildName = pathNames[i];
+////				else
+////					nextChildName = nextChildName + File.separator + pathNames[i];
+////				if (i > names.length)
+////					break;
+////			}
+//			Enumeration e = this.children.keys();
+//			while(e.hasMoreElements()) {
+//				String key = (String) e.nextElement();
+//				FileList f = this.children.get(key);
+//				if(pathName.contains(f.getPath())) {
+//					return f.getChild(pathName);
+//				}
+//			}
+////			
+////			if (this.children.containsKey(nextChildName)) {
+////				FileList fl = this.children.get(nextChildName);
+////				if (fl != null && !fl.isFile) {
+////					if (nextChildName.contentEquals(pathName))
+////						return fl;
+////					else
+////						return fl.getChild(pathName);
+////				}
+////			} else {
+////				return null;
+////			}
+//		}
+//		return null;
+//	}
 
 	public Hashtable<String, FileList> getChildren() {
 		return children;
@@ -308,7 +327,6 @@ public class FileList extends PointGroup implements Serializable {
 	}
 
 	public FileList getChild(Double id) {
-		// TODO Auto-generated method stub
 		return inds.get(id);
 	}
 

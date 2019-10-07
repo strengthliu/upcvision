@@ -54,10 +54,16 @@ public class GraphManager extends GraphDataManager {
 	private long beginUpdateTime = 0;
 	private boolean updating = false;
 	private static FileList repo;
+//	private static Hashtable<Double, FileList> inds = new Hashtable<Double, FileList>();
+
 	private static Graph graph;
 
 	static Graph graphs;
 
+//	public static Hashtable<Double, FileList> getInds(){
+//		return inds;
+//	}
+	
 	public static Graph getRootGraph() {
 		Graph ret = graphs.copyRootNode();
 		
@@ -65,7 +71,7 @@ public class GraphManager extends GraphDataManager {
 	}
 	
 	public static Graph getGraphTree() {
-		return graphs;
+		return graphs.clone().clearLeaf();
 	}
 
 	
@@ -242,32 +248,10 @@ System.out.println(aa.length);
 		}
 	}
 
-	public Graph updateShareRight(Double itemId, List<String> userIdsid) {
-		// TODO Auto-generated method stub
-		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
-		if(pgd == null) {
-			throw new IllegalStateException("没有id为"+itemId+"这个数据");
-		}
-		String sharedUserIDs = "";
-		if(userIdsid != null) {
-			sharedUserIDs = IDTools.merge(userIdsid.toArray());
-		}
-		pgd.setShared(sharedUserIDs);
-		// 更新数据库
-		pointGroupService.updatePointGroupItem(pgd);
-		
-		// 更新缓存
-		Graph rtd = this.copyFromPointGroupData(pgd);
-		// 写缓存HistoryData，返回
-		redisService.set(GlobalConsts.Key_Graph_pre_+IDTools.toString(rtd.getId()),rtd);
-
-		return rtd;	
-	}
-
 	public void updateGraph(Graph rtd) {
 		// 更新数据库
 		pointGroupService.updatePointGroupItem(rtd);
-		// 写缓存RealTimeData，返回
+		// 写缓存，返回
 		redisService.set(GlobalConsts.Key_Graph_pre_+IDTools.toString(rtd.getId()),rtd);
 	}
 
@@ -322,6 +306,27 @@ System.out.println(aa.length);
 //		}
 //	}
 
+
+	public Graph updateShareRight(Double itemId, List<String> userIdsid) {
+		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
+		if(pgd == null) {
+			throw new IllegalStateException("没有id为"+itemId+"这个数据");
+		}
+		String sharedUserIDs = "";
+		if(userIdsid != null) {
+			sharedUserIDs = IDTools.merge(userIdsid.toArray());
+		}
+		pgd.setShared(sharedUserIDs);
+		// 更新数据库
+		pointGroupService.updatePointGroupItem(pgd);
+		
+		// 更新缓存
+		Graph rtd = this.copyFromPointGroupData(pgd);
+		// 写缓存HistoryData，返回
+		redisService.set(GlobalConsts.Key_Graph_pre_+IDTools.toString(rtd.getId()),rtd);
+	
+		return rtd;	
+	}
 
 	public Graph getGraphByKeys(Double oldRtdId) {
 		Graph rtd = (Graph)redisService.get(GlobalConsts.Key_Graph_pre_+IDTools.toString(oldRtdId));

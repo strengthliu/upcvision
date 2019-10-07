@@ -71,6 +71,8 @@ function connect(callback) {
 //	}
 	socket = new SockJS('/socketServer');
 	stompClient = Stomp.over(socket);
+	// 停止调试信息
+	stompClient.debug = null;
 	checkToken();
 	sessionStorage.setItem('token', token);// 设置指定session值
 	sessionStorage.setItem('uid', user.id);// 设置指定session值

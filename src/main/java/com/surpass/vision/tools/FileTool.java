@@ -286,8 +286,12 @@ public class FileTool {
 						// 将SVG转成图形，写到缩略图物理目录里
 						String physicalGraphPath = ServerConfig.getInstance().getPhysicalGraphPath(fl.getPath());
 						SVGTools.convertToPng(es.outerHtml(), physicalGraphPath + "\\" + fl.getName() + ".png");
-						String urlGraphPath = ServerConfig.getInstance().getURLFromPath(fl.getWholePath());
-						fl.setImg(urlGraphPath);
+						String urlGraphPath = ServerConfig.getInstance().getURLFromPath(physicalGraphPath + "\\" + fl.getName() + ".png");
+						File fimage = new File(urlGraphPath);
+						if(fimage.length()>0)
+							fl.setImg(urlGraphPath);
+						else
+							fl.setImg(ServerConfig.getInstance().getDefaultGraphImg());
 					} catch (TranscoderException e) {
 						e.printStackTrace();
 					}

@@ -22,6 +22,7 @@ import com.surpass.vision.domain.PointGroup;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.RealTimeData;
 import com.surpass.vision.domain.User;
+import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.mapper.PointGroupDataMapper;
 import com.surpass.vision.pointGroup.PointGroupDataManager;
 import com.surpass.vision.server.Point;
@@ -58,43 +59,50 @@ public class GraphDataManager extends PointGroupDataManager {
 	private String graphDefaultImg;
 
 	/**
-	 * 
+	 * 根据图ID列表，生成一张从根开始的图。
+	 * 用于UserSpace中的graph。
 	 * 
 	 * @param graphs
 	 * @return
 	 */
 	public Graph getGraphsByKeys(String graphs) {
-		Graph ret = new Graph();
+		Graph ret = GraphManager.getRootGraph();
+		if(StringUtil.isBlank(graphs))return ret;
 		// 分隔key
 		String[] keys = IDTools.splitID(graphs);
 		// 从缓存里取数据，如果没有，再调用服务。
 		for (int ik = 0; ik < keys.length; ik++) {
 			// 从缓存里取图
 			Graph g = this.getGraphRigidlyByKeys(keys[ik]);
-			
+
 			if (g == null) {
-				throw new IllegalStateException("没有指定ID的图形。");
+				System.out.println("没有指定ID=" + keys[ik] + "的图形。");
+				// TODO: 发消息给管理员。
+				// TODO: 把这个图形从userSpace中删除。
+				
+//				throw new IllegalStateException("没有指定ID=" + keys[ik] + "的图形。");
+			} else {
+				ret.addOrUpdateChild(g);
+//				String path = g.getPath();
+//				String splitChar = "";
+//				if (File.separator.contentEquals("\\"))
+//					splitChar = "\\\\";
+//				else
+//					splitChar = File.separator;
+//				String[] folds = path.split(splitChar);
+//				String curPath = "";
+//				Graph curG = null;
+//				for (int ifold = 0; ifold < folds.length; ifold++) {
+//					String lastPath = curPath;
+//					curPath = curPath + folds[ifold];
+//					FileList fl = g.getChild(curPath);
+//					if (fl == null) {
+//						if (StringUtil.isBlank(lastPath)) {
+//							ret.addChild(g);
+//						}
+//					}
+//				}
 			}
-			String path = g.getPath();
-			String splitChar = "";
-			if(File.separator.contentEquals("\\"))
-				splitChar = "\\\\";
-			else
-				splitChar = File.separator;
-			String []folds = path.split(splitChar);
-			String curPath = "";
-			Graph curG = null;
-			for(int ifold=0;ifold<folds.length;ifold++) {
-				String lastPath = curPath;
-				curPath = curPath + folds[ifold];
-				FileList fl = ret.getChild(curPath);
-				if(fl==null) {
-					if(StringUtil.isBlank(lastPath)) {
-						ret.addChild(g);
-					}
-				}
-			}
-//			ret.put(g.getName(), g);
 		}
 		//
 		return ret;
@@ -178,11 +186,11 @@ public class GraphDataManager extends PointGroupDataManager {
 		ret.setSVG(fl.isSVG());
 		ret.setId(fl.getId());
 		// 设置文件名
-		if(fl.isFile())
+		if (fl.isFile())
 			ret.setFileName(fl.getName());
 		else
 			ret.setFileName(null);
-		
+
 		String name = fl.getName();
 		if (name.lastIndexOf(".") > 0)
 			name = name.substring(0, name.lastIndexOf("."));
@@ -197,9 +205,11 @@ public class GraphDataManager extends PointGroupDataManager {
 		// 设置缩略图
 		if (fl.getImg() == null || fl.getImg() == "")
 			ret.setImg(graphDefaultImg);
-		
+
 		// 设置URLpath
 		String urlPath = ServerConfig.getInstance().getURLFromPath(fl.getWholePath());
+		if(StringUtil.isBlank(urlPath))
+			urlPath ="";
 		ret.setUrlPath(urlPath);
 
 		// 如果是文件
@@ -211,7 +221,7 @@ public class GraphDataManager extends PointGroupDataManager {
 				ret.setPoints(fl.getPoints());
 			} else
 				ret.setPoints(fl.getPoints());
-			
+
 			ArrayList<Point> pal = new ArrayList<>();
 			String[] pids = IDTools.splitID(ret.getPoints());
 			for (int ipids = 0; ipids < pids.length; ipids++) {
@@ -223,7 +233,8 @@ public class GraphDataManager extends PointGroupDataManager {
 			ret.setPointList(pal);
 
 			// 同步数据库
-			PointGroupData pgd = this.pointGroupService.getPointGroupDataByOtherRule1(GlobalConsts.Type_graph_, fl.getWholePath());
+			PointGroupData pgd = this.pointGroupService.getPointGroupDataByOtherRule1(GlobalConsts.Type_graph_,
+					fl.getWholePath());
 			if (pgd != null) {
 				ret.setId(pgd.getId());
 				ret.setCreater(pgd.getCreater());
@@ -239,9 +250,8 @@ public class GraphDataManager extends PointGroupDataManager {
 				// 数据库中创建一条
 				this.pointGroupService.newPointGroupData(ret);
 			}
-			setRightInfo(ret,pgd);
-			
-			
+			setRightInfo(ret, pgd);
+
 			// 更新缓存
 			try {
 				redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(ret.getId()), ret);
@@ -250,10 +260,9 @@ public class GraphDataManager extends PointGroupDataManager {
 				e.printStackTrace();
 			}
 
-
 			return ret;
 		}
-		
+
 		// 如果是目录
 		ret.setId(IDTools.newID());
 		ret.setFile(false);
@@ -271,7 +280,79 @@ public class GraphDataManager extends PointGroupDataManager {
 		}
 		return ret;
 	}
-	public void setRightInfo(Graph ret,PointGroupData pgd) {
+
+	public Graph copyFromPointGroupData(PointGroupData pgd) {
+			if (pgd == null)
+				return null;
+			else if (!pgd.getType().contentEquals(GlobalConsts.Type_graph_)) {
+				throw new IllegalStateException("数据类型不正确，需要图形的PointGroupData。");
+			}
+	
+			Graph graph = null;
+			FileList fl = GraphManager.getCurrentFileList();
+			fl = fl.getChild(pgd.getId());
+			graph = this.copyGraphFromFileList(fl, null);
+			return graph;
+//	
+//	//		// 如果缓存里有，就取出返回
+//	//		graph = (Graph) redisService.get(GlobalConsts.Key_Graph_pre_ + IDTools.toString(pgd.getId()));
+//	//		if (graph != null) {
+//	//			return graph;
+//	//		}
+//	
+//			// 如果没有，就copy一份，再放到缓存里。
+//			graph = new Graph();
+//			graph.setCreater(pgd.getCreater());
+//			graph.setCreaterUser(userManager.getUserByID(pgd.getCreater()));
+//	
+//			graph.setId(pgd.getId());
+//			graph.setName(pgd.getName());
+//			graph.setOtherrule1(pgd.getOtherrule1());
+//			graph.setOtherrule2(pgd.getOtherrule2());
+//			// 注释设置为Otherrule2
+//			graph.setDesc(pgd.getOtherrule2());
+//	
+//			graph.setOwner(pgd.getOwner());
+//			graph.setOwnerUser(userManager.getUserByID(pgd.getOwner()));
+//	
+//			// 设置FileList的相关信息
+//			FileList fl = GraphManager.getCurrentFileList();
+//			fl = fl.getChild(pgd.getId());
+//			graph = this.copyGraphFromFileList(fl, null);
+//			graph.setFile(fl.isFile());
+//			graph.setSVG(fl.isSVG());
+//			graph.setImg(fl.getImg());
+//			graph.setPath(fl.getPath());
+//			graph.setFileName(fl.getName());
+//			graph.setUrlPath(ServerConfig.getInstance().getURLFromPath(fl.getWholePath()));
+//	
+//			graph.setPoints(pgd.getPoints());
+//			ArrayList<Point> pal = new ArrayList<>();
+//			String[] pids = IDTools.splitID(pgd.getPoints());
+//			for (int ipids = 0; ipids < pids.length; ipids++) {
+//				String serverName = splitServerName(pids[ipids]);
+//				String pName = splitPointName(pids[ipids]);
+//				Point p = ServerManager.getInstance().getPointByID(serverName, pName);
+//				pal.add(p);
+//			}
+//			graph.setPointList(pal);
+//	
+//			graph.setShared(pgd.getShared());
+//			ArrayList<User> ul = new ArrayList<User>();
+//			String[] sharedIds = IDTools.splitID(pgd.getShared());
+//			for (int isharedIDs = 0; isharedIDs < sharedIds.length; isharedIDs++) {
+//				User u = userManager.getUserByID(sharedIds[isharedIDs]);
+//				ul.add(u);
+//			}
+//			graph.setSharedUsers(ul);
+//	
+//			graph.setType(pgd.getType());
+//			redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(pgd.getId()), graph);
+//	
+//			return graph;
+		}
+
+	public void setRightInfo(Graph ret, PointGroupData pgd) {
 		if (pgd != null) { // 如果有这个权限设置，就加进去
 			// ------------------ 设置创建者 -------------------
 			String createrId = pgd.getCreater();
@@ -421,70 +502,6 @@ public class GraphDataManager extends PointGroupDataManager {
 		redisService.set(GlobalConsts.Key_HistoryData_pre_ + IDTools.toString(rtd.getId()), rtd);
 
 		return rtd;
-	}
-
-	public Graph copyFromPointGroupData(PointGroupData pgd) {
-		if (pgd == null)
-			return null;
-		else if (!pgd.getType().contentEquals(GlobalConsts.Type_graph_)) {
-			throw new IllegalStateException("数据类型不正确，需要图形的PointGroupData。");
-		}
-
-		Graph graph = null;
-
-		// 如果缓存里有，就取出返回
-		graph = (Graph) redisService.get(GlobalConsts.Key_Graph_pre_ + IDTools.toString(pgd.getId()));
-		if (graph != null) {
-			return graph;
-		}
-
-		// 如果没有，就copy一份，再放到缓存里。
-		graph = new Graph();
-		graph.setCreater(pgd.getCreater());
-		graph.setCreaterUser(userManager.getUserByID(pgd.getCreater()));
-
-		graph.setId(pgd.getId());
-		graph.setName(pgd.getName());
-		graph.setOtherrule1(pgd.getOtherrule1());
-		graph.setOtherrule2(pgd.getOtherrule2());
-		// 注释设置为Otherrule2
-		graph.setDesc(pgd.getOtherrule2());
-
-		graph.setOwner(pgd.getOwner());
-		graph.setOwnerUser(userManager.getUserByID(pgd.getOwner()));
-		
-		// 设置FileList的相关信息
-		FileList fl = GraphManager.getCurrentFileList();
-		fl = fl.getChild(pgd.getId());
-		graph.setFile(fl.isFile());
-		graph.setSVG(fl.isSVG());
-		graph.setImg(fl.getImg());
-		graph.setPath(fl.getPath());
-
-		graph.setPoints(pgd.getPoints());
-		ArrayList<Point> pal = new ArrayList<>();
-		String[] pids = IDTools.splitID(pgd.getPoints());
-		for (int ipids = 0; ipids < pids.length; ipids++) {
-			String serverName = splitServerName(pids[ipids]);
-			String pName = splitPointName(pids[ipids]);
-			Point p = ServerManager.getInstance().getPointByID(serverName, pName);
-			pal.add(p);
-		}
-		graph.setPointList(pal);
-
-		graph.setShared(pgd.getShared());
-		ArrayList<User> ul = new ArrayList<User>();
-		String[] sharedIds = IDTools.splitID(pgd.getShared());
-		for (int isharedIDs = 0; isharedIDs < sharedIds.length; isharedIDs++) {
-			User u = userManager.getUserByID(sharedIds[isharedIDs]);
-			ul.add(u);
-		}
-		graph.setSharedUsers(ul);
-
-		graph.setType(pgd.getType());
-		redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(pgd.getId()), graph);
-
-		return graph;
 	}
 
 	/**

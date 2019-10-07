@@ -7,9 +7,10 @@
  */
 // 新建
 function newItemAction() {
-	if(user.id == 2 || user.role == 1){
+	if(user.id == 2 || user.role <= 2){
 	// alert("xyGraphList.newItemAction");
 		$('#newItemAction_mid').modal('show');
+//		init();
 	}else {
 		alert("您没有权限进行新建操作。");
 	}
@@ -36,7 +37,6 @@ function editItemAction(itemId) {
 editItem();
 }
 function deleteItemAction(itemId) {
-console.log("deleteItemAction");
 	var data={'uid':uid,'token':token,'id':itemId};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -57,7 +57,7 @@ console.log("deleteItemAction");
 			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				var xyGraphId = data.data.data;
 				fixLocalXYGraphList_Delete(xyGraphId);
-				if(data.refresh) routeTo('xygraphList','');
+//				if(data.refresh) routeTo('xygraphList','');
 				// 
 			} else {
 				alert("失败 ： "+data.msg);
@@ -78,6 +78,52 @@ console.log("deleteItemAction");
 
 }
 
+function doShareActionToServer(){
+	if (user == null || user == "undefined") {
+		user = localStorage.user;
+		uid = user.id;
+		token = localStorage.token;
+	}
+	console.log("dataItemId="+dataItemId+"  user:"+JSON.stringify(Array.from(selectedUsers)));
+	var data={'uid':uid,'token':token,'id':dataItemId,'userIds':Array.from(selectedUsers),'type':"xyGraph"};
+	$.ajax({
+		// 提交数据的类型 POST GET
+		type : "POST",
+		// 提交的网址
+		url : "shareRightXYGraph",
+		// 提交的数据
+		data: JSON.stringify(data),
+		contentType : "application/json",
+		// 返回数据的格式
+		datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
+		// 在请求之前调用的函数
+		beforeSend : function() {
+			showLoading();
+		},
+		// 成功返回之后调用的函数
+		success : function(data) {
+			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+				// console.log("server info : "+JSON.stringify(data.data.data));
+				var xyGraph = data.data.data;
+				userSpace.xyGraph[xyGraph.id]=xyGraph;
+				$('#shareItemAction_mid').modal('hide');
+				updateXYGraphListFrame();
+			} else {
+				alert("失败 ： " + data.msg);
+			}
+			hideLoading();
+		},
+		// 调用执行后调用的函数
+		complete : function(XMLHttpRequest, textStatus) {
+			hideLoading();
+		},
+		// 调用出错执行的函数
+		error : function(jqXHR, textStatus, errorThrown) {
+			hideLoading();
+		}
+	});
+}
+
 var dataItemId;
 function shareItemAction(itemId) {
 	dataItemId = itemId;
@@ -96,7 +142,6 @@ function shareItemAction(itemId) {
  */
 function submitNewDataItem(selectedPoints,targetName,targetDesc){
 
-	console.log("xygraph.js => submitNewDataItem 1 "+targetName +"  "+targetDesc);
 	var selectPointArray = new Array();
 	var i__ = 0;
 	for (let e of selectedPoints) {
@@ -104,7 +149,6 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		i__++;
 		}
 
-	console.log("xygraph.js => submitNewDataItem 2");
 	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -123,8 +167,6 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		// 成功返回之后调用的函数
 		success : function(data) {
 			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
-				// console.log("server info : "+JSON.stringify(data.data.data));
-				console.log("xygraph.js => submitNewDataItem 3");
 				var xyGraph = data.data.data;
 				$('#newItemAction_mid').modal('hide');
 				fixLocalXYGraphList(xyGraph);
@@ -133,28 +175,13 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 				alert("失败 ： "+data.msg);
 			}
 			hideLoading();
-			// alert("本地存储："+localStorage.user);
-			// window.location.href = "index.html";
 		},
 		// 调用执行后调用的函数
 		complete : function(XMLHttpRequest, textStatus) {
-			// alert(XMLHttpRequest.responseText);
-			// alert(textStatus);
-			console.log("xygraph.js => submitNewDataItem 4");
 			hideLoading();
-		
 		},
 		// 调用出错执行的函数
 		error : function(jqXHR, textStatus, errorThrown) {
-			/* 弹出jqXHR对象的信息 */
-			// alert(jqXHR.responseText);
-			// alert(jqXHR.status);
-			// alert(jqXHR.readyState);
-			// alert(jqXHR.statusText);
-			/* 弹出其他两个参数的信息 */
-			// alert(textStatus);
-			// alert(errorThrown);
-			console.log("xygraph.js => submitNewDataItem 5");
 			hideLoading();
 		}
 	});
@@ -202,7 +229,6 @@ function fixLocalXYGraphList_Delete(xyGraphId){
  */
 function fixLocalXYGraphList(xyGraph){
 	// $('#newItemAction_mid').modal('hide');
-	console.log("fixLocalXYGraphList 1");
 	if(userSpace==null || userSpace=="undefined"){
 		getUserSpace(user.id,token,fixLocalXYGraphList);
 		cancel11();
@@ -222,7 +248,6 @@ function fixLocalXYGraphList(xyGraph){
 updateXYGraphListFrame();
 
 function updateXYGraphListFrame(){
-	console.log("_routeID = " + _routeID);
 	var _xyGraph;
 	// TODO: 如果key为空，就是异常，待处理。
 	if (_routeID == null || _routeID == "undefined")

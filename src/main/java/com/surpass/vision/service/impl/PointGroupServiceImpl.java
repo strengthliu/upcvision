@@ -49,7 +49,7 @@ public class PointGroupServiceImpl implements PointGroupService {
 		return pointGroupDataMapper.getAdminGraphData();	
 	}
 
-	@Async("taskExecutor")
+//	@Async("taskExecutor")
 	@Override
 	public PointGroupData newPointGroupData(PointGroupData pgd) {
 		if(pgd instanceof FileList) {
@@ -73,8 +73,10 @@ public class PointGroupServiceImpl implements PointGroupService {
 				pgd.setId(IDTools.newID());
 			pointGroupDataMapper.insert(pgd);
 		}
-		else
+		else {
+			pgd.setShared(_pgd.getShared());
 			pointGroupDataMapper.updateByPrimaryKeySelective(pgd);
+		}
 		return pgd;
 	}
 

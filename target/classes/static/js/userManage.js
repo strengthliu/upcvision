@@ -159,15 +159,16 @@ function setTUserInfo(k, v) {
 			break;
 		}
 	}
+	
 	console.log(tuserInfo[k]);
 }
 
 function setTUserInfoUI(userInfo,editable) {
 	if(editable==null||editable=="undefined")
 		editable = true;
-	
 	if(editable==true){
-		document.getElementById("_userrole").removeAttribute("disabled");
+		if(user.role==1)
+			document.getElementById("_userrole").removeAttribute("disabled");
 		document.getElementById("_username").removeAttribute("disabled");
 		document.getElementById("_userdesc").removeAttribute("disabled");
 		document.getElementById("_usermobile").removeAttribute("disabled");
@@ -373,7 +374,19 @@ function updateUserInfoToServer(){
 		success : function(data) {
 			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				var d = data.data.data;
-				userInfoList.push(d);
+				console.log(" d="+JSON.stringify(d));
+				var ind1 = -1;
+				for(var ind = 0;ind<userInfoList.length;ind++){
+					if(userInfoList[ind].id == d.id){
+						ind1 = ind;
+						break;
+					}
+				}
+				if(ind1==-1)
+					userInfoList.push(d);
+				else{
+					userInfoList[ind1]=d;
+				}
 //				console.log(JSON.stringify(userInfoList));
 				tuserInfo = null;
 				initUserInfoList(userInfoList);
@@ -417,4 +430,13 @@ function submitOnUserInfo(){
 	}
 	
 }
-//function ch
+
+//function changePassword(){
+//	// 检查密码
+//	if(!checkPassword())
+//		return;
+//	else{
+//		var changepassword2 = document.getElementById("change-password2");
+//		tuserInfo.pwd = changepassword2.value;
+//	}
+//}

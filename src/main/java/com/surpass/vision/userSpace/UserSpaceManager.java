@@ -167,8 +167,13 @@ public class UserSpaceManager {
 //		UserSpace us = new UserSpace();
 //		// 如果是管理员，就建管理员空间。
 		UserInfo user = userManager.getUserInfoByID(IDTools.toString(userID));
-		if (user == null)
-			throw new IllegalStateException("id为" + userID + "的用户不存在，不能为其建立用户空间。");
+		if (user == null) {
+			System.out.println("id为" + userID + "的用户不存在，不能为其建立用户空间。");
+			// TODO: 由于数据不一致导致。有图形等PointGroup里，存在该用户为分享用户。
+			// TODO: 发消息给管理员，修复数据。
+//			throw new IllegalStateException("id为" + userID + "的用户不存在，不能为其建立用户空间。");
+			return null;
+		}
 		if (user.getRole() == 1)
 			return buildAdminUserSpace(user);
 		LOGGER.info(new Date().toGMTString() + " 开始为用户初始化用户空间..");
@@ -384,7 +389,7 @@ public class UserSpaceManager {
 		// 跟这个RealTimeData对比用户，取出差别
 		// 
 		Set<String> rightChangesaggrandizement = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyAggrandizement);
-		Set<String> rightChangesdecreament = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyAggrandizement);
+		Set<String> rightChangesdecreament = PointGroupDataManager.compareRight(rtd,oldRtd,GlobalConsts.KeyDecrement);
 		// 根据 这些用户,取的他们UserSpace，更新他们的realTimeData字段，再写回缓存。
 		Iterator<String> it = rightChangesaggrandizement.iterator();
 		while (it.hasNext()) {
@@ -585,11 +590,12 @@ public class UserSpaceManager {
 				// 这个用户还没有图形。
 				g = GraphManager.getRootGraph().copyRootNode();// new Graph();
 			}
-			Graph pa = g.getParentByPath(oldRtd.getPath());
-			if(pa==null) // 如果为空，就是没提供原图形，只需要更新当前rtd就可以。
-				pa = g.getParentByPath(rtd.getPath());
-			// 修改其值
-			pa.addOrUpdateChild(rtd);
+			g.addOrUpdateChild(rtd);
+//			Graph pa = g.getParentByPath(oldRtd.getPath());
+//			if(pa==null) // 如果为空，就是没提供原图形，只需要更新当前rtd就可以。
+//				pa = g.getParentByPath(rtd.getPath());
+//			// 修改其值
+//			pa.addOrUpdateChild(rtd);
 			us.setGraph(g);
 			this.setUserSpace(Double.valueOf(uids), us);
 		}

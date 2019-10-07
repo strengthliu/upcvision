@@ -31,23 +31,28 @@ if (user.role <= 2) {
 // user.role == 1){
 // if(false)// 先停掉其他菜单
 {
-	oppertionButton_innerHTML += '  <div class="menu_02" onclick="editItemAction();"> </div> ';
-	oppertionButton_innerHTML += '  <div class="menu_03" onclick="deleteItemAction();"> </div> ';
-	oppertionButton_innerHTML += '  <div class="menu_04" onclick="shareItemAction();"> </div>   ';
+	oppertionButton_innerHTML += '  <div class="menu_02"> </div> ';
+	oppertionButton_innerHTML += '  <div class="menu_03"> </div> ';
+	oppertionButton_innerHTML += '  <div class="menu_04"> </div>   ';
+//	oppertionButton_innerHTML += '  <div class="menu_02" onclick="editItemAction();"> </div> ';
+//	oppertionButton_innerHTML += '  <div class="menu_03" onclick="deleteItemAction();"> </div> ';
+//	oppertionButton_innerHTML += '  <div class="menu_04" onclick="shareItemAction();"> </div>   ';
 }
 oppertionButton_innerHTML += '</div>  ' + '</div>';
 oppertionButton.innerHTML = oppertionButton_innerHTML;
 //console.log(oppertionButton.innerHTML);
+console.log("mainPanel.js => user.role="+user.role);
 switch (user.role) {
 case 1: // 管理员什么都有
 	mainPanel.appendChild(oppertionButton);
-	console.log("case 1");
 	$("#toMenu").click(function() {
-		$(".info-nr-phone").toggleClass("info-nr-phone2");
-		$(".menu_01").toggleClass("to_01");
-		$(".menu_02").toggleClass("to_02");
-		$(".menu_03").toggleClass("to_03");
-		$(".menu_04").toggleClass("to_04");
+		if(newItemAction!="undefined"){
+			$(".info-nr-phone").toggleClass("info-nr-phone2");
+			$(".menu_01").toggleClass("to_01");
+			$(".menu_02").toggleClass("to_02");
+			$(".menu_03").toggleClass("to_03");
+			$(".menu_04").toggleClass("to_04");
+		}
 	});
 
 //	window.addEventListener("load", function() {
@@ -63,17 +68,30 @@ case 1: // 管理员什么都有
 	break;
 case 2: // 组态用户
 	mainPanel.appendChild(oppertionButton);
-	window.addEventListener("DOMContentLoaded", function() {
-		$("#toMenu").click(function() {
+	$("#toMenu").click(function() {
+		if(newItemAction!="undefined"){
 			$(".info-nr-phone").toggleClass("info-nr-phone2");
 			$(".menu_01").toggleClass("to_01");
 			$(".menu_02").toggleClass("to_02");
 			$(".menu_03").toggleClass("to_03");
 			$(".menu_04").toggleClass("to_04");
-		});
-	}, false);
+		}
+	});
+
+//	window.addEventListener("DOMContentLoaded", function() {
+//		$("#toMenu").click(function() {
+//			$(".info-nr-phone").toggleClass("info-nr-phone2");
+//			$(".menu_01").toggleClass("to_01");
+//			$(".menu_02").toggleClass("to_02");
+//			$(".menu_03").toggleClass("to_03");
+//			$(".menu_04").toggleClass("to_04");
+//		});
+//	}, false);
 	break;
 case 3: // 其他用户
+	$("#toMenu").click(function() {
+		$(".info-nr-phone").toggleClass("info-nr-phone2");
+	});
 	break;
 
 }

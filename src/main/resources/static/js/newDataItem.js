@@ -299,11 +299,15 @@ function editItem(){
 		if(item!=null && item!="undefined"){
 			targetName = item.name; // 设置名称
 			var psel = document.getElementById("_targetNameUI");
+			console.log("newDataItem.js debug 1");
 			psel.value = targetName; // 设置名称显示
+			console.log("newDataItem.js debug 1_1");
 			
 			var pseld = document.getElementById("targetDesc");
 			targetDesc = item.desc;
+			console.log("newDataItem.js debug 2");
 			pseld.value = targetDesc;// 设置描述显示
+			console.log("newDataItem.js debug 2_2");
 			var selectedPoints = new Set();
 			
 			Object.keys(item.pointList).forEach(function(key){

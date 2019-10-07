@@ -99,39 +99,16 @@ public class XYGraphManager extends PointGroupDataManager {
 	 * @param graphs
 	 * @return
 	 */
-	public Hashtable<String, XYGraph> getXYGraphHashtableByKeys(String XYGraphID) {
-		Hashtable<String, XYGraph> ret = new Hashtable<String, XYGraph>();
-		// 分隔key
-		String[] keys = IDTools.splitID(XYGraphID);
-		for (int ik = 0; ik < keys.length; ik++) {
-			// 从缓存里取图
-			XYGraph g = (XYGraph) redisService.get(keys[ik]);
-			if (g == null) {
-				// TODO: 如果没有, 从数据库里取
-
-				// 再设置缓存
-			}
-
-			ret.put(IDTools.toString(g.getId()), g);
-		}
-		//
-		return ret;
-	}
-	/**
-	 * 从缓存里取数据，如果没有，再调用服务。
-	 * 
-	 * @param graphs
-	 * @return
-	 */
-	public Hashtable<String, XYGraph> getLineAlertDataHashtableByKeys(String LineAlertDataID) {
+	public Hashtable<String, XYGraph> getXYGraphHashtableByKeys(String LineAlertDataID) {
 		Hashtable<String, XYGraph> ret = new Hashtable<String, XYGraph>();
 		// 分隔key
 		String[] keys = IDTools.splitID(LineAlertDataID);
 		for (int ik = 0; ik < keys.length; ik++) {
-			// 从缓存里取图
 			XYGraph g = getXYGraphRigidlyByKey(keys[ik]);
 			if (g == null) {
-				// 再设置缓存
+				System.out.println("没有指定ID="+keys[ik]+"的XY图，可能是由于数据不一致导致。");
+				// TODO: 没有指定ID的XY图，可能是由于数据不一致导致。
+				// TODO: 更新数据保持一致，通知管理员。
 			}else
 				ret.put(IDTools.toString(g.getId()), g);
 		}
@@ -182,19 +159,19 @@ public class XYGraphManager extends PointGroupDataManager {
         	_id = Double.valueOf(id2);
         pgd.setId(_id);
         pgd.setType(GlobalConsts.Type_xygraph_);
-        ret = copyFromPointGroupData(pgd);
         
 		// 异步处理:
 		try {
-			// 先写缓存XYGraph，返回
-			redisService.set(GlobalConsts.Key_XYGraph_pre_+IDTools.toString(_id),ret);
 			// 创建一条数据库记录
 			pointGroupService.newPointGroupData(pgd);	
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new IllegalStateException("新建实时数据失败。");
 		}
-		
+        ret = copyFromPointGroupData(pgd);
+		// 先写缓存XYGraph，返回
+		redisService.set(GlobalConsts.Key_XYGraph_pre_+IDTools.toString(_id),ret);
+
 		return ret;
 	}
 

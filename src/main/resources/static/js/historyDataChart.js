@@ -186,28 +186,42 @@ function getCurrentStartTime(){
  */
 function _backward() {
 	// 更新cdata数据
-	if(_dataIndex==null||_dataIndex=="undefined"){
-		for(var indrow=0;indrow<_data.length;indrow++){
-			_dataIndex[_data[indrow][0]]= indrow;
-		}						
-	}
+	console.log("hisotryData debug 0");
+	var _dataIndex ={};
+	for(var indrow=0;indrow<_data.length;indrow++){
+		_dataIndex[_data[indrow][0]]= indrow;
+	}						
 	oneStep = cdataCount*0.9;
+	console.log("currentStartTimeInd="+currentStartTimeInd+" ?  oneStep="+oneStep);
+	console.log("hisotryData debug 1");
 	if(currentStartTimeInd == null || currentStartTimeInd=="undefined"){
+		console.log("hisotryData debug 2");
 		currentStartTimeInd =2;
 	}else{
-		if(currentStartTimeInd-oneStep>0) // 向左
+		console.log("hisotryData debug 3");
+		if(currentStartTimeInd-oneStep>0){ // 向左
 			currentStartTimeInd = currentStartTimeInd-oneStep;
+			console.log("hisotryData debug 4");
+			console.log("=====fdsfdsfdsafdsa");
+		}
 		else{
+			console.log("hisotryData debug 5");
+			console.log("fdsfdsfdsafdsa");
 			// TODO： 如果向左一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
 // currentStartTimeInd
-			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data[_dataIndex['time']][2]));
-			currentStartTimeInd = _data[_dataIndex['time']][2].getTime() - oneStep*1000;
-			getHistoryData1(_historyDataDetailKey,currentStartTimeInd,_data[_dataIndex['time']][2].getTime(),_forward);
+			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data[_dataIndex['time']][1]));
+//			var _currentStartTimeInd = _data[_dataIndex['time']][1].getTime() - oneStep*1000;
+			var _currentStartTimeInd = _data[_dataIndex['time']][1].getTime() - 60*60*2*1000;
+			getHistoryData1(_historyDataDetailKey,_currentStartTimeInd,_data[_dataIndex['time']][1].getTime(),_backward);
+			
 			return;
 		}
 	}
-//	var currentTime = 
-	loadCData(getCurrentStartTime());
+	console.log("hisotryData debug 6");
+
+	var currentTime = _data[_dataIndex['time']][currentStartTimeInd];
+	console.log("currentTime="+currentTime);
+	loadCData(currentTime);
 	reloadDataToDiagram();
 
 }
@@ -234,8 +248,9 @@ function _forward() {
 	if(currentStartTimeInd == null || currentStartTimeInd=="undefined"){
 		currentStartTimeInd =1;
 	}else{
-		if(currentStartTimeInd+oneStep<_data[_dataIndex['time']].length) // 向左
+		if(currentStartTimeInd+oneStep<_data[_dataIndex['time']].length){ // 向左
 			currentStartTimeInd = currentStartTimeInd+oneStep;
+		}
 		else{
 			// TODO： 如果向右一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
 			currentStartTimeInd = _data[_dataIndex['time']][_data[_dataIndex['time']].length-1].getTime();
@@ -243,9 +258,10 @@ function _forward() {
 			return;
 		}
 	}
-	loadCData(startTime);
+	var currentTime = _data[_dataIndex['time']][currentStartTimeInd];
+	console.log("currentTime="+currentTime);
+	loadCData(currentTime);
 	reloadDataToDiagram();
-
 }
 
 
@@ -257,7 +273,7 @@ function _forward() {
  */
 function getHistoryData1(_historyDataDetailKey,startTime,endTime,func){
 	var data={'uid':uid,'token':token,'id':_historyDataDetailKey,'beginTime':startTime,'endTime':endTime};
-	 console.log("getHistoryData  data = "+JSON.stringify(data));
+	 console.log("getHistoryData1  data = "+JSON.stringify(data));
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -275,10 +291,14 @@ function getHistoryData1(_historyDataDetailKey,startTime,endTime,func){
 		// 成功返回之后调用的函数
 		success : function(data) {
 			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
-//				console.log("historydata.js => submitNewDataItem 3");
 				var historyData = data.data.data;
+//				console.log("historydata.js => historyData= "+JSON.stringify(historyData));
+//				if(__a<3)
 				addHistoryData(historyData);
-				func;
+//				console.log("getHistoryData1 startTime="+startTime+" - "+new Date(startTime));
+//				console.log("getHistoryData1 historyData[0].length= "+historyData[0].length);
+
+//				func();
 			} else {
 				alert("失败 ： "+data.msg);
 			}
@@ -287,26 +307,70 @@ function getHistoryData1(_historyDataDetailKey,startTime,endTime,func){
 		// 调用执行后调用的函数
 		complete : function(XMLHttpRequest, textStatus) {
 			hideLoading();
-		
 		},
 		// 调用出错执行的函数
 		error : function(jqXHR, textStatus, errorThrown) {
 			hideLoading();
 		}
 	});
-
 }
+function getHistoryData(){
+	// console.log("otherrule = "+JSON.stringify(rule));
+		var data={'uid':uid,'token':token,'id':_historyDataDetailKey,'beginTime':'','endTime':''};
+		$.ajax({
+			// 提交数据的类型 POST GET
+			type : "POST",
+			// 提交的网址
+			url : "getHistoryData",
+			// 提交的数据
+			data : JSON.stringify(data),
+			contentType : "application/json",
+			// 返回数据的格式
+			datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
+			// 在请求之前调用的函数
+			beforeSend : function() {
+				showLoading();
+			},
+			// 成功返回之后调用的函数
+			success : function(data) {
+				if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
+					// console.log("server info : "+JSON.stringify(data.data.data));
+	// console.log("historydata.js => submitNewDataItem 3");
+					var historyData = data.data.data;
+//					console.log("historydata.js => historyData= "+JSON.stringify(historyData));
+					addHistoryData(historyData);
+					loadCData(1569151501);
+					reloadDataToDiagram();
+					// 
+				} else {
+					alert("失败 ： "+data.msg);
+				}
+				hideLoading();
+			},
+			// 调用执行后调用的函数
+			complete : function(XMLHttpRequest, textStatus) {
+				hideLoading();
+			
+			},
+			// 调用出错执行的函数
+			error : function(jqXHR, textStatus, errorThrown) {
+				/* 弹出jqXHR对象的信息 */
+				hideLoading();
+			}
+		});
+
+	}
 
 var currentStartTime;
 var currentStartTimeInd;
 function loadCData(startTime){
 
 	var _currentStartTimeInd = 0;
-	if(_dataIndex==null||_dataIndex=="undefined"){
-		for(var indrow=0;indrow<_data.length;indrow++){
-			_dataIndex[_data[indrow][0]]= indrow;
-		}						
-	}
+	var _dataIndex ={};
+	for(var indrow=0;indrow<_data.length;indrow++){
+		_dataIndex[_data[indrow][0]]= indrow;
+	}			
+	
 // console.log("debug 2");
 	var dataInd = 0;
 	var _datatime = _data[_dataIndex['time']];
@@ -365,21 +429,11 @@ function loadCData(startTime){
 }
 
 var _dataIndex;
-
+var __a = 0;
 function addHistoryData(historyData){
 	// 数据不正常就返回
 	if(historyData==null|| historyData=="undefined")return;
-	// 第一次初始化，就直接赋值
-// console.log("historyData = "+JSON.stringify(historyData));
-// console.log(" *** _data="+JSON.stringify(_data));
-// for(var i_data=0;i_data<_data.length;i_data++){
-// if(_data[i_data].length==2 && _data[i_data][1]==0){
-// _data[i_data].pop();
-// }
-// }
-// console.log(" *** _data="+JSON.stringify(_data));
 	
-	_dataIndex = {};
 	if(_data ==null || _data=="undefined"){
 		console.log("addHistoryData 1");
 		_data = historyData;
@@ -390,130 +444,51 @@ function addHistoryData(historyData){
 		currentStartTimeInd = 1;
 	}
 	else {
-// console.log("addHistoryData 2");
-		
-// console.log("_dataIndex="+JSON.stringify(_dataIndex));
-		for(var indrow=0;indrow<_data.length;indrow++){
-			_dataIndex[_data[indrow][0]]= indrow;
-		}			
-// console.log("_data的坐标索引 ，_dataIndex="+JSON.stringify(_dataIndex));
-		// TODO: 添加到_data中
+//		console.log("addHistoryData 2 _data="+JSON.stringify(_data));
 		var historyIndex = {};
 		for(var indrow=0;indrow<historyData.length;indrow++){
 			historyIndex[historyData[indrow][0]]= indrow;
 		}
-// console.log("historyData的坐标索引 ，historyIndex="+JSON.stringify(historyIndex));
-		// 如果有时间轴，再继续操作
-		if(historyIndex['time']!=null && historyIndex['time']!="undefined"){
-			// 时间轴
-			var timeArray = historyData[historyIndex['time']];
-// console.log("timeArray = "+JSON.stringify(timeArray));
-			var _ind =0;
-			var _direct_f = 0; // 向后添加
-			var _direct_b = 0; // 向后添加
-			var _ind_history = 0; // 历史数据序号
-			var _ind_data = 0; // _data序号
-// console.log("_data['time']="+JSON.stringify(_data[_dataIndex['time']]));
-			// 先找到定位，决定向前后添加
-			// 如果历史数据时间轴的第一个数大于_data中的最后一个时间，就向后插入
-// console.log("_data[_dataIndex['time']]="+JSON.stringify(_data[_dataIndex['time']]));
-// console.log("_data[_dataIndex['time']][_data[_dataIndex['time']].length-1]="+JSON.stringify(_data[_dataIndex['time']][_data[_dataIndex['time']].length-1]));
-// console.log("timeArray[1]="+timeArray[1]+"
-// _data[_dataIndex['time']][_data[_dataIndex['time']].length-1]="+_data[_dataIndex['time']][_data[_dataIndex['time']].length-1]);
-			if(timeArray[1]>_data[_dataIndex['time']][_data[_dataIndex['time']].length-1]){
-				_direct_f = _data.length-1;
-				_direct_b = -1;
-				// 全部向后插入
-				for(var datarow=0;datarow<_data.length;datarow++){
-// console.log(_data[datarow][0]+".length =
-// "+historyData[historyIndex[_data[datarow][0]]].length);
-					for(var indtime=1;indtime<timeArray.length-1;indtime++){
-						if(_data[datarow][0]=='time'){
-							// 如果是时间轴，就转换成时间。注意：服务返回值是秒，这里要用毫秒，所以得*1000。
-							var _date = new Date(historyData[historyIndex[_data[datarow][0]]][indtime]*1000);
-//							console.log("  time=> "+historyData[historyIndex[_data[datarow][0]]][indtime]+"   "+_date);
-							_data[datarow].push(_date);							
-						}else{
-							_data[datarow].push(historyData[historyIndex[_data[datarow][0]]][indtime]);
-						}
-// _data[datarow].splice(1,0,timeArray[indtime]);
-					}
-				}
-//				console.log("addHistoryData()  ->  _data="+JSON.stringify(_data));
-				return;
+		var _dataIndex = {};
+		for(var indrow=0;indrow<_data.length;indrow++){
+			_dataIndex[_data[indrow][0]]= indrow;
+			if(_data[indrow].length==2){
+				_data[indrow].pop();
 			}
-			else if(timeArray[timeArray.length-1]<_data[_dataIndex['time']][0]){
-				_direct_f = -1;
-				_direct_b =0;
-				// 全部向前插入
-				for(var indtime=timeArray.length-1;indtime>0;indtime--){
-					_data[datarow].push(timeArray[indtime]);
-// for(var indtime==0;indtime<timeArray.length-1;indtime++){
-// }
-				}
-				return;
-			} // _data和historyData有交叉
-			else {
-				if(timeArray[0]>=_data[_dataIndex['time']][0]){
-					// 
-					for(var _inddata=0;_inddata<_data.length;_inddata++){
-						if(timeArray[0]<_data[_dataIndex['time']][_inddata]){
-							_direct_f = _inddata;
-							break;
-						}
-					}
-				}else {
-					_direct_f = -1;
-				}
-				
-				if(timeArray[timeArray.length-1]<=_data[_dataIndex['time']][_data.length-1]){
-					for(var _inddata=_data.length-1;_inddata>=0;_inddata--){
-						if(timeArray[0]>_data[_dataIndex['time']][_inddata]){
-							_direct_b = _inddata;
-							break;
-						}
-					}
-				}else {
-					_direct_b = -1;
-				}
-			}
+		}			
+		console.log("addHistoryData 3 _data="+JSON.stringify(_data));
 
-			for(var ind =1;ind <timeArray.length;ind++){
-				if(_direct_f>=0){ // 如果历史值开头在data范围，包括结尾。
-					// 找到定位，插入进去值
-					if(_direct_f<_data[_dataIndex['time']].length){ // 在_data的范围内
-						if(timeArray[ind]<_data[_dataIndex['time']][_direct_f]){
-							Ojbect.keys(_dataIndex).forEach(function(key){
-								if(key=='time'){
-									historyData[historyIndex['time']]
-									_data[_dataIndex['time']].splice(_direct_f,0,timeArray[ind]);
-								}else{
-									_data[_dataIndex[key]].splice(_direct_f,0,historyData[historyIndex[key]]);
-									
-								}
-								_direct_f++;
-							});
-						}
+		var index_data = _data[0].length-1;
+		for(var indHis=historyData[0].length-1;indHis>1;indHis--){
+//			console.log(" addHistoryData ==> "+_data[_dataIndex["time"]][index_data]+"  _IsNaN(_data[_dataIndex[time]][index_data])="+_IsNaN(_data[_dataIndex["time"]][index_data]));
+//			console.log(" indHis = "+indHis + "  =  "+_data[_dataIndex["time"]][index_data]+"  = "+historyData[historyIndex["time"]][indHis]);
+			while(index_data>0 && _data[_dataIndex["time"]][index_data]>new Date(historyData[historyIndex["time"]][indHis])){
+				index_data --;
+			}
+			console.log(" index_data = "+index_data);
+			if(_data[_dataIndex["time"]][index_data]<historyData[historyIndex["time"]][indHis] || !_IsNaN(_data[_dataIndex["time"]][index_data])){
+				Object.keys(historyIndex).forEach(function(key){
+					if(key=="time"){
+						_data[_dataIndex[key]].splice(index_data+1,0,new Date(historyData[historyIndex[key]][indHis]*1000));
+						console.log(key+"  -  historyData[historyIndex[key]][indHis]="+historyData[historyIndex[key]][indHis]);
 					}else{
-						if(timeArray[ind]<_data[_dataIndex['time']][_direct_f]){
-							Ojbect.keys(_dataIndex).forEach(function(key){
-								if(key=='time'){
-									historyData[historyIndex['time']]
-									_data[_dataIndex['time']].push(timeArray[ind]);
-								}else{
-									_data[_dataIndex[key]].push(historyData[historyIndex[key]]);
-									
-								}
-								_direct_f++;
-							});
-						}
-					}					
-				}
+						_data[_dataIndex[key]].splice(index_data+1,0,historyData[historyIndex[key]][indHis]);
+					}
+//					console.log(key+"  -  historyData[historyIndex[key]][indHis]="+historyData[historyIndex[key]][indHis]);
+				});
+				if(currentStartTimeInd>index_data) currentStartTimeInd++;
+				console.log("currentStartTimeInd="+currentStartTimeInd+"  <=>  index_data="+index_data);
 			}
 		}
+//		console.log("addHistoryData 4 _data="+JSON.stringify(_data));
+//		console.log("addHistoryData 4 _data.length = "+_data[0].length);
 	}
-}
+	__a++;
 
+}
+function _IsNaN(value) {
+    return typeof value === 'number' && !isNaN(value);
+  }
 /**
  * 刷新值
  * 
@@ -592,52 +567,6 @@ function addData(newData, _data_, cdatacount) {
 
 
 getHistoryData();
-function getHistoryData(){
-// console.log("otherrule = "+JSON.stringify(rule));
-	var data={'uid':uid,'token':token,'id':_historyDataDetailKey,'beginTime':'','endTime':''};
-	$.ajax({
-		// 提交数据的类型 POST GET
-		type : "POST",
-		// 提交的网址
-		url : "getHistoryData",
-		// 提交的数据
-		data : JSON.stringify(data),
-		contentType : "application/json",
-		// 返回数据的格式
-		datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
-		// 在请求之前调用的函数
-		beforeSend : function() {
-			showLoading();
-		},
-		// 成功返回之后调用的函数
-		success : function(data) {
-			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
-				// console.log("server info : "+JSON.stringify(data.data.data));
-// console.log("historydata.js => submitNewDataItem 3");
-				var historyData = data.data.data;
-//				console.log("historydata.js => historyData= "+JSON.stringify(historyData));
-				addHistoryData(historyData);
-				loadCData(1569151501);
-				reloadDataToDiagram();
-				// 
-			} else {
-				alert("失败 ： "+data.msg);
-			}
-			hideLoading();
-		},
-		// 调用执行后调用的函数
-		complete : function(XMLHttpRequest, textStatus) {
-			hideLoading();
-		
-		},
-		// 调用出错执行的函数
-		error : function(jqXHR, textStatus, errorThrown) {
-			/* 弹出jqXHR对象的信息 */
-			hideLoading();
-		}
-	});
-
-}
 
 var c3LineChart;
 (function($) {
