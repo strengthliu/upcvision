@@ -5,75 +5,8 @@
 <title>Insert title here</title>
 <script src="js/d3.js"></script>
 <script src="js/c3_1.js"></script>
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/bootstrap-datetimepicker.min.js"></script>
-
-<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
-
 </head>
 <body>
-						<div class='input-group date form_date col-md-6'>
-							<input name="startTm" id="datetimepicker1" type='text'
-								placeholder="开始时间" class="form-control input-sm"
-								readonly="readonly" /> <span class="input-group-addon input-sm">
-								<span class="glyphicon glyphicon-calendar"></span>
-						</div>
-						<div class='input-group date form_date col-md-6'>
-							<input name="startTm" id="datetimepicker2" type='text'
-								placeholder="结束时间" class="form-control input-sm"
-								readonly="readonly" /> <span class="input-group-addon input-sm">
-								<span class="glyphicon glyphicon-calendar"></span>
-						</div>
-						<div class="btn-toolbar">
-							<button type="button" class="btn btn-sm btn-outline-secondary"
-								onclick="_search();">
-								<i class="mdi mdi-search-web text-primary"></i> 查询
-							</button>
-						</div>
-
-						<script type="text/javascript">
-							var _startTime_;
-							var _endTime_;
-							$('#datetimepicker1')
-									.datetimepicker(
-											{//初始化
-												language : 'zh-CN',
-												//weekStart: 1,
-												//todayBtn:  1,
-												autoclose : 1,
-												step: 10,   
-												//todayHighlight: 1,
-												//startView: 2,
-												//minView: 2,
-												//forceParse: 0,
-												//format: 'mm-dd hh:MM:ss',//格式化想要显示的时间格式
-												minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
-												onSelectTime : function(
-														dateText, inst) {
-													_startTime_ = new Date(
-															dateText).getTime();
-												}
-											});
-							$('#datetimepicker2')
-									.datetimepicker(
-											{//初始化
-												language : 'zh-CN',
-												//weekStart: 1,
-												//todayBtn:  1,
-												autoclose : 1,
-												//todayHighlight: 1,
-												//startView: 2,
-												//minView: 2,
-												//forceParse: 0,
-												//format: 'yyyy-mm-dd',//格式化想要显示的时间格式
-												minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
-												onSelectTime : function(
-														dateText, inst) {
-													_endTime_ = new Date(
-															dateText).getTime();
-												}
-											});
-						</script>
 <div id="cg">
 </div>
 <script>
@@ -123,6 +56,5 @@ setTimeout(function () {
 }, 2000);
 
 </script>
-
 </body>
 </html>

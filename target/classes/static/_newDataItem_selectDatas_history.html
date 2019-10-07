@@ -118,7 +118,7 @@
 						placeholder="组名称" />
 				</div>
 			</div>
-			<div class="row card-body" style="display: none;">
+			<div class="row card-body">
 				<h4 class="card-title">相对时间 :</h4>
 				<div class="forms-sample">
 					<div class="form-group">
@@ -127,18 +127,20 @@
 					</div>
 				</div>
 			</div>
-			<div class="row card-body" style="display: none;">
-				<div class='input-group date form_date col-md-6'>
-					<input name="startTm" id="datetimepicker3" type='text'
-						placeholder="开始时间" class="form-control input-sm"
-						readonly="readonly" /> <span class="input-group-addon input-sm">
-						<span class="glyphicon glyphicon-calendar"></span>
+			<div class="row card-body">
+				<h4 class="card-title">开始时间 :</h4>
+				<div class="forms-sample">
+					<div class="form-group">
+						<input type="email" class="form-control" id="_historystarttime"
+							placeholder="开始时间" />
+					</div>
 				</div>
-				<div class='input-group date form_date col-md-6'>
-					<input name="startTm" id="datetimepicker4" type='text'
-						placeholder="结束时间" class="form-control input-sm"
-						readonly="readonly" /> <span class="input-group-addon input-sm">
-						<span class="glyphicon glyphicon-calendar"></span>
+				<h4 class="card-title">结束时间 :</h4>
+				<div class="forms-sample">
+					<div class="form-group">
+						<input type="email" class="form-control" id="_historyterminaltime"
+							placeholder="结束时间" />
+					</div>
 				</div>
 			</div>
 			<h4>说明</h4>
@@ -306,10 +308,11 @@
 			var _historyrelativetime = document
 					.getElementById("_historyrelativetime");
 			var relativetime = _historyrelativetime.value;
-			var _historystarttime = document.getElementById("datetimepicker3");
+			var _historystarttime = document
+					.getElementById("_historystarttime");
 			var starttime = _historystarttime.value;
 			var _historyterminaltime = document
-					.getElementById("datetimepicker4");
+					.getElementById("_historyterminaltime");
 			var terminaltime = _historyterminaltime.value;
 
 			submitNewDataItem(selectedPoints, _selectedPoints, targetName,
@@ -352,10 +355,11 @@
 				.getElementById("_historyrelativetime");
 		_historyrelativetime.value = otherrule.relativetime;
 		var relativetime = otherrule.relativetime;
-		var _historystarttime = document.getElementById("datetimepicker3");
+		var _historystarttime = document.getElementById("_historystarttime");
 		_historystarttime.value = otherrule.starttime;
 		var starttime = otherrule.starttime;
-		var _historyterminaltime = document.getElementById("datetimepicker4");
+		var _historyterminaltime = document
+				.getElementById("_historyterminaltime");
 		_historyterminaltime.value = otherrule.terminaltime;
 		var terminaltime = otherrule.terminaltime;
 	}
@@ -393,6 +397,10 @@
 				name : "floorLimit",
 				type : "number",
 				width : 50
+			}, {
+				title : "颜色",
+				name : "stageValue",
+				width : 50,
 			}, {
 				type : "control",
 				editButton : true,
@@ -441,9 +449,12 @@
 <script src="js/dragula.js"></script>
 <script src="js/js-grid.js"></script>
 <script src="js/db.js"></script>
+<script src="js/formpickers.js"></script>
 <script src="js/jsGridDateField.js"></script>
 <script src="js/farbtastic.js"></script>
 
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 
 <!-- End custom js for this page-->
 
