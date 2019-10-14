@@ -48,17 +48,17 @@
 				<div class="btn-toolbar">
 					<div class="btn-group">
 
-						<div class='input-group date form_date'>
+						<div class='input-group date form_date col-md-6'>
 							<input name="startTm" id="datetimepicker1" type='text'
 								placeholder="开始时间" class="form-control input-sm"
 								readonly="readonly" /> <span class="input-group-addon input-sm">
-								<span class="glyphicon glyphicon-calendar"></span>
+								<span class="glyphicon glyphicon-calendar"></span></span>
 						</div>
-						<div class='input-group date form_date'>
+						<div class='input-group date form_date col-md-6'>
 							<input name="startTm" id="datetimepicker2" type='text'
 								placeholder="结束时间" class="form-control input-sm"
 								readonly="readonly" /> <span class="input-group-addon input-sm">
-								<span class="glyphicon glyphicon-calendar"></span>
+								<span class="glyphicon glyphicon-calendar"></span></span>
 						</div>
 						<div class="btn-toolbar">
 							<button type="button" class="btn btn-sm btn-outline-secondary"
@@ -70,45 +70,37 @@
 						<script type="text/javascript">
 							var _startTime_;
 							var _endTime_;
-							$('#datetimepicker1')
-									.datetimepicker(
-											{//初始化
-												language : 'zh-CN',
-												//weekStart: 1,
-												//todayBtn:  1,
-												autoclose : 1,
-												step: 10,   
-												//todayHighlight: 1,
-												//startView: 2,
-												//minView: 2,
-												//forceParse: 0,
-												//format: 'mm-dd hh:MM:ss',//格式化想要显示的时间格式
-												minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
-												onSelectTime : function(
-														dateText, inst) {
-													_startTime_ = new Date(
-															dateText).getTime();
-												}
-											});
-							$('#datetimepicker2')
-									.datetimepicker(
-											{//初始化
-												language : 'zh-CN',
-												//weekStart: 1,
-												//todayBtn:  1,
-												autoclose : 1,
-												//todayHighlight: 1,
-												//startView: 2,
-												//minView: 2,
-												//forceParse: 0,
-												//format: 'yyyy-mm-dd',//格式化想要显示的时间格式
-												minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
-												onSelectTime : function(
-														dateText, inst) {
-													_endTime_ = new Date(
-															dateText).getTime();
-												}
-											});
+							$('#datetimepicker1').datetimepicker({//初始化
+								language : 'zh-CN',
+								//weekStart: 1,
+								//todayBtn:  1,
+								autoclose : 1,
+								step : 10,
+								//todayHighlight: 1,
+								//startView: 2,
+								//minView: 2,
+								//forceParse: 0,
+								//format: 'mm-dd hh:MM:ss',//格式化想要显示的时间格式
+								minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
+								onSelectTime : function(dateText, inst) {
+									_startTime_ = new Date(dateText).getTime();
+								}
+							});
+							$('#datetimepicker2').datetimepicker({//初始化
+								language : 'zh-CN',
+								//weekStart: 1,
+								//todayBtn:  1,
+								autoclose : 1,
+								//todayHighlight: 1,
+								//startView: 2,
+								//minView: 2,
+								//forceParse: 0,
+								//format: 'yyyy-mm-dd',//格式化想要显示的时间格式
+								minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
+								onSelectTime : function(dateText, inst) {
+									_endTime_ = new Date(dateText).getTime();
+								}
+							});
 						</script>
 					</div>
 				</div>
@@ -118,9 +110,11 @@
 							onclick="_backward();">
 							<i class="mdi mdi-step-backward text-primary"></i> 后退
 						</button>
+						<!-- 
 						<button type="button" class="btn btn-sm btn-outline-secondary">
 							<i class="mdi mdi-play text-primary"></i>播放
 						</button>
+						 -->
 						<button type="button" class="btn btn-sm btn-outline-secondary"
 							onclick="_forward();">
 							<i class="mdi mdi-step-forward text-primary"></i>前进
@@ -174,5 +168,7 @@
 <script src="js/d3.js"></script>
 <script src="js/c3_1.js"></script>
 <script src="js/historyDataChart.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+
 <!-- endinject -->
 <!-- inject:js -->

@@ -188,6 +188,11 @@
 			<artifactId>jna</artifactId>
 			<version>4.5.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.batik</groupId>
+			<artifactId>batik</artifactId>
+			<version>1.11</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
 		<dependency>
@@ -224,6 +229,7 @@
 				<configuration>
 					<fork>true</fork>
 					<mainClass>com.surpass.vision.UpcvisionApplication</mainClass>
+					<includeSystemScope>true</includeSystemScope>
 				</configuration>
 				<executions>
 					<execution>
