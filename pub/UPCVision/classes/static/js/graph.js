@@ -1,6 +1,35 @@
 /**
  * 
  */
+//var atags = document.getElementsByTagName("a");
+//for(var inda = 0;inda<atags.length;inda++){
+//	console.log("tag"+inda+" = "+atags[inda].outerHTML);
+//	Object.keys(atags[inda]).forEach(function(key){
+//		console.log("atags[inda]["+key+"] = "+JSON.stringify(atags[inda][key]));
+//	});
+//	console.log(JSON.stringify(Object.keys(atags[inda])));
+////	alert(atags[inda].attributes["xlink"]);
+//	atags[inda].onclick=function(){
+//		//atags[inda]
+////		alert(this.attributes["xlink:href"]);
+//		return false;
+//	}
+//}
+
+////编辑文章时阻止a标签跳转
+//$(document).find("a").click(function(e){
+//    //如果提供了事件对象，则这是一个非IE浏览器 
+//        if ( e && e.preventDefault ) {
+//        		console.log("preventDefault 阻止默认浏览器动作(W3C)");
+//                    //阻止默认浏览器动作(W3C) 
+//                    e.preventDefault(); 
+//            }else{
+//        		console.log("IE中阻止函数器默认动作");
+//                //IE中阻止函数器默认动作的方式 
+//                window.event.returnValue = false; 
+//                return false;
+//            }    
+//    });
 
 
 //
@@ -99,6 +128,8 @@ function setConnected(connected) {
 loginWebsocket();
 
 function loginWebsocket() {
+	console.log(" debug 1");
+
 	if(!connected) {
 		connect(graphSubscribe);
 		return;
@@ -109,25 +140,97 @@ function loginWebsocket() {
 	}
 }
 
+function getGraphByURLPath(graph,urlPath){
+	if(urlPath==null||urlPath=="undefined") return graph;
+	console.log("graph.urlPath="+graph.urlPath.toLowerCase()+"  ==  "+"urlPath="+urlPath.toLowerCase());
+	if(graph.urlPath.toLowerCase() == urlPath.toLowerCase()){
+		console.log("找到了");
+		_graphId = graph.id;
+		return graph;
+	}
+	else {
+		console.log(graph.urlPath.toLowerCase()+" 3");
+		var children = graph.children;
+		if(children!=null){
+			var keys = new Array();
+			Object.keys(children).forEach(function(key){
+				console.log("4"+key);
+				keys.push(key);
+				children[key]
+			});
+			for(var i=0;i<keys.length;i++){
+				var child = children[keys[i]];
+				if(urlPath.toLowerCase().indexOf(child.urlPath)!=-1){
+					return getGraphByURLPath(child,urlPath);
+				}
+			}
+		}
+		return null;
+	}
+}
+function getGraphByPath(graph,path){
+	if(path==null||path=="undefined") return graph;
+	//console.log("graph.wholePath="+graph.wholePath.toLowerCase()+"  ==  "+"path="+path.toLowerCase());
+	if(graph.wholePath.toLowerCase().indexOf(path.toLowerCase())!=-1){
+		//console.log("找到了");
+		_graphId = graph.id;
+		return graph;
+	}
+	else {
+		console.log(graph.wholePath.toLowerCase()+" 3");
+		var children = graph.children;
+		if(children!=null){
+			var keys = new Array();
+			Object.keys(children).forEach(function(key){
+				//console.log("4"+key);
+				keys.push(key);
+				children[key]
+			});
+			for(var i=0;i<keys.length;i++){
+				var child = children[keys[i]];
+				var t = getGraphByPath(child,path);
+				if(t!=null) return t;
+			}
+		}
+		return null;
+	}
+}
+
+
 function graphSubscribe(){
-	if(subscribe!=null && subscribe!="undefined")
-		subscribe.unsubscribe();
-	stompClient.send("/app/aaa", {
-		atytopic : _graphId,
-		type : 'graph',
-		id : _graphId+""
-	}, JSON.stringify({
-		'type' : 'graph',
-		'id' : _graphId+""
-	}));
-	// 接收消息设置
-	subscribe = stompClient.subscribe('/topic/Key_Graph_pre_/'
-			+ _graphId, function(data) {
-		// alert("websocket connected 3.");
-		// 收到消息后处理
-		refreshData(data);
-	});
-	
+	//console.log(" debug 1");
+	if(userSpace==null|userSpace=="undefined"){
+		return getUserSpace(uid,token,graphSubscribe);
+	}else{
+		if(_graphId==null||_graphId=="undefined"){
+			//console.log(" graph.js -> graphSubscribe() -> getGraphByURLPath(graph,_diagramShowKey="+_diagramShowKey+")");
+			var g = getGraphByPath(userSpace.graph,_diagramShowKey);
+			if(g == null || g == "undefined" || g.id==null ||g.id=="undefined"){
+				alert("您没有查看这个图形的权限。");
+				return;
+			}
+			
+			_graphId = g.id;
+			
+		}
+		if(subscribe!=null && subscribe!="undefined")
+			subscribe.unsubscribe();
+		stompClient.send("/app/aaa", {
+			atytopic : _graphId,
+			type : 'graph',
+			id : _graphId+""
+		}, JSON.stringify({
+			'type' : 'graph',
+			'id' : _graphId+""
+		}));
+		// 接收消息设置
+		subscribe = stompClient.subscribe('/topic/Key_Graph_pre_/'
+				+ _graphId, function(data) {
+			// alert("websocket connected 3.");
+			// 收到消息后处理
+			refreshData(data);
+		});
+	}
 }
 
 function connectlocal() {

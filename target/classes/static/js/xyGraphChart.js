@@ -22,13 +22,13 @@ if (userSpace == null || userSpace == "undefined") {
  * 画点图
  */
 function updateXYGraphChart(ruserSpace) {
-//	var pointGroup = ruserSpace.xyGraph[_xyGraphDetailKey];
-//	var uixyGraphPoints = document.getElementById("ui-xyGraphPoints");
-//	 console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
-//	if (pointGroup == null || pointGroup == "undefined")
-//		return;
-//	var pointList = pointGroup.pointList;
-//	var innerHtml = "";
+	var pointGroup = ruserSpace.xyGraph[_xyGraphDetailKey];
+	var uixyGraphPoints = document.getElementById("ui-xyGraphPoints");
+	 console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
+	if (pointGroup == null || pointGroup == "undefined")
+		return;
+	var pointList = pointGroup.pointList;
+	var innerHtml = "";
 //	// console.log("pointList" + JSON.stringify(pointList));
 //	for (var indpl = 0; indpl < pointList.length; indpl++) {
 //// console.log(" updateXYGraphChart=> "+JSON.stringify(pointList[indpl]));
@@ -63,13 +63,13 @@ function updateXYGraphChart(ruserSpace) {
 //		gl[indpl] = gt;
 //	}
 //
-//	var menuitem = document.getElementById("x_axisSelectButtonUIMenu");
-//	var _innerHtml = '<a class="dropdown-item" onclick="changex(\'time\')">时间</a>';
-//	for (var indpl = 0; indpl < pointList.length; indpl++) {
-//		var _itemHtml = '<a class="dropdown-item" onclick="changex(\''+pointList[indpl].tagName+'\')">'+pointList[indpl].tagName+'</a>';
-//		_innerHtml = _innerHtml + _itemHtml;
-//	}
-//	menuitem.innerHTML = _innerHtml;
+	var menuitem = document.getElementById("x_axisSelectButtonUIMenu");
+	var _innerHtml = '<a class="dropdown-item" onclick="changex(\'time\')">时间</a>';
+	for (var indpl = 0; indpl < pointList.length; indpl++) {
+		var _itemHtml = '<a class="dropdown-item" onclick="changex(\''+pointList[indpl].tagName+'\')">'+pointList[indpl].tagName+'</a>';
+		_innerHtml = _innerHtml + _itemHtml;
+	}
+	menuitem.innerHTML = _innerHtml;
 }
 /**
  * 刷新数据
@@ -232,53 +232,87 @@ function changex(tname) {
 	console.log("click: ========================== "+tname);
 	var but = document.getElementById("x_axisSelectButtonUI");
 	but.innerHTML = tname;
+	console.log(tname);
 //	but.text = tname;
-	
-	c3LineChart = c3.generate({
-		bindto : '#ui-xyGraphLineChart',
-		data : {
-			x : tname,
-			xFormat : '%Y',
-			columns : cdata,
-			type : 'spline',
-	        axes: {
-	        	CJY_XT31101_8: 'y',
-	        }
-		},
-		grid : {
-			x : {
-				show : true
+	if(tname=="time"){
+		c3LineChart = c3.generate({
+			bindto : '#ui-xyGraphLineChart',
+			data : {
+				x : tname,
+				xFormat : '%Y',
+				columns : cdata,
+				type : 'spline',
 			},
-			y : {
-				show : true
-			}
-		},
-		color : {
-			pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
-					'rgba(4,189,254,0.6)' ]
-		},
-		padding : {
-			top : 0,
-			right : 0,
-			bottom : 30,
-			left : 0,
-		},
-		axis : {
-			x : {
-				type : 'timeseries',
-				// if true, treat x value as localtime (Default)
-				// if false, convert to UTC internally
-				localtime : false,
-				tick : {
-					format : '%Y-%m-%d %H:%M:%S'
+			grid : {
+				x : {
+					show : true
+				},
+				y : {
+					show : true
 				}
 			},
-			y : {
-				show: true,
-				label: 'Y2 Axis Label'
+			color : {
+				pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
+						'rgba(4,189,254,0.6)' ]
+			},
+			padding : {
+				top : 10,
+				right : 30,
+				bottom : 30,
+				left : 50,
+			},
+			axis : {
+				x : {
+					type : 'timeseries',
+					// if true, treat x value as localtime (Default)
+					// if false, convert to UTC internally
+					localtime : false,
+					tick : {
+						format : '%Y-%m-%d %H:%M:%S'
+					}
+				},
+				y : {
+					show: true,
+					label: 'Y2 Axis Label'
+				}
 			}
-		}
-	});
+		});
+	}else{
+		c3LineChart = c3.generate({
+			bindto : '#ui-xyGraphLineChart',
+			data : {
+				x : tname,
+				xFormat : '%Y',
+				columns : cdata,
+				type : 'spline',
+			},
+			grid : {
+				x : {
+					show : true
+				},
+				y : {
+					show : true
+				}
+			},
+			color : {
+				pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
+						'rgba(4,189,254,0.6)' ]
+			},
+			padding : {
+				top : 10,
+				right : 30,
+				bottom : 30,
+				left : 50,
+			},
+			axis : {
+				y : {
+					show: true,
+					label: 'Y2 Axis Label'
+				}
+			}
+		});
+	}
+
 }
 
 /**

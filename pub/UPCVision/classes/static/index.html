@@ -11,27 +11,21 @@
 	href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet"
 	href="vendors/iconfonts/puse-icons-feather/feather.css">
+<link rel="stylesheet"
+	href="vendors/iconfonts/simple-line-icon/css/simple-line-icons.css">
+
 <link rel="stylesheet" href="css/jquery.datetimepicker.css">
 <link rel="stylesheet" href="css/c3.css">
-<!-- endinject -->
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/iconfonts/puse-icons-feather/feather.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
-  <!-- endinject -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
+<link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+<link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="shortcut icon" href="images/favicon.png" />
 
 <!-- plugin css for this page -->
 <link rel="stylesheet"
 	href="vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
 <!-- plugin css for this page -->
-<!-- 
-<link rel="stylesheet" href="../../vendors/icheck/skins/all.css">
- -->
 <!-- End plugin css for this page -->
 
 <!-- End plugin css for this page -->
@@ -39,14 +33,14 @@
 <link rel="stylesheet" href="css/style.css">
 <!-- endinject -->
 <script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
 <script src="js/sockjs.min.js"></script>
 <script src="js/stomp.min.js"></script>
-<script src="js/domain.js"></script>
+
 <script src="js/app.js"></script>
 <script src="js/router.js"></script>
 <script src="js/navagator.js"></script>
 <script src="js/lodash.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 
 <script type="text/javascript">
 	/* 用户登录验证 */
@@ -57,34 +51,18 @@
 		//alert("token="+token+"  uid="+user.id);
 		uname = user.name;
 		uid = user.id;
-		checkRight(uid, token, "index.html",null);
-		getUserSpace(uid, token, function() {
-		});
-		//if(userSpace == null || userSpace == "undefined"){
-		//	userSpace = getUserSpace(uid,token);
-		//}
-		// alert("user: "+JSON.stringify(userSpace));
+		if (userSpace == null || userSpace == "undefined")
+			getUserSpace(uid, token);
+		else
+			checkRight(uid, token, "index.html", null);
 	} else {
+		localStorage.user = null;
+		localStorage.token = null;
 		location.href = "login.html";
 	}
 
-	function addLoadEvent(func) {
-		//把现有的 window.onload 事件处理函数的值存入变量
-		var oldOnload = window.onload;
-		if (typeof window.onload != "function") {
-			//如果这个处理函数还没有绑定任何函数，就像平时那样添加新函数
-			window.onload = func;
-		} else {
-			//如果处理函数已经绑定了一些函数，就把新函数添加到末尾
-			window.onload = function() {
-				oldOnload();
-				func();
-			}
-		}
-	}
+
 </script>
-
-
 </head>
 <body>
 	<div class="container-scroller">
@@ -94,7 +72,7 @@
 			<div
 				class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
 				<a class="navbar-brand brand-logo" href="index.html"><img
-					src="images/logo.svg" alt="logo" /></a> <a
+					src="images/logo.png" alt="logo" /></a> <a
 					class="navbar-brand brand-logo-mini" href="index.html"><img
 					src="images/logo-mini.svg" alt="logo" /></a>
 			</div>
@@ -107,6 +85,17 @@
 					<li class="nav-item d-none d-lg-block"><a class="nav-link">
 							<i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
 					</a></li>
+
+					<li class="nav-item d-none d-lg-block" onclick="stepBackward();"><a
+						class="nav-link"> <i class="mdi mdi-step-backward"
+							id="stepBackward"></i>
+					</a></li>
+					<li class="nav-item d-none d-lg-block" onclick="stepForward();"><a
+						class="nav-link"> <i class="mdi mdi-step-forward"
+							id="stepForward"></i>
+					</a></li>
+
+					<!-- 
 					<li class="nav-item">
 						<form
 							class="nav-link form-inline mt-2 mt-md-0 d-none d-lg-flex search">
@@ -114,8 +103,9 @@
 								placeholder="Search for something...">
 						</form>
 					</li>
+					 -->
 				</ul>
-				
+
 				<ul class="navbar-nav navbar-nav-right">
 					<li class="nav-item dropdown d-none d-lg-flex"><a
 						class="nav-link dropdown-toggle" id="languageDropdown" href="#"
@@ -132,8 +122,7 @@
 					<li class="nav-item dropdown"><a
 						class="nav-link count-indicator dropdown-toggle"
 						id="messageDropdown" href="#" data-toggle="dropdown"
-						aria-expanded="false"> <i class="mdi mdi-email-outline"></i> 
-						<!-- 
+						aria-expanded="false"> <i class="mdi mdi-email-outline"></i> <!-- 
 						<span class="count bg-warning">5</span>
 						-->
 					</a>
@@ -166,8 +155,7 @@
 					<li class="nav-item dropdown"><a
 						class="nav-link count-indicator dropdown-toggle"
 						id="notificationDropdown" href="#" data-toggle="dropdown"> <i
-							class="mdi mdi-bell-outline"></i> 
-							<!-- 
+							class="mdi mdi-bell-outline"></i> <!-- 
 							<span class="count bg-danger">7</span>
 							 -->
 					</a>
@@ -207,8 +195,8 @@
 					</a>
 						<div class="dropdown-menu navbar-dropdown w-100"
 							aria-labelledby="profileDropdown">
-							<a class="dropdown-item"  onclick="routeTo('userManage','')"> <i
-								class="mdi mdi-cached mr-2 text-success"></i> 修改个人信息
+							<a class="dropdown-item" onclick="routeTo('userManage','')">
+								<i class="mdi mdi-cached mr-2 text-success"></i> 修改个人信息
 							</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" onclick="logout();"> <i
@@ -227,6 +215,7 @@
 		<!-- partial -->
 		<div class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_settings-panel.html -->
+			<!-- 
 			<div class="theme-setting-wrapper">
 				<div id="settings-trigger">
 					<i class="mdi mdi-settings"></i>
@@ -287,6 +276,7 @@
 					</div>
 				</div>
 			</div>
+			 -->
 			<!-- partial -->
 			<!-- partial:partials/_sidebar.html -->
 			<nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -320,13 +310,14 @@
 							</script>
 						</div>
 					</li>
+					<!-- 
 					<li class="nav-item nav-category"><span class="nav-link">主窗口</span>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="index.html">
 							<i class="icon-layout menu-icon"></i> <span class="menu-title">仪表盘</span>
 							<span class="badge badge-primary badge-pill">1</span>
 					</a></li>
-
+ 					-->
 
 					<!-- *******************************  视图列表 ******************************* -->
 					<li class="nav-item nav-category"><span class="nav-link">视图列表</span>
@@ -336,16 +327,7 @@
 						data-toggle="collapse" href="#ui-diagram" aria-expanded="false"
 						aria-controls="ui-diagram"> <i class="icon-layers menu-icon"></i>
 							<span class="menu-title" onclick="routeTo('diagramList','')">流程图</span>
-							<i class="menu-arrow"></i>
-					</a>
-						<div class="collapse" id="ui-diagram">
-							<ul class="nav flex-column sub-menu">
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/accordions.html">冶金</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="pages/ui-features/buttons.html">冶金\3号回转窑</a></li>
-							</ul>
-						</div></li>
+					</a></li>
 
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-xydiagram" aria-expanded="false"
@@ -424,6 +406,7 @@
 						</div></li>
 
 					<script>
+						//console.log("begin to build left navigator");
 						updateDiagram();
 						updateXYDiagram();
 						updateRealTimeData();
@@ -435,9 +418,10 @@
 					<!-- *******************************  用户管理 ******************************* -->
 					<li class="nav-item nav-category"><span class="nav-link">用户管理</span>
 					</li>
-					<li class="nav-item" onclick="routeTo('userManage','')"><a class="nav-link"> <i
-							class="icon-lock menu-icon"></i> <span class="menu-title">用户管理</span>
-					</a></li>
+					<li class="nav-item" onclick="routeTo('userManage','')"><span
+						class="nav-link"> <i class="icon-lock menu-icon"></i> <span
+							class="menu-title">用户管理</span>
+					</span></li>
 
 
 				</ul>
@@ -452,8 +436,21 @@
 
 			<!--  ************************************ 主窗口  end ************************************  -->
 		</div>
-		
-			<!--  ************************************ 访问服务器遮罩  start ************************************  -->
+
+		<footer class="footer">
+			<div class="container-fluid clearfix">
+				<span
+					class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright
+					© 2018 <a href="http://www.dmaku.com/" target="_blank">石大赛普</a>.
+					All rights reserved.
+				</span> <span
+					class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+					made with <i class="mdi mdi-heart text-danger"></i>strength.liu@qq.com
+				</span>
+			</div>
+		</footer>
+
+		<!--  ************************************ 访问服务器遮罩  start ************************************  -->
 		<div class="row" id="loading">
 			<div>
 				<div class="loader-demo-box">
@@ -469,14 +466,8 @@
 		</div>
 		<script>
 			$("#loading").hide();
-
 		</script>
-			<!--  ************************************ 访问服务器遮罩  end ************************************  -->
-
-		<script>
-			
-		</script>
-		<!-- page-body-wrapper ends -->
+		<!--  ************************************ 访问服务器遮罩  end ************************************  -->
 	</div>
 	<!-- container-scroller -->
 	<!-- plugins:js -->
@@ -484,25 +475,10 @@
 	<script src="vendors/js/vendor.bundle.base.js"></script>
 	<script src="vendors/js/vendor.bundle.addons.js"></script>
 
-	<!-- endinject -->
-	<!-- Plugin js for this page-->
-	<!-- End plugin js for this page-->
 	<!-- inject:js -->
-	<script src="js/off-canvas.js"></script>
-	<script src="js/hoverable-collapse.js"></script>
 	<script src="js/misc.js"></script>
-	<script src="js/settings.js"></script>
-	<script src="js/todolist.js"></script>
 	<!-- endinject -->
 	<!-- Custom js for this page-->
-	<script src="js/dashboard.js"></script>
-<script type="text/javascript">
-var date1 = "";
-var date2 = "";
-var d = new Date();
-console.log(d);
-
-</script>
 	<!-- End custom js for this page-->
 </body>
 </html>

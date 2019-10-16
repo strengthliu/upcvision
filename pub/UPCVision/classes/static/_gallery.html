@@ -25,7 +25,13 @@
 	</div>
 </div>
 <!-- 分享图形弹出框 -->
-<!-- Modal Ends -->
+
+<div class="modal fade" id="shareItemAction_mid" tabindex="-1" role="dialog" aria-labelledby="shareItemAction_mid" >
+	<script>
+		$("#shareItemAction_mid").load("_shareRight.html");
+	</script>
+
+</div>
 
 
 <div class="col-12">
@@ -100,48 +106,12 @@
 <!-- end plugin js for this page -->
 
 <!-- Custom js for this page-->
-<script>
-	//	_routeType = diagram;
-	//	_routeID = key;
+<script src="js/graphList.js"></script>
+<script src="./js/shareRight.js">
 
-	var _galleryKey = _routeID;
-	console.log("_galleryKey = " + _galleryKey);
-	var _graphs;
-	// TODO:  如果key为空，就是异常，待处理。
-	if (_galleryKey == null || _galleryKey == "undefined")
-		_galleryKey = "";
+<script src="./js/light-gallery.js">
 
-	if (_galleryKey.trim() == 'unclassify') {
-		alert(_galleryKey);
-		_galleryKey = "";
-		_graphs = userSpace.graphs[""];
-	} else
-		_graphs = userSpace.graphs[_galleryKey];
-	console.log("graphs => " + JSON.stringify(userSpace));
 
-	// console.log("graphs = "+JSON.stringify(userSpace.graphs[""]));
-
-	var diagram_gallery = document.getElementById("diagram_gallery");
-	var diagram_gallery_innerHTML = "";
-	if (_graphs instanceof Array)
-		for (var ind = 0; ind < _graphs.length; ind++) {
-			var diagram_gallery_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12"';
-			diagram_gallery_item_innerHTML += 'onclick="routeTo(' + "'"
-					+ "diagramDetail','" + _graphs[ind].urlPath + "'" + ',\''+_graphs[ind].id+'\');">';
-			diagram_gallery_item_innerHTML += '<figure class="effect-text-in">';
-			diagram_gallery_item_innerHTML += '<img src="' + _graphs[ind].img + '" alt="image"/>';
-			diagram_gallery_item_innerHTML += '<figcaption><h4>'
-					+ _graphs[ind].name + '</h4><p>' + _graphs[ind].path
-					+ '</p></figcaption>';
-			diagram_gallery_item_innerHTML += '</figure></div>';
-
-			//console.log(diagram_gallery_item_innerHTML);
-			diagram_gallery_innerHTML = diagram_gallery_innerHTML
-					+ diagram_gallery_item_innerHTML;
-		}
-	diagram_gallery.innerHTML = diagram_gallery_innerHTML;
 
 </script>
-
-<script src="./js/light-gallery.js"></script>
 

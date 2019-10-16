@@ -100,7 +100,7 @@ function menuFunc(key, options) {
 
 function refreshData(data) {
 	var ids = document.getElementsByTagName("text");
-	console.log(" graph refreshData:"+JSON.stringify(data));
+//	console.log(" graph refreshData:"+JSON.stringify(data));
 	var _data = JSON.parse(data.body);
 
 	Object.keys(_data).forEach(function(key){

@@ -22,54 +22,54 @@ if (userSpace == null || userSpace == "undefined") {
  * 画点图
  */
 function updateXYGraphChart(ruserSpace) {
-	var pointGroup = ruserSpace.xyGraph[_xyGraphDetailKey];
-	var uixyGraphPoints = document.getElementById("ui-xyGraphPoints");
-	 console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
-	if (pointGroup == null || pointGroup == "undefined")
-		return;
-	var pointList = pointGroup.pointList;
-	var innerHtml = "";
-	// console.log("pointList" + JSON.stringify(pointList));
-	for (var indpl = 0; indpl < pointList.length; indpl++) {
-// console.log(" updateXYGraphChart=> "+JSON.stringify(pointList[indpl]));
-		try{
-			// 页面加一块
-			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
-					+ pointList[indpl].tagName + '"></div></div>';
-			innerHtml += item;
-		}catch(e){
-			
-		}
-	}
-	uixyGraphPoints.innerHTML = innerHtml;
-	console.log(uixyGraphPoints.innerHTML);
-
-	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		// 对象加一条
-		var gt = new JustGage({
-			id : "point_" + pointList[indpl].tagName,
-			value : 0,
-			min : 0,
-			max : 100,
-			title : pointList[indpl].desc,//"一级电脱盐混合阀压差",
-			label : pointList[indpl].enunit,
-			donut : true,
-			gaugeWidthScale : 0.6,
-			counter : true,
-			hideInnerShadow : true
-		});
-		var _tagName_ = pointList[indpl].tagName;
-		charts[_tagName_] = indpl;
-		gl[indpl] = gt;
-	}
-
-	var menuitem = document.getElementById("x_axisSelectButtonUIMenu");
-	var _innerHtml = '<a class="dropdown-item" onclick="changex(\'time\')">时间</a>';
-	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		var _itemHtml = '<a class="dropdown-item" onclick="changex(\''+pointList[indpl].tagName+'\')">'+pointList[indpl].tagName+'</a>';
-		_innerHtml = _innerHtml + _itemHtml;
-	}
-	menuitem.innerHTML = _innerHtml;
+//	var pointGroup = ruserSpace.xyGraph[_xyGraphDetailKey];
+//	var uixyGraphPoints = document.getElementById("ui-xyGraphPoints");
+//	 console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
+//	if (pointGroup == null || pointGroup == "undefined")
+//		return;
+//	var pointList = pointGroup.pointList;
+//	var innerHtml = "";
+//	// console.log("pointList" + JSON.stringify(pointList));
+//	for (var indpl = 0; indpl < pointList.length; indpl++) {
+//// console.log(" updateXYGraphChart=> "+JSON.stringify(pointList[indpl]));
+//		try{
+//			// 页面加一块
+//			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
+//					+ pointList[indpl].tagName + '"></div></div>';
+//			innerHtml += item;
+//		}catch(e){
+//			
+//		}
+//	}
+//	uixyGraphPoints.innerHTML = innerHtml;
+//	console.log(uixyGraphPoints.innerHTML);
+//
+//	for (var indpl = 0; indpl < pointList.length; indpl++) {
+//		// 对象加一条
+//		var gt = new JustGage({
+//			id : "point_" + pointList[indpl].tagName,
+//			value : 0,
+//			min : 0,
+//			max : 100,
+//			title : pointList[indpl].desc,//"一级电脱盐混合阀压差",
+//			label : pointList[indpl].enunit,
+//			donut : true,
+//			gaugeWidthScale : 0.6,
+//			counter : true,
+//			hideInnerShadow : true
+//		});
+//		var _tagName_ = pointList[indpl].tagName;
+//		charts[_tagName_] = indpl;
+//		gl[indpl] = gt;
+//	}
+//
+//	var menuitem = document.getElementById("x_axisSelectButtonUIMenu");
+//	var _innerHtml = '<a class="dropdown-item" onclick="changex(\'time\')">时间</a>';
+//	for (var indpl = 0; indpl < pointList.length; indpl++) {
+//		var _itemHtml = '<a class="dropdown-item" onclick="changex(\''+pointList[indpl].tagName+'\')">'+pointList[indpl].tagName+'</a>';
+//		_innerHtml = _innerHtml + _itemHtml;
+//	}
+//	menuitem.innerHTML = _innerHtml;
 }
 /**
  * 刷新数据
@@ -400,24 +400,25 @@ var c3LineChart;
 					'rgba(4,189,254,0.6)' ]
 		},
 		padding : {
-			top : 0,
-			right : 0,
+			top : 10,
+			right : 20,
 			bottom : 30,
-			left : 0,
+			left : 50,
 		},
 		axis : {
 			x : {
 				type : 'timeseries',
 				// if true, treat x value as localtime (Default)
 				// if false, convert to UTC internally
-				localtime : false,
+				localtime : true,
 				tick : {
 					format : '%Y-%m-%d %H:%M:%S'
 				}
 			},
 			y : {
-				show: true,
-				label: 'Y2 Axis Label'
+				show: true
+//				,
+//				label: 'Y2 Axis Label'
 			}
 		}
 	});
@@ -552,6 +553,9 @@ function connect() {
 		};
 
 	stompClient.connect(headers, function(frame) {
+		// 停止调试信息
+		stompClient.debug = null;
+
 		setConnected(true);
 		console.log("websocket connected." + _xyGraphDetailKey + "  .");
 		// console.log('Connected: ' + frame);

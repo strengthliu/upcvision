@@ -31,9 +31,7 @@ if(serverList == null || serverList=="undefined"){
 			},
 			// 成功返回之后调用的函数
 			success : function(data) {
-				if (data.status == GlobalConsts.ResultCode_SUCCESS) {
-					// console.log("server info :
-					// "+JSON.stringify(data.data.data));
+				if (data.status == "000"){
 					serverList = data.data.data;
 					// console.log(JSON.stringify(serverList));
 					buildNewItemUI(serverList);
@@ -301,11 +299,15 @@ function editItem(){
 		if(item!=null && item!="undefined"){
 			targetName = item.name; // 设置名称
 			var psel = document.getElementById("_targetNameUI");
+			console.log("newDataItem.js debug 1");
 			psel.value = targetName; // 设置名称显示
+			console.log("newDataItem.js debug 1_1");
 			
 			var pseld = document.getElementById("targetDesc");
 			targetDesc = item.desc;
+			console.log("newDataItem.js debug 2");
 			pseld.value = targetDesc;// 设置描述显示
+			console.log("newDataItem.js debug 2_2");
 			var selectedPoints = new Set();
 			
 			Object.keys(item.pointList).forEach(function(key){

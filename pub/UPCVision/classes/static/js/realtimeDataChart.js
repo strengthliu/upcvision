@@ -22,44 +22,44 @@ if (userSpace == null || userSpace == "undefined") {
  * 画点图
  */
 function updateRealTimeDataChart(ruserSpace) {
-	var pointGroup = ruserSpace.realTimeData[_realtimeDataDetailKey];
-	var uirealtimeDataPoints = document.getElementById("ui-realtimeDataPoints");
-	 console.log(" updateRealTimeDataChart => "+JSON.stringify(ruserSpace));
-	if (pointGroup == null || pointGroup == "undefined")
-		return;
-	var pointList = pointGroup.pointList;
-	var innerHtml = "";
-	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		try{
-			// 页面加一块
-			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
-					+ pointList[indpl].tagName + '"></div></div>';
-			innerHtml += item;
-		}catch(e){
-			
-		}
-	}
-	uirealtimeDataPoints.innerHTML = innerHtml;
-
-	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		//console.log();
-		// 对象加一条
-		var gt = new JustGage({
-			id : "point_" + pointList[indpl].tagName,
-			value : 0,
-			min : 0,
-			max : 100,
-			title : pointList[indpl].desc,//"一级电脱盐混合阀压差",
-			label : pointList[indpl].enunit,
-			donut : true,
-			gaugeWidthScale : 0.6,
-			counter : true,
-			hideInnerShadow : true
-		});
-		var _tagName_ = pointList[indpl].tagName;
-		charts[_tagName_] = indpl;
-		gl[indpl] = gt;
-	}
+//	var pointGroup = ruserSpace.realTimeData[_realtimeDataDetailKey];
+//	var uirealtimeDataPoints = document.getElementById("ui-realtimeDataPoints");
+////	 console.log(" updateRealTimeDataChart => "+JSON.stringify(ruserSpace));
+//	if (pointGroup == null || pointGroup == "undefined")
+//		return;
+//	var pointList = pointGroup.pointList;
+//	var innerHtml = "";
+//	for (var indpl = 0; indpl < pointList.length; indpl++) {
+//		try{
+//			// 页面加一块
+//			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
+//					+ pointList[indpl].tagName + '"></div></div>';
+//			innerHtml += item;
+//		}catch(e){
+//			
+//		}
+//	}
+//	uirealtimeDataPoints.innerHTML = innerHtml;
+//
+//	for (var indpl = 0; indpl < pointList.length; indpl++) {
+//		//console.log();
+//		// 对象加一条
+//		var gt = new JustGage({
+//			id : "point_" + pointList[indpl].tagName,
+//			value : 0,
+//			min : 0,
+//			max : 100,
+//			title : pointList[indpl].desc,//"一级电脱盐混合阀压差",
+//			label : pointList[indpl].enunit,
+//			donut : true,
+//			gaugeWidthScale : 0.6,
+//			counter : true,
+//			hideInnerShadow : true
+//		});
+//		var _tagName_ = pointList[indpl].tagName;
+//		charts[_tagName_] = indpl;
+//		gl[indpl] = gt;
+//	}
 }
 /**
  * 刷新数据
@@ -69,14 +69,14 @@ function updateRealTimeDataChart(ruserSpace) {
 
 function refreshData(data) {
 	var pointList_ = JSON.parse(data.body);
-	for(var key in pointList_){
-		for(var p in gl){
-			//console.log(gl[p].config.id + "  ==  "+"point_" + key );
-			if(gl[p].config.id == "point_" + key){
-				gl[p].refresh(pointList_[key]);
-			}
-		}
-	}
+//	for(var key in pointList_){
+//		for(var p in gl){
+//			//console.log(gl[p].config.id + "  ==  "+"point_" + key );
+//			if(gl[p].config.id == "point_" + key){
+//				gl[p].refresh(pointList_[key]);
+//			}
+//		}
+//	}
 	addData(data.body,cdata,cdataCount);
 	_forward(data.body);
 	// 刷新表格
@@ -264,7 +264,11 @@ function addData(newData, _data_, cdatacount) {
 											var lastData = _data_[ind_data][_data_[ind_data].length - 1];
 											_timeD_ = _data_[timeInd][_data_[ind_data].length - 1];
 											// 添加值
-											_data_[ind_data].push(_d_[key]);
+											if(_d_[key]!=null && _d_[key]!="null" && _d_[key]!="undefined")
+												_data_[ind_data].push(_d_[key]);
+											else{
+												console.log("服务器返回了空值。");
+											}
 										}
 										// 更新最大值和最小值
 										if (_maxY < _d_[key])
@@ -325,20 +329,25 @@ var c3LineChart;
 					'rgba(4,189,254,0.6)' ]
 		},
 		padding : {
-			top : 0,
-			right : 0,
+			top : 10,
+			right : 20,
 			bottom : 30,
-			left : 0,
+			left : 50,
 		},
 		axis : {
 			x : {
 				type : 'timeseries',
 				// if true, treat x value as localtime (Default)
 				// if false, convert to UTC internally
-				localtime : false,
+				localtime : true,
 				tick : {
 					format : '%Y-%m-%d %H:%M:%S'
 				}
+			},
+			y : {
+				show : true
+//				,
+//				label : 'Y2 Axis Label'
 			}
 		}
 	});

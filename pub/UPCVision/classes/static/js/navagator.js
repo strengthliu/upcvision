@@ -3,6 +3,7 @@
  */
 	/* 刷新流程图目录结构*/
 	function updateDiagram() {
+		console.log("updateDiagram");
 		if (userSpace != null && userSpace != "undefined") {
 			// console.log("userSpace is not null");
 			doUpdateDiagram(userSpace);
@@ -21,33 +22,34 @@
 		
 		//// console.log(JSON.stringify(userSpace));
 		/* 刷新流程图目录结构*/
-		var diagrams = userSpace.graphs;
+		var diagrams = userSpace.graph.children;
+//		console.log("diagrams = "+JSON.stringify(diagrams))
 		if(diagrams == null || diagrams == "undefined") diagrams = {};
 		var uiDiagram = document.getElementById("ui-diagram");
 
 		//if (uiDiagram != null && uiDiagram != "undefined")
 		//	// console.log(uiDiagram.innerHTML);
-		var itemsHtml = '<ul class="nav flex-column sub-menu">';
-		Object
-				.keys(diagrams)
-				.forEach(
-						function(key) {
-// console.log("======= debug 1");
-							if (key != null 
-									&& key != "undefined") {
-								var diagram = diagrams[key];
-								if(key == "") key = "未分类";
-								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'diagramList','"+key+"','"+diagram.id+"');"+'">'
-										+ key + '</text></li>';
-								itemsHtml = itemsHtml + item;
-								// // console.log(key,obj[key]);
-							}
-						});
-		// console.log("======= debug 2");
-
-		itemsHtml = itemsHtml + "</ul>";
-		uiDiagram.innerHTML = itemsHtml;//"<ul></ul>";
-		//// console.log(uiDiagram.innerHTML);
+//		var itemsHtml = '<ul class="nav flex-column sub-menu">';
+//		Object
+//				.keys(diagrams)
+//				.forEach(
+//						function(key) {
+//// console.log("======= debug 1");
+//							if (key != null 
+//									&& key != "undefined") {
+//								var diagram = diagrams[key];
+//								if(key == "") key = "未分类";
+//								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'diagramList','"+key+"','"+diagram.id+"');"+'">'
+//										+ key + '</text></li>';
+//								itemsHtml = itemsHtml + item;
+//								// // console.log(key,obj[key]);
+//							}
+//						});
+//		// console.log("======= debug 2");
+//
+//		itemsHtml = itemsHtml + "</ul>";
+//		uiDiagram.innerHTML = itemsHtml;//"<ul></ul>";
+//		//// console.log(uiDiagram.innerHTML);
 
 
 	}

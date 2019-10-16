@@ -41,7 +41,6 @@ function fillUserUI(users) {
 	if (userSpace == null || userSpace == "undefined") {
 		console.log("设置共享时用户空间为空。");
 	}
-	var shareItemGroupUI = document.getElementById("shareItemGroupUI");
 	var sharedUsers;
 	console.log("shareRight.js -> fillUserUI =>  shareType="+shareType);
 	switch (shareType) {
@@ -54,7 +53,50 @@ function fillUserUI(users) {
 		sharedUsers = dataItem.sharedUsers;
 
 		break;
-	case "alertData".toLowerCase():
+	case "alertdataList".toLowerCase():
+		var dataItem = userSpace.alertData[dataItemId];
+		if (dataItem == null || dataItem == "undefined") {
+			alert("没有这个报警数据，请联系系统管理员。");
+			return;
+		}
+		sharedUsers = dataItem.sharedUsers;
+
+		break;
+	case "diagramList".toLowerCase():
+		var dataItem = getGraphByID(userSpace.graph,dataItemId);
+		if (dataItem == null || dataItem == "undefined") {
+			alert("没有这个图形，请联系系统管理员。");
+			return;
+		}
+		sharedUsers = dataItem.sharedUsers;
+
+		break;
+	case "xydiagramList".toLowerCase():
+		var dataItem = userSpace.xyGraph[dataItemId];
+		if (dataItem == null || dataItem == "undefined") {
+			alert("没有这个XY图数据，请联系系统管理员。");
+			return;
+		}
+		sharedUsers = dataItem.sharedUsers;
+
+		break;
+	case "historydataList".toLowerCase():
+		var dataItem = userSpace.historyData[dataItemId];
+		if (dataItem == null || dataItem == "undefined") {
+			alert("没有这个历史数据，请联系系统管理员。");
+			return;
+		}
+		sharedUsers = dataItem.sharedUsers;
+
+		break;
+	case "lineAlertdataList".toLowerCase():
+		var dataItem = userSpace.lineAlertData[dataItemId];
+		if (dataItem == null || dataItem == "undefined") {
+			alert("没有这个直线报警数据，请联系系统管理员。");
+			return;
+		}
+		sharedUsers = dataItem.sharedUsers;
+
 		break;
 	}
 	var shareItemGroupUI_innerHTML = "";
@@ -83,6 +125,9 @@ function fillUserUI(users) {
 						shareItemGroupUI_innerHTML += shareItemGroupUI_item;
 						}
 					});
+//	var test=document.getElementsByTagName('html')[0].innerHTML;
+//	console.log(test);
+	var shareItemGroupUI = document.getElementById("shareItemGroupUI");
 	shareItemGroupUI.innerHTML = shareItemGroupUI_innerHTML;
 
 }
@@ -141,7 +186,7 @@ function getUserList(fillUserUI) {
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				var userList = data.data.users;
 				// console.log("data.data="+JSON.stringify(data));

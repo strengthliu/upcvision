@@ -30,53 +30,53 @@ if (userSpace == null || userSpace == "undefined") {
  * 画点图
  */
 function updateLineAlertDataChart(ruserSpace) {
-	var pointGroup = ruserSpace.lineAlertData[_lineAlertDataDetailKey];
-	var _rule = JSON.parse(pointGroup.otherrule1);
-	var _ruleselectpoint = _rule._selectedPoints;
-	for (var i = 0; i < _ruleselectpoint.length; i++) {
-		var _name_ = _ruleselectpoint[i].tagName;
-		_alertInterval[_name_] = _ruleselectpoint[i].alertInterval;
-		stageValue[_name_] = _ruleselectpoint[i].stageValue;
-	}
-	
-	var uilineAlertDataPoints = document
-			.getElementById("ui-lineAlertDataPoints");
-	if (pointGroup == null || pointGroup == "undefined")
-		return;
-	var pointList = pointGroup.pointList;
-	var innerHtml = "";
-	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		try {
-			// 页面加一块
-			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
-					+ pointList[indpl].tagName + '"></div></div>';
-			innerHtml += item;
-		} catch (e) {
-
-		}
-	}
-	uilineAlertDataPoints.innerHTML = innerHtml;
-	console.log(uilineAlertDataPoints.innerHTML);
-
-	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		console.log();
-		// 对象加一条
-		var gt = new JustGage({
-			id : "point_" + pointList[indpl].tagName,
-			value : 0,
-			min : 0,
-			max : 100,
-			title : pointList[indpl].desc,// "一级电脱盐混合阀压差",
-			label : pointList[indpl].enunit,
-			donut : true,
-			gaugeWidthScale : 0.6,
-			counter : true,
-			hideInnerShadow : true
-		});
-		var _tagName_ = pointList[indpl].tagName;
-		charts[_tagName_] = indpl;
-		gl[indpl] = gt;
-	}
+//	var pointGroup = ruserSpace.lineAlertData[_lineAlertDataDetailKey];
+//	var _rule = JSON.parse(pointGroup.otherrule1);
+//	var _ruleselectpoint = _rule._selectedPoints;
+//	for (var i = 0; i < _ruleselectpoint.length; i++) {
+//		var _name_ = _ruleselectpoint[i].tagName;
+//		_alertInterval[_name_] = _ruleselectpoint[i].alertInterval;
+//		stageValue[_name_] = _ruleselectpoint[i].stageValue;
+//	}
+//	
+//	var uilineAlertDataPoints = document
+//			.getElementById("ui-lineAlertDataPoints");
+//	if (pointGroup == null || pointGroup == "undefined")
+//		return;
+//	var pointList = pointGroup.pointList;
+//	var innerHtml = "";
+//	for (var indpl = 0; indpl < pointList.length; indpl++) {
+//		try {
+//			// 页面加一块
+//			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
+//					+ pointList[indpl].tagName + '"></div></div>';
+//			innerHtml += item;
+//		} catch (e) {
+//
+//		}
+//	}
+//	uilineAlertDataPoints.innerHTML = innerHtml;
+//	console.log(uilineAlertDataPoints.innerHTML);
+//
+//	for (var indpl = 0; indpl < pointList.length; indpl++) {
+//		console.log();
+//		// 对象加一条
+//		var gt = new JustGage({
+//			id : "point_" + pointList[indpl].tagName,
+//			value : 0,
+//			min : 0,
+//			max : 100,
+//			title : pointList[indpl].desc,// "一级电脱盐混合阀压差",
+//			label : pointList[indpl].enunit,
+//			donut : true,
+//			gaugeWidthScale : 0.6,
+//			counter : true,
+//			hideInnerShadow : true
+//		});
+//		var _tagName_ = pointList[indpl].tagName;
+//		charts[_tagName_] = indpl;
+//		gl[indpl] = gt;
+//	}
 }
 /**
  * 刷新数据
@@ -365,10 +365,11 @@ var c3LineChart;
 			x : 'time',
 			xFormat : '%Y',
 			columns : cols,
-			type : 'spline',
-			axes : {
-				CJY_XT31101_8 : 'y',
-			}
+			type : 'spline'
+//				,
+//			axes : {
+//				CJY_XT31101_8 : 'y',
+//			}
 		},
 		grid : {
 			x : {
@@ -383,24 +384,25 @@ var c3LineChart;
 					'rgba(4,189,254,0.6)' ]
 		},
 		padding : {
-			top : 0,
-			right : 0,
+			top : 10,
+			right : 10,
 			bottom : 30,
-			left : 0,
+			left : 50,
 		},
 		axis : {
 			x : {
 				type : 'timeseries',
 				// if true, treat x value as localtime (Default)
 				// if false, convert to UTC internally
-				localtime : false,
+				localtime : true,
 				tick : {
 					format : '%Y-%m-%d %H:%M:%S'
 				}
 			},
 			y : {
-				show : true,
-				label : 'Y2 Axis Label'
+				show : true
+//				,
+//				label : 'Y2 Axis Label'
 			}
 		}
 	});

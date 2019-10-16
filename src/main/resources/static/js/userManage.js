@@ -82,8 +82,21 @@ function initUserInfoList(_userInfoList) {
 				+ '"  onclick="clickPersion('
 				+ key + ')">';
 		_userManage_userList_InnerHtml_item += '<img class="img-sm rounded-circle"';
-		_userManage_userList_InnerHtml_item += '	src="'
-				+ userInfoList[key].photo + '" alt=""/>';
+		_userManage_userList_InnerHtml_item += '	src="';
+			
+		switch(userInfoList[key].role){
+		case 1:
+			_userManage_userList_InnerHtml_item +="images/faces/user1.png";
+			break;
+		case 2:
+			_userManage_userList_InnerHtml_item +="images/faces/user2.jpeg";
+			break;
+		case 3:
+			_userManage_userList_InnerHtml_item +="images/faces/user3.jpeg";
+			break;
+		}
+				
+		_userManage_userList_InnerHtml_item +=  '" alt=""/>';
 		_userManage_userList_InnerHtml_item += '<div class="wrapper w-100 ml-3">';
 		_userManage_userList_InnerHtml_item += '	<p class="mb-0">';
 		_userManage_userList_InnerHtml_item += '		<b>姓名：'

@@ -14,6 +14,7 @@ import java.util.List;
 
 import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Reference;
 import org.springframework.stereotype.Component;
 
@@ -36,8 +37,10 @@ public class ServerManager {
 		return servers;
 	}
 
-	// @Value("${gc.library}")
-	private String gcLibrary = "geC.dll";
+	@Value("${gc.library}")
+//	private String gcLibrary;
+	private String gcLibrary = "./geC.dll";
+
 
 	private JGecService gec;
 
@@ -136,12 +139,16 @@ public class ServerManager {
 		List<String> servs;
 		try {
 			//
+			System.out.println(" ====================================  ");
 			servs = gec.DBECEnumServerName();
+			System.out.println(" ====================================  ");
 			servers = new Hashtable<String, Server>();
 			// 取服务器信息
 			for (int iserver = 0; iserver < servs.size(); iserver++) {
 				Server server = new Server();
 				String serverName = servs.get(iserver);
+				System.out.println(" ====== Server : "+serverName+" ==================");
+
 				server.setServerName(serverName);
 				defaultServer = server;
 				// 取装置信息
@@ -156,6 +163,7 @@ public class ServerManager {
 
 				for (int idevice = 0; idevice < devices.size(); idevice++) {
 					String deviceName = devices.get(idevice);
+					System.out.println(" ====== deviceName : "+deviceName+" ==================");
 					Device device = new Device();
 					device.setDeviceName(deviceName);
 					Long deviceId = gec.DBECGetDeviceID(serverName, deviceName);
@@ -163,8 +171,19 @@ public class ServerManager {
 					String deviceNote = gec.DBECGetDeviceNote(serverName, deviceName, deviceId);//transByteToString(buffer);
 					deviceNote = deviceNote.trim();
 					device.setDeviceNote(deviceNote);
-					// 取点位信息
-					List<Long> pointIds = gec.DBECEnumTagIDOfDeviceByDeviceName(serverName, deviceName);
+					//取点位信息
+					List<Long> pointIds = null;
+					try {
+						long num  = gec.DBECGetTagCountOfDeviceByDeviceName(serverName, deviceName);
+						System.out.println(num+"设备个数");
+						if(num > 0)
+							pointIds = gec.DBECEnumTagIDOfDeviceByDeviceName(serverName, deviceName);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					if(pointIds == null)
+						pointIds = new ArrayList<Long>();
+
 					ByteBuffer tagbuffer = ByteBuffer.allocate(GlobalConsts.DeviceNoteLength);
 					for (int ipoint = 0; ipoint < pointIds.size(); ipoint++) {
 						Point point = new Point();
@@ -173,7 +192,7 @@ public class ServerManager {
 						String tagName = gec.DBECGetTagName(serverName, pointId);
 						tagName = tagName.trim();
 						String tagdesc = gec.DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGNOTE");
-//						System.out.println("pointid: "+pointId+"  tagdesc: " + tagdesc);
+						System.out.println("pointid: "+pointId+"  tagdesc: " + tagdesc);
 						if (StringUtil.isBlank(tagdesc))
 							tagdesc = "未知描述";
 						String enunit = gec.DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_ENUNITS");

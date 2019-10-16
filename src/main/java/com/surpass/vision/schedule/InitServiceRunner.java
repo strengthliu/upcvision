@@ -20,6 +20,9 @@ public class InitServiceRunner implements CommandLineRunner {
 
 	@Value("${upc.graphPath}")
 	private String graphPath;
+	
+	@Value("${gc.library}")
+	private String gcLibrary;
 
 	@Autowired
 	GraphDataManager graphDataManager;

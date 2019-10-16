@@ -80,7 +80,7 @@
 		  _a.onclick=function(){
 				//console.log("点击了 "+this.innerHTML);
 				console.log("a -  url="+this.href.baseVal);
-			var g = getGraphByPath(userSpace.graph,this.href.baseVal);
+			var g = getGraphByPath_1(userSpace.graph,this.href.baseVal);
 			if(g == null || g == "undefined" || g.id==null ||g.id=="undefined"){
 				alert("您没有查看这个图形的权限。");
 			}else{

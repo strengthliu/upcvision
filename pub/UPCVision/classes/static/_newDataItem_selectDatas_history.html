@@ -118,85 +118,34 @@
 						placeholder="组名称" />
 				</div>
 			</div>
-			<div class="row card-body">
+			<div class="row card-body" style="display: none;">
 				<h4 class="card-title">相对时间 :</h4>
 				<div class="forms-sample">
 					<div class="form-group">
 						<input type="email" class="form-control" id="_historyrelativetime"
-							placeholder="相对时间"/>
+							placeholder="相对时间" />
 					</div>
 				</div>
 			</div>
-			<div class="row card-body">
-				<h4 class="card-title">开始时间 :</h4>
-				<div class="forms-sample">
-					<div class="form-group">
-						<input type="email" class="form-control" id="_historystarttime"
-							placeholder="开始时间"/>
-					</div>
+			<div class="row card-body" style="display: none;">
+				<div class='input-group date form_date col-md-6'>
+					<input name="startTm" id="datetimepicker3" type='text'
+						placeholder="开始时间" class="form-control input-sm"
+						readonly="readonly" /> <span class="input-group-addon input-sm">
+						<span class="glyphicon glyphicon-calendar"></span>
 				</div>
-				<h4 class="card-title">结束时间 :</h4>
-				<div class="forms-sample">
-					<div class="form-group">
-						<input type="email" class="form-control" id="_historyterminaltime"
-							placeholder="相对时间"/>
-					</div>
+				<div class='input-group date form_date col-md-6'>
+					<input name="startTm" id="datetimepicker4" type='text'
+						placeholder="结束时间" class="form-control input-sm"
+						readonly="readonly" /> <span class="input-group-addon input-sm">
+						<span class="glyphicon glyphicon-calendar"></span>
 				</div>
-				<!-- 
-				<div>
-					<h4 class="card-title">结束时间</h4>
-					<div class="row">
-						<div id="datepicker-popup-start"
-							class="input-group date datepicker  col-md-6">
-							<input id="historyStartDate" type="text" class="form-control"> <span
-								class="input-group-addon input-group-append border-left">
-								<span class="mdi mdi-calendar input-group-text"></span>
-							</span>
-						</div>
-						<div class="input-group date col-md-6"
-							id="timepicker-example-start" data-target-input="nearest">
-							<div class="input-group" data-target="#timepicker-example-start"
-								data-toggle="datetimepicker">
-								<input type="text" class="form-control datetimepicker-input"
-									data-target="#timepicker-example-start" />
-								<div class="input-group-addon input-group-append">
-									<i class="mdi mdi-clock input-group-text"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div>
-					<h4 class="card-title">结束时间</h4>
-					<div class="row">
-						<div id="datepicker-popup"
-							class="input-group date datepicker  col-md-6">
-							<input type="text" class="form-control"> <span
-								class="input-group-addon input-group-append border-left">
-								<span class="mdi mdi-calendar input-group-text"></span>
-							</span>
-						</div>
-						<div class="input-group date col-md-6" id="timepicker-example"
-							data-target-input="nearest">
-							<div class="input-group" data-target="#timepicker-example"
-								data-toggle="datetimepicker">
-								<input type="text" class="form-control datetimepicker-input"
-									data-target="#timepicker-example" />
-								<div class="input-group-addon input-group-append">
-									<i class="mdi mdi-clock input-group-text"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
- 				-->
 			</div>
 			<h4>说明</h4>
 			<div class="form-group">
 				<label>请输入这个组的说明</label>
 				<textarea class="form-control" rows="5" id="targetDesc"></textarea>
 			</div>
-			<div id="colorpicker"></div>
 
 			<div id="js-grid"></div>
 
@@ -252,11 +201,11 @@
 		var _selectedPoints = new Array();
 		var targetName = ""; // 组名称
 		var targetDesc = ""; // 组说明
-		
+
 		var relativetime = "";
 		var starttime = "";
 		var terminaltime = "";
-		
+
 		var selectedPoints = new Set();
 		var _selectedPoints = new Array();
 		var targetName = "";
@@ -320,11 +269,13 @@
 		_targetNameUI.value = "";
 		var targetDesc = document.getElementById("targetDesc");
 		targetDesc.value = "";
-		var _historyrelativetime = document.getElementById("_historyrelativetime");
+		var _historyrelativetime = document
+				.getElementById("_historyrelativetime");
 		_historyrelativetime.value = "";
 		var _historystarttime = document.getElementById("_historystarttime");
 		_historystarttime.value = "";
-		var _historyterminaltime = document.getElementById("_historyterminaltime");
+		var _historyterminaltime = document
+				.getElementById("_historyterminaltime");
 		_historyterminaltime.value = "";
 
 	}
@@ -351,19 +302,22 @@
 			console.log("2 => " + JSON.stringify(selectedPoints));
 			targetDesc = document.getElementById("targetDesc").value;
 			console.log("3 => " + JSON.stringify(selectedPoints));
-			
-			var _historyrelativetime = document.getElementById("_historyrelativetime");
+
+			var _historyrelativetime = document
+					.getElementById("_historyrelativetime");
 			var relativetime = _historyrelativetime.value;
-			var _historystarttime = document.getElementById("_historystarttime");
+			var _historystarttime = document.getElementById("datetimepicker3");
 			var starttime = _historystarttime.value;
-			var _historyterminaltime = document.getElementById("_historyterminaltime");
+			var _historyterminaltime = document
+					.getElementById("datetimepicker4");
 			var terminaltime = _historyterminaltime.value;
-			
-			submitNewDataItem(selectedPoints,_selectedPoints, targetName, targetDesc,relativetime, starttime, terminaltime);
+
+			submitNewDataItem(selectedPoints, _selectedPoints, targetName,
+					targetDesc, relativetime, starttime, terminaltime);
 
 			return;
 		}
-		
+
 		fillTable("js-grid");
 		// 调整显示页面
 		var currentSectionName = 'newDataItem_section_step_' + currentStep;
@@ -390,21 +344,22 @@
 	}
 
 	/**
-	   * 填写补充信息
+	 * 填写补充信息
 	 */
-	function fillAttribute(otherrule){
-		console.log("otherrule : "+JSON.stringify(otherrule));
-		var _historyrelativetime = document.getElementById("_historyrelativetime");
+	function fillAttribute(otherrule) {
+		console.log("otherrule : " + JSON.stringify(otherrule));
+		var _historyrelativetime = document
+				.getElementById("_historyrelativetime");
 		_historyrelativetime.value = otherrule.relativetime;
 		var relativetime = otherrule.relativetime;
-		var _historystarttime = document.getElementById("_historystarttime");
+		var _historystarttime = document.getElementById("datetimepicker3");
 		_historystarttime.value = otherrule.starttime;
 		var starttime = otherrule.starttime;
-		var _historyterminaltime = document.getElementById("_historyterminaltime");
+		var _historyterminaltime = document.getElementById("datetimepicker4");
 		_historyterminaltime.value = otherrule.terminaltime;
 		var terminaltime = otherrule.terminaltime;
 	}
-	
+
 	function fillTable(tableID) {
 		$("#" + tableID).jsGrid({
 			height : "300px",
@@ -439,10 +394,6 @@
 				type : "number",
 				width : 50
 			}, {
-				title : "颜色",
-				name : "stageValue",
-				width : 50,
-			}, {
 				type : "control",
 				editButton : true,
 				deleteButton : false,
@@ -453,7 +404,6 @@
 			]
 		});
 	}
-	
 
 	function toggleCollorSelector() {
 		$("#" + tableID).jqGrid("saveCell", lastrow, lastcell);
@@ -491,12 +441,9 @@
 <script src="js/dragula.js"></script>
 <script src="js/js-grid.js"></script>
 <script src="js/db.js"></script>
-<script src="js/formpickers.js"></script>
 <script src="js/jsGridDateField.js"></script>
 <script src="js/farbtastic.js"></script>
 
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 
 <!-- End custom js for this page-->
 
