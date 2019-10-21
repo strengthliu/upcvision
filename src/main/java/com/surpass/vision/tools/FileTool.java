@@ -199,15 +199,13 @@ public class FileTool {
 				fl.setPath(path);
 				fl.setFile(true);
 				// 解析文件
-				// System.out.println("1 readHtml="+fl.getName());
-
 				Document doc = Jsoup.parse(HtmlParser.readHtml(fl.getWholePath()));
 				// 判断文件是否是图形文件
 				ArrayList<String> pointIDs = new ArrayList<String>();
-//				if(file.getName().contains("A低油塔")) {
-//					System.out.println(doc.html());
-//				}
 				if (doc.select(GlobalConsts.GraphElement) != null && doc.select(GlobalConsts.GraphElement).size() > 0) {
+					fl.setSVG(true);
+					fl.setType(GlobalConsts.Type_graph_);
+
 					/**
 					 * // // 如果是图形文件，先删除所有js Document doc1 =
 					 * Jsoup.parse(HtmlParser.readHtml(fl.getWholePath())); Elements scriptdocs =
@@ -219,6 +217,58 @@ public class FileTool {
 					 * FileWriter fw = new FileWriter(file,true); fw.write(fileContent); fw.close();
 					 * }
 					 */
+					if(fl.getName().contentEquals("Graphic147.svg"))
+						System.out.println();
+					// 在图上显示数据的DOM的ID。
+					ArrayList<String> pointTextIDs = new ArrayList<String>();
+					/***********************************************************************************
+					 *      淮南图的数据格式
+					 **********************************************************************************/
+					// 先判断是否是g文件
+					Elements docsg = doc.getElementsByTag(GlobalConsts.GPointTag);
+					for (int idocs = 0; idocs < docsg.size(); idocs++) {
+						Element eg = docsg.get(idocs);
+						String gPointId = eg.attr(GlobalConsts.GPointID);//PBD:PtTagName
+						if (!StringUtil.isBlank(gPointId)) {
+		//					System.out.println("图形："+fl.getName()+"，tag="+tag);
+							// 拆分 "\\RTDBB\81_3701_01_P02_C_out"，成服务器 点位名
+							String serverName = PointGroupDataManager.splitServerName1(gPointId);
+							String tagName = PointGroupDataManager.splitPointName1(gPointId);
+							if(tagName.contentEquals("81_3701_01_P02_C_out")) {
+								System.out.println();
+							}
+							Point p = sm.getPointByID(serverName, tagName);
+							if (p != null) {
+								// LOGGER.info("检查点位："+tag+" => "+sm.getPointByID(tag));
+
+								Elements docsText = eg.getElementsByTag(GlobalConsts.PointTag);
+								for(int indDocsText=0;indDocsText<docsText.size();indDocsText++) {
+									Element etest = docsText.get(indDocsText);
+									// TODO: 取出规则
+									/*
+									 *    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="19930" y="4680" id="DATAPOINT30_pbTextEl" PBD:Property="VAL">
+									 *    	#.##
+									 *    	<PB:MultiState id="DATAPOINT30_MS" PBD:PtTagName="\\RTDBB\81_3701_01_P02_C_out" TagName="81_3701_01_P02_C_out" ServerName="RTDBB" StateCount="2">
+									 *    		<PB:MSState id="DATAPOINT30_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" />
+									 *    		<PB:MSState id="DATAPOINT30_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" />
+									 *    	</PB:MultiState>
+									 *    </text>
+									 */
+									
+									// 取出点的text的ID
+									String textId = etest.attr("id");
+									pointIDs.add(p.wholeName());
+									pointTextIDs.add(textId);
+								}
+							}
+						}
+					}
+//					if(pointTextIDs.size()>0)
+//						fl.setPointTextIDs(pointTextIDs);
+					
+					/***********************************************************************************
+					 *      普通图的数据格式
+					 **********************************************************************************/
 					Elements docs = doc.getElementsByTag(GlobalConsts.PointTag);
 					for (int idocs = 0; idocs < docs.size(); idocs++) {
 						Element e = docs.get(idocs);
@@ -230,62 +280,36 @@ public class FileTool {
 							Point p = sm.getPointByID(serverName, tagName);
 							if (p != null) {
 								pointIDs.add(p.wholeName());
+								pointTextIDs.add(tag);
 								// LOGGER.info("检查点位："+tag+" => "+sm.getPointByID(tag));
 							}
-						} else {
-//							System.out.println("图形："+fl.getName()+"，tag="+tag);
-						}
+						} 
 					}
-					fl.setSVG(true);
-					fl.setType(GlobalConsts.Type_graph_);
-					fl.setPoints(IDTools.merge(pointIDs.toArray()));
-					// loadFileListDatabaseInfo只能在这里使用，因为这时graphDataManager已经初始化了。
-//					FileList _fl = FileTool.getInstnace().loadFileListDatabaseInfo(fl);
-//					// 设置ID
-//					if(_fl==null || _fl.getId()==null||_fl.getId()==0) {
-//						fl.setId(IDTools.newID());
-//						// 设置creater
-//						fl.setCreater(GlobalConsts.UserAdminID);
-//						fl.setOwner(GlobalConsts.UserAdminID);
-//					}
-//					else
-//						fl = _fl;
 
-					// 删除所有text
-					Elements es = doc.getElementsByTag("text");
-					if (es != null && es.size() > 0) {
-						for (int indscript = es.size() - 1; indscript >= 0; indscript--) {
-							es.get(indscript).remove();
-						}
-					}
+					fl.setPoints(IDTools.merge(pointIDs.toArray()));
+					if(pointTextIDs.size()>0)
+						fl.setPointTextIDs(pointTextIDs);
+
 					
-//					// 删除所有a，并保存
-//					try {
-//						es = doc.getElementsByTag("a");
-//						if (es != null && es.size() > 0) {
-//							for (int indscript = es.size() - 1; indscript >= 0; indscript--) {
-//								es.get(indscript).remove();
-//							}
+					/***********************************************************************************
+					 *      生成缩略图
+					 **********************************************************************************/
+//					// 删除所有text
+//					Elements es = doc.getElementsByTag("text");
+//					if (es != null && es.size() > 0) {
+//						for (int indscript = es.size() - 1; indscript >= 0; indscript--) {
+//							es.get(indscript).remove();
 //						}
-//						String fileContent = doc.html();
-//						fileContent.replace(" null", "");
-//						file.delete();
-//						file.createNewFile();
-//						FileWriter fw = new FileWriter(file, true);
-//						fw.write(fileContent);
-//						fw.close();
-//					} catch (Exception e) {
-//						e.printStackTrace();
 //					}
 					
 					try {
 						// 生成图片
-//						System.out.println("生成图片:"+es.outerHtml());
 //						Resource resource = new ClassPathResource("");
-//						System.out.println(resource.getFile().getAbsolutePath());
+//						String _path_ = resource.getFile().getAbsolutePath();
 						// 将SVG转成图形，写到缩略图物理目录里
 						String physicalGraphPath = ServerConfig.getInstance().getPhysicalGraphPath(fl.getPath());
-//						SVGTools.convertToPng(es.outerHtml(), physicalGraphPath + "\\" + fl.getName() + ".png");
+						Elements es = doc.getElementsByTag(GlobalConsts.GraphElement);
+//						SVGTools.convertToPng(es.get(0).outerHtml(), physicalGraphPath + "\\" + fl.getName() + ".png");
 						String urlGraphPath = ServerConfig.getInstance().getURLFromPath(physicalGraphPath + "\\" + fl.getName() + ".png");
 						File fimage = new File(urlGraphPath);
 						if(fimage.length()>0)

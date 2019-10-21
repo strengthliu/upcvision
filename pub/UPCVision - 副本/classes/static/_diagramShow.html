@@ -1,0 +1,105 @@
+<!-- partial -->
+<div id="_diagramShow">
+
+</div>
+
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- main-panel ends -->
+    <!-- page-body-wrapper ends -->
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <!-- endinject -->
+  <!-- plugin js for this page -->
+  <!-- -->
+   
+  <!-- end plugin js for this page -->
+
+  <!-- Custom js for this page-->
+  <script>
+  //console.log("_diagramShowKey = "+_diagramShowKey);
+  
+  function getGraphByPath_1(graph,path){
+		if(path==null||path=="undefined") return graph;
+		//console.log("graph.wholePath="+graph.wholePath.toLowerCase()+"  ==  "+"path="+path.toLowerCase());
+		if(graph.wholePath.toLowerCase().indexOf(path.toLowerCase())!=-1){
+			//console.log("找到了");
+			_graphId = graph.id;
+			return graph;
+		}
+		else {
+			console.log(graph.wholePath.toLowerCase()+" 3");
+			var children = graph.children;
+			if(children!=null){
+				var keys = new Array();
+				Object.keys(children).forEach(function(key){
+					//console.log("4"+key);
+					keys.push(key);
+					children[key]
+				});
+				for(var i=0;i<keys.length;i++){
+					var child = children[keys[i]];
+					var t = getGraphByPath_1(child,path);
+					if(t!=null) return t;
+				}
+			}
+			return null;
+		}
+	}
+  
+	if(userSpace==null|userSpace=="undefined"){
+		getUserSpace(uid,token,graphSubscribe);
+	}else{
+		if(_graphId==null||_graphId=="undefined"){
+			//console.log(" graph.js -> graphSubscribe() -> getGraphByURLPath(graph,_diagramShowKey="+_diagramShowKey+")");
+			var g = getGraphByPath_1(userSpace.graph,_diagramShowKey);
+			if(g == null || g == "undefined" || g.id==null ||g.id=="undefined"){
+				alert("您没有查看这个图形的权限。");
+			}else{
+				_graphId = g.id;
+				_diagramShowKey = g.urlPath;
+				$("#_diagramShow").load(_diagramShowKey,null,changeAAction);
+			}
+		}else{
+			$("#_diagramShow").load(_diagramShowKey,null,changeAAction);
+		}
+		console.log("dddd");
+	}
+  
+  
+  function changeAAction(){
+//	  console.log("=====================");
+	  var d = document.getElementById("_diagramShow");
+//	  console.log("html:"+d.innerHTML);
+	  var as = d.getElementsByTagName("a");
+	  for(var i=0;i<as.length;i++){
+		  var _a = as[i];
+		  //console.log("a - html: "+_a.outerHTML+" url="+_a.href.baseVal);
+		  var t = _a.href.baseVal;
+
+		  _a.onclick=function(){
+				//console.log("点击了 "+this.innerHTML);
+				console.log("a -  url="+this.href.baseVal);
+			var g = getGraphByPath(userSpace.graph,this.href.baseVal);
+			if(g == null || g == "undefined" || g.id==null ||g.id=="undefined"){
+				alert("您没有查看这个图形的权限。");
+			}else{
+				_graphId = g.id;
+				_diagramShowKey = g.urlPath;
+				routeTo("diagramDetail",this.href.baseVal);
+			}
+			
+			return false;
+		  };
+	  }
+  }
+  
+
+  </script>
+  <!-- End custom js for this page-->
+    <script src="./js/light-gallery.js"></script>
+    <script src="./js/jquerySession.js"></script>
+    <script src="./js/graph.js"></script>
+  
+  <script src="vendors/lightgallery/js/lightgallery-all.min.js"></script>
+

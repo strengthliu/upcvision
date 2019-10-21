@@ -41,7 +41,7 @@ if (user.role <= 2) {
 oppertionButton_innerHTML += '</div>  ' + '</div>';
 oppertionButton.innerHTML = oppertionButton_innerHTML;
 //console.log(oppertionButton.innerHTML);
-console.log("mainPanel.js => user.role="+user.role);
+//console.log("mainPanel.js => user.role="+user.role);
 switch (user.role) {
 case 1: // 管理员什么都有
 	mainPanel.appendChild(oppertionButton);

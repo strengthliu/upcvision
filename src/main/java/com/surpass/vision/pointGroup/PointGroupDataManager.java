@@ -46,31 +46,35 @@ public class PointGroupDataManager {
 	UserManager userManager;
 
 	public static String splitServerName(String str) {
-//		if(str.contentEquals("CJY_TIC2218.MV"))
-//			System.out.println("CJY_TIC2218.MV");
-		int _ind = str.indexOf(GlobalConsts.Key_splitCharServerPoint);
-		if (_ind < 0)
-			return ServerManager.defaultServer.getServerName();
-		else {
-			String serverName = str.substring(0, _ind);
-			if (ServerManager.hasServerName(serverName))
-				return serverName;
-			else
-				return ServerManager.defaultServer.getServerName();
-		}
+		return splitServerName1(str);
+//		str = str.toUpperCase();
+////		if(str.contentEquals("CJY_TIC2218.MV"))
+////			System.out.println("CJY_TIC2218.MV");
+//		int _ind = str.indexOf(GlobalConsts.Key_splitCharServerPoint);
+//		if (_ind < 0)
+//			return ServerManager.defaultServer.getServerName();
+//		else {
+//			String serverName = str.substring(0, _ind);
+//			if (ServerManager.hasServerName(serverName))
+//				return serverName;
+//			else
+//				return ServerManager.defaultServer.getServerName();
+//		}
 	}
 
 	public static String splitPointName(String str) {
-		int _ind = str.indexOf(GlobalConsts.Key_splitCharServerPoint);
-		if (_ind < 0)
-			return str;
-		else {
-			String serverName = str.substring(0, _ind);
-			if (ServerManager.hasServerName(serverName))
-				return str.substring(_ind + 1);
-			else
-				return str;
-		}
+		return splitPointName1(str);
+//		str = str.toUpperCase();
+//		int _ind = str.indexOf(GlobalConsts.Key_splitCharServerPoint);
+//		if (_ind < 0)
+//			return str;
+//		else {
+//			String serverName = str.substring(0, _ind);
+//			if (ServerManager.hasServerName(serverName))
+//				return str.substring(_ind + 1);
+//			else
+//				return str;
+//		}
 	}
 
 	public static Set compareRight(PointGroupData rtd, PointGroupData oldRtd, String keyaggrandizement) {
@@ -213,10 +217,12 @@ public class PointGroupDataManager {
 		return pg;
 	}
 
+	
 	public DataViewer buildDataViewer(Double k, String type) {
 		PointGroup pgd = getPointsByGroupId(k, type);
 		DataViewer dv = new DataViewer();
 		dv.setPointGroupID(k);
+		dv.setType(pgd.getType());
 		if(pgd==null) {
 			System.out.println();
 		}
@@ -228,15 +234,20 @@ public class PointGroupDataManager {
 		HashMap<String,ServerPoint> sps = new HashMap<String,ServerPoint>();
 		for (int i = 0; i < pl.size(); i++) {
 			String serverName = pl.get(i).getServerName();
+			
 			ServerPoint sp;
 			ArrayList<Long> idsa;
 			ArrayList<String> tagNamesa;
+			ArrayList<String> pointTextIDs = null;
 			if(sps.containsKey(serverName)) {
 				sp = sps.get(serverName);
 //				idsa = new ArrayList<Long>();
 				idsa = new ArrayList<Long>(Arrays.asList(sp.getIds()));
 				tagNamesa = new ArrayList<String>();  
-				tagNamesa = new ArrayList<String>( Arrays.asList(sp.getTagNames()));         
+				tagNamesa = new ArrayList<String>( Arrays.asList(sp.getTagNames()));    
+				if(pgd.getPointTextIDs()!=null) {
+					pointTextIDs = new ArrayList<String>( Arrays.asList(sp.getPointTextIDs()));    					
+				}
 //				tagNamesa = (ArrayList<String>) Arrays.asList(sp.getTagNames());
 			} else {
 				sp = new ServerPoint();
@@ -244,6 +255,9 @@ public class PointGroupDataManager {
 				sps.put(serverName, sp);
 				idsa = new ArrayList<Long>();
 				tagNamesa = new ArrayList<String>();
+				if(pgd.getPointTextIDs()!=null) {
+					pointTextIDs = new ArrayList<String>();
+				}
 			}
 			idsa.add(pl.get(i).getId());
 			tagNamesa.add(pl.get(i).getTagName());
@@ -251,13 +265,28 @@ public class PointGroupDataManager {
 			sp.setIds(ids);
 			String[]tagNames = tagNamesa.toArray(new String[0]);
 			sp.setTagNames(tagNames);
-			
+			if(pgd.getPointTextIDs()!=null) {
+				if(pgd.getPointList().size()!=pgd.getPointTextIDs().size()) {
+					for(int ip=0;ip<pgd.getPointList().size();ip++)
+						System.out.println(" "+pgd.getPointList().get(ip).getTagName());
+					System.out.println("==========================================");
+					for(int ip=0;ip<pgd.getPointTextIDs().size();ip++)
+						System.out.println(" "+pgd.getPointTextIDs().get(ip));
+					
+				}
+				if(i<pgd.getPointTextIDs().size())
+				pointTextIDs.add(pgd.getPointTextIDs().get(i));
+			}
+			if(type.contentEquals(GlobalConsts.Key_Graph_pre_)) {
+				String[] _pointTextIDs = pointTextIDs.toArray(new String[0]);
+				sp.setPointTextIDs(_pointTextIDs);
+			}
 			sps.put(serverName, sp);
 		}
 
 		switch (type) {
-		case "graph":
-			dv.setQueryById(true);
+			case GlobalConsts.Key_Graph_pre_:
+				dv.setQueryById(true);
 		}
 //		dv.setIds(ids);
 //		dv.setTagNames(tagNames);
@@ -272,6 +301,47 @@ public class PointGroupDataManager {
 
 		dv.setSps(spsa);
 		return dv;
+	}
+
+	// 拆分 "\\RTDBB\81_3701_01_P02_C_out"，成服务器 点位名
+	public static String splitServerName1(String gPointId) {
+		gPointId = gPointId.toUpperCase();
+
+		String serverName = gPointId;
+		// 如果是\\开头
+		System.out.println(GlobalConsts.Key_ServerNamePre);
+		System.out.println(GlobalConsts.Key_splitCharServerPoint);
+		if(gPointId.startsWith(GlobalConsts.Key_ServerNamePre)) {
+			serverName = gPointId.substring(2);
+		}else {
+//			serverName = ServerManager.defaultServer.getServerName();
+//			return serverName;
+		}
+		int i = serverName.indexOf(GlobalConsts.Key_splitCharServerPoint);
+		if(i>0) {
+			return serverName.substring(0,i);
+		} else {
+			return ServerManager.defaultServer.getServerName();
+		}
+	}
+
+	public static String splitPointName1(String gPointId) {
+		gPointId = gPointId.toUpperCase();
+		String serverName = gPointId;
+		// 如果是\\开头
+		if(gPointId.startsWith("\\\\")) {
+			serverName = serverName.substring(2);
+		}
+		int i = serverName.indexOf("\\");
+		if(i>0) {
+			serverName = serverName.substring(i+1);
+		} 
+		return serverName;
+
+	}
+	public static void main(String [] argc) {
+		System.out.println(PointGroupDataManager.splitServerName1( "\\\\RTDBB\\81_3701_01_P02_C_out"));
+		System.out.println(PointGroupDataManager.splitPointName1("\\\\RTDBB\\81_3701_01_P02_C_out"));
 	}
 
 }

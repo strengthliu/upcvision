@@ -5,7 +5,7 @@ import java.util.Hashtable;
 
 import com.surpass.vision.appCfg.GlobalConsts;
 
-public class Point implements Serializable {
+public class Point implements Serializable,Cloneable {
 	Long id;
 	String tagName;
 	String desc; // FN_TAGNOTE
@@ -48,24 +48,29 @@ public class Point implements Serializable {
 		return tagName;
 	}
 	public void setTagName(String tagName) {
-		this.tagName = tagName;
+		this.tagName = tagName.toUpperCase();
 	}
 	public String getDeviceName() {
 		return deviceName;
 	}
 	public void setDeviceName(String deviceName) {
-		this.deviceName = deviceName;
+		this.deviceName = deviceName.toUpperCase();
 	}
 	public String getServerName() {
 		return serverName;
 	}
 	public void setServerName(String serverName) {
-		this.serverName = serverName;
+		this.serverName = serverName.toUpperCase();
 	}
 
 	Hashtable<String,Float> values;
 	
 	public String wholeName() {
-		return this.serverName + GlobalConsts.Key_splitCharServerPoint + this.tagName;
+		return GlobalConsts.Key_ServerNamePre+this.serverName + GlobalConsts.Key_splitCharServerPoint + this.tagName;
+	}
+	
+	@Override
+	public Point clone() throws CloneNotSupportedException {
+		return (Point) super.clone();
 	}
 }

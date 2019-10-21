@@ -2,8 +2,14 @@ package com.surpass.vision.domain;
 
 import java.io.Serializable;
 
-public class PointGroupData extends BaseDomain implements Serializable {
-    private Double id;
+public class PointGroupData extends BaseDomain implements Serializable, Cloneable {
+    /**
+	 * ---------------------------------------
+	 * @author 刘强 2019年10月20日 下午8:41:50 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Double id;
 
     private String type;
 
@@ -91,5 +97,12 @@ public class PointGroupData extends BaseDomain implements Serializable {
 
     public void setOtherrule2(String otherrule2) {
         this.otherrule2 = otherrule2 == null ? null : otherrule2.trim();
+    }
+    
+    @Override
+    public PointGroupData clone() throws CloneNotSupportedException {
+    	PointGroup ret = null;
+			ret = (PointGroup)super.clone();
+    	return ret;
     }
 }

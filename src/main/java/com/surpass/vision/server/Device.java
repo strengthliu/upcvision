@@ -29,7 +29,7 @@ public class Device implements Serializable {
 		return deviceName;
 	}
 	public void setDeviceName(String deviceName) {
-		this.deviceName = deviceName;
+		this.deviceName = deviceName.toUpperCase();
 	}
 	Long id;
 	String deviceName;
@@ -37,7 +37,7 @@ public class Device implements Serializable {
 	public void addPoint(Point point) {
 		if(points == null)
 			points = new Hashtable<String,Point>();
-		points.put(point.tagName, point);
+		points.put(point.tagName.toUpperCase(), point);
 	}
 
 }

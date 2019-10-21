@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * ---------------------------------------
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class User extends BaseDomain implements Serializable  {
+public class User extends BaseDomain implements Serializable,Cloneable  {
     private Double id;
 
     private String name;
@@ -39,4 +39,9 @@ public class User extends BaseDomain implements Serializable  {
         this.name = name == null ? null : name.trim();
     }
 
+    
+    @Override
+    public User clone() throws CloneNotSupportedException {
+    	return (User) super.clone();
+    }
 }

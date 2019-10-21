@@ -185,12 +185,12 @@ public class GraphDataManager extends PointGroupDataManager {
 		ret.setFile(fl.isFile());
 		ret.setSVG(fl.isSVG());
 		ret.setId(fl.getId());
+		ret.setPointTextIDs(fl.getPointTextIDs());
 		// 设置文件名
 		if (fl.isFile())
 			ret.setFileName(fl.getName());
 		else
 			ret.setFileName(null);
-
 		String name = fl.getName();
 		if (name.lastIndexOf(".") > 0)
 			name = name.substring(0, name.lastIndexOf("."));
@@ -198,7 +198,14 @@ public class GraphDataManager extends PointGroupDataManager {
 		ret.setName(name);
 		ret.setPath(fl.getPath());
 		ret.setOtherrule1(fl.getOtherrule1());
-		ret.setOtherrule2(fl.getOtherrule2());
+		String otherrule2 = "";
+		if(fl.getPointTextIDs()!=null)
+		for(int indt =0;indt<fl.getPointTextIDs().size();indt++) {
+			otherrule2 += fl.getPointTextIDs().get(indt)+GlobalConsts.Key_splitChar;
+		}
+		if(otherrule2.length()>1)
+			otherrule2 = otherrule2.substring(0,otherrule2.length()-1);
+		ret.setOtherrule2(otherrule2);
 		// 设置类型
 		ret.setType(fl.getType());
 

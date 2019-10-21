@@ -100,7 +100,7 @@ function menuFunc(key, options) {
 
 function refreshData(data) {
 	var ids = document.getElementsByTagName("text");
-	console.log(" graph refreshData:"+JSON.stringify(data));
+//	console.log(" graph refreshData:"+JSON.stringify(data));
 	var _data = JSON.parse(data.body);
 
 	Object.keys(_data).forEach(function(key){
@@ -138,6 +138,34 @@ function loginWebsocket() {
 		console.log("当前存在");
 		graphSubscribe();
 	}
+}
+
+addListener();
+function addListener(){
+	if(userSpace==null|userSpace=="undefined"){
+		return getUserSpace(uid,token,addListener);
+	}else{
+		if(_graphId==null||_graphId=="undefined"){
+			//console.log(" graph.js -> graphSubscribe() -> getGraphByURLPath(graph,_diagramShowKey="+_diagramShowKey+")");
+			var g = getGraphByPath(userSpace.graph,_diagramShowKey);
+			if(g == null || g == "undefined" || g.id==null ||g.id=="undefined"){
+//				alert("您没有查看这个图形的权限。");
+				return;
+			}
+			var ts = g.pointTextIDs;
+			for(var indts=0;indts<ts.length;indts++){
+				  var d = document.getElementById(ts[indtx]);
+				  _a.onclick=function(){
+					  console.log("=> text "+ts[indtx]+" be clicked.");
+					  addXYRealTimeHistoryGraph(g.points[indts]);
+				  }
+			}
+		}
+	}
+}
+
+function addXYRealTimeHistoryGraph(point){
+	console.log("addXYRealTimeHistoryGraph->point:"+JSON.stringify(point));
 }
 
 function getGraphByURLPath(graph,urlPath){

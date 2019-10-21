@@ -73,13 +73,22 @@ function getPointByTagName(tagName){
 }
 
 
-function contains(selectedPoints,data) {
-//	console.log("data= "+JSON.stringify(data));
+function contains(selectedPoints,serverName,tagName) {
+	var _selectedPoints_ = new Array();
 	selectedPoints.forEach(function(key){
-//		console.log(" selectedPoints->"+key+"  data="+data);
-		if(data.toLowerCase() == key.toLowerCase())
-			return true;
+		_selectedPoints_.push(key);
 	});
+//	console.log("selectedPoints= "+JSON.stringify(selectedPoints));
+	for(var i=0;i<_selectedPoints_.length;i++){
+		var key = 	_selectedPoints_[i];
+		var _serverP = splitServerPoint(key);
+//		console.log(" selectedPoints->"+key+"  "+JSON.stringify(_serverP)+" "+serverName+" "+tagName);
+		if(_serverP.length!=2) return false;
+		if(_serverP[0].toLowerCase() == serverName.toLowerCase() && _serverP[1].toLowerCase() == tagName.toLowerCase()){
+//			console.log(" ================= got equal.");
+			return true;
+		}
+	}
 	return false;
 }
 
@@ -100,7 +109,7 @@ function buildNewItemUI(serverInfos) {
 	console.log(" ----- debug 2 -----");
 	// 添加默认位号组
 	defaultServer = serverInfos[$("#newItem_ServerSelectSect").val()];
-	// console.log(JSON.stringify(defaultServer));
+	 console.log(JSON.stringify(defaultServer.serverName));
 	var deviceInfos = defaultServer.devices;
 	Object.keys(deviceInfos).forEach(function(keyDevice){
 		// $("#newItem_DeviceSelectSect").append("<option
@@ -118,10 +127,11 @@ function buildNewItemUI(serverInfos) {
 	var pointLeftBox = document.getElementById("newItem_pointlistleft");
 	pointLeftBox.innerHTML="";
 	var pointLeftBoxInnerHtml = "";
-	console.log(" ----- debug 4 -----");
+	console.log(" ----- debug 4 -----"+JSON.stringify(defaultPoints));
 	Object.keys(defaultPoints).forEach(function(keyPoint){
 	// 排除已经选择的点位
-		if(contains(selectedPoints,JSON.stringify(defaultServer.serverName)+"."+keyPoint)){
+		
+		if(contains(selectedPoints,defaultPoints[keyPoint].serverName,defaultPoints[keyPoint].tagName)){
 			console.log("  has key:"+keyPoint);
 		}else{
 			var pointLeftBoxInnerHtmlItem = '<div class="card rounded mb-2" id="div'+defaultPoints[keyPoint].tagName+'">'+
@@ -172,6 +182,7 @@ function buildNewItemUI(serverInfos) {
 		// "+$("#newItem_ServerSelectSect").text);
 		
 		var deviceInfos = serverInfos[$("#newItem_ServerSelectSect").val()];
+		console.log("newDataItem.buildNewItemUI 175行 =》 deviceInfos= "+JSON.stringify(deviceInfos));
 		Object.keys(deviceInfos).forEach(function(keyDevice){
 			$("#newItem_DeviceSelectSect").append("<option value='Value'>"+keyDevice+"</option>");  // 为Select追加一个Option(下拉项)
 		});
@@ -196,7 +207,7 @@ function buildNewItemUI(serverInfos) {
 
 		
 		Object.keys(defaultPoints).forEach(function(keyPoint){
-			if(contains(selectedPoints,JSON.stringify(defaultServer.serverName)+"."+keyPoint)){
+			if(contains(selectedPoints,JSON.stringify(defaultServer.serverName)+"\\"+keyPoint)){
 				console.log("  has key:"+keyPoint);
 			}else{
 
@@ -284,7 +295,7 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 	// alert("check "+ elemId);
 	var newItem_pointlistleft = document.getElementById("newItem_pointlistleft");
 	var newItem_pointlistright = document.getElementById("newItem_pointlistright");
-	console.log("elemId="+elemId);
+	console.log(" elemId="+elemId);
 	// 找出目标
 	var targetCheck = document.getElementById("check"+elemId);
 	if(targetCheck!=null && targetCheck!="undefined"){
@@ -295,7 +306,7 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 			newItem_pointlistleft.removeChild(targetDiv);
 			// 右侧添加
 			newItem_pointlistright.appendChild(targetDiv);
-			selectedPoints.add(serverName+"."+elemId);
+			selectedPoints.add(serverName+"\\"+elemId);
 			var p = {'server':serverName,
 					'tagName':elemId,
 					'alertInterval':0,
@@ -307,17 +318,26 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 					};
 			_selectedPoints.push(p);
 		}else {
-			targetCheck.checked = false;
+//			Elements es = document.querySelectorAll("#div"+elemId);
+//			for(var i =0;i<es.length;i++){
+//				var targetDiv1=es[i];
+//				console.log("outer: "+targetDiv1.outerHTML);
+//			}
 			var targetDiv = document.getElementById("div"+elemId);
+			console.log("outer: "+targetDiv.parentNode.outerHTML);
+			console.log("====================================================");
+			console.log("html: "+newItem_pointlistright.outerHTML);
 			// 右侧删除
+//			targetDiv.parentNode.removeChild(targetDiv);
 			newItem_pointlistright.removeChild(targetDiv);
+			targetCheck.checked = false;
 			// 左侧添加
 			console.log("defaultPoints => "+JSON.stringify(defaultPoints));
 			
 			if(defaultPoints[elemId]!=null &&defaultPoints[elemId]!="undefined" ){
 				newItem_pointlistleft.appendChild(targetDiv);				
 			}
-			selectedPoints.delete(serverName+"."+elemId);
+			selectedPoints.delete(serverName+"\\"+elemId);
 			var p = {'server':serverName,
 					'tagName':elemId,
 					'alertInterval':0,
@@ -339,7 +359,7 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 //
 //		// 右侧添加
 //		newItem_pointlistright.appendChild(targetDiv);
-//		selectedPoints.add(serverName+"."+elemId);
+//		selectedPoints.add(serverName+"\\"+elemId);
 //		var p = {'server':serverName,
 //				'tagName':elemId,
 //				'alertInterval':0,
@@ -354,60 +374,61 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 	}
 }
 
-
-// 点击左侧框选择操作
-function newDataItem_addboxitemcheck(elemId,editAction) {
-	if(editAction==null || editAction=="undefined")
-		editAction = false;
-	// alert("check "+ elemId);
-	var newItem_pointlistleft = document.getElementById("newItem_pointlistleft");
-	var newItem_pointlistright = document.getElementById("newItem_pointlistright");
-	console.log("elemId="+elemId);
-	// 找出目标
-	var targetCheck = document.getElementById("check"+elemId);
-	if(targetCheck.checked == true || editAction){
-		targetCheck.checked = true;
-		var targetDiv = document.getElementById("div"+elemId);
-		// 左侧删除
-		newItem_pointlistleft.removeChild(targetDiv);
-		// 右侧添加
-		newItem_pointlistright.appendChild(targetDiv);
-		selectedPoints.add(serverName+"."+elemId);
-		var p = {'server':serverName,
-				'tagName':elemId,
-				'alertInterval':0,
-				"stageValue":0,
-				"upperLimit":0,
-				"floorLimit":0,
-				"color":"#ffe74c",
-				"isx":false
-				};
-		_selectedPoints.push(p);
-	}else {
-		targetCheck.checked = false;
-		var targetDiv = document.getElementById("div"+elemId);
-		// 左侧删除
-		newItem_pointlistright.removeChild(targetDiv);
-		// 右侧添加
-		newItem_pointlistleft.appendChild(targetDiv);
-		selectedPoints.delete(serverName+"."+elemId);
-		var p = {'server':serverName,
-				'tagName':elemId,
-				'alertInterval':0,
-				"stageValue":0,
-				"upperLimit":0,
-				"floorLimit":0,
-				"color":"#ffe74c",
-				"isx":false,
-				"relativetime":0,
-				"starttime":"",
-				"terminaltime":""
-				};
-
-		_selectedPoints.splice(p);
-
-	}
-}
+//
+//// 点击左侧框选择操作
+//function newDataItem_addboxitemcheck(elemId,editAction) {
+//	if(editAction==null || editAction=="undefined")
+//		editAction = false;
+//	// alert("check "+ elemId);
+//	var newItem_pointlistleft = document.getElementById("newItem_pointlistleft");
+//	var newItem_pointlistright = document.getElementById("newItem_pointlistright");
+//	console.log("elemId="+elemId);
+//	// 找出目标
+//	var targetCheck = document.getElementById("check"+elemId);
+//	if(targetCheck.checked == true || editAction){
+//		targetCheck.checked = true;
+//		var targetDiv = document.getElementById("div"+elemId);
+//		// 左侧删除
+//		newItem_pointlistleft.removeChild(targetDiv);
+//		// 右侧添加
+//		newItem_pointlistright.appendChild(targetDiv);
+//		selectedPoints.add(serverName+"\\"+elemId);
+//		var p = {'server':serverName,
+//				'tagName':elemId,
+//				'alertInterval':0,
+//				"stageValue":0,
+//				"upperLimit":0,
+//				"floorLimit":0,
+//				"color":"#ffe74c",
+//				"isx":false
+//				};
+//		_selectedPoints.push(p);
+//	}else {
+//		targetCheck.checked = false;
+//		var targetDiv = document.getElementById("div"+elemId);
+//		console.log();
+//		// 左侧删除
+//		newItem_pointlistright.removeChild(targetDiv);
+//		// 右侧添加
+//		newItem_pointlistleft.appendChild(targetDiv);
+//		selectedPoints.delete(serverName+"\\"+elemId);
+//		var p = {'server':serverName,
+//				'tagName':elemId,
+//				'alertInterval':0,
+//				"stageValue":0,
+//				"upperLimit":0,
+//				"floorLimit":0,
+//				"color":"#ffe74c",
+//				"isx":false,
+//				"relativetime":0,
+//				"starttime":"",
+//				"terminaltime":""
+//				};
+//
+//		_selectedPoints.splice(p);
+//
+//	}
+//}
 
 // 编辑按钮
 function editItem(){
@@ -450,7 +471,7 @@ function editItem(){
 			Object.keys(item.pointList).forEach(function(key){
 				var id__= item.pointList[key].tagName;
 				console.log(" id = "+id__);
-				selectedPoints.add(serverName+"."+id__);
+				selectedPoints.add(serverName+"\\"+id__);
 
 //				newDataItem_addboxitemcheck(id__,true);
 			});

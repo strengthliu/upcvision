@@ -18,7 +18,7 @@ public class Server implements Serializable {
 		return serverName;
 	}
 	public void setServerName(String serverName) {
-		this.serverName = serverName;
+		this.serverName = serverName.toUpperCase();
 	}
 	
 	List<Device> devices;
@@ -46,6 +46,6 @@ public class Server implements Serializable {
 	public void addPoint(Point p) {
 		if(points == null)
 			points = new Hashtable<String,Point>();
-		points.put(p.tagName, p);
+		points.put(p.tagName.toUpperCase(), p);
 	}
 }

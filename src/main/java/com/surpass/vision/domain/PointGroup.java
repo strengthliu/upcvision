@@ -33,7 +33,7 @@ import com.surpass.vision.tools.IDTools;
  * ---------------------------------------
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PointGroup extends PointGroupData implements Serializable{
+public class PointGroup extends PointGroupData implements Serializable,Cloneable{
 	private static final long serialVersionUID = -4373082997833397493L;
 
 	User createrUser; // 创建者
@@ -46,6 +46,21 @@ public class PointGroup extends PointGroupData implements Serializable{
 	User ownerUser; // 拥有者，默认为创建者
 	// 点位信息
 	List<Point> pointList;
+	
+	/**
+	 * 在图形上，点位所显示的那个text的ID
+	 * ---------------------------------------
+	 * @author 刘强 2019年10月17日 上午7:23:47 
+	 */
+	private ArrayList<String> pointTextIDs;
+
+	public ArrayList<String> getPointTextIDs() {
+		return pointTextIDs;
+	}
+
+	public void setPointTextIDs(ArrayList<String> pointTextIDs) {
+		this.pointTextIDs = pointTextIDs;
+	}
 
 	List<User> sharedUsers; // 共享者 
 
@@ -142,4 +157,37 @@ public class PointGroup extends PointGroupData implements Serializable{
 	}
 
 	// 更新数据方法
+	
+	@Override
+	public PointGroup clone() throws CloneNotSupportedException {
+		PointGroup ret = null;
+		ret = (PointGroup) super.clone();
+		if(this.pointList!=null) {
+			List<Point> pointList = new ArrayList<Point>();
+			for(int indpl=0;indpl<this.pointList.size();indpl++)
+				pointList.add(this.pointList.get(indpl).clone());
+			ret.setPointList(pointList);
+		}
+		if(this.pointTextIDs!=null) {
+			ArrayList<String> pointTextIDs= new ArrayList<String>();
+			for(int indpt=0;indpt<this.pointTextIDs.size();indpt++)
+				pointTextIDs.add(this.pointTextIDs.get(indpt));
+			ret.setPointTextIDs(pointTextIDs);
+		}
+		if(this.createrUser!=null) {
+			User createrUser = this.createrUser.clone(); // 创建者
+			ret.setCreaterUser(createrUser);
+		}
+		if(this.ownerUser!=null) {
+			User ownerUser = this.ownerUser.clone(); // 创建者
+			ret.setOwnerUser(ownerUser);
+		}
+		if(this.sharedUsers!=null) {
+			List<User> sharedUsers = new ArrayList<User>();
+			for(int indsu=0;indsu<this.sharedUsers.size();indsu++)
+				sharedUsers.add(this.sharedUsers.get(indsu).clone());
+			ret.setSharedUsers(sharedUsers);
+		}
+		return ret;
+	}
 }

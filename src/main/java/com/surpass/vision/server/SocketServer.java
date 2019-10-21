@@ -94,6 +94,7 @@ public class SocketServer {
 			AtomicInteger ai = used.get(id);
 			ai.getAndIncrement();
 		}else {
+			System.out.println("SocketServer.addRequest("+type+" , "+topic+" , "+id);
 			DataViewer dv = pointGroupDataManager.buildDataViewer(id,type);
 			if(dv==null) return;
 			dv = pointList.addPoints(dv);
@@ -152,7 +153,7 @@ public class SocketServer {
 			if(dv!=null) {
 			// 发送数据
 			// tagname : value
-				dv.valuesByID();
+//				dv.valuesByID();
 				if(dv.queryById)
 					sendMessage(topic,dv.valuesByID());
 				else

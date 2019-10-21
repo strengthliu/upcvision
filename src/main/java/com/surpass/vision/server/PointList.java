@@ -122,12 +122,14 @@ public class PointList {
 		Ind[] iind = new Ind[_ind_c];// 数据点引用
 		Long[] idind = new Long[_ind_c];// 数据点引用
 		String[] tagnameind = new String[_ind_c];
+		int a_index = -1;
 		// 一个个ServerPoint遍历
 		for (int inddv = 0; inddv < dvs.sps.length; inddv++) {
 			ServerPoint dv = dvs.sps[inddv];
 			Point[] p = dv.getPoints(); // 取出点
 			// 一个个点处理
 			for (int indp = 0; indp < p.length; indp++) {
+				a_index++;
 //				Ind _ind = addPoint(p[indp],iind);
 
 				// 判断选择这个点应该放在哪个数据区里。
@@ -179,9 +181,13 @@ public class PointList {
 					// 加入这个点
 					Ind _ind = addNewPoint(datas.get(dataIndex), p[indp]);
 					// 把引用Ind加入到返回数组中
-					iind[indp] = _ind;
-					idind[indp] = p[indp].id;
-					tagnameind[indp] = p[indp].tagName;
+					// 这里错了，如果有两个服务器，indp索引就不对了。
+//					iind[indp] = _ind;
+//					idind[indp] = p[indp].id;
+//					tagnameind[indp] = p[indp].tagName;
+					iind[a_index] = _ind;
+					idind[a_index] = p[indp].id;
+					tagnameind[a_index] = p[indp].tagName;
 
 				} else {
 					// 如果当前正在更新数据，可以填加点在数组的尾部
@@ -200,7 +206,7 @@ public class PointList {
 						int indContain = datas.get(dataIndex).pointIds.indexOf(p[indp]);
 						// 使用数加1，返回以前已经使用的数。
 						int oldUser = datas.get(dataIndex).useCount2.get(indContain).getAndIncrement();
-						iind[indp] = datas.get(dataIndex).useCount1.get(indContain);
+						iind[a_index] = datas.get(dataIndex).useCount1.get(indContain);
 
 						switch (oldUser) {
 						case 0: // 第一次使用
@@ -257,9 +263,13 @@ public class PointList {
 								// 加入这个点
 								Ind _ind = addNewPoint(datas.get(dataIndex), p[indp]);
 								// 把引用Ind加入到返回数组中
-								iind[indp] = _ind;
-								idind[indp] = p[indp].id;
-								tagnameind[indp] = p[indp].tagName;
+//								iind[indp] = _ind;
+//								idind[indp] = p[indp].id;
+//								tagnameind[indp] = p[indp].tagName;
+								iind[a_index] = _ind;
+								idind[a_index] = p[indp].id;
+								tagnameind[a_index] = p[indp].tagName;
+
 							}
 						} else { // 否则就追加一个点进去
 							// 选择缓冲区
@@ -280,9 +290,12 @@ public class PointList {
 							// 加入这个点
 							Ind _ind = addNewPoint(datas.get(dataIndex), p[indp]);
 							// 把引用Ind加入到返回数组中
-							iind[indp] = _ind;
-							idind[indp] = p[indp].id;
-							tagnameind[indp] = p[indp].tagName;
+//							iind[indp] = _ind;
+//							idind[indp] = p[indp].id;
+//							tagnameind[indp] = p[indp].tagName;
+							iind[a_index] = _ind;
+							idind[a_index] = p[indp].id;
+							tagnameind[a_index] = p[indp].tagName;
 						}
 					}
 				}
@@ -292,6 +305,7 @@ public class PointList {
 		dvs.ind = iind;
 		dvs.ids = idind;
 		dvs.tagNames = tagnameind;
+		dvs.rebuild();
 
 		viewers.put(dvs.pointGroupID, dvs);
 		return dvs;

@@ -57,7 +57,8 @@ public final class GlobalConsts {
 	 * ---------------------------------------
 	 * @author 刘强 2019年8月29日 上午9:18:36 
 	 */
-	public static final String Key_splitCharServerPoint = ".";
+	public static final String Key_splitCharServerPoint = "\\";
+	public static final String Key_ServerNamePre = "\\\\";
 
     /**
      * PointGroupData表中，type的值的类型，没有写枚举。
@@ -74,8 +75,12 @@ public final class GlobalConsts {
 	 */
 	public static final String PointTag = "text";
 	public static final String PointID = "id";
+	public static final String GPointID = "PBD:PtTagName";
+
 	public static final String GraphElement = "svg";
 	public static final String ScriptElement = "script";
+	public static final String GPointTag = "g";
+
 
 	// 设备中文注释的长度
 	public static final int DeviceNoteLength = 80;

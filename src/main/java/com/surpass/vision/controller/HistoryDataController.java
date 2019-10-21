@@ -319,23 +319,27 @@ public class HistoryDataController extends BaseController {
 		Date endTime = null;
 		Long _endTime = null;
 		try {
+			if(StringUtil.isBlank(endTimeStr)) {
+				SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//				_endTime=TimeTools.parseSecond(sDateFormat.parse("2019-09-22 21:00:00").getTime());
+				_endTime=TimeTools.parseSecond(System.currentTimeMillis());
+			}
+			else {
+//				endTime = new Date(endTimeStr);
+				_endTime = TimeTools.parseSecond(Long.valueOf(endTimeStr));
+			}
+
 			if(StringUtil.isBlank(beginTimeStr)) {
 				SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				_beginTime=TimeTools.parseSecond(sDateFormat.parse("2019-09-22 19:00:00").getTime());
+//				_beginTime=TimeTools.parseSecond(sDateFormat.parse("2019-09-22 19:00:00").getTime());
+//				_beginTime=TimeTools.parseSecond(System.currentTimeMillis());
+				_beginTime=_endTime-2*60*60;
 			}
 			else {
 //				beginTime = new Date(beginTimeStr);
 				_beginTime = TimeTools.parseSecond(Long.valueOf(beginTimeStr));
 			}
 			
-			if(StringUtil.isBlank(endTimeStr)) {
-				SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				_endTime=TimeTools.parseSecond(sDateFormat.parse("2019-09-22 21:00:00").getTime());
-			}
-			else {
-//				endTime = new Date(endTimeStr);
-				_endTime = TimeTools.parseSecond(Long.valueOf(endTimeStr));
-			}
 		}catch(Exception e) {
 			e.printStackTrace();
 			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);

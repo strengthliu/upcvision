@@ -28,7 +28,22 @@ for (var k in o) {
 }
 return fmt;
 }
-
+var splitKeyServerPoint = "\\";
+var splitKeyServerPre = "\\\\";
+function splitServerPoint(tag){
+	var ret = new Array();
+	if(tag.indexOf(splitKeyServerPre)==0)
+		tag = tag.substring(0,2);
+	if(tag.indexOf(splitKeyServerPoint)>0){
+		ret.push(tag.substring(0,tag.indexOf(splitKeyServerPoint)));
+		ret.push(tag.substring(tag.indexOf(splitKeyServerPoint)+1));
+		return ret;
+	}else {
+		ret.push("");
+		ret.push(tag);
+		return ret;
+	}
+}
 
 
 var userSpace = null;
@@ -52,7 +67,6 @@ var connected;
 
 var socketRetryTimes = 3;
 
-connect();
 function checkToken(){
 	if(localStorage.user != null && localStorage.user != "undefined")
 		user = JSON.parse(localStorage.user);
@@ -63,7 +77,10 @@ function checkToken(){
 		checkRight();
 }
 //避免刷新时
+connect();
 function connect(callback) {
+	if(user==null || user =="undefined")
+		return;
 	console.log(" app.js connect....");
 //	disconnect();
 //	if (socket.readyState == 1) {
@@ -209,27 +226,16 @@ function loginByUserPassWord(uname, pwd) {
 		},
 		// 调用执行后调用的函数
 		complete : function(XMLHttpRequest, textStatus) {
-			// alert(XMLHttpRequest.responseText);
-			// alert(textStatus);
 			hideLoading();
 		},
 		// 调用出错执行的函数
 		error : function(jqXHR, textStatus, errorThrown) {
-			/* 弹出jqXHR对象的信息 */
-			// alert(jqXHR.responseText);
-			// alert(jqXHR.status);
-			// alert(jqXHR.readyState);
-			// alert(jqXHR.statusText);
-			/* 弹出其他两个参数的信息 */
-			// alert(textStatus);
-			// alert(errorThrown);
 			hideLoading();
 		}
 	});
 }
 
 function getUserSpace(uid, token, sucessFucn) {
-
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -253,6 +259,7 @@ function getUserSpace(uid, token, sucessFucn) {
 				alert(data.msg);
 				localStorage.user = null;
 				localStorage.token = null;
+				userSpace = null;
 				window.location.href = "login.html";
 
 			}
@@ -260,7 +267,7 @@ function getUserSpace(uid, token, sucessFucn) {
 			if (userSpace == null || userSpace == "undefined") {
 				// console.log("getUserSpace -> set userSpace.");
 				userSpace = data.data.userSpace;
-				console.log("userspace: "+JSON.stringify(userSpace));
+//				console.log("userspace: "+JSON.stringify(data));
 				// return userSpace;
 				window.userSpace = userSpace;
 			}
@@ -303,7 +310,7 @@ function checkRight(uid, token, loginPage,sucessPage) {
 		datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
 		// 在请求之前调用的函数
 		beforeSend : function() {
-			hideLoading();
+			showLoading();
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
@@ -311,7 +318,11 @@ function checkRight(uid, token, loginPage,sucessPage) {
 				// alert(data.msg);
 				localStorage.user = null;
 				localStorage.token = null;
+				user = null;
+				token = null;
+				userSpace = null;
 				if (loginPage == null || loginPage == "undefined")
+					console.log("checkright -> goto login.html");
 					window.location.href = "login.html";
 				
 //				if (loginPage != "login.html")

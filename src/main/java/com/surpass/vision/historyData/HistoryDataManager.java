@@ -326,6 +326,7 @@ public class HistoryDataManager extends PointGroupDataManager {
 			
 			for(int itime2=0;itime2<dstime2[pointInd].size();itime2++) {
 				int ind = inserToListOrdered(dstime2[pointInd].get(itime2),dstime1[pointInd]);
+				// TODO: 数据有问题，这里会有空指针问题。
 				dsy[pointInd].add(ind, _y0[itime2]);
 			}
 		}
@@ -341,6 +342,8 @@ public class HistoryDataManager extends PointGroupDataManager {
 
 
 	public int inserToListOrdered(Long e,ArrayList<Long> es) {
+		if(es.size()==0)
+			return 0;
 		if(e<es.get(0)){
 			es.add(0, e);
 			return 0;

@@ -1,0 +1,221 @@
+
+<div class="row user-profile" id="tempcheckhtml">
+
+	<div class="col-lg-4 side-left d-flex align-items-stretch">
+		<div class="row">
+			<div class="email-wrapper wrapper">
+				<div class="card">
+
+					<div class="menu-bar">
+						<div class="card-body">
+							<div class="border-bottom pb-4 mb-3 px-3">
+								<div class="form-group">
+									<input class="form-control w-100" type="search"
+										placeholder="用户检索" id="user-rearch" />
+									<button type="button" class="btn btn-sm btn-outline-secondary" onclick="filterUI();">
+										<i class="mdi mdi-attachment text-primary"></i>刷新
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="_userManage_userListUI" style="border: solid; height: 600px; overflow: auto;">
+						<div class="card-body">
+							<div class="list d-flex align-items-center border-bottom py-3">
+								<img class="img-sm rounded-circle"
+									src="../../images/faces/face1.jpg" alt="">
+								<div class="wrapper w-100 ml-3">
+									<p class="mb-0">
+										<b>Dobrick </b>posted in Material
+									</p>
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="d-flex align-items-center">
+											<p class="mt-2 text-success font-weight-bold">Designer</p>
+											<i class="mdi mdi-clock text-muted mr-1"></i>
+											<p class="mb-0">That's awesome!</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="list d-flex align-items-center border-bottom py-3">
+								<img class="img-sm rounded-circle"
+									src="../../images/faces/face1.jpg" alt="">
+								<div class="wrapper w-100 ml-3">
+									<p class="mb-0">
+										<b>Dobrick </b>posted in Material
+									</p>
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="d-flex align-items-center">
+											<p class="mt-2 text-success font-weight-bold">Designer</p>
+											<i class="mdi mdi-clock text-muted mr-1"></i>
+											<p class="mb-0">That's awesome!</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-8">
+		<div>
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="btn-toolbar" id="_userManage_ToolsBar_UI">
+							<!-- 
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-outline-secondary">
+										<i class="mdi mdi-share text-primary"></i>锁定当前用户
+									</button>
+								</div>
+								 -->
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-outline-secondary" onclick="createUserUI();">
+										<i class="mdi mdi-attachment text-primary"></i>新建用户
+									</button>
+									<button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteCurrentUser();">
+										<i class="mdi mdi-delete text-primary"></i>删除当前用户
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="message-body">
+						<div class="card-body">
+							<div
+								class="wrapper d-block d-sm-flex align-items-center justify-content-between">
+								<h4 class="card-title mb-0">用户详情</h4>
+								<ul class="nav nav-tabs tab-solid tab-solid-primary mb-0"
+									id="myTab" role="tablist">
+									<li class="nav-item"><a class="nav-link active"
+										id="info-tab" data-toggle="tab" href="#info" role="tab"
+										aria-controls="info" aria-expanded="true">信息</a></li>
+									<!-- 
+									<li class="nav-item"><a class="nav-link" id="avatar-tab"
+										data-toggle="tab" href="#avatar" role="tab"
+										aria-controls="avatar">头像</a></li>
+									-->
+									<li class="nav-item"><a class="nav-link" id="security-tab"
+										data-toggle="tab" href="#security" role="tab"
+										aria-controls="security">密码</a></li>
+								</ul>
+							</div>
+							<div class="wrapper">
+								<div class="tab-content" id="myTabContent">
+									<div class="tab-pane fade show active" id="info"
+										role="tabpanel" aria-labelledby="info">
+										
+											<div class="form-group">
+												<label for="name">姓名</label> <input type="text"
+													class="form-control" id="_username"
+													placeholder="Change user name"
+													onChange="setTUserInfo('name',this.value);" required>
+											</div>
+											<!-- 
+											<div class="form-group">
+												<label for="designation">部门描述</label> <input type="text"
+													class="form-control" id="_userdepart"
+													placeholder="Change depart description"
+													onChange="setTUserInfo('depart',this.value);">
+											</div>
+											 -->
+											<div class="form-group">
+												<label for="designation">描述</label> <input type="text"
+													class="form-control" id="_userdesc"
+													placeholder="Change designation"
+													onChange="setTUserInfo('desc',this.value);" required>
+											</div>
+											<div class="form-group">
+												<label for="mobile">电话号码</label> <input type="text"
+													class="form-control" id="_usermobile"
+													placeholder="Change mobile number"
+													onChange="setTUserInfo('mobile',this.value);">
+											</div>
+											<div class="form-group">
+												<label for="email">电子邮件</label> <input type="email"
+													class="form-control" id="_useremail"
+													placeholder="Change email address"
+													onChange="setTUserInfo('email',this.value);">
+											</div>
+											<div class="form-group">
+												<label for="website">角色</label>
+												<div class="dropdown">
+													<button class="btn btn-secondary dropdown-toggle"
+														type="button" id="_userrole"
+														data-toggle="dropdown" aria-haspopup="true"
+														aria-expanded="false" >请选择</button>
+													<div class="dropdown-menu"
+														aria-labelledby="dropdownMenuButton2">
+														
+														<a class="dropdown-item" onclick="setTUserInfo('role',1);">管理员</a> <a
+															class="dropdown-item" onclick="setTUserInfo('role',2);">组态人员</a> <a
+															class="dropdown-item" onclick="setTUserInfo('role',3);">普通用户</a>
+														<div class="dropdown-divider"></div>
+													</div>
+												</div>
+											</div>
+
+											<div class="form-group mt-5">
+												<button class="btn btn-success mr-2" onclick="submitOnUserInfo();"">确定</button>
+												<button class="btn btn-outline-danger">取消</button>
+											</div>
+									</div>
+									<!-- tab content ends -->
+									<!-- 
+									<div class="tab-pane fade" id="avatar" role="tabpanel"
+										aria-labelledby="avatar-tab">
+										<div class="wrapper mb-5 mt-4">
+											<span class="badge badge-warning text-white">Note : </span>
+											<p class="d-inline ml-3 text-muted">Image size is limited
+												to not greater than 1MB .</p>
+										</div>
+										<form action="#">
+											<input type="file" class="dropify" data-max-file-size="1mb"
+												data-default-file="../../images/faces/face1.jpg" />
+											<div class="form-group mt-5">
+												<button type="submit" class="btn btn-success mr-2">确定</button>
+												<button class="btn btn-outline-danger">取消</button>
+											</div>
+										</form>
+									</div>
+										 -->
+									<div class="tab-pane fade" id="security" role="tabpanel"
+										aria-labelledby="security-tab">
+										<form action="#">
+											<div class="form-group">
+												<label for="change-password">Change password</label> <input
+													type="password" class="form-control" id="change-password1"
+													placeholder="Enter you new password" onChange="checkPassword(this.value);">
+											</div>
+											<div class="form-group">
+												<input type="password" class="form-control"
+													id="change-password2" placeholder="Enter you new password again" onChange="checkPassword(this.value);">
+											</div>
+											<div class="form-group mt-5">
+												<button type="submit" class="btn btn-success mr-2" onclick="submitOnUserInfo();">确定</button>
+												<button class="btn btn-outline-danger">取消</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<script src="js/userManage.js"></script>
+  <script src="js/form-validation.js"></script>
+  <script src="js/bt-maxLength.js"></script>
+

@@ -389,20 +389,16 @@ private Graph getChildByPath(String pathName) {
 
 	@Override
 	public Graph clone() {
-		try {
-			Graph ret = (Graph) super.clone();
-			Hashtable<String,Graph> children = new Hashtable<String,Graph>();
-			if(this.children!=null) {
-				Enumeration<String> e = this.children.keys();
-				while(e.hasMoreElements()) {
-					String key = (String) e.nextElement();
-					children.put(key, this.children.get(key).clone());
-				}
+		Graph ret = (Graph) super.clone();
+		Hashtable<String,Graph> children = new Hashtable<String,Graph>();
+		if(this.children!=null) {
+			Enumeration<String> e = this.children.keys();
+			while(e.hasMoreElements()) {
+				String key = (String) e.nextElement();
+				children.put(key, this.children.get(key).clone());
 			}
-			return ret;
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
 		}
-		return null;
+		ret.setChildren(children);
+		return ret;
 	}
 }

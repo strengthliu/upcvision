@@ -146,7 +146,7 @@ public class ServerManager {
 			// 取服务器信息
 			for (int iserver = 0; iserver < servs.size(); iserver++) {
 				Server server = new Server();
-				String serverName = servs.get(iserver);
+				String serverName = servs.get(iserver).toUpperCase();
 				System.out.println(" ====== Server : "+serverName+" ==================");
 
 				server.setServerName(serverName);
@@ -192,7 +192,7 @@ public class ServerManager {
 						String tagName = gec.DBECGetTagName(serverName, pointId);
 						tagName = tagName.trim();
 						String tagdesc = gec.DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGNOTE");
-						System.out.println("pointid: "+pointId+"  tagdesc: " + tagdesc);
+//						System.out.println("pointid: "+pointId+"  tagdesc: " + tagdesc);
 						if (StringUtil.isBlank(tagdesc))
 							tagdesc = "未知描述";
 						String enunit = gec.DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_ENUNITS");
@@ -281,6 +281,7 @@ public class ServerManager {
 		HashMap<Long, Double> ret = new HashMap<Long, Double>();
 		List<Double> pValueArray = new ArrayList<Double>(); 
 		int size = Math.round((endTime - beginTime) )+1;
+		System.out.println(" 想要取数据个数： "+size);
 		List<Long> pnValueTimeArray = new ArrayList<Long>();
 		try {
 			gec.DBECGetTagRealHistory(srvName, tagName, id, beginTime, endTime, pValueArray, size, pnValueTimeArray);
@@ -315,6 +316,7 @@ public class ServerManager {
 		// TODO Auto-generated method stub
 		if (StringUtil.isBlank(fieldName))
 			fieldName = "FN_RTVALUE";
+//		System.out.println("ServerManager.getPointValue("+srvName+",idList,fieldName)");
 //gec.DBACGetCurrentAlarm(lpszServerName, pnTagIDArray, pAlarmTypeArray, nArraySize, pValueArray, pOccuredTimeArray);
 		try {
 			return gec.DBECBatchGetTagRealField(srvName, idList, fieldName);

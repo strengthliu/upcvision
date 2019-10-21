@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/d3.js"></script>
+<script src="js/c3_1.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+
+</head>
+<body>
+						<div class='input-group date form_date col-md-6'>
+							<input name="startTm" id="datetimepicker1" type='text'
+								placeholder="开始时间" class="form-control input-sm"
+								readonly="readonly" /> <span class="input-group-addon input-sm">
+								<span class="glyphicon glyphicon-calendar"></span>
+						</div>
+						<div class='input-group date form_date col-md-6'>
+							<input name="startTm" id="datetimepicker2" type='text'
+								placeholder="结束时间" class="form-control input-sm"
+								readonly="readonly" /> <span class="input-group-addon input-sm">
+								<span class="glyphicon glyphicon-calendar"></span>
+						</div>
+						<div class="btn-toolbar">
+							<button type="button" class="btn btn-sm btn-outline-secondary"
+								onclick="_search();">
+								<i class="mdi mdi-search-web text-primary"></i> 查询
+							</button>
+						</div>
+
+						<script type="text/javascript">
+							var _startTime_;
+							var _endTime_;
+							$('#datetimepicker1')
+									.datetimepicker(
+											{//初始化
+												language : 'zh-CN',
+												//weekStart: 1,
+												//todayBtn:  1,
+												autoclose : 1,
+												step: 10,   
+												//todayHighlight: 1,
+												//startView: 2,
+												//minView: 2,
+												//forceParse: 0,
+												//format: 'mm-dd hh:MM:ss',//格式化想要显示的时间格式
+												minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
+												onSelectTime : function(
+														dateText, inst) {
+													_startTime_ = new Date(
+															dateText).getTime();
+												}
+											});
+							$('#datetimepicker2')
+									.datetimepicker(
+											{//初始化
+												language : 'zh-CN',
+												//weekStart: 1,
+												//todayBtn:  1,
+												autoclose : 1,
+												//todayHighlight: 1,
+												//startView: 2,
+												//minView: 2,
+												//forceParse: 0,
+												//format: 'yyyy-mm-dd',//格式化想要显示的时间格式
+												minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
+												onSelectTime : function(
+														dateText, inst) {
+													_endTime_ = new Date(
+															dateText).getTime();
+												}
+											});
+						</script>
+<div id="cg">
+</div>
+<script>
+
+var chart  = c3.generate({
+	bindto : '#cg',
+    data: {
+        x: 'x',
+        columns: [
+            ['x', 30, 50, 100, 230, 300, 310],
+            ['data1', 30, 200, 100, 400, 150, 250],
+            ['data2', 130, 300, 200, 300, 250, 450]
+        ]
+    },
+	color : {
+		pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
+				'rgba(4,189,254,0.6)' ]
+	},
+	padding : {
+		top : 10,
+		right : 10,
+		bottom : 30,
+		left : 50,
+	}
+});
+
+setTimeout(function () {
+    chart.load({
+        columns: [
+            ['data1', 100, 250, 150, 200, 100, 350]
+        ]
+    });
+}, 1000);
+
+setTimeout(function () {
+    chart.load({
+        columns: [
+            ['data3', 80, 150, 100, 180, 80, 150]
+        ]
+    });
+}, 1500);
+
+setTimeout(function () {
+    chart.unload({
+        ids: 'data2'
+    });
+}, 2000);
+
+</script>
+
+</body>
+</html>

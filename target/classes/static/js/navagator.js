@@ -7,11 +7,13 @@
 		if (userSpace != null && userSpace != "undefined") {
 			// console.log("userSpace is not null");
 			doUpdateDiagram(userSpace);
-		} else 
-		getUserSpace(
-				user.id,
-				token,
-				doUpdateDiagram);
+		} else {
+			
+			getUserSpace(
+					user.id,
+					token,
+					doUpdateDiagram);
+		}
 	}
 
 	function doUpdateDiagram(userSpace){
@@ -59,11 +61,13 @@
 		if (userSpace != null && userSpace != "undefined") {
 			// console.log("userSpace is not null");
 			doUpdateXYDiagram(userSpace);
-		} else 
-		getUserSpace(
-				user.id,
-				token,
-				doUpdateXYDiagram);
+		} else {
+			console.log(" navagator.updatXYDiagram : userSpace为空，调用getUserSpace。");
+			getUserSpace(
+					user.id,
+					token,
+					doUpdateXYDiagram);
+		}
 	}
 
 	function doUpdateXYDiagram(userSpace){

@@ -15,7 +15,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.ServerConfig;
 import com.surpass.vision.graph.GraphManager;
 
-public class FileList extends PointGroup implements Serializable {
+public class FileList extends PointGroup implements Serializable,Cloneable {
 	/**
 	 * 0：没有变化 1：该文件为新增文件 -1：该文件为删除文件
 	 */
@@ -330,6 +330,41 @@ public class FileList extends PointGroup implements Serializable {
 		return inds.get(id);
 	}
 
+	@Override
+	public FileList clone() {
+		FileList ret = null;
+		try {
+			ret = (FileList)super.clone();
+			if(this.children!=null) {
+				Hashtable<String,FileList> children = new Hashtable<String,FileList>();
+//				Hashtable<Double, FileList> inds = new Hashtable<Double, FileList>();
+				Enumeration<String> e = this.children.keys();
+				while(e.hasMoreElements()) {
+					String key = (String) e.nextElement();
+					children.put(key, this.children.get(key).clone());
+				}
+				ret.setChildren(children);
+//				ret.buildInds(inds);
+			}
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
+	
+	private void buildInds(Hashtable<Double, FileList> inds) {
+		if(inds == null) inds = new Hashtable<Double, FileList>();
+		inds.put(this.getId(), this);
+		this.inds = inds;
+		if(this.children!=null) {
+			Enumeration<String> e = this.children.keys();
+			while(e.hasMoreElements()) {
+				String key = e.nextElement();
+				FileList fl = this.children.get(key);
+				fl.buildInds(inds);
+			}
+		}
+	}
 //	public JSONObject toJSONObject() {
 //		JSONObject ret = new JSONObject();
 //		ret.put("name", name);

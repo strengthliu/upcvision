@@ -8,7 +8,7 @@
 // 新建
 
 var itemID = _routeID;
-var actionType = _routeType;//"graph";
+var actionType = _routeType;// "graph";
 
 function newItemAction() {
 	if(user.id == 2 || user.role == 1){
@@ -19,13 +19,7 @@ function newItemAction() {
 	}
 }
 
-//_routeType = diagram;
-//_routeID = key;
-
-
 function editItemAction(itemId) {
-	// console.log(itemId);
-// alert(itemId);
 	itemID = itemId;
 	actionType = "graph";
 	var _graph = userSpace.graph[itemId];
@@ -35,8 +29,7 @@ function editItemAction(itemId) {
 			alert("您没有权限进行新建操作。");
 			return;
 		}
-
-editItem();
+	editItem();
 }
 
 
@@ -64,7 +57,7 @@ function doShareActionToServer(){
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				var graph = data.data.data;
 				console.log("graph:=> "+JSON.stringify(graph));
@@ -81,26 +74,13 @@ function doShareActionToServer(){
 				alert("失败 ： " + data.msg);
 			}
 			hideLoading();
-			// alert("本地存储："+localStorage.user);
-			// window.location.href = "index.html";
 		},
 		// 调用执行后调用的函数
 		complete : function(XMLHttpRequest, textStatus) {
-			// alert(XMLHttpRequest.responseText);
-			// alert(textStatus);
 			hideLoading();
-
 		},
 		// 调用出错执行的函数
 		error : function(jqXHR, textStatus, errorThrown) {
-			/* 弹出jqXHR对象的信息 */
-			// alert(jqXHR.responseText);
-			// alert(jqXHR.status);
-			// alert(jqXHR.readyState);
-			// alert(jqXHR.statusText);
-			/* 弹出其他两个参数的信息 */
-			// alert(textStatus);
-			// alert(errorThrown);
 			hideLoading();
 		}
 	});
@@ -125,7 +105,7 @@ console.log("deleteItemAction");
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				var graphId = data.data.data;
 				fixLocalGraphList_Delete(graphId);
 				if(data.refresh) routeTo('historydataList','');
@@ -138,7 +118,6 @@ console.log("deleteItemAction");
 		// 调用执行后调用的函数
 		complete : function(XMLHttpRequest, textStatus) {
 			hideLoading();
-		
 		},
 		// 调用出错执行的函数
 		error : function(jqXHR, textStatus, errorThrown) {
@@ -152,7 +131,7 @@ console.log("deleteItemAction");
 var dataItemId;
 function shareItemAction(itemId) {
 	dataItemId = itemId;
-	shareType = _routeType;//"graph";
+	shareType = _routeType;// "graph";
 	$('#shareItemAction_mid').modal('show');
 	loadUsers();
 }
@@ -199,7 +178,7 @@ function submitNewDataItem(selectedPoints,_selectedPoints, targetName, targetDes
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				console.log("historydata.js => submitNewDataItem 3");
 				var graph = data.data.data;
@@ -304,17 +283,19 @@ function getGraphByID(graph,id,l){
 	l++;
 	var level=l;
 	step++;
-//	console.log(" ============ "+step+" === "+step+" === "+step+" === ");
+// console.log(" ============ "+step+" === "+step+" === "+step+" === ");
 	if(id==null||id=="undefined"){
 		_graphs = graph;
 		step ++;
-//		console.log("level="+level+" "+step+" = return path 1 : " + graph.name+" id="+graph.id);
+// console.log("level="+level+" "+step+" = return path 1 : " + graph.name+"
+// id="+graph.id);
 		return graph;
 	}
 	if(graph.id == id) {
 		_graphs = graph;
 		step ++;
-//		console.log("level="+level+" "+step+" = 得到了结果  return path 2 : " + graph.name+" id="+graph.id);
+// console.log("level="+level+" "+step+" = 得到了结果 return path 2 : " +
+// graph.name+" id="+graph.id);
 		return graph;
 	} 
 
@@ -330,18 +311,21 @@ function getGraphByID(graph,id,l){
 				var r = getGraphByID(ids[i],id,level);
 				if(r!=null) {
 					step ++;
-//					console.log("level="+level+" "+step+" = 得到了结果  return path 3 : " + graph.name+" id="+graph.id);
+// console.log("level="+level+" "+step+" = 得到了结果 return path 3 : " +
+// graph.name+" id="+graph.id);
 					return r;
 				}
 			}
 			step ++;
-//			console.log("level="+level+" "+step+" = null null 4 : " + graph.name+" id="+graph.id);
+// console.log("level="+level+" "+step+" = null null 4 : " + graph.name+"
+// id="+graph.id);
 			return null;
 		} 
 		else 
 		{
 			step ++;
-//			console.log("level="+level+" "+step+" = null null 5 : " + graph.name+" id="+graph.id);
+// console.log("level="+level+" "+step+" = null null 5 : " + graph.name+"
+// id="+graph.id);
 			return null;				
 		}
 	}
@@ -351,31 +335,26 @@ function getGraphByID(graph,id,l){
 updateGraphListFrame();
 
 function updateGraphListFrame(){
-	//	_routeType = diagram;
-	//	_routeID = key;
 	var _galleryKey = _routeID;
-	console.log("_graphId= "+_graphId);
+//	console.log("_graphId= "+_graphId);
 
-
-
-	// TODO:  如果key为空，就是异常，待处理。
-	if (_galleryKey == null || _galleryKey == "undefined")
-		_galleryKey = "";
-
-	if (_galleryKey.trim() == 'unclassify') {
-		alert(_galleryKey);
-		_galleryKey = "";
-		_graphs = userSpace.graph[""];
+//	// TODO: 如果key为空，就是异常，待处理。
+//	if (_galleryKey == null || _galleryKey == "undefined")
+//		_galleryKey = "";
+//
+//	if (_galleryKey.trim() == 'unclassify') {
+//		alert(_galleryKey);
+//		_galleryKey = "";
+//	}
+	
+	if(_graphId==null||_graphId=="undefined"){
+		_graphs = userSpace.graph;
 	} else{
-		var _g_ = getGraphByID(userSpace.graph,_graphId);
-//		console.log("graph => " + JSON.stringify(getGraphByID(userSpace.graph,_graphId)));
-		console.log("debug graph => " + JSON.stringify(_g_));
+		_graphs = getGraphByID(userSpace.graph,_graphId);
+//		console.log("debug graph => " + JSON.stringify(_g_));
 	}
 
-
-	console.log("debug xx2");
 	var children = _graphs.children;
-	console.log("debug xx3");
 
 	var diagram_gallery = document.getElementById("diagram_gallery");
 	var diagram_gallery_innerHTML = "";
@@ -383,6 +362,7 @@ function updateGraphListFrame(){
 		
 	}else{
 		Object.keys(children).forEach(function(key){
+//			console.log(key+" => "+JSON.stringify(children[key]));
 			var _graph=children[key];
 			var diagram_gallery_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12"';
 			if(_graph.file && _graph.svg){
@@ -390,12 +370,12 @@ function updateGraphListFrame(){
 				diagram_gallery_item_innerHTML += '<figure class="effect-text-in">';
 				diagram_gallery_item_innerHTML += '<img src="' + _graph.img + '" alt="image" ';
 				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramDetail\',\'' + _graph.urlPath + '\',\''+_graph.id+'\');"/>';
-//alert("_graph.urlPath = "+_graph.urlPath);
+// alert("_graph.urlPath = "+_graph.urlPath);
 				diagram_gallery_item_innerHTML += '<figcaption';
 				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramDetail\',\'' + _graph.urlPath + '\',\''+_graph.id+'\');">';
 
-				diagram_gallery_item_innerHTML += '<h4>'
-						+ _graph.name + '</h4><p>' + _graph.path
+				diagram_gallery_item_innerHTML += '<h4 style="color:#FFFF00;background-color=#556B2F">'
+						+ _graph.name +"  "+ '</h4><p>' + _graph.path
 						+ '</p></figcaption>';
 				diagram_gallery_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 				// TODO: 判断权限
@@ -410,15 +390,15 @@ function updateGraphListFrame(){
 						+ "diagramList','" + _graph + "'" + ',\''+_graph.id+'\');">';
 				diagram_gallery_item_innerHTML += '<figure class="effect-text-in">';
 				diagram_gallery_item_innerHTML += '<img src="' + _graph.img + '" alt="image"/>';
-				diagram_gallery_item_innerHTML += '<figcaption><h4>'
-						+ _graph.name + '</h4><p>' + _graph.path
+				diagram_gallery_item_innerHTML += '<figcaption><h4 style="color:#FFFF00">'
+						+ _graph.name +"  " + '</h4><p>' + _graph.path
 						+ '</p></figcaption>';
-						//console.log(diagram_gallery_item_innerHTML);
+						// console.log(diagram_gallery_item_innerHTML);
 				
 			}
 			diagram_gallery_item_innerHTML += '</figure></div>';
 	
-			//console.log(diagram_gallery_item_innerHTML);
+			// console.log(diagram_gallery_item_innerHTML);
 			diagram_gallery_innerHTML = diagram_gallery_innerHTML
 					+ diagram_gallery_item_innerHTML;
 	

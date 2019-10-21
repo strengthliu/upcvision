@@ -119,7 +119,7 @@ public class IDTools {
 			sc += "|";
 		
 		sc = sc.substring(0, sc.length()-1);
-		System.out.println("sc = "+sc);
+//		System.out.println("sc = "+sc);
 		
 		return str.split(sc);
 	}
