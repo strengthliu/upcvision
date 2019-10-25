@@ -102,10 +102,11 @@ function refreshData(data) {
 	var ids = document.getElementsByTagName("text");
 //	console.log(" graph refreshData:"+JSON.stringify(data));
 	var _data = JSON.parse(data.body);
-
+console.log(JSON.stringify(_data));
 	Object.keys(_data).forEach(function(key){
 		var ele = document.getElementById(key);
 		if(ele!=null && ele!="undefined"){
+			console.log(" set value for "+key);
 			ele.innerHTML =  Math.round(_data[key]*10000)/10000;
 		}else{
 			console.log("no element named "+key);

@@ -49,19 +49,22 @@
 		user = JSON.parse(localStorage.user);
 		token = localStorage.token;
 		//alert("token="+token+"  uid="+user.id);
-		uname = user.name;
-		uid = user.id;
-		if (userSpace == null || userSpace == "undefined")
-			getUserSpace(uid, token);
-		else
-			checkRight(uid, token, "index.html", null);
+		if (user != null && token != null && user != "undefined"
+				&& token != "undefined") {
+			uname = user.name;
+			uid = user.id;
+			if (userSpace == null || userSpace == "undefined")
+				getUserSpace(uid, token);
+			else
+				checkRight(uid, token, "index.html", null);
+		}
 	} else {
 		localStorage.user = null;
 		localStorage.token = null;
+		user = null;
+		token = null;
 		location.href = "login.html";
 	}
-
-
 </script>
 </head>
 <body>
@@ -307,16 +310,19 @@
 											.getElementById("userNameUIRight");
 									unrd.innerHTML = user.name;
 									var _face = document
-									.getElementById("_face");
-									switch(user.role){
+											.getElementById("_face");
+									switch (user.role) {
 									case 1:
-										$("#_face").attr("src","images/faces/user1.png");
+										$("#_face").attr("src",
+												"images/faces/user1.png");
 										break;
 									case 2:
-										$("#_face").attr("src","images/faces/user2.jpeg");
+										$("#_face").attr("src",
+												"images/faces/user2.jpeg");
 										break;
 									case 3:
-										$("#_face").attr("src","images/faces/user3.jpeg");
+										$("#_face").attr("src",
+												"images/faces/user3.jpeg");
 										break;
 									}
 								}
@@ -419,13 +425,26 @@
 						</div></li>
 
 					<script>
+						getUserSpace(user.id, token, updateUI());
+
 						//console.log("begin to build left navigator");
-						updateDiagram();
-						updateXYDiagram();
-						updateRealTimeData();
-						updateAlertData();
-						updateHistoryData();
-						updateLineAlertData();
+						//if (userSpace != null && userSpace != "undefined") {
+						//	console.log("index.html before updateUI() ->userSpace is not null");
+						//	updateUI();
+						//} else {
+						//	if (user == null || token == null) {
+						//
+						//	} else
+						//		getUserSpace(user.id, token, updateUI());
+						//}
+						function updateUI() {
+							updateDiagram();
+							updateXYDiagram();
+							updateRealTimeData();
+							updateAlertData();
+							updateHistoryData();
+							updateLineAlertData();
+						}
 					</script>
 
 					<!-- *******************************  用户管理 ******************************* -->

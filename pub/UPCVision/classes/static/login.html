@@ -31,19 +31,10 @@
 
 		user = JSON.parse(localStorage.user);
 		token = localStorage.token;
-		//alert("token="+token+"  uid="+user.id);
-		uname = user.name;
-		uid = user.id;
-		checkRight(uid, token,"login.html","index.html");
-		/*
-		getUserSpace(uid, token, function() {
-			location.href = "index.html";
-		});
-		*/
-		//if(userSpace == null || userSpace == "undefined"){
-		//	userSpace = getUserSpace(uid,token);
-		//}
-		// alert("user: "+JSON.stringify(userSpace));
+		if(user!=null && token!=null && user!="undefined" && token!="undefined"){
+			uid = user.id;
+			checkRight(uid, token,"login.html","index.html");
+		}
 	} 
 
 

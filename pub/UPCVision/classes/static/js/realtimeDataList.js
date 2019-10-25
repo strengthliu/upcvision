@@ -156,6 +156,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 	var selectPointArray = new Array();
 	var i__ = 0;
 	for (let e of selectedPoints) {
+//		console.log("  "+JSON.stringify(e));
 		selectPointArray[i__] = e;
 		i__++;
 		}

@@ -275,7 +275,7 @@ function fixLocalHistoryDataList(historyData){
 		getUserSpace(user.id,token,fixLocalHistoryDataList);
 		cancel11();
 		return;
-	}
+	}else
 	if(historyData.owner !=null && historyData.owner !="undefined"){
 		userSpace.historyData[historyData.id]=historyData;
 		// historyDataList = historyDataList.historyData;

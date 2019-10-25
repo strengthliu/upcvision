@@ -166,14 +166,24 @@
 		// console.log("cancel");
 		init();
 	}
+	// 点击取消或关闭按钮
+	function cancel() {
+		console.log("cancel");
+		init();
+	}
 
 	// 初始化
 	function init() {
 		// 重置数据
-		selectedPoints = new Set(); // 已经选择的点位
-		targetName = ""; // 组名称
-		targetDesc = ""; // 组说明
-
+		// 重置数据
+		var selectedPoints = new Set(); // 已经选择的点位
+		var _selectedPoints = new Array();
+		
+		var targetName = ""; // 组名称
+		var targetDesc = ""; // 组说明
+		var serverName = "";
+		var elemId="";
+		var editAction="";
 		// 重置步骤数
 		stepCount = 2; // 总共有多少步
 		currentStep = 1; // 当前在第几步
