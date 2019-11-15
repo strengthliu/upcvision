@@ -22,6 +22,8 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.util.ResourceUtils;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.appCfg.ServerConfig;
 import com.surpass.vision.domain.FileList;
@@ -224,6 +226,8 @@ public class FileTool {
 					/***********************************************************************************
 					 *      淮南图的数据格式
 					 **********************************************************************************/
+					String otherRule3 = "";
+					JSONArray jsa = new JSONArray();
 					// 先判断是否是g文件
 					Elements docsg = doc.getElementsByTag(GlobalConsts.GPointTag);
 					for (int idocs = 0; idocs < docsg.size(); idocs++) {
@@ -241,9 +245,11 @@ public class FileTool {
 							if (p != null) {
 								// LOGGER.info("检查点位："+tag+" => "+sm.getPointByID(tag));
 
+								// 取text点
 								Elements docsText = eg.getElementsByTag(GlobalConsts.PointTag);
 								for(int indDocsText=0;indDocsText<docsText.size();indDocsText++) {
-									Element etest = docsText.get(indDocsText);
+									Element etext = docsText.get(indDocsText);
+
 									// TODO: 取出规则
 									/*
 									 *    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="19930" y="4680" id="DATAPOINT30_pbTextEl" PBD:Property="VAL">
@@ -254,9 +260,30 @@ public class FileTool {
 									 *    	</PB:MultiState>
 									 *    </text>
 									 */
-									
+									// 取MultiState
+									Elements pbMultiStates = etext.getElementsByTag(GlobalConsts.PBMultiStateTag);
+									for(int indPBMultiState=0;indPBMultiState<pbMultiStates.size();indPBMultiState++){
+										//eg.getElementsByTag(GlobalConsts.PointTag)
+//										id="DATAPOINT32_MS" ;
+//										PBD:PtTagName="\\RTDBB\1060_FI_1002";
+//										TagName="1060_FI_1002"; 
+//										ServerName="RTDBB"; 
+//										StateCount="2";
+										Element pbMultiMSState = pbMultiStates.get(indPBMultiState);
+										// 取MSState
+										Elements pbMSStateTags = pbMultiMSState.getElementsByTag(GlobalConsts.PBMSStateTag);
+										for(int indPBMSState=0;indPBMSState<pbMSStateTags.size();indPBMSState++) {
+											Element pbMSState = docsText.get(indPBMultiState);
+//											id="DATAPOINT32_MSS2";
+//											Blink="0";
+//											Color="000000";
+//											LowerValue="";
+//											UpperValue="";
+										}
+									}
+
 									// 取出点的text的ID
-									String textId = etest.attr("id");
+									String textId = etext.attr("id");
 									pointIDs.add(p.wholeName());
 									pointTextIDs.add(textId);
 								}

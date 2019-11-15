@@ -60,9 +60,10 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         //registry.addEndpoint("/socketServer").withSockJS();
         //registry.addEndpoint("/socketServer").setAllowedOrigins("*").withSockJS();
-   registry.addEndpoint("/stomp-websocket").withSockJS().setHeartbeatTime(10000L);
+   registry.addEndpoint("/stomp-websocket").setAllowedOrigins("*").withSockJS().setHeartbeatTime(10000L);
 
    registry.addEndpoint("/socketServer")
+   			.setAllowedOrigins("*")
            .addInterceptors(authHandshakeInterceptor)
            .setHandshakeHandler(myHandshakeHandler)
            .withSockJS().setHeartbeatTime(10000L);

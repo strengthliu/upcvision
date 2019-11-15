@@ -2,14 +2,8 @@ package com.surpass.vision.domain;
 
 import java.io.Serializable;
 
-public class PointGroupData extends BaseDomain implements Serializable, Cloneable {
-    /**
-	 * ---------------------------------------
-	 * @author 刘强 2019年10月20日 下午8:41:50 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	private Double id;
+public class PointGroupData extends BaseDomain implements Serializable, Cloneable  {
+    private Double id;
 
     private String type;
 
@@ -26,6 +20,12 @@ public class PointGroupData extends BaseDomain implements Serializable, Cloneabl
     private String otherrule1;
 
     private String otherrule2;
+
+    private String otherrule3;
+
+    private String otherrule4;
+
+    private String otherrule5;
 
     public Double getId() {
         return id;
@@ -98,6 +98,31 @@ public class PointGroupData extends BaseDomain implements Serializable, Cloneabl
     public void setOtherrule2(String otherrule2) {
         this.otherrule2 = otherrule2 == null ? null : otherrule2.trim();
     }
+
+    public String getOtherrule3() {
+        return otherrule3;
+    }
+
+    public void setOtherrule3(String otherrule3) {
+        this.otherrule3 = otherrule3 == null ? null : otherrule3.trim();
+    }
+
+    public String getOtherrule4() {
+        return otherrule4;
+    }
+
+    public void setOtherrule4(String otherrule4) {
+        this.otherrule4 = otherrule4 == null ? null : otherrule4.trim();
+    }
+
+    public String getOtherrule5() {
+        return otherrule5;
+    }
+
+    public void setOtherrule5(String otherrule5) {
+        this.otherrule5 = otherrule5 == null ? null : otherrule5.trim();
+    }
+    
     
     @Override
     public PointGroupData clone() throws CloneNotSupportedException {
@@ -105,4 +130,5 @@ public class PointGroupData extends BaseDomain implements Serializable, Cloneabl
 			ret = (PointGroup)super.clone();
     	return ret;
     }
+
 }

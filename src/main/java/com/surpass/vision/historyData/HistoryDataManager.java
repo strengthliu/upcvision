@@ -323,12 +323,12 @@ public class HistoryDataManager extends PointGroupDataManager {
 				}
 			}
 			Double[] _y0 = Newton_interpolation.Newton_inter_method(_x_,_y,_x0);
-			
-			for(int itime2=0;itime2<dstime2[pointInd].size();itime2++) {
-				int ind = inserToListOrdered(dstime2[pointInd].get(itime2),dstime1[pointInd]);
-				// TODO: 数据有问题，这里会有空指针问题。
-				dsy[pointInd].add(ind, _y0[itime2]);
-			}
+			if(_y0!=null)
+				for(int itime2=0;itime2<dstime2[pointInd].size();itime2++) {
+					int ind = inserToListOrdered(dstime2[pointInd].get(itime2),dstime1[pointInd]);
+					// TODO: 数据有问题，这里会有空指针问题。
+					dsy[pointInd].add(ind, _y0[itime2]);
+				}
 		}
 
 		time.add(0, "time");

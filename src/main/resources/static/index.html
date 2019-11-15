@@ -16,9 +16,12 @@
 
 <link rel="stylesheet" href="css/jquery.datetimepicker.css">
 <link rel="stylesheet" href="css/c3.css">
+<link rel="stylesheet" href="css/jquery.contextMenu.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<!-- 
 <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
 <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
-
+ -->
 <link rel="stylesheet" href="css/style.css">
 <link rel="shortcut icon" href="images/favicon.png" />
 
@@ -32,10 +35,30 @@
 <!-- inject:css -->
 <link rel="stylesheet" href="css/style.css">
 <!-- endinject -->
-<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-2.2.4.js"></script>
+<!-- 
+<script src="js/jquery-3.4.1.js"></script>
+ -->
+<script src="js/jquery.contextMenu.js"></script>
 <script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/bootstrap.js"></script>
 <script src="js/sockjs.min.js"></script>
 <script src="js/stomp.min.js"></script>
+<script src="js/d3.js"></script>
+<script src="js/c3.js"></script>
+<!-- 这是个集成好的综合包，但是版本有点低，有些功能还没有实现，所以需要把匹配的新版本的包整理出来。
+<script src="vendors/js/vendor.bundle.base.js"></script>
+<script src="vendors/js/vendor.bundle.addons.js"></script>
+ -->
+<!-- 这部分是SVG操作的第三方库，基于Angular 
+<script src="js/hammer.min.js"></script>
+<script src="js/uniwheel.js"></script>
+<script src="js/control-icons.js"></script>
+<script src="js/utilities.js"></script>
+<script src="js/svg-utilities.js"></script>
+<script src="js/shadow-viewport.js"></script>
+<script src="js/svg-pan-zoom.js"></script>
+ -->
 
 <script src="js/app.js"></script>
 <script src="js/router.js"></script>
@@ -330,36 +353,39 @@
 						</div>
 					</li>
 					<!-- 
-					<li class="nav-item nav-category"><span class="nav-link">主窗口</span>
+					<li class="nav-item nav-category" style="display:none;"><span class="nav-link">主窗口</span>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="index.html">
-							<i class="icon-layout menu-icon"></i> <span class="menu-title">仪表盘</span>
-							<span class="badge badge-primary badge-pill">1</span>
+
+					<li class="nav-item" style="display:none;"><a class="nav-link"
+						data-toggle="collapse" href="#ui-diagram" aria-expanded="false"
+						aria-controls="ui-diagram"> <i class="icon-layers menu-icon"></i>
+							<span class="menu-title" onclick="routeTo('dashboard','')">仪表盘</span>
 					</a></li>
- 					-->
+ 					 -->
 
 					<!-- *******************************  视图列表 ******************************* -->
 					<li class="nav-item nav-category"><span class="nav-link">视图列表</span>
 					</li>
-					</li>
+
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-diagram" aria-expanded="false"
 						aria-controls="ui-diagram"> <i class="icon-layers menu-icon"></i>
 							<span class="menu-title" onclick="routeTo('diagramList','')">流程图</span>
 					</a></li>
 
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item">
+						<a class="nav-link"
 						data-toggle="collapse" href="#ui-xydiagram" aria-expanded="false"
-						aria-controls="ui-xydiagram"> <i class="icon-server menu-icon"></i>
-							<span class="menu-title" onclick="routeTo('xydiagramList','')">XY图</span>
+						aria-controls="ui-xydiagram"> <i class="icon-server menu-icon">
+						</i><span class="menu-title" onclick="routeTo('xydiagramList','')">XY图</span>
 							<i class="menu-arrow"></i>
-					</a>
+							</a>
 						<div class="collapse" id="ui-xydiagram">
 							<ul class="nav flex-column sub-menu">
 								<li class="nav-item"><a class="nav-link"
 									href="pages/ui-features/accordions.html">石化常减压</a></li>
 							</ul>
-						</div></li>
+						</div>
 					</li>
 
 					<!-- *******************************  实时数据 ******************************* -->
@@ -501,16 +527,14 @@
 		</script>
 		<!--  ************************************ 访问服务器遮罩  end ************************************  -->
 	</div>
-	<!-- container-scroller -->
-	<!-- plugins:js -->
-	<!--  -->
+
+	<!-- 
 	<script src="vendors/js/vendor.bundle.base.js"></script>
 	<script src="vendors/js/vendor.bundle.addons.js"></script>
+ 	-->
+	<!-- inject:js
+	<script src="js/misc.js"></script> 
+	-->
 
-	<!-- inject:js -->
-	<script src="js/misc.js"></script>
-	<!-- endinject -->
-	<!-- Custom js for this page-->
-	<!-- End custom js for this page-->
 </body>
 </html>

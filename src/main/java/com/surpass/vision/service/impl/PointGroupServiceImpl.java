@@ -112,9 +112,9 @@ public class PointGroupServiceImpl implements PointGroupService {
 
 	@Override
 	public void updateByName(String owner, String creater, String shared, String points, String otherrule1,
-			String otherrule2, String name) {
+			String otherrule2, String otherrule3, String name) {
 		pointGroupDataMapper.updateByName(owner, creater, shared, points, otherrule1,
-				otherrule2, name);
+				otherrule2, otherrule3, name);
 	}
 
 	@Override

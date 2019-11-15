@@ -22572,7 +22572,8 @@ div.tagsinput {
 
 
 @charset "gb2312";
-.info-nr {position:fixed;
+.info-nr {
+	position:fixed;
     top:170px;
     right:30px;
     z-index:900;
@@ -22637,3 +22638,22 @@ div.tagsinput {
                                 background:url(../img/navimg/2.png) 50% 50% no-repeat #fff;
                                 background-size:auto 60%;
                         } 
+
+.dialog {
+	width: 250px;
+	height: 250px;
+	position: absolute;
+	background-color: #ccc;
+	-webkit-box-shadow: 1px 1px 3px #292929;
+	-moz-box-shadow: 1px 1px 3px #292929;
+	box-shadow: 1px 1px 3px #292929;
+	margin: 10px;
+}
+
+.dialog-title {
+	cursor: move;
+}
+
+.dialog-content {
+	padding: 4px;
+}

@@ -723,6 +723,216 @@ public class PointGroupDataExample {
             addCriterion("otherRule2 not between", value1, value2, "otherrule2");
             return (Criteria) this;
         }
+
+        public Criteria andOtherrule3IsNull() {
+            addCriterion("otherRule3 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule3IsNotNull() {
+            addCriterion("otherRule3 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule3EqualTo(String value) {
+            addCriterion("otherRule3 =", value, "otherrule3");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule3NotEqualTo(String value) {
+            addCriterion("otherRule3 <>", value, "otherrule3");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule3GreaterThan(String value) {
+            addCriterion("otherRule3 >", value, "otherrule3");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule3GreaterThanOrEqualTo(String value) {
+            addCriterion("otherRule3 >=", value, "otherrule3");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule3LessThan(String value) {
+            addCriterion("otherRule3 <", value, "otherrule3");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule3LessThanOrEqualTo(String value) {
+            addCriterion("otherRule3 <=", value, "otherrule3");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule3Like(String value) {
+            addCriterion("otherRule3 like", value, "otherrule3");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule3NotLike(String value) {
+            addCriterion("otherRule3 not like", value, "otherrule3");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule3In(List<String> values) {
+            addCriterion("otherRule3 in", values, "otherrule3");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule3NotIn(List<String> values) {
+            addCriterion("otherRule3 not in", values, "otherrule3");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule3Between(String value1, String value2) {
+            addCriterion("otherRule3 between", value1, value2, "otherrule3");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule3NotBetween(String value1, String value2) {
+            addCriterion("otherRule3 not between", value1, value2, "otherrule3");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4IsNull() {
+            addCriterion("otherRule4 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4IsNotNull() {
+            addCriterion("otherRule4 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4EqualTo(String value) {
+            addCriterion("otherRule4 =", value, "otherrule4");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4NotEqualTo(String value) {
+            addCriterion("otherRule4 <>", value, "otherrule4");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4GreaterThan(String value) {
+            addCriterion("otherRule4 >", value, "otherrule4");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4GreaterThanOrEqualTo(String value) {
+            addCriterion("otherRule4 >=", value, "otherrule4");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4LessThan(String value) {
+            addCriterion("otherRule4 <", value, "otherrule4");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4LessThanOrEqualTo(String value) {
+            addCriterion("otherRule4 <=", value, "otherrule4");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4Like(String value) {
+            addCriterion("otherRule4 like", value, "otherrule4");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4NotLike(String value) {
+            addCriterion("otherRule4 not like", value, "otherrule4");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4In(List<String> values) {
+            addCriterion("otherRule4 in", values, "otherrule4");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4NotIn(List<String> values) {
+            addCriterion("otherRule4 not in", values, "otherrule4");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4Between(String value1, String value2) {
+            addCriterion("otherRule4 between", value1, value2, "otherrule4");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule4NotBetween(String value1, String value2) {
+            addCriterion("otherRule4 not between", value1, value2, "otherrule4");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5IsNull() {
+            addCriterion("otherRule5 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5IsNotNull() {
+            addCriterion("otherRule5 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5EqualTo(String value) {
+            addCriterion("otherRule5 =", value, "otherrule5");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5NotEqualTo(String value) {
+            addCriterion("otherRule5 <>", value, "otherrule5");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5GreaterThan(String value) {
+            addCriterion("otherRule5 >", value, "otherrule5");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5GreaterThanOrEqualTo(String value) {
+            addCriterion("otherRule5 >=", value, "otherrule5");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5LessThan(String value) {
+            addCriterion("otherRule5 <", value, "otherrule5");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5LessThanOrEqualTo(String value) {
+            addCriterion("otherRule5 <=", value, "otherrule5");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5Like(String value) {
+            addCriterion("otherRule5 like", value, "otherrule5");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5NotLike(String value) {
+            addCriterion("otherRule5 not like", value, "otherrule5");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5In(List<String> values) {
+            addCriterion("otherRule5 in", values, "otherrule5");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5NotIn(List<String> values) {
+            addCriterion("otherRule5 not in", values, "otherrule5");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5Between(String value1, String value2) {
+            addCriterion("otherRule5 between", value1, value2, "otherrule5");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherrule5NotBetween(String value1, String value2) {
+            addCriterion("otherRule5 not between", value1, value2, "otherrule5");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
