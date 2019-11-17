@@ -344,7 +344,8 @@ function zoomed() {
 	console.log("zoomed() zoom.translate()="+zoom.translate()+" zoom.scale()="+zoom.scale());
 	
     svg.attr("transform",
-        "translate(0,0)" +
+        "translate(" + zoom.translate() + ")" +
+        //"translate(0,0)" +
         "scale(" + zoom.scale() + ")"
     );
     // svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
