@@ -368,6 +368,7 @@ function updateGraphListFrame(){
 			if(_graph.file && _graph.svg){
 				diagram_gallery_item_innerHTML += '>';
 				diagram_gallery_item_innerHTML += '<figure class="effect-text-in">';
+				diagram_gallery_item_innerHTML += '<div></div>';				
 				diagram_gallery_item_innerHTML += '<img src="' + _graph.img + '" alt="image" ';
 				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramDetail\',\'' + _graph.urlPath + '\',\''+_graph.id+'\');"/>';
 // alert("_graph.urlPath = "+_graph.urlPath);
@@ -382,7 +383,25 @@ function updateGraphListFrame(){
 				if(user.id == _graph.creater || user.id == _graph.owner || user.role == 1){
 					diagram_gallery_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
 					diagram_gallery_item_innerHTML += 'shareItemAction(\''+_graph.id+'\')">Share</button>';
+					
+//					diagram_gallery_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
+//					diagram_gallery_item_innerHTML += 'deleteItemAction(\''+_graph.id+'\')">';
+//					diagram_gallery_item_innerHTML += '<i class="mdi mdi-delete"></i>';
+//					diagram_gallery_item_innerHTML += '</button>';
+					
+					diagram_gallery_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
+					diagram_gallery_item_innerHTML += 'editItemAction(\''+_graph.id+'\')">';
+					diagram_gallery_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
+					diagram_gallery_item_innerHTML += '</button>';
 				}
+				// 如果图的宽度大于可预览值，显示预览图形。
+				// TODO: if()
+				//diagram_gallery_item_innerHTML += '<button type="submit"  class="btn btn-info btn-sm icon-btn ml-2" onclick="';
+				//diagram_gallery_item_innerHTML += 'previewGraph(\''+_graph.id+'\')">';
+				//diagram_gallery_item_innerHTML += '<i class="mdi mdi-edit">Preview</i>';
+				//diagram_gallery_item_innerHTML += '</button>';
+				
+				// --------------一个图形div结束
 				diagram_gallery_item_innerHTML += '</div>';
 
 			} else {

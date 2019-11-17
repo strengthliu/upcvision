@@ -249,6 +249,7 @@ function buildChart(){
 			}
 		}
 	});
+	currentPlayStatus = true;
 
 }
 
@@ -392,32 +393,32 @@ function refreshData(data) {
 	// 添加趋势数据到全部数据
 	addData(data.body,_data,_dataCount);
 
-	if(currentPlayStatus){
-		var ids = document.getElementsByTagName("text");
-		var _data_ = JSON.parse(data.body);
-	//	console.log(JSON.stringify(_data));
-		Object.keys(_data_).forEach(function(key){
-			var ele = document.getElementById(key);
-			if(ele!=null && ele!="undefined"){
+	var ids = document.getElementsByTagName("text");
+	var _data_ = JSON.parse(data.body);
+//	console.log(JSON.stringify(_data));
+	Object.keys(_data_).forEach(function(key){
+		var ele = document.getElementById(key);
+		if(ele!=null && ele!="undefined"){
 //				console.log(" set value for "+key);
-				// 加事件
-				ele.onclick = function(){
+			// 加事件
+			ele.onclick = function(){
 //					alert(ele.getAttribute("id"));
-					_addPointToXY(ele.getAttribute("id"));
-					addPointToXYGraph(ele.getAttribute("id"));
-				}
-				// 画点图
+				_addPointToXY(ele.getAttribute("id"));
+				addPointToXYGraph(ele.getAttribute("id"));
+			}
+			// 画点图
 //				if(gl[p].config.id == "point_" + key){
 //					gl[p].refresh(pointList_[key]);
 //				}
-				// 	画图形
-				ele.innerHTML =  Math.round(_data_[key]*10000)/10000;
-				
-			}else{
-				console.log("no element named "+key);
-			}
-		});
+			// 	画图形
+			ele.innerHTML =  Math.round(_data_[key]*10000)/10000;
+			
+		}else{
+			console.log("no element named "+key);
+		}
+	});
 		
+	if(currentPlayStatus){
 		// 刷新线图
 //		_forward(data.body);
 		play();
@@ -827,7 +828,7 @@ var _rateX = 1;
  * true：播放状态。
  * false：停止状态。
  */
-var currentPlayStatus = true;
+var currentPlayStatus = false;
 
 function play(){
 	if(currentPlayStatus){

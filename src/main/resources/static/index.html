@@ -19,9 +19,9 @@
 <link rel="stylesheet" href="css/jquery.contextMenu.css">
 <link rel="stylesheet" href="css/bootstrap.css">
 <!-- 
+ -->
 <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
 <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
- -->
 <link rel="stylesheet" href="css/style.css">
 <link rel="shortcut icon" href="images/favicon.png" />
 
@@ -35,10 +35,10 @@
 <!-- inject:css -->
 <link rel="stylesheet" href="css/style.css">
 <!-- endinject -->
-<script src="js/jquery-2.2.4.js"></script>
 <!-- 
-<script src="js/jquery-3.4.1.js"></script>
+<script src="js/jquery-2.2.4.js"></script>
  -->
+<script src="js/jquery-3.4.1.js"></script>
 <script src="js/jquery.contextMenu.js"></script>
 <script src="js/bootstrap-datetimepicker.min.js"></script>
 <script src="js/bootstrap.js"></script>
@@ -47,9 +47,9 @@
 <script src="js/d3.js"></script>
 <script src="js/c3.js"></script>
 <!-- 这是个集成好的综合包，但是版本有点低，有些功能还没有实现，所以需要把匹配的新版本的包整理出来。
+ -->
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <script src="vendors/js/vendor.bundle.addons.js"></script>
- -->
 <!-- 这部分是SVG操作的第三方库，基于Angular 
 <script src="js/hammer.min.js"></script>
 <script src="js/uniwheel.js"></script>
@@ -102,7 +102,7 @@
 					class="navbar-brand brand-logo-mini" href="index.html"><img
 					src="images/logo.png" alt="logo" /></a>
 			</div>
-			<div class="navbar-menu-wrapper d-flex align-items-stretch">
+			<div class="navbar-menu-wrapper d-flex align-items-stretch" id="mainToolsBar">
 				<button class="navbar-toggler navbar-toggler align-self-center"
 					type="button" data-toggle="minimize">
 					<span class="mdi mdi-menu"></span>
@@ -369,15 +369,15 @@
 
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-diagram" aria-expanded="false"
-						aria-controls="ui-diagram"> <i class="icon-layers menu-icon"></i>
-							<span class="menu-title" onclick="routeTo('diagramList','')">流程图</span>
+						aria-controls="ui-diagram"  onclick="routeTo('diagramList','')"> <i class="icon-layers menu-icon"></i>
+							<span class="menu-title">流程图</span>
 					</a></li>
 
 					<li class="nav-item">
 						<a class="nav-link"
 						data-toggle="collapse" href="#ui-xydiagram" aria-expanded="false"
-						aria-controls="ui-xydiagram"> <i class="icon-server menu-icon">
-						</i><span class="menu-title" onclick="routeTo('xydiagramList','')">XY图</span>
+						aria-controls="ui-xydiagram" onclick="routeTo('xydiagramList','')"> <i class="icon-server menu-icon">
+						</i><span class="menu-title">XY图</span>
 							<i class="menu-arrow"></i>
 							</a>
 						<div class="collapse" id="ui-xydiagram">
@@ -391,9 +391,8 @@
 					<!-- *******************************  实时数据 ******************************* -->
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-realtimedata"
-						aria-expanded="false" aria-controls="ui-realtimedata"> <i
-							class="icon-bar-graph menu-icon"></i> <span class="menu-title"
-							onclick="routeTo('realtimedataList','')">实时数据查询</span> <i
+						aria-expanded="false" aria-controls="ui-realtimedata" onclick="routeTo('realtimedataList','')"> 
+						<i class="icon-bar-graph menu-icon"></i> <span class="menu-title">实时数据查询</span> <i
 							class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-realtimedata">
@@ -406,8 +405,8 @@
 					<!-- *******************************  报警查询 ******************************* -->
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-alertdata" aria-expanded="false"
-						aria-controls="ui-alertdata"> <i class="icon-bell menu-icon"></i>
-							<span class="menu-title" onclick="routeTo('alertdataList','')">报警查询</span>
+						aria-controls="ui-alertdata" onclick="routeTo('alertdataList','')"> <i class="icon-bell menu-icon"></i>
+							<span class="menu-title">报警查询</span>
 							<i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-alertdata">
@@ -420,9 +419,9 @@
 					<!-- *******************************  历史数据 ******************************* -->
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-datahistory"
-						aria-expanded="false" aria-controls="ui-datahistory"> <i
-							class="icon-grid-2 menu-icon"></i> <span class="menu-title"
-							onclick="routeTo('historydataList','')">历史数据</span> <i
+						aria-expanded="false" aria-controls="ui-datahistory"
+							onclick="routeTo('historydataList','')"> <i
+							class="icon-grid-2 menu-icon"></i> <span class="menu-title">历史数据</span> <i
 							class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-datahistory">
@@ -438,9 +437,9 @@
 					<!-- *******************************  直线报警 ******************************* -->
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-directreporting"
-						aria-expanded="false" aria-controls="ui-directreporting"> <i
-							class="icon-map menu-icon"></i> <span class="menu-title"
-							onclick="routeTo('lineAlertdataList','')">直线警报</span> <i
+						aria-expanded="false" aria-controls="ui-directreporting"
+							onclick="routeTo('lineAlertdataList','')"> <i
+							class="icon-map menu-icon"></i> <span class="menu-title">直线警报</span> <i
 							class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-directreporting">
@@ -532,9 +531,8 @@
 	<script src="vendors/js/vendor.bundle.base.js"></script>
 	<script src="vendors/js/vendor.bundle.addons.js"></script>
  	-->
-	<!-- inject:js
+	<!-- 全屏和收缩菜单 -->
 	<script src="js/misc.js"></script> 
-	-->
 
 </body>
 </html>

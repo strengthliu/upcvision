@@ -21,9 +21,9 @@ var mainPanel = document.getElementById("main");
 // user.role == 1){
 var oppertionButton = document.createElement('div');
 var oppertionButton_innerHTML = "";
-oppertionButton_innerHTML = ' <div class="info-nr" id="info-nr"> '
-		+ '<div id="info-nr-phone" class="info-nr-phone"> '
-		+ '  <section id="toMenu"></section> ';
+oppertionButton_innerHTML = ' <div class="info-nr " id="info-nr"> '
+		+ '<div id="info-nr-phone" class="info-nr-phone dialog-title"> ';
+oppertionButton_innerHTML += '  <section id="toMenu"></section> ';
 if (user.role <= 2) {
 	oppertionButton_innerHTML += '  <div class="menu_01"  data-toggle="modal" data-target="#newItemAction_mid" onclick="newItemAction();"></div> ';
 }

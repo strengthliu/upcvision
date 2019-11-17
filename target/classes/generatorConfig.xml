@@ -60,7 +60,7 @@
 
 		<!-- <table schema="t1" tableName="t1" domainObjectName="t1" enableCountByExample="false" 
 			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
-			selectByExampleQueryId="false"> </table> -->
+			selectByExampleQueryId="false"> </table>
 
 		<table schema="t_userSpace" tableName="t_userSpace"
 			domainObjectName="UserSpaceData" enableCountByExample="true"
@@ -77,7 +77,7 @@
 			enableDeleteByExample="true" enableSelectByExample="true"
 			selectByExampleQueryId="true">
 		</table>
-
+ -->
 		<table schema="t_pointGroup" tableName="t_pointGroup"
 			domainObjectName="PointGroupData" enableCountByExample="true"
 			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"

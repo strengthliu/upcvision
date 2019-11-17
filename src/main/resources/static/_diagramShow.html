@@ -13,6 +13,9 @@
 						<button id="zoom_out">
 							<i class="mdi mdi-minus-circle-outline ml-1"></i>
 						</button>
+						<button id="zoom_fullScreen">
+							<i class="mdi mdi-fullscreen ml-1"></i>
+						</button>
 					</div>
 					<div>
 						<button id="zoom_up">
@@ -46,7 +49,7 @@
 						</div>
 					</div>
 					<button type="button" class="btn btn-primary btn-sm"
-						 onclick="buildChart()">
+						onclick="buildChart()">
 						查看趋势图<i class="mdi mdi-play-circle ml-1"></i>
 					</button>
 				</div>
@@ -61,7 +64,7 @@
 			<div class="modal-header dialog-title">
 				<h5 class="modal-title" id="exampleModalLabel">趋势图查看</h5>
 				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
+					aria-label="Close" onclick="closeGraph();">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
@@ -215,7 +218,6 @@
 
 <!-- partial -->
 <div id="_diagramShow"></div>
-<div id="_loadjs"></div>
 
 <!-- Dummy Modal Ends -->
 
@@ -300,7 +302,7 @@
 
 
 		// 获取图形宽高
-		var svg1 = document.getElementsByTagName("svg");
+		svg1 = document.getElementsByTagName("svg");
 		svg1 = svg1[0];
 	    width = svg1.attributes.width.value;
 	    height = svg1.attributes.height.value;
@@ -324,21 +326,28 @@
 		//svg.enter().attr("r", 2.5).attr("transform", function(d) { return "translate(" + d + ")"; });
 	    //console.log("11");
 	    //svg.selectAll("g").call(d3.drag().on("drag", dragged));
+	    
+	    // 图形全屏
+		fullScreenFn();
+
 	}
 	
+	var svg1;
 	var svg ;//svg = document.getElementsByTagName("svg");
     console.log("=====1");
     var width = 0;//svg.attributes.width.value;
     var height = 0;//svg.attributes.height.value;
 
-var zoom = d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
+var zoom = d3.behavior.zoom().scaleExtent([0.5, 8]).on("zoom", zoomed);
 
 function zoomed() {
-	console.log("zoomed()");
+	console.log("zoomed() zoom.translate()="+zoom.translate()+" zoom.scale()="+zoom.scale());
+	
     svg.attr("transform",
-        "translate(" + zoom.translate() + ")" +
+        "translate(0,0)" +
         "scale(" + zoom.scale() + ")"
     );
+    // svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 }
 
 function interpolateZoom (translate, scale) {
@@ -349,8 +358,10 @@ function interpolateZoom (translate, scale) {
     	console.log("interpolateZoom translate="+translate+" scale="+scale);
     	console.log("interpolateZoom iTranslate="+iTranslate+" iScale="+iScale);
         return function (t) {
+        	console.log("t="+t);
+        	console.log("interpolateZoom iTranslate(t)="+iTranslate(t)+" iScale(t)="+iScale(t));
         	console.log("interpolateZoom iTranslate="+iTranslate+" iScale="+iScale);
-            zoom
+           zoom
                 .scale(iScale(t))
                 .translate(iTranslate(t));
             zoomed();
@@ -371,7 +382,34 @@ function zoomClick() {
         view = {x: translate[0], y: translate[1], k: zoom.scale()};
 
     d3.event.preventDefault();
-    direction = (this.id === 'zoom_in') ? 1 : -1;
+    
+    switch(this.id){
+    case 'zoom_up':
+    	console.log("=================== zoom_up");
+    	interpolateZoom([view.x, view.y-10], view.k)
+    	return;
+    case 'zoom_down':
+    	interpolateZoom([view.x, view.y+10], view.k)
+    	return;
+    case 'zoom_left':
+    	interpolateZoom([view.x-10, view.y], view.k)
+    	return;
+    case 'zoom_right':
+    	interpolateZoom([view.x+10, view.y], view.k)
+    	return;
+    case 'zoom_fullScreen':
+    	fullScreen();
+    	return;
+    case 'zoom_in':
+    	direction = 1;
+    	break;
+    case 'zoom_out':
+    	direction = -1;
+    	break;
+   	default:
+   		return;
+    }
+    // direction = (this.id === 'zoom_in') ? 1 : -1;
     target_zoom = zoom.scale() * (1 + factor * direction);
 
     if (target_zoom < extent[0] || target_zoom > extent[1]) { return false; }
@@ -386,63 +424,96 @@ function zoomClick() {
     view.y += l[1] - center[1];
 
     interpolateZoom([view.x, view.y], view.k);
+    //interpolateZoom([0, 0], view.k);
 }
 
-d3.selectAll('button').on('click', zoomClick);
-
-	function zoomClick1() {
-	    var clicked = d3.event.target,
-	        direction = 1,
-	        factor = 0.2,
-	        target_zoom = 1,
-	        center = [width / 2, height / 2],
-	        extent = zoom.scaleExtent(),
-	        translate = zoom.translate(),
-	        translate0 = [],
-	        l = [],
-	        view = {x: translate[0], y: translate[1], k: zoom.scale()};
-	    console.log(" view= "+JSON.stringify(view)+ " ");
-
-	    console.log("================ zoomClick");
-	    d3.event.preventDefault();
-	    switch(this.id){
-	    case 'zoom_up':
-	    	console.log("=================== zoom_up");
-	    	interpolateZoom([view.x, view.y-10], view.k)
-	    	return;
-	    case 'zoom_down':
-	    	interpolateZoom([view.x, view.y+10], view.k)
-	    	return;
-	    case 'zoom_left':
-	    	interpolateZoom([view.x-10, view.y], view.k)
-	    	return;
-	    case 'zoom_right':
-	    	interpolateZoom([view.x+10, view.y], view.k)
-	    	return;
-	    }
-	    console.log("zoomClick========+++++ ========");
-	    direction = (this.id === 'zoom_in') ? 1 : -1;
-	    // 缩放目标
-	    target_zoom = d3.scale * (1 + factor * direction);
-
-	    //if (target_zoom < extent[0] || target_zoom > extent[1]) { return false; }
-
-	    translate0 = [(center[0] - view.x) / view.k, (center[1] - view.y) / view.k];
-	    view.k = target_zoom;
-	    l = [translate0[0] * view.k + view.x, translate0[1] * view.k + view.y];
-		// 向左上伸展
-	    //view.x += center[0] - l[0];
-	    //view.y += center[1] - l[1];
-	    // interpolateZoom([view.x, view.y], view.k);
-	    // interpolateZoom([0, 0], view.k); // 中心不动向四周伸展
-	    view.x += l[0] - center[0];
-	    view.y += l[1] - center[1];
-	    console.log(" view= "+JSON.stringify(view)+ " ");
-	    interpolateZoom([view.x, view.y], view.k); // 左上角不动，击右下伸展。
+	var fullScreenEnable = true;
+	function fullScreen(){
+		console.log("fullScreen()");
+		if(!fullScreenEnable)
+			fullScreenEnable = !fullScreenEnable;
+		fullScreenFn();
 	}
+	function fullScreenFn(){
+		if(fullScreenEnable){
+			// 取当前页面宽度和高度
+			var _svgP = svg1.parentNode;
+			var mainToolsBarRect = _svgP.getBoundingClientRect();
+			console.log(" y="+JSON.stringify(mainToolsBar.getBoundingClientRect()));
+			// 取当前图形宽度和高度 
+			console.log(" width="+width +" heigth="+height);
+			// mainPanel屏幕左上角坐标
+			var y = mainToolsBarRect.y ;//+ mainToolsBarRect.height;
+			var x = mainToolsBarRect.x;
+			var mainPanelHeigth = window.innerHeight;
+			var mainPanelWidth = mainToolsBarRect.width;
+			
+			var scale1 = mainPanelHeigth / mainPanelWidth;
+			var _diagramShow = document.getElementById("_diagramShow").getBoundingClientRect();
+			var scale2 = _diagramShow.height / _diagramShow.width;
+			var scale ;//= scale1 > scale2 ? scale1 : scale2;
+			if(scale1 > scale2){ // 图比屏幕扁，以图的宽为限
+				scale = mainPanelWidth / width ;
+			} else{
+				scale = mainPanelHeigth / height;
+			}
+			
+			console.log(" _diagramShow="+JSON.stringify(_diagramShow));
+			console.log("window.innerHeight="+window.innerHeight);
+			//console.log("document.documentElement.clientHeight = "+document.documentElement.clientHeight);
+			//console.log("document.body.clientHeight = "+document.body.clientHeight);
+			
+			// 计算translate和scale,调用 function interpolateZoom (translate, scale)
+			var tx = _diagramShow.x + _diagramShow.width/2 * (1 - scale);
+			var ty = _diagramShow.y + _diagramShow.height/2 * (1 - scale);
+			//var trans = {_diagramShow.x - x,_diagramShow.y - y};
+			console.log("scale="+scale+" tx="+tx+" ty="+ty+" x="+x+" y="+y+" x-ty="+(x-tx)+" y-ty="+(y-ty));
+		    svg.attr("transform",
+		            "translate(" + [x- tx + 10, y- ty] + ")" +
+		            "scale(" + scale + ")"
+		        );
 
 
+			//interpolateZoom([x- tx, y- ty], scale);
+			
+			// 计算缩放比
+ //var _y={"x":266,"y":1,"width":840,"height":58,"top":1,"right":1106,"bottom":59,"left":266}
+ //width=1062 heigth=669
+ //_diagramShow={"x":285.390625,"y":76,"width":801.21875,"height":674,"top":76,"right":1086.609375,"bottom":750,"left":285.390625}			
+			// 计算左上角坐标
+			
+			// 移动缩放图形
+			
+		}
+	}
+	
+	$(window).resize(function(){
+		fullScreenFn();
+	});
+
+	// 设置resize事件
+	addResizeEvent(fullScreenFn);
+	function addResizeEvent(func) {
+	    //把现有的 window.onload 事件处理函数的值存入变量
+	    var oldResize = window.resize;
+	    if (typeof window.resize != "function") {
+	      //如果这个处理函数还没有绑定任何函数，就像平时那样添加新函数
+	      window.onload = func;
+	    } else {
+	      //如果处理函数已经绑定了一些函数，就把新函数添加到末尾
+	      window.resize = function() {
+	    	  oldResize();
+	        func();
+	      }
+	    }
+	  }
+
+	d3.selectAll('button').on('click', zoomClick);
+
+	
 	//********************* 对话框拖拽 ********
+	var mouseX = 0;
+	var mouseY = 0;
 	var Dragging = function(validateHandler) { //参数为验证点击区域是否为可移动区域，如果是返回欲移动元素，负责返回null
 		var draggingObj = null; //dragging Dialog
 		var diffX = 0;
@@ -460,6 +531,9 @@ d3.selectAll('button').on('click', zoomClick);
 				break;
 
 			case 'mousemove':
+				//console.log("e.clientX="+e.clientX+" e.clientY="+e.clientY);
+				mouseX = e.clientX;
+				mouseY = e.clientY;
 				if (draggingObj) {
 					draggingObj.style.left = (e.clientX - diffX) + 'px';
 					draggingObj.style.top = (e.clientY - diffY) + 'px';
@@ -531,6 +605,61 @@ d3.selectAll('button').on('click', zoomClick);
 		removePointFromXYGraph(tagName);
 	}
 	
+
+
+	function zoomClick1() {
+	    var clicked = d3.event.target,
+	        direction = 1,
+	        factor = 0.2,
+	        target_zoom = 1,
+	        center = [width / 2, height / 2],
+	        extent = zoom.scaleExtent(),
+	        translate = zoom.translate(),
+	        translate0 = [],
+	        l = [],
+	        view = {x: translate[0], y: translate[1], k: zoom.scale()};
+	    console.log(" view= "+JSON.stringify(view)+ " ");
+
+	    console.log("================ zoomClick");
+	    d3.event.preventDefault();
+	    switch(this.id){
+	    case 'zoom_up':
+	    	console.log("=================== zoom_up");
+	    	interpolateZoom([view.x, view.y-10], view.k)
+	    	return;
+	    case 'zoom_down':
+	    	interpolateZoom([view.x, view.y+10], view.k)
+	    	return;
+	    case 'zoom_left':
+	    	interpolateZoom([view.x-10, view.y], view.k)
+	    	return;
+	    case 'zoom_right':
+	    	interpolateZoom([view.x+10, view.y], view.k)
+	    	return;
+	    case '':
+	    	fullScreen();
+	    	return;
+	    }
+	    console.log("zoomClick========+++++ ========");
+	    direction = (this.id === 'zoom_in') ? 1 : -1;
+	    // 缩放目标
+	    target_zoom = d3.scale * (1 + factor * direction);
+
+	    //if (target_zoom < extent[0] || target_zoom > extent[1]) { return false; }
+
+	    translate0 = [(center[0] - view.x) / view.k, (center[1] - view.y) / view.k];
+	    view.k = target_zoom;
+	    l = [translate0[0] * view.k + view.x, translate0[1] * view.k + view.y];
+		// 向左上伸展
+	    //view.x += center[0] - l[0];
+	    //view.y += center[1] - l[1];
+	    // interpolateZoom([view.x, view.y], view.k);
+	    // interpolateZoom([0, 0], view.k); // 中心不动向四周伸展
+	    view.x += l[0] - center[0];
+	    view.y += l[1] - center[1];
+	    console.log(" view= "+JSON.stringify(view)+ " ");
+	    interpolateZoom([view.x, view.y], view.k); // 左上角不动，击右下伸展。
+	}
 
 </script>
 

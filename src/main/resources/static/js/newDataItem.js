@@ -94,7 +94,7 @@ function contains(selectedPoints,serverName,tagName) {
 
 // 构建服务器、设备及点位
 function buildNewItemUI(serverInfos) {
-	 console.log("data =>"+actionType+"  "+itemID);
+	 //console.log("data =>"+actionType+"  "+itemID);
 
 	
 	console.log(" ----- debug 1 -----");
