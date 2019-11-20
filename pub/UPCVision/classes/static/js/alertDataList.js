@@ -28,15 +28,16 @@ function editItemAction(itemId) {
 	actionType = "alertData";
 	var _alertData = userSpace.alertData[itemId];
 	if(user.id == _alertData.creater || user.id == _alertData.owner || user.role == 1){
-			$('#newItemAction_mid').modal('show');
-		}else {
-			alert("您没有权限进行新建操作。");
-			return;
-		}
-editItem();
+		$('#newItemAction_mid').modal('show');
+	}else {
+		alert("您没有权限进行新建操作。");
+		return;
+	}
+	editItem();
 }
+
 function deleteItemAction(itemId) {
-console.log("deleteItemAction");
+	console.log("deleteItemAction");
 	var data={'uid':uid,'token':token,'id':itemId};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -154,7 +155,6 @@ function doShareActionToServer(){
  * @returns
  */
 function submitNewDataItem(selectedPoints,targetName,targetDesc){
-
 	console.log("alertData.js => submitNewDataItem 1 "+targetName +"  "+targetDesc);
 	var selectPointArray = new Array();
 	var i__ = 0;
@@ -186,7 +186,9 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 				console.log("alertData.js => submitNewDataItem 3");
 				var alertData = data.data.data;
 				$('#newItemAction_mid').modal('hide');
+				console.log("NewAlertData before fixLocalAlertDataList.");
 				fixLocalAlertDataList(alertData);
+				console.log("NewAlertData finished.");
 				// 
 			} else {
 				alert("失败 ： "+data.msg);

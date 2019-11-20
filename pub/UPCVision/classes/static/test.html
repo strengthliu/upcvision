@@ -1,128 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cmn-Hans">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>UPC VISION</title>
+<!-- plugins:css -->
+<link rel="stylesheet"
+	href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+<link rel="stylesheet"
+	href="vendors/iconfonts/puse-icons-feather/feather.css">
+<link rel="stylesheet"
+	href="vendors/iconfonts/simple-line-icon/css/simple-line-icons.css">
+
+<link rel="stylesheet" href="css/jquery.datetimepicker.css">
+<link rel="stylesheet" href="css/c3.css">
+<link rel="stylesheet" href="css/jquery.contextMenu.css">
+<!-- 
+<link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+<link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
+ -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="shortcut icon" href="images/favicon.png" />
+
+<!-- plugin css for this page -->
+<link rel="stylesheet"
+	href="vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
+<!-- plugin css for this page -->
+<!-- End plugin css for this page -->
+
+<!-- End plugin css for this page -->
+<!-- inject:css -->
+<link rel="stylesheet" href="css/style.css">
+<!-- endinject -->
+<script src="js/jquery-3.4.1.js"></script>
+<script src="js/jquery.contextMenu.js"></script>
+<script src="js/sockjs.min.js"></script>
+<script src="js/stomp.min.js"></script>
+<script src="js/c3.js"></script>
 <script src="js/d3.js"></script>
-<script src="js/c3_1.js"></script>
-<script src="js/jquery-3.4.1.min.js"></script>
+<!-- 这是个集成好的综合包，但是版本有点低，有些功能还没有实现，所以需要把匹配的新版本的包整理出来。
 <script src="js/bootstrap-datetimepicker.min.js"></script>
+ -->
+ <script src="vendors/js/vendor.bundle.base.js"></script>
+<script src="vendors/js/vendor.bundle.addons.js"></script>
 
-<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+<!-- 这部分是SVG操作的第三方库，基于Angular 
+<script src="js/hammer.min.js"></script>
+<script src="js/uniwheel.js"></script>
+<script src="js/control-icons.js"></script>
+<script src="js/utilities.js"></script>
+<script src="js/svg-utilities.js"></script>
+<script src="js/shadow-viewport.js"></script>
+<script src="js/svg-pan-zoom.js"></script>
+ -->
 
-</head>
+<script src="js/app.js"></script>
+<script src="js/router.js"></script>
+<script src="js/navagator.js"></script>
+<script src="js/lodash.js"></script>
+
+<style>
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+button {
+  padding: 10px 20px;
+}
+
+</style>
 <body>
-						<div class='input-group date form_date col-md-6'>
-							<input name="startTm" id="datetimepicker1" type='text'
-								placeholder="开始时间" class="form-control input-sm"
-								readonly="readonly" /> <span class="input-group-addon input-sm">
-								<span class="glyphicon glyphicon-calendar"></span>
-						</div>
-						<div class='input-group date form_date col-md-6'>
-							<input name="startTm" id="datetimepicker2" type='text'
-								placeholder="结束时间" class="form-control input-sm"
-								readonly="readonly" /> <span class="input-group-addon input-sm">
-								<span class="glyphicon glyphicon-calendar"></span>
-						</div>
-						<div class="btn-toolbar">
-							<button type="button" class="btn btn-sm btn-outline-secondary"
-								onclick="_search();">
-								<i class="mdi mdi-search-web text-primary"></i> 查询
-							</button>
-						</div>
 
-						<script type="text/javascript">
-							var _startTime_;
-							var _endTime_;
-							$('#datetimepicker1')
-									.datetimepicker(
-											{//初始化
-												language : 'zh-CN',
-												//weekStart: 1,
-												//todayBtn:  1,
-												autoclose : 1,
-												step: 10,   
-												//todayHighlight: 1,
-												//startView: 2,
-												//minView: 2,
-												//forceParse: 0,
-												//format: 'mm-dd hh:MM:ss',//格式化想要显示的时间格式
-												minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
-												onSelectTime : function(
-														dateText, inst) {
-													_startTime_ = new Date(
-															dateText).getTime();
-												}
-											});
-							$('#datetimepicker2')
-									.datetimepicker(
-											{//初始化
-												language : 'zh-CN',
-												//weekStart: 1,
-												//todayBtn:  1,
-												autoclose : 1,
-												//todayHighlight: 1,
-												//startView: 2,
-												//minView: 2,
-												//forceParse: 0,
-												//format: 'yyyy-mm-dd',//格式化想要显示的时间格式
-												minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
-												onSelectTime : function(
-														dateText, inst) {
-													_endTime_ = new Date(
-															dateText).getTime();
-												}
-											});
-						</script>
-<div id="cg">
+<div class="btn-toolbar">
+	<div class="btn-group">
+		<div class='input-group date form_date col-md-6'>
+			<input id="datetimepicker_start_graph" type='text' readonly="readonly" />
+		</div>
+		<div class='input-group date form_date col-md-6'>
+			<input name="startTm2" id="datetimepicker_end_graph" type='text'
+				placeholder="结束时间" class="form-control input-sm" readonly="readonly" />
+			<span class="input-group-addon input-sm"> <span
+				class="glyphicon glyphicon-calendar"></span></span>
+		</div>
+		<script type="text/javascript">
+			var _startTime_;
+			var _endTime_;
+			$('#datetimepicker_start_graph').datetimepicker({
+						autoclose : 1,
+						step : 10,
+						minView : 'month',
+						onSelectTime : function(){}
+					});
+
+		</script>
+	</div>
 </div>
+<div>
+<input type="text" name="startTime" class="form-control" readonly>
 <script>
-
-var chart  = c3.generate({
-	bindto : '#cg',
-    data: {
-        x: 'x',
-        columns: [
-            ['x', 30, 50, 100, 230, 300, 310],
-            ['data1', 30, 200, 100, 400, 150, 250],
-            ['data2', 130, 300, 200, 300, 250, 450]
-        ]
-    },
-	color : {
-		pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
-				'rgba(4,189,254,0.6)' ]
-	},
-	padding : {
-		top : 10,
-		right : 10,
-		bottom : 30,
-		left : 50,
-	}
-});
-
-setTimeout(function () {
-    chart.load({
-        columns: [
-            ['data1', 100, 250, 150, 200, 100, 350]
-        ]
-    });
-}, 1000);
-
-setTimeout(function () {
-    chart.load({
-        columns: [
-            ['data3', 80, 150, 100, 180, 80, 150]
-        ]
-    });
-}, 1500);
-
-setTimeout(function () {
-    chart.unload({
-        ids: 'data2'
-    });
-}, 2000);
-
+$("input[name='startTime']").datetimepicker({
+  minView : "day", //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
+  language : 'zh-CN', // 语言
+  autoclose : true, //  true:选择时间后窗口自动关闭
+  format : 'yyyy-mm-dd hh:00:00', // 文本框时间格式，设置为0,最后时间格式为2017-03-23 17:00:00
+  todayBtn : true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
+  startDate : new Date() ,  // 窗口可选时间从今天开始
+      endDate : new Date()   // 窗口最大时间直至今天
+})
 </script>
+</div>
 
 </body>
-</html>

@@ -8,18 +8,51 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel-2">Modal title</h5>
+				<h5 class="modal-title" id="exampleModalLabel-2">上传图形</h5>
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
-				<p>Modal body text goes here.</p>
+                <div class="card-body">
+                  <form class="forms-sample">
+                    <div class="form-group">
+                      <label for="exampleInputName1">图形名称</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleTextarea1">图形说明</label>
+                      <textarea class="form-control" id="exampleTextarea1" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>上传图形缩略图</label>
+                      <input type="file" name="img[]" class="file-upload-default">
+                      <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="上传图形缩略图">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-info" type="button">Upload</button>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>上传图形文件</label>
+                      <input type="file" name="img[]" class="file-upload-default">
+                      <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="上传图形文件">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-info" type="button">Upload</button>
+                        </span>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-success">Submit</button>
-				<button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-success">确定</button>
+				<button type="button" class="btn btn-light" data-dismiss="modal">取消</button>
 			</div>
 		</div>
 	</div>
@@ -107,11 +140,5 @@
 
 <!-- Custom js for this page-->
 <script src="js/graphList.js"></script>
-<script src="./js/shareRight.js">
-
-<script src="./js/light-gallery.js">
-
-
-
-</script>
-
+<script src="./js/shareRight.js"></script>
+<script src="./js/light-gallery.js"></script>

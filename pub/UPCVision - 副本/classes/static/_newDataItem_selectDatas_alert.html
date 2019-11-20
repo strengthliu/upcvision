@@ -168,6 +168,11 @@
 		// console.log("cancel");
 		init();
 	}
+	// 点击取消或关闭按钮
+	function cancel() {
+		// console.log("cancel");
+		init();
+	}
 
 	// 初始化
 	function init() {
@@ -252,7 +257,7 @@
 			if (!selectedPoints.size > 0) {
 				alert("请选择点位，再进行下一步。");
 				return;
-			} else if (selectedPoints.size > 10) {
+			} else if (selectedPoints.size > 100000) {
 				alert("选择的点位太多了，系统算不过来。请选择少于10个点位");
 				return;
 			}

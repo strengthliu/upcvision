@@ -303,6 +303,8 @@ public class HistoryDataController extends BaseController {
 		String id = user.getString("id");
 		// 检查参数合法性
 		if (StringUtil.isBlank(id)) {
+			// TODO: 如果ID为空，就取pointTagList
+			
 			ret.setStatus(GlobalConsts.ResultCode_FAIL);
 			ret.setMsg("参数不正确，ID不能为空。");
 			return ret;
@@ -375,4 +377,110 @@ public class HistoryDataController extends BaseController {
 			return ret;
 		}
 	}
+
+//	/**
+//	 * 获取一个历史数据
+//	 * 
+//	 * @param user
+//	 * @param request
+//	 * @return
+//	 * @throws Exception
+//	 */
+//	@RequestMapping(value = "getHistoryData", method = { RequestMethod.POST, RequestMethod.GET })
+//	public ToWeb getHistoryData(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
+//		Double uid = user.getDouble("uid");
+//		String token = user.getString("token");
+//		String idstr = user.getString("id");
+//		Double idd = null;
+//		if (StringUtil.isBlank(idstr)) {
+//
+//		} else {
+//			idd = Double.valueOf(idstr);
+//		}
+//
+//		// 认证+权限
+//		HistoryData g = this.historyDataManager.getHistoryDataByKeys(idd);
+//		UserRight ur = g.getRight(uid);
+//		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getHistoryData, ur);
+//		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+//			return ret;
+//
+//		// 取出参数
+//		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
+//		String id = user.getString("id");
+//		// 检查参数合法性
+//		if (StringUtil.isBlank(id)) {
+//			ret.setStatus(GlobalConsts.ResultCode_FAIL);
+//			ret.setMsg("参数不正确，ID不能为空。");
+//			return ret;
+//		}
+//		Double rtdId = Double.valueOf(id);
+//		
+//		// 取时间参数
+//		String beginTimeStr = user.getString("beginTime");
+//		String endTimeStr = user.getString("endTime");
+//		Date beginTime = null;
+//		Long _beginTime = null;
+////		new Timestamp();
+////		new Date(beginTimeStr).UTC(year, month, date, hrs, min, sec);
+//		Date endTime = null;
+//		Long _endTime = null;
+//		try {
+//			if(StringUtil.isBlank(endTimeStr)) {
+//				SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+////				_endTime=TimeTools.parseSecond(sDateFormat.parse("2019-09-22 21:00:00").getTime());
+//				_endTime=TimeTools.parseSecond(System.currentTimeMillis());
+//			}
+//			else {
+////				endTime = new Date(endTimeStr);
+//				_endTime = TimeTools.parseSecond(Long.valueOf(endTimeStr));
+//			}
+//
+//			if(StringUtil.isBlank(beginTimeStr)) {
+//				SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+////				_beginTime=TimeTools.parseSecond(sDateFormat.parse("2019-09-22 19:00:00").getTime());
+////				_beginTime=TimeTools.parseSecond(System.currentTimeMillis());
+//				_beginTime=_endTime-2*60*60;
+//			}
+//			else {
+////				beginTime = new Date(beginTimeStr);
+//				_beginTime = TimeTools.parseSecond(Long.valueOf(beginTimeStr));
+//			}
+//			
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+//			ret.setMsg("日期格式不正确");
+//			return ret;
+//		}
+//
+//		try {
+////			historyDataManager.getHistoryData(rtdId, Long.valueOf(1), Long.valueOf(1));
+//			ArrayList<?> rtd = historyDataManager.getHistoryData(rtdId, _beginTime, _endTime);
+//			
+////			HistoryData rtd = historyDataManager.getHistoryData(rtdId);
+//			if (rtd == null ) {
+//				ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+//				ret.setMsg("没有指定ID的数据。");
+//				ret.setRefresh(true);
+//				return ret;
+//			}
+//			if (rtd != null) {
+//				// 更新用户空间
+//				// UserSpace us = userSpaceManager.getUserSpaceRigidly(Long.valueOf(uid));
+//				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+//				ret.setMsg("成功");
+//				ret.setData("data", rtd);
+//				ret.setRefresh(true);
+//				return ret;
+//			} else
+//				throw new Exception();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
+//			ret.setMsg("异常失败");
+//			return ret;
+//		}
+//	}
+
 }

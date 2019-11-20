@@ -49,19 +49,22 @@
 		user = JSON.parse(localStorage.user);
 		token = localStorage.token;
 		//alert("token="+token+"  uid="+user.id);
-		uname = user.name;
-		uid = user.id;
-		if (userSpace == null || userSpace == "undefined")
-			getUserSpace(uid, token);
-		else
-			checkRight(uid, token, "index.html", null);
+		if (user != null && token != null && user != "undefined"
+				&& token != "undefined") {
+			uname = user.name;
+			uid = user.id;
+			if (userSpace == null || userSpace == "undefined")
+				getUserSpace(uid, token);
+			else
+				checkRight(uid, token, "index.html", null);
+		}
 	} else {
 		localStorage.user = null;
 		localStorage.token = null;
+		user = null;
+		token = null;
 		location.href = "login.html";
 	}
-
-
 </script>
 </head>
 <body>
@@ -72,9 +75,9 @@
 			<div
 				class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
 				<a class="navbar-brand brand-logo" href="index.html"><img
-					src="images/logo.png" alt="logo" /></a> <a
+					src="images/logo_l.png" alt="logo" /></a> <a
 					class="navbar-brand brand-logo-mini" href="index.html"><img
-					src="images/logo-mini.svg" alt="logo" /></a>
+					src="images/logo.png" alt="logo" /></a>
 			</div>
 			<div class="navbar-menu-wrapper d-flex align-items-stretch">
 				<button class="navbar-toggler navbar-toggler align-self-center"
@@ -285,7 +288,7 @@
 						<div class="nav-link d-flex">
 							<div class="profile-image">
 								<!--            左侧的用户头像姓名     -->
-								<img src="images/faces/face1.jpg" alt="image" /> <span
+								<img id="_face" src="images/faces/face1.jpg" alt="image" /> <span
 									class="online-status online"></span>
 								<!--change class online to offline or busy as needed-->
 							</div>
@@ -306,6 +309,22 @@
 									var unrd = document
 											.getElementById("userNameUIRight");
 									unrd.innerHTML = user.name;
+									var _face = document
+											.getElementById("_face");
+									switch (user.role) {
+									case 1:
+										$("#_face").attr("src",
+												"images/faces/user1.png");
+										break;
+									case 2:
+										$("#_face").attr("src",
+												"images/faces/user2.jpeg");
+										break;
+									case 3:
+										$("#_face").attr("src",
+												"images/faces/user3.jpeg");
+										break;
+									}
 								}
 							</script>
 						</div>
@@ -347,7 +366,7 @@
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-realtimedata"
 						aria-expanded="false" aria-controls="ui-realtimedata"> <i
-							class="icon-server menu-icon"></i> <span class="menu-title"
+							class="icon-bar-graph menu-icon"></i> <span class="menu-title"
 							onclick="routeTo('realtimedataList','')">实时数据查询</span> <i
 							class="menu-arrow"></i>
 					</a>
@@ -376,7 +395,7 @@
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-datahistory"
 						aria-expanded="false" aria-controls="ui-datahistory"> <i
-							class="icon-layers menu-icon"></i> <span class="menu-title"
+							class="icon-grid-2 menu-icon"></i> <span class="menu-title"
 							onclick="routeTo('historydataList','')">历史数据</span> <i
 							class="menu-arrow"></i>
 					</a>
@@ -394,7 +413,7 @@
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-directreporting"
 						aria-expanded="false" aria-controls="ui-directreporting"> <i
-							class="icon-layers menu-icon"></i> <span class="menu-title"
+							class="icon-map menu-icon"></i> <span class="menu-title"
 							onclick="routeTo('lineAlertdataList','')">直线警报</span> <i
 							class="menu-arrow"></i>
 					</a>
@@ -406,13 +425,26 @@
 						</div></li>
 
 					<script>
+						getUserSpace(user.id, token, updateUI());
+
 						//console.log("begin to build left navigator");
-						updateDiagram();
-						updateXYDiagram();
-						updateRealTimeData();
-						updateAlertData();
-						updateHistoryData();
-						updateLineAlertData();
+						//if (userSpace != null && userSpace != "undefined") {
+						//	console.log("index.html before updateUI() ->userSpace is not null");
+						//	updateUI();
+						//} else {
+						//	if (user == null || token == null) {
+						//
+						//	} else
+						//		getUserSpace(user.id, token, updateUI());
+						//}
+						function updateUI() {
+							updateDiagram();
+							updateXYDiagram();
+							updateRealTimeData();
+							updateAlertData();
+							updateHistoryData();
+							updateLineAlertData();
+						}
 					</script>
 
 					<!-- *******************************  用户管理 ******************************* -->

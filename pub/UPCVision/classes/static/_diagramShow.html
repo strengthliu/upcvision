@@ -1,105 +1,225 @@
+
+
+<div style="position: fixed; top: 250px; right: 10px; z-index: 900;">
+	<div class="modal-footer dialog-title" style="float: right;">
+		<div class="card">
+			<div class="accordion accordion-inverse-primary" id="accordion-2"
+				role="tablist">
+				<div class="card">
+					<div>
+						<button id="zoom_in">
+							<i class="mdi mdi-plus-circle-outline ml-1"></i>
+						</button>
+						<button id="zoom_out">
+							<i class="mdi mdi-minus-circle-outline ml-1"></i>
+						</button>
+						<button id="zoom_fullScreen">
+							<i class="mdi mdi-fullscreen ml-1"></i>
+						</button>
+					</div>
+					<div>
+						<button id="zoom_up">
+							<i class="mdi mdi-arrow-up ml-1"></i>
+						</button>
+						<button id="zoom_down">
+							<i class="mdi mdi-arrow-down ml-1"></i>
+						</button>
+						<button id="zoom_left">
+							<i class="mdi mdi-arrow-left ml-1"></i>
+						</button>
+						<button id="zoom_right">
+							<i class="mdi mdi-arrow-right ml-1"></i>
+						</button>
+					</div>
+					<div class="card-header" role="tab" id="headingOne-2">
+						<h6 class="mb-0">
+							<a data-toggle="collapse" href="#collapseOne-2"
+								aria-expanded="true" aria-controls="collapseOne-2"> 点位</a>
+						</h6>
+					</div>
+					<div id="collapseOne-2" class="collapse show" role="tabpanel"
+						aria-labelledby="headingOne-2" data-parent="#accordion-2">
+						<div class="card-body">
+							<div class="list-wrapper">
+								<ul
+									class="d-flex flex-column-reverse todo-list todo-list-custom"
+									id="xygraph_points_ui">
+								</ul>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn-primary btn-sm"
+						onclick="buildChart()">
+						查看趋势图<i class="mdi mdi-play-circle ml-1"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+	aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header dialog-title">
+				<h5 class="modal-title" id="exampleModalLabel">趋势图查看</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close" onclick="closeGraph();">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+
+			<div class="content-wrapper" style="display: none;">
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-12">
+										<div class="row portfolio-grid" id="ui-historyDataPoints">
+											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-12 grid-margin stretch-card">
+				<div class="card">
+					<div class="card-body">
+						<div class="col-md-12 mb-4 mt-4">
+							<div class="btn-toolbar">
+								<div class="btn-group">
+									<div class='input-group date form_date col-md-6'>
+										<input name="startTm" id="datetimepicker_start_graph" type='text'
+											placeholder="开始时间" class="form-control input-sm"
+											readonly="readonly" /> <span
+											class="input-group-addon input-sm"> <span
+											class="glyphicon glyphicon-calendar"></span></span>
+									</div>
+									<div class='input-group date form_date col-md-6'>
+										<input name="startTm" id="datetimepicker_end_graph" type='text'
+											placeholder="结束时间" class="form-control input-sm"
+											readonly="readonly" /> <span
+											class="input-group-addon input-sm"> <span
+											class="glyphicon glyphicon-calendar"></span></span>
+									</div>
+									<div class="btn-toolbar">
+										<button type="button" class="btn btn-sm btn-outline-secondary"
+											onclick="_search();">
+											<i class="mdi mdi-search-web text-primary"></i> 查询
+										</button>
+									</div>
+									<script type="text/javascript">
+										var _startTime_;
+										var _endTime_;
+										$('#datetimepicker_start_graph').datetimepicker(
+												{//初始化
+													language : 'zh-CN',
+													//weekStart: 1,
+													//todayBtn:  1,
+													autoclose : 1,
+													step : 10,
+													//todayHighlight: 1,
+													//startView: 2,
+													//minView: 2,
+													//forceParse: 0,
+													//format: 'mm-dd hh:MM:ss',//格式化想要显示的时间格式
+													minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
+													onSelectTime : function(
+															dateText, inst) {
+														_startTime_ = new Date(
+																dateText)
+																.getTime();
+													}
+												});
+										$('#datetimepicker_end_graph').datetimepicker(
+												{//初始化
+													language : 'zh-CN',
+													//weekStart: 1,
+													//todayBtn:  1,
+													autoclose : 1,
+													//todayHighlight: 1,
+													//startView: 2,
+													//minView: 2,
+													//forceParse: 0,
+													//format: 'yyyy-mm-dd',//格式化想要显示的时间格式
+													minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
+													onSelectTime : function(
+															dateText, inst) {
+														_endTime_ = new Date(
+																dateText)
+																.getTime();
+													}
+												});
+									</script>
+								</div>
+							</div>
+							<div class="col-md-12 mb-4 mt-4">
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-outline-secondary"
+										onclick="_backward();">
+										<i class="mdi mdi-step-backward text-primary"></i> 后退
+									</button>
+									<!-- 
+						<button type="button" class="btn btn-sm btn-outline-secondary">
+							<i class="mdi mdi-play text-primary"></i>播放
+						</button>
+						 -->
+									<button type="button" class="btn btn-sm btn-outline-secondary"
+										onclick="_forward();">
+										<i class="mdi mdi-step-forward text-primary"></i>前进
+									</button>
+								</div>
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-outline-secondary"
+										onclick="zoomin_x();">
+										<i class="mdi mdi-format-superscript text-primary"></i>x轴放大
+									</button>
+									<button type="button" class="btn btn-sm btn-outline-secondary"
+										onclick="zoomout_x();">
+										<i class="mdi mdi-format-subscript text-primary"></i>x轴缩小
+									</button>
+								</div>
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-outline-secondary"
+										onclick="zoomin_y();">
+										<i class="mdi mdi-arrow-expand-up text-primary"></i>y轴放大
+									</button>
+									<button type="button" class="btn btn-sm btn-outline-secondary"
+										onclick="zoomout_y();">
+										<i class="mdi mdi-arrow-expand-down text-primary"></i>y轴缩小
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card-body" style="overflow: auto">
+						<table class="table table-bordered"
+							style="white-space: nowrap; overflow-y: scroll; overflow-x: scroll;"
+							id="_datatableUI">
+						</table>
+					</div>
+					<div class="card-body">
+						<div id="ui-historyDataLineChart">
+							<div id="c3-line-chart"></div>
+							<div id="c3-spline-chart"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <!-- partial -->
 <div id="_diagramShow"></div>
 
 <!-- Dummy Modal Ends -->
-<!-- Modal starts -->
-<div class="modal fade" id="newItemAction_mid" tabindex="-1"
-	role="dialog" aria-labelledby="newItemAction_mid" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel-2">Modal title</h5>
-				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<p>Modal body text goes here.</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-success">Submit</button>
-				<button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Modal Ends -->
-<div style="display: none;">
-	<div class="content-wrapper" style="display: none;">
-		<div class="row">
-			<div class="col-12">
-				<div class="card">
-					<div class="card-body">
-						<div class="row">
-							<div class="col-12">
-								<div class="row portfolio-grid" id="ui-xyGraphPoints">
-									<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-lg-12 grid-margin stretch-card">
-		<div class="card">
-			<div class="card-body">
-				<div class="col-md-12 mb-4 mt-4">
-					<div class="btn-toolbar">
-						<div class="btn-group">
-							x轴：
-							<div class="dropdown">
-								<button class="btn btn-outline-warning dropdown-toggle"
-									type="button" id="x_axisSelectButtonUI" data-toggle="dropdown"
-									aria-haspopup="true" aria-expanded="false">时间</button>
-								<div class="dropdown-menu"
-									aria-labelledby="x_axisSelectButtonUIMenu"
-									id="x_axisSelectButtonUIMenu">
-									<a class="dropdown-item" href="#">Action</a> <a
-										class="dropdown-item" href="#">Another action</a> <a
-										class="dropdown-item" href="#">Something else here</a>
-								</div>
-							</div>
-						</div>
-						<div class="btn-group">
-							<button type="button" class="btn btn-sm btn-outline-secondary"
-								onclick="zoomin_x();">
-								<i class="mdi mdi-format-superscript text-primary"></i>x轴放大
-							</button>
-							<button type="button" class="btn btn-sm btn-outline-secondary"
-								onclick="zoomout_x();">
-								<i class="mdi mdi-format-subscript text-primary"></i>x轴缩小
-							</button>
-						</div>
-						<div class="btn-group">
-							<button type="button" class="btn btn-sm btn-outline-secondary"
-								onclick="zoomin_y();">
-								<i class="mdi mdi-arrow-expand-up text-primary"></i>y轴放大
-							</button>
-							<button type="button" class="btn btn-sm btn-outline-secondary"
-								onclick="zoomout_y();">
-								<i class="mdi mdi-arrow-expand-down text-primary"></i>y轴缩小
-							</button>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<div class="card-body">
-				<table class="table table-bordered" id="_datatableUI">
-				</table>
-			</div>
-			<div class="card-body">
-				<div id="ui-xyGraphLineChart">
-					<div id="c3-line-chart"></div>
-					<div id="c3-spline-chart"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 <script>
 	function getGraphByPath_1(graph, path) {
@@ -151,8 +271,9 @@
 		console.log("dddd");
 	}
 
+	// 页面加载完成后调用。在之前调用会导致不能正确获得对象。
 	function changeAAction() {
-		//	  console.log("=====================");
+			  console.log("=====================");
 		var d = document.getElementById("_diagramShow");
 		//	  console.log("html:"+d.innerHTML);
 		var as = d.getElementsByTagName("a");
@@ -161,6 +282,7 @@
 			//console.log("a - html: "+_a.outerHTML+" url="+_a.href.baseVal);
 			var t = _a.href.baseVal;
 
+			
 			_a.onclick = function() {
 				//console.log("点击了 "+this.innerHTML);
 				console.log("a -  url=" + this.href.baseVal);
@@ -177,15 +299,381 @@
 				return false;
 			};
 		}
-	}
-</script>
-<!-- End custom js for this page-->
-<script src="./js/light-gallery.js"></script>
-<script src="./js/jquerySession.js"></script>
-<!-- 
-<script src="./js/xyRealTimeHistoryGraphChart.js"></script>
--->
-<script src="./js/graph.js"></script>
 
+
+		// 获取图形宽高
+		svg1 = document.getElementsByTagName("svg");
+		svg1 = svg1[0];
+	    width = svg1.attributes.width.value;
+	    height = svg1.attributes.height.value;
+	    //width = 960;
+	    //height = 500;
+	    console.log("widthaaa="+width+" heightbbb="+height+"");
+	    // D3操作对象
+		zoom = d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", zoomed); //= d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
+		svg = d3.select("svg").call(zoom);
+		//svg = d3.select("#svg_101");
+	    //width = svg.attributes.width.value;
+	    //height = svg.attributes.height.value;
+		
+	    console.log("svg => "+JSON.stringify(svg));
+	    console.log("=====2");
+	    // 对SVG内的的所有button设置点击事件为zoomClick缩放操作。
+		//d3.selectAll('button').on('click', zoomClick);	
+	    // svg.selectAll("g").call(d3.drag().on("drag", dragged));
+	    //console.log("00");
+	    //var drag = d3.drag();
+		//svg.enter().attr("r", 2.5).attr("transform", function(d) { return "translate(" + d + ")"; });
+	    //console.log("11");
+	    //svg.selectAll("g").call(d3.drag().on("drag", dragged));
+	    
+	    // 图形全屏
+		fullScreenFn();
+
+	}
+	
+	var svg1;
+	var svg ;//svg = document.getElementsByTagName("svg");
+    console.log("=====1");
+    var width = 0;//svg.attributes.width.value;
+    var height = 0;//svg.attributes.height.value;
+
+var zoom = d3.behavior.zoom().scaleExtent([0.5, 8]).on("zoom", zoomed);
+
+function zoomed() {
+	console.log("zoomed() zoom.translate()="+zoom.translate()+" zoom.scale()="+zoom.scale());
+	
+    svg.attr("transform",
+        "translate(" + zoom.translate() + ")" +
+        //"translate(0,0)" +
+        "scale(" + zoom.scale() + ")"
+    );
+    // svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+}
+
+function interpolateZoom (translate, scale) {
+    var self = this;
+    return d3.transition().duration(350).tween("zoom", function () {
+        var iTranslate = d3.interpolate(zoom.translate(), translate),
+            iScale = d3.interpolate(zoom.scale(), scale);
+    	console.log("interpolateZoom translate="+translate+" scale="+scale);
+    	console.log("interpolateZoom iTranslate="+iTranslate+" iScale="+iScale);
+        return function (t) {
+        	console.log("t="+t);
+        	console.log("interpolateZoom iTranslate(t)="+iTranslate(t)+" iScale(t)="+iScale(t));
+        	console.log("interpolateZoom iTranslate="+iTranslate+" iScale="+iScale);
+           zoom
+                .scale(iScale(t))
+                .translate(iTranslate(t));
+            zoomed();
+        };
+    });
+}
+
+function zoomClick() {
+    var clicked = d3.event.target,
+        direction = 1,
+        factor = 0.2,
+        target_zoom = 1,
+        center = [width / 2, height / 2],
+        extent = zoom.scaleExtent(),
+        translate = zoom.translate(),
+        translate0 = [],
+        l = [],
+        view = {x: translate[0], y: translate[1], k: zoom.scale()};
+
+    d3.event.preventDefault();
+    
+    switch(this.id){
+    case 'zoom_up':
+    	console.log("=================== zoom_up");
+    	interpolateZoom([view.x, view.y-10], view.k)
+    	return;
+    case 'zoom_down':
+    	interpolateZoom([view.x, view.y+10], view.k)
+    	return;
+    case 'zoom_left':
+    	interpolateZoom([view.x-10, view.y], view.k)
+    	return;
+    case 'zoom_right':
+    	interpolateZoom([view.x+10, view.y], view.k)
+    	return;
+    case 'zoom_fullScreen':
+    	fullScreen();
+    	return;
+    case 'zoom_in':
+    	direction = 1;
+    	break;
+    case 'zoom_out':
+    	direction = -1;
+    	break;
+   	default:
+   		return;
+    }
+    // direction = (this.id === 'zoom_in') ? 1 : -1;
+    target_zoom = zoom.scale() * (1 + factor * direction);
+
+    if (target_zoom < extent[0] || target_zoom > extent[1]) { return false; }
+
+    translate0 = [(center[0] - view.x) / view.k, (center[1] - view.y) / view.k];
+    view.k = target_zoom;
+    l = [translate0[0] * view.k + view.x, translate0[1] * view.k + view.y];
+
+    //view.x += center[0] - l[0];
+    //view.y += center[1] - l[1];
+    view.x += l[0] - center[0];
+    view.y += l[1] - center[1];
+
+    interpolateZoom([view.x, view.y], view.k);
+    //interpolateZoom([0, 0], view.k);
+}
+
+	var fullScreenEnable = true;
+	function fullScreen(){
+		console.log("fullScreen()");
+		if(!fullScreenEnable)
+			fullScreenEnable = !fullScreenEnable;
+		fullScreenFn();
+	}
+	
+	function fullScreenFn(){
+		if(fullScreenEnable){
+			// 取当前页面宽度和高度
+			var _svgP = svg1.parentNode;
+			var mainToolsBarRect = _svgP.getBoundingClientRect();
+			console.log(" y="+JSON.stringify(mainToolsBar.getBoundingClientRect()));
+			// 取当前图形宽度和高度 
+			console.log(" width="+width +" heigth="+height);
+			// mainPanel屏幕左上角坐标
+			var y = mainToolsBarRect.y ;//+ mainToolsBarRect.height;
+			var x = mainToolsBarRect.x;
+			var mainPanelHeigth = window.innerHeight;
+			var mainPanelWidth = mainToolsBarRect.width;
+			
+			var scale1 = mainPanelHeigth / mainPanelWidth;
+			var _diagramShow = document.getElementById("_diagramShow").getBoundingClientRect();
+			var scale2 = _diagramShow.height / _diagramShow.width;
+			var scale ;//= scale1 > scale2 ? scale1 : scale2;
+			if(scale1 > scale2){ // 图比屏幕扁，以图的宽为限
+				scale = mainPanelWidth / width ;
+			} else{
+				scale = mainPanelHeigth / height;
+			}
+			
+			console.log(" _diagramShow="+JSON.stringify(_diagramShow));
+			console.log("window.innerHeight="+window.innerHeight);
+			//console.log("document.documentElement.clientHeight = "+document.documentElement.clientHeight);
+			//console.log("document.body.clientHeight = "+document.body.clientHeight);
+			
+			// 计算translate和scale,调用 function interpolateZoom (translate, scale)
+			var tx = _diagramShow.x + _diagramShow.width/2 * (1 - scale);
+			var ty = _diagramShow.y + _diagramShow.height/2 * (1 - scale);
+			//var trans = {_diagramShow.x - x,_diagramShow.y - y};
+			console.log("scale="+scale+" tx="+tx+" ty="+ty+" x="+x+" y="+y+" x-ty="+(x-tx)+" y-ty="+(y-ty));
+		    svg.attr("transform",
+		            "translate(" + [x- tx + 10, y- ty] + ")" +
+		            "scale(" + scale + ")"
+		        );
+
+
+			//interpolateZoom([x- tx, y- ty], scale);
+			
+			// 计算缩放比
+ //var _y={"x":266,"y":1,"width":840,"height":58,"top":1,"right":1106,"bottom":59,"left":266}
+ //width=1062 heigth=669
+ //_diagramShow={"x":285.390625,"y":76,"width":801.21875,"height":674,"top":76,"right":1086.609375,"bottom":750,"left":285.390625}			
+			// 计算左上角坐标
+			
+			// 移动缩放图形
+			
+		}
+	}
+	
+	$(window).resize(function(){
+		fullScreenFn();
+	});
+
+	// 设置resize事件
+	addResizeEvent(fullScreenFn);
+	function addResizeEvent(func) {
+	    //把现有的 window.onload 事件处理函数的值存入变量
+	    var oldResize = window.resize;
+	    if (typeof window.resize != "function") {
+	      //如果这个处理函数还没有绑定任何函数，就像平时那样添加新函数
+	      window.onload = func;
+	    } else {
+	      //如果处理函数已经绑定了一些函数，就把新函数添加到末尾
+	      window.resize = function() {
+	    	  oldResize();
+	        func();
+	      }
+	    }
+	  }
+
+	d3.selectAll('button').on('click', zoomClick);
+
+	
+	//********************* 对话框拖拽 ********
+	var mouseX = 0;
+	var mouseY = 0;
+	var Dragging = function(validateHandler) { //参数为验证点击区域是否为可移动区域，如果是返回欲移动元素，负责返回null
+		var draggingObj = null; //dragging Dialog
+		var diffX = 0;
+		var diffY = 0;
+
+		function mouseHandler(e) {
+			switch (e.type) {
+			case 'mousedown':
+				console.log("mousedown");
+				draggingObj = validateHandler(e);//验证是否为可点击移动区域
+				if (draggingObj != null) {
+					diffX = e.clientX - draggingObj.offsetLeft;
+					diffY = e.clientY - draggingObj.offsetTop;
+				}
+				break;
+
+			case 'mousemove':
+				//console.log("e.clientX="+e.clientX+" e.clientY="+e.clientY);
+				mouseX = e.clientX;
+				mouseY = e.clientY;
+				if (draggingObj) {
+					draggingObj.style.left = (e.clientX - diffX) + 'px';
+					draggingObj.style.top = (e.clientY - diffY) + 'px';
+				}
+				break;
+
+			case 'mouseup':
+				draggingObj = null;
+				diffX = 0;
+				diffY = 0;
+				break;
+			}
+		}
+		;
+
+		return {
+			enable : function() {
+				document.addEventListener('mousedown', mouseHandler);
+				document.addEventListener('mousemove', mouseHandler);
+				document.addEventListener('mouseup', mouseHandler);
+			},
+			disable : function() {
+				document.removeEventListener('mousedown', mouseHandler);
+				document.removeEventListener('mousemove', mouseHandler);
+				document.removeEventListener('mouseup', mouseHandler);
+			}
+		}
+	}
+
+	function getDraggingDialog(e) {
+		var target = e.target;
+		console.log(" 1 ->"+target);
+		console.log(" 2 ->"+target.nodeName);
+		console.log(" 3 ->"+target.nodeType + " " + target);
+		console.log(" 4 ->"+target.getAttribute("id"));
+		if (target.nodeName != "DIV")
+			return;
+		while (target && (target.className.indexOf('dialog-title') || target.getAttribute("id")=="toMenu" )== -1) {
+			target = target.offsetParent;
+		}
+		if (target != null) {
+			return target.offsetParent;
+		} else {
+			return null;
+		}
+	}
+
+	Dragging(getDraggingDialog).enable();
+
+
+	function _addPointToXY(tagName) {
+		var pointsul = document.getElementById("xygraph_points_ui");
+		var pointli = document.createElement("li");
+		pointli.setAttribute("id", "pointli_" + tagName);
+		var lihtml = "";
+		lihtml += '<div class="form-check form-check-flat"><label class="form-check-label">';
+		lihtml += ' <input class="checkbox" type="checkbox">' + tagName;
+		lihtml += '</label></div> ';
+		lihtml += '<i class="remove mdi mdi-close-circle-outline" onclick="_removePointFromXY(\''
+				+ tagName + '\')"></i>';
+		pointli.innerHTML = lihtml;
+		pointsul.appendChild(pointli);
+
+		//addPointToXYGraph(tagName);
+	}
+	function _removePointFromXY(tagName) {
+		var pointsul = document.getElementById("pointli_" + tagName);
+		pointsul.parentNode.removeChild(pointsul);
+		removePointFromXYGraph(tagName);
+	}
+	
+
+
+	function zoomClick1() {
+	    var clicked = d3.event.target,
+	        direction = 1,
+	        factor = 0.2,
+	        target_zoom = 1,
+	        center = [width / 2, height / 2],
+	        extent = zoom.scaleExtent(),
+	        translate = zoom.translate(),
+	        translate0 = [],
+	        l = [],
+	        view = {x: translate[0], y: translate[1], k: zoom.scale()};
+	    console.log(" view= "+JSON.stringify(view)+ " ");
+
+	    console.log("================ zoomClick");
+	    d3.event.preventDefault();
+	    switch(this.id){
+	    case 'zoom_up':
+	    	console.log("=================== zoom_up");
+	    	interpolateZoom([view.x, view.y-10], view.k)
+	    	return;
+	    case 'zoom_down':
+	    	interpolateZoom([view.x, view.y+10], view.k)
+	    	return;
+	    case 'zoom_left':
+	    	interpolateZoom([view.x-10, view.y], view.k)
+	    	return;
+	    case 'zoom_right':
+	    	interpolateZoom([view.x+10, view.y], view.k)
+	    	return;
+	    case '':
+	    	fullScreen();
+	    	return;
+	    }
+	    console.log("zoomClick========+++++ ========");
+	    direction = (this.id === 'zoom_in') ? 1 : -1;
+	    // 缩放目标
+	    target_zoom = d3.scale * (1 + factor * direction);
+
+	    //if (target_zoom < extent[0] || target_zoom > extent[1]) { return false; }
+
+	    translate0 = [(center[0] - view.x) / view.k, (center[1] - view.y) / view.k];
+	    view.k = target_zoom;
+	    l = [translate0[0] * view.k + view.x, translate0[1] * view.k + view.y];
+		// 向左上伸展
+	    //view.x += center[0] - l[0];
+	    //view.y += center[1] - l[1];
+	    // interpolateZoom([view.x, view.y], view.k);
+	    // interpolateZoom([0, 0], view.k); // 中心不动向四周伸展
+	    view.x += l[0] - center[0];
+	    view.y += l[1] - center[1];
+	    console.log(" view= "+JSON.stringify(view)+ " ");
+	    interpolateZoom([view.x, view.y], view.k); // 左上角不动，击右下伸展。
+	}
+
+</script>
+
+<!-- End custom js for this page-->
+<script src="./js/jquerySession.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+
+<!-- 
+<script src="./js/light-gallery.js"></script>
+<script src="./js/xyRealTimeHistoryGraphChart.js"></script>
 <script src="vendors/lightgallery/js/lightgallery-all.min.js"></script>
+-->
+
+<script src="./js/graph.js"></script>
 

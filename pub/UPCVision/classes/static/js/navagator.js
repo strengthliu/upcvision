@@ -8,7 +8,6 @@
 			// console.log("userSpace is not null");
 			doUpdateDiagram(userSpace);
 		} else {
-			
 			getUserSpace(
 					user.id,
 					token,
@@ -75,8 +74,6 @@
 			// console.log("userSpace is null");
 			return;
 		}
-		
-
 		/* 刷新XY图结构*/
 		var xydiagrams = userSpace.xyGraph;
 		if(xydiagrams == null || xydiagrams == "undefined") xydiagrams = {};
@@ -96,7 +93,7 @@
 								var xydiagram = xydiagrams[key];
 								if(key == "") key = "未分类";
 
-								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'xyGraphDetail','"+key+"');"+'">'
+								var item = '<li class="nav-item" onclick="routeTo('+"'xyGraphDetail','"+key+"');"+'"><text class="nav-link">'
 										+ xydiagram.name + '</text></li>';
 								itemsHtml = itemsHtml + item;
 								// // console.log(key,obj[key]);
@@ -255,7 +252,7 @@
 								var historydata = historydatas[key];
 								if(key == "") key = "未分类";
 
-								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'historydataList','"+key+"');"+'">'
+								var item = '<li class="nav-item" onclick="routeTo('+"'historydatadetail','"+key+"');"+'"><text class="nav-link">'
 										+ historydata.name + '</text></li>';
 								itemsHtml = itemsHtml + item;
 								// // console.log(key,obj[key]);
@@ -306,7 +303,7 @@
 								var directreportingdata = directreportingdatas[key];
 								if(key == "") key = "未分类";
 
-								var item = '<li class="nav-item"><text class="nav-link" onclick="routeTo('+"'linalertdataDetail','"+key+"');"+'">'
+								var item = '<li class="nav-item" onclick="routeTo('+"'linalertdataDetail','"+key+"');"+'"><text class="nav-link">'
 										+ directreportingdata.name + '</text></li>';
 								itemsHtml = itemsHtml + item;
 								// // console.log(key,obj[key]);

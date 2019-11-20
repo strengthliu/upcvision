@@ -192,6 +192,11 @@
 		// console.log("cancel");
 		init();
 	}
+	// 点击取消或关闭按钮
+	function cancel() {
+		console.log("cancel");
+		init();
+	}
 
 	// 初始化
 	function init() {
@@ -266,17 +271,23 @@
 		pointRightBox.innerHTML = "";
 		// 清空第二页内容
 		var _targetNameUI = document.getElementById("_targetNameUI");
+		console.log("----debug 1");
 		_targetNameUI.value = "";
 		var targetDesc = document.getElementById("targetDesc");
+		console.log("----debug 2");
 		targetDesc.value = "";
 		var _historyrelativetime = document
 				.getElementById("_historyrelativetime");
+		console.log("----debug 3");
 		_historyrelativetime.value = "";
-		var _historystarttime = document.getElementById("_historystarttime");
+		var _historystarttime = document.getElementById("datetimepicker3");
+		console.log("----debug 4");
 		_historystarttime.value = "";
 		var _historyterminaltime = document
-				.getElementById("_historyterminaltime");
+				.getElementById("datetimepicker4");
+		console.log("----debug 5");
 		_historyterminaltime.value = "";
+		console.log("----debug 6");
 
 	}
 
@@ -441,9 +452,10 @@
 <script src="js/dragula.js"></script>
 <script src="js/js-grid.js"></script>
 <script src="js/db.js"></script>
+<script src="js/formpickers.js"></script>
 <script src="js/jsGridDateField.js"></script>
 <script src="js/farbtastic.js"></script>
-
+<script	src="js/jquery.datetimepicker.full.min.js"></script>
 
 <!-- End custom js for this page-->
 

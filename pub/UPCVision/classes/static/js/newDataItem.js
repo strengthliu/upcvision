@@ -94,7 +94,7 @@ function contains(selectedPoints,serverName,tagName) {
 
 // 构建服务器、设备及点位
 function buildNewItemUI(serverInfos) {
-	 console.log("data =>"+actionType+"  "+itemID);
+	 //console.log("data =>"+actionType+"  "+itemID);
 
 	
 	console.log(" ----- debug 1 -----");
@@ -109,7 +109,7 @@ function buildNewItemUI(serverInfos) {
 	console.log(" ----- debug 2 -----");
 	// 添加默认位号组
 	defaultServer = serverInfos[$("#newItem_ServerSelectSect").val()];
-	 console.log(JSON.stringify(defaultServer.serverName));
+	//console.log(JSON.stringify(defaultServer.serverName));
 	var deviceInfos = defaultServer.devices;
 	Object.keys(deviceInfos).forEach(function(keyDevice){
 		// $("#newItem_DeviceSelectSect").append("<option

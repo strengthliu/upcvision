@@ -23,7 +23,7 @@ function editItemAction(itemId) {
 	itemID = itemId;
 	actionType = "graph";
 	var _graph = userSpace.graph[itemId];
-	if(user.id == _graph.creater || user.id == _graph.owner || user.role == 1){
+	if(user.role == 1 || user.id == _graph.creater || user.id == _graph.owner ){
 			$('#newItemAction_mid').modal('show');
 		}else {
 			alert("您没有权限进行新建操作。");
@@ -32,6 +32,9 @@ function editItemAction(itemId) {
 	editItem();
 }
 
+function editItem(itemId){
+	console.log("itemId="+itemId);
+}
 
 function doShareActionToServer(){
 	if (user == null || user == "undefined") {

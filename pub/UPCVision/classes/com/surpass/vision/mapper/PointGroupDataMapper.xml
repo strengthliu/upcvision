@@ -11,6 +11,9 @@
     <result column="points" jdbcType="VARCHAR" property="points" />
     <result column="otherRule1" jdbcType="VARCHAR" property="otherrule1" />
     <result column="otherRule2" jdbcType="VARCHAR" property="otherrule2" />
+    <result column="otherRule3" jdbcType="VARCHAR" property="otherrule3" />
+    <result column="otherRule4" jdbcType="VARCHAR" property="otherrule4" />
+    <result column="otherRule5" jdbcType="VARCHAR" property="otherrule5" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -71,7 +74,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, type, name, owner, creater, shared, points, otherRule1, otherRule2
+    id, type, name, owner, creater, shared, points, otherRule1, otherRule2, otherRule3, 
+    otherRule4, otherRule5
   </sql>
   <select id="selectByExample" parameterType="com.surpass.vision.domain.PointGroupDataExample" resultMap="BaseResultMap">
     select
@@ -107,11 +111,13 @@
   <insert id="insert" parameterType="com.surpass.vision.domain.PointGroupData">
     insert into t_pointGroup (id, type, name, 
       owner, creater, shared, 
-      points, otherRule1, otherRule2
+      points, otherRule1, otherRule2, 
+      otherRule3, otherRule4, otherRule5
       )
     values (#{id,jdbcType=FLOAT}, #{type,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{owner,jdbcType=VARCHAR}, #{creater,jdbcType=VARCHAR}, #{shared,jdbcType=VARCHAR}, 
-      #{points,jdbcType=VARCHAR}, #{otherrule1,jdbcType=VARCHAR}, #{otherrule2,jdbcType=VARCHAR}
+      #{points,jdbcType=VARCHAR}, #{otherrule1,jdbcType=VARCHAR}, #{otherrule2,jdbcType=VARCHAR}, 
+      #{otherrule3,jdbcType=VARCHAR}, #{otherrule4,jdbcType=VARCHAR}, #{otherrule5,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.surpass.vision.domain.PointGroupData">
@@ -144,6 +150,15 @@
       <if test="otherrule2 != null">
         otherRule2,
       </if>
+      <if test="otherrule3 != null">
+        otherRule3,
+      </if>
+      <if test="otherrule4 != null">
+        otherRule4,
+      </if>
+      <if test="otherrule5 != null">
+        otherRule5,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -172,6 +187,15 @@
       </if>
       <if test="otherrule2 != null">
         #{otherrule2,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule3 != null">
+        #{otherrule3,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule4 != null">
+        #{otherrule4,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule5 != null">
+        #{otherrule5,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -211,6 +235,15 @@
       <if test="record.otherrule2 != null">
         otherRule2 = #{record.otherrule2,jdbcType=VARCHAR},
       </if>
+      <if test="record.otherrule3 != null">
+        otherRule3 = #{record.otherrule3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherrule4 != null">
+        otherRule4 = #{record.otherrule4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherrule5 != null">
+        otherRule5 = #{record.otherrule5,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -226,7 +259,10 @@
       shared = #{record.shared,jdbcType=VARCHAR},
       points = #{record.points,jdbcType=VARCHAR},
       otherRule1 = #{record.otherrule1,jdbcType=VARCHAR},
-      otherRule2 = #{record.otherrule2,jdbcType=VARCHAR}
+      otherRule2 = #{record.otherrule2,jdbcType=VARCHAR},
+      otherRule3 = #{record.otherrule3,jdbcType=VARCHAR},
+      otherRule4 = #{record.otherrule4,jdbcType=VARCHAR},
+      otherRule5 = #{record.otherrule5,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -258,6 +294,15 @@
       <if test="otherrule2 != null">
         otherRule2 = #{otherrule2,jdbcType=VARCHAR},
       </if>
+      <if test="otherrule3 != null">
+        otherRule3 = #{otherrule3,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule4 != null">
+        otherRule4 = #{otherrule4,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule5 != null">
+        otherRule5 = #{otherrule5,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=FLOAT}
   </update>
@@ -270,22 +315,10 @@
       shared = #{shared,jdbcType=VARCHAR},
       points = #{points,jdbcType=VARCHAR},
       otherRule1 = #{otherrule1,jdbcType=VARCHAR},
-      otherRule2 = #{otherrule2,jdbcType=VARCHAR}
+      otherRule2 = #{otherrule2,jdbcType=VARCHAR},
+      otherRule3 = #{otherrule3,jdbcType=VARCHAR},
+      otherRule4 = #{otherrule4,jdbcType=VARCHAR},
+      otherRule5 = #{otherrule5,jdbcType=VARCHAR}
     where id = #{id,jdbcType=FLOAT}
   </update>
-  <!-- 
-  <update id="updateByName" parameterType="com.surpass.vision.domain.PointGroupData">
-    update t_pointGroup
-    set type = #{type,jdbcType=VARCHAR},
-      name = #{name,jdbcType=VARCHAR},
-      owner = #{owner,jdbcType=VARCHAR},
-      creater = #{creater,jdbcType=VARCHAR},
-      shared = #{shared,jdbcType=VARCHAR},
-      points = #{points,jdbcType=VARCHAR},
-      otherRule1 = #{otherrule1,jdbcType=VARCHAR},
-      otherRule2 = #{otherrule2,jdbcType=VARCHAR}
-    where name = #{name,jdbcType=VARCHAR} and
-    	type = 'graph'
-  </update>
-   -->
-  </mapper>
+</mapper>

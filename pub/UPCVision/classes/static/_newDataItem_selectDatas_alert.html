@@ -165,28 +165,23 @@
 
 	// 点击取消或关闭按钮
 	function cancel11() {
-		// console.log("cancel");
 		init();
 	}
 	// 点击取消或关闭按钮
 	function cancel() {
-		// console.log("cancel");
 		init();
 	}
 
 	// 初始化
 	function init() {
 		// 重置数据
-		var selectedPoints = new Set(); // 已经选择的点位
-		var _selectedPoints = new Array();
-		var targetName = ""; // 组名称
-		var targetDesc = ""; // 组说明
-		var selectedPoints = new Set();
-		var _selectedPoints = new Array();
-		var targetName = "";
-		var serverName = "";
-		var elemId="";
-		var editAction="";
+		selectedPoints = new Set(); // 已经选择的点位
+		_selectedPoints = new Array();
+		targetName = ""; // 组名称
+		targetDesc = ""; // 组说明
+		itemID = "";
+		elemId="";
+		editAction="";
 
 		// 重置步骤数
 		stepCount = 2; // 总共有多少步
@@ -366,8 +361,10 @@
 		currentStep--;
 	}
 </script>
+<!-- 
 <script src="js/dragula.js"></script>
 <script src="js/db.js"></script>
+ -->
 
 <!-- End custom js for this page-->
 

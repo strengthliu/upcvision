@@ -237,17 +237,27 @@ function _search(){
  * 向前，向后
  */
 function _forward() {
+	console.log(" _forward 0");
 	// 更新cdata数据
-	if(_dataIndex==null||_dataIndex=="undefined"){
-		for(var indrow=0;indrow<_data.length;indrow++){
-			_dataIndex[_data[indrow][0]]= indrow;
-		}						
-	}
+	var _dataIndex ={};
+	for(var indrow=0;indrow<_data.length;indrow++){
+		_dataIndex[_data[indrow][0]]= indrow;
+	}						
+
+//	if(_dataIndex==null||_dataIndex=="undefined"){
+//		for(var indrow=0;indrow<_data.length;indrow++){
+//			
+//			_dataIndex[_data[indrow][0]]= indrow;
+//		}						
+//	}
+	console.log(" _forward 1");
 	oneStep = cdataCount*0.9;
 	var startTime;
 	if(currentStartTimeInd == null || currentStartTimeInd=="undefined"){
 		currentStartTimeInd =1;
 	}else{
+		console.log(" _forward 2");
+
 		if(currentStartTimeInd+oneStep<_data[_dataIndex['time']].length){ // 向左
 			currentStartTimeInd = currentStartTimeInd+oneStep;
 		}
@@ -292,7 +302,7 @@ function getHistoryData1(_historyDataDetailKey,startTime,endTime,func){
 		success : function(data) {
 			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				var historyData = data.data.data;
-//				console.log("historydata.js => historyData= "+JSON.stringify(historyData));
+				console.log("historydata.js => historyData1= "+JSON.stringify(historyData));
 //				if(__a<3)
 				addHistoryData(historyData);
 //				console.log("getHistoryData1 startTime="+startTime+" - "+new Date(startTime));
@@ -337,7 +347,7 @@ function getHistoryData(){
 					// console.log("server info : "+JSON.stringify(data.data.data));
 	// console.log("historydata.js => submitNewDataItem 3");
 					var historyData = data.data.data;
-//					console.log("historydata.js => historyData= "+JSON.stringify(historyData));
+					console.log("historydata.js => historyData= "+JSON.stringify(historyData));
 					addHistoryData(historyData);
 					loadCData(1569151501);
 					reloadDataToDiagram();

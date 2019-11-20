@@ -592,10 +592,13 @@ var c3LineChart;
 	cols.push(_time_);
 
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		var _c_ = new Array();
-		_c_.push(pointList[indpl].tagName,0);
-		
-		cols.push(_c_);
+		if(pointList[indpl] != null && pointList[indpl]!="undefined"){
+			var _c_ = new Array();
+			_c_.push(pointList[indpl].tagName,0);
+			cols.push(_c_);
+		} else {
+			console.log(" get null tagName => "+JSON.stringify(pointList,null,2));
+		}
 	}
 	cdata=cols;
 	_data=cols;

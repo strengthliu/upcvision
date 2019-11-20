@@ -1,105 +1,191 @@
 <!-- partial -->
-<div id="_diagramShow">
+<div id="_diagramShow"></div>
 
+<!-- Dummy Modal Ends -->
+<!-- Modal starts -->
+<div class="modal fade" id="newItemAction_mid" tabindex="-1"
+	role="dialog" aria-labelledby="newItemAction_mid" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel-2">Modal title</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>Modal body text goes here.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success">Submit</button>
+				<button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal Ends -->
+<div style="display: none;">
+	<div class="content-wrapper" style="display: none;">
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-12">
+								<div class="row portfolio-grid" id="ui-xyGraphPoints">
+									<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-12 mb-4 mt-4">
+					<div class="btn-toolbar">
+						<div class="btn-group">
+							x轴：
+							<div class="dropdown">
+								<button class="btn btn-outline-warning dropdown-toggle"
+									type="button" id="x_axisSelectButtonUI" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">时间</button>
+								<div class="dropdown-menu"
+									aria-labelledby="x_axisSelectButtonUIMenu"
+									id="x_axisSelectButtonUIMenu">
+									<a class="dropdown-item" href="#">Action</a> <a
+										class="dropdown-item" href="#">Another action</a> <a
+										class="dropdown-item" href="#">Something else here</a>
+								</div>
+							</div>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-sm btn-outline-secondary"
+								onclick="zoomin_x();">
+								<i class="mdi mdi-format-superscript text-primary"></i>x轴放大
+							</button>
+							<button type="button" class="btn btn-sm btn-outline-secondary"
+								onclick="zoomout_x();">
+								<i class="mdi mdi-format-subscript text-primary"></i>x轴缩小
+							</button>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-sm btn-outline-secondary"
+								onclick="zoomin_y();">
+								<i class="mdi mdi-arrow-expand-up text-primary"></i>y轴放大
+							</button>
+							<button type="button" class="btn btn-sm btn-outline-secondary"
+								onclick="zoomout_y();">
+								<i class="mdi mdi-arrow-expand-down text-primary"></i>y轴缩小
+							</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<table class="table table-bordered" id="_datatableUI">
+				</table>
+			</div>
+			<div class="card-body">
+				<div id="ui-xyGraphLineChart">
+					<div id="c3-line-chart"></div>
+					<div id="c3-spline-chart"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
-        <!-- content-wrapper ends -->
-      </div>
-      <!-- main-panel ends -->
-    <!-- page-body-wrapper ends -->
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <!-- endinject -->
-  <!-- plugin js for this page -->
-  <!-- -->
-   
-  <!-- end plugin js for this page -->
-
-  <!-- Custom js for this page-->
-  <script>
-  //console.log("_diagramShowKey = "+_diagramShowKey);
-  
-  function getGraphByPath_1(graph,path){
-		if(path==null||path=="undefined") return graph;
+<script>
+	function getGraphByPath_1(graph, path) {
+		if (path == null || path == "undefined")
+			return graph;
 		//console.log("graph.wholePath="+graph.wholePath.toLowerCase()+"  ==  "+"path="+path.toLowerCase());
-		if(graph.wholePath.toLowerCase().indexOf(path.toLowerCase())!=-1){
+		if (graph.wholePath.toLowerCase().indexOf(path.toLowerCase()) != -1) {
 			//console.log("找到了");
 			_graphId = graph.id;
 			return graph;
-		}
-		else {
-			console.log(graph.wholePath.toLowerCase()+" 3");
+		} else {
+			console.log(graph.wholePath.toLowerCase() + " 3");
 			var children = graph.children;
-			if(children!=null){
+			if (children != null) {
 				var keys = new Array();
-				Object.keys(children).forEach(function(key){
+				Object.keys(children).forEach(function(key) {
 					//console.log("4"+key);
 					keys.push(key);
 					children[key]
 				});
-				for(var i=0;i<keys.length;i++){
+				for (var i = 0; i < keys.length; i++) {
 					var child = children[keys[i]];
-					var t = getGraphByPath_1(child,path);
-					if(t!=null) return t;
+					var t = getGraphByPath_1(child, path);
+					if (t != null)
+						return t;
 				}
 			}
 			return null;
 		}
 	}
-  
-	if(userSpace==null|userSpace=="undefined"){
-		getUserSpace(uid,token,graphSubscribe);
-	}else{
-		if(_graphId==null||_graphId=="undefined"){
+
+	if (userSpace == null | userSpace == "undefined") {
+		getUserSpace(uid, token, graphSubscribe);
+	} else {
+		if (_graphId == null || _graphId == "undefined") {
 			//console.log(" graph.js -> graphSubscribe() -> getGraphByURLPath(graph,_diagramShowKey="+_diagramShowKey+")");
-			var g = getGraphByPath_1(userSpace.graph,_diagramShowKey);
-			if(g == null || g == "undefined" || g.id==null ||g.id=="undefined"){
+			var g = getGraphByPath_1(userSpace.graph, _diagramShowKey);
+			if (g == null || g == "undefined" || g.id == null
+					|| g.id == "undefined") {
 				alert("您没有查看这个图形的权限。");
-			}else{
+			} else {
 				_graphId = g.id;
 				_diagramShowKey = g.urlPath;
-				$("#_diagramShow").load(_diagramShowKey,null,changeAAction);
+				$("#_diagramShow").load(_diagramShowKey, null, changeAAction);
 			}
-		}else{
-			$("#_diagramShow").load(_diagramShowKey,null,changeAAction);
+		} else {
+			$("#_diagramShow").load(_diagramShowKey, null, changeAAction);
 		}
 		console.log("dddd");
 	}
-  
-  
-  function changeAAction(){
-//	  console.log("=====================");
-	  var d = document.getElementById("_diagramShow");
-//	  console.log("html:"+d.innerHTML);
-	  var as = d.getElementsByTagName("a");
-	  for(var i=0;i<as.length;i++){
-		  var _a = as[i];
-		  //console.log("a - html: "+_a.outerHTML+" url="+_a.href.baseVal);
-		  var t = _a.href.baseVal;
 
-		  _a.onclick=function(){
+	function changeAAction() {
+		//	  console.log("=====================");
+		var d = document.getElementById("_diagramShow");
+		//	  console.log("html:"+d.innerHTML);
+		var as = d.getElementsByTagName("a");
+		for (var i = 0; i < as.length; i++) {
+			var _a = as[i];
+			//console.log("a - html: "+_a.outerHTML+" url="+_a.href.baseVal);
+			var t = _a.href.baseVal;
+
+			_a.onclick = function() {
 				//console.log("点击了 "+this.innerHTML);
-				console.log("a -  url="+this.href.baseVal);
-			var g = getGraphByPath(userSpace.graph,this.href.baseVal);
-			if(g == null || g == "undefined" || g.id==null ||g.id=="undefined"){
-				alert("您没有查看这个图形的权限。");
-			}else{
-				_graphId = g.id;
-				_diagramShowKey = g.urlPath;
-				routeTo("diagramDetail",this.href.baseVal);
-			}
-			
-			return false;
-		  };
-	  }
-  }
-  
+				console.log("a -  url=" + this.href.baseVal);
+				var g = getGraphByPath_1(userSpace.graph, this.href.baseVal);
+				if (g == null || g == "undefined" || g.id == null
+						|| g.id == "undefined") {
+					alert("您没有查看这个图形的权限。");
+				} else {
+					_graphId = g.id;
+					_diagramShowKey = g.urlPath;
+					routeTo("diagramDetail", this.href.baseVal);
+				}
 
-  </script>
-  <!-- End custom js for this page-->
-    <script src="./js/light-gallery.js"></script>
-    <script src="./js/jquerySession.js"></script>
-    <script src="./js/graph.js"></script>
-  
-  <script src="vendors/lightgallery/js/lightgallery-all.min.js"></script>
+				return false;
+			};
+		}
+	}
+</script>
+<!-- End custom js for this page-->
+<script src="./js/light-gallery.js"></script>
+<script src="./js/jquerySession.js"></script>
+<!-- 
+<script src="./js/xyRealTimeHistoryGraphChart.js"></script>
+-->
+<script src="./js/graph.js"></script>
+
+<script src="vendors/lightgallery/js/lightgallery-all.min.js"></script>
 
