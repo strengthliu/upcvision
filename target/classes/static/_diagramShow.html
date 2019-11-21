@@ -107,11 +107,10 @@
 										onclick="_backward();">
 										<i class="mdi mdi-step-backward text-primary"></i> 后退
 									</button>
-									<!-- 
-						<button type="button" class="btn btn-sm btn-outline-secondary">
-							<i class="mdi mdi-play text-primary"></i>播放
-						</button>
-						 -->
+									<button type="button" class="btn btn-sm btn-outline-secondary"
+										onclick="play();">
+										<i class="mdi mdi-play text-primary"></i>播放
+									</button>
 									<button type="button" class="btn btn-sm btn-outline-secondary"
 										onclick="_forward();">
 										<i class="mdi mdi-step-forward text-primary"></i>前进
@@ -312,7 +311,7 @@
 	    //height = 500;
 	    console.log("widthaaa="+width+" heightbbb="+height+"");
 	    // D3操作对象
-		zoom = d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", zoomed); //= d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
+		zoom = d3.behavior.zoom().scaleExtent([0.5, 8]).on("zoom", zoomed); //= d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
 		svg = d3.select("svg").call(zoom);
 		//svg = d3.select("#svg_101");
 	    //width = svg.attributes.width.value;
@@ -340,7 +339,10 @@
     var width = 0;//svg.attributes.width.value;
     var height = 0;//svg.attributes.height.value;
 
-var zoom = d3.behavior.zoom().scaleExtent([0.5, 8]).on("zoom", zoomed);
+    // 上面在加载后，还有一句设置，应该是那里设置才最合理。
+    // 结果我在这里也设置了，加载后的设置值把这个给替换了。
+    // 调试了4个小时才找到，这里值得记录一下。
+	var zoom ;//= d3.behavior.zoom().scaleExtent([0.1, 8]).on("zoom", zoomed);
 
 function zoomed() {
 	console.log("zoomed() zoom.translate()="+zoom.translate()+" zoom.scale()="+zoom.scale());
@@ -367,7 +369,7 @@ function interpolateZoom (translate, scale) {
            zoom
                 .scale(iScale(t))
                 .translate(iTranslate(t));
-            zoomed();
+           zoomed();
         };
     });
 }
@@ -415,7 +417,7 @@ function zoomClick() {
     // direction = (this.id === 'zoom_in') ? 1 : -1;
     target_zoom = zoom.scale() * (1 + factor * direction);
 
-    if (target_zoom < extent[0] || target_zoom > extent[1]) { return false; }
+    // if (target_zoom < extent[0] || target_zoom > extent[1]) { return false; }
 
     translate0 = [(center[0] - view.x) / view.k, (center[1] - view.y) / view.k];
     view.k = target_zoom;
@@ -472,7 +474,11 @@ function zoomClick() {
 			var ty = _diagramShow.y + _diagramShow.height/2 * (1 - scale);
 			//var trans = {_diagramShow.x - x,_diagramShow.y - y};
 			console.log("scale="+scale+" tx="+tx+" ty="+ty+" x="+x+" y="+y+" x-ty="+(x-tx)+" y-ty="+(y-ty));
-		    svg.attr("transform",
+	        zoom
+               .scale(scale)
+               .translate([x- tx + 10, y- ty]);
+
+			svg.attr("transform",
 		            "translate(" + [x- tx + 10, y- ty] + ")" +
 		            "scale(" + scale + ")"
 		        );

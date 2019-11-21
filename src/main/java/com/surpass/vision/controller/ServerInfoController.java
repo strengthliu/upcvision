@@ -19,6 +19,7 @@ import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.realTimeData.RealTimeDataManager;
+import com.surpass.vision.server.Point;
 import com.surpass.vision.server.Server;
 import com.surpass.vision.server.ServerManager;
 
@@ -52,4 +53,6 @@ public class ServerInfoController extends BaseController {
 		ret.setData("data",data);
 		return ret;
 	}
+
+
 }

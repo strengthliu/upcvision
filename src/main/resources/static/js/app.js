@@ -144,7 +144,8 @@ function disconnect() {
 //	if (socket.readyState != 1) {
 ////		return;
 //	}
-	if (stompClient !== null) {
+	
+	if (stompClient !== null && stompClient!="undefined") {
 		if(subscribe!=null && subscribe!="undefined")
 			subscribe.unsubscribe();
 		

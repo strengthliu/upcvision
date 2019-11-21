@@ -23,6 +23,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.mchange.rmi.NotAuthorizedException;
 import com.surpass.vision.appCfg.GlobalConsts;
+import com.surpass.vision.common.Submit;
 import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.Graph;
@@ -32,6 +33,8 @@ import com.surpass.vision.exception.ExceptionEnum;
 import com.surpass.vision.exception.GirlFriendNotFoundException;
 import com.surpass.vision.exception.ResponseBean;
 import com.surpass.vision.graph.GraphManager;
+import com.surpass.vision.server.Point;
+import com.surpass.vision.server.ServerManager;
 import com.surpass.vision.service.AuthorcationService;
 import com.surpass.vision.service.GraphService;
 
@@ -144,5 +147,56 @@ public class GraphController extends BaseController {
 			return ret;
 		}
 	}
+	
+	
+	/**
+	 * 获取指定用户的实时数据列表
+	 * 
+	 * @param user
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@Submit
+	@RequestMapping(value = "getGraphPointInfoMapper", method = { RequestMethod.POST, RequestMethod.GET })
+	public ToWeb getGraphPointInfoMapper(@RequestBody JSONObject uidToken,  HttpServletRequest request) throws Exception {
+		String uid = uidToken.getString("uid");
+		String token = uidToken.getString("token");
+		String graphID = uidToken.getString("graphID");
+		Double id = null;
+		// 认证+权限
+		UserRight ur = new UserRight();
+		ToWeb ret = authercation(Double.valueOf(uid), token, GlobalConsts.Operation_getRealTimeDataList,ur);
+		if (!StringUtil.isBlank(ret.getStatus()) && ret.getStatus()!=GlobalConsts.ResultCode_SUCCESS)
+			return ret;
+		
+		try {
+			id = Double.valueOf(graphID);
+		}catch(Exception e) {
+			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+			ret.setMsg("参数错误：图形ID必须是数字。");
+			return ret;
+		}
+		
+		if (StringUtil.isBlank(graphID)) {
+			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+			ret.setMsg("参数错误：图形ID不能为空。");
+			return ret;
+		}
+
+		// 取出信息
+		Graph g = graphManager.getGraphByKeys(id);
+		ArrayList<String> txtids = g.getPointTextIDs();
+		List<Point> pl = g.getPointList();
+		Hashtable<String,Point> data = new Hashtable<String,Point>();
+		for(int i=0;i<txtids.size();i++) {
+			data.put(txtids.get(i), pl.get(i));
+		}
+		ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+		ret.setData("data",data);
+		return ret;
+	}
+
+	
 }
 

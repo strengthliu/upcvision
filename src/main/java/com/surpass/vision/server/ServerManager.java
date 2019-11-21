@@ -444,4 +444,10 @@ public class ServerManager {
 		return ret;
 	}
 
+//	public Hashtable<String, Point> getGraphPointInfoMapper(Double id) {
+//		Hashtable<String,Point> ret = new Hashtable<String,Point>();
+//		
+//		return null;
+//	}
+
 }

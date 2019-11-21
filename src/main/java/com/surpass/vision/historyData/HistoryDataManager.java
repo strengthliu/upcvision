@@ -52,6 +52,8 @@ public class HistoryDataManager extends PointGroupDataManager {
 //	ServerManager serverManager;
 
 	@Autowired
+	PointGroupDataManager pointGroupDataManager;
+	@Autowired
 	PointGroupService pointGroupService;
 
 	@Autowired
@@ -149,6 +151,8 @@ public class HistoryDataManager extends PointGroupDataManager {
 	}
 	
 	public HistoryData getHistoryDataByKeys(Double oldRtdId) {
+		if(oldRtdId == null)
+			return null;
 		HistoryData rtd = (HistoryData)redisService.get(GlobalConsts.Key_HistoryData_pre_+IDTools.toString(oldRtdId));
 		return rtd;
 	}
@@ -255,10 +259,37 @@ public class HistoryDataManager extends PointGroupDataManager {
 	}
 
 	public ArrayList getHistoryData(Double rtdId,long beginTime,long endTime) {
-		ArrayList ret = new ArrayList();
 		// 取出服务器和id
 		HistoryData rtd = this.getHistoryDataByKeys(rtdId);
-		List<Point> lp = rtd.getPointList();
+		if(rtd!=null) {
+			List<Point> lp = rtd.getPointList();
+			return getHistoryData(lp, beginTime, endTime);
+		}else {
+			throw new IllegalStateException("没有指定ID的历史数据组。");
+		}
+	}
+
+
+	public int inserToListOrdered(Long e,ArrayList<Long> es) {
+		if(es.size()==0)
+			return 0;
+		if(e<es.get(0)){
+			es.add(0, e);
+			return 0;
+		} 
+		
+		for(int i=0;i<es.size();i++) {
+			if(e>es.get(i)) {
+				es.add(i,e);
+				return i;
+			}
+		}
+		
+		return 0;
+	}
+
+	public ArrayList getHistoryData(List<Point> lp,long beginTime,long endTime) {
+		ArrayList ret = new ArrayList();
 		
 		ArrayList[] dsy = new ArrayList[lp.size()];
 		ArrayList<Long>[] dstime1 = new ArrayList[lp.size()];
@@ -340,22 +371,15 @@ public class HistoryDataManager extends PointGroupDataManager {
 		return ret;
 	}
 
-
-	public int inserToListOrdered(Long e,ArrayList<Long> es) {
-		if(es.size()==0)
-			return 0;
-		if(e<es.get(0)){
-			es.add(0, e);
-			return 0;
-		} 
-		
-		for(int i=0;i<es.size();i++) {
-			if(e>es.get(i)) {
-				es.add(i,e);
-				return i;
-			}
+	public ArrayList getHistoryData(JSONArray ja, Long _beginTime, Long _endTime) {
+		ArrayList<Point> pl = new ArrayList<Point>();
+		for(int i=0;i<ja.size();i++) {
+			String s_tagName = ja.getString(i);
+			String serverName = PointGroupDataManager.splitServerName(s_tagName);
+			String tagName = PointGroupDataManager.splitPointName(s_tagName);
+			Point p = serverManager.getPointByID(serverName, tagName);
+			pl.add(p);
 		}
-		
-		return 0;
+		return getHistoryData(pl,  _beginTime,  _endTime);
 	}
 }

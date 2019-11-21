@@ -281,9 +281,11 @@ public class HistoryDataController extends BaseController {
 	 */
 	@RequestMapping(value = "getHistoryData", method = { RequestMethod.POST, RequestMethod.GET })
 	public ToWeb getHistoryData(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
+		System.out.println("getHistoryData 1");
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
 		String idstr = user.getString("id");
+		JSONArray ja = user.getJSONArray("pointList");
 		Double idd = null;
 		if (StringUtil.isBlank(idstr)) {
 
@@ -291,8 +293,10 @@ public class HistoryDataController extends BaseController {
 			idd = Double.valueOf(idstr);
 		}
 
+		System.out.println("getHistoryData 2");
 		// 认证+权限
 		HistoryData g = this.historyDataManager.getHistoryDataByKeys(idd);
+		if(g == null) g = new HistoryData();
 		UserRight ur = g.getRight(uid);
 		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getHistoryData, ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
@@ -300,16 +304,23 @@ public class HistoryDataController extends BaseController {
 
 		// 取出参数
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
+		System.out.println("getHistoryData 3");
 		String id = user.getString("id");
 		// 检查参数合法性
 		if (StringUtil.isBlank(id)) {
 			// TODO: 如果ID为空，就取pointTagList
-			
-			ret.setStatus(GlobalConsts.ResultCode_FAIL);
-			ret.setMsg("参数不正确，ID不能为空。");
-			return ret;
+			ja = user.getJSONArray("pointList");
+			if(ja == null) {
+				ret.setStatus(GlobalConsts.ResultCode_FAIL);
+				ret.setMsg("参数不正确，ID和pointList不能同时为空。");
+				return ret;
+			}
 		}
-		Double rtdId = Double.valueOf(id);
+		System.out.println("getHistoryData 4");
+		Double rtdId = null;
+		if(!StringUtil.isBlank(id))
+			rtdId = Double.valueOf(id);
+		System.out.println("getHistoryData 5");
 		
 		// 取时间参数
 		String beginTimeStr = user.getString("beginTime");
@@ -350,8 +361,13 @@ public class HistoryDataController extends BaseController {
 		}
 
 		try {
+			System.out.println("getHistoryData 6");
 //			historyDataManager.getHistoryData(rtdId, Long.valueOf(1), Long.valueOf(1));
-			ArrayList<?> rtd = historyDataManager.getHistoryData(rtdId, _beginTime, _endTime);
+			ArrayList<?> rtd = null;
+			if (StringUtil.isBlank(id))
+				rtd = historyDataManager.getHistoryData(ja, _beginTime, _endTime);
+			else
+				rtd = historyDataManager.getHistoryData(rtdId, _beginTime, _endTime);
 			
 //			HistoryData rtd = historyDataManager.getHistoryData(rtdId);
 			if (rtd == null ) {
@@ -373,7 +389,7 @@ public class HistoryDataController extends BaseController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
-			ret.setMsg("异常失败");
+			ret.setMsg("异常失败:"+e.getMessage());
 			return ret;
 		}
 	}

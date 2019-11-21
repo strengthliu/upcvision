@@ -109,6 +109,9 @@ function buildNewItemUI(serverInfos) {
 	console.log(" ----- debug 2 -----");
 	// 添加默认位号组
 	defaultServer = serverInfos[$("#newItem_ServerSelectSect").val()];
+	if(defaultServer==null || defaultServer=="undefined"){
+		defaultServer = serverInfos[0];
+	}
 	//console.log(JSON.stringify(defaultServer.serverName));
 	var deviceInfos = defaultServer.devices;
 	Object.keys(deviceInfos).forEach(function(keyDevice){
