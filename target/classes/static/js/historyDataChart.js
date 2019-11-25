@@ -225,7 +225,7 @@ function _backward() {
 				_currentStartTimeInd = new Date().getTime() - 60*60*2*1000;
 				_endTime = new Date().getTime();
 			}
-			getHistoryData1(_historyDataDetailKey,_currentStartTimeInd,_endTime,null,_backward);
+			getHistoryData1(_historyDataDetailKey,_currentStartTimeInd,_endTime,_backward);
 			return;
 		}
 	}
