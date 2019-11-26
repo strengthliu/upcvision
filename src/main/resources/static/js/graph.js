@@ -430,6 +430,27 @@ var cols;
  */
 function refreshData(data) {
 	// console.log("refreshData(data) -> "+JSON.stringify(data.body));
+	var o = JSON.parse(data.body);
+	Object.keys(o).forEach(function(key){
+		if(key!="time"){
+			if(o[key] == -999999){
+				o[key] = "-";
+			}else{
+				var num = o[key];
+				//var num = num+"";
+				if(num!=null&&num!="undefined"){
+					if(Math.round(num)<999){
+						num=num.toFixed(3);
+					}else{
+						num=num.toFixed(1);
+					}
+					o[key] = num;
+				// console.log("num = "+num+"");
+				}
+			}
+		}
+	});
+	data.body = JSON.stringify(o);
 	// 添加趋势图数据到当前数据
 	addData(data.body,cdata,cdataCount);
 	//console.log("cdata => "+JSON.stringify(cdata));
@@ -926,7 +947,10 @@ function _forward(_newData) {
 			else{
 				// TODO： 如果向右一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
 				currentStartTimeInd = _data[_dataIndex['time']][_data[_dataIndex['time']].length-1].getTime();
-				getHistoryData1(_historyDataDetailKey,currentStartTimeInd,currentStartTimeInd+oneStep*1000,_backward);
+				var _endTime = currentStartTimeInd+oneStep*1000;
+				if(_endTime>new Date().getTime())
+					_endTime = new Date().getTime();
+				getHistoryData1("",currentStartTimeInd,_endTime,pointGroup,_forward);
 				return;
 			}
 		}
@@ -1020,7 +1044,8 @@ function _search(){
 //	c3LineChart.flow(cdata,new Date()+"",1000);
 //console.log("flow");
 	console.log("_startTime_="+_startTime_+"  _endTime_="+_endTime_);
-	getHistoryData1(_historyDataDetailKey,_startTime_,_endTime_,addHistoryData);
+	//getHistoryData1(_historyDataDetailKey,_startTime_,_endTime_,addHistoryData);
+	getHistoryData1("",_startTime_,_endTime_,pointGroup,_backward);
 }
 
 /**

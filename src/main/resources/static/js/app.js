@@ -236,8 +236,9 @@ function loginByUserPassWord(uname, pwd) {
 	});
 }
 
-function getUserSpace(uid, token, sucessFucn) {
-	$.ajax({
+async function getUserSpace(uid, token, sucessFucn) {
+	if(userSpace==null||userSpace=="undefined"){
+	await $.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
 		// 提交的网址
@@ -247,6 +248,7 @@ function getUserSpace(uid, token, sucessFucn) {
 			uid : uid,
 			token : token
 		},
+		async: false,
 		// 返回数据的格式
 		datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
 		// 在请求之前调用的函数
@@ -266,7 +268,7 @@ function getUserSpace(uid, token, sucessFucn) {
 			}
 			// alert(" getUserSpace : "+JSON.stringify(data));
 			if (userSpace == null || userSpace == "undefined") {
-				// console.log("getUserSpace -> set userSpace.");
+				console.log("getUserSpace -> set userSpace.");
 				userSpace = data.data.userSpace;
 //				console.log("userspace: "+JSON.stringify(data));
 				// return userSpace;
@@ -292,7 +294,9 @@ function getUserSpace(uid, token, sucessFucn) {
 			hideLoading();
 		}
 	});
-
+	}else{
+		sucessFucn(window.userSpace);
+	}
 }
 
 function checkRight(uid, token, loginPage,sucessPage) {

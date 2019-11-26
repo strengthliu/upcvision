@@ -161,21 +161,20 @@
 		</div>
 	</div>
 </div>
-<script src="js/bootstrap-datetimepicker.min.js"></script>
 
 
 <div style="position: fixed; top: 250px; right: 10px; z-index: 900;">
-	<div style="opacity:0.5;">
-		<button onclick="switchVisuale();">
+	<div style="opacity:0.5;" class="modal-footer">
+		<button class="btn btn-sm btn-outline-secondary" onclick="switchVisuale();">
 			<i class="mdi mdi-fullscreen ml-1"></i>
 		</button>
 	</div>
 	<div id="graphPannel" class="modal-footer dialog-title"
 		style="float: right;">
-		<div class="card">
+		<div class="card ">
 			<div class="accordion accordion-inverse-primary" id="accordion-2"
 				role="tablist">
-				<div class="card">
+				<div class="card col-12">
 					<div class="box">
 						<span class="pillar"></span>
 						<div class="wrapper" id="wrapper1">
@@ -213,19 +212,19 @@
 					 -->
 					</div>
 					<div>
-						<button id="zoom_up">
+						<button class="btn btn-sm btn-outline-secondary" id="zoom_up">
 							<i class="mdi mdi-arrow-up ml-1"></i>
 						</button>
-						<button id="zoom_down">
+						<button class="btn btn-sm btn-outline-secondary" id="zoom_down">
 							<i class="mdi mdi-arrow-down ml-1"></i>
 						</button>
-						<button id="zoom_left">
+						<button class="btn btn-sm btn-outline-secondary" id="zoom_left">
 							<i class="mdi mdi-arrow-left ml-1"></i>
 						</button>
-						<button id="zoom_right">
+						<button class="btn btn-sm btn-outline-secondary" id="zoom_right">
 							<i class="mdi mdi-arrow-right ml-1"></i>
 						</button>
-						<button id="zoom_fullScreen">
+						<button class="btn btn-sm btn-outline-secondary" id="zoom_fullScreen">
 							<i class="mdi mdi-fullscreen ml-1"></i>
 						</button>
 					</div>
@@ -371,7 +370,7 @@
 			d3.event.sourceEvent.stopPropagation(); // silence other listeners
 		});
 		svg = d3.select("svg").call(drag);//.call(zoom);
-
+		fullScreen();
 		function draged(d) {
 			console.log("draged. scale=" + scale);
 			zoom.translate(translate);
@@ -384,7 +383,7 @@
 		}
 
 		// 图形全屏
-		fullScreenFn();
+		fullScreen();
 
 		var diff = Math.round(((scale - 1) * 1000 + 600) / 100);
 		//console.log("scale=" + scale + " diff=" + diff);
@@ -399,6 +398,8 @@
 				}
 			});
 		});
+		fullScreen();
+
 	}
 	var number1 = 0;
 	function shownumber1() {
@@ -509,18 +510,24 @@
 			// mainPanel屏幕左上角坐标
 			var y = mainToolsBarRect.y;//+ mainToolsBarRect.height;
 			var x = mainToolsBarRect.x;
-			var mainPanelHeigth = window.innerHeight - topToolsBarRect.height;
+			var mainPanelHeight = window.innerHeight - topToolsBarRect.height;
 			var mainPanelWidth = mainToolsBarRect.width;
 
-			var scale1 = mainPanelHeigth / mainPanelWidth;
+			var scale1 = mainPanelHeight / mainPanelWidth;
 			//var _diagramShow = document.getElementById("_diagramShow").getBoundingClientRect();
 			//var scale2 = _diagramShow.height / _diagramShow.width;
-			var scale2 = svg.attr("height") / svg.attr("width");
+			//var scale2 = svg.attr("height") / svg.attr("width");
+			var scale2 = height / width;
 			//var scale ;//= scale1 > scale2 ? scale1 : scale2;
+			//if (scale1 > scale2) { // 图比屏幕扁，以图的宽为限
+			//	scale = mainPanelWidth / svg.attr("width");
+			//} else {
+			//	scale = mainPanelHeigth / svg.attr("height");
+			//}
 			if (scale1 > scale2) { // 图比屏幕扁，以图的宽为限
-				scale = mainPanelWidth / svg.attr("width");
+				scale = mainPanelWidth / width;
 			} else {
-				scale = mainPanelHeigth / svg.attr("height");
+				scale = mainPanelHeight / height;
 			}
 
 			var svgx = svg1.getBoundingClientRect().x;
@@ -531,7 +538,7 @@
 					+ svg.attr("height"));
 			console.log("svg ->  "
 					+ JSON.stringify(svg1.getBoundingClientRect()));
-			console.log("mainPanelHeight()=" + mainPanelHeigth
+			console.log("mainPanelHeight()=" + mainPanelHeight
 					+ " mainPanelWidth=" + mainPanelWidth
 					+ " mainToolsBarRect.x=" + mainToolsBarRect.x
 					+ " mainToolsBarRect.y=" + mainToolsBarRect.y);
@@ -553,12 +560,29 @@
 			var _tty = mainToolsBarRect.y - svgy + translate[1];//+ svg.attr("height") / 2 * (1 - scale);
 			console.log("_ttx=" + _ttx + " _tty=" + _tty);
 			console.log("translate=" + translate);
+			
 
 			interpolateZoom([ _ttx, _tty ], scale);
+			
+
+			svg.attr("preserveAspectRatio","none");
+			//svg.attr("preserveAspectRatio","xMin YMin meet");
+			//svg.attr("width",mainPanelWidth/scale);
+			//svg.attr("heigth",mainPanelHeight/scale);
+			console.log(" -"+svg1.getBBox().width+" "+svg1.getBBox().height);
+			console.log("width="+width+"  height="+height+" scale*width="+scale*width);
+			//svg1.setAttribute("viewBox",0+" "+0+" "+mainPanelWidth+" "+mainPanelHeight);
+			svg1.removeAttribute("width");
+			svg1.removeAttribute("heigth");
+			svg1.setAttribute("width",mainPanelWidth/scale);
+			svg1.setAttribute("heigth",mainPanelHeight/scale);
+			//svg1.parentNode.setAttribute("heigth",1080);
 			//	svg.attr("transform",
 			//	        "translate(" + [_ttx, _tty] + ")" +
 			//	        "scale(" + scale + ")"
 			//	    );
+
+			
 			svgx = svg1.getBoundingClientRect().x;
 			svgy = svg1.getBoundingClientRect().y;
 			console.log(zoom.translate());
@@ -566,7 +590,7 @@
 					+ svg.attr("height"));
 			console.log("svg ->  "
 					+ JSON.stringify(svg1.getBoundingClientRect()));
-			console.log("mainPanelHeight()=" + mainPanelHeigth
+			console.log("mainPanelHeight()=" + mainPanelHeight
 					+ " mainPanelWidth=" + mainPanelWidth
 					+ " mainToolsBarRect.x=" + mainToolsBarRect.x
 					+ " mainToolsBarRect.y=" + mainToolsBarRect.y);
@@ -576,8 +600,65 @@
 		}
 	}
 
+	function adjustToFreezeWidth(rootSvg) {
+	    var windowWidth = $(window).width();
+	 
+	    var viewBoxVal = rootSvg.getAttribute("viewBox");
+	    var viewBoxWidth = viewBoxVal.split(",")[2];
+	    var viewBoxHeight = viewBoxVal.split(",")[3];
+	    rootSvg.removeAttribute("width");
+	    rootSvg.removeAttribute("height");
+	 
+	    var setWidth = windowWidth;
+	    var setHeight = (setWidth * viewBoxHeight) / viewBoxWidth;
+	    rootSvg.setAttribute("width", setWidth);
+	    rootSvg.setAttribute("height", setHeight);
+	}
+	 
+	function adjustToNone(rootSvg) {
+	 
+	    var viewBoxVal = rootSvg.getAttribute("viewBox");
+	    var viewBoxWidth = viewBoxVal.split(",")[2];
+	    var viewBoxHeight = viewBoxVal.split(",")[3];
+	    rootSvg.removeAttribute("width");
+	    rootSvg.removeAttribute("height");
+	 
+	    rootSvg.setAttribute("width", viewBoxWidth);
+	    rootSvg.setAttribute("height", viewBoxHeight);
+	 
+	}
+	 
+	function adjustToFreezeHeight(rootSvg) {
+	 
+	    var windowHeight = $(window).height();
+	 
+	    var viewBoxVal = rootSvg.getAttribute("viewBox");
+	    var viewBoxWidth = viewBoxVal.split(",")[2];
+	    var viewBoxHeight = viewBoxVal.split(",")[3];
+	    rootSvg.removeAttribute("width");
+	    rootSvg.removeAttribute("height");
+	 
+	    var setHeight = windowHeight;
+	    var setWidth = (setHeight * viewBoxWidth)/viewBoxHeight;
+	    rootSvg.setAttribute("width", setWidth);
+	    rootSvg.setAttribute("height", setHeight);
+	}
+	 
+	function adjustToFreezeAll() {
+	 
+	    var windowHeight = $(window).height();
+	    var windowWidth = $(window).width();
+	    
+	    rootSvg.removeAttribute("width");
+	    rootSvg.removeAttribute("height");
+	 
+	    rootSvg.setAttribute("width", windowWidth);
+	    rootSvg.setAttribute("height", windowHeight);
+	 
+	}
+
 	$(window).resize(function() {
-		fullScreenFn();
+		fullScreen();
 	});
 
 	// 设置resize事件

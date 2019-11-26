@@ -20,6 +20,7 @@ var mainPanel = document.getElementById("main");
 // if(user.id == _realtimeData.creater || user.id == _realtimeData.owner ||
 // user.role == 1){
 var oppertionButton = document.createElement('div');
+oppertionButton.setAttribute("id","mainInfoNr");
 var oppertionButton_innerHTML = "";
 oppertionButton_innerHTML = ' <div class="info-nr " id="info-nr"> '
 		+ '<div id="info-nr-phone" class="info-nr-phone dialog-title"> ';

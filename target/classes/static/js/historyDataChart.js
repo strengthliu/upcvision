@@ -276,6 +276,7 @@ function _forward() {
 		else{
 			// TODO： 如果向右一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
 			currentStartTimeInd = _data[_dataIndex['time']][_data[_dataIndex['time']].length-1].getTime();
+			
 			getHistoryData1(_historyDataDetailKey,currentStartTimeInd,currentStartTimeInd+oneStep*1000,_backward);
 			return;
 		}
