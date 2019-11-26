@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Reference;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,6 +52,12 @@ public class GraphController extends BaseController {
 	@Autowired
 	GraphManager graphManager;
 
+	@Value("${upc.graphPath}")
+	private String graphPath;
+	
+	@Value("${upc.graphServerPath}")
+	private String graphServerPath;
+	//upc.graphServerPath
 	/**
 	 * 获取指定用户的实时数据列表
 	 * 
@@ -207,20 +214,56 @@ public class GraphController extends BaseController {
         return "upload";
     }
 
-    @PostMapping("/upload")
+    @PostMapping("/uploadThumbnail")
     @ResponseBody
-    public String upload(@RequestParam("file") MultipartFile file) {
+    public String uploadThumbnail(@RequestParam("file") MultipartFile file) {
         if (file.isEmpty()) {
             return "上传失败，请选择文件";
         }
 
         String fileName = file.getOriginalFilename();
-        String filePath = "/Users/itinypocket/workspace/temp/";
-        File dest = new File(filePath + fileName);
+		File dirFile = new File(graphServerPath);
+		// 这句必须加上，解决不同操作系统文件名大小写区分问题。
+        String filePath = null;
+		try {
+			filePath = dirFile.getCanonicalPath();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+        File dest = new File(filePath +"\\" + fileName);
         try {
             file.transferTo(dest);
             return "上传成功";
         } catch (IOException e) {
+        }
+        return "上传失败！";
+    }
+
+    @PostMapping("/uploadGraphFile")
+    @ResponseBody
+    public String uploadGraphFile(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return "上传失败，请选择文件";
+        }
+
+        String fileName = file.getOriginalFilename();
+		File dirFile = new File(graphPath);
+		// 这句必须加上，解决不同操作系统文件名大小写区分问题。
+        String filePath = null;
+		try {
+			filePath = dirFile.getCanonicalPath();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+        File dest = new File(filePath +"\\"+ fileName);
+        try {
+            file.transferTo(dest);
+            return "上传成功";
+        } catch (IOException e) {
+        	e.printStackTrace();
         }
         return "上传失败！";
     }

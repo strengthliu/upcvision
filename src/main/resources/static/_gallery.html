@@ -27,31 +27,36 @@
                     </div>
                     <div class="form-group">
                       <label>上传图形缩略图</label>
+                      <input id="graphThumbnail" type="file" class="file" data-show-preview="false">
+                      <!-- 
                       <input type="file" name="img[]" class="file-upload-default">
                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="上传图形缩略图">
+                        <input id="graphThumbnail" type="text" class="form-control file-upload-info" disabled placeholder="上传图形缩略图">
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-info" type="button">Upload</button>
                         </span>
                       </div>
+                       -->
                     </div>
                     <div class="form-group">
                       <label>上传图形文件</label>
+                      <input id="graphFile" type="file" class="file" data-show-preview="false">
+                      <!-- 
                       <input type="file" name="img[]" class="file-upload-default">
                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="上传图形文件">
+                        <input id="graphFile" type="file" class="form-control file-upload-info" disabled placeholder="上传图形文件">
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-info" type="button">Upload</button>
                         </span>
                       </div>
+                       -->
                     </div>
+                    
                   </form>
                 </div>
-
-
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-success">确定</button>
+				<button type="button" class="btn btn-success" onclick="doUpLoad();">确定</button>
 				<button type="button" class="btn btn-light" data-dismiss="modal">取消</button>
 			</div>
 		</div>
@@ -142,3 +147,5 @@
 <script src="js/graphList.js"></script>
 <script src="./js/shareRight.js"></script>
 <script src="./js/light-gallery.js"></script>
+<script src="js/file-upload.js"></script>
+

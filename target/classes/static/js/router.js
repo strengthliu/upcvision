@@ -182,6 +182,7 @@ function routeTo(diagram, key, graphId) {
 	case "userManage".toLowerCase():
 		currentUser = key;
 		$("#mainPanel").load("_userManage.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'hidden';
 		break;
 	}
 

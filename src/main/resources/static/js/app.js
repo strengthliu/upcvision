@@ -53,6 +53,7 @@ var userInfoList = null;
 var token;
 var user;
 var _galleryKey = null;
+var serverList;
 
 
 

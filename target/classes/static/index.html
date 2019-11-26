@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="css/jquery.datetimepicker.css">
 <link rel="stylesheet" href="css/c3.css">
 <link rel="stylesheet" href="css/jquery.contextMenu.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 <!-- 
 <link rel="stylesheet" href="css/bootstrap.css">
  -->
@@ -97,6 +98,48 @@
 				console.log("x======"+new Date());
 				checkRight(uid, token, "index.html", null);
 			}
+
+			//确保服务器和点位数据
+			if(serverList == null || serverList=="undefined"){
+				// 去取服务器数据
+				var data={'uid':uid,'token':token};
+					$.ajax({
+						// 提交数据的类型 POST GET
+						type : "POST",
+						// 提交的网址
+						url : "getServerInfo",
+						// 提交的数据
+						data : JSON.stringify(data),
+						contentType : "application/json",
+						// 返回数据的格式
+						datatype : "json",// "xml", "html", "script", "json", "jsonp",
+											// "text".
+						// 在请求之前调用的函数
+						beforeSend : function() {
+							//showLoading();
+							//$("#msg").html("logining");
+						},
+						// 成功返回之后调用的函数
+						success : function(data) {
+							hideLoading();
+							if (data.status == "000"){
+								serverList = data.data.data;
+								 console.log("serverList: "+JSON.stringify(serverList));
+							} else {
+								alert("失败 ： "+data.msg);
+							}
+						},
+						// 调用执行后调用的函数
+						complete : function(XMLHttpRequest, textStatus) {
+							//hideLoading();
+						},
+						// 调用出错执行的函数
+						error : function(jqXHR, textStatus, errorThrown) {
+							hideLoading();
+						}
+					});
+			} 
+
 		}
 	} else {
 		localStorage.user = null;
@@ -244,7 +287,7 @@
 						<!--            右侧的用户头像姓名     --> <a
 						class="nav-link dropdown-toggle nav-profile" id="profileDropdown"
 						href="#" data-toggle="dropdown" aria-expanded="false"> <img
-							src="images/faces/face1.jpg" alt="image"> <span
+							src="images/faces/user1.png" alt="image"> <span
 							class="d-none d-lg-inline" id="userNameUIRight">张三</span>
 					</a>
 						<div class="dropdown-menu navbar-dropdown w-100"
@@ -512,7 +555,11 @@
 			<!-- ************************************ 主窗口 ************************************  -->
 			<div class="main-panel" id="main"></div>
 			<script>
-				$("#main").load("_mainPanel.html");
+				$("#main").load("_mainPanel.html",null,hideMainInfoNr);
+				function hideMainInfoNr(){
+					mainInfoNr.style.visibility = 'hidden';
+				}
+
 			</script>
 
 
@@ -558,6 +605,13 @@
  	-->
 	<!-- 全屏和收缩菜单 -->
 	<script src="js/misc.js"></script>
-
+<script src="js/off-canvas.js"></script>
+<script src="js/hoverable-collapse.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/todolist.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="js/codeEditor.js"></script>
+<script src="js/tabs.js"></script>
 </body>
 </html>

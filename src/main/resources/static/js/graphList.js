@@ -427,6 +427,50 @@ function updateGraphListFrame(){
 		});
 	}
 	diagram_gallery.innerHTML = diagram_gallery_innerHTML;
+}
 
+function doUpLoad(){
+
+	var formData=new FormData();
+	var file=$("#graphThumbnail")[0].files[0];
+	formData.append("file",file1);
+	$.ajax({
+	        url: 'uploadThumbnail',
+	        type: 'POST',
+	        cache:false,
+	        processData: false,//不处理数据
+	        data: formData,//直接把formData这个对象传过去
+	        dataType : 'json',
+	        contentType:false,// 主要设置你发送给服务器的格式,设为false代表不设置内容类型
+	        success: function(data){
+	          if(data.result=="success"){
+	            alert("success");
+	          }else{
+	            alert("error");
+	          }
+	        }
+	});
+	console.log("doUpLoad 2");
+	
+	var formData1=new FormData();
+	var file1=$("#graphFile")[0].files[0];
+	formData1.append("file",file1);
+	$.ajax({
+	        url: 'uploadGraphFile',
+	        type: 'POST',
+	        cache:false,
+	        processData: false,//不处理数据
+	        data: formData1,//直接把formData这个对象传过去
+	        dataType : 'json',
+	        contentType:false,// 主要设置你发送给服务器的格式,设为false代表不设置内容类型
+	        success: function(data){
+	          if(data.result=="success"){
+	            alert("success");
+	          }else{
+	            alert("error");
+	          }
+	        }
+	});
+	console.log("doUpLoad 3");
 
 }

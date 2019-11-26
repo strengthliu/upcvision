@@ -11,7 +11,7 @@ var targetName = "";
 var serverName = "";
 var defaultDevice;
 var defaultPoints;
-var serverList;
+
 var defaultServer;
 
 // 确保服务器和点位数据

@@ -540,8 +540,12 @@ function setConnected(connected) {
 loginWebsocket();
 
 function loginWebsocket() {
-	if(socket.readyState!=1){
-		alert("未连接。");
+	if(!connected){
+//		alert("未连接。");
+//		connect(realtimeSubscribe);
+
+	//if(socket=="null" || socket=="undefined" || socket.readyState!=1){
+		// alert("未连接。");
 		connect();
 		return;
 		}
