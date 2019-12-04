@@ -17,8 +17,16 @@ public class PointGroupData extends BaseDomain implements Serializable, Cloneabl
 
     private String points;
 
+    /**
+     *  graph：路径
+     *  pointGroup: 规则
+     */
     private String otherrule1;
 
+    /**
+     * graph: 图中text的id列表
+     * pointGroup: 说明
+     */
     private String otherrule2;
 
     private String otherrule3;

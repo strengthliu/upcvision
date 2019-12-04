@@ -209,11 +209,23 @@ function _backward() {
 			console.log("fdsfdsfdsafdsa");
 			// TODO： 如果向左一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
 // currentStartTimeInd
+			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data));
 			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data[_dataIndex['time']][1]));
 //			var _currentStartTimeInd = _data[_dataIndex['time']][1].getTime() - oneStep*1000;
-			var _currentStartTimeInd = _data[_dataIndex['time']][1].getTime() - 60*60*2*1000;
-			getHistoryData1(_historyDataDetailKey,_currentStartTimeInd,_data[_dataIndex['time']][1].getTime(),_backward);
-			
+			var _currentStartTimeInd ;// 当前要查的时间的序号，不是具体时间。因为要数据数量。
+			var _endTime;
+			if(_data[_dataIndex['time']].length>1 && _data[_dataIndex['time']][1] != "undefined"){
+//				console.log("1 -> "+_dataIndex['time']);
+//				console.log("2 -> "+_data[_dataIndex['time']][1]);
+//				console.log("3 -> "+_data);
+//				console.log("4 -> "+_data[_dataIndex['time']][1]);
+				_currentStartTimeInd = _data[_dataIndex['time']][1].getTime() - 60*60*2*1000;
+				_endTime = _data[_dataIndex['time']][1].getTime();
+			} else {
+				_currentStartTimeInd = new Date().getTime() - 60*60*2*1000;
+				_endTime = new Date().getTime();
+			}
+			getHistoryData1(_historyDataDetailKey,_currentStartTimeInd,_endTime,_backward);
 			return;
 		}
 	}
@@ -264,6 +276,7 @@ function _forward() {
 		else{
 			// TODO： 如果向右一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
 			currentStartTimeInd = _data[_dataIndex['time']][_data[_dataIndex['time']].length-1].getTime();
+			
 			getHistoryData1(_historyDataDetailKey,currentStartTimeInd,currentStartTimeInd+oneStep*1000,_backward);
 			return;
 		}
@@ -592,10 +605,13 @@ var c3LineChart;
 	cols.push(_time_);
 
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		var _c_ = new Array();
-		_c_.push(pointList[indpl].tagName,0);
-		
-		cols.push(_c_);
+		if(pointList[indpl] != null && pointList[indpl]!="undefined"){
+			var _c_ = new Array();
+			_c_.push(pointList[indpl].tagName,0);
+			cols.push(_c_);
+		} else {
+			console.log(" get null tagName => "+JSON.stringify(pointList,null,2));
+		}
 	}
 	cdata=cols;
 	_data=cols;

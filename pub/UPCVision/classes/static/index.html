@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="css/jquery.datetimepicker.css">
 <link rel="stylesheet" href="css/c3.css">
 <link rel="stylesheet" href="css/jquery.contextMenu.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 <!-- 
 <link rel="stylesheet" href="css/bootstrap.css">
  -->
@@ -40,21 +41,28 @@
  -->
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/jquery.contextMenu.js"></script>
+<link rel="stylesheet" href="css/jquery.datetimepicker.css">
+
 <!-- 
+使用这个版本的bootstrap，与vendor的冲突，会导致modal关闭时，有个遮罩不能正常关闭去掉。
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/bootstrap.js"></script>
 <script src="js/bootstrap-datetimepicker.min.js"></script>
  -->
-<script src="js/bootstrap.js"></script>
 <script src="js/sockjs.min.js"></script>
 <script src="js/stomp.min.js"></script>
 <script src="js/file-upload.js"></script>
 <script src="js/select2.js"></script>
 
+
 <script src="js/c3.js"></script>
 <!-- 这是个集成好的综合包，但是版本有点低，有些功能还没有实现，所以需要把匹配的新版本的包整理出来。
 <script src="js/d3.js"></script>
  -->
+
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <script src="vendors/js/vendor.bundle.addons.js"></script>
+<script src="js/jquery.datetimepicker.full.js"></script>
 <!-- 这部分是SVG操作的第三方库，基于Angular 
 <script src="js/hammer.min.js"></script>
 <script src="js/uniwheel.js"></script>
@@ -81,10 +89,57 @@
 				&& token != "undefined") {
 			uname = user.name;
 			uid = user.id;
-			if (userSpace == null || userSpace == "undefined")
+			if (userSpace == null || userSpace == "undefined"){
+				console.log("1======"+new Date());
 				getUserSpace(uid, token);
-			else
+				console.log("2======"+new Date());
+				console.log("3======"+new Date());
+			}else{
+				console.log("x======"+new Date());
 				checkRight(uid, token, "index.html", null);
+			}
+
+			//确保服务器和点位数据
+			if(serverList == null || serverList=="undefined"){
+				// 去取服务器数据
+				var data={'uid':uid,'token':token};
+					$.ajax({
+						// 提交数据的类型 POST GET
+						type : "POST",
+						// 提交的网址
+						url : "getServerInfo",
+						// 提交的数据
+						data : JSON.stringify(data),
+						contentType : "application/json",
+						// 返回数据的格式
+						datatype : "json",// "xml", "html", "script", "json", "jsonp",
+											// "text".
+						// 在请求之前调用的函数
+						beforeSend : function() {
+							//showLoading();
+							//$("#msg").html("logining");
+						},
+						// 成功返回之后调用的函数
+						success : function(data) {
+							hideLoading();
+							if (data.status == "000"){
+								serverList = data.data.data;
+								 console.log("serverList: "+JSON.stringify(serverList));
+							} else {
+								alert("失败 ： "+data.msg);
+							}
+						},
+						// 调用执行后调用的函数
+						complete : function(XMLHttpRequest, textStatus) {
+							//hideLoading();
+						},
+						// 调用出错执行的函数
+						error : function(jqXHR, textStatus, errorThrown) {
+							hideLoading();
+						}
+					});
+			} 
+
 		}
 	} else {
 		localStorage.user = null;
@@ -93,13 +148,23 @@
 		token = null;
 		location.href = "login.html";
 	}
+	
+	function sleep (time) {
+		  return new Promise((resolve) => setTimeout(resolve, time));
+		}
+
+
+	async function ck(){
+		
+	}
 </script>
 </head>
 <body>
 	<div class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 		<nav
-			class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-success">
+			class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-success"
+			id="topToolsBar">
 			<div
 				class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
 				<a class="navbar-brand brand-logo" href="index.html"><img
@@ -107,7 +172,8 @@
 					class="navbar-brand brand-logo-mini" href="index.html"><img
 					src="images/logo.png" alt="logo" /></a>
 			</div>
-			<div class="navbar-menu-wrapper d-flex align-items-stretch" id="mainToolsBar">
+			<div class="navbar-menu-wrapper d-flex align-items-stretch"
+				id="mainToolsBar">
 				<button class="navbar-toggler navbar-toggler align-self-center"
 					type="button" data-toggle="minimize">
 					<span class="mdi mdi-menu"></span>
@@ -221,7 +287,7 @@
 						<!--            右侧的用户头像姓名     --> <a
 						class="nav-link dropdown-toggle nav-profile" id="profileDropdown"
 						href="#" data-toggle="dropdown" aria-expanded="false"> <img
-							src="images/faces/face1.jpg" alt="image"> <span
+							src="images/faces/user1.png" alt="image"> <span
 							class="d-none d-lg-inline" id="userNameUIRight">张三</span>
 					</a>
 						<div class="dropdown-menu navbar-dropdown w-100"
@@ -374,31 +440,30 @@
 
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-diagram" aria-expanded="false"
-						aria-controls="ui-diagram"  onclick="routeTo('diagramList','')"> <i class="icon-layers menu-icon"></i>
-							<span class="menu-title">流程图</span>
+						aria-controls="ui-diagram" onclick="routeTo('diagramList','')">
+							<i class="icon-layers menu-icon"></i> <span class="menu-title">流程图</span>
 					</a></li>
 
-					<li class="nav-item">
-						<a class="nav-link"
+					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-xydiagram" aria-expanded="false"
-						aria-controls="ui-xydiagram" onclick="routeTo('xydiagramList','')"> <i class="icon-server menu-icon">
-						</i><span class="menu-title">XY图</span>
+						aria-controls="ui-xydiagram" onclick="routeTo('xydiagramList','')">
+							<i class="icon-server menu-icon"> </i><span class="menu-title">XY图</span>
 							<i class="menu-arrow"></i>
-							</a>
+					</a>
 						<div class="collapse" id="ui-xydiagram">
 							<ul class="nav flex-column sub-menu">
 								<li class="nav-item"><a class="nav-link"
 									href="pages/ui-features/accordions.html">石化常减压</a></li>
 							</ul>
-						</div>
-					</li>
+						</div></li>
 
 					<!-- *******************************  实时数据 ******************************* -->
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-realtimedata"
-						aria-expanded="false" aria-controls="ui-realtimedata" onclick="routeTo('realtimedataList','')"> 
-						<i class="icon-bar-graph menu-icon"></i> <span class="menu-title">实时数据查询</span> <i
-							class="menu-arrow"></i>
+						aria-expanded="false" aria-controls="ui-realtimedata"
+						onclick="routeTo('realtimedataList','')"> <i
+							class="icon-bar-graph menu-icon"></i> <span class="menu-title">实时数据查询</span>
+							<i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-realtimedata">
 							<ul class="nav flex-column sub-menu">
@@ -410,8 +475,8 @@
 					<!-- *******************************  报警查询 ******************************* -->
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-alertdata" aria-expanded="false"
-						aria-controls="ui-alertdata" onclick="routeTo('alertdataList','')"> <i class="icon-bell menu-icon"></i>
-							<span class="menu-title">报警查询</span>
+						aria-controls="ui-alertdata" onclick="routeTo('alertdataList','')">
+							<i class="icon-bell menu-icon"></i> <span class="menu-title">报警查询</span>
 							<i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-alertdata">
@@ -425,9 +490,9 @@
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-datahistory"
 						aria-expanded="false" aria-controls="ui-datahistory"
-							onclick="routeTo('historydataList','')"> <i
-							class="icon-grid-2 menu-icon"></i> <span class="menu-title">历史数据</span> <i
-							class="menu-arrow"></i>
+						onclick="routeTo('historydataList','')"> <i
+							class="icon-grid-2 menu-icon"></i> <span class="menu-title">历史数据</span>
+							<i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-datahistory">
 							<ul class="nav flex-column sub-menu">
@@ -443,9 +508,9 @@
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-directreporting"
 						aria-expanded="false" aria-controls="ui-directreporting"
-							onclick="routeTo('lineAlertdataList','')"> <i
-							class="icon-map menu-icon"></i> <span class="menu-title">直线警报</span> <i
-							class="menu-arrow"></i>
+						onclick="routeTo('lineAlertdataList','')"> <i
+							class="icon-map menu-icon"></i> <span class="menu-title">直线警报</span>
+							<i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-directreporting">
 							<ul class="nav flex-column sub-menu">
@@ -455,19 +520,17 @@
 						</div></li>
 
 					<script>
-						getUserSpace(user.id, token, updateUI());
+						if (userSpace != null && userSpace != "undefined") {
+							console.log("userSpace不为空。执行updateUI");
+							updateUI();
+						} else {
+							console
+									.log("userSpace为空。执行getUserSpace(user.id, token, updateUI())");
+							getUserSpace(user.id, token, updateUI());
+						}
 
-						//console.log("begin to build left navigator");
-						//if (userSpace != null && userSpace != "undefined") {
-						//	console.log("index.html before updateUI() ->userSpace is not null");
-						//	updateUI();
-						//} else {
-						//	if (user == null || token == null) {
-						//
-						//	} else
-						//		getUserSpace(user.id, token, updateUI());
-						//}
 						function updateUI() {
+							console.log("updateUI()");
 							updateDiagram();
 							updateXYDiagram();
 							updateRealTimeData();
@@ -492,7 +555,11 @@
 			<!-- ************************************ 主窗口 ************************************  -->
 			<div class="main-panel" id="main"></div>
 			<script>
-				$("#main").load("_mainPanel.html");
+				$("#main").load("_mainPanel.html",null,hideMainInfoNr);
+				function hideMainInfoNr(){
+					mainInfoNr.style.visibility = 'hidden';
+				}
+
 			</script>
 
 
@@ -537,7 +604,14 @@
 	<script src="vendors/js/vendor.bundle.addons.js"></script>
  	-->
 	<!-- 全屏和收缩菜单 -->
-	<script src="js/misc.js"></script> 
-
+	<script src="js/misc.js"></script>
+<script src="js/off-canvas.js"></script>
+<script src="js/hoverable-collapse.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/todolist.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="js/codeEditor.js"></script>
+<script src="js/tabs.js"></script>
 </body>
 </html>

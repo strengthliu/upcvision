@@ -18,9 +18,10 @@
 <link rel="stylesheet" href="css/c3.css">
 <link rel="stylesheet" href="css/jquery.contextMenu.css">
 <!-- 
+<link rel="stylesheet" href="css/bootstrap.css">
+ -->
 <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
 <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
- -->
 <link rel="stylesheet" href="css/style.css">
 <link rel="shortcut icon" href="images/favicon.png" />
 
@@ -34,17 +35,33 @@
 <!-- inject:css -->
 <link rel="stylesheet" href="css/style.css">
 <!-- endinject -->
+<!-- 
+<script src="js/jquery-2.2.4.js"></script>
+ -->
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/jquery.contextMenu.js"></script>
+<link rel="stylesheet" href="css/jquery.datetimepicker.css">
+
+<!-- 
+使用这个版本的bootstrap，与vendor的冲突，会导致modal关闭时，有个遮罩不能正常关闭去掉。
 <script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+ -->
 <script src="js/sockjs.min.js"></script>
 <script src="js/stomp.min.js"></script>
+<script src="js/file-upload.js"></script>
+<script src="js/select2.js"></script>
+
+
 <script src="js/c3.js"></script>
-<script src="js/d3.js"></script>
 <!-- 这是个集成好的综合包，但是版本有点低，有些功能还没有实现，所以需要把匹配的新版本的包整理出来。
+<script src="js/d3.js"></script>
+ -->
+
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <script src="vendors/js/vendor.bundle.addons.js"></script>
- -->
+<script src="js/jquery.datetimepicker.full.js"></script>
 <!-- 这部分是SVG操作的第三方库，基于Angular 
 <script src="js/hammer.min.js"></script>
 <script src="js/uniwheel.js"></script>
@@ -73,77 +90,81 @@ button {
 </style>
 <body>
 
+<div id="svgt">
+</div>
+<div style="position: fixed; top: 250px; right: 10px; z-index: 900;">
 <button id="zoom_in">+</button>
 <button id="zoom_out">-</button>
-<div id="svgt">
+<button id="zoom_fullScreen">[]</button>
+<button id="zoom_left"><</button>
+<button id="zoom_right">></button>
+<button id="zoom_up">^</button>
+<button id="zoom_down">!</button>
+<button id="zoom_test">test</button>
 </div>
 <script>
 $("#svgt").load("ltgrh101.svg", null, changeAAction);
-function changeAAction(){
-	svg = d3.select("svg");
+
+//页面加载完成后调用。在之前调用会导致不能正确获得对象。
+function changeAAction() {
+		  console.log("=====================");
+	var d = document.getElementById("svgt");
+	//	  console.log("html:"+d.innerHTML);
+	var as = d.getElementsByTagName("a");
+	for (var i = 0; i < as.length; i++) {
+		var _a = as[i];
+		//console.log("a - html: "+_a.outerHTML+" url="+_a.href.baseVal);
+		var t = _a.href.baseVal;
+
+		
+		_a.onclick = function() {
+			//console.log("点击了 "+this.innerHTML);
+			console.log("a -  url=" + this.href.baseVal);
+			var g = getGraphByPath_1(userSpace.graph, this.href.baseVal);
+			if (g == null || g == "undefined" || g.id == null
+					|| g.id == "undefined") {
+				alert("您没有查看这个图形的权限。");
+			} else {
+				_graphId = g.id;
+				_diagramShowKey = g.urlPath;
+				routeTo("diagramDetail", this.href.baseVal);
+			}
+
+			return false;
+		};
+	}
+	// 获取图形宽高
+	svg1 = document.getElementsByTagName("svg");
+	svg1 = svg1[0];
+    width = svg1.attributes.width.value;
+    height = svg1.attributes.height.value;
+    //width = 960;
+    //height = 500;
+    console.log("widthaaa="+width+" heightbbb="+height+"");
+    // D3操作对象
+	zoom = d3.behavior.zoom().scaleExtent([0.5, 8]).on("zoom", zoomed); //= d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
+	svg = d3.select("svg").call(zoom);
+	//svg = d3.select("#svg_101");
+    //width = svg.attributes.width.value;
+    //height = svg.attributes.height.value;
+	
+    console.log("svg => "+JSON.stringify(svg));
+    console.log("=====2");
+    // 对SVG内的的所有button设置点击事件为zoomClick缩放操作。
+	//d3.selectAll('button').on('click', zoomClick);	
+    // svg.selectAll("g").call(d3.drag().on("drag", dragged));
+    //console.log("00");
+    //var drag = d3.drag();
+	//svg.enter().attr("r", 2.5).attr("transform", function(d) { return "translate(" + d + ")"; });
+    //console.log("11");
+    //svg.selectAll("g").call(d3.drag().on("drag", dragged));
+    
+    // 图形全屏
+	fullScreenFn();
+
 }
-var width = 960,
-    height = 500;
-
-var randomX = d3.random.normal(width / 2, 80),
-    randomY = d3.random.normal(height / 2, 80);
-
-
-var zoom = d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
-var svg ;//= d3.select("svg");
-
-console.log("svg => "+JSON.stringify(svg));
-
-function zoomed() {
-    svg.attr("transform",
-        "translate(" + zoom.translate() + ")" +
-        "scale(" + zoom.scale() + ")"
-    );
-}
-//const drag = d3.drag()
-
-function interpolateZoom (translate, scale) {
-    var self = this;
-    return d3.transition().duration(350).tween("zoom", function () {
-        var iTranslate = d3.interpolate(zoom.translate(), translate),
-            iScale = d3.interpolate(zoom.scale(), scale);
-        return function (t) {
-            zoom
-                .scale(iScale(t))
-                .translate(iTranslate(t));
-            zoomed();
-        };
-    });
-}
-
-function zoomClick() {
-    var clicked = d3.event.target,
-        direction = 1,
-        factor = 0.2,
-        target_zoom = 1,
-        center = [width / 2, height / 2],
-        extent = zoom.scaleExtent(),
-        translate = zoom.translate(),
-        translate0 = [],
-        l = [],
-        view = {x: translate[0], y: translate[1], k: zoom.scale()};
-
-    d3.event.preventDefault();
-    direction = (this.id === 'zoom_in') ? 1 : -1;
-    target_zoom = zoom.scale() * (1 + factor * direction);
-
-    if (target_zoom < extent[0] || target_zoom > extent[1]) { return false; }
-
-    translate0 = [(center[0] - view.x) / view.k, (center[1] - view.y) / view.k];
-    view.k = target_zoom;
-    l = [translate0[0] * view.k + view.x, translate0[1] * view.k + view.y];
-
-    view.x += center[0] - l[0];
-    view.y += center[1] - l[1];
-
-    interpolateZoom([view.x, view.y], view.k);
-}
-
-d3.selectAll('button').on('click', zoomClick);
 
 </script>
+<script src="js/graphView.js"></script>
+
+</body>

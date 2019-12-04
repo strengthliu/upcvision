@@ -8,7 +8,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel-2">上传图形</h5>
+				<h5 class="modal-title" id="_updateGraphTitle">上传图形</h5>
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
@@ -19,14 +19,15 @@
                   <form class="forms-sample">
                     <div class="form-group">
                       <label for="exampleInputName1">图形名称</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                      <input type="text" class="form-control" id="_graphName" placeholder="请填写图形名称">
                     </div>
                     <div class="form-group">
                       <label for="exampleTextarea1">图形说明</label>
-                      <textarea class="form-control" id="exampleTextarea1" rows="2"></textarea>
+                      <textarea class="form-control" id="_graphDesc" rows="3" placeholder="请填写图形说明"></textarea>
                     </div>
                     <div class="form-group">
                       <label>上传图形缩略图</label>
+                      <a>(不修改不需要再选择文件)</a>
                       <input id="graphThumbnail" type="file" class="file" data-show-preview="false">
                       <!-- 
                       <input type="file" name="img[]" class="file-upload-default">
@@ -38,7 +39,7 @@
                       </div>
                        -->
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="divUpLoadGraphFile">
                       <label>上传图形文件</label>
                       <input id="graphFile" type="file" class="file" data-show-preview="false">
                       <!-- 

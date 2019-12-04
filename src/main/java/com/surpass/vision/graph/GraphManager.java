@@ -222,7 +222,8 @@ System.out.println(aa.length);
 	public void reloadFileList(String graphPath2) {
 		try {
 			FileTool.find(graphPath2,serverManager,graphDataManager,graphPath,repo);
-			graph = this.copyGraphFromFileList(repo, null);
+			// 上传图形时，需要修改下面的这些值。再更新UserSpace
+			graph = this.copyGraphFromFileList(repo);
 			graphs = graph.clone();
 			graphs.clearLeaf();
 			printGraph(graphs,null);
@@ -248,12 +249,12 @@ System.out.println(aa.length);
 		}
 	}
 
-	public void updateGraph(Graph rtd) {
-		// 更新数据库
-		pointGroupService.updatePointGroupItem(rtd);
-		// 写缓存，返回
-		redisService.set(GlobalConsts.Key_Graph_pre_+IDTools.toString(rtd.getId()),rtd);
-	}
+//	public void updateGraph(Graph rtd) {
+//		// 更新数据库
+//		pointGroupService.updatePointGroupItem((PointGroupData)rtd);
+//		// 写缓存，返回
+//		redisService.set(GlobalConsts.Key_Graph_pre_+IDTools.toString(rtd.getId()),rtd);
+//	}
 
 //	public void updateGraphs() {
 //		// TODO Auto-generated method stub
@@ -336,6 +337,26 @@ System.out.println(aa.length);
 		}
 		return rtd;
 
+	}
+
+	public void addOrUpdateGraphToTree(Graph g) {
+		repo.addChild(g);
+	}
+
+//	@Override
+	public boolean deleteGraph(Graph g) {
+		// 删除数据库
+		if(!super.deleteGraph(g))
+			return false;
+		
+		// 删除文件
+		if(!FileTool.delete(g.getWholePath()))
+			return false;
+		
+		// 更新缓存
+		redisService.delete(GlobalConsts.Key_Graph_pre_+IDTools.toString(g.getId()));
+		
+		return true;
 	}
 
 

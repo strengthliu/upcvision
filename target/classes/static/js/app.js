@@ -45,6 +45,17 @@ function splitServerPoint(tag){
 	}
 }
 
+function unicodeSpecialChar(url){
+	var rchar = ["%3F","%23","%2B","%20","%26","%3D"];
+	url = url.replace( /%/g,rchar[0]);
+	url = url.replace(/#/g,rchar[1]);
+	url = url.replace(/\+/g,rchar[2]);
+	url = url.replace(/\?/g,rchar[3]);
+	url = url.replace(/ /g,rchar[4]);
+	url = url.replace(/&/g,rchar[5]);
+	url = url.replace(/=/g,rchar[6]);
+	return url;
+}
 
 var userSpace = null;
 var serverList = null;
@@ -328,6 +339,7 @@ function checkRight(uid, token, loginPage,sucessPage) {
 				token = null;
 				userSpace = null;
 				if (loginPage == null || loginPage == "undefined")
+					showLoading();
 					console.log("checkright -> goto login.html");
 					window.location.href = "login.html";
 				

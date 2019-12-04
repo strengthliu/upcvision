@@ -26,6 +26,15 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 	boolean isSVG;
 	String name;
 	String path;
+	String nickName;
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
 
 	public FileList() {
 		super();
@@ -54,7 +63,7 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 	 * @param child
 	 * @return
 	 */
-	public synchronized boolean addChild(FileList child) {
+	public boolean addChild(FileList child) {
 		if (children == null)
 			children = new Hashtable<String, FileList>();
 		if (children.containsKey(child.getName())) {
@@ -85,6 +94,10 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 				}
 				fl.getChildren().put(child.getWholePath(), child);
 				inds.put(child.getId(), child);
+			}else {
+				this.getChildren().put(child.getWholePath(), child);
+				inds.put(child.getId(), child);
+				System.out.println("22");
 			}
 		}
 
@@ -109,8 +122,8 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 			Enumeration<FileList> e2 = par.children.elements();
 			while (e2.hasMoreElements()) {
 				FileList fl = e2.nextElement();
-				// 如果有一个孩子是匹配的，就递归这个孩子
-				if (child.getPath().contains(fl.getPath())) {
+				// 如果有一个孩子是目录、是匹配的，就递归这个孩子
+				if (!fl.isFile && child.getPath().contains(fl.getPath())) {
 					hasMore = true;
 					return getLatestParent(fl, child);
 				}
@@ -122,6 +135,7 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 	}
 
 	public String getWholePath() {
+		//if(true) return this.getOtherrule1();
 		if (!StringUtil.isBlank(this.path)) {
 			if (this.isFile) {
 				if (!StringUtil.isBlank(this.name))
@@ -314,18 +328,15 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 	}
 
 	public void addChildren(ArrayList<FileList> children1) {
-		// TODO Auto-generated method stub
 		for (int i = 0; i < children1.size(); i++) {
 			FileList child = children1.get(i);
-//			if(child.getImg()==null)
-//				child.setImg(ServerConfig.getInstance().getDefaultGraphImg());
 
 			this.children.put(child.getWholePath(), child);
 			if (child.isFile)
 				inds.put(child.getId(), child);
 		}
 	}
-
+	
 	public FileList getChild(Double id) {
 		return inds.get(id);
 	}

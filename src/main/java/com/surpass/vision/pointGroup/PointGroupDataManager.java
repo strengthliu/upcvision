@@ -309,8 +309,8 @@ public class PointGroupDataManager {
 
 		String serverName = gPointId;
 		// 如果是\\开头
-		System.out.println(GlobalConsts.Key_ServerNamePre);
-		System.out.println(GlobalConsts.Key_splitCharServerPoint);
+//		System.out.println(GlobalConsts.Key_ServerNamePre);
+//		System.out.println(GlobalConsts.Key_splitCharServerPoint);
 		if(gPointId.startsWith(GlobalConsts.Key_ServerNamePre)) {
 			serverName = gPointId.substring(2);
 		}else {

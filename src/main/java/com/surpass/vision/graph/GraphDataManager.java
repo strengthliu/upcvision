@@ -140,29 +140,30 @@ public class GraphDataManager extends PointGroupDataManager {
 		for (int i = 0; i < pgdl.size(); i++) {
 			PointGroupData pgd = pgdl.get(i);
 			// 数据库里的name = path+fileSeperator+name
+			// TODO: 这里涉及到名字了
 			String key = pgd.getName();
 			pgdh.put(key, pgd);
 		}
 		FileList fl = GraphManager.getInstance().getCurrentFileList();
 		if (fl == null)
 			return null;// 没有初始化
-		Graph ret = getGraph(GraphManager.getInstance().getArllGraph(), pgdh);
+		Graph ret = getGraph(GraphManager.getInstance().getArllGraph());
 		return ret;
 	}
 
 	/**
 	 * 
 	 * @param fl   文件树型
-	 * @param pgdh 数据库里的带权限的点组数据
+	 * -- @param pgdh 数据库里的带权限的点组数据
 	 * @return
 	 */
-	public Graph getGraph(FileList fl, Hashtable<String, PointGroupData> pgdh) {
+	public Graph getGraph(FileList fl) {
 		if (fl == null)
 			return null;
 
 		Graph ret = null;
 		try {
-			ret = copyGraphFromFileList(fl, pgdh);
+			ret = copyGraphFromFileList(fl);
 		} catch (Exception e) {
 			System.out.println("copyGraphFromFileList时异常");
 			e.printStackTrace();
@@ -171,20 +172,22 @@ public class GraphDataManager extends PointGroupDataManager {
 	}
 
 	/**
-	 * 根据一个FileList，生成相应的Graph数据。
+	 * 根据一个FileList，生成相应的Graph数据。同时用数据库中的信息更新fl信息，包括权限等，以保持数据一致。
 	 * 
 	 * @param fl
-	 * @param pgdh 数据库里的权限信息
+	 * -- @param pgdh 数据库里的权限等信息。这个不用了，修改为现从数据库中取信息。
 	 * @return
 	 */
-	public Graph copyGraphFromFileList(FileList fl, Hashtable<String, PointGroupData> pgdh) {
+	public Graph copyGraphFromFileList(FileList fl) {
 		boolean noCache = false;
-		Graph ret = new Graph();
-		// 设置基本信息
+		Graph ret = new Graph(); // 返回的图形
+		
+		// 设置fl中的基本信息
 		ret.setChanged(fl.getChanged());
 		ret.setFile(fl.isFile());
 		ret.setSVG(fl.isSVG());
-		ret.setId(fl.getId());
+//		ret.setId(fl.getId());
+		
 		ret.setPointTextIDs(fl.getPointTextIDs());
 		// 设置文件名
 		if (fl.isFile())
@@ -198,14 +201,14 @@ public class GraphDataManager extends PointGroupDataManager {
 		ret.setName(name);
 		ret.setPath(fl.getPath());
 		ret.setOtherrule1(fl.getOtherrule1());
-		String otherrule2 = "";
+		String otherrule3 = "";
 		if(fl.getPointTextIDs()!=null)
 		for(int indt =0;indt<fl.getPointTextIDs().size();indt++) {
-			otherrule2 += fl.getPointTextIDs().get(indt)+GlobalConsts.Key_splitChar;
+			otherrule3 += fl.getPointTextIDs().get(indt)+GlobalConsts.Key_splitChar;
 		}
-		if(otherrule2.length()>1)
-			otherrule2 = otherrule2.substring(0,otherrule2.length()-1);
-		ret.setOtherrule2(otherrule2);
+		if(otherrule3.length()>1)
+			otherrule3 = otherrule3.substring(0,otherrule3.length()-1);
+		ret.setOtherrule3(otherrule3);
 		// 设置类型
 		ret.setType(fl.getType());
 
@@ -221,8 +224,6 @@ public class GraphDataManager extends PointGroupDataManager {
 
 		// 如果是文件
 		if (fl.isFile()) {
-			Graph retg = null;
-
 			// 设置点位信息
 			if (StringUtil.isBlank(fl.getPoints())) {
 				ret.setPoints(fl.getPoints());
@@ -240,24 +241,58 @@ public class GraphDataManager extends PointGroupDataManager {
 			ret.setPointList(pal);
 
 			// 同步数据库
+			//这里用到的getWholePath涉及到名字了
 			PointGroupData pgd = this.pointGroupService.getPointGroupDataByOtherRule1(GlobalConsts.Type_graph_,
 					fl.getWholePath());
 			if (pgd != null) {
+				// 用数据库的信息更新fileList
+				fl.setId(pgd.getId());
+				fl.setType(pgd.getType());
+				fl.setName(pgd.getName());
+				fl.setOwner(pgd.getOwner());
+				fl.setCreater(pgd.getCreater());
+				fl.setShared(pgd.getShared());
+				fl.setPoints(pgd.getPoints());
+				fl.setOtherrule1(pgd.getOtherrule1());
+				fl.setOtherrule2(pgd.getOtherrule2());
+				fl.setOtherrule3(pgd.getOtherrule3());
+				fl.setOtherrule4(pgd.getOtherrule4());
+				fl.setOtherrule5(pgd.getOtherrule5());
+				setRightInfo(ret, pgd);
+				
 				ret.setId(pgd.getId());
-				ret.setCreater(pgd.getCreater());
+				ret.setType(pgd.getType());
+				ret.setName(pgd.getName());
 				ret.setOwner(pgd.getOwner());
+				ret.setCreater(pgd.getCreater());
 				ret.setShared(pgd.getShared());
+				ret.setPoints(pgd.getPoints());
+				ret.setOtherrule1(pgd.getOtherrule1());
+				ret.setOtherrule2(pgd.getOtherrule2());
+				ret.setOtherrule3(pgd.getOtherrule3());
+				ret.setOtherrule4(pgd.getOtherrule4());
+				ret.setOtherrule5(pgd.getOtherrule5());
+				setRightInfo(ret, pgd);
+				ret.setNickName(pgd.getOtherrule4());
+				if(!StringUtil.isBlank(pgd.getOtherrule5()))
+					ret.setImg(pgd.getOtherrule5());
+				ret.setDesc(pgd.getOtherrule2());
+
 			} else {
 				Double id = IDTools.newID();
 				ret.setId(id);
 				ret.setCreater(GlobalConsts.UserAdminID);
 				ret.setOwner(GlobalConsts.UserAdminID);
+				ret.setNickName(fl.getNickName());
+				ret.setOtherrule4(fl.getNickName());
+				ret.setOtherrule5(fl.getImg());
+				ret.setImg(fl.getImg());
+				ret.setOtherrule2(fl.getDesc());
 
 				// TODO: 处理数据库和缓存
 				// 数据库中创建一条
 				this.pointGroupService.newPointGroupData(ret);
 			}
-			setRightInfo(ret, pgd);
 
 			// 更新缓存
 			try {
@@ -279,7 +314,7 @@ public class GraphDataManager extends PointGroupDataManager {
 		if (flh != null) {
 			Hashtable<String, Graph> children = new Hashtable<String, Graph>();
 			flh.forEach((k, v) -> {
-				Graph graph = getGraph(v, pgdh);
+				Graph graph = getGraph(v);
 				children.put(k, graph);
 				// System.out.println();
 			});
@@ -298,65 +333,8 @@ public class GraphDataManager extends PointGroupDataManager {
 			Graph graph = null;
 			FileList fl = GraphManager.getCurrentFileList();
 			fl = fl.getChild(pgd.getId());
-			graph = this.copyGraphFromFileList(fl, null);
+			graph = this.copyGraphFromFileList(fl); // 去掉了pgd参数后，会在这个方法里再取一次数据库。增加了压力，但也增加了同步。
 			return graph;
-//	
-//	//		// 如果缓存里有，就取出返回
-//	//		graph = (Graph) redisService.get(GlobalConsts.Key_Graph_pre_ + IDTools.toString(pgd.getId()));
-//	//		if (graph != null) {
-//	//			return graph;
-//	//		}
-//	
-//			// 如果没有，就copy一份，再放到缓存里。
-//			graph = new Graph();
-//			graph.setCreater(pgd.getCreater());
-//			graph.setCreaterUser(userManager.getUserByID(pgd.getCreater()));
-//	
-//			graph.setId(pgd.getId());
-//			graph.setName(pgd.getName());
-//			graph.setOtherrule1(pgd.getOtherrule1());
-//			graph.setOtherrule2(pgd.getOtherrule2());
-//			// 注释设置为Otherrule2
-//			graph.setDesc(pgd.getOtherrule2());
-//	
-//			graph.setOwner(pgd.getOwner());
-//			graph.setOwnerUser(userManager.getUserByID(pgd.getOwner()));
-//	
-//			// 设置FileList的相关信息
-//			FileList fl = GraphManager.getCurrentFileList();
-//			fl = fl.getChild(pgd.getId());
-//			graph = this.copyGraphFromFileList(fl, null);
-//			graph.setFile(fl.isFile());
-//			graph.setSVG(fl.isSVG());
-//			graph.setImg(fl.getImg());
-//			graph.setPath(fl.getPath());
-//			graph.setFileName(fl.getName());
-//			graph.setUrlPath(ServerConfig.getInstance().getURLFromPath(fl.getWholePath()));
-//	
-//			graph.setPoints(pgd.getPoints());
-//			ArrayList<Point> pal = new ArrayList<>();
-//			String[] pids = IDTools.splitID(pgd.getPoints());
-//			for (int ipids = 0; ipids < pids.length; ipids++) {
-//				String serverName = splitServerName(pids[ipids]);
-//				String pName = splitPointName(pids[ipids]);
-//				Point p = ServerManager.getInstance().getPointByID(serverName, pName);
-//				pal.add(p);
-//			}
-//			graph.setPointList(pal);
-//	
-//			graph.setShared(pgd.getShared());
-//			ArrayList<User> ul = new ArrayList<User>();
-//			String[] sharedIds = IDTools.splitID(pgd.getShared());
-//			for (int isharedIDs = 0; isharedIDs < sharedIds.length; isharedIDs++) {
-//				User u = userManager.getUserByID(sharedIds[isharedIDs]);
-//				ul.add(u);
-//			}
-//			graph.setSharedUsers(ul);
-//	
-//			graph.setType(pgd.getType());
-//			redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(pgd.getId()), graph);
-//	
-//			return graph;
 		}
 
 	public void setRightInfo(Graph ret, PointGroupData pgd) {
@@ -397,6 +375,9 @@ public class GraphDataManager extends PointGroupDataManager {
 
 			ret.setOtherrule1(pgd.getOtherrule1());
 			ret.setOtherrule2(pgd.getOtherrule2());
+			ret.setOtherrule3(pgd.getOtherrule3());
+			ret.setOtherrule4(pgd.getOtherrule4());
+			ret.setOtherrule5(pgd.getOtherrule5());
 		} else {
 			// ------------------ 设置创建者 -------------------
 			String createrId = ret.getCreater();
@@ -528,6 +509,9 @@ public class GraphDataManager extends PointGroupDataManager {
 			fl.setShared(pgd.getShared());
 			fl.setOtherrule1(pgd.getOtherrule1());
 			fl.setOtherrule2(pgd.getOtherrule2());
+			fl.setOtherrule3(pgd.getOtherrule3());
+			fl.setOtherrule4(pgd.getOtherrule4());
+			fl.setOtherrule5(pgd.getOtherrule5());
 			fl.setType(pgd.getType());
 			String points = pgd.getPoints();
 			if (!fl.getPoints().contentEquals(points)) {
@@ -538,4 +522,46 @@ public class GraphDataManager extends PointGroupDataManager {
 		return fl;
 	}
 
+	public Graph updateGraph(Graph g) {
+		PointGroupData pgd = pointGroupService.getPointGroupDataByID(g.getId());
+		if (pgd == null) {
+			throw new IllegalStateException("没有id为" + g.getId() + "这个数据");
+		}
+		pgd.setCreater(g.getCreater());
+		pgd.setId(g.getId());
+		//pgd.setPointTextIDs(g.getPointTextIDs());
+		// 设置文件名
+		String name = g.getName();
+		if (name.lastIndexOf(".") > 0)
+			name = name.substring(0, name.lastIndexOf("."));
+		// 设置名字，名字是去掉扩展名的
+		pgd.setName(name);
+		pgd.setOtherrule4(g.getNickName());
+		pgd.setOtherrule2(g.getDesc());
+		pgd.setCreater(g.getCreater());
+		pgd.setOwner(g.getOwner());
+		// 设置缩略图
+		if (StringUtil.isBlank(g.getImg()))
+			pgd.setOtherrule5(graphDefaultImg);
+		else
+			pgd.setOtherrule5(g.getImg());
+		// 更新数据库
+		pointGroupService.updatePointGroupItem(pgd);
+
+		// 更新缓存
+		Graph rtd = this.copyFromPointGroupData(pgd);
+		redisService.set(GlobalConsts.Key_HistoryData_pre_ + IDTools.toString(rtd.getId()), rtd);
+
+		return rtd;
+	}
+
+	public boolean deleteGraph(Graph g) {
+		try {
+			pointGroupService.deletePointGroupItem(g.getId());
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

@@ -59,6 +59,9 @@ public class PointGroupServiceImpl implements PointGroupService {
 			pgd1.setName(pgd.getName());
 			pgd1.setOtherrule1(pgd.getOtherrule1());
 			pgd1.setOtherrule2(pgd.getOtherrule2());
+			pgd1.setOtherrule3(pgd.getOtherrule3());
+			pgd1.setOtherrule4(pgd.getOtherrule4());
+			pgd1.setOtherrule5(pgd.getOtherrule5());
 			pgd1.setOwner(pgd.getOwner());
 			pgd1.setPoints(pgd.getPoints());
 			pgd1.setShared(pgd.getShared());

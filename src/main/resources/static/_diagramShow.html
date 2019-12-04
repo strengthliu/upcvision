@@ -312,11 +312,12 @@
 			} else {
 				_graphId = g.id;
 				_diagramShowKey = g.urlPath;
-				$("#_diagramShow").load(_diagramShowKey, null, changeAAction);
+				$("#_diagramShow").load(unicodeSpecialChar(_diagramShowKey), null, changeAAction);
 			}
 		} else {
-			$("#_diagramShow").load(_diagramShowKey, null, changeAAction);
+			$("#_diagramShow").load(unicodeSpecialChar(_diagramShowKey), null, changeAAction);
 		}
+			console.log("_diagramShowKey="+unicodeSpecialChar(_diagramShowKey));
 		console.log("dddd");
 	}
 

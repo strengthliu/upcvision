@@ -76,6 +76,7 @@ public class ServerConfig {
 	 * @return
 	 */
 	public String getURLFromPath(String wholePath) {
+		//System.out.println("wholePath = "+wholePath);
 		ServerConfig sc = ServerConfig.getInstance();
 		String graphbase = sc.getPhysicalGraphPath(graphPath);
 		String ret = "";

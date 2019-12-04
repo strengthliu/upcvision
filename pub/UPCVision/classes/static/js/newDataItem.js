@@ -11,7 +11,7 @@ var targetName = "";
 var serverName = "";
 var defaultDevice;
 var defaultPoints;
-var serverList;
+
 var defaultServer;
 
 // 确保服务器和点位数据
@@ -31,10 +31,12 @@ if(serverList == null || serverList=="undefined"){
 								// "text".
 			// 在请求之前调用的函数
 			beforeSend : function() {
-				$("#msg").html("logining");
+				showLoading();
+				//$("#msg").html("logining");
 			},
 			// 成功返回之后调用的函数
 			success : function(data) {
+				hideLoading();
 				if (data.status == "000"){
 					serverList = data.data.data;
 					 console.log("serverList: "+JSON.stringify(serverList));
@@ -45,9 +47,11 @@ if(serverList == null || serverList=="undefined"){
 			},
 			// 调用执行后调用的函数
 			complete : function(XMLHttpRequest, textStatus) {
+				hideLoading();
 			},
 			// 调用出错执行的函数
 			error : function(jqXHR, textStatus, errorThrown) {
+				hideLoading();
 			}
 		});
 } else {
@@ -109,6 +113,9 @@ function buildNewItemUI(serverInfos) {
 	console.log(" ----- debug 2 -----");
 	// 添加默认位号组
 	defaultServer = serverInfos[$("#newItem_ServerSelectSect").val()];
+	if(defaultServer==null || defaultServer=="undefined"){
+		defaultServer = serverInfos[0];
+	}
 	//console.log(JSON.stringify(defaultServer.serverName));
 	var deviceInfos = defaultServer.devices;
 	Object.keys(deviceInfos).forEach(function(keyDevice){

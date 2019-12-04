@@ -147,6 +147,9 @@ public class UserManager {
 				return true;
 			else
 				return false;
+		case GlobalConsts.Operation_uploadGraphFile:
+			if(role==2) return true;
+			else return false;
 		}
 		return false;
 	}

@@ -176,7 +176,13 @@ function removePointFromXYGraph(tagName){
 	if(pointGroup.indexOf(tagName)>-1){
 		pointGroup.splice(pointGroup.indexOf(tagName),1);
 		// TODO: cdata中删除点。
+		_cdataIndex = new Array();
+		for(var indrow=0;indrow<cdata.length;indrow++){
+			_cdataIndex[cdata[indrow][0]]= indrow;
+		}			
 		cdata.splice(_cdataIndex[tagName],1);
+		
+		console.log("cd -> "+JSON.stringify(cdata));
 		var _dt_ = new Array();
 		for(var i=0;i<cdata.length;i++){
 			_dt_.push(cdata[i][0]);
@@ -184,7 +190,7 @@ function removePointFromXYGraph(tagName){
 		}
 //		c3LineChart.flow({columns:_dt_,to:new Date(),duration:1000});
 //		c3LineChart.flow({columns:cdata,to:new Date(),duration:1000});
-		
+		if(pointGroup.length>0){
 		c3LineChart = c3.generate({
 			bindto : '#ui-historyDataLineChart',
 			data : {
@@ -231,7 +237,7 @@ function removePointFromXYGraph(tagName){
 				}
 			}
 		});
-
+		}
 	}
 }
 

@@ -107,6 +107,7 @@ function routeTo(diagram, key, graphId) {
 	if (unsubscribe != null && unsubscribe != "undefined")
 		unsubscribe();
 
+	var mainInfoNr = document.getElementById("mainInfoNr");
 //	showLoading();
 	switch (diagram.toLowerCase()) {
 	case "dashboard".toLowerCase():
@@ -121,56 +122,67 @@ function routeTo(diagram, key, graphId) {
 		_graphId = graphId;
 		// console.log("case diagramList " + key + " " + graphId);
 		$("#mainPanel").load("_gallery.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'visible';
 		break;
 	case "diagramDetail".toLowerCase():
 		console.log("key= "+key);
 		_diagramShowKey = key;
 		_graphId = graphId;
 		$("#mainPanel").load("_diagramShow.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'hidden';
 		break;
 	case "xydiagramList".toLowerCase():
 		_xydiagramListKey = key;
 		$("#mainPanel").load("_xyGraphList.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'visible';
 		break;
 	case "xyGraphDetail".toLowerCase():
 		_xydiagramListKey = key;
 		$("#mainPanel").load("_xyGraphChart.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'hidden';
 		break;
 	case "realtimedataList".toLowerCase():
 		_realtimedataListKey = key;
 		$("#mainPanel").load("_realtimedataList.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'visible';
 		break;
 	case "realtimedataDetail".toLowerCase():
 		_realtimeDataDetailKey = key;
 		$("#mainPanel").load("_realtimeDataChart.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'hidden';
 		break;
 	case "alertdataList".toLowerCase():
-
 		$("#mainPanel").load("_alertdataList.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'visible';
 		break;
 	case "alertdataDetail".toLowerCase():
-
 		$("#mainPanel").load("_alertdataChart.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'hidden';
 		break;
 	case "historydataList".toLowerCase():
 		$("#mainPanel").load("_historDataList.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'visible';
 		break;
 	case "historydatadetail".toLowerCase():
 		$("#mainPanel").load("_historyDataChart.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'hidden';
 		break;
 	case "lineAlertdataList".toLowerCase():
 		_linealertdataListKey = key;
 		$("#mainPanel").load("_lineAlertDataList.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'visible';
 		break;
 	case "linalertdataDetail".toLowerCase():
 		_linealertdataListKey = key;
 		$("#mainPanel").load("_lineAlertDataChart.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'hidden';
 		break;
 
 	//     
 	case "userManage".toLowerCase():
 		currentUser = key;
 		$("#mainPanel").load("_userManage.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'hidden';
 		break;
 	}
 

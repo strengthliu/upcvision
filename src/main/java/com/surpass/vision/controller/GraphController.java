@@ -2,11 +2,13 @@ package com.surpass.vision.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -38,11 +40,14 @@ import com.surpass.vision.domain.UserSpace;
 import com.surpass.vision.exception.ExceptionEnum;
 import com.surpass.vision.exception.GirlFriendNotFoundException;
 import com.surpass.vision.exception.ResponseBean;
+import com.surpass.vision.graph.GraphDataManager;
 import com.surpass.vision.graph.GraphManager;
 import com.surpass.vision.server.Point;
 import com.surpass.vision.server.ServerManager;
 import com.surpass.vision.service.AuthorcationService;
 import com.surpass.vision.service.GraphService;
+import com.surpass.vision.tools.FileTool;
+import com.surpass.vision.userSpace.UserSpaceManager;
 
 @RestController
 //@RequestMapping("/v1")
@@ -52,12 +57,21 @@ public class GraphController extends BaseController {
 	@Autowired
 	GraphManager graphManager;
 
+	@Reference
+	@Autowired
+	GraphDataManager graphDataManager;
+
+	@Reference
+	@Autowired
+	UserSpaceManager userSpaceManager;
+
 	@Value("${upc.graphPath}")
 	private String graphPath;
-	
+
 	@Value("${upc.graphServerPath}")
 	private String graphServerPath;
-	//upc.graphServerPath
+
+	// upc.graphServerPath
 	/**
 	 * 获取指定用户的实时数据列表
 	 * 
@@ -72,8 +86,8 @@ public class GraphController extends BaseController {
 		String token = user.getString("token");
 		// 认证+权限
 		UserRight ur = new UserRight();
-		
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getGraphList,ur);
+
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_getGraphList, ur);
 		if (!StringUtil.isBlank(ret.getStatus()))
 			return ret;
 
@@ -109,45 +123,45 @@ public class GraphController extends BaseController {
 
 	}
 
-	
 	@RequestMapping(value = "shareRightGraph", method = { RequestMethod.POST, RequestMethod.GET })
 	public ToWeb shareRight(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
 		String idstr = user.getString("id");
-		Double id = null ;
-		if(StringUtil.isBlank(idstr)) {
-			
-		}else {
+		Double id = null;
+		if (StringUtil.isBlank(idstr)) {
+
+		} else {
 			id = Double.valueOf(idstr);
 		}
-		
+
 		// 认证+权限
 		Graph g = graphManager.getGraphByKeys(id);
 		UserRight ur = g.getRight(uid);
-		
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_shareGraph,ur);
+
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_shareGraph, ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 			return ret;
 
 		// 取出参数
-		// var data={'uid':uid,'token':token,'userIds':Array.from(selectedUsers),'type':"Graph"};
+		// var
+		// data={'uid':uid,'token':token,'userIds':Array.from(selectedUsers),'type':"Graph"};
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
 		JSONArray juserIds = user.getJSONArray("userIds");
 		String type = user.getString("type");
-			
+
 		List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
 		// TODO: 检查参数合法性
 
 		try {
-			Graph rtd = graphManager.updateShareRight(id,userIds);
+			Graph rtd = graphManager.updateShareRight(id, userIds);
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
-				userSpaceManager.updateGraph(rtd,Double.valueOf(0));
+				userSpaceManager.updateGraph(rtd, Double.valueOf(0));
 				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
 				ret.setMsg("成功");
-				ret.setData("data",rtd);
+				ret.setData("data", rtd);
 				ret.setRefresh(true);
 				return ret;
 			} else
@@ -159,8 +173,7 @@ public class GraphController extends BaseController {
 			return ret;
 		}
 	}
-	
-	
+
 	/**
 	 * 获取指定用户的实时数据列表
 	 * 
@@ -171,25 +184,26 @@ public class GraphController extends BaseController {
 	 */
 	@Submit
 	@RequestMapping(value = "getGraphPointInfoMapper", method = { RequestMethod.POST, RequestMethod.GET })
-	public ToWeb getGraphPointInfoMapper(@RequestBody JSONObject uidToken,  HttpServletRequest request) throws Exception {
+	public ToWeb getGraphPointInfoMapper(@RequestBody JSONObject uidToken, HttpServletRequest request)
+			throws Exception {
 		String uid = uidToken.getString("uid");
 		String token = uidToken.getString("token");
 		String graphID = uidToken.getString("graphID");
 		Double id = null;
 		// 认证+权限
 		UserRight ur = new UserRight();
-		ToWeb ret = authercation(Double.valueOf(uid), token, GlobalConsts.Operation_getRealTimeDataList,ur);
-		if (!StringUtil.isBlank(ret.getStatus()) && ret.getStatus()!=GlobalConsts.ResultCode_SUCCESS)
+		ToWeb ret = authercation(Double.valueOf(uid), token, GlobalConsts.Operation_getRealTimeDataList, ur);
+		if (!StringUtil.isBlank(ret.getStatus()) && ret.getStatus() != GlobalConsts.ResultCode_SUCCESS)
 			return ret;
-		
+
 		try {
 			id = Double.valueOf(graphID);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
 			ret.setMsg("参数错误：图形ID必须是数字。");
 			return ret;
 		}
-		
+
 		if (StringUtil.isBlank(graphID)) {
 			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
 			ret.setMsg("参数错误：图形ID不能为空。");
@@ -200,74 +214,234 @@ public class GraphController extends BaseController {
 		Graph g = graphManager.getGraphByKeys(id);
 		ArrayList<String> txtids = g.getPointTextIDs();
 		List<Point> pl = g.getPointList();
-		Hashtable<String,Point> data = new Hashtable<String,Point>();
-		for(int i=0;i<txtids.size();i++) {
+		Hashtable<String, Point> data = new Hashtable<String, Point>();
+		for (int i = 0; i < txtids.size(); i++) {
 			data.put(txtids.get(i), pl.get(i));
 		}
 		ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
-		ret.setData("data",data);
+		ret.setData("data", data);
 		return ret;
 	}
-	
-    @GetMapping("/upload")
-    public String upload() {
-        return "upload";
-    }
 
-    @PostMapping("/uploadThumbnail")
-    @ResponseBody
-    public String uploadThumbnail(@RequestParam("file") MultipartFile file) {
-        if (file.isEmpty()) {
-            return "上传失败，请选择文件";
-        }
+	@GetMapping("/upload")
+	public String upload() {
+		return "upload";
+	}
 
-        String fileName = file.getOriginalFilename();
+	@PostMapping("/uploadThumbnail")
+	@ResponseBody
+	public ToWeb uploadThumbnail(@RequestParam("file") MultipartFile file) {
+		ToWeb ret = ToWeb.buildResult();
+		if (file.isEmpty()) {
+			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+			ret.setMsg("上传失败，请选择文件");
+			return ret;
+		}
+
+		String fileName = file.getOriginalFilename();
 		File dirFile = new File(graphServerPath);
 		// 这句必须加上，解决不同操作系统文件名大小写区分问题。
-        String filePath = null;
+		String filePath = null;
 		try {
 			filePath = dirFile.getCanonicalPath();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-        File dest = new File(filePath +"\\" + fileName);
-        try {
-            file.transferTo(dest);
-            return "上传成功";
-        } catch (IOException e) {
-        }
-        return "上传失败！";
-    }
+		fileName = String.valueOf(System.currentTimeMillis()) + new Random(3).toString() + fileName;
+		File dest = new File(filePath + "\\" + fileName);
+		try {
+			file.transferTo(dest);
+			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+			ret.setMsg("上传成功");
 
-    @PostMapping("/uploadGraphFile")
-    @ResponseBody
-    public String uploadGraphFile(@RequestParam("file") MultipartFile file) {
-        if (file.isEmpty()) {
-            return "上传失败，请选择文件";
-        }
+			ret.putData("url", fileName);
+			return ret;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
 
-        String fileName = file.getOriginalFilename();
+	@PostMapping("/uploadGraphFile")
+	@ResponseBody
+	public ToWeb uploadGraphFile(@RequestParam("file") MultipartFile file, @RequestParam("path") String path, 
+			@RequestParam("url") String url, @RequestParam("name") String name, @RequestParam("desc") String desc,
+			@RequestParam("uid") String uid,@RequestParam("token") String token) {
+		System.out.println("path="+path);
+		try {
+			path = java.net.URLDecoder.decode(path,"UTF-8");
+		} catch (UnsupportedEncodingException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		// 认证+权限
+		Double duid;
+		try {
+			duid = Double.valueOf(uid);
+		}catch(Exception e) {
+			ToWeb ret = ToWeb.buildResult();
+			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+			ret.setMsg("用户id需要是double类型。");
+			return ret;
+		}
+		UserRight ur = new UserRight();
+		ToWeb ret = authercation(duid, token, GlobalConsts.Operation_uploadGraphFile, ur);
+		if (!StringUtil.isBlank(ret.getStatus()) && ret.getStatus() != GlobalConsts.ResultCode_SUCCESS)
+			return ret;
+		
+		if (file.isEmpty()) {
+			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+			ret.setMsg("上传失败，请选择文件");
+			return ret;
+		}
+
+		String fileName = file.getOriginalFilename();
 		File dirFile = new File(graphPath);
 		// 这句必须加上，解决不同操作系统文件名大小写区分问题。
-        String filePath = null;
+		String filePath = null;
 		try {
 			filePath = dirFile.getCanonicalPath();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		if (!StringUtil.isBlank(path))
+			filePath = path;
+		File dest = new File(filePath + "\\" + fileName);
+		try {
+			file.transferTo(dest);
+			Graph g = FileTool.parseFileToGraph(filePath, fileName,url,name,desc,uid);
+			if (g == null) {
+				if (dest.delete()) {
+					System.out.println(file.getName() + " 文件已被删除！");
+				} else {
+					System.out.println("文件删除失败！");
+				}
+				ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+				ret.setMsg("上传失败，上传的文件不是有效的图形文件。");
+				return ret;
+			}
+			graphManager.addOrUpdateGraphToTree(g);
+			// 更新该用户的userSpace
+			userSpaceManager.updateGraph(g, new Graph());
+			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+			ret.setMsg("上传成功");
+			ret.setData("graph", g);
+			return ret;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
 
-        File dest = new File(filePath +"\\"+ fileName);
-        try {
-            file.transferTo(dest);
-            return "上传成功";
-        } catch (IOException e) {
-        	e.printStackTrace();
-        }
-        return "上传失败！";
-    }
 
-	
+	@PostMapping("/updateGraphInfo")
+	@ResponseBody
+	public ToWeb updateGraphInfo(@RequestParam("id") String id, 
+			@RequestParam("url") String url, @RequestParam("name") String name, @RequestParam("desc") String desc,
+			@RequestParam("uid") String uid,@RequestParam("token") String token) {
+		// 认证+权限
+		Double duid;
+		try {
+			duid = Double.valueOf(uid);
+		}catch(Exception e) {
+			ToWeb ret = ToWeb.buildResult();
+			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+			ret.setMsg("用户id需要是double类型。");
+			return ret;
+		}
+		Double gid;
+		try {
+			gid = Double.valueOf(id);
+		}catch(Exception e) {
+			ToWeb ret = ToWeb.buildResult();
+			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+			ret.setMsg("图形id需要是double类型。");
+			return ret;
+		}
+		UserRight ur = new UserRight();
+		ToWeb ret = authercation(duid, token, GlobalConsts.Operation_updateGraphFile, ur);
+		if (!StringUtil.isBlank(ret.getStatus()) && ret.getStatus() != GlobalConsts.ResultCode_SUCCESS)
+			return ret;
+		try {
+			Graph g = graphManager.getGraphByKeys(gid);
+			if (g == null) {
+				ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+				ret.setMsg("指定id的图形不是有效的图形文件。");
+				return ret;
+			}
+			g.setDesc(desc);
+			if(!StringUtil.isBlank(url) && !url.trim().toLowerCase().contentEquals("null"))
+				g.setImg(url);
+			g.setNickName(name);
+			g = graphManager.updateGraph(g);
+			// TODO: 下面这个有问题
+			graphManager.addOrUpdateGraphToTree(g);
+			// 更新该用户的userSpace
+			UserSpace uold = userSpaceManager.getUserSpace(duid);
+			Graph gus = uold.getGraph();
+			gus.addOrUpdateChild(g);
+			
+			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+			ret.setMsg("更新成功");
+			ret.setData("graph", g);
+			return ret;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
+
+	@PostMapping("/deleteGraphFile")
+	@ResponseBody
+	public ToWeb deleteGraphFile(@RequestBody JSONObject user, HttpServletRequest request) {
+		Double uid = user.getDouble("uid");
+		String token = user.getString("token");
+		Double id = user.getDouble("id");
+		// 认证+权限
+		Double duid;
+		try {
+			duid = Double.valueOf(uid);
+		}catch(Exception e) {
+			ToWeb ret = ToWeb.buildResult();
+			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+			ret.setMsg("用户id需要是double类型。");
+			return ret;
+		}
+		Double gid;
+		try {
+			gid = Double.valueOf(id);
+		}catch(Exception e) {
+			ToWeb ret = ToWeb.buildResult();
+			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+			ret.setMsg("图形id需要是double类型。");
+			return ret;
+		}
+		UserRight ur = new UserRight();
+		ToWeb ret = authercation(duid, token, GlobalConsts.Operation_deleteGraphFile, ur);
+		if (!StringUtil.isBlank(ret.getStatus()) && ret.getStatus() != GlobalConsts.ResultCode_SUCCESS)
+			return ret;
+		try {
+			Graph g = graphManager.getGraphByKeys(gid);
+			if (g == null) {
+				ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+				ret.setMsg("指定id的图形不是有效的图形文件。");
+				return ret;
+			}
+			// 删除数据、文件及缓存
+			graphManager.deleteGraph(g);
+			// 更新用户空间
+			userSpaceManager.updateGraph(null, g);
+
+			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+			ret.setMsg("删除成功");
+			ret.setData("graph", g);
+			return ret;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
+
 }
-

@@ -76,9 +76,9 @@ public class Graph extends FileList implements Serializable,Cloneable {
 		return fileName;
 	}
 
-	public Double getId() {
-		return id;
-	}
+//	public Double getId() {
+//		return id;
+//	}
 
 	//ArrayList<String >pointIDs;
 	//ret.setChildren(fl.getChildren());
@@ -129,9 +129,9 @@ public class Graph extends FileList implements Serializable,Cloneable {
 		this.fileName = fileName;
 	}
 
-	public void setId(Double id) {
-		this.id = id;
-	}
+//	public void setId(Double id) {
+//		this.id = id;
+//	}
 
 	public void setImg(String img) {
 		this.img = img;
@@ -339,7 +339,7 @@ private Graph getChildByPath(String pathName) {
 			return;
 		}
 		if(rtd!=null && !StringUtil.isBlank(rtd.getWholePath()))
-			this.children.remove(rtd.getPath());
+			this.children.remove(rtd.getWholePath());
 	}
 
 	public Graph clearLeaf() {

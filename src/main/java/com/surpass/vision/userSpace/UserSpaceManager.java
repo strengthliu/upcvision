@@ -557,6 +557,11 @@ public class UserSpaceManager {
 	/** ---------------- xygraphdata end ------------------------- **/
 
 	/** ---------------- graph begin ------------------------- **/
+	/**
+	 * 更新用户空间中的图形数据
+	 * @param rtd 要更新成的样子
+	 * @param oldRtdId 旧图形id
+	 */
 	public void updateGraph( Graph rtd,Double oldRtdId) {
 		Graph oldRtd = null;
 		if(oldRtdId == null || oldRtdId==0)
@@ -564,7 +569,12 @@ public class UserSpaceManager {
 		else 
 			oldRtd = graphManager.getGraphByKeys(oldRtdId);
 		if(rtd == null) { // 是删除
-			throw new IllegalStateException("UserSpaceManager.updateGraph : 禁止删除图形。");
+			/**
+			 * 现在允许删除图形了。
+			 * @author Administrator
+			 * @since 2019.11.29
+			 */
+//			throw new IllegalStateException("UserSpaceManager.updateGraph : 禁止删除图形。");
 		}
 		updateGraph(rtd,oldRtd);
 	}
@@ -609,7 +619,10 @@ public class UserSpaceManager {
 			// 找出指定ID的graph的父亲
 			Graph pa = g.getParentByPath(oldRtd.getPath());
 			// 修改其值
-			pa.deleteChild(rtd);
+			if(rtd==null || rtd.getId()==null || rtd.getId()==0) // 如果rtd是空，就是删除后面那个元素
+				pa.deleteChild(oldRtd);
+			else
+				pa.deleteChild(rtd);
 			us.setGraph(g);
 			this.setUserSpace(Double.valueOf(uids), us);
 		}

@@ -90,7 +90,7 @@ public class RealTimeDataManager extends PointGroupDataManager {
 			PointGroupData pgd = pgdl.get(i);
 			RealTimeData realTimeData = copyFromPointGroupData(pgd);
 			ret.put(IDTools.toString(pgd.getId()), realTimeData);
-			System.out.println("pgd.getId().toString()="+pgd.getId().toString());
+//			System.out.println("pgd.getId().toString()="+pgd.getId().toString());
 			redisService.set(GlobalConsts.Key_RealTimeData_pre_ + IDTools.toString(realTimeData.getId()), realTimeData);
 		}
 		return ret;

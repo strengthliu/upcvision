@@ -27,6 +27,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.appCfg.ServerConfig;
 import com.surpass.vision.domain.FileList;
+import com.surpass.vision.domain.Graph;
 import com.surpass.vision.graph.GraphDataManager;
 import com.surpass.vision.graph.GraphManager;
 import com.surpass.vision.pointGroup.PointGroupDataManager;
@@ -348,13 +349,14 @@ public class FileTool {
 					}
 //					fl = FileTool.getInstnace().loadFileListDatabaseInfo(fl);
 					// 同步数据库和缓存
-					fl = graphDataManager.copyGraphFromFileList(fl, null);
+					fl = graphDataManager.copyGraphFromFileList(fl);
 					children1.add(fl);
 				} else { // 不是svg文件
 					fl.setSVG(false);
 				}
 			}
 		}
+		// 将children1添加到parent的索引中
 		parent.addChildren(children1);
 		for (int i = 0; i < children1.size(); i++) {
 			FileList _fl = children1.get(i);
@@ -365,6 +367,192 @@ public class FileTool {
 		}
 	}
 
+	
+	public static Graph parseFileToGraph(String path,String fileName, String picurl, String name2, String desc, String uid) {
+		// 遍历文件目录
+		String string = fileName;
+		File file = new File(path, string);
+		String name = file.getName();
+		try {
+			path = file.getCanonicalPath();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		FileList fl = new FileList();
+		fl.setOtherrule1(path); // 把完整路径保存在otherrule1中.
+		fl.setName(name);
+		if (file.isDirectory()) {
+			return null;
+		} else {
+			path = path.substring(0, path.length() - name.length() - 1);
+			fl.setPath(path);
+			fl.setImg(picurl);
+			fl.setDesc(desc);
+			fl.setOwner(uid);
+			fl.setCreater(uid);
+			fl.setFile(true);
+			fl.setNickName(name2);
+
+			// 解析文件
+			Document doc = Jsoup.parse(HtmlParser.readHtml(fl.getWholePath()));
+			// 判断文件是否是图形文件
+			ArrayList<String> pointIDs = new ArrayList<String>();
+			if (doc.select(GlobalConsts.GraphElement) != null && doc.select(GlobalConsts.GraphElement).size() > 0) {
+				fl.setSVG(true);
+				fl.setType(GlobalConsts.Type_graph_);
+
+				/**
+				 * // // 如果是图形文件，先删除所有js Document doc1 =
+				 * Jsoup.parse(HtmlParser.readHtml(fl.getWholePath())); Elements scriptdocs =
+				 * HtmlParser.getScriptElement(doc1); if(scriptdocs!=null &&
+				 * scriptdocs.size()>0) { for(int
+				 * indscript=scriptdocs.size()-1;indscript>=0;indscript--) {
+				 * scriptdocs.get(indscript).remove(); } String fileContent = doc.html();
+				 * fileContent.replace(" null", ""); file.delete(); file.createNewFile();
+				 * FileWriter fw = new FileWriter(file,true); fw.write(fileContent); fw.close();
+				 * }
+				 */
+				if(fl.getName().contentEquals("Graphic147.svg"))
+					System.out.println();
+				// 在图上显示数据的DOM的ID。
+				ArrayList<String> pointTextIDs = new ArrayList<String>();
+				/***********************************************************************************
+				 *      淮南图的数据格式
+				 **********************************************************************************/
+				JSONArray jsa = new JSONArray();
+				// 先判断是否是g文件
+				Elements docsg = doc.getElementsByTag(GlobalConsts.GPointTag);
+				for (int idocs = 0; idocs < docsg.size(); idocs++) {
+					Element eg = docsg.get(idocs);
+					String gPointId = eg.attr(GlobalConsts.GPointID);//PBD:PtTagName
+					if (!StringUtil.isBlank(gPointId)) {
+	//					System.out.println("图形："+fl.getName()+"，tag="+tag);
+						// 拆分 "\\RTDBB\81_3701_01_P02_C_out"，成服务器 点位名
+						String serverName = PointGroupDataManager.splitServerName1(gPointId);
+						String tagName = PointGroupDataManager.splitPointName1(gPointId);
+						if(tagName.contentEquals("81_3701_01_P02_C_out")) {
+							System.out.println();
+						}
+						Point p = sm.getPointByID(serverName, tagName);
+						if (p != null) {
+							// LOGGER.info("检查点位："+tag+" => "+sm.getPointByID(tag));
+
+							// 取text点
+							Elements docsText = eg.getElementsByTag(GlobalConsts.PointTag);
+							for(int indDocsText=0;indDocsText<docsText.size();indDocsText++) {
+								Element etext = docsText.get(indDocsText);
+
+								// TODO: 取出规则
+								/*
+								 *    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="19930" y="4680" id="DATAPOINT30_pbTextEl" PBD:Property="VAL">
+								 *    	#.##
+								 *    	<PB:MultiState id="DATAPOINT30_MS" PBD:PtTagName="\\RTDBB\81_3701_01_P02_C_out" TagName="81_3701_01_P02_C_out" ServerName="RTDBB" StateCount="2">
+								 *    		<PB:MSState id="DATAPOINT30_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" />
+								 *    		<PB:MSState id="DATAPOINT30_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" />
+								 *    	</PB:MultiState>
+								 *    </text>
+								 */
+								// 取MultiState
+								Elements pbMultiStates = etext.getElementsByTag(GlobalConsts.PBMultiStateTag);
+								for(int indPBMultiState=0;indPBMultiState<pbMultiStates.size();indPBMultiState++){
+									//eg.getElementsByTag(GlobalConsts.PointTag)
+//									id="DATAPOINT32_MS" ;
+//									PBD:PtTagName="\\RTDBB\1060_FI_1002";
+//									TagName="1060_FI_1002"; 
+//									ServerName="RTDBB"; 
+//									StateCount="2";
+									Element pbMultiMSState = pbMultiStates.get(indPBMultiState);
+									// 取MSState
+									Elements pbMSStateTags = pbMultiMSState.getElementsByTag(GlobalConsts.PBMSStateTag);
+									for(int indPBMSState=0;indPBMSState<pbMSStateTags.size();indPBMSState++) {
+										Element pbMSState = docsText.get(indPBMultiState);
+//										id="DATAPOINT32_MSS2";
+//										Blink="0";
+//										Color="000000";
+//										LowerValue="";
+//										UpperValue="";
+									}
+								}
+
+								// 取出点的text的ID
+								String textId = etext.attr("id");
+								pointIDs.add(p.wholeName());
+								pointTextIDs.add(textId);
+							}
+						}
+					}
+				}
+//				if(pointTextIDs.size()>0)
+//					fl.setPointTextIDs(pointTextIDs);
+				
+				/***********************************************************************************
+				 *      普通图的数据格式
+				 **********************************************************************************/
+				Elements docs = doc.getElementsByTag(GlobalConsts.PointTag);
+				for (int idocs = 0; idocs < docs.size(); idocs++) {
+					Element e = docs.get(idocs);
+					String tag = e.attr(GlobalConsts.PointID);
+					if (!StringUtil.isBlank(tag)) {
+//						System.out.println("图形："+fl.getName()+"，tag="+tag);
+						String serverName = PointGroupDataManager.splitServerName(tag);
+						String tagName = PointGroupDataManager.splitPointName(tag);
+						Point p = sm.getPointByID(serverName, tagName);
+						if (p != null) {
+							pointIDs.add(p.wholeName());
+							pointTextIDs.add(tag);
+							// LOGGER.info("检查点位："+tag+" => "+sm.getPointByID(tag));
+						}
+					} 
+				}
+
+				fl.setPoints(IDTools.merge(pointIDs.toArray()));
+				if(pointTextIDs.size()>0)
+					fl.setPointTextIDs(pointTextIDs);
+
+				
+				/***********************************************************************************
+				 *      生成缩略图
+				 **********************************************************************************/
+//				// 删除所有text
+//				Elements es = doc.getElementsByTag("text");
+//				if (es != null && es.size() > 0) {
+//					for (int indscript = es.size() - 1; indscript >= 0; indscript--) {
+//						es.get(indscript).remove();
+//					}
+//				}
+				
+//				try {
+//					// 生成图片
+////					Resource resource = new ClassPathResource("");
+////					String _path_ = resource.getFile().getAbsolutePath();
+//					// 将SVG转成图形，写到缩略图物理目录里
+//					String physicalGraphPath = ServerConfig.getInstance().getPhysicalGraphPath(fl.getPath());
+//					Elements es = doc.getElementsByTag(GlobalConsts.GraphElement);
+////					SVGTools.convertToPng(es.get(0).outerHtml(), physicalGraphPath + "\\" + fl.getName() + ".png");
+//					String urlGraphPath = ServerConfig.getInstance().getURLFromPath(physicalGraphPath + "\\" + fl.getName() + ".png");
+//					File fimage = new File(urlGraphPath);
+//					if(fimage.length()>0)
+//						fl.setImg(urlGraphPath);
+//					else
+//						fl.setImg(ServerConfig.getInstance().getDefaultGraphImg());
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//				fl = FileTool.getInstnace().loadFileListDatabaseInfo(fl);
+				// 将这个文件添加到fileList库中及索引中。
+				// 同步数据库和缓存
+				Graph g = graphDataManager.copyGraphFromFileList(fl);
+				//((FileList)g).setId(g.getId());
+				repo.addChild(g);
+				System.out.println("11");
+				return g;
+			} else { // 不是svg文件
+				fl.setSVG(false);
+			}
+		}
+		return null;
+	}
 //	/**
 //	 * 指导路径分成字符串数组。
 //	 * @param path
@@ -377,5 +565,13 @@ public class FileTool {
 	private FileList loadFileListDatabaseInfo(FileList fl) {
 		FileList _fl = graphDataManager.getDatabaseInfoByPath(fl);
 		return _fl;
+	}
+
+	public static boolean delete(String wholePath) {
+		File dest = new File(wholePath);
+		if(dest.exists()) {
+			return dest.delete();
+		}
+		return false;
 	}
 }
