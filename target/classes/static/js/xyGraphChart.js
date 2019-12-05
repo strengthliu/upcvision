@@ -29,40 +29,6 @@ function updateXYGraphChart(ruserSpace) {
 		return;
 	var pointList = pointGroup.pointList;
 	var innerHtml = "";
-//	// console.log("pointList" + JSON.stringify(pointList));
-//	for (var indpl = 0; indpl < pointList.length; indpl++) {
-//// console.log(" updateXYGraphChart=> "+JSON.stringify(pointList[indpl]));
-//		try{
-//			// 页面加一块
-//			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
-//					+ pointList[indpl].tagName + '"></div></div>';
-//			innerHtml += item;
-//		}catch(e){
-//			
-//		}
-//	}
-//	uixyGraphPoints.innerHTML = innerHtml;
-//	console.log(uixyGraphPoints.innerHTML);
-//
-//	for (var indpl = 0; indpl < pointList.length; indpl++) {
-//		// 对象加一条
-//		var gt = new JustGage({
-//			id : "point_" + pointList[indpl].tagName,
-//			value : 0,
-//			min : 0,
-//			max : 100,
-//			title : pointList[indpl].desc,//"一级电脱盐混合阀压差",
-//			label : pointList[indpl].enunit,
-//			donut : true,
-//			gaugeWidthScale : 0.6,
-//			counter : true,
-//			hideInnerShadow : true
-//		});
-//		var _tagName_ = pointList[indpl].tagName;
-//		charts[_tagName_] = indpl;
-//		gl[indpl] = gt;
-//	}
-//
 	var menuitem = document.getElementById("x_axisSelectButtonUIMenu");
 	var _innerHtml = '<a class="dropdown-item" onclick="changex(\'time\')">时间</a>';
 	for (var indpl = 0; indpl < pointList.length; indpl++) {

@@ -101,9 +101,10 @@ function addPointToXYGraph(tagName){
 		// 添加进点组
 		pointGroup.push(tagName);
 		
+		// 修改cdata和_data时，修改tagName值为当前状态下的值。
+		var tagName = getNewLabelForData(tagName);
 		// 在刷新数据时，addData时，在_data中加一个
 		// 向_data和cdata中加入一个数据，之后addData才能真正将数据加入。
-		
 		// 构建_data序号。
 		_dataIndex = new Array();
 		for(var indrow=0;indrow<_data.length;indrow++){
@@ -113,6 +114,7 @@ function addPointToXYGraph(tagName){
 		for(var indrow=0;indrow<cdata.length;indrow++){
 			_cdataIndex[cdata[indrow][0]]= indrow;
 		}			
+		
 		// 处理cdata。_data处理方法参考这个。
 		if(_cdataIndex['time']=="undefined"||_cdataIndex['time']==null){
 			console.log("deal with time serial. ");
@@ -166,6 +168,7 @@ function addPointToXYGraph(tagName){
 		 * 
 		 */
 		
+		updateXYGraphChart();
 	}
 }
 /**
@@ -173,8 +176,15 @@ function addPointToXYGraph(tagName){
  * @returns
  */
 function removePointFromXYGraph(tagName){
+	// 将tagName返成txtid
+	var tagName = getOrigionLabel(tagName);
+	console.log("1-- "+tagName);
 	if(pointGroup.indexOf(tagName)>-1){
 		pointGroup.splice(pointGroup.indexOf(tagName),1);
+
+		// 修改cdata和_data时，修改tagName值为当前状态下的值。
+		var tagName = getNewLabelForData(tagName);
+
 		// TODO: cdata中删除点。
 		_cdataIndex = new Array();
 		for(var indrow=0;indrow<cdata.length;indrow++){
@@ -239,6 +249,7 @@ function removePointFromXYGraph(tagName){
 		});
 		}
 	}
+	updateXYGraphChart();
 }
 
 function closeGraph(){
@@ -375,59 +386,255 @@ var cols;
 
 })(jQuery);
 
-//
-//c3LineChart = c3.generate({
-//bindto : '#ui-historyDataLineChart',
-//data : {
-//	x : 'time',
-//	xFormat : '%Y',
-//	columns : cols,
-//	type : 'spline',
-//    axes: {
-//    	CJY_XT31101_8: 'y',
-//    }
-//},
-//grid : {
-//	x : {
-//		show : true
-//	},
-//	y : {
-//		show : true
-//	}
-//},
-//color : {
-//	pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
-//			'rgba(4,189,254,0.6)' ]
-//},
-//padding : {
-//	top : 10,
-//	right : 20,
-//	bottom : 30,
-//	left : 50,
-//},
-//axis : {
-//	x : {
-//		type : 'timeseries',
-//		// if true, treat x value as localtime (Default)
-//		// if false, convert to UTC internally
-//		localtime : true,
-//		tick : {
-//			format : '%Y-%m-%d %H:%M:%S'
-//		}
-//	},
-//	y : {
-//		show: true
-////		,
-////		label: 'Y2 Axis Label'
-//	}
-//}
-//});
+/******************************************************
+ *      关于趋势图显示标签的相关设计
+ * 1、数据结构
+ * （1）. _data、cdata内，保存的是当前显示的标签值，如点位描述。
+ * （2）. pointGroup内，保存的是原始显示标签，是从服务器返回的那个，图形中text的id。
+ * 
+ */
 
-//if (userSpace == null || userSpace == "undefined") {
-//	console.log("userSpace 为空，重新到服务器去取。");
-//	getUserSpace(user.id, token, updateXYGraphChart);
-//} else
-//	updateXYGraphChart(userSpace); // 更新XY图数据
+/**
+ * 趋势图上，占位显示内容：
+ * 0：tagName;
+ * 1: 点位说明;
+ * 2: 没有呢。
+ * default: 不变
+ */
+var tagFeatureInXYGraph = 1;
+
+/**
+ * 
+ */
+var _graph = getGraphByID(userSpace.graph,_graphId);
+var pointKs;
+buildPointKs();
+function buildPointKs(){
+	if(pointKs==null || pointKs=="undefined"){
+		pointKs = new Object();
+	}
+	console.log("--"+_graphId);
+	var pointTextIDs = _graph.pointTextIDs;
+	var pointList = _graph.pointList;
+	for(var ind=0;ind<pointTextIDs.length;ind++){
+		pointKs[pointTextIDs[ind]] = pointList[ind];
+	}
+//	console.log("pointKs = "+JSON.stringify(pointKs));
+}
+
+/**
+ * 获取当前状态的下指定标签的原始标签txtid
+ * @param currenttxtid
+ * @returns
+ */
+function getOrigionLabel(currenttxtid){
+	var tartxt = null;
+	var points = _graph.pointList;
+//	console.log("getOrigionLabel 1 - "+currenttxtid);
+	// 将tagFeature下的txtid转成标准txtid
+	for(var ind=0;ind<points.length;ind++){
+		switch(tagFeatureInXYGraph){
+		case 0:
+			tartxt = points[ind].tagName;
+			break;
+		case 1:
+			tartxt = points[ind].desc;
+			break;
+		default:
+			tartxt = pointTextIDs[ind];
+			break;
+		}
+//		console.log("getOrigionLabel 2 - "+tartxt);
+		if(tartxt == currenttxtid){
+			tartxt = _graph.pointTextIDs[ind];
+//			console.log("getOrigionLabel 3 - "+tartxt);
+			return tartxt;
+		}
+	}
+	return null;
+
+}
+/**
+ * 获取指定状态下指定标签所对应当前状态的标签值
+ * @param txtid 标签值
+ * @param tagFeature 状态
+ * @returns 当前状态下的值
+ */
+function getNewLabelForData(txtid,tagFeature){
+	var tartxt = null;
+	if(tagFeature!=null&&tagFeature!="undefined"){
+		
+	}
+	if(tartxt==null||tartxt=="undefined")
+		tartxt = txtid;
+	
+	if(pointKs[tartxt]!=null&&pointKs[tartxt]!="undefined"){
+		switch(tagFeatureInXYGraph){
+		case 0:
+			return pointKs[tartxt].tagName;
+		case 1:
+			return pointKs[tartxt].desc;
+		case 2:
+			break;
+		default:
+			return tartxt;
+		}
+	}
+	return null
+}
+
+/**
+ * 
+ * @param data 服务器返的数据对象。其中数据的标签一定是txtid。
+ * @returns
+ */
+function changeDataToNewLabel(data){
+	console.log("data");
+	var ret = new Object();
+	Object.keys(data).forEach(function(key){
+		var item = data[key]; 
+		if(key!="time"){
+			if(pointKs[key]!=null&&pointKs[key]!="undefined")
+			switch(tagFeatureInXYGraph){
+			case 0:
+				ret[pointKs[key].tagName] = data[key];
+				break;
+			case 1:
+				ret[pointKs[key].desc] = data[key];
+				break;
+			case 2:
+				break;
+			default:
+				ret[key] = data[key];
+				break;
+			}
+		}
+	});
+	return ret;
+}
+
+/**
+ * 切换显示标签。
+ * @param tarF
+ * @returns
+ */
+function switchTagFeatureInXYGraph(tarF){
+	if(tagFeatureInXYGraph != tarF ){
+		// 修改前端显示
+		var but = document.getElementById("labelSelectButtonUI");
+		switch(tarF){
+		case 0:
+			but.innerHTML = "tagName";
+			break;
+		case 1:
+			but.innerHTML = "点位说明";
+			break;
+		}
+
+
+		// 修改_data、cdata的标签
+		var _cdataLabelArray = new Array();
+		for(var ind=0;ind<cdata.length;ind++){
+			var txtid = getOrigionLabel(cdata[ind][0]);
+			_cdataLabelArray.push(txtid);
+		}
+		
+		var __dataLabelArray = new Array();
+		for(var ind=0;ind<_data.length;ind++){
+			var txtid = getOrigionLabel(_data[ind][0]);
+			__dataLabelArray.push(txtid);
+		}
+		
+		// 修改tagFeatureInXYGraph的值
+		tagFeatureInXYGraph = tarF;
+		
+		for(var ind=0;ind<cdata.length;ind++){
+			if(_data[ind][0]!="time"){
+				var txtid = _cdataLabelArray[ind];
+				cdata[ind][0] = getNewLabelForData(txtid);
+				console.log("switch -> "+cdata[ind][0]);
+			}else{}// 暂时不处理时间
+		}
+		console.log("cdata -> "+JSON.stringify(cdata));
+		
+		var __dataLabelArray = new Array();
+		for(var ind=0;ind<_data.length;ind++){
+			if(_data[ind][0]!="time"){
+				var txtid = getOrigionLabel(_data[ind][0]);
+				_data[ind][0] = getNewLabelForData(txtid);
+			}else{}// 暂时不处理时间
+		}
+
+		// 修改下面方法里保存后的标签：
+		//	_addPointToXY(getNewLabelForData(ele.getAttribute("id")));
+		//	addPointToXYGraph(getNewLabelForData(ele.getAttribute("id")));
+		c3LineChart = c3.generate({
+			bindto : '#ui-historyDataLineChart',
+			data : {
+				x : xray,
+				xFormat : '%Y',
+				columns : cdata,
+				type : 'spline',
+			},
+			grid : {
+				x : {
+					show : true
+				},
+				y : {
+					show : true
+				}
+			},
+			color : {
+				pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
+						'rgba(4,189,254,0.6)' ]
+			},
+			padding : {
+				top : 10,
+				right : 30,
+				bottom : 30,
+				left : 50,
+			},
+			axis : {
+				x : {
+					type : 'timeseries',
+					// if true, treat x value as localtime (Default)
+					// if false, convert to UTC internally
+					localtime : false,
+					tick : {
+						format : '%Y-%m-%d %H:%M:%S'
+					}
+				},
+				y : {
+					show: true,
+					label: 'Y2 Axis Label'
+				}
+			}
+		});
+
+		play();
+	}
+}
+
+updateXYGraphChart();
+function updateXYGraphChart(ruserSpace) {
+	if(ruserSpace==null||ruserSpace=="undefined")
+		ruserSpace = userSpace;
+	// var pointGroup = _graph;
+	var uixyGraphPoints = document.getElementById("ui-xyGraphPoints");
+	 console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
+	if (pointGroup == null || pointGroup == "undefined")
+		return;
+	var pointList = pointGroup;
+	console.log("pointList = "+JSON.stringify(pointGroup));
+	var innerHtml = "";
+	var menuitem = document.getElementById("x_axisSelectButtonUIMenu");
+	var _innerHtml = '<a class="dropdown-item" onclick="changex(\'time\')">时间</a>';
+	for (var indpl = 0; indpl < pointList.length; indpl++) {
+		var _itemHtml = '<a class="dropdown-item" onclick="changex(\''+getNewLabelForData(pointList[indpl])+'\')">'+getNewLabelForData(pointList[indpl])+'</a>';
+		_innerHtml = _innerHtml + _itemHtml;
+	}
+	menuitem.innerHTML = _innerHtml;
+}
 
 /**
  * 刷新数据
@@ -457,15 +664,16 @@ function refreshData(data) {
 		}
 	});
 	data.body = JSON.stringify(o);
+//	console.log(" refreshData-> "+ JSON.stringify(data.body,null,2));
+	// 添加进趋势图的换成点位说明。
+	var _dat = changeDataToNewLabel(JSON.parse(data.body));
 	// 添加趋势图数据到当前数据
-	addData(data.body,cdata,cdataCount);
-	//console.log("cdata => "+JSON.stringify(cdata));
+	addData(_dat,cdata,cdataCount);
 	// 添加趋势数据到全部数据
-	//addData(data.body,_data,_dataCount);
-	addData(data.body,_data,10);
-	//console.log("_data => "+JSON.stringify(_data));
+	addData(_dat,_data,10);
+	console.log("cdata => "+JSON.stringify(cdata));
 
-	var ids = document.getElementsByTagName("text");
+	var ids = document.getElementsByTagName("text"); 
 	var _data_ = JSON.parse(data.body);
 //	console.log(JSON.stringify(_data));
 	Object.keys(_data_).forEach(function(key){
@@ -476,8 +684,10 @@ function refreshData(data) {
 				// 加事件
 				ele.onclick = function(){
 	//					alert(ele.getAttribute("id"));
-					_addPointToXY(ele.getAttribute("id"));
-					addPointToXYGraph(ele.getAttribute("id"));
+					// 添加进趋势图的换成点位说明。
+					_addPointToXY(getNewLabelForData(ele.getAttribute("id")));
+					// pointGroup中的值不变，还是txtid。
+					addPointToXYGraph((ele.getAttribute("id")));
 				}
 				// 画点图
 	//				if(gl[p].config.id == "point_" + key){
@@ -503,25 +713,6 @@ function refreshData(data) {
 
 
 
-/**
- * 画点图
- */
-function updateXYGraphChart(ruserSpace) {
-	var pointGroup = ruserSpace.xyGraph[_xyGraphDetailKey];
-	var uixyGraphPoints = document.getElementById("ui-xyGraphPoints");
-	 console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
-	if (pointGroup == null || pointGroup == "undefined")
-		return;
-	var pointList = pointGroup.pointList;
-	var innerHtml = "";
-	var menuitem = document.getElementById("x_axisSelectButtonUIMenu");
-	var _innerHtml = '<a class="dropdown-item" onclick="changex(\'time\')">时间</a>';
-	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		var _itemHtml = '<a class="dropdown-item" onclick="changex(\''+pointList[indpl].tagName+'\')">'+pointList[indpl].tagName+'</a>';
-		_innerHtml = _innerHtml + _itemHtml;
-	}
-	menuitem.innerHTML = _innerHtml;
-}
 
 /**
  * 刷新表格数据
@@ -912,6 +1103,7 @@ function play(){
 			columns : cdata
 		});
 	}
+	console.log("play -> "+JSON.stringify(cdata));
 }
 /**
  * 向前，向后
@@ -1118,17 +1310,19 @@ function zoomout_y() {
 /**
  * 换X轴
  */
+var xray = "time";
 function changex(tname) {
 	console.log("click: ========================== "+tname);
 	var but = document.getElementById("x_axisSelectButtonUI");
 	but.innerHTML = tname;
+	xray = tname;
 	console.log(tname);
 //	but.text = tname;
 	if(tname=="time"){
 		c3LineChart = c3.generate({
 			bindto : '#ui-historyDataLineChart',
 			data : {
-				x : tname,
+				x : xray,
 				xFormat : '%Y',
 				columns : cdata,
 				type : 'spline',
@@ -1168,10 +1362,11 @@ function changex(tname) {
 			}
 		});
 	}else{
+		console.log("");
 		c3LineChart = c3.generate({
-			bindto : '#ui-xyGraphLineChart',
+			bindto : '#ui-historyDataLineChart',
 			data : {
-				x : tname,
+				x : xray,
 				xFormat : '%Y',
 				columns : cdata,
 				type : 'spline',
@@ -1210,20 +1405,10 @@ function changex(tname) {
 
 
 
-// var _xyGraphDetailKey = null;
 function setConnected(connected) {
-	// $("#connect").prop("disabled", connected);
-	// $("#disconnect").prop("disabled", !connected);
-	// if (connected) {
-	// $("#conversation").show();
-	// } else {
-	// $("#conversation").hide();
-	// }
-	// $("#greetings").html("");
 }
 
 loginWebsocket();
-
 function loginWebsocket() {
 	console.log(" debug 1");
 
@@ -1238,33 +1423,6 @@ function loginWebsocket() {
 	}
 }
 
-addListener();
-function addListener(){
-	if(userSpace==null|userSpace=="undefined"){
-		return getUserSpace(uid,token,addListener);
-	}else{
-		if(_graphId==null||_graphId=="undefined"){
-			//console.log(" graph.js -> graphSubscribe() -> getGraphByURLPath(graph,_diagramShowKey="+_diagramShowKey+")");
-			var g = getGraphByPath(userSpace.graph,_diagramShowKey);
-			if(g == null || g == "undefined" || g.id==null ||g.id=="undefined"){
-//				alert("您没有查看这个图形的权限。");
-				return;
-			}
-			var ts = g.pointTextIDs;
-			for(var indts=0;indts<ts.length;indts++){
-				  var d = document.getElementById(ts[indtx]);
-				  _a.onclick=function(){
-					  console.log("=> text "+ts[indtx]+" be clicked.");
-					  addXYRealTimeHistoryGraph(g.points[indts]);
-				  }
-			}
-		}
-	}
-}
-
-function addXYRealTimeHistoryGraph(point){
-	console.log("addXYRealTimeHistoryGraph->point:"+JSON.stringify(point));
-}
 
 function getGraphByURLPath(graph,urlPath){
 	if(urlPath==null||urlPath=="undefined") return graph;
@@ -1294,6 +1452,7 @@ function getGraphByURLPath(graph,urlPath){
 		return null;
 	}
 }
+
 function getGraphByPath(graph,path){
 	if(path==null||path=="undefined") return graph;
 	//console.log("graph.wholePath="+graph.wholePath.toLowerCase()+"  ==  "+"path="+path.toLowerCase());

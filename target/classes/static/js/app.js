@@ -421,3 +421,58 @@ function addLoadListener(fn){
     }
 }
 
+
+function getGraphByID(graph,id,l){
+	if(l==null||l=="undefined")
+		l=0;
+	l++;
+	var level=l;
+	step++;
+// console.log(" ============ "+step+" === "+step+" === "+step+" === ");
+	if(id==null||id=="undefined"){
+		_graphs = graph;
+		step ++;
+// console.log("level="+level+" "+step+" = return path 1 : " + graph.name+"
+// id="+graph.id);
+		return graph;
+	}
+	if(graph.id == id) {
+		_graphs = graph;
+		step ++;
+// console.log("level="+level+" "+step+" = 得到了结果 return path 2 : " +
+// graph.name+" id="+graph.id);
+		return graph;
+	} 
+
+	{
+		var children = graph.children;
+		if(children!=null){
+			var ids = new Array();
+			Object.keys(children).forEach(function(key){
+				ids.push(children[key]);
+			});
+			
+			for(var i=0;i<ids.length;i++){
+				var r = getGraphByID(ids[i],id,level);
+				if(r!=null) {
+					step ++;
+// console.log("level="+level+" "+step+" = 得到了结果 return path 3 : " +
+// graph.name+" id="+graph.id);
+					return r;
+				}
+			}
+			step ++;
+// console.log("level="+level+" "+step+" = null null 4 : " + graph.name+"
+// id="+graph.id);
+			return null;
+		} 
+		else 
+		{
+			step ++;
+// console.log("level="+level+" "+step+" = null null 5 : " + graph.name+"
+// id="+graph.id);
+			return null;				
+		}
+	}
+}
+

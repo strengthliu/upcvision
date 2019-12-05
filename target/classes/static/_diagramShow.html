@@ -142,6 +142,38 @@
 									</button>
 								</div>
 							</div>
+							<div class="col-md-12 mb-4 mt-4">
+					<div class="btn-group">
+						x轴：
+						<div class="dropdown">
+							<button class="btn btn-outline-warning dropdown-toggle"
+								type="button" id="x_axisSelectButtonUI" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">时间</button>
+							<div class="dropdown-menu"
+								aria-labelledby="x_axisSelectButtonUIMenu"
+								id="x_axisSelectButtonUIMenu">
+								<a class="dropdown-item" href="#">Action</a> <a
+									class="dropdown-item" href="#">Another action</a> <a
+									class="dropdown-item" href="#">Something else here</a>
+							</div>
+						</div>
+					</div>
+					<div class="btn-group">
+						显示标签：
+						<div class="dropdown">
+							<button class="btn btn-outline-warning dropdown-toggle"
+								type="button" id="labelSelectButtonUI" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">点位说明</button>
+							<div class="dropdown-menu"
+								aria-labelledby="x_axisSelectButtonUIMenu"
+								id="labelSelectButtonUIMenu">
+								<a class="dropdown-item" onclick="switchTagFeatureInXYGraph(0);">tagName</a> <a
+									class="dropdown-item" onclick="switchTagFeatureInXYGraph(1);">点位说明</a> 
+							</div>
+						</div>
+					</div>
+
+							</div>							
 						</div>
 					</div>
 					<div class="card-body" style="overflow: auto">
@@ -778,6 +810,7 @@
 	function _removePointFromXY(tagName) {
 		var pointsul = document.getElementById("pointli_" + tagName);
 		pointsul.parentNode.removeChild(pointsul);
+		console.log("_removePointFromXY(tagName) "+tagName);
 		removePointFromXYGraph(tagName);
 	}
 </script>
