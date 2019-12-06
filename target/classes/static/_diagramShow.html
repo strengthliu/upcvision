@@ -6,33 +6,38 @@
 		<div class="modal-content">
 			<div class="modal-header dialog-title">
 				<h5 class="modal-title" id="exampleModalLabel">趋势图查看</h5>
+				<button class="navbar-toggler navbar-toggler align-self-center"
+					type="button" data-toggle="tooltip" data-placement="bottom"
+					title="打开/关闭配置栏"
+					onclick="switchWin('graph_trendency_diagram_toolBar');">
+					<span class="icon-settings"></span>
+				</button>
+				<button class="navbar-toggler navbar-toggler align-self-center"
+					type="button" data-toggle="tooltip" data-placement="bottom"
+					title="打开/关闭数据表格" onclick="switchWin('_datatableUI');">
+					<span class="icon-grid"></span>
+				</button>
+				<button class="navbar-toggler navbar-toggler align-self-center"
+					type="button" data-toggle="tooltip" data-placement="bottom"
+					title="打开/关闭趋势图形" onclick="switchWin('ui-historyDataLineChart');">
+					<span class="icon-graph"></span>
+				</button>
+				<!-- 
+				<button class="navbar-toggler navbar-toggler align-self-center"
+					type="button" data-toggle="tooltip" data-placement="bottom"
+					title="打开/关闭仪表盘" onclick="switchWin('ui-historyDataPoints');">
+					<span class=" icon-clock"></span>
+				</button>
+				 -->
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close" onclick="closeGraph();">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 
-			<div class="content-wrapper" style="display: none;">
-				<div class="row">
-					<div class="col-12">
-						<div class="card">
-							<div class="card-body">
-								<div class="row">
-									<div class="col-12">
-										<div class="row portfolio-grid" id="ui-historyDataPoints">
-											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
 			<div class="col-lg-12 grid-margin stretch-card">
 				<div class="card">
-					<div class="card-body">
+					<div class="card-body" id="graph_trendency_diagram_toolBar">
 						<div class="col-md-12 mb-4 mt-4">
 							<div class="btn-toolbar">
 								<div class="btn-group">
@@ -143,37 +148,58 @@
 								</div>
 							</div>
 							<div class="col-md-12 mb-4 mt-4">
-					<div class="btn-group">
-						x轴：
-						<div class="dropdown">
-							<button class="btn btn-outline-warning dropdown-toggle"
-								type="button" id="x_axisSelectButtonUI" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">时间</button>
-							<div class="dropdown-menu"
-								aria-labelledby="x_axisSelectButtonUIMenu"
-								id="x_axisSelectButtonUIMenu">
-								<a class="dropdown-item" href="#">Action</a> <a
-									class="dropdown-item" href="#">Another action</a> <a
-									class="dropdown-item" href="#">Something else here</a>
-							</div>
-						</div>
-					</div>
-					<div class="btn-group">
-						显示标签：
-						<div class="dropdown">
-							<button class="btn btn-outline-warning dropdown-toggle"
-								type="button" id="labelSelectButtonUI" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">点位说明</button>
-							<div class="dropdown-menu"
-								aria-labelledby="x_axisSelectButtonUIMenu"
-								id="labelSelectButtonUIMenu">
-								<a class="dropdown-item" onclick="switchTagFeatureInXYGraph(0);">tagName</a> <a
-									class="dropdown-item" onclick="switchTagFeatureInXYGraph(1);">点位说明</a> 
+								<div class="btn-group">
+									x轴：
+									<div class="dropdown">
+										<button class="btn btn-outline-warning dropdown-toggle"
+											type="button" id="x_axisSelectButtonUI"
+											data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">时间</button>
+										<div class="dropdown-menu"
+											aria-labelledby="x_axisSelectButtonUIMenu"
+											id="x_axisSelectButtonUIMenu">
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a> <a
+												class="dropdown-item" href="#">Something else here</a>
+										</div>
+									</div>
+								</div>
+								<div class="btn-group">
+									显示标签：
+									<div class="dropdown">
+										<button class="btn btn-outline-warning dropdown-toggle"
+											type="button" id="labelSelectButtonUI" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false">点位说明</button>
+										<div class="dropdown-menu"
+											aria-labelledby="x_axisSelectButtonUIMenu"
+											id="labelSelectButtonUIMenu">
+											<a class="dropdown-item"
+												onclick="switchTagFeatureInXYGraph(0);">tagName</a> <a
+												class="dropdown-item"
+												onclick="switchTagFeatureInXYGraph(1);">点位说明</a>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 
-							</div>							
+					<div class="content-wrapper" id="graph_pilot_diagram" style="display: none;">
+						<div class="row">
+							<div class="col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-12">
+												<div class="row portfolio-grid" id="ui-historyDataPoints"
+													style="display: none;">
+													<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="card-body" style="overflow: auto">
@@ -196,8 +222,9 @@
 
 
 <div style="position: fixed; top: 250px; right: 10px; z-index: 900;">
-	<div style="opacity:0.5;" class="modal-footer">
-		<button class="btn btn-sm btn-outline-secondary" onclick="switchVisuale();">
+	<div style="opacity: 0.5;" class="modal-footer">
+		<button class="btn btn-sm btn-outline-secondary"
+			onclick="switchVisuale();">
 			<i class="mdi mdi-fullscreen ml-1"></i>
 		</button>
 	</div>
@@ -256,7 +283,8 @@
 						<button class="btn btn-sm btn-outline-secondary" id="zoom_right">
 							<i class="mdi mdi-arrow-right ml-1"></i>
 						</button>
-						<button class="btn btn-sm btn-outline-secondary" id="zoom_fullScreen">
+						<button class="btn btn-sm btn-outline-secondary"
+							id="zoom_fullScreen">
 							<i class="mdi mdi-fullscreen ml-1"></i>
 						</button>
 					</div>
@@ -344,12 +372,14 @@
 			} else {
 				_graphId = g.id;
 				_diagramShowKey = g.urlPath;
-				$("#_diagramShow").load(unicodeSpecialChar(_diagramShowKey), null, changeAAction);
+				$("#_diagramShow").load(unicodeSpecialChar(_diagramShowKey),
+						null, changeAAction);
 			}
 		} else {
-			$("#_diagramShow").load(unicodeSpecialChar(_diagramShowKey), null, changeAAction);
+			$("#_diagramShow").load(unicodeSpecialChar(_diagramShowKey), null,
+					changeAAction);
 		}
-			console.log("_diagramShowKey="+unicodeSpecialChar(_diagramShowKey));
+		console.log("_diagramShowKey=" + unicodeSpecialChar(_diagramShowKey));
 		console.log("dddd");
 	}
 
@@ -593,29 +623,28 @@
 			var _tty = mainToolsBarRect.y - svgy + translate[1];//+ svg.attr("height") / 2 * (1 - scale);
 			console.log("_ttx=" + _ttx + " _tty=" + _tty);
 			console.log("translate=" + translate);
-			
 
 			interpolateZoom([ _ttx, _tty ], scale);
-			
 
-			svg.attr("preserveAspectRatio","none");
+			svg.attr("preserveAspectRatio", "none");
 			//svg.attr("preserveAspectRatio","xMin YMin meet");
 			//svg.attr("width",mainPanelWidth/scale);
 			//svg.attr("heigth",mainPanelHeight/scale);
-			console.log(" -"+svg1.getBBox().width+" "+svg1.getBBox().height);
-			console.log("width="+width+"  height="+height+" scale*width="+scale*width);
+			console.log(" -" + svg1.getBBox().width + " "
+					+ svg1.getBBox().height);
+			console.log("width=" + width + "  height=" + height
+					+ " scale*width=" + scale * width);
 			//svg1.setAttribute("viewBox",0+" "+0+" "+mainPanelWidth+" "+mainPanelHeight);
 			svg1.removeAttribute("width");
 			svg1.removeAttribute("heigth");
-			svg1.setAttribute("width",mainPanelWidth/scale);
-			svg1.setAttribute("heigth",mainPanelHeight/scale);
+			svg1.setAttribute("width", mainPanelWidth / scale);
+			svg1.setAttribute("heigth", mainPanelHeight / scale);
 			//svg1.parentNode.setAttribute("heigth",1080);
 			//	svg.attr("transform",
 			//	        "translate(" + [_ttx, _tty] + ")" +
 			//	        "scale(" + scale + ")"
 			//	    );
 
-			
 			svgx = svg1.getBoundingClientRect().x;
 			svgy = svg1.getBoundingClientRect().y;
 			console.log(zoom.translate());
@@ -634,60 +663,60 @@
 	}
 
 	function adjustToFreezeWidth(rootSvg) {
-	    var windowWidth = $(window).width();
-	 
-	    var viewBoxVal = rootSvg.getAttribute("viewBox");
-	    var viewBoxWidth = viewBoxVal.split(",")[2];
-	    var viewBoxHeight = viewBoxVal.split(",")[3];
-	    rootSvg.removeAttribute("width");
-	    rootSvg.removeAttribute("height");
-	 
-	    var setWidth = windowWidth;
-	    var setHeight = (setWidth * viewBoxHeight) / viewBoxWidth;
-	    rootSvg.setAttribute("width", setWidth);
-	    rootSvg.setAttribute("height", setHeight);
+		var windowWidth = $(window).width();
+
+		var viewBoxVal = rootSvg.getAttribute("viewBox");
+		var viewBoxWidth = viewBoxVal.split(",")[2];
+		var viewBoxHeight = viewBoxVal.split(",")[3];
+		rootSvg.removeAttribute("width");
+		rootSvg.removeAttribute("height");
+
+		var setWidth = windowWidth;
+		var setHeight = (setWidth * viewBoxHeight) / viewBoxWidth;
+		rootSvg.setAttribute("width", setWidth);
+		rootSvg.setAttribute("height", setHeight);
 	}
-	 
+
 	function adjustToNone(rootSvg) {
-	 
-	    var viewBoxVal = rootSvg.getAttribute("viewBox");
-	    var viewBoxWidth = viewBoxVal.split(",")[2];
-	    var viewBoxHeight = viewBoxVal.split(",")[3];
-	    rootSvg.removeAttribute("width");
-	    rootSvg.removeAttribute("height");
-	 
-	    rootSvg.setAttribute("width", viewBoxWidth);
-	    rootSvg.setAttribute("height", viewBoxHeight);
-	 
+
+		var viewBoxVal = rootSvg.getAttribute("viewBox");
+		var viewBoxWidth = viewBoxVal.split(",")[2];
+		var viewBoxHeight = viewBoxVal.split(",")[3];
+		rootSvg.removeAttribute("width");
+		rootSvg.removeAttribute("height");
+
+		rootSvg.setAttribute("width", viewBoxWidth);
+		rootSvg.setAttribute("height", viewBoxHeight);
+
 	}
-	 
+
 	function adjustToFreezeHeight(rootSvg) {
-	 
-	    var windowHeight = $(window).height();
-	 
-	    var viewBoxVal = rootSvg.getAttribute("viewBox");
-	    var viewBoxWidth = viewBoxVal.split(",")[2];
-	    var viewBoxHeight = viewBoxVal.split(",")[3];
-	    rootSvg.removeAttribute("width");
-	    rootSvg.removeAttribute("height");
-	 
-	    var setHeight = windowHeight;
-	    var setWidth = (setHeight * viewBoxWidth)/viewBoxHeight;
-	    rootSvg.setAttribute("width", setWidth);
-	    rootSvg.setAttribute("height", setHeight);
+
+		var windowHeight = $(window).height();
+
+		var viewBoxVal = rootSvg.getAttribute("viewBox");
+		var viewBoxWidth = viewBoxVal.split(",")[2];
+		var viewBoxHeight = viewBoxVal.split(",")[3];
+		rootSvg.removeAttribute("width");
+		rootSvg.removeAttribute("height");
+
+		var setHeight = windowHeight;
+		var setWidth = (setHeight * viewBoxWidth) / viewBoxHeight;
+		rootSvg.setAttribute("width", setWidth);
+		rootSvg.setAttribute("height", setHeight);
 	}
-	 
+
 	function adjustToFreezeAll() {
-	 
-	    var windowHeight = $(window).height();
-	    var windowWidth = $(window).width();
-	    
-	    rootSvg.removeAttribute("width");
-	    rootSvg.removeAttribute("height");
-	 
-	    rootSvg.setAttribute("width", windowWidth);
-	    rootSvg.setAttribute("height", windowHeight);
-	 
+
+		var windowHeight = $(window).height();
+		var windowWidth = $(window).width();
+
+		rootSvg.removeAttribute("width");
+		rootSvg.removeAttribute("height");
+
+		rootSvg.setAttribute("width", windowWidth);
+		rootSvg.setAttribute("height", windowHeight);
+
 	}
 
 	$(window).resize(function() {
@@ -810,8 +839,21 @@
 	function _removePointFromXY(tagName) {
 		var pointsul = document.getElementById("pointli_" + tagName);
 		pointsul.parentNode.removeChild(pointsul);
-		console.log("_removePointFromXY(tagName) "+tagName);
+		console.log("_removePointFromXY(tagName) " + tagName);
 		removePointFromXYGraph(tagName);
+	}
+	
+	function switchWin(targetid){
+	    if (document.getElementById){
+	        var target=document.getElementById(targetid);
+	        if(target!=null&&target!="undefined"){
+	            if (target.style.display=="block"){
+	                target.style.display="none";
+	            } else {
+	                target.style.display="block";
+	            }
+	        }
+	    }
 	}
 </script>
 

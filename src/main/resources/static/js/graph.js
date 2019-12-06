@@ -701,7 +701,16 @@ function refreshData(data) {
 			}
 		}
 	});
-		
+	
+//	for(var key in pointList_){
+//	for(var p in gl){
+//		//console.log(gl[p].config.id + "  ==  "+"point_" + key );
+//		if(gl[p].config.id == "point_" + key){
+//			gl[p].refresh(pointList_[key]);
+//		}
+//	}
+//}
+
 	if(currentPlayStatus){
 		// 刷新线图
 //		_forward(data.body);
