@@ -280,7 +280,7 @@ async function getUserSpace(uid, token, sucessFucn) {
 			}
 			// alert(" getUserSpace : "+JSON.stringify(data));
 			if (userSpace == null || userSpace == "undefined") {
-				console.log("getUserSpace -> set userSpace.");
+				// console.log("getUserSpace -> set userSpace.");
 				userSpace = data.data.userSpace;
 //				console.log("userspace: "+JSON.stringify(data));
 				// return userSpace;

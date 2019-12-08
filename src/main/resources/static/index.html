@@ -90,12 +90,12 @@
 			uname = user.name;
 			uid = user.id;
 			if (userSpace == null || userSpace == "undefined"){
-				console.log("1======"+new Date());
+				//console.log("1======"+new Date());
 				getUserSpace(uid, token);
-				console.log("2======"+new Date());
-				console.log("3======"+new Date());
+				//console.log("2======"+new Date());
+				//console.log("3======"+new Date());
 			}else{
-				console.log("x======"+new Date());
+				//console.log("x======"+new Date());
 				checkRight(uid, token, "index.html", null);
 			}
 
@@ -124,7 +124,7 @@
 							hideLoading();
 							if (data.status == "000"){
 								serverList = data.data.data;
-								 console.log("serverList: "+JSON.stringify(serverList));
+								 // console.log("serverList: "+JSON.stringify(serverList));
 							} else {
 								alert("失败 ： "+data.msg);
 							}
@@ -293,9 +293,10 @@
 							<h6 class="p-3 mb-0 text-center">查看所有通知</h6>
 						</div></li>
 					<li class="nav-item dropdown">
-						<!--            右侧的用户头像姓名     --> <a
+						<!--            右侧的用户头像姓名     --> 
+						<a
 						class="nav-link dropdown-toggle nav-profile" id="profileDropdown"
-						href="#" data-toggle="dropdown" aria-expanded="false"> <img
+						href="#" data-toggle="dropdown" aria-expanded="false"> <img id="_userfaceRight"
 							src="images/faces/user1.png" alt="image"> <span
 							class="d-none d-lg-inline" id="userNameUIRight">张三</span>
 					</a>
@@ -405,15 +406,30 @@
 								function setUserInfo() {
 									var und = document
 											.getElementById("userNameUI");
-									und.innerHTML = user.name;
+									if(user.username!=null&&user.username!="undefined"){
+										console.log("username = "+user.username);
+										und.innerHTML = user.username;
+									}
+									else{
+										console.log("1 username = "+user.username+" "+JSON.stringify(user));
+										und.innerHTML = user.name;
+									}
 									var udd = document
 											.getElementById("userDescUI");
 									udd.innerHTML = user.desc;
 									var unrd = document
 											.getElementById("userNameUIRight");
-									unrd.innerHTML = user.name;
+									if(user.username!=null&&user.username!="undefined"){
+										console.log("username = "+user.username);
+										unrd.innerHTML = user.username;
+									}
+									else{
+										console.log("1 username = "+user.username+" "+JSON.stringify(user));
+										unrd.innerHTML = user.name;
+									}
 									var _face = document
 											.getElementById("_face");
+									
 									switch (user.role) {
 									case 1:
 										$("#_face").attr("src",
@@ -428,6 +444,11 @@
 												"images/faces/user3.jpeg");
 										break;
 									}
+									if(user.photo!=null&&user.photo!="undefined"){
+										$("#_face").attr("src",user.photo);
+										$("#_userfaceRight").attr("src",user.photo);
+									}
+
 								}
 							</script>
 						</div>
@@ -530,16 +551,15 @@
 
 					<script>
 						if (userSpace != null && userSpace != "undefined") {
-							console.log("userSpace不为空。执行updateUI");
+							//console.log("userSpace不为空。执行updateUI");
 							updateUI();
 						} else {
-							console
-									.log("userSpace为空。执行getUserSpace(user.id, token, updateUI())");
+							//console.log("userSpace为空。执行getUserSpace(user.id, token, updateUI())");
 							getUserSpace(user.id, token, updateUI());
 						}
 
 						function updateUI() {
-							console.log("updateUI()");
+							//console.log("updateUI()");
 							updateDiagram();
 							updateXYDiagram();
 							updateRealTimeData();

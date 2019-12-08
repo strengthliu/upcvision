@@ -39,7 +39,7 @@ if(serverList == null || serverList=="undefined"){
 				hideLoading();
 				if (data.status == "000"){
 					serverList = data.data.data;
-					 console.log("serverList: "+JSON.stringify(serverList));
+//					 console.log("serverList: "+JSON.stringify(serverList));
 					buildNewItemUI(serverList);
 				} else {
 					alert("失败 ： "+data.msg);

@@ -179,6 +179,25 @@ public class UserManager {
 		}
 		return users;
 	}
+	public UserInfo createUser(UserInfo ui) {
+		Double id = ui.getId();
+		if(id==0||id==null)
+			id=IDTools.newID();
+		userService.createOrUpdateUser(ui);
+		this.setUserInfo(ui);
+		List<UserInfo> ul = getUserInfoList();
+		for (int i = 0; i < ul.size(); i++) {
+			UserInfo u = ul.get(i);
+			if (u.getId().equals(ui.getId())) {
+				ul.set(i, ui);
+				redisService.set(GlobalConsts.Key_UserInfo_Pre_ + "all", ul);
+				return ui;
+			}
+		}
+		ul.add(ui);
+		redisService.set(GlobalConsts.Key_UserInfo_Pre_ + "all", ul);
+		return ui;
+	}
 
 	public UserInfo createUser(Double id, String name, String pwd, String email, Integer role, String photo,
 			String mobile, String depart, String desc) {

@@ -1,8 +1,6 @@
 package com.surpass.vision.domain;
 
-import java.io.Serializable;
-
-public class UserInfo extends User implements Serializable {
+public class UserInfo extends BaseDomain {
     private Double id;
 
     private String name;
@@ -19,17 +17,15 @@ public class UserInfo extends User implements Serializable {
 
     private String desc;
 
-//    private String depart;?
-    
-//    public String getDepart() {
-//		return depart;
-//	}
-//
-//	public void setDepart(String depart) {
-//		this.depart = depart;
-//	}
+    private String depart;
 
-	public Double getId() {
+    private String username;
+
+    private Integer available;
+
+    private String address;
+
+    public Double getId() {
         return id;
     }
 
@@ -93,6 +89,38 @@ public class UserInfo extends User implements Serializable {
         this.desc = desc == null ? null : desc.trim();
     }
 
+    public String getDepart() {
+        return depart;
+    }
+
+    public void setDepart(String depart) {
+        this.depart = depart == null ? null : depart.trim();
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
+
+    public Integer getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Integer available) {
+        this.available = available;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+    
 	public UserRight getRight(Double id2) {
 		UserRight ret = new UserRight();
 		if(id2==this.id) {

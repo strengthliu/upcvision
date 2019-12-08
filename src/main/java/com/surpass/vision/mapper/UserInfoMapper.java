@@ -30,6 +30,7 @@ public interface UserInfoMapper {
 
     int updateByPrimaryKey(UserInfo record);
     
+    
     // userinfomapper
     
     @Select("select * from t_user where name=#{name} and password=#{password}")
@@ -43,6 +44,5 @@ public interface UserInfoMapper {
     @Select("select distinct * from t_user")
     @ResultMap("BaseResultMap")
     List<UserInfo> selectAdminUserInfo();
-
 
 }

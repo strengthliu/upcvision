@@ -1,22 +1,28 @@
 package com.surpass.vision.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -52,6 +58,12 @@ public class AuthorcationController extends BaseController {
 	@Autowired
     private RedisService redisService;
 	
+//	@Value("${upc.graphPath}")
+//	private String graphPath;
+
+	@Value("${upc.graphServerPath}")
+	private String graphServerPath;
+
     @Submit
     @RequestMapping(value = "login", method = { RequestMethod.POST, RequestMethod.GET })
 	public  ToWeb login(@RequestBody JSONObject user,  HttpServletRequest request)
@@ -228,19 +240,20 @@ public class AuthorcationController extends BaseController {
 	public ToWeb newUser(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
-		
 		// 取出参数
+	    String username = user.getString("username");
 	    String name = user.getString("name");
-	    String pwd = user.getString("pwd");
+	    String address = user.getString("address");
+	    String depart = user.getString("depart");
+	    String desc = user.getString("desc");
+	    String mobile = user.getString("mobile");
 	    String email = user.getString("email");
 	    Integer role = user.getInteger("role");
 	    String photo = user.getString("photo");
+	    String pwd = user.getString("pwd");
 	    if(StringUtil.isBlank(photo)) {
 	    	photo = "../../images/faces/face1.jpg";
 	    }
-	    String mobile = user.getString("mobile");
-	    String depart = user.getString("depart");
-	    String desc = user.getString("desc");
 		// TODO: 检查参数合法性
 
 	    ToWeb ret ;
@@ -264,16 +277,29 @@ public class AuthorcationController extends BaseController {
 			ret = authercation(uid, token, GlobalConsts.Operation_updateAlertData,ur);
 			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 				return ret;
-
 		}
-		
-
 		try {
-		    UserInfo rtd = this.userManager.createUser(id,name,pwd,email,role,photo,mobile,depart,desc);
+			UserInfo rtd = new UserInfo();
+			rtd.setAddress(address);
+//			rtd.setAvailable(available);
+			rtd.setDepart(depart);
+			rtd.setDesc(desc);
+			rtd.setEmail(email);
+			rtd.setId(id);
+			rtd.setMobile(mobile);
+			rtd.setName(name);
+			rtd.setPhoto(photo);
+			rtd.setPwd(pwd);
+			rtd.setRole(role);
+			rtd.setUsername(username);
+			rtd = userManager.createUser(rtd);
+//		    UserInfo rtd = this.userManager.createUser(id,name,pwd,email,role,photo,mobile,depart,desc);
 			
 			if (rtd != null) {
 				// 更新用户空间
-//				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
+				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
+				us.setUser(rtd);
+				userSpaceManager.setUserSpace(us);
 //				userSpaceManager.updateUserInfo(rtd,Double.valueOf(0));
 				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
 				ret.setMsg("成功");
@@ -290,21 +316,39 @@ public class AuthorcationController extends BaseController {
 		}
 	}
 
-	//http://localhost:8888/saveCity?cityName=北京&cityIntroduce=中国首都&cityId=1
-    @GetMapping(value = "saveCity")
-    public String saveCity(int cityId,String cityName,String cityIntroduce){
-    	UserInfo city = null ;//= new City(cityId,cityName,cityIntroduce);
-        redisService.set(cityId+"",city);
-        return "success";
-    }
+	@PostMapping("/uploadPortrait")
+	@ResponseBody
+	public ToWeb uploadPortrait(@RequestParam("file") MultipartFile file) {
+		ToWeb ret = ToWeb.buildResult();
+		if (file.isEmpty()) {
+			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
+			ret.setMsg("上传失败，请选择文件");
+			return ret;
+		}
 
+		String fileName = file.getOriginalFilename();
+		File dirFile = new File(graphServerPath);
+		// 这句必须加上，解决不同操作系统文件名大小写区分问题。
+		String filePath = null;
+		try {
+			filePath = dirFile.getCanonicalPath();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		fileName = String.valueOf(System.currentTimeMillis()) + new Random(3).toString() + fileName;
+		File dest = new File(filePath + "\\" + fileName);
+		try {
+			file.transferTo(dest);
+			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+			ret.setMsg("上传成功");
 
-
-    //http://localhost:8888/getCityById?cityId=1
-    @GetMapping(value = "getCityById")
-    public UserInfo getCity(int cityId){
-    	UserInfo city = (UserInfo) redisService.get(cityId+"");
-        return city;
-    }
+			ret.putData("url", fileName);
+			return ret;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
 
 }
