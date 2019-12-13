@@ -114,8 +114,6 @@ public final class GlobalConsts {
 	public static final String Operation_uploadGraphFile = "Operation_uploadGraphFile";
 	public static final String Operation_updateGraphFile = "Operation_updateGraphFile";
 	public static final String Operation_deleteGraphFile = "Operation_deleteGraphFile";
-
-
 	public static final String Operation_createUser = "Operation_createUser";
 	public static final String Operation_getUserInfo = "Operation_getUserInfo";
 
@@ -129,6 +127,10 @@ public final class GlobalConsts {
 	
 	
 	public static final String UserAdminID = "2";
+	public static final Integer UserRoleAdmin = 1;
+	public static final Integer UserRoleConfiguration = 2;
+	public static final Integer UserRoleUser = 3;
+	public static final Integer UserRoleGuest = 4;
 	
 	public static final String Default_ServerName = "demo";
 

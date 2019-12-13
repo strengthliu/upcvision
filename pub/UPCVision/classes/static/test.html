@@ -39,49 +39,36 @@
 
 
 <body>
+          <div class="row grid-margin">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Basic Table</h4>
+                  <p class="card-description">用户列表</p>
+                  <div id="userInfoList"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row grid-margin">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Basic Table</h4>
+                  <p class="card-description">A basic example of js-grid</p>
+                  <div id="js-grid"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+  <!-- Custom js for this page-->
+  <script src="js/js-grid.js"></script>
+  <script src="js/db.js"></script>
+  <!-- End custom js for this page-->
 
-<button id="zoom_in">+</button>
-<button id="zoom_out">-</button>
-									<div class='input-group date form_date col-md-6'>
-										<input name="startTm" id="datetimepicker_start_graph" type='text'
-											placeholder="开始时间" class="form-control input-sm"
-											readonly="readonly" /> <span
-											class="input-group-addon input-sm"> <span
-											class="glyphicon glyphicon-calendar"></span></span>
-									</div>
-									<div class='input-group date form_date col-md-6'>
-										<input name="startTm" id="datetimepicker_end_graph" type='text'
-											placeholder="结束时间" class="form-control input-sm"
-											readonly="readonly" /> <span
-											class="input-group-addon input-sm"> <span
-											class="glyphicon glyphicon-calendar"></span></span>
-									</div>
-									
-									<script type="text/javascript">
-										var _startTime_;
-										var _endTime_;
-										//jQuery(
-										$('#datetimepicker_start_graph').datetimepicker(
-												{//初始化
-													language : 'zh-CN',
-													//weekStart: 1,
-													//todayBtn:  1,
-													autoclose : 1,
-													step : 10,
-													//todayHighlight: 1,
-													//startView: 2,
-													//minView: 2,
-													//forceParse: 0,
-													//format: 'mm-dd hh:MM:ss',//格式化想要显示的时间格式
-													minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
-													onSelectTime : function(
-															dateText, inst) {
-														_startTime_ = new Date(
-																dateText)
-																.getTime();
-													}
-												});
+<script src="js/userManage2.js"></script>
+<script src="js/form-validation.js"></script>
+<script src="js/bt-maxLength.js"></script>
 
-									</script>
 
 </body>

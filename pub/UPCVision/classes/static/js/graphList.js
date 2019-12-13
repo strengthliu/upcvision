@@ -11,6 +11,7 @@ var itemID = _routeID;
 var actionType = _routeType;// "graph";
 
 function newItemAction() {
+	init();
 	if(user.id == 2 || user.role == 1){
 	// alert("xyGraphList.newItemAction");
 		document.getElementById("divUpLoadGraphFile").style.visibility="visible";//显示
@@ -19,29 +20,56 @@ function newItemAction() {
 		alert("您没有权限进行新建操作。");
 	}
 	$("#graphFile")[0]=null;
-	console.log("ssws- "+JSON.stringify(userSpace.graph));
+//	console.log("ssws- "+JSON.stringify(userSpace.graph));
 }
 
 function editItemAction(itemId) {
-	itemID = itemId;
+	console.log("itemId11="+itemId);
+//	itemID = itemId;
 	actionType = "graph";
-	var _graph = userSpace.graph[itemId];
-	if(user.role == 1 || user.id == _graph.creater || user.id == _graph.owner ){
-		console.log("itemId="+itemId);
+	init();
+	if(itemId!=null && itemId!="undefined"){
+		if(user.role == 1 || user.id == _graph.creater || user.id == _graph.owner ){
+			console.log();
+			var _graph = getGraphByID(userSpace.graph,itemId);
+			document.getElementById("divUpLoadGraphFile").style.visibility="hidden";//隐藏
+			console.log("itemId="+JSON.stringify(_graph));
+			//设置初始值。
+			document.getElementById("_updateGraphTitle").value = "修改图形";
+			
+//			var gf = document.getElementById("graphFile");
+//			gf.value = "";
+//			gf.outerHTML = gf.outerHTML;
+			var gt = document.getElementById("graphThumbnail");
+			gt.value = "";
+			gt.outerHTML = gt.outerHTML;
+			var gd = document.getElementById("_graphDesc");
+//			if(_graph.desc!=null && _graph.desc!="undefined")
+				gd.value = _graph.desc;
+//			else
+//				gd.value = "";
+			var gn = document.getElementById("_graphName");
+			
+			if(_graph.nickName!=null && _graph.nickName!="undefined")
+				gn.value = _graph.nickName;
+			else
+				gn.value = _graph.name;
+			
 			$('#newItemAction_mid').modal('show');
 		}else {
 			alert("您没有权限进行新建操作。");
 			return;
 		}
-	editItem(itemId);
+		editItem(itemId);
+
+	} else {
+		alert("没有指定的图形。");
+	}
+
 }
 
 function editItem(itemId){
-	if(itemId!=null && itemId!=null){
-		document.getElementById("divUpLoadGraphFile").style.visibility="hidden";//隐藏
-		
-	}
-	console.log("itemId="+itemId);
+	
 }
 
 function doShareActionToServer(){
@@ -119,7 +147,9 @@ console.log("deleteItemAction uid="+uid+" token="+token+" id="+itemId);
 			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				var graph = data.data.graph;
 				var pg = getGraphByPath(userSpace.graph,graph.path);
-				delete pg[graph.wholePath];
+				console.log("pg: "+JSON.stringify(pg));
+				delete pg.children[graph.wholePath];
+				console.log(graph.wholePath);
 				console.log("pg: "+JSON.stringify(pg));
 				updateGraphListFrame();
 //				fixLocalGraphList_Delete(graphId);
@@ -247,7 +277,6 @@ function updateGraphListFrame(){
 				diagram_gallery_item_innerHTML += '<div></div>';				
 				diagram_gallery_item_innerHTML += '<img src="' + _graph.img + '" alt="image" ';
 				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramDetail\',\'' + _graph.urlPath + '\',\''+_graph.id+'\');"/>';
-// alert("_graph.urlPath = "+_graph.urlPath);
 				diagram_gallery_item_innerHTML += '<figcaption';
 				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramDetail\',\'' + _graph.urlPath + '\',\''+_graph.id+'\');">';
 
@@ -259,30 +288,22 @@ function updateGraphListFrame(){
 				}
 				if(_graph.nickName!=null&&_graph.nickName!="undefined"){
 					diagram_gallery_item_innerHTML += '<h4 style="color:#FFFF00;background-color=#556B2F">'
-						+ _graph.nickName +"  "+ '</h4><p>' + _graph.path
+						+ _graph.nickName +"  "+ '</h4><p>' + desc
 						+ '</p></figcaption>';
 				}else{
 					diagram_gallery_item_innerHTML += '<h4 style="color:#FFFF00;background-color=#556B2F">'
-						+ _graph.name +"  "+ '</h4><p>' + _graph.path
+						+ _graph.name +"  "+ '</h4><p>' + desc
 						+ '</p></figcaption>';
 				}
 				diagram_gallery_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
-				// TODO: 判断权限
+				// 判断权限
 				if(user.id == _graph.creater || user.id == _graph.owner || user.role == 1){
 					diagram_gallery_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
 					diagram_gallery_item_innerHTML += 'shareItemAction(\''+_graph.id+'\')">Share</button>';
-
 					diagram_gallery_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
 					diagram_gallery_item_innerHTML += 'deleteItemAction(\''+_graph.id+'\')">';
 					diagram_gallery_item_innerHTML += '<i class="mdi mdi-delete"></i>';
 					diagram_gallery_item_innerHTML += '</button>';
-
-// diagram_gallery_item_innerHTML += '<button data-repeater-delete type="button"
-// class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
-// diagram_gallery_item_innerHTML += 'deleteItemAction(\''+_graph.id+'\')">';
-// diagram_gallery_item_innerHTML += '<i class="mdi mdi-delete"></i>';
-// diagram_gallery_item_innerHTML += '</button>';
-					
 					diagram_gallery_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
 					diagram_gallery_item_innerHTML += 'editItemAction(\''+_graph.id+'\')">';
 					diagram_gallery_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
@@ -313,8 +334,6 @@ function updateGraphListFrame(){
 				
 			}
 			diagram_gallery_item_innerHTML += '</figure></div>';
-	
-			// console.log(diagram_gallery_item_innerHTML);
 			diagram_gallery_innerHTML = diagram_gallery_innerHTML
 					+ diagram_gallery_item_innerHTML;
 	
@@ -325,19 +344,20 @@ function updateGraphListFrame(){
 
 
 function ajaxGraphFile(url,callback,reject){
-	console.log("_graphs= "+_graphs.path);
-
     var formData1=new FormData();
 	var file1=$("#graphFile")[0].files[0];
 	formData1.append("file",file1);
-	formData1.append("path",_graphs.path);
+	formData1.append("path",encodeURI(_graphs.path));
+	console.log("_graphs.path1"+_graphs.path);
 	formData1.append("url",url);
 	formData1.append("uid",uid);
 	formData1.append("token",token);
 	var name = document.getElementById("_graphName").value;
 	formData1.append("name",name);
-	var desc = document.getElementById("_graphDesc").innerHTML;
+	var desc = $("#_graphDesc").val();// document.getElementById("_graphDesc").innerHTML;//不知道为什么，用原生的取不到值。
 	formData1.append("desc",desc);
+	console.log(name+" - "+desc+" - "+_graphs.path+" - "+uid+" - "+token+" - "+url);
+//	consoel.log(aa);
 	console.log("formData1-> "+JSON.stringify(formData1));
 	$.ajax({
 	        url: 'uploadGraphFile',
@@ -350,7 +370,7 @@ function ajaxGraphFile(url,callback,reject){
 	        success: function(data){
 	        	if(data.status=="000"){
 		        	var g = data.data.graph
-		        	console.log("return g = "+JSON.stringify(g));
+		        	// console.log("return g = "+JSON.stringify(g));
 		        	callback(data.data.graph);
 	        	}else{
 	        		alert(data.msg);
@@ -390,17 +410,29 @@ function ajaxGraphThumbnail(callback,reject){
 	console.log("doUpLoad 2");
 }
 
-function ajaxUpdateGraphInfo(callback,reject){
+function ajaxUpdateGraphInfo(url,callback,reject){
+	var data=new FormData();
+	data.append("url",url);
+	data.append("uid",uid);
+	data.append("token",token);
+	var name = document.getElementById("_graphName").value;
+	data.append("name",name);
+	var desc = $("#_graphDesc").val();// document.getElementById("_graphDesc").innerHTML;//不知道为什么，用原生的取不到值。
+	data.append("desc",desc);
+	data.append("id",_graphs.id);
+	console.log("desc="+desc);
 	$.ajax({
-        url: 'uploadThumbnail',
+        url: 'updateGraphInfo',
         type: 'POST',
         cache:false,
         processData: false,// 不处理数据
-        data: formData,// 直接把formData这个对象传过去
+        data: data,// 直接把formData这个对象传过去
         dataType : 'json',
         contentType:false,// 主要设置你发送给服务器的格式,设为false代表不设置内容类型
-        success: function(data){
-        	callback(data);
+        success: function(rdata){
+        	console.log("return data = "+JSON.stringify(rdata));
+        	
+        	callback(rdata);
         },
 		// 调用出错执行的函数
 		error : function(jqXHR, textStatus, errorThrown) {
@@ -408,36 +440,47 @@ function ajaxUpdateGraphInfo(callback,reject){
 		}
 	});
 }
-function getGraphByPath(graph,path){
-	if(path==null||path=="undefined") return graph;
-	//console.log("graph.wholePath="+graph.wholePath.toLowerCase()+"  ==  "+"path="+path.toLowerCase());
-	if(graph.wholePath.toLowerCase().indexOf(path.toLowerCase())!=-1){
-		//console.log("找到了");
-		_graphId = graph.id;
-		return graph;
-	}
-	else {
-		console.log(graph.wholePath.toLowerCase()+" 3");
-		var children = graph.children;
-		if(children!=null){
-			var keys = new Array();
-			Object.keys(children).forEach(function(key){
-				//console.log("4"+key);
-				keys.push(key);
-				children[key]
-			});
-			for(var i=0;i<keys.length;i++){
-				var child = children[keys[i]];
-				var t = getGraphByPath(child,path);
-				if(t!=null) return t;
-			}
-		}
-		return null;
-	}
-}
 
 function doUpLoad(){
 	var file1=$("#graphFile")[0].files[0];
+	// 如果没有图形文件，就是编辑
+	if(file1=="null" || (file1+"")=="undefined"){
+		// 名称、描述、缩略图都不限制
+		// 如果有缩略图，就上传。如果没有
+		var file=$("#graphThumbnail")[0].files[0];
+		if(file!="null" && (file+"")!="undefined"){
+		    var promise = new Promise(function(resolve, reject) {
+		    	showLoading();
+		        // 发送ajax 获取第一份数据 (我们需要这份数据里面的key值 要带着这个key去请求pay.json)
+		    	ajaxGraphThumbnail(resolve,reject);
+		    });
+		    promise.then(function(value) {
+		    	ajaxUpdateGraphInfo(value.data.url,function(value){
+		    		console.log("v="+JSON.stringify(value));
+		    		fixGraphList(value.data.graph);
+		    	},function(err){
+		    		
+		    	});
+		    },function(err){
+		    	
+		    });	
+		    hideLoading();
+			return;
+		}else{ // 如果没有图形，就是只改名字、描述。
+			console.log("没有图形，只修改名字描述。");
+			ajaxUpdateGraphInfo(null,function(value){
+	    		console.log("v="+JSON.stringify(value));
+	    		fixGraphList(value.data.graph);
+			},function(err){
+				
+			});
+			return;
+		}
+	}else{
+		console.log("file1不为空，继续执行上传图形文件。");
+		console.log(""+file1);
+	}
+	
 	var wholePath = _graphs.path + "\\"+file1.name;
 	console.log("wholePath = "+wholePath);
 	var og = getGraphByPath(userSpace.graph,wholePath);
@@ -456,7 +499,7 @@ function doUpLoad(){
         // 这里 可以接收到上一步 用 resolve处理的数据
         // console.log('第二步接收到的key:', response)
         // 发送ajax 带上这个key 去请求另一个接口 pay.json
-    	console.log("then..."+JSON.stringify(value));
+    	// console.log("then..."+JSON.stringify(value));
         return new Promise(function(resolve, reject) {
         	ajaxGraphFile(value.data.url,resolve,reject);
         })
@@ -467,11 +510,12 @@ function doUpLoad(){
     .then(function(response){
         // 这里 可以接收到上一步 用 resolve处理的数据
         console.log('第三步接收到的数据:', response);
-    	console.log("ssws- "+JSON.stringify(userSpace.graph));
+//    	console.log("ssws- "+JSON.stringify(userSpace.graph));
 
         var g = getGraphByPath(userSpace.graph,_graphs.path);
         g.children[response.wholePath] = response;
         updateGraphListFrame();
+        init();
         hideLoading();
         $('#newItemAction_mid').modal('hide');
     },function(err){
@@ -485,9 +529,52 @@ function doUpLoad(){
 
 }
 
+function fixGraphList(response){
+    var g = getGraphByPath(userSpace.graph,_graphs.path);
+    g.children[response.wholePath] = response;
+    updateGraphListFrame();
+    init();
+    hideLoading();
+    $('#newItemAction_mid').modal('hide');
+}
+
 function init(){
-	$("#graphFile")[0]=null;
-//	document.getElementById("divUpLoadGraphFile").
-//    document.getElementById("divUpLoadGraphFile").style.visibility="visible";//显示
-	
+	document.getElementById("_updateGraphTitle").value = "上传图形";
+	var gf = document.getElementById("graphFile");
+	gf.value = "";
+	gf.outerHTML = gf.outerHTML;
+	var gt = document.getElementById("graphThumbnail");
+	gt.value = "";
+	gt.outerHTML = gt.outerHTML;
+	var gd = document.getElementById("_graphDesc");
+	gd.value = "";
+	var gn = document.getElementById("_graphName");
+	gn.value = "";
+}
+function getGraphByPath(graph,path){
+	if(path==null||path=="undefined") return graph;
+	//console.log("graph.wholePath="+graph.wholePath.toLowerCase()+"  ==  "+"path="+path.toLowerCase());
+	if(graph.wholePath.toLowerCase().indexOf(path.toLowerCase())!=-1){
+		//console.log("找到了");
+		_graphId = graph.id;
+		return graph;
+	}
+	else {
+		// console.log(graph.wholePath.toLowerCase()+" 3");
+		var children = graph.children;
+		if(children!=null){
+			var keys = new Array();
+			Object.keys(children).forEach(function(key){
+				//console.log("4"+key);
+				keys.push(key);
+				children[key]
+			});
+			for(var i=0;i<keys.length;i++){
+				var child = children[keys[i]];
+				var t = getGraphByPath(child,path);
+				if(t!=null) return t;
+			}
+		}
+		return null;
+	}
 }

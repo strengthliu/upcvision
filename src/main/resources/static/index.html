@@ -92,10 +92,10 @@
 			if (userSpace == null || userSpace == "undefined"){
 				//console.log("1======"+new Date());
 				getUserSpace(uid, token);
-				//console.log("2======"+new Date());
+				console.log("2======"+new Date());
 				//console.log("3======"+new Date());
 			}else{
-				//console.log("x======"+new Date());
+				console.log("x======"+new Date());
 				checkRight(uid, token, "index.html", null);
 			}
 
@@ -465,9 +465,10 @@
  					 -->
 
 					<!-- *******************************  视图列表 ******************************* -->
+					<!-- 
 					<li class="nav-item nav-category"><span class="nav-link">视图列表</span>
 					</li>
-
+ 					-->
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-diagram" aria-expanded="false"
 						aria-controls="ui-diagram" onclick="routeTo('diagramList','')">
@@ -570,8 +571,10 @@
 					</script>
 
 					<!-- *******************************  用户管理 ******************************* -->
+					<!-- 
 					<li class="nav-item nav-category"><span class="nav-link">用户管理</span>
 					</li>
+					 -->
 					<li class="nav-item" onclick="routeTo('userManage','')"><span
 						class="nav-link"> <i class="icon-lock menu-icon"></i> <span
 							class="menu-title">用户管理</span>

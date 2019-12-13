@@ -78,8 +78,8 @@ var gl = new Array();
 var charts = new Object();
 var _xyGraphDetailKey = _routeID;
 var x_axis = 'time';
-console.log("_xyGraphDetailKey: " + _xyGraphDetailKey);
-console.log(""+JSON.stringify(userSpace,null,2));
+//console.log("_xyGraphDetailKey: " + _xyGraphDetailKey);
+//console.log(""+JSON.stringify(userSpace,null,2));
 var pointGroup;
 if(pointGroup==null||pointGroup=="undefined")
 	pointGroup = new Array();
@@ -97,13 +97,14 @@ if(_cdataIndex==null||_cdataIndex=="undefined")
 function addPointToXYGraph(tagName){
 	// 如果点组里不包含这个点
 	if(pointGroup.indexOf(tagName)==-1){
-		console.log("addPointToXYGraph:"+tagName);
+//		console.log("addPointToXYGraph:"+tagName);
 		// 添加进点组
 		pointGroup.push(tagName);
 		
+		// 修改cdata和_data时，修改tagName值为当前状态下的值。
+		var tagName = getNewLabelForData(tagName);
 		// 在刷新数据时，addData时，在_data中加一个
 		// 向_data和cdata中加入一个数据，之后addData才能真正将数据加入。
-		
 		// 构建_data序号。
 		_dataIndex = new Array();
 		for(var indrow=0;indrow<_data.length;indrow++){
@@ -113,17 +114,18 @@ function addPointToXYGraph(tagName){
 		for(var indrow=0;indrow<cdata.length;indrow++){
 			_cdataIndex[cdata[indrow][0]]= indrow;
 		}			
+		
 		// 处理cdata。_data处理方法参考这个。
 		if(_cdataIndex['time']=="undefined"||_cdataIndex['time']==null){
-			console.log("deal with time serial. ");
+//			console.log("deal with time serial. ");
 			var timeserial = new Array();
 			timeserial.push('time');
 			cdata.push(timeserial);
 			_cdataIndex['time'] = cdata.length -1;
 		}
 		if(_cdataIndex[tagName]=="undefined"||_cdataIndex[tagName]==null){
-			console.log("deal with "+tagName+".");
-			console.log("deal with "+tagName+". "+JSON.stringify(_cdataIndex)+" "+JSON.stringify(cdata));
+//			console.log("deal with "+tagName+".");
+//			console.log("deal with "+tagName+". "+JSON.stringify(_cdataIndex)+" "+JSON.stringify(cdata));
 			var tagserial = new Array();
 			tagserial.push(tagName);
 			// TODO: 先用0补齐数据，后面要改成取历史数据。
@@ -137,15 +139,15 @@ function addPointToXYGraph(tagName){
 		}
 		
 		if(_dataIndex['time']=="undefined"||_dataIndex['time']==null){
-			console.log("_data deal with time serial. ");
+//			console.log("_data deal with time serial. ");
 			var timeserial = new Array();
 			timeserial.push('time');
 			_data.push(timeserial);
 			_dataIndex['time'] = _data.length -1;
 		}
 		if(_dataIndex[tagName]=="undefined"||_dataIndex[tagName]==null){
-			console.log("deal with "+tagName+".");
-			console.log("deal with "+tagName+". "+JSON.stringify(_cdataIndex)+" "+JSON.stringify(cdata));
+//			console.log("deal with "+tagName+".");
+//			console.log("deal with "+tagName+". "+JSON.stringify(_cdataIndex)+" "+JSON.stringify(cdata));
 			var tagserial = new Array();
 			tagserial.push(tagName);
 			// TODO: 先用0补齐数据，后面要改成取历史数据。
@@ -166,6 +168,7 @@ function addPointToXYGraph(tagName){
 		 * 
 		 */
 		
+		updateXYGraphChart();
 	}
 }
 /**
@@ -173,8 +176,15 @@ function addPointToXYGraph(tagName){
  * @returns
  */
 function removePointFromXYGraph(tagName){
+	// 将tagName返成txtid
+	var tagName = getOrigionLabel(tagName);
+//	console.log("1-- "+tagName);
 	if(pointGroup.indexOf(tagName)>-1){
 		pointGroup.splice(pointGroup.indexOf(tagName),1);
+
+		// 修改cdata和_data时，修改tagName值为当前状态下的值。
+		var tagName = getNewLabelForData(tagName);
+
 		// TODO: cdata中删除点。
 		_cdataIndex = new Array();
 		for(var indrow=0;indrow<cdata.length;indrow++){
@@ -182,7 +192,7 @@ function removePointFromXYGraph(tagName){
 		}			
 		cdata.splice(_cdataIndex[tagName],1);
 		
-		console.log("cd -> "+JSON.stringify(cdata));
+//		console.log("cd -> "+JSON.stringify(cdata));
 		var _dt_ = new Array();
 		for(var i=0;i<cdata.length;i++){
 			_dt_.push(cdata[i][0]);
@@ -239,6 +249,7 @@ function removePointFromXYGraph(tagName){
 		});
 		}
 	}
+	updateXYGraphChart();
 }
 
 function closeGraph(){
@@ -246,8 +257,8 @@ function closeGraph(){
 }
 
 function buildChart(){
-	console.log("buildChart()");
-	console.log("cdata => "+JSON.stringify(cdata));
+//	console.log("buildChart()");
+//	console.log("cdata => "+JSON.stringify(cdata));
 	$('#exampleModal').modal('show');
 	c3LineChart = c3.generate({
 		bindto : '#ui-historyDataLineChart',
@@ -297,7 +308,7 @@ function buildChart(){
 		}
 	});
 	currentPlayStatus = true;
-	console.log("buildChart() end");
+//	console.log("buildChart() end");
 
 }
 
@@ -375,59 +386,255 @@ var cols;
 
 })(jQuery);
 
-//
-//c3LineChart = c3.generate({
-//bindto : '#ui-historyDataLineChart',
-//data : {
-//	x : 'time',
-//	xFormat : '%Y',
-//	columns : cols,
-//	type : 'spline',
-//    axes: {
-//    	CJY_XT31101_8: 'y',
-//    }
-//},
-//grid : {
-//	x : {
-//		show : true
-//	},
-//	y : {
-//		show : true
-//	}
-//},
-//color : {
-//	pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
-//			'rgba(4,189,254,0.6)' ]
-//},
-//padding : {
-//	top : 10,
-//	right : 20,
-//	bottom : 30,
-//	left : 50,
-//},
-//axis : {
-//	x : {
-//		type : 'timeseries',
-//		// if true, treat x value as localtime (Default)
-//		// if false, convert to UTC internally
-//		localtime : true,
-//		tick : {
-//			format : '%Y-%m-%d %H:%M:%S'
-//		}
-//	},
-//	y : {
-//		show: true
-////		,
-////		label: 'Y2 Axis Label'
-//	}
-//}
-//});
+/******************************************************
+ *      关于趋势图显示标签的相关设计
+ * 1、数据结构
+ * （1）. _data、cdata内，保存的是当前显示的标签值，如点位描述。
+ * （2）. pointGroup内，保存的是原始显示标签，是从服务器返回的那个，图形中text的id。
+ * 
+ */
 
-//if (userSpace == null || userSpace == "undefined") {
-//	console.log("userSpace 为空，重新到服务器去取。");
-//	getUserSpace(user.id, token, updateXYGraphChart);
-//} else
-//	updateXYGraphChart(userSpace); // 更新XY图数据
+/**
+ * 趋势图上，占位显示内容：
+ * 0：tagName;
+ * 1: 点位说明;
+ * 2: 没有呢。
+ * default: 不变
+ */
+var tagFeatureInXYGraph = 0;
+
+/**
+ * 
+ */
+var _graph = getGraphByID(userSpace.graph,_graphId);
+var pointKs;
+buildPointKs();
+function buildPointKs(){
+	if(pointKs==null || pointKs=="undefined"){
+		pointKs = new Object();
+	}
+	console.log("-_graphId= "+_graphId+" graph= "+JSON.stringify(_graph,null,2));
+	var pointTextIDs = _graph.pointTextIDs;
+	var pointList = _graph.pointList;
+	for(var ind=0;ind<pointTextIDs.length;ind++){
+		pointKs[pointTextIDs[ind]] = pointList[ind];
+	}
+//	console.log("pointKs = "+JSON.stringify(pointKs));
+}
+
+/**
+ * 获取当前状态的下指定标签的原始标签txtid
+ * @param currenttxtid
+ * @returns
+ */
+function getOrigionLabel(currenttxtid){
+	var tartxt = null;
+	var points = _graph.pointList;
+//	console.log("getOrigionLabel 1 - "+currenttxtid);
+	// 将tagFeature下的txtid转成标准txtid
+	for(var ind=0;ind<points.length;ind++){
+		switch(tagFeatureInXYGraph){
+		case 0:
+			tartxt = points[ind].tagName;
+			break;
+		case 1:
+			tartxt = points[ind].desc;
+			break;
+		default:
+			tartxt = pointTextIDs[ind];
+			break;
+		}
+//		console.log("getOrigionLabel 2 - "+tartxt);
+		if(tartxt == currenttxtid){
+			tartxt = _graph.pointTextIDs[ind];
+//			console.log("getOrigionLabel 3 - "+tartxt);
+			return tartxt;
+		}
+	}
+	return null;
+
+}
+/**
+ * 获取指定状态下指定标签所对应当前状态的标签值
+ * @param txtid 标签值
+ * @param tagFeature 状态
+ * @returns 当前状态下的值
+ */
+function getNewLabelForData(txtid,tagFeature){
+	var tartxt = null;
+	if(tagFeature!=null&&tagFeature!="undefined"){
+		
+	}
+	if(tartxt==null||tartxt=="undefined")
+		tartxt = txtid;
+	
+	if(pointKs[tartxt]!=null&&pointKs[tartxt]!="undefined"){
+		switch(tagFeatureInXYGraph){
+		case 0:
+			return pointKs[tartxt].tagName;
+		case 1:
+			return pointKs[tartxt].desc;
+		case 2:
+			break;
+		default:
+			return tartxt;
+		}
+	}
+	return null
+}
+
+/**
+ * 
+ * @param data 服务器返的数据对象。其中数据的标签一定是txtid。
+ * @returns
+ */
+function changeDataToNewLabel(data){
+//	console.log("data");
+	var ret = new Object();
+	Object.keys(data).forEach(function(key){
+		var item = data[key]; 
+		if(key!="time"){
+			if(pointKs[key]!=null&&pointKs[key]!="undefined")
+			switch(tagFeatureInXYGraph){
+			case 0:
+				ret[pointKs[key].tagName] = data[key];
+				break;
+			case 1:
+				ret[pointKs[key].desc] = data[key];
+				break;
+			case 2:
+				break;
+			default:
+				ret[key] = data[key];
+				break;
+			}
+		}
+	});
+	return ret;
+}
+
+/**
+ * 切换显示标签。
+ * @param tarF
+ * @returns
+ */
+function switchTagFeatureInXYGraph(tarF){
+	if(tagFeatureInXYGraph != tarF ){
+		// 修改前端显示
+		var but = document.getElementById("labelSelectButtonUI");
+		switch(tarF){
+		case 0:
+			but.innerHTML = "tagName";
+			break;
+		case 1:
+			but.innerHTML = "点位说明";
+			break;
+		}
+
+
+		// 修改_data、cdata的标签
+		var _cdataLabelArray = new Array();
+		for(var ind=0;ind<cdata.length;ind++){
+			var txtid = getOrigionLabel(cdata[ind][0]);
+			_cdataLabelArray.push(txtid);
+		}
+		
+		var __dataLabelArray = new Array();
+		for(var ind=0;ind<_data.length;ind++){
+			var txtid = getOrigionLabel(_data[ind][0]);
+			__dataLabelArray.push(txtid);
+		}
+		
+		// 修改tagFeatureInXYGraph的值
+		tagFeatureInXYGraph = tarF;
+		
+		for(var ind=0;ind<cdata.length;ind++){
+			if(_data[ind][0]!="time"){
+				var txtid = _cdataLabelArray[ind];
+				cdata[ind][0] = getNewLabelForData(txtid);
+//				console.log("switch -> "+cdata[ind][0]);
+			}else{}// 暂时不处理时间
+		}
+//		console.log("cdata -> "+JSON.stringify(cdata));
+		
+		var __dataLabelArray = new Array();
+		for(var ind=0;ind<_data.length;ind++){
+			if(_data[ind][0]!="time"){
+				var txtid = getOrigionLabel(_data[ind][0]);
+				_data[ind][0] = getNewLabelForData(txtid);
+			}else{}// 暂时不处理时间
+		}
+
+		// 修改下面方法里保存后的标签：
+		//	_addPointToXY(getNewLabelForData(ele.getAttribute("id")));
+		//	addPointToXYGraph(getNewLabelForData(ele.getAttribute("id")));
+		c3LineChart = c3.generate({
+			bindto : '#ui-historyDataLineChart',
+			data : {
+				x : xray,
+				xFormat : '%Y',
+				columns : cdata,
+				type : 'spline',
+			},
+			grid : {
+				x : {
+					show : true
+				},
+				y : {
+					show : true
+				}
+			},
+			color : {
+				pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
+						'rgba(4,189,254,0.6)' ]
+			},
+			padding : {
+				top : 10,
+				right : 30,
+				bottom : 30,
+				left : 50,
+			},
+			axis : {
+				x : {
+					type : 'timeseries',
+					// if true, treat x value as localtime (Default)
+					// if false, convert to UTC internally
+					localtime : false,
+					tick : {
+						format : '%Y-%m-%d %H:%M:%S'
+					}
+				},
+				y : {
+					show: true,
+					label: 'Y2 Axis Label'
+				}
+			}
+		});
+
+		play();
+	}
+}
+
+updateXYGraphChart();
+function updateXYGraphChart(ruserSpace) {
+	if(ruserSpace==null||ruserSpace=="undefined")
+		ruserSpace = userSpace;
+	// var pointGroup = _graph;
+	var uixyGraphPoints = document.getElementById("ui-xyGraphPoints");
+//	 console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
+	if (pointGroup == null || pointGroup == "undefined")
+		return;
+	var pointList = pointGroup;
+//	console.log("pointList = "+JSON.stringify(pointGroup));
+	var innerHtml = "";
+	var menuitem = document.getElementById("x_axisSelectButtonUIMenu");
+	var _innerHtml = '<a class="dropdown-item" onclick="changex(\'time\')">时间</a>';
+	for (var indpl = 0; indpl < pointList.length; indpl++) {
+		var _itemHtml = '<a class="dropdown-item" onclick="changex(\''+getNewLabelForData(pointList[indpl])+'\')">'+getNewLabelForData(pointList[indpl])+'</a>';
+		_innerHtml = _innerHtml + _itemHtml;
+	}
+	menuitem.innerHTML = _innerHtml;
+}
 
 /**
  * 刷新数据
@@ -457,15 +664,16 @@ function refreshData(data) {
 		}
 	});
 	data.body = JSON.stringify(o);
+//	console.log(" refreshData-> "+ JSON.stringify(data.body,null,2));
+	// 添加进趋势图的换成点位说明。
+	var _dat = changeDataToNewLabel(JSON.parse(data.body));
 	// 添加趋势图数据到当前数据
-	addData(data.body,cdata,cdataCount);
-	//console.log("cdata => "+JSON.stringify(cdata));
+	addData(_dat,cdata,cdataCount);
 	// 添加趋势数据到全部数据
-	//addData(data.body,_data,_dataCount);
-	addData(data.body,_data,10);
-	//console.log("_data => "+JSON.stringify(_data));
+	addData(_dat,_data,10);
+//	console.log("cdata => "+JSON.stringify(cdata));
 
-	var ids = document.getElementsByTagName("text");
+	var ids = document.getElementsByTagName("text"); 
 	var _data_ = JSON.parse(data.body);
 //	console.log(JSON.stringify(_data));
 	Object.keys(_data_).forEach(function(key){
@@ -476,8 +684,10 @@ function refreshData(data) {
 				// 加事件
 				ele.onclick = function(){
 	//					alert(ele.getAttribute("id"));
-					_addPointToXY(ele.getAttribute("id"));
-					addPointToXYGraph(ele.getAttribute("id"));
+					// 添加进趋势图的换成点位说明。
+					_addPointToXY(getNewLabelForData(ele.getAttribute("id")));
+					// pointGroup中的值不变，还是txtid。
+					addPointToXYGraph((ele.getAttribute("id")));
 				}
 				// 画点图
 	//				if(gl[p].config.id == "point_" + key){
@@ -491,7 +701,16 @@ function refreshData(data) {
 			}
 		}
 	});
-		
+	
+//	for(var key in pointList_){
+//	for(var p in gl){
+//		//console.log(gl[p].config.id + "  ==  "+"point_" + key );
+//		if(gl[p].config.id == "point_" + key){
+//			gl[p].refresh(pointList_[key]);
+//		}
+//	}
+//}
+
 	if(currentPlayStatus){
 		// 刷新线图
 //		_forward(data.body);
@@ -503,25 +722,6 @@ function refreshData(data) {
 
 
 
-/**
- * 画点图
- */
-function updateXYGraphChart(ruserSpace) {
-	var pointGroup = ruserSpace.xyGraph[_xyGraphDetailKey];
-	var uixyGraphPoints = document.getElementById("ui-xyGraphPoints");
-	 console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
-	if (pointGroup == null || pointGroup == "undefined")
-		return;
-	var pointList = pointGroup.pointList;
-	var innerHtml = "";
-	var menuitem = document.getElementById("x_axisSelectButtonUIMenu");
-	var _innerHtml = '<a class="dropdown-item" onclick="changex(\'time\')">时间</a>';
-	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		var _itemHtml = '<a class="dropdown-item" onclick="changex(\''+pointList[indpl].tagName+'\')">'+pointList[indpl].tagName+'</a>';
-		_innerHtml = _innerHtml + _itemHtml;
-	}
-	menuitem.innerHTML = _innerHtml;
-}
 
 /**
  * 刷新表格数据
@@ -658,7 +858,7 @@ function addHistoryData(historyData){
 	if(historyData==null|| historyData=="undefined")return;
 	
 	if(_data ==null || _data=="undefined"){
-		console.log("addHistoryData 1");
+//		console.log("addHistoryData 1");
 		_data = historyData;
 		for(var indrow=0;indrow<_data.length;indrow++){
 			_dataIndex[_data[indrow][0]]= indrow;
@@ -679,7 +879,7 @@ function addHistoryData(historyData){
 				_data[indrow].pop();
 			}
 		}			
-		console.log("addHistoryData 3 _data="+JSON.stringify(_data));
+//		console.log("addHistoryData 3 _data="+JSON.stringify(_data));
 
 		var index_data = _data[0].length-1;
 		for(var indHis=historyData[0].length-1;indHis>1;indHis--){
@@ -688,19 +888,19 @@ function addHistoryData(historyData){
 			while(index_data>0 && _data[_dataIndex["time"]][index_data]>new Date(historyData[historyIndex["time"]][indHis])){
 				index_data --;
 			}
-			console.log(" index_data = "+index_data);
+//			console.log(" index_data = "+index_data);
 			if(_data[_dataIndex["time"]][index_data]<historyData[historyIndex["time"]][indHis] || !_IsNaN(_data[_dataIndex["time"]][index_data])){
 				Object.keys(historyIndex).forEach(function(key){
 					if(key=="time"){
 						_data[_dataIndex[key]].splice(index_data+1,0,new Date(historyData[historyIndex[key]][indHis]*1000));
-						console.log(key+"  -  historyData[historyIndex[key]][indHis]="+historyData[historyIndex[key]][indHis]);
+//						console.log(key+"  -  historyData[historyIndex[key]][indHis]="+historyData[historyIndex[key]][indHis]);
 					}else{
 						_data[_dataIndex[key]].splice(index_data+1,0,historyData[historyIndex[key]][indHis]);
 					}
 //					console.log(key+"  -  historyData[historyIndex[key]][indHis]="+historyData[historyIndex[key]][indHis]);
 				});
 				if(currentStartTimeInd>index_data) currentStartTimeInd++;
-				console.log("currentStartTimeInd="+currentStartTimeInd+"  <=>  index_data="+index_data);
+//				console.log("currentStartTimeInd="+currentStartTimeInd+"  <=>  index_data="+index_data);
 			}
 		}
 //		console.log("addHistoryData 4 _data="+JSON.stringify(_data));
@@ -802,7 +1002,7 @@ function addData(newData, _data_, cdatacount) {
  */
 function getHistoryData1(_historyDataDetailKey,startTime,endTime,pointGroup,func){
 	var data={'uid':uid,'token':token,'id':_historyDataDetailKey,'beginTime':startTime,'endTime':endTime,"pointList":pointGroup};
-	 console.log("getHistoryData1  data = "+JSON.stringify(data));
+//	 console.log("getHistoryData1  data = "+JSON.stringify(data));
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -821,7 +1021,7 @@ function getHistoryData1(_historyDataDetailKey,startTime,endTime,pointGroup,func
 		success : function(data) {
 			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				var historyData = data.data.data;
-				console.log("historydata.js => historyData1= "+JSON.stringify(historyData));
+//				console.log("historydata.js => historyData1= "+JSON.stringify(historyData));
 //				if(__a<3)
 				addHistoryData(historyData);
 //				console.log("getHistoryData1 startTime="+startTime+" - "+new Date(startTime));
@@ -866,7 +1066,7 @@ function getHistoryData(){
 					// console.log("server info : "+JSON.stringify(data.data.data));
 	// console.log("historydata.js => submitNewDataItem 3");
 					var historyData = data.data.data;
-					console.log("historydata.js => historyData= "+JSON.stringify(historyData));
+//					console.log("historydata.js => historyData= "+JSON.stringify(historyData));
 					addHistoryData(historyData);
 					loadCData(1569151501);
 					reloadDataToDiagram();
@@ -912,6 +1112,7 @@ function play(){
 			columns : cdata
 		});
 	}
+//	console.log("play -> "+JSON.stringify(cdata));
 }
 /**
  * 向前，向后
@@ -933,19 +1134,19 @@ function _forward(_newData) {
 		});
 	}else{
 		// 否则加载历史数据
-		console.log(" _forward 0");
+//		console.log(" _forward 0");
 		// 更新cdata数据
 		var _dataIndex ={};
 		for(var indrow=0;indrow<_data.length;indrow++){
 			_dataIndex[_data[indrow][0]]= indrow;
 		}						
-		console.log(" _forward 1");
+//		console.log(" _forward 1");
 		oneStep = cdataCount*0.9;
 		var startTime;
 		if(currentStartTimeInd == null || currentStartTimeInd=="undefined"){
 			currentStartTimeInd =1;
 		}else{
-			console.log(" _forward 2");
+//			console.log(" _forward 2");
 
 			if(currentStartTimeInd+oneStep<_data[_dataIndex['time']].length){ // 向左
 				currentStartTimeInd = currentStartTimeInd+oneStep;
@@ -961,7 +1162,7 @@ function _forward(_newData) {
 			}
 		}
 		var currentTime = _data[_dataIndex['time']][currentStartTimeInd];
-		console.log("currentTime="+currentTime);
+//		console.log("currentTime="+currentTime);
 		loadCData(currentTime);
 		reloadDataToDiagram();
 	}
@@ -989,30 +1190,30 @@ function _backward() {
 	currentPlayStatus = false;
 	
 	// 更新cdata数据
-	console.log("hisotryData debug 0");
+//	console.log("hisotryData debug 0");
 	var _dataIndex ={};
 	for(var indrow=0;indrow<_data.length;indrow++){
 		_dataIndex[_data[indrow][0]]= indrow;
 	}						
 	oneStep = cdataCount*0.9;
-	console.log("currentStartTimeInd="+currentStartTimeInd+" ?  oneStep="+oneStep);
-	console.log("hisotryData debug 1");
+//	console.log("currentStartTimeInd="+currentStartTimeInd+" ?  oneStep="+oneStep);
+//	console.log("hisotryData debug 1");
 	if(currentStartTimeInd == null || currentStartTimeInd=="undefined"){
-		console.log("hisotryData debug 2");
+//		console.log("hisotryData debug 2");
 		currentStartTimeInd =2;
 	}else{
-		console.log("hisotryData debug 3");
+//		console.log("hisotryData debug 3");
 		if(currentStartTimeInd-oneStep>0){ // 向左
 			currentStartTimeInd = currentStartTimeInd-oneStep;
-			console.log("hisotryData debug 4");
+//			console.log("hisotryData debug 4");
 		}else{
-			console.log("hisotryData debug 5");
+//			console.log("hisotryData debug 5");
 			// TODO： 如果向左一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
 // currentStartTimeInd
-			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data));
-			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_dataIndex));
-			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data[_dataIndex['time']]));
-			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data[_dataIndex['time']][1]));
+//			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data));
+//			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_dataIndex));
+//			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data[_dataIndex['time']]));
+//			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data[_dataIndex['time']][1]));
 //			var _currentStartTimeInd = _data[_dataIndex['time']][1].getTime() - oneStep*1000;
 			var _currentStartTimeInd ;
 			if(_data[_dataIndex['time']][1]!="undefined"){
@@ -1035,10 +1236,10 @@ function _backward() {
 			return;
 		}
 	}
-	console.log("hisotryData debug 6");
+//	console.log("hisotryData debug 6");
 
 	var currentTime = _data[_dataIndex['time']][currentStartTimeInd];
-	console.log("currentTime="+currentTime);
+//	console.log("currentTime="+currentTime);
 	loadCData(currentTime);
 	reloadDataToDiagram();
 
@@ -1049,7 +1250,7 @@ function _search(){
 // var _endTime_;
 //	c3LineChart.flow(cdata,new Date()+"",1000);
 //console.log("flow");
-	console.log("_startTime_="+_startTime_+"  _endTime_="+_endTime_);
+//	console.log("_startTime_="+_startTime_+"  _endTime_="+_endTime_);
 	//getHistoryData1(_historyDataDetailKey,_startTime_,_endTime_,addHistoryData);
 	getHistoryData1("",_startTime_,_endTime_,pointGroup,_backward);
 }
@@ -1073,13 +1274,13 @@ function zoomin_x() {
 	cdataCount = cdataCount * 1.5;
 	loadCData(getCurrentStartTime());
 	reloadDataToDiagram();
-	console.log("cdataCount = "+cdataCount);
+//	console.log("cdataCount = "+cdataCount);
 }
 
 function zoomout_x() {
 	_rateX = _rateX *2;
 	cdataCount = cdataCount / 1.5;
-	console.log("cdataCount = "+cdataCount);
+//	console.log("cdataCount = "+cdataCount);
 	loadCData(getCurrentStartTime());
 	reloadDataToDiagram();
 }
@@ -1107,28 +1308,30 @@ var _minY = 0;
 var _rateY = 1;
 function zoomin_y() {
 	_rateY = _rateY / 2
-	console.log(" _rateY = "+_rateY);
+//	console.log(" _rateY = "+_rateY);
 }
 function zoomout_y() {
 	_rateY = _rateY * 2
-	console.log(" _rateY = "+_rateY);
+//	console.log(" _rateY = "+_rateY);
 }
 
 
 /**
  * 换X轴
  */
+var xray = "time";
 function changex(tname) {
-	console.log("click: ========================== "+tname);
+//	console.log("click: ========================== "+tname);
 	var but = document.getElementById("x_axisSelectButtonUI");
 	but.innerHTML = tname;
-	console.log(tname);
+	xray = tname;
+//	console.log(tname);
 //	but.text = tname;
 	if(tname=="time"){
 		c3LineChart = c3.generate({
 			bindto : '#ui-historyDataLineChart',
 			data : {
-				x : tname,
+				x : xray,
 				xFormat : '%Y',
 				columns : cdata,
 				type : 'spline',
@@ -1168,10 +1371,11 @@ function changex(tname) {
 			}
 		});
 	}else{
+//		console.log("");
 		c3LineChart = c3.generate({
-			bindto : '#ui-xyGraphLineChart',
+			bindto : '#ui-historyDataLineChart',
 			data : {
-				x : tname,
+				x : xray,
 				xFormat : '%Y',
 				columns : cdata,
 				type : 'spline',
@@ -1210,77 +1414,40 @@ function changex(tname) {
 
 
 
-// var _xyGraphDetailKey = null;
 function setConnected(connected) {
-	// $("#connect").prop("disabled", connected);
-	// $("#disconnect").prop("disabled", !connected);
-	// if (connected) {
-	// $("#conversation").show();
-	// } else {
-	// $("#conversation").hide();
-	// }
-	// $("#greetings").html("");
 }
 
 loginWebsocket();
-
 function loginWebsocket() {
-	console.log(" debug 1");
+//	console.log(" debug 1");
 
 	if(!connected) {
-		console.log("新建连接");
+//		console.log("新建连接");
 		connect(graphSubscribe);
 		return;
 	}
 	else {
-		console.log("当前存在");
+//		console.log("当前存在");
 		graphSubscribe();
 	}
 }
 
-addListener();
-function addListener(){
-	if(userSpace==null|userSpace=="undefined"){
-		return getUserSpace(uid,token,addListener);
-	}else{
-		if(_graphId==null||_graphId=="undefined"){
-			//console.log(" graph.js -> graphSubscribe() -> getGraphByURLPath(graph,_diagramShowKey="+_diagramShowKey+")");
-			var g = getGraphByPath(userSpace.graph,_diagramShowKey);
-			if(g == null || g == "undefined" || g.id==null ||g.id=="undefined"){
-//				alert("您没有查看这个图形的权限。");
-				return;
-			}
-			var ts = g.pointTextIDs;
-			for(var indts=0;indts<ts.length;indts++){
-				  var d = document.getElementById(ts[indtx]);
-				  _a.onclick=function(){
-					  console.log("=> text "+ts[indtx]+" be clicked.");
-					  addXYRealTimeHistoryGraph(g.points[indts]);
-				  }
-			}
-		}
-	}
-}
-
-function addXYRealTimeHistoryGraph(point){
-	console.log("addXYRealTimeHistoryGraph->point:"+JSON.stringify(point));
-}
 
 function getGraphByURLPath(graph,urlPath){
 	if(urlPath==null||urlPath=="undefined") return graph;
-	console.log("graph.urlPath="+graph.urlPath.toLowerCase()+"  ==  "+"urlPath="+urlPath.toLowerCase());
+//	console.log("graph.urlPath="+graph.urlPath.toLowerCase()+"  ==  "+"urlPath="+urlPath.toLowerCase());
 	if(graph.urlPath.toLowerCase() == urlPath.toLowerCase()){
-		console.log("找到了");
+//		console.log("找到了");
 		_graphId = graph.id;
 		return graph;
 	}
 	else {
-		console.log(graph.urlPath.toLowerCase()+" 3");
+//		console.log(graph.urlPath.toLowerCase()+" 3");
 		var children = graph.children;
 		if(children!=null){
 			var keys = new Array();
 			Object.keys(children).forEach(function(key){
-				console.log("4"+key);
+//				console.log("4"+key);
 				keys.push(key);
 				children[key]
 			});
@@ -1294,6 +1461,7 @@ function getGraphByURLPath(graph,urlPath){
 		return null;
 	}
 }
+
 function getGraphByPath(graph,path){
 	if(path==null||path=="undefined") return graph;
 	//console.log("graph.wholePath="+graph.wholePath.toLowerCase()+"  ==  "+"path="+path.toLowerCase());
@@ -1303,7 +1471,7 @@ function getGraphByPath(graph,path){
 		return graph;
 	}
 	else {
-		console.log(graph.wholePath.toLowerCase()+" 3");
+//		console.log(graph.wholePath.toLowerCase()+" 3");
 		var children = graph.children;
 		if(children!=null){
 			var keys = new Array();
@@ -1380,7 +1548,7 @@ function connectlocal() {
 
 	stompClient.connect(headers, function(frame) {
 		setConnected(true);
-		console.log("websocket connected.  .");
+//		console.log("websocket connected.  .");
 		// console.log('Connected: ' + frame);
 
 		// 发送消息给服务器

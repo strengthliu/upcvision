@@ -8,7 +8,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="_updateGraphTitle">上传图形</h5>
+				<h5 class="modal-title" id="_updateGraphTitle">上传流程图文件</h5>
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
@@ -17,16 +17,25 @@
 			<div class="modal-body">
                 <div class="card-body">
                   <form class="forms-sample">
+                    <div class="form-group" id="divUpLoadGraphFile">
+                    <blockquote class="blockquote blockquote-primary">
+                      <label>上传流程图文件</label>
+                      <input id="graphFile" type="file" class="file" data-show-preview="false">
+					</blockquote>
+                    </div>
+                  
                     <div class="form-group">
-                      <label for="exampleInputName1">图形名称</label>
-                      <input type="text" class="form-control" id="_graphName" placeholder="请填写图形名称">
+                      <label for="exampleInputName1">流程图名称</label>
+                      <input type="text" class="form-control" id="_graphName" placeholder="请填写流程图名称">
                     </div>
                     <div class="form-group">
-                      <label for="exampleTextarea1">图形说明</label>
-                      <textarea class="form-control" id="_graphDesc" rows="3" placeholder="请填写图形说明"></textarea>
+                      <label for="exampleTextarea1">流程图说明</label>
+                      <textarea class="form-control" id="_graphDesc" rows="3" placeholder="请填写流程图说明"></textarea>
                     </div>
+       
                     <div class="form-group">
-                      <label>上传图形缩略图</label>
+                    <blockquote class="blockquote blockquote-primary">
+                      <label>上传流程图缩略图</label>
                       <a>(不修改不需要再选择文件)</a>
                       <input id="graphThumbnail" type="file" class="file" data-show-preview="false">
                       <!-- 
@@ -38,21 +47,8 @@
                         </span>
                       </div>
                        -->
+                       </blockquote>
                     </div>
-                    <div class="form-group" id="divUpLoadGraphFile">
-                      <label>上传图形文件</label>
-                      <input id="graphFile" type="file" class="file" data-show-preview="false">
-                      <!-- 
-                      <input type="file" name="img[]" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input id="graphFile" type="file" class="form-control file-upload-info" disabled placeholder="上传图形文件">
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-info" type="button">Upload</button>
-                        </span>
-                      </div>
-                       -->
-                    </div>
-                    
                   </form>
                 </div>
 			</div>

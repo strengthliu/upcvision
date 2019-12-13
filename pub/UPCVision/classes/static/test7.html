@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>UPC VISION</title>
+<!-- plugins:css -->
+<link rel="stylesheet"
+	href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+<link rel="stylesheet"
+	href="vendors/iconfonts/puse-icons-feather/feather.css">
+<link rel="stylesheet"
+	href="vendors/iconfonts/simple-line-icon/css/simple-line-icons.css">
+<link rel="stylesheet" href="css/jquery.datetimepicker.css">
+<script src="js/jquery-2.2.4.js"></script>
+<!-- 
+<link rel="stylesheet" href="css/jquery.datetimepicker.css">
+ -->
+<link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+<link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="shortcut icon" href="images/favicon.png" />
+
+<!-- plugin css for this page -->
+<link rel="stylesheet"
+	href="vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
+<!-- plugin css for this page -->
+<!-- End plugin css for this page -->
+
+
+<!-- 这是个集成好的综合包，但是版本有点低，有些功能还没有实现，所以需要把匹配的新版本的包整理出来。
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+ -->
+<script src="vendors/js/vendor.bundle.base.js"></script>
+<script src="vendors/js/vendor.bundle.addons.js"></script>
+<script src="js/jquery.datetimepicker.full.js"></script>
+
+
+<body>
+
+<button id="zoom_in">+</button>
+<button id="zoom_out">-</button>
+									<div class='input-group date form_date col-md-6'>
+										<input name="startTm" id="datetimepicker_start_graph" type='text'
+											placeholder="开始时间" class="form-control input-sm"
+											readonly="readonly" /> <span
+											class="input-group-addon input-sm"> <span
+											class="glyphicon glyphicon-calendar"></span></span>
+									</div>
+									<div class='input-group date form_date col-md-6'>
+										<input name="startTm" id="datetimepicker_end_graph" type='text'
+											placeholder="结束时间" class="form-control input-sm"
+											readonly="readonly" /> <span
+											class="input-group-addon input-sm"> <span
+											class="glyphicon glyphicon-calendar"></span></span>
+									</div>
+									
+									<script type="text/javascript">
+										var _startTime_;
+										var _endTime_;
+										//jQuery(
+										$('#datetimepicker_start_graph').datetimepicker(
+												{//初始化
+													language : 'zh-CN',
+													//weekStart: 1,
+													//todayBtn:  1,
+													autoclose : 1,
+													step : 10,
+													//todayHighlight: 1,
+													//startView: 2,
+													//minView: 2,
+													//forceParse: 0,
+													//format: 'mm-dd hh:MM:ss',//格式化想要显示的时间格式
+													minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
+													onSelectTime : function(
+															dateText, inst) {
+														_startTime_ = new Date(
+																dateText)
+																.getTime();
+													}
+												});
+
+									</script>
+
+</body>

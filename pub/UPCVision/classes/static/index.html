@@ -90,10 +90,10 @@
 			uname = user.name;
 			uid = user.id;
 			if (userSpace == null || userSpace == "undefined"){
-				console.log("1======"+new Date());
+				//console.log("1======"+new Date());
 				getUserSpace(uid, token);
 				console.log("2======"+new Date());
-				console.log("3======"+new Date());
+				//console.log("3======"+new Date());
 			}else{
 				console.log("x======"+new Date());
 				checkRight(uid, token, "index.html", null);
@@ -124,7 +124,7 @@
 							hideLoading();
 							if (data.status == "000"){
 								serverList = data.data.data;
-								 console.log("serverList: "+JSON.stringify(serverList));
+								 // console.log("serverList: "+JSON.stringify(serverList));
 							} else {
 								alert("失败 ： "+data.msg);
 							}
@@ -175,19 +175,26 @@
 			<div class="navbar-menu-wrapper d-flex align-items-stretch"
 				id="mainToolsBar">
 				<button class="navbar-toggler navbar-toggler align-self-center"
-					type="button" data-toggle="minimize">
+					type="button" data-toggle="tooltip"
+					data-placement="bottom" title="导航栏展开/收缩">
 					<span class="mdi mdi-menu"></span>
 				</button>
 				<ul class="navbar-nav">
-					<li class="nav-item d-none d-lg-block"><a class="nav-link">
-							<i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+					<li class="nav-item d-none d-lg-block"
+						data-toggle="tooltip" data-placement="bottom"
+						title="全屏/取消全屏"><a class="nav-link"> <i
+							class="mdi mdi-fullscreen" id="fullscreen-button"></i>
 					</a></li>
 
-					<li class="nav-item d-none d-lg-block" onclick="stepBackward();"><a
+					<li class="nav-item d-none d-lg-block"
+						data-toggle="tooltip" data-placement="bottom"
+						title="上一个操作" onclick="stepBackward();"><a
 						class="nav-link"> <i class="mdi mdi-step-backward"
 							id="stepBackward"></i>
 					</a></li>
-					<li class="nav-item d-none d-lg-block" onclick="stepForward();"><a
+					<li class="nav-item d-none d-lg-block"
+						data-toggle="tooltip" data-placement="bottom"
+						title="下一个操作" onclick="stepForward();"><a
 						class="nav-link"> <i class="mdi mdi-step-forward"
 							id="stepForward"></i>
 					</a></li>
@@ -216,7 +223,8 @@
 							<div class="dropdown-divider"></div>
 							 -->
 						</div></li>
-					<li class="nav-item dropdown"><a
+					<li class="nav-item dropdown" data-toggle="tooltip"
+						data-placement="bottom" title="消息通知"><a
 						class="nav-link count-indicator dropdown-toggle"
 						id="messageDropdown" href="#" data-toggle="dropdown"
 						aria-expanded="false"> <i class="mdi mdi-email-outline"></i> <!-- 
@@ -249,7 +257,8 @@
 							<div class="dropdown-divider"></div>
 							<h6 class="p-3 mb-0 text-center">0 new messages</h6>
 						</div></li>
-					<li class="nav-item dropdown"><a
+					<li class="nav-item dropdown" data-toggle="minimize tooltip"
+						data-placement="bottom" title="提醒信息"><a
 						class="nav-link count-indicator dropdown-toggle"
 						id="notificationDropdown" href="#" data-toggle="dropdown"> <i
 							class="mdi mdi-bell-outline"></i> <!-- 
@@ -284,9 +293,10 @@
 							<h6 class="p-3 mb-0 text-center">查看所有通知</h6>
 						</div></li>
 					<li class="nav-item dropdown">
-						<!--            右侧的用户头像姓名     --> <a
+						<!--            右侧的用户头像姓名     --> 
+						<a
 						class="nav-link dropdown-toggle nav-profile" id="profileDropdown"
-						href="#" data-toggle="dropdown" aria-expanded="false"> <img
+						href="#" data-toggle="dropdown" aria-expanded="false"> <img id="_userfaceRight"
 							src="images/faces/user1.png" alt="image"> <span
 							class="d-none d-lg-inline" id="userNameUIRight">张三</span>
 					</a>
@@ -396,15 +406,30 @@
 								function setUserInfo() {
 									var und = document
 											.getElementById("userNameUI");
-									und.innerHTML = user.name;
+									if(user.username!=null&&user.username!="undefined"){
+										console.log("username = "+user.username);
+										und.innerHTML = user.username;
+									}
+									else{
+										console.log("1 username = "+user.username+" "+JSON.stringify(user));
+										und.innerHTML = user.name;
+									}
 									var udd = document
 											.getElementById("userDescUI");
 									udd.innerHTML = user.desc;
 									var unrd = document
 											.getElementById("userNameUIRight");
-									unrd.innerHTML = user.name;
+									if(user.username!=null&&user.username!="undefined"){
+										console.log("username = "+user.username);
+										unrd.innerHTML = user.username;
+									}
+									else{
+										console.log("1 username = "+user.username+" "+JSON.stringify(user));
+										unrd.innerHTML = user.name;
+									}
 									var _face = document
 											.getElementById("_face");
+									
 									switch (user.role) {
 									case 1:
 										$("#_face").attr("src",
@@ -419,6 +444,11 @@
 												"images/faces/user3.jpeg");
 										break;
 									}
+									if(user.photo!=null&&user.photo!="undefined"){
+										$("#_face").attr("src",user.photo);
+										$("#_userfaceRight").attr("src",user.photo);
+									}
+
 								}
 							</script>
 						</div>
@@ -435,9 +465,10 @@
  					 -->
 
 					<!-- *******************************  视图列表 ******************************* -->
+					<!-- 
 					<li class="nav-item nav-category"><span class="nav-link">视图列表</span>
 					</li>
-
+ 					-->
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-diagram" aria-expanded="false"
 						aria-controls="ui-diagram" onclick="routeTo('diagramList','')">
@@ -521,16 +552,15 @@
 
 					<script>
 						if (userSpace != null && userSpace != "undefined") {
-							console.log("userSpace不为空。执行updateUI");
+							//console.log("userSpace不为空。执行updateUI");
 							updateUI();
 						} else {
-							console
-									.log("userSpace为空。执行getUserSpace(user.id, token, updateUI())");
+							//console.log("userSpace为空。执行getUserSpace(user.id, token, updateUI())");
 							getUserSpace(user.id, token, updateUI());
 						}
 
 						function updateUI() {
-							console.log("updateUI()");
+							//console.log("updateUI()");
 							updateDiagram();
 							updateXYDiagram();
 							updateRealTimeData();
@@ -541,8 +571,10 @@
 					</script>
 
 					<!-- *******************************  用户管理 ******************************* -->
+					<!-- 
 					<li class="nav-item nav-category"><span class="nav-link">用户管理</span>
 					</li>
+					 -->
 					<li class="nav-item" onclick="routeTo('userManage','')"><span
 						class="nav-link"> <i class="icon-lock menu-icon"></i> <span
 							class="menu-title">用户管理</span>
@@ -605,13 +637,13 @@
  	-->
 	<!-- 全屏和收缩菜单 -->
 	<script src="js/misc.js"></script>
-<script src="js/off-canvas.js"></script>
-<script src="js/hoverable-collapse.js"></script>
-<script src="js/settings.js"></script>
-<script src="js/todolist.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page-->
-<script src="js/codeEditor.js"></script>
-<script src="js/tabs.js"></script>
+	<script src="js/off-canvas.js"></script>
+	<script src="js/hoverable-collapse.js"></script>
+	<script src="js/settings.js"></script>
+	<script src="js/todolist.js"></script>
+	<!-- endinject -->
+	<!-- Custom js for this page-->
+	<script src="js/codeEditor.js"></script>
+	<script src="js/tabs.js"></script>
 </body>
 </html>

@@ -192,7 +192,8 @@ function logout(){
 	user = null;
 	localStorage.token = null;
 	token = null;
-	window.location.href = "index.html";
+	userSpace = null;
+	window.location.href = "login.html";
 }
 
 function loginByUserPassWord(uname, pwd) {

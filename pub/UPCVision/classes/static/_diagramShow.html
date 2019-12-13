@@ -6,33 +6,38 @@
 		<div class="modal-content">
 			<div class="modal-header dialog-title">
 				<h5 class="modal-title" id="exampleModalLabel">趋势图查看</h5>
+				<button class="navbar-toggler navbar-toggler align-self-center"
+					type="button" data-toggle="tooltip" data-placement="bottom"
+					title="打开/关闭配置栏"
+					onclick="switchWin('graph_trendency_diagram_toolBar');">
+					<span class="icon-settings"></span>
+				</button>
+				<button class="navbar-toggler navbar-toggler align-self-center"
+					type="button" data-toggle="tooltip" data-placement="bottom"
+					title="打开/关闭数据表格" onclick="switchWin('_datatableUI');">
+					<span class="icon-grid"></span>
+				</button>
+				<button class="navbar-toggler navbar-toggler align-self-center"
+					type="button" data-toggle="tooltip" data-placement="bottom"
+					title="打开/关闭趋势图形" onclick="switchWin('ui-historyDataLineChart');">
+					<span class="icon-graph"></span>
+				</button>
+				<!-- 
+				<button class="navbar-toggler navbar-toggler align-self-center"
+					type="button" data-toggle="tooltip" data-placement="bottom"
+					title="打开/关闭仪表盘" onclick="switchWin('ui-historyDataPoints');">
+					<span class=" icon-clock"></span>
+				</button>
+				 -->
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close" onclick="closeGraph();">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 
-			<div class="content-wrapper" style="display: none;">
-				<div class="row">
-					<div class="col-12">
-						<div class="card">
-							<div class="card-body">
-								<div class="row">
-									<div class="col-12">
-										<div class="row portfolio-grid" id="ui-historyDataPoints">
-											<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
 			<div class="col-lg-12 grid-margin stretch-card">
 				<div class="card">
-					<div class="card-body">
+					<div class="card-body" id="graph_trendency_diagram_toolBar">
 						<div class="col-md-12 mb-4 mt-4">
 							<div class="btn-toolbar">
 								<div class="btn-group">
@@ -142,6 +147,60 @@
 									</button>
 								</div>
 							</div>
+							<div class="col-md-12 mb-4 mt-4">
+								<div class="btn-group">
+									x轴：
+									<div class="dropdown">
+										<button class="btn btn-outline-warning dropdown-toggle"
+											type="button" id="x_axisSelectButtonUI"
+											data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">时间</button>
+										<div class="dropdown-menu"
+											aria-labelledby="x_axisSelectButtonUIMenu"
+											id="x_axisSelectButtonUIMenu">
+											<a class="dropdown-item" href="#">Action</a> <a
+												class="dropdown-item" href="#">Another action</a> <a
+												class="dropdown-item" href="#">Something else here</a>
+										</div>
+									</div>
+								</div>
+								<div class="btn-group">
+									显示标签：
+									<div class="dropdown">
+										<button class="btn btn-outline-warning dropdown-toggle"
+											type="button" id="labelSelectButtonUI" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false">点位说明</button>
+										<div class="dropdown-menu"
+											aria-labelledby="x_axisSelectButtonUIMenu"
+											id="labelSelectButtonUIMenu">
+											<a class="dropdown-item"
+												onclick="switchTagFeatureInXYGraph(0);">tagName</a> <a
+												class="dropdown-item"
+												onclick="switchTagFeatureInXYGraph(1);">点位说明</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="content-wrapper" id="graph_pilot_diagram"
+						style="display: none;">
+						<div class="row">
+							<div class="col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-12">
+												<div class="row portfolio-grid" id="ui-historyDataPoints"
+													style="display: none;">
+													<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="card-body" style="overflow: auto">
@@ -164,8 +223,9 @@
 
 
 <div style="position: fixed; top: 250px; right: 10px; z-index: 900;">
-	<div style="opacity:0.5;" class="modal-footer">
-		<button class="btn btn-sm btn-outline-secondary" onclick="switchVisuale();">
+	<div style="opacity: 0.5;" class="modal-footer">
+		<button class="btn btn-sm btn-outline-secondary"
+			onclick="switchVisuale();">
 			<i class="mdi mdi-fullscreen ml-1"></i>
 		</button>
 	</div>
@@ -175,31 +235,13 @@
 			<div class="accordion accordion-inverse-primary" id="accordion-2"
 				role="tablist">
 				<div class="card col-12">
-					<div class="box">
-						<span class="pillar"></span>
-						<div class="wrapper" id="wrapper1">
-							<div class="scroller">
-								<ul class="clearfix">
-									<li><span><i>0.4</i></span></li>
-									<li><span><i>0.5</i></span></li>
-									<li><span><i>0.6</i></span></li>
-									<li><span><i>0.7</i></span></li>
-									<li><span><i>0.8</i></span></li>
-									<li><span><i>0.9</i></span></li>
-									<li><span><i>1.0</i></span></li>
-									<li><span><i>1.1</i></span></li>
-									<li><span><i>1.2</i></span></li>
-									<li><span><i>1.3</i></span></li>
-									<li><span><i>1.4</i></span></li>
-									<li><span><i>1.5</i></span></li>
-									<li><span><i>1.6</i></span></li>
-									<li><span><i>1.7</i></span></li>
-									<li><span><i>1.8</i></span></li>
-								</ul>
-							</div>
-						</div>
-					</div>
 
+					<div class="template-demo">
+						<div id="value-range" class="ul-slider slider-success"></div>
+						<p class="mt-3">
+							放大倍数: <span id="huge-value"></span>
+						</p>
+					</div>
 
 					<div>
 						<!-- 
@@ -224,7 +266,8 @@
 						<button class="btn btn-sm btn-outline-secondary" id="zoom_right">
 							<i class="mdi mdi-arrow-right ml-1"></i>
 						</button>
-						<button class="btn btn-sm btn-outline-secondary" id="zoom_fullScreen">
+						<button class="btn btn-sm btn-outline-secondary"
+							id="zoom_fullScreen">
 							<i class="mdi mdi-fullscreen ml-1"></i>
 						</button>
 					</div>
@@ -280,12 +323,10 @@
 			_graphId = graph.id;
 			return graph;
 		} else {
-			console.log(graph.wholePath.toLowerCase() + " 3");
 			var children = graph.children;
 			if (children != null) {
 				var keys = new Array();
 				Object.keys(children).forEach(function(key) {
-					//console.log("4"+key);
 					keys.push(key);
 					children[key]
 				});
@@ -312,18 +353,20 @@
 			} else {
 				_graphId = g.id;
 				_diagramShowKey = g.urlPath;
-				$("#_diagramShow").load(unicodeSpecialChar(_diagramShowKey), null, changeAAction);
+				$("#_diagramShow").load(unicodeSpecialChar(_diagramShowKey),
+						null, changeAAction);
 			}
 		} else {
-			$("#_diagramShow").load(unicodeSpecialChar(_diagramShowKey), null, changeAAction);
+			$("#_diagramShow").load(unicodeSpecialChar(_diagramShowKey), null,
+					changeAAction);
 		}
-			console.log("_diagramShowKey="+unicodeSpecialChar(_diagramShowKey));
-		console.log("dddd");
+		//console.log("_diagramShowKey=" + unicodeSpecialChar(_diagramShowKey));
+		//console.log("dddd");
 	}
 
 	// 页面加载完成后调用。在之前调用会导致不能正确获得对象。
 	function changeAAction() {
-		console.log("=====================");
+		//console.log("=====================");
 		var d = document.getElementById("_diagramShow");
 		//	  console.log("html:"+d.innerHTML);
 		var as = d.getElementsByTagName("a");
@@ -334,7 +377,7 @@
 
 			_a.onclick = function() {
 				//console.log("点击了 "+this.innerHTML);
-				console.log("a -  url=" + this.href.baseVal);
+				//console.log("a -  url=" + this.href.baseVal);
 				var g = getGraphByPath_1(userSpace.graph, this.href.baseVal);
 				if (g == null || g == "undefined" || g.id == null
 						|| g.id == "undefined") {
@@ -356,7 +399,7 @@
 		height = svg1.attributes.height.value;
 		//width = 960;
 		//height = 500;
-		console.log("widthaaa=" + width + " heightbbb=" + height + "");
+		//console.log("widthaaa=" + width + " heightbbb=" + height + "");
 		// D3操作对象
 		zoom = d3.behavior.zoom().scaleExtent([ 0.5, 8 ]).on("zoom", null); //= d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
 		svg = d3.select("svg").call(zoom);
@@ -371,9 +414,8 @@
 			d3.event.sourceEvent.stopPropagation(); // silence other listeners
 		});
 		svg = d3.select("svg").call(drag);//.call(zoom);
-		fullScreen();
 		function draged(d) {
-			console.log("draged. scale=" + scale);
+			//console.log("draged. scale=" + scale);
 			zoom.translate(translate);
 			d3.select(this).attr("cx", d3.event.x).attr("cy", d3.event.y);
 			//console.log("draged 1 . "+this);
@@ -382,53 +424,88 @@
 			zoomed();
 
 		}
-
-		// 图形全屏
-		fullScreen();
-
 		var diff = Math.round(((scale - 1) * 1000 + 600) / 100);
 		//console.log("scale=" + scale + " diff=" + diff);
-		$(function() {
-			$('#wrapper1').navbarscroll({
-				defaultSelect : diff,
-				duibiScreenWidth : 0.1, //单位以rem为准，默认为0.4rem
-				scrollerWidth : 1, //单位以px为准，默认为3,[仅用于特殊情况：外层宽度因为小数点造成的不精准情况]
-				fingerClick : 0, //目标第0或1个选项触发,必须每一项长度一致，方可用此项
-				endClickScroll : function(obj) {
-					console.log("obj.text() = " + obj.text())
-				}
-			});
-		});
+
+		  // Range Slider
+		  if ($("#value-range").length) {
+		    var bigValueSlider = document.getElementById('value-range'),
+		      bigValueSpan = document.getElementById('huge-value');
+		
+		    noUiSlider.create(bigValueSlider, {
+		      start: 7,
+		      step: 0,
+		      range: {
+		        min: 0,
+		        max: 14
+		      }
+		    });
+		
+		    var range = [
+		      '0.3', '0.4', '0.5', '0.6', '0.77', '0.8', '0.9', '1', '1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7'
+		    ];
+		    bigValueSlider.noUiSlider.on('update', function(values, handle) {
+		    	
+		      //console.log(" noUiSlider.on('update' -> "+range[Math.floor(values)]+" bigValueSpan.innerHTML="+bigValueSpan.innerHTML);
+		      if(bigValueSpan.innerHTML==""||bigValueSpan.innerHTML=="undefined")
+		    	  bigValueSpan.innerHTML = 1;
+		      // 之前的倍数
+		      var _num = parseFloat(bigValueSpan.innerHTML);
+		      var _num2 = 1+(values -7)/10; // 新倍数
+		      _num2 = _num2.toFixed(2);
+		      if(_num!=_num2){
+		    	  console.log("_num="+_num+" values="+values+" _num2="+_num2+" scale="+scale);
+			      bigValueSpan.innerHTML = scale;//range[Math.floor(values)];
+		  		scale = _num2;
+		  		console.log();
+				interpolateZoom([0,0], scale);
+		    	  console.log("_num="+_num+" values="+values+" _num2="+_num2+" scale="+scale+"   ------");
+		      }
+		      		//console.log("number = " + number1);
+		// svg.attr("transform", "translate(" + [ 0, 0 ] + ")" + "scale(" + scale+ ")");
+
+		    });
+		    
+		    console.log("set _slider.");
+		    _slider = bigValueSlider.noUiSlider;
+		    //_slider.set(5.32);
+		  }
+
 		fullScreen();
 
 	}
-	var number1 = 0;
-	function shownumber1() {
-		console.log("number = " + number1);
-		scale = 1 + (number1 - 600) / 1000;
-		interpolateZoom(translate, scale);
-		// svg.attr("transform", "translate(" + [ 0, 0 ] + ")" + "scale(" + scale+ ")");
-	}
+	var _slider;
 	function scrollTo(lab) {
-		//console.log("lab=" + lab);
 		if (lab == null || lab == "undefined") {
 			//lab = scale;
-			lab = Math.round(((scale - 1) * 1000 + 600) / 100);
+			lab = (scale-1)*10+7;
+			lab = lab.toFixed(2);
+			//lab = Math.round(((scale - 1) * 1000 + 600) / 100);
 		}
-		$('#wrapper1').navbarscroll({
-			defaultSelect : lab,
-			duibiScreenWidth : 0.1, //单位以rem为准，默认为0.4rem
-			scrollerWidth : 1, //单位以px为准，默认为3,[仅用于特殊情况：外层宽度因为小数点造成的不精准情况]
-			fingerClick : 0, //目标第0或1个选项触发,必须每一项长度一致，方可用此项
-			endClickScroll : function(obj) {
-				//console.log("obj.text() = " + obj.text())
-			}
-		});
+		console.log("lab=" + lab);
+		var bigValueSpan = document.getElementById('huge-value');
+      if(bigValueSpan.innerHTML==""||bigValueSpan.innerHTML=="undefined")
+    	  bigValueSpan.innerHTML = 1;
+      var _num = parseFloat(bigValueSpan.innerHTML);
+      console.log("scrollTo-> "+lab +" scale="+scale);
+      var _num2 = lab;
+      if(_num!=_num2){
+  		_slider.set(lab);
+      }
+
+	}
+
+	var number1 = 0;
+	function shownumber1() {
+		//console.log("number = " + number1);
+		scale = 1 + (number1 - 600) / 1000;
+		interpolateZoom([0,0], scale);
+		// interpolateZoom(translate, scale);
+		// svg.attr("transform", "translate(" + [ 0, 0 ] + ")" + "scale(" + scale+ ")");
 	}
 
 	var svg1;
 	var svg;//svg = document.getElementsByTagName("svg");
-	console.log("=====1");
 	var width = 0;//svg.attributes.width.value;
 	var height = 0;//svg.attributes.height.value;
 
@@ -439,11 +516,12 @@
 
 	function zoomed() {
 		// console.log("zoomed() zoom.translate()="+zoom.translate()+" zoom.scale()="+zoom.scale());
-
+		console.log("1 scale="+scale);
+		//scale = scale.toFixed(2);
 		svg.attr("transform", "translate(" + translate + ")" +
 		//"translate(0,0)" +
 		"scale(" + scale + ")");
-		//scrollTo();
+		scrollTo();
 		// 计算scale，调整值
 		// svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 	}
@@ -491,10 +569,8 @@
 	var translate;
 	var fullScreenEnable = true;
 	function fullScreen() {
-		console.log("fullScreen()");
 		if (!fullScreenEnable)
 			fullScreenEnable = !fullScreenEnable;
-		fullScreenFn();
 		fullScreenFn();
 	}
 
@@ -533,16 +609,6 @@
 
 			var svgx = svg1.getBoundingClientRect().x;
 			var svgy = svg1.getBoundingClientRect().y;
-			console
-					.log("------------------------------------------------------");
-			console.log("svg ->  " + svg.attr("width") + " - "
-					+ svg.attr("height"));
-			console.log("svg ->  "
-					+ JSON.stringify(svg1.getBoundingClientRect()));
-			console.log("mainPanelHeight()=" + mainPanelHeight
-					+ " mainPanelWidth=" + mainPanelWidth
-					+ " mainToolsBarRect.x=" + mainToolsBarRect.x
-					+ " mainToolsBarRect.y=" + mainToolsBarRect.y);
 
 			// 计算translate和scale,调用 function interpolateZoom (translate, scale)
 			//var tx = _diagramShow.x + _diagramShow.width / 2 * (1 - scale);
@@ -553,112 +619,81 @@
 			if (translate == null || translate == "undefined")
 				translate = zoom.translate();
 
-			console.log("translate=" + translate);
-			console.log("scale=" + scale + " tx=" + tx + " ty=" + ty + " x="
-					+ x + " svgx=" + svgx + " y=" + y + " svgy=" + svgy
-					+ " x-ty=" + (x - tx) + " y-ty=" + (y - ty));
 			var _ttx = mainToolsBarRect.x - svgx + translate[0];//+ svg.attr("width") / 2 * (1 - scale);
 			var _tty = mainToolsBarRect.y - svgy + translate[1];//+ svg.attr("height") / 2 * (1 - scale);
-			console.log("_ttx=" + _ttx + " _tty=" + _tty);
-			console.log("translate=" + translate);
-			
 
 			interpolateZoom([ _ttx, _tty ], scale);
-			
 
-			svg.attr("preserveAspectRatio","none");
-			//svg.attr("preserveAspectRatio","xMin YMin meet");
-			//svg.attr("width",mainPanelWidth/scale);
-			//svg.attr("heigth",mainPanelHeight/scale);
-			console.log(" -"+svg1.getBBox().width+" "+svg1.getBBox().height);
-			console.log("width="+width+"  height="+height+" scale*width="+scale*width);
-			//svg1.setAttribute("viewBox",0+" "+0+" "+mainPanelWidth+" "+mainPanelHeight);
+			svg.attr("preserveAspectRatio", "none");
 			svg1.removeAttribute("width");
 			svg1.removeAttribute("heigth");
-			svg1.setAttribute("width",mainPanelWidth/scale);
-			svg1.setAttribute("heigth",mainPanelHeight/scale);
-			//svg1.parentNode.setAttribute("heigth",1080);
-			//	svg.attr("transform",
-			//	        "translate(" + [_ttx, _tty] + ")" +
-			//	        "scale(" + scale + ")"
-			//	    );
+			svg1.setAttribute("width", mainPanelWidth / scale);
+			svg1.setAttribute("heigth", mainPanelHeight / scale);
 
-			
 			svgx = svg1.getBoundingClientRect().x;
 			svgy = svg1.getBoundingClientRect().y;
-			console.log(zoom.translate());
-			console.log("svg ->  " + svg.attr("width") + " - "
-					+ svg.attr("height"));
-			console.log("svg ->  "
-					+ JSON.stringify(svg1.getBoundingClientRect()));
-			console.log("mainPanelHeight()=" + mainPanelHeight
-					+ " mainPanelWidth=" + mainPanelWidth
-					+ " mainToolsBarRect.x=" + mainToolsBarRect.x
-					+ " mainToolsBarRect.y=" + mainToolsBarRect.y);
-			console.log("translate=" + translate);
-			console
-					.log("------------------------------------------------------");
 		}
 	}
 
 	function adjustToFreezeWidth(rootSvg) {
-	    var windowWidth = $(window).width();
-	 
-	    var viewBoxVal = rootSvg.getAttribute("viewBox");
-	    var viewBoxWidth = viewBoxVal.split(",")[2];
-	    var viewBoxHeight = viewBoxVal.split(",")[3];
-	    rootSvg.removeAttribute("width");
-	    rootSvg.removeAttribute("height");
-	 
-	    var setWidth = windowWidth;
-	    var setHeight = (setWidth * viewBoxHeight) / viewBoxWidth;
-	    rootSvg.setAttribute("width", setWidth);
-	    rootSvg.setAttribute("height", setHeight);
+		var windowWidth = $(window).width();
+
+		var viewBoxVal = rootSvg.getAttribute("viewBox");
+		var viewBoxWidth = viewBoxVal.split(",")[2];
+		var viewBoxHeight = viewBoxVal.split(",")[3];
+		rootSvg.removeAttribute("width");
+		rootSvg.removeAttribute("height");
+
+		var setWidth = windowWidth;
+		var setHeight = (setWidth * viewBoxHeight) / viewBoxWidth;
+		rootSvg.setAttribute("width", setWidth);
+		rootSvg.setAttribute("height", setHeight);
 	}
-	 
+
 	function adjustToNone(rootSvg) {
-	 
-	    var viewBoxVal = rootSvg.getAttribute("viewBox");
-	    var viewBoxWidth = viewBoxVal.split(",")[2];
-	    var viewBoxHeight = viewBoxVal.split(",")[3];
-	    rootSvg.removeAttribute("width");
-	    rootSvg.removeAttribute("height");
-	 
-	    rootSvg.setAttribute("width", viewBoxWidth);
-	    rootSvg.setAttribute("height", viewBoxHeight);
-	 
+
+		var viewBoxVal = rootSvg.getAttribute("viewBox");
+		var viewBoxWidth = viewBoxVal.split(",")[2];
+		var viewBoxHeight = viewBoxVal.split(",")[3];
+		rootSvg.removeAttribute("width");
+		rootSvg.removeAttribute("height");
+
+		rootSvg.setAttribute("width", viewBoxWidth);
+		rootSvg.setAttribute("height", viewBoxHeight);
+
 	}
-	 
+
 	function adjustToFreezeHeight(rootSvg) {
-	 
-	    var windowHeight = $(window).height();
-	 
-	    var viewBoxVal = rootSvg.getAttribute("viewBox");
-	    var viewBoxWidth = viewBoxVal.split(",")[2];
-	    var viewBoxHeight = viewBoxVal.split(",")[3];
-	    rootSvg.removeAttribute("width");
-	    rootSvg.removeAttribute("height");
-	 
-	    var setHeight = windowHeight;
-	    var setWidth = (setHeight * viewBoxWidth)/viewBoxHeight;
-	    rootSvg.setAttribute("width", setWidth);
-	    rootSvg.setAttribute("height", setHeight);
+
+		var windowHeight = $(window).height();
+
+		var viewBoxVal = rootSvg.getAttribute("viewBox");
+		var viewBoxWidth = viewBoxVal.split(",")[2];
+		var viewBoxHeight = viewBoxVal.split(",")[3];
+		rootSvg.removeAttribute("width");
+		rootSvg.removeAttribute("height");
+
+		var setHeight = windowHeight;
+		var setWidth = (setHeight * viewBoxWidth) / viewBoxHeight;
+		rootSvg.setAttribute("width", setWidth);
+		rootSvg.setAttribute("height", setHeight);
 	}
-	 
+
 	function adjustToFreezeAll() {
-	 
-	    var windowHeight = $(window).height();
-	    var windowWidth = $(window).width();
-	    
-	    rootSvg.removeAttribute("width");
-	    rootSvg.removeAttribute("height");
-	 
-	    rootSvg.setAttribute("width", windowWidth);
-	    rootSvg.setAttribute("height", windowHeight);
-	 
+
+		var windowHeight = $(window).height();
+		var windowWidth = $(window).width();
+
+		rootSvg.removeAttribute("width");
+		rootSvg.removeAttribute("height");
+
+		rootSvg.setAttribute("width", windowWidth);
+		rootSvg.setAttribute("height", windowHeight);
+
 	}
 
 	$(window).resize(function() {
+		console.log("fullScreen on window.resize(). ");
 		fullScreen();
 	});
 
@@ -692,7 +727,6 @@
 		function mouseHandler(e) {
 			switch (e.type) {
 			case 'mousedown':
-				console.log("mousedown");
 				draggingObj = validateHandler(e);//验证是否为可点击移动区域
 				if (draggingObj != null) {
 					diffX = e.clientX - draggingObj.offsetLeft;
@@ -701,14 +735,11 @@
 				break;
 
 			case 'mousemove':
-				//console.log("e.clientX="+e.clientX+" e.clientY="+e.clientY);
 				mouseX = e.clientX;
 				mouseY = e.clientY;
 				if (draggingObj) {
 					draggingObj.style.left = (e.clientX - diffX) + 'px';
 					draggingObj.style.top = (e.clientY - diffY) + 'px';
-					if (draggingObj.nodeName == "svg")
-						console.log(" x,y => " + e.clientX + " " + e.clientY);
 				}
 
 				break;
@@ -738,10 +769,6 @@
 
 	function getDraggingDialog(e) {
 		var target = e.target;
-		console.log(" 1 ->" + target);
-		console.log(" 2 ->" + target.nodeName);
-		console.log(" 3 ->" + target.nodeType + " " + target);
-		console.log(" 4 ->" + target.getAttribute("id"));
 		if (target.nodeName != "DIV")
 			return;
 		while (target
@@ -780,6 +807,19 @@
 		pointsul.parentNode.removeChild(pointsul);
 		removePointFromXYGraph(tagName);
 	}
+
+	function switchWin(targetid) {
+		if (document.getElementById) {
+			var target = document.getElementById(targetid);
+			if (target != null && target != "undefined") {
+				if (target.style.display == "block") {
+					target.style.display = "none";
+				} else {
+					target.style.display = "block";
+				}
+			}
+		}
+	}
 </script>
 
 <!-- End custom js for this page-->
@@ -795,6 +835,9 @@
 <script src="./js/graph.js"></script>
 <script type="text/javascript" src="js/iscroll.js"></script>
 <script type="text/javascript" src="js/navbarscroll.js"></script>
+
+<!-- Custom js for this page-->
+
 
 
 <style>

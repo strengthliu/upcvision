@@ -142,7 +142,8 @@ function routeTo(diagram, key, graphId) {
 		break;
 	case "realtimedataList".toLowerCase():
 		_realtimedataListKey = key;
-		$("#mainPanel").load("_realtimedataList.html",null,hideLoading);
+		console.log("load _realtimeDataList.html");
+		$("#mainPanel").load("_realtimeDataList.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'visible';
 		break;
 	case "realtimedataDetail".toLowerCase():
@@ -151,11 +152,11 @@ function routeTo(diagram, key, graphId) {
 		mainInfoNr.style.visibility = 'hidden';
 		break;
 	case "alertdataList".toLowerCase():
-		$("#mainPanel").load("_alertdataList.html",null,hideLoading);
+		$("#mainPanel").load("_alertDataList.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'visible';
 		break;
 	case "alertdataDetail".toLowerCase():
-		$("#mainPanel").load("_alertdataChart.html",null,hideLoading);
+		$("#mainPanel").load("_alertDataChart.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
 		break;
 	case "historydataList".toLowerCase():

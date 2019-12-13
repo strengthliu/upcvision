@@ -78,8 +78,8 @@ var gl = new Array();
 var charts = new Object();
 var _xyGraphDetailKey = _routeID;
 var x_axis = 'time';
-console.log("_xyGraphDetailKey: " + _xyGraphDetailKey);
-console.log(""+JSON.stringify(userSpace,null,2));
+//console.log("_xyGraphDetailKey: " + _xyGraphDetailKey);
+//console.log(""+JSON.stringify(userSpace,null,2));
 var pointGroup;
 if(pointGroup==null||pointGroup=="undefined")
 	pointGroup = new Array();
@@ -97,7 +97,7 @@ if(_cdataIndex==null||_cdataIndex=="undefined")
 function addPointToXYGraph(tagName){
 	// 如果点组里不包含这个点
 	if(pointGroup.indexOf(tagName)==-1){
-		console.log("addPointToXYGraph:"+tagName);
+//		console.log("addPointToXYGraph:"+tagName);
 		// 添加进点组
 		pointGroup.push(tagName);
 		
@@ -117,15 +117,15 @@ function addPointToXYGraph(tagName){
 		
 		// 处理cdata。_data处理方法参考这个。
 		if(_cdataIndex['time']=="undefined"||_cdataIndex['time']==null){
-			console.log("deal with time serial. ");
+//			console.log("deal with time serial. ");
 			var timeserial = new Array();
 			timeserial.push('time');
 			cdata.push(timeserial);
 			_cdataIndex['time'] = cdata.length -1;
 		}
 		if(_cdataIndex[tagName]=="undefined"||_cdataIndex[tagName]==null){
-			console.log("deal with "+tagName+".");
-			console.log("deal with "+tagName+". "+JSON.stringify(_cdataIndex)+" "+JSON.stringify(cdata));
+//			console.log("deal with "+tagName+".");
+//			console.log("deal with "+tagName+". "+JSON.stringify(_cdataIndex)+" "+JSON.stringify(cdata));
 			var tagserial = new Array();
 			tagserial.push(tagName);
 			// TODO: 先用0补齐数据，后面要改成取历史数据。
@@ -139,15 +139,15 @@ function addPointToXYGraph(tagName){
 		}
 		
 		if(_dataIndex['time']=="undefined"||_dataIndex['time']==null){
-			console.log("_data deal with time serial. ");
+//			console.log("_data deal with time serial. ");
 			var timeserial = new Array();
 			timeserial.push('time');
 			_data.push(timeserial);
 			_dataIndex['time'] = _data.length -1;
 		}
 		if(_dataIndex[tagName]=="undefined"||_dataIndex[tagName]==null){
-			console.log("deal with "+tagName+".");
-			console.log("deal with "+tagName+". "+JSON.stringify(_cdataIndex)+" "+JSON.stringify(cdata));
+//			console.log("deal with "+tagName+".");
+//			console.log("deal with "+tagName+". "+JSON.stringify(_cdataIndex)+" "+JSON.stringify(cdata));
 			var tagserial = new Array();
 			tagserial.push(tagName);
 			// TODO: 先用0补齐数据，后面要改成取历史数据。
@@ -178,7 +178,7 @@ function addPointToXYGraph(tagName){
 function removePointFromXYGraph(tagName){
 	// 将tagName返成txtid
 	var tagName = getOrigionLabel(tagName);
-	console.log("1-- "+tagName);
+//	console.log("1-- "+tagName);
 	if(pointGroup.indexOf(tagName)>-1){
 		pointGroup.splice(pointGroup.indexOf(tagName),1);
 
@@ -192,7 +192,7 @@ function removePointFromXYGraph(tagName){
 		}			
 		cdata.splice(_cdataIndex[tagName],1);
 		
-		console.log("cd -> "+JSON.stringify(cdata));
+//		console.log("cd -> "+JSON.stringify(cdata));
 		var _dt_ = new Array();
 		for(var i=0;i<cdata.length;i++){
 			_dt_.push(cdata[i][0]);
@@ -257,8 +257,8 @@ function closeGraph(){
 }
 
 function buildChart(){
-	console.log("buildChart()");
-	console.log("cdata => "+JSON.stringify(cdata));
+//	console.log("buildChart()");
+//	console.log("cdata => "+JSON.stringify(cdata));
 	$('#exampleModal').modal('show');
 	c3LineChart = c3.generate({
 		bindto : '#ui-historyDataLineChart',
@@ -308,7 +308,7 @@ function buildChart(){
 		}
 	});
 	currentPlayStatus = true;
-	console.log("buildChart() end");
+//	console.log("buildChart() end");
 
 }
 
@@ -401,7 +401,7 @@ var cols;
  * 2: 没有呢。
  * default: 不变
  */
-var tagFeatureInXYGraph = 1;
+var tagFeatureInXYGraph = 0;
 
 /**
  * 
@@ -413,7 +413,7 @@ function buildPointKs(){
 	if(pointKs==null || pointKs=="undefined"){
 		pointKs = new Object();
 	}
-	console.log("--"+_graphId);
+	console.log("-_graphId= "+_graphId+" graph= "+JSON.stringify(_graph,null,2));
 	var pointTextIDs = _graph.pointTextIDs;
 	var pointList = _graph.pointList;
 	for(var ind=0;ind<pointTextIDs.length;ind++){
@@ -489,7 +489,7 @@ function getNewLabelForData(txtid,tagFeature){
  * @returns
  */
 function changeDataToNewLabel(data){
-	console.log("data");
+//	console.log("data");
 	var ret = new Object();
 	Object.keys(data).forEach(function(key){
 		var item = data[key]; 
@@ -552,10 +552,10 @@ function switchTagFeatureInXYGraph(tarF){
 			if(_data[ind][0]!="time"){
 				var txtid = _cdataLabelArray[ind];
 				cdata[ind][0] = getNewLabelForData(txtid);
-				console.log("switch -> "+cdata[ind][0]);
+//				console.log("switch -> "+cdata[ind][0]);
 			}else{}// 暂时不处理时间
 		}
-		console.log("cdata -> "+JSON.stringify(cdata));
+//		console.log("cdata -> "+JSON.stringify(cdata));
 		
 		var __dataLabelArray = new Array();
 		for(var ind=0;ind<_data.length;ind++){
@@ -621,11 +621,11 @@ function updateXYGraphChart(ruserSpace) {
 		ruserSpace = userSpace;
 	// var pointGroup = _graph;
 	var uixyGraphPoints = document.getElementById("ui-xyGraphPoints");
-	 console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
+//	 console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
 	if (pointGroup == null || pointGroup == "undefined")
 		return;
 	var pointList = pointGroup;
-	console.log("pointList = "+JSON.stringify(pointGroup));
+//	console.log("pointList = "+JSON.stringify(pointGroup));
 	var innerHtml = "";
 	var menuitem = document.getElementById("x_axisSelectButtonUIMenu");
 	var _innerHtml = '<a class="dropdown-item" onclick="changex(\'time\')">时间</a>';
@@ -671,7 +671,7 @@ function refreshData(data) {
 	addData(_dat,cdata,cdataCount);
 	// 添加趋势数据到全部数据
 	addData(_dat,_data,10);
-	console.log("cdata => "+JSON.stringify(cdata));
+//	console.log("cdata => "+JSON.stringify(cdata));
 
 	var ids = document.getElementsByTagName("text"); 
 	var _data_ = JSON.parse(data.body);
@@ -858,7 +858,7 @@ function addHistoryData(historyData){
 	if(historyData==null|| historyData=="undefined")return;
 	
 	if(_data ==null || _data=="undefined"){
-		console.log("addHistoryData 1");
+//		console.log("addHistoryData 1");
 		_data = historyData;
 		for(var indrow=0;indrow<_data.length;indrow++){
 			_dataIndex[_data[indrow][0]]= indrow;
@@ -879,7 +879,7 @@ function addHistoryData(historyData){
 				_data[indrow].pop();
 			}
 		}			
-		console.log("addHistoryData 3 _data="+JSON.stringify(_data));
+//		console.log("addHistoryData 3 _data="+JSON.stringify(_data));
 
 		var index_data = _data[0].length-1;
 		for(var indHis=historyData[0].length-1;indHis>1;indHis--){
@@ -888,19 +888,19 @@ function addHistoryData(historyData){
 			while(index_data>0 && _data[_dataIndex["time"]][index_data]>new Date(historyData[historyIndex["time"]][indHis])){
 				index_data --;
 			}
-			console.log(" index_data = "+index_data);
+//			console.log(" index_data = "+index_data);
 			if(_data[_dataIndex["time"]][index_data]<historyData[historyIndex["time"]][indHis] || !_IsNaN(_data[_dataIndex["time"]][index_data])){
 				Object.keys(historyIndex).forEach(function(key){
 					if(key=="time"){
 						_data[_dataIndex[key]].splice(index_data+1,0,new Date(historyData[historyIndex[key]][indHis]*1000));
-						console.log(key+"  -  historyData[historyIndex[key]][indHis]="+historyData[historyIndex[key]][indHis]);
+//						console.log(key+"  -  historyData[historyIndex[key]][indHis]="+historyData[historyIndex[key]][indHis]);
 					}else{
 						_data[_dataIndex[key]].splice(index_data+1,0,historyData[historyIndex[key]][indHis]);
 					}
 //					console.log(key+"  -  historyData[historyIndex[key]][indHis]="+historyData[historyIndex[key]][indHis]);
 				});
 				if(currentStartTimeInd>index_data) currentStartTimeInd++;
-				console.log("currentStartTimeInd="+currentStartTimeInd+"  <=>  index_data="+index_data);
+//				console.log("currentStartTimeInd="+currentStartTimeInd+"  <=>  index_data="+index_data);
 			}
 		}
 //		console.log("addHistoryData 4 _data="+JSON.stringify(_data));
@@ -1002,7 +1002,7 @@ function addData(newData, _data_, cdatacount) {
  */
 function getHistoryData1(_historyDataDetailKey,startTime,endTime,pointGroup,func){
 	var data={'uid':uid,'token':token,'id':_historyDataDetailKey,'beginTime':startTime,'endTime':endTime,"pointList":pointGroup};
-	 console.log("getHistoryData1  data = "+JSON.stringify(data));
+//	 console.log("getHistoryData1  data = "+JSON.stringify(data));
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -1021,7 +1021,7 @@ function getHistoryData1(_historyDataDetailKey,startTime,endTime,pointGroup,func
 		success : function(data) {
 			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				var historyData = data.data.data;
-				console.log("historydata.js => historyData1= "+JSON.stringify(historyData));
+//				console.log("historydata.js => historyData1= "+JSON.stringify(historyData));
 //				if(__a<3)
 				addHistoryData(historyData);
 //				console.log("getHistoryData1 startTime="+startTime+" - "+new Date(startTime));
@@ -1066,7 +1066,7 @@ function getHistoryData(){
 					// console.log("server info : "+JSON.stringify(data.data.data));
 	// console.log("historydata.js => submitNewDataItem 3");
 					var historyData = data.data.data;
-					console.log("historydata.js => historyData= "+JSON.stringify(historyData));
+//					console.log("historydata.js => historyData= "+JSON.stringify(historyData));
 					addHistoryData(historyData);
 					loadCData(1569151501);
 					reloadDataToDiagram();
@@ -1112,7 +1112,7 @@ function play(){
 			columns : cdata
 		});
 	}
-	console.log("play -> "+JSON.stringify(cdata));
+//	console.log("play -> "+JSON.stringify(cdata));
 }
 /**
  * 向前，向后
@@ -1134,19 +1134,19 @@ function _forward(_newData) {
 		});
 	}else{
 		// 否则加载历史数据
-		console.log(" _forward 0");
+//		console.log(" _forward 0");
 		// 更新cdata数据
 		var _dataIndex ={};
 		for(var indrow=0;indrow<_data.length;indrow++){
 			_dataIndex[_data[indrow][0]]= indrow;
 		}						
-		console.log(" _forward 1");
+//		console.log(" _forward 1");
 		oneStep = cdataCount*0.9;
 		var startTime;
 		if(currentStartTimeInd == null || currentStartTimeInd=="undefined"){
 			currentStartTimeInd =1;
 		}else{
-			console.log(" _forward 2");
+//			console.log(" _forward 2");
 
 			if(currentStartTimeInd+oneStep<_data[_dataIndex['time']].length){ // 向左
 				currentStartTimeInd = currentStartTimeInd+oneStep;
@@ -1162,7 +1162,7 @@ function _forward(_newData) {
 			}
 		}
 		var currentTime = _data[_dataIndex['time']][currentStartTimeInd];
-		console.log("currentTime="+currentTime);
+//		console.log("currentTime="+currentTime);
 		loadCData(currentTime);
 		reloadDataToDiagram();
 	}
@@ -1190,30 +1190,30 @@ function _backward() {
 	currentPlayStatus = false;
 	
 	// 更新cdata数据
-	console.log("hisotryData debug 0");
+//	console.log("hisotryData debug 0");
 	var _dataIndex ={};
 	for(var indrow=0;indrow<_data.length;indrow++){
 		_dataIndex[_data[indrow][0]]= indrow;
 	}						
 	oneStep = cdataCount*0.9;
-	console.log("currentStartTimeInd="+currentStartTimeInd+" ?  oneStep="+oneStep);
-	console.log("hisotryData debug 1");
+//	console.log("currentStartTimeInd="+currentStartTimeInd+" ?  oneStep="+oneStep);
+//	console.log("hisotryData debug 1");
 	if(currentStartTimeInd == null || currentStartTimeInd=="undefined"){
-		console.log("hisotryData debug 2");
+//		console.log("hisotryData debug 2");
 		currentStartTimeInd =2;
 	}else{
-		console.log("hisotryData debug 3");
+//		console.log("hisotryData debug 3");
 		if(currentStartTimeInd-oneStep>0){ // 向左
 			currentStartTimeInd = currentStartTimeInd-oneStep;
-			console.log("hisotryData debug 4");
+//			console.log("hisotryData debug 4");
 		}else{
-			console.log("hisotryData debug 5");
+//			console.log("hisotryData debug 5");
 			// TODO： 如果向左一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
 // currentStartTimeInd
-			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data));
-			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_dataIndex));
-			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data[_dataIndex['time']]));
-			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data[_dataIndex['time']][1]));
+//			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data));
+//			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_dataIndex));
+//			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data[_dataIndex['time']]));
+//			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data[_dataIndex['time']][1]));
 //			var _currentStartTimeInd = _data[_dataIndex['time']][1].getTime() - oneStep*1000;
 			var _currentStartTimeInd ;
 			if(_data[_dataIndex['time']][1]!="undefined"){
@@ -1236,10 +1236,10 @@ function _backward() {
 			return;
 		}
 	}
-	console.log("hisotryData debug 6");
+//	console.log("hisotryData debug 6");
 
 	var currentTime = _data[_dataIndex['time']][currentStartTimeInd];
-	console.log("currentTime="+currentTime);
+//	console.log("currentTime="+currentTime);
 	loadCData(currentTime);
 	reloadDataToDiagram();
 
@@ -1250,7 +1250,7 @@ function _search(){
 // var _endTime_;
 //	c3LineChart.flow(cdata,new Date()+"",1000);
 //console.log("flow");
-	console.log("_startTime_="+_startTime_+"  _endTime_="+_endTime_);
+//	console.log("_startTime_="+_startTime_+"  _endTime_="+_endTime_);
 	//getHistoryData1(_historyDataDetailKey,_startTime_,_endTime_,addHistoryData);
 	getHistoryData1("",_startTime_,_endTime_,pointGroup,_backward);
 }
@@ -1274,13 +1274,13 @@ function zoomin_x() {
 	cdataCount = cdataCount * 1.5;
 	loadCData(getCurrentStartTime());
 	reloadDataToDiagram();
-	console.log("cdataCount = "+cdataCount);
+//	console.log("cdataCount = "+cdataCount);
 }
 
 function zoomout_x() {
 	_rateX = _rateX *2;
 	cdataCount = cdataCount / 1.5;
-	console.log("cdataCount = "+cdataCount);
+//	console.log("cdataCount = "+cdataCount);
 	loadCData(getCurrentStartTime());
 	reloadDataToDiagram();
 }
@@ -1308,11 +1308,11 @@ var _minY = 0;
 var _rateY = 1;
 function zoomin_y() {
 	_rateY = _rateY / 2
-	console.log(" _rateY = "+_rateY);
+//	console.log(" _rateY = "+_rateY);
 }
 function zoomout_y() {
 	_rateY = _rateY * 2
-	console.log(" _rateY = "+_rateY);
+//	console.log(" _rateY = "+_rateY);
 }
 
 
@@ -1321,11 +1321,11 @@ function zoomout_y() {
  */
 var xray = "time";
 function changex(tname) {
-	console.log("click: ========================== "+tname);
+//	console.log("click: ========================== "+tname);
 	var but = document.getElementById("x_axisSelectButtonUI");
 	but.innerHTML = tname;
 	xray = tname;
-	console.log(tname);
+//	console.log(tname);
 //	but.text = tname;
 	if(tname=="time"){
 		c3LineChart = c3.generate({
@@ -1371,7 +1371,7 @@ function changex(tname) {
 			}
 		});
 	}else{
-		console.log("");
+//		console.log("");
 		c3LineChart = c3.generate({
 			bindto : '#ui-historyDataLineChart',
 			data : {
@@ -1419,15 +1419,15 @@ function setConnected(connected) {
 
 loginWebsocket();
 function loginWebsocket() {
-	console.log(" debug 1");
+//	console.log(" debug 1");
 
 	if(!connected) {
-		console.log("新建连接");
+//		console.log("新建连接");
 		connect(graphSubscribe);
 		return;
 	}
 	else {
-		console.log("当前存在");
+//		console.log("当前存在");
 		graphSubscribe();
 	}
 }
@@ -1435,19 +1435,19 @@ function loginWebsocket() {
 
 function getGraphByURLPath(graph,urlPath){
 	if(urlPath==null||urlPath=="undefined") return graph;
-	console.log("graph.urlPath="+graph.urlPath.toLowerCase()+"  ==  "+"urlPath="+urlPath.toLowerCase());
+//	console.log("graph.urlPath="+graph.urlPath.toLowerCase()+"  ==  "+"urlPath="+urlPath.toLowerCase());
 	if(graph.urlPath.toLowerCase() == urlPath.toLowerCase()){
-		console.log("找到了");
+//		console.log("找到了");
 		_graphId = graph.id;
 		return graph;
 	}
 	else {
-		console.log(graph.urlPath.toLowerCase()+" 3");
+//		console.log(graph.urlPath.toLowerCase()+" 3");
 		var children = graph.children;
 		if(children!=null){
 			var keys = new Array();
 			Object.keys(children).forEach(function(key){
-				console.log("4"+key);
+//				console.log("4"+key);
 				keys.push(key);
 				children[key]
 			});
@@ -1471,7 +1471,7 @@ function getGraphByPath(graph,path){
 		return graph;
 	}
 	else {
-		console.log(graph.wholePath.toLowerCase()+" 3");
+//		console.log(graph.wholePath.toLowerCase()+" 3");
 		var children = graph.children;
 		if(children!=null){
 			var keys = new Array();
@@ -1548,7 +1548,7 @@ function connectlocal() {
 
 	stompClient.connect(headers, function(frame) {
 		setConnected(true);
-		console.log("websocket connected.  .");
+//		console.log("websocket connected.  .");
 		// console.log('Connected: ' + frame);
 
 		// 发送消息给服务器

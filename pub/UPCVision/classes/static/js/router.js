@@ -13,9 +13,9 @@ var historyStepCount = 50;
 var currentStepInRouteList;
 var _realtimeDataDetailKey;
 
-console.log("2222222 = " + currentStepInRouteList);
+//console.log("2222222 = " + currentStepInRouteList);
 function routeTo(diagram, key, graphId) {
-	console.log("11111 = " + currentStepInRouteList);
+	//console.log("11111 = " + currentStepInRouteList);
 
 	// 初始化步数记录
 	if (routeList == null || routeList == "undefined") {
@@ -34,15 +34,14 @@ function routeTo(diagram, key, graphId) {
 			|| currentStepInRouteList == 'NaN') {
 		if (localStorage.currentStepInRouteList == null
 				|| localStorage.currentStepInRouteList == "undefined") {
-			console.log("if");
+			//console.log("if");
 			currentStepInRouteList = -1;
 		} else {
-			console.log("else");
+			//console.log("else");
 			currentStepInRouteList = parseInt(localStorage.currentStepInRouteList);
 		}
 	}
-	console.log("currentStepInRouteList=" + currentStepInRouteList + "  routeList.length="
-			+ routeList.length);
+	//console.log("currentStepInRouteList=" + currentStepInRouteList + "  routeList.length="+ routeList.length);
 	// console.log("currentStepInRouteList= "+currentStepInRouteList);
 	// 如果当前参数diagram为空，就是点了前进后退
 	if (diagram == null || diagram == "undefined") {
@@ -74,12 +73,12 @@ function routeTo(diagram, key, graphId) {
 
 		} else { // 否则就是上一步下一步后，点了跳转功能
 			// 删除当前步后面的记录
-			console.log("前进后退后，中间点了正常跳转功能。前：  currentStepInRouteList=" + currentStepInRouteList
-					+ "  routeList.length=" + routeList.length);
+//			console.log("前进后退后，中间点了正常跳转功能。前：  currentStepInRouteList=" + currentStepInRouteList
+//					+ "  routeList.length=" + routeList.length);
 			routeList.splice(currentStepInRouteList + 1, routeList.length - currentStepInRouteList
 					- 1);
-			console.log("前进后退后，中间点了正常跳转功能。后：  currentStepInRouteList=" + currentStepInRouteList
-					+ "  routeList.length=" + routeList.length);
+//			console.log("前进后退后，中间点了正常跳转功能。后：  currentStepInRouteList=" + currentStepInRouteList
+//					+ "  routeList.length=" + routeList.length);
 		}
 		// 传递参数
 		_routeType = diagram.toLowerCase();
@@ -100,8 +99,8 @@ function routeTo(diagram, key, graphId) {
 		currentStepInRouteList++;
 		localStorage.currentStepInRouteList = currentStepInRouteList+"";
 
-		console.log("执行正常跳转后，currentStepInRouteList=" + currentStepInRouteList
-				+ "  routeList.length=" + routeList.length);
+//		console.log("执行正常跳转后，currentStepInRouteList=" + currentStepInRouteList
+//				+ "  routeList.length=" + routeList.length);
 	}
 
 	if (unsubscribe != null && unsubscribe != "undefined")
@@ -143,7 +142,8 @@ function routeTo(diagram, key, graphId) {
 		break;
 	case "realtimedataList".toLowerCase():
 		_realtimedataListKey = key;
-		$("#mainPanel").load("_realtimedataList.html",null,hideLoading);
+		console.log("load _realtimeDataList.html");
+		$("#mainPanel").load("_realtimeDataList.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'visible';
 		break;
 	case "realtimedataDetail".toLowerCase():
@@ -152,11 +152,11 @@ function routeTo(diagram, key, graphId) {
 		mainInfoNr.style.visibility = 'hidden';
 		break;
 	case "alertdataList".toLowerCase():
-		$("#mainPanel").load("_alertdataList.html",null,hideLoading);
+		$("#mainPanel").load("_alertDataList.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'visible';
 		break;
 	case "alertdataDetail".toLowerCase():
-		$("#mainPanel").load("_alertdataChart.html",null,hideLoading);
+		$("#mainPanel").load("_alertDataChart.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
 		break;
 	case "historydataList".toLowerCase():
@@ -191,10 +191,10 @@ function routeTo(diagram, key, graphId) {
 function stepBackward() {
 	if (localStorage.currentStepInRouteList == null
 			|| localStorage.currentStepInRouteList == "undefined") {
-		console.log("1111");
+		//console.log("1111");
 		currentStepInRouteList = -1;
 	} else {
-		console.log("2222 = "+localStorage.currentStepInRouteList);
+		//console.log("2222 = "+localStorage.currentStepInRouteList);
 		currentStepInRouteList = parseInt(localStorage.currentStepInRouteList);
 	}
 	currentStepInRouteList--;

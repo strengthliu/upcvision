@@ -89,17 +89,23 @@ public class AuthorcationController extends BaseController {
 		}
 		// 返回UserSpace
 		UserSpace us = userSpaceManager.getUserSpace(ui.getId());
-		String token = TokenTools.genToken(ui.getId().toString());
+		String token = "";
+		// 如果用户是guest，就返回
 		if(us == null) {
 			try {
-			us = userSpaceManager.buildUserSpace(ui.getId(), token);
+				us = userSpaceManager.buildUserSpace(ui.getId(), token);
+				token = TokenTools.genToken(ui.getId().toString());
 			}catch(IllegalStateException e) {
 				e.printStackTrace();
 			}
 		} else {
 			// 重新建token
-			us.setToken(token);
+			if(ui.getRole() == GlobalConsts.UserRoleGuest) {
+				token = us.getToken();
+			} else
+				token = TokenTools.genToken(ui.getId().toString());
 		}
+		us.setToken(token);
 		userSpaceManager.setUserSpace(ui.getId(), us);
 		tw.setStatus(GlobalConsts.ResultCode_SUCCESS);
 		tw.setMsg("登录成功！");

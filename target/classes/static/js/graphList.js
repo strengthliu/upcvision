@@ -331,9 +331,22 @@ function updateGraphListFrame(){
 						+ _graph.name +"  " + '</h4><p>' + _graph.path
 						+ '</p></figcaption>';
 						// console.log(diagram_gallery_item_innerHTML);
-				
+				diagram_gallery_item_innerHTML += '</figure>';
+				diagram_gallery_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
+				// 判断权限
+				if(user.id == _graph.creater || user.id == _graph.owner || user.role == 1){
+					diagram_gallery_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
+					diagram_gallery_item_innerHTML += 'shareItemAction(\''+_graph.id+'\')">Share</button>';
+					diagram_gallery_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
+					diagram_gallery_item_innerHTML += 'editItemAction(\''+_graph.id+'\')">';
+					diagram_gallery_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
+					diagram_gallery_item_innerHTML += '</button>';
+				}
+				diagram_gallery_item_innerHTML += '</div></div>';
+
+
 			}
-			diagram_gallery_item_innerHTML += '</figure></div>';
+			diagram_gallery_item_innerHTML += '</div></div>';
 			diagram_gallery_innerHTML = diagram_gallery_innerHTML
 					+ diagram_gallery_item_innerHTML;
 	

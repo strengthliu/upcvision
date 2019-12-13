@@ -3,12 +3,12 @@
  */
 	/* 刷新流程图目录结构*/
 	function updateDiagram() {
-		console.log("updateDiagram");
+		//console.log("updateDiagram");
 		if (userSpace != null && userSpace != "undefined") {
-			console.log("updateDiagram. userSpace is not null");
+			//console.log("updateDiagram. userSpace is not null");
 			doUpdateDiagram(userSpace);
 		} else {
-			console.log("updateDiagram. userSpace is  null.getUserSpace()");
+			//console.log("updateDiagram. userSpace is  null.getUserSpace()");
 			getUserSpace(
 					user.id,
 					token,
@@ -62,7 +62,7 @@
 			// console.log("userSpace is not null");
 			doUpdateXYDiagram(userSpace);
 		} else {
-			console.log(" navagator.updatXYDiagram : userSpace为空，调用getUserSpace。");
+			//console.log(" navagator.updatXYDiagram : userSpace为空，调用getUserSpace。");
 			getUserSpace(
 					user.id,
 					token,
@@ -119,7 +119,7 @@
 			// console.log("userSpace "+JSON.stringify(userSpace.realTimeData));
 			doUpdateRealTimeData(userSpace);
 		} else {
-			console.log("updateRealTimeData. userSpace is  null.getUserSpace()");
+			//console.log("updateRealTimeData. userSpace is  null.getUserSpace()");
 		getUserSpace(
 				user.id,
 				token,

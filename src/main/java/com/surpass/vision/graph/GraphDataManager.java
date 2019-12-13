@@ -82,7 +82,13 @@ public class GraphDataManager extends PointGroupDataManager {
 				
 //				throw new IllegalStateException("没有指定ID=" + keys[ik] + "的图形。");
 			} else {
-				ret.addOrUpdateChild(g);
+				if(g.isFile()) {
+					ret.addOrUpdateChild(g);
+				}else {
+					// 这是一个目录，取这个路径下的所有图形
+					
+//					pointGroupService.getPointGroupDataByOtherRule1(typeGraph, wholePath)
+				}
 //				String path = g.getPath();
 //				String splitChar = "";
 //				if (File.separator.contentEquals("\\"))

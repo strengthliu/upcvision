@@ -70,6 +70,14 @@
 			selectByExampleQueryId="true">
 		</table>
 
+ 		<table schema="t_pointGroup" tableName="t_pointGroup"
+			domainObjectName="PointGroupData" enableCountByExample="true"
+			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			enableDeleteByPrimaryKey="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true">
+		</table>
+		
 		<table schema="t_user" tableName="t_user"
 			domainObjectName="UserInfo" enableCountByExample="true"
 			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
@@ -77,14 +85,7 @@
 			enableDeleteByExample="true" enableSelectByExample="true"
 			selectByExampleQueryId="true">
 		</table>
- -->
-		<table schema="t_pointGroup" tableName="t_pointGroup"
-			domainObjectName="PointGroupData" enableCountByExample="true"
-			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
-			enableDeleteByPrimaryKey="true" enableUpdateByExample="true"
-			enableDeleteByExample="true" enableSelectByExample="true"
-			selectByExampleQueryId="true">
-		</table>
+-->
 
 	</context>
 </generatorConfiguration>

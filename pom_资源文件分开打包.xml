@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -188,6 +188,23 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.8.3</version>
 		</dependency>
+		
+		<dependency>
+	    	<groupId>batik</groupId>
+		    <artifactId>batik</artifactId>
+		    <version>1.11</version>
+		    <scope>system</scope>
+		    <systemPath>${basedir}/libs/batik-all-1.11.jar</systemPath>
+		</dependency>
+
+		<dependency>
+	    	<groupId>jna</groupId>
+		    <artifactId>jna</artifactId>
+		    <version>4.5.1</version>
+		    <scope>system</scope>
+		    <systemPath>${basedir}/libs/jna-4.5.1.jar</systemPath>
+		</dependency>
+
 		<!-- 
 		<dependency>
 			<groupId>net.bramp.unsafe</groupId>
@@ -243,6 +260,22 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
+						<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>com.surpass.vision.UpcvisionApplication</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			
+			
 			            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
