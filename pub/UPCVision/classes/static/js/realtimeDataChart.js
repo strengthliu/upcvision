@@ -61,13 +61,34 @@ function updateRealTimeDataChart(ruserSpace) {
 //		gl[indpl] = gt;
 //	}
 }
+
 /**
  * 刷新数据
  * 
  * @returns
  */
+var timeInterval = 1; // 刷新间隔
+function setTimeInterval(val){ // 设置刷新间隔
+	timeInterval = val;
+}
+var lastcurrentTime; // 临时变量，上次刷新的时间
 
 function refreshData(data) {
+	// 判断时间
+	if(lastcurrentTime==null ||lastcurrentTime=="undefined"){
+		lastcurrentTime = 0;
+	}
+	if(lastcurrentTime>timeInterval)
+		lastcurrentTime = 0;
+	
+	lastcurrentTime++;
+
+	if(lastcurrentTime<timeInterval){
+		return;
+	}else{
+		lastcurrentTime = 0;
+	}
+	
 	var pointList_ = JSON.parse(data.body);
 //	for(var key in pointList_){
 //		for(var p in gl){
@@ -314,8 +335,21 @@ var c3LineChart;
 			x : 'time',
 			xFormat : '%Y',
 			columns : cols,
-			type : 'spline'
+			type : 'area-spline',//'spline',
+	        labels: false,
+	        names: {
+	        	//CJY_FV2181: null
+	        },
+	        onclick: function (d, element) {
+	        	showDataList(d,element);
+	        }
 		},
+	    legend: {
+	        show: false
+	    },
+	    zoom: {
+	        enabled: true
+	    },
 		grid : {
 			x : {
 				show : true
@@ -326,7 +360,7 @@ var c3LineChart;
 		},
 		color : {
 			pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
-					'rgba(4,189,254,0.6)' ]
+					'rgba(4,189,254,0.6)', '#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c', '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5', '#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5' ]
 		},
 		padding : {
 			top : 10,
@@ -334,6 +368,23 @@ var c3LineChart;
 			bottom : 30,
 			left : 50,
 		},
+	    size: {
+//	        height: 240,
+//	        width: 480
+	    },
+	    transition: {
+	        duration: 1000
+	    },
+	    tooltip: {
+	        format: {
+	            title: function (d) { return 'Data ' + d; },
+	            value: function (value, ratio, id) {
+	                var format = id === 'data1' ? d3.format(',') : d3.format('$');
+	                return format(value);
+	            }
+//	            value: d3.format(',') // apply this format to both y and y2
+	        }
+	    },
 		axis : {
 			x : {
 				type : 'timeseries',

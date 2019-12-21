@@ -623,6 +623,10 @@ var c3LineChart;
 			columns : cols,
 			type : 'spline',
 	        axes: {
+	        },
+	        labels: false,
+	        onclick: function (d, element) {
+	        	showDataList(d,element);
 	        }
 		},
 		grid : {
@@ -671,7 +675,10 @@ var c3LineChart;
 	});
 
 })(jQuery);
-
+// TODO: 点击下面的位号名，显示图中的数据的列表
+function showDataList(d,element){
+	console.log(JSON.stringify(d)+"  "+JSON.stringify(element));
+}
 /**
  * 右键菜单
  * 

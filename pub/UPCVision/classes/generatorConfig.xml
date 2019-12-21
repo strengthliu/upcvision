@@ -85,6 +85,13 @@
 			enableDeleteByExample="true" enableSelectByExample="true"
 			selectByExampleQueryId="true">
 		</table>
+		<table schema="t_department" tableName="t_department"
+			domainObjectName="DepartmentInfo" enableCountByExample="true"
+			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			enableDeleteByPrimaryKey="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true">
+		</table>
 -->
 
 	</context>

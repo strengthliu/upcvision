@@ -237,6 +237,50 @@ function getGraphByID(graph,id,l){
 	}
 }
 
+//默认图形目录主页。当存在主页时，直接打开主页。
+var defaultSVG = ["main","index"];
+//如果目录内只有一个页面，是否直接打开。默认是。
+var loadOnlyGraph = true;
+
+/**
+* 加载默认主页
+* @param path 当前路径
+* @returns
+*/
+function loadDefaultGraph(){
+	var _galleryKey;
+//	console.log("graph => "+JSON.stringify(userSpace.graph));
+	if(_routeID==null||_routeID=="undefined"||_routeID==""){
+		_graph = userSpace.graph;
+	}else{
+		_graph =  getGraphByID(userSpace.graph,_routeID);
+	}
+		
+	var defaultG;
+	var gCount = 0;
+	// 取指定路径下的所有文件图形
+	if(_graph.children!=null&&_graph.children!="undefined"){
+		for(let key in _graph.children){
+			var _g = _graph.children[key];
+			if(_g.file && _g.svg){
+				gCount ++;
+				defaultG = _g;
+				for(var indDefaultSvg = 0;indDefaultSvg<defaultSVG.length;defaultSVG++){
+					// 是否存在defaultSVG里的主页，如果存在，就routeto
+					if(_g.name == defaultSVG[indDefaultSvg]){
+						routeTo('diagramDetail', _g.urlPath,_g.id);
+						return;
+					}
+				}
+			}
+		} 
+		// 如果只有一个，是否loadOnlyGraph，如果是，就routto
+		
+		if(loadOnlyGraph && gCount==1)
+			routeTo('diagramDetail', defaultG.urlPath,defaultG.id);
+	}
+}
+loadDefaultGraph();
 
 updateGraphListFrame();
 
@@ -591,3 +635,6 @@ function getGraphByPath(graph,path){
 		return null;
 	}
 }
+
+
+

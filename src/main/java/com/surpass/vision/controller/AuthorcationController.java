@@ -90,7 +90,7 @@ public class AuthorcationController extends BaseController {
 		// 返回UserSpace
 		UserSpace us = userSpaceManager.getUserSpace(ui.getId());
 		String token = "";
-		// 如果用户是guest，就返回
+		// 如果用户是guest，就返回https://pan.baidu.com/share/init?surl=vG9RwIcag-XbW7FmOH3ncg
 		if(us == null) {
 			try {
 				us = userSpaceManager.buildUserSpace(ui.getId(), token);

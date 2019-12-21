@@ -1,0 +1,440 @@
+/**
+ * 
+ */
+
+//
+// //********************* 对话框拖拽 ********
+// var mouseX = 0;
+// var mouseY = 0;
+// var Dragging = function(validateHandler) {
+// //参数为验证点击区域是否为可移动区域，如果是返回欲移动元素，负责返回null
+// var draggingObj = null; //dragging Dialog
+// var diffX = 0;
+// var diffY = 0;
+//
+// function mouseHandler(e) {
+// switch (e.type) {
+// case 'mousedown':
+// draggingObj = validateHandler(e);//验证是否为可点击移动区域
+// if (draggingObj != null) {
+// diffX = e.clientX - draggingObj.offsetLeft;
+// diffY = e.clientY - draggingObj.offsetTop;
+// }
+// break;
+//
+// case 'mousemove':
+// mouseX = e.clientX;
+// mouseY = e.clientY;
+// if (draggingObj) {
+// draggingObj.style.left = (e.clientX - diffX) + 'px';
+// draggingObj.style.top = (e.clientY - diffY) + 'px';
+// }
+//
+// break;
+//
+// case 'mouseup':
+// draggingObj = null;
+// diffX = 0;
+// diffY = 0;
+// break;
+// }
+// }
+// ;
+//
+// return {
+// enable : function() {
+// document.addEventListener('mousedown', mouseHandler);
+// document.addEventListener('mousemove', mouseHandler);
+// document.addEventListener('mouseup', mouseHandler);
+// },
+// disable : function() {
+// document.removeEventListener('mousedown', mouseHandler);
+// document.removeEventListener('mousemove', mouseHandler);
+// document.removeEventListener('mouseup', mouseHandler);
+// }
+// }
+// }
+//
+// function getDraggingDialog(e) {
+// var target = e.target;
+// if (target.nodeName != "DIV")
+// return;
+// while (target
+// && (target.className.indexOf('dialog-title') == -1
+// || target.getAttribute("id") != "toMenu" || target.nodeName != "svg")) {
+// target = target.offsetParent;
+// }
+// if (target != null && target.nodeName == "svg")
+// return target;
+// else if (target != null) {
+// return target.offsetParent;
+// } else {
+// return null;
+// }
+// }
+//
+// Dragging(getDraggingDialog).enable();
+
+function initView() {
+
+	// 获取图形宽高
+	svg1 = document.getElementsByTagName("svg");
+	svg1 = svg1[0];
+	width = svg1.attributes.width.value;
+	height = svg1.attributes.height.value;
+	// width = 960;
+	// height = 500;
+	// console.log("widthaaa=" + width + " heightbbb=" + height + "");
+	// D3操作对象
+	zoom = d3.behavior.zoom().scaleExtent([ 0.5, 8 ]).on("zoom", null); // =
+																		// d3.zoom().scaleExtent([1,
+																		// 8]).on("zoom",
+																		// zoomed);
+	svg = d3.select("svg").call(zoom);
+	drag = d3.behavior.drag().origin(function() {
+		var t = d3.select(this);
+		return {
+			// 返回被拖拽对象的cx和cy。
+			x : t.attr("cx"),
+			y : t.attr("cy")
+		};
+	}).on("drag", draged)
+	  .on("dragstart", function() {
+		d3.event.sourceEvent.stopPropagation(); // silence other listeners
+	}).on("dragend", function() {
+		console.log("mouseup");
+		var t = d3.select(this);
+		var _x = t.attr("cx"), _y = t.attr("cy");
+		var trans;
+		if(translate!=null&&translate!="undefined"){
+			console.log("1  -------------------------------");
+			console.log("1  translate-> "+translate);
+			console.log("1  translate event -> "+[ _x, _y]);
+//			trans= [ d3.event.x, d3.event.y];
+			trans= [ eval(_x+translate[0]), eval(_y +translate[1])];
+		}else{
+			trans= [ _x, _y];
+		}
+//		translate = trans;
+		console.log("1  trans-> "+trans);
+	});
+
+	svg = d3.select("svg").call(drag);// .call(zoom);
+	function draged(d) {
+		// console.log("draged. scale=" + scale);
+		zoom.translate(translate);
+		d3.select(this).attr("cx", d3.event.x).attr("cy", d3.event.y);
+		// console.log("draged 1 . "+this);
+		var trans;
+		if(translate!=null&&translate!="undefined"){
+			console.log("-------------------------------");
+			console.log("translate-> "+translate);
+			console.log("translate event -> "+[ d3.event.x, d3.event.y]);
+//			trans= [ d3.event.x, d3.event.y];
+			trans= [ d3.event.x+translate[0], d3.event.y +translate[1]];
+		}else{
+			trans= [ d3.event.x, d3.event.y];
+		}
+		console.log("translate target -> "+trans);
+//		translate = trans;
+		svg.attr("transform", "translate(" + trans + ")" +
+				// "translate(0,0)" +
+				"scale(" + scale + ")");
+
+//		interpolateZoom();
+//		interpolateZoom(translate,scale);
+//		zoomed();
+	}
+	var diff = Math.round(((scale - 1) * 1000 + 600) / 100);
+	// console.log("scale=" + scale + " diff=" + diff);
+
+	// Range Slider
+	if ($("#value-range").length) {
+		var bigValueSlider = document.getElementById('value-range'), bigValueSpan = document
+				.getElementById('huge-value');
+
+		noUiSlider.create(bigValueSlider, {
+			start : 7,
+			step : 0,
+			range : {
+				min : 0,
+				max : 14
+			}
+		});
+
+		var range = [ '0.3', '0.4', '0.5', '0.6', '0.77', '0.8', '0.9', '1',
+				'1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7' ];
+		bigValueSlider.noUiSlider.on('update', function(values, handle) {
+
+			// console.log(" noUiSlider.on('update' ->
+			// "+range[Math.floor(values)]+"
+			// bigValueSpan.innerHTML="+bigValueSpan.innerHTML);
+			if (bigValueSpan.innerHTML == ""
+					|| bigValueSpan.innerHTML == "undefined")
+				bigValueSpan.innerHTML = 1;
+			// 之前的倍数
+			var _num = parseFloat(bigValueSpan.innerHTML);
+			var _num2 = 1 + (values - 7)/10; // 新倍数
+			_num2 = _num2.toFixed(2);
+			if (_num != _num2) {
+				console.log("_num=" + _num + " values=" + values + " _num2="
+						+ _num2 + " scale=" + scale);
+				bigValueSpan.innerHTML = scale;// range[Math.floor(values)];
+				scale = _num2;
+				console.log();
+				interpolateZoom([ 0, 0 ], scale);
+				console.log("_num=" + _num + " values=" + values + " _num2="
+						+ _num2 + " scale=" + scale + "   ------");
+			}
+			// console.log("number = " + number1);
+			// svg.attr("transform", "translate(" + [ 0, 0 ] + ")" + "scale(" +
+			// scale+ ")");
+
+		});
+
+		console.log("set _slider.");
+		_slider = bigValueSlider.noUiSlider;
+		// _slider.set(5.32);
+	}
+
+	fullScreen();
+
+}
+
+function scrollTo(lab) {
+	if (lab == null || lab == "undefined") {
+		// lab = scale;
+		lab = (scale - 1) * 10 + 7;
+		lab = lab.toFixed(2);
+		// lab = Math.round(((scale - 1) * 1000 + 600) / 100);
+	}
+//	console.log("lab=" + lab);
+	var bigValueSpan = document.getElementById('huge-value');
+	if (bigValueSpan.innerHTML == "" || bigValueSpan.innerHTML == "undefined")
+		bigValueSpan.innerHTML = 1;
+	var _num = parseFloat(bigValueSpan.innerHTML);
+//	console.log("scrollTo-> " + lab + " scale=" + scale);
+	var _num2 = lab;
+	if (_num != _num2) {
+		_slider.set(lab);
+	}
+
+}
+
+var number1 = 0;
+function shownumber1() {
+	// console.log("number = " + number1);
+	scale = 1 + (number1 - 600) / 1000;
+	interpolateZoom([ 0, 0 ], scale);
+	// interpolateZoom(translate, scale);
+	// svg.attr("transform", "translate(" + [ 0, 0 ] + ")" + "scale(" + scale+
+	// ")");
+}
+
+var svg1;
+var svg;// svg = document.getElementsByTagName("svg");
+var width = 0;// svg.attributes.width.value;
+var height = 0;// svg.attributes.height.value;
+
+// 上面在加载后，还有一句设置，应该是那里设置才最合理。
+// 结果我在这里也设置了，加载后的设置值把这个给替换了。
+// 调试了4个小时才找到，这里值得记录一下。
+var zoom;// = d3.behavior.zoom().scaleExtent([0.1, 8]).on("zoom", zoomed);
+
+function zoomed() {
+	// console.log("zoomed() zoom.translate()="+zoom.translate()+"
+	// zoom.scale()="+zoom.scale());
+//	console.log("1 scale=" + scale);
+	// scale = scale.toFixed(2);
+	svg.attr("transform", "translate(" + translate + ")" +
+	// "translate(0,0)" +
+	"scale(" + scale + ")");
+	scrollTo();
+	// 计算scale，调整值
+	// svg.attr("transform", "translate(" + d3.event.translate + ")scale(" +
+	// d3.event.scale + ")");
+}
+
+function interpolateZoom(_translate, _scale) {
+	if(_scale!=null&&_scale!="undefined")
+		scale = _scale;
+	if(_translate!=null&&_translate!="undefined")
+		translate = _translate;
+	zoomed();
+}
+
+function zoomClick() {
+	switch (this.id) {
+	case 'zoom_up':
+		translate = [ translate[0], translate[1] - 10 ];
+		zoomed();
+		return;
+	case 'zoom_down':
+		translate = [ translate[0], translate[1] + 10 ];
+		zoomed();
+		return;
+	case 'zoom_left':
+		translate = [ translate[0] - 10, translate[1] ];
+		zoomed();
+		return;
+	case 'zoom_right':
+		translate = [ translate[0] + 10, translate[1] ];
+		zoomed();
+		return;
+	case 'zoom_fullScreen':
+		fullScreen();
+		return;
+	case 'zoom_in':
+		direction = 1;
+		break;
+	case 'zoom_out':
+		direction = -1;
+		break;
+	default:
+		return;
+	}
+
+}
+
+var scale;
+var translate;
+var fullScreenEnable = true;
+function fullScreen() {
+	if (!fullScreenEnable)
+		fullScreenEnable = !fullScreenEnable;
+	fullScreenFn();
+}
+
+function fullScreenFn() {
+	if (fullScreenEnable) {
+		// 取当前页面宽度和高度
+		var _topToolsBar = document.getElementById("topToolsBar");
+		var topToolsBarRect = _topToolsBar.getBoundingClientRect();
+		var _svgP = document.getElementById("mainPanel");// svg1.parentNode;
+		var mainToolsBarRect = _svgP.getBoundingClientRect();
+		// 取当前图形宽度和高度
+		// mainPanel屏幕左上角坐标
+		var y = mainToolsBarRect.y;// + mainToolsBarRect.height;
+		var x = mainToolsBarRect.x;
+		var mainPanelHeight = window.innerHeight - topToolsBarRect.height;
+		var mainPanelWidth = mainToolsBarRect.width;
+
+		var scale1 = mainPanelHeight / mainPanelWidth;
+		var scale2 = height / width;
+		if (scale1 > scale2) { // 图比屏幕扁，以图的宽为限
+			scale = mainPanelWidth / width;
+		} else {
+			scale = mainPanelHeight / height;
+		}
+
+		var svgx = svg1.getBoundingClientRect().x;
+		var svgy = svg1.getBoundingClientRect().y;
+
+		// 计算translate和scale,调用 function interpolateZoom (translate, scale)
+		var tx = svg.attr("width") / 2 * (1 - scale);
+		var ty = svg.attr("height") / 2 * (1 - scale);
+		if (translate == null || translate == "undefined")
+			translate = zoom.translate();
+
+		var _ttx = mainToolsBarRect.x - svgx + translate[0];// +
+															// svg.attr("width")
+															// / 2 * (1 -
+															// scale);
+		var _tty = mainToolsBarRect.y - svgy + translate[1];// +
+															// svg.attr("height")
+															// / 2 * (1 -
+															// scale);
+
+		interpolateZoom([ _ttx, _tty ], scale);
+
+		svg.attr("preserveAspectRatio", "none");
+		svg1.removeAttribute("width");
+		svg1.removeAttribute("heigth");
+		svg1.setAttribute("width", mainPanelWidth / scale);
+		svg1.setAttribute("heigth", mainPanelHeight / scale);
+
+		svgx = svg1.getBoundingClientRect().x;
+		svgy = svg1.getBoundingClientRect().y;
+	}
+}
+
+function adjustToFreezeWidth(rootSvg) {
+	var windowWidth = $(window).width();
+
+	var viewBoxVal = rootSvg.getAttribute("viewBox");
+	var viewBoxWidth = viewBoxVal.split(",")[2];
+	var viewBoxHeight = viewBoxVal.split(",")[3];
+	rootSvg.removeAttribute("width");
+	rootSvg.removeAttribute("height");
+
+	var setWidth = windowWidth;
+	var setHeight = (setWidth * viewBoxHeight) / viewBoxWidth;
+	rootSvg.setAttribute("width", setWidth);
+	rootSvg.setAttribute("height", setHeight);
+}
+
+function adjustToNone(rootSvg) {
+
+	var viewBoxVal = rootSvg.getAttribute("viewBox");
+	var viewBoxWidth = viewBoxVal.split(",")[2];
+	var viewBoxHeight = viewBoxVal.split(",")[3];
+	rootSvg.removeAttribute("width");
+	rootSvg.removeAttribute("height");
+
+	rootSvg.setAttribute("width", viewBoxWidth);
+	rootSvg.setAttribute("height", viewBoxHeight);
+
+}
+
+function adjustToFreezeHeight(rootSvg) {
+
+	var windowHeight = $(window).height();
+
+	var viewBoxVal = rootSvg.getAttribute("viewBox");
+	var viewBoxWidth = viewBoxVal.split(",")[2];
+	var viewBoxHeight = viewBoxVal.split(",")[3];
+	rootSvg.removeAttribute("width");
+	rootSvg.removeAttribute("height");
+
+	var setHeight = windowHeight;
+	var setWidth = (setHeight * viewBoxWidth) / viewBoxHeight;
+	rootSvg.setAttribute("width", setWidth);
+	rootSvg.setAttribute("height", setHeight);
+}
+
+function adjustToFreezeAll() {
+
+	var windowHeight = $(window).height();
+	var windowWidth = $(window).width();
+
+	rootSvg.removeAttribute("width");
+	rootSvg.removeAttribute("height");
+
+	rootSvg.setAttribute("width", windowWidth);
+	rootSvg.setAttribute("height", windowHeight);
+
+}
+
+$(window).resize(function() {
+	console.log("fullScreen on window.resize(). ");
+	fullScreen();
+});
+
+// 设置resize事件
+addResizeEvent(fullScreenFn);
+function addResizeEvent(func) {
+	// 把现有的 window.onload 事件处理函数的值存入变量
+	var oldResize = window.resize;
+	if (typeof window.resize != "function") {
+		// 如果这个处理函数还没有绑定任何函数，就像平时那样添加新函数
+		window.onload = func;
+	} else {
+		// 如果处理函数已经绑定了一些函数，就把新函数添加到末尾
+		window.resize = function() {
+			oldResize();
+			func();
+		}
+	}
+}
+
+d3.selectAll('button').on('click', zoomClick);

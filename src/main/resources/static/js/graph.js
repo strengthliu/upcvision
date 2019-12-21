@@ -413,7 +413,7 @@ function buildPointKs(){
 	if(pointKs==null || pointKs=="undefined"){
 		pointKs = new Object();
 	}
-	console.log("-_graphId= "+_graphId+" graph= "+JSON.stringify(_graph,null,2));
+//	console.log("-_graphId= "+_graphId+" graph= "+JSON.stringify(_graph,null,2));
 	var pointTextIDs = _graph.pointTextIDs;
 	var pointList = _graph.pointList;
 	for(var ind=0;ind<pointTextIDs.length;ind++){
