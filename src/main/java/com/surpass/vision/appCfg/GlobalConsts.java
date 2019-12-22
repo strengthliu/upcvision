@@ -34,6 +34,7 @@ public final class GlobalConsts {
      */
 	public static final String Key_UserSpace_pre_ = "Key_UserSpace_pre_"; // 用户空间key前缀
 	public static final String Key_UserInfo_Pre_ = "Key_UserInfo_Pre_"; // 用户key前缀
+	public static final String Key_DepartInfo_Pre_ = "Key_DepartInfo_Pre_";
     public final static String Key_Graph_pre_ = "Key_Graph_pre_"; // 图形key前缀
 	public static final String Key_HistoryData_pre_ = "Key_HistoryData_pre_"; // 历史数据组key前缀
 	public static final String Key_RealTimeData_pre_ = "Key_RealTimeData_pre_";
@@ -115,7 +116,9 @@ public final class GlobalConsts {
 	public static final String Operation_updateGraphFile = "Operation_updateGraphFile";
 	public static final String Operation_deleteGraphFile = "Operation_deleteGraphFile";
 	public static final String Operation_createUser = "Operation_createUser";
+	public static final String Operation_updateUserInfo = "Operation_updateUserInfo";
 	public static final String Operation_getUserInfo = "Operation_getUserInfo";
+	public static final String Operation_createDepartment = "Operation_createDepartment";
 
 	
 	public static final String KeyAggrandizement = "KeyAggrandizement"; // 增加
@@ -133,6 +136,8 @@ public final class GlobalConsts {
 	public static final Integer UserRoleGuest = 4;
 	
 	public static final String Default_ServerName = "demo";
+
+
 
 
 }

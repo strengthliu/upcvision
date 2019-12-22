@@ -2,8 +2,12 @@ package com.surpass.vision.mapper;
 
 import com.surpass.vision.domain.DepartmentInfo;
 import com.surpass.vision.domain.DepartmentInfoExample;
+import com.surpass.vision.domain.UserInfo;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Select;
 
 public interface DepartmentInfoMapper {
     long countByExample(DepartmentInfoExample example);
@@ -27,4 +31,17 @@ public interface DepartmentInfoMapper {
     int updateByPrimaryKeySelective(DepartmentInfo record);
 
     int updateByPrimaryKey(DepartmentInfo record);
+    
+    //*********************************************************
+    
+    @Select("select distinct * from t_department")
+    @ResultMap("BaseResultMap")
+    List<DepartmentInfo> selectAllDepartment();
+
+    @Select("select max(id) from t_department")
+    @ResultMap("BaseResultMap")
+    Integer selectMaxId();
+
+    
+
 }

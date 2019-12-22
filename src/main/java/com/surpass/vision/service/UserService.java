@@ -2,8 +2,8 @@ package com.surpass.vision.service;
 
 import java.util.List;
 
+import com.surpass.vision.domain.DepartmentInfo;
 import com.surpass.vision.domain.UserInfo;
-import com.surpass.vision.domain.UserSpace;
 
 public interface UserService {
 	
@@ -17,5 +17,12 @@ public interface UserService {
 	public List<UserInfo> getAllUsers();
 
 	public void createOrUpdateUser(UserInfo ui);
+
+	public List<DepartmentInfo> getDepartmentList();
+	public void createOrUpdateDepartmentInfo(DepartmentInfo ui);
+	// 删除部门
+	public void delDepartmentInfo(Integer deptID);
+
+	public Integer getMaxDepartId();
 
 }

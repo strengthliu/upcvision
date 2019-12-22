@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.surpass.vision.mapper.PointGroupDataMapper">
+  <resultMap id="BaseResultMap" type="com.surpass.vision.domain.PointGroupData">
+    <id column="id" jdbcType="FLOAT" property="id" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="owner" jdbcType="VARCHAR" property="owner" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="shared" jdbcType="VARCHAR" property="shared" />
+    <result column="points" jdbcType="VARCHAR" property="points" />
+    <result column="otherRule1" jdbcType="VARCHAR" property="otherrule1" />
+    <result column="otherRule2" jdbcType="VARCHAR" property="otherrule2" />
+    <result column="otherRule3" jdbcType="VARCHAR" property="otherrule3" />
+    <result column="otherRule4" jdbcType="VARCHAR" property="otherrule4" />
+    <result column="otherRule5" jdbcType="VARCHAR" property="otherrule5" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, type, name, owner, creater, shared, points, otherRule1, otherRule2, otherRule3, 
+    otherRule4, otherRule5
+  </sql>
+  <select id="selectByExample" parameterType="com.surpass.vision.domain.PointGroupDataExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_pointGroup
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Double" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_pointGroup
+    where id = #{id,jdbcType=FLOAT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Double">
+    delete from t_pointGroup
+    where id = #{id,jdbcType=FLOAT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.surpass.vision.domain.PointGroupDataExample">
+    delete from t_pointGroup
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.surpass.vision.domain.PointGroupData">
+    insert into t_pointGroup (id, type, name, 
+      owner, creater, shared, 
+      points, otherRule1, otherRule2, 
+      otherRule3, otherRule4, otherRule5
+      )
+    values (#{id,jdbcType=FLOAT}, #{type,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{owner,jdbcType=VARCHAR}, #{creater,jdbcType=VARCHAR}, #{shared,jdbcType=VARCHAR}, 
+      #{points,jdbcType=VARCHAR}, #{otherrule1,jdbcType=VARCHAR}, #{otherrule2,jdbcType=VARCHAR}, 
+      #{otherrule3,jdbcType=VARCHAR}, #{otherrule4,jdbcType=VARCHAR}, #{otherrule5,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.surpass.vision.domain.PointGroupData">
+    insert into t_pointGroup
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="owner != null">
+        owner,
+      </if>
+      <if test="creater != null">
+        creater,
+      </if>
+      <if test="shared != null">
+        shared,
+      </if>
+      <if test="points != null">
+        points,
+      </if>
+      <if test="otherrule1 != null">
+        otherRule1,
+      </if>
+      <if test="otherrule2 != null">
+        otherRule2,
+      </if>
+      <if test="otherrule3 != null">
+        otherRule3,
+      </if>
+      <if test="otherrule4 != null">
+        otherRule4,
+      </if>
+      <if test="otherrule5 != null">
+        otherRule5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=FLOAT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="owner != null">
+        #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="shared != null">
+        #{shared,jdbcType=VARCHAR},
+      </if>
+      <if test="points != null">
+        #{points,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule1 != null">
+        #{otherrule1,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule2 != null">
+        #{otherrule2,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule3 != null">
+        #{otherrule3,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule4 != null">
+        #{otherrule4,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule5 != null">
+        #{otherrule5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.surpass.vision.domain.PointGroupDataExample" resultType="java.lang.Long">
+    select count(*) from t_pointGroup
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_pointGroup
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=FLOAT},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.owner != null">
+        owner = #{record.owner,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creater != null">
+        creater = #{record.creater,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shared != null">
+        shared = #{record.shared,jdbcType=VARCHAR},
+      </if>
+      <if test="record.points != null">
+        points = #{record.points,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherrule1 != null">
+        otherRule1 = #{record.otherrule1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherrule2 != null">
+        otherRule2 = #{record.otherrule2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherrule3 != null">
+        otherRule3 = #{record.otherrule3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherrule4 != null">
+        otherRule4 = #{record.otherrule4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherrule5 != null">
+        otherRule5 = #{record.otherrule5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_pointGroup
+    set id = #{record.id,jdbcType=FLOAT},
+      type = #{record.type,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      owner = #{record.owner,jdbcType=VARCHAR},
+      creater = #{record.creater,jdbcType=VARCHAR},
+      shared = #{record.shared,jdbcType=VARCHAR},
+      points = #{record.points,jdbcType=VARCHAR},
+      otherRule1 = #{record.otherrule1,jdbcType=VARCHAR},
+      otherRule2 = #{record.otherrule2,jdbcType=VARCHAR},
+      otherRule3 = #{record.otherrule3,jdbcType=VARCHAR},
+      otherRule4 = #{record.otherrule4,jdbcType=VARCHAR},
+      otherRule5 = #{record.otherrule5,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.surpass.vision.domain.PointGroupData">
+    update t_pointGroup
+    <set>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="owner != null">
+        owner = #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null">
+        creater = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="shared != null">
+        shared = #{shared,jdbcType=VARCHAR},
+      </if>
+      <if test="points != null">
+        points = #{points,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule1 != null">
+        otherRule1 = #{otherrule1,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule2 != null">
+        otherRule2 = #{otherrule2,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule3 != null">
+        otherRule3 = #{otherrule3,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule4 != null">
+        otherRule4 = #{otherrule4,jdbcType=VARCHAR},
+      </if>
+      <if test="otherrule5 != null">
+        otherRule5 = #{otherrule5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=FLOAT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.surpass.vision.domain.PointGroupData">
+    update t_pointGroup
+    set type = #{type,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      owner = #{owner,jdbcType=VARCHAR},
+      creater = #{creater,jdbcType=VARCHAR},
+      shared = #{shared,jdbcType=VARCHAR},
+      points = #{points,jdbcType=VARCHAR},
+      otherRule1 = #{otherrule1,jdbcType=VARCHAR},
+      otherRule2 = #{otherrule2,jdbcType=VARCHAR},
+      otherRule3 = #{otherrule3,jdbcType=VARCHAR},
+      otherRule4 = #{otherrule4,jdbcType=VARCHAR},
+      otherRule5 = #{otherrule5,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=FLOAT}
+  </update>
+</mapper>

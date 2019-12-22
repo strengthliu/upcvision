@@ -45,4 +45,5 @@ public interface UserInfoMapper {
     @ResultMap("BaseResultMap")
     List<UserInfo> selectAdminUserInfo();
 
+
 }

@@ -30,6 +30,7 @@ import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.common.Submit;
 import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.AlertData;
+import com.surpass.vision.domain.DepartmentInfo;
 import com.surpass.vision.domain.User;
 import com.surpass.vision.domain.UserInfo;
 import com.surpass.vision.domain.UserRight;
@@ -159,7 +160,7 @@ public class AuthorcationController extends BaseController {
 		ret.putData("users", hus);
 		return ret;
 	}
-	
+
 	@RequestMapping(value = "getUserSpace", method = { RequestMethod.POST, RequestMethod.GET })
 	public  ToWeb getUserSpace(@RequestParam String uid, @RequestParam String token,  HttpServletRequest request)
 			throws Exception {
@@ -280,7 +281,7 @@ public class AuthorcationController extends BaseController {
 			// 认证+权限
 			UserInfo g = this.userManager.getUserInfoByID(idstr);
 			UserRight ur = g.getRight(id);
-			ret = authercation(uid, token, GlobalConsts.Operation_updateAlertData,ur);
+			ret = authercation(uid, token, GlobalConsts.Operation_updateUserInfo,ur);
 			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 				return ret;
 		}
@@ -354,6 +355,136 @@ public class AuthorcationController extends BaseController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return ret;
+	}
+
+
+	@RequestMapping(value = "delDepartment", method = { RequestMethod.POST, RequestMethod.GET })
+	public ToWeb delDepartment(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
+		Double uid = user.getDouble("uid");
+		String token = user.getString("token");
+		ToWeb ret;
+		String idstr = user.getString("id");
+		if(StringUtil.isBlank(idstr)) {
+			ret = ToWeb.buildResult();
+			ret.setStatus(GlobalConsts.ResultCode_FAIL);
+			ret.setMsg("参数不正确，要删除的用户ID不能为空。");
+			return ret;
+		}
+		// 认证+权限
+		UserRight ur = new UserRight();
+		// 创建用户的权限与删除用户的权限一样
+		ret = authercation(uid, token, GlobalConsts.Operation_createDepartment,ur); 
+		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS))) {
+			return ret;
+		}
+		boolean r2 = userManager.deleteDepartment(Integer.valueOf(idstr));
+		if(r2)
+			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+		else {
+			ret.setStatus(GlobalConsts.ResultCode_FAIL);	
+			ret.setMsg("删除用户信息失败，请联系系统管理员。");
+		}
+		ret.setData("data", idstr);
+		ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+		ret.setMsg("成功");
+		return ret;
+	}
+
+	static Integer maxDepartId = -1;
+	Integer newDepartId() {
+		if(maxDepartId < 0) {
+			maxDepartId = userManager.getMaxDepartId();
+			if(maxDepartId == null)
+				maxDepartId = 0;
+		}
+		maxDepartId++;
+		return maxDepartId;
+	}
+	
+	@RequestMapping(value = "newDepartment", method = { RequestMethod.POST, RequestMethod.GET })
+	public ToWeb newDepartment(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
+		Double uid = user.getDouble("uid");
+		String token = user.getString("token");
+		// 取出参数
+	    String departName = user.getString("departname");
+	    String departDesc = user.getString("departdesc");
+		// TODO: 检查参数合法性
+
+	    ToWeb ret ;
+		String idstr = user.getString("id");
+		Integer id = null ;
+			// 新建
+			// 认证+权限
+			UserRight ur = new UserRight();
+			ret = authercation(uid, token, GlobalConsts.Operation_createUser,ur);
+			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+				return ret;
+			if(StringUtil.isBlank(idstr)) {
+				id = newDepartId();	
+			}
+
+//		}
+//		else {
+//			// 修改
+//			id = Integer.valueOf(idstr);
+//			// 认证+权限
+//			DepartmentInfo g = this.userManager.getUserInfoByID(idstr);
+//			UserRight ur = g.getRight(id);
+//			ret = authercation(uid, token, GlobalConsts.Operation_updateUserInfo,ur);
+//			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+//				return ret;
+//		}
+		
+		try {
+			DepartmentInfo rtd = new DepartmentInfo();
+			rtd.setDepartname(departName);
+			rtd.setDepartdesc(departDesc);
+			rtd.setId(id);
+			rtd = userManager.createDepartment(rtd);;
+			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+			ret.setMsg("成功");
+			ret.setData("data",rtd);
+			ret.setRefresh(true);
+			return ret;
+		} catch (Exception e) {
+			e.printStackTrace();
+			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
+			ret.setMsg("异常失败");
+			return ret;
+		}
+	}
+
+	
+	/**
+	 * 获取部门列表，用于分享。
+	 * @param uid
+	 * @param token
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "getDepartList", method = { RequestMethod.POST, RequestMethod.GET })
+	public  ToWeb getDepartList(@RequestBody JSONObject user,  HttpServletRequest request)
+			throws Exception {
+		Double uid = user.getDouble("uid");
+		String token = user.getString("token");
+
+		Double userId = null;
+		try {
+			userId = Double.valueOf(uid);
+			if(userId == null || userId == 0) userId = Double.valueOf(0);
+		}catch(Exception e) {
+			userId = Double.valueOf(0);
+		}
+//		ToWeb ret = authercation(userId,token);
+		ToWeb ret = ToWeb.buildResult();
+		ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+		if(ret.getStatus()!= GlobalConsts.ResultCode_SUCCESS) return ret;
+		
+		List<DepartmentInfo> dl = userManager.getDepartList();
+		ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+		ret.putData("departs", dl);
 		return ret;
 	}
 
