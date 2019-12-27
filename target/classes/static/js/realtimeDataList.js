@@ -138,8 +138,8 @@ var dataItemId;
 function shareItemAction(itemId) {
 	dataItemId = itemId;
 	shareType = _routeType;//"realTimeData";
+	setParameter(shareType,itemId);
 	$('#shareItemAction_mid').modal('show');
-	loadUsers();
 }
 
 /**

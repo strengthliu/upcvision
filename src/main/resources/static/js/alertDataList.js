@@ -82,9 +82,9 @@ function deleteItemAction(itemId) {
 var dataItemId;
 function shareItemAction(itemId) {
 	dataItemId = itemId;
-	shareType = _routeType;//"alertData";
+	shareType = _routeType;
+	setParameter(shareType,itemId);
 	$('#shareItemAction_mid').modal('show');
-	loadUsers();
 }
 
 function doShareActionToServer(){

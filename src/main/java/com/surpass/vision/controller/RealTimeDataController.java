@@ -243,39 +243,45 @@ public class RealTimeDataController extends BaseController {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
 		String idstr = user.getString("id");
-		Double id = null ;
-		if(StringUtil.isBlank(idstr)) {
-			
-		}else {
+		Double id = null;
+		if (StringUtil.isBlank(idstr)) {
+
+		} else {
 			id = Double.valueOf(idstr);
 		}
-		
+
 		// 认证+权限
-		RealTimeData g = this.realTimeDataManager.getRealTimeDataByKeys(id);
+		RealTimeData g = realTimeDataManager.getRealTimeDataByKeys(id);
 		UserRight ur = g.getRight(uid);
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateRealTimeData,ur);
+
+		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateRealTimeData, ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 			return ret;
 
 		// 取出参数
-		// var data={'uid':uid,'token':token,'userIds':Array.from(selectedUsers),'type':"realTimeData"};
+		// var
+		// data={'uid':uid,'token':token,'userIds':Array.from(selectedUsers),'type':"Graph"};
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
 		JSONArray juserIds = user.getJSONArray("userIds");
-		String type = user.getString("type");
-			
-		List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
-		// TODO: 检查参数合法性
-
+		JSONArray jdepartIds = user.getJSONArray("departIds");
+		RealTimeData rtd = null;
+		List<String> userIds = null;
+		List<String> departIds = null;
+		if (juserIds != null && juserIds.size() > 0) {
+			userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
+		}
+		if (jdepartIds != null && jdepartIds.size() > 0) {
+			departIds = JSONObject.parseArray(jdepartIds.toJSONString(), String.class);
+		}
 		try {
-			RealTimeData rtd = realTimeDataManager.updateShareRight(id,userIds);
+			rtd = realTimeDataManager.updateShareRight(id, userIds, departIds);
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
-				userSpaceManager.updateRealTimeData(rtd,Double.valueOf(0));
+				userSpaceManager.updateRealTimeData(rtd, Double.valueOf(0));
 				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+				ret.setData("data", rtd);
 				ret.setMsg("成功");
-				ret.setData("data",rtd);
-				ret.setRefresh(true);
 				return ret;
 			} else
 				throw new Exception();
@@ -285,7 +291,7 @@ public class RealTimeDataController extends BaseController {
 			ret.setMsg("异常失败");
 			return ret;
 		}
-	}
+	}	
 
 //
 //    @MessageMapping("/hello/{index}")

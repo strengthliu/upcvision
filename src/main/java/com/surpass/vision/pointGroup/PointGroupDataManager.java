@@ -49,7 +49,7 @@ public class PointGroupDataManager {
 	@Autowired
 	UserManager userManager;
 	
-	public PointGroup updateShareRight(XYGraph instance,String type,Double itemId, List<String> userIdsid, List<String> depIdsid) {
+	public PointGroup updateShareRight(PointGroup instance,String type,Double itemId, List<String> userIdsid, List<String> depIdsid) {
 		// TODO Auto-generated method stub
 		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
 		if(pgd == null) {

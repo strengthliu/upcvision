@@ -19,6 +19,7 @@ import com.surpass.vision.domain.LineAlertData;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.RealTimeData;
 import com.surpass.vision.domain.User;
+import com.surpass.vision.domain.XYGraph;
 import com.surpass.vision.graph.GraphManager;
 import com.surpass.vision.lineAlertData.LineAlertDataManager;
 import com.surpass.vision.mapper.PointGroupDataMapper;
@@ -219,27 +220,10 @@ public class LineAlertDataManager extends PointGroupDataManager {
 		return oldRtd;	
 	}
 
-	public LineAlertData updateShareRight(Double itemId, List<String> userIdsid) {
-		// TODO Auto-generated method stub
-		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
-		if(pgd == null) {
-			throw new IllegalStateException("没有id为"+itemId+"这个数据");
-		}
-		String sharedUserIDs = "";
-		if(userIdsid != null) {
-			sharedUserIDs = IDTools.merge(userIdsid.toArray());
-		}
-		pgd.setShared(sharedUserIDs);
-		// 更新数据库
-		pointGroupService.updatePointGroupItem(pgd);
-		
-		// 更新缓存
-		LineAlertData rtd = this.copyFromPointGroupData(pgd);
-		// 写缓存LineAlertData，返回
-		redisService.set(GlobalConsts.Key_LineAlertData_pre_+IDTools.toString(rtd.getId()),rtd);
-
-		return rtd;
+	public LineAlertData updateShareRight(Double itemId, List<String> userIdsid, List<String> depIdsid) {
+		return (LineAlertData) updateShareRight(new LineAlertData(),GlobalConsts.Key_LineAlertData_pre_,itemId, userIdsid,depIdsid);
 	}
+	
 
 	public void updateLineAlertData(LineAlertData rtd) {
 		// 更新数据库

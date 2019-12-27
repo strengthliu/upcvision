@@ -37,6 +37,7 @@ import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.Graph;
 import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
+import com.surpass.vision.domain.Graph;
 import com.surpass.vision.exception.ExceptionEnum;
 import com.surpass.vision.exception.GirlFriendNotFoundException;
 import com.surpass.vision.exception.ResponseBean;
@@ -149,53 +150,35 @@ public class GraphController extends BaseController {
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
 		JSONArray juserIds = user.getJSONArray("userIds");
 		JSONArray jdepartIds = user.getJSONArray("departIds");
-		String type = user.getString("type");
 		Graph rtd = null;
-		if(juserIds!=null||juserIds.size()>0) {
-			try {
-				List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
-				rtd = graphManager.updateShareRight(id, userIds);
-				if (rtd != null) {
-					// 更新用户空间
-					UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
-					userSpaceManager.updateGraph(rtd, Double.valueOf(0));
-					ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
-					ret.setMsg("成功");
-				} else
-					throw new Exception();
-			} catch (Exception e) {
-				e.printStackTrace();
-				ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
-				ret.setMsg("异常失败");
+		List<String> userIds = null;
+		List<String> departIds = null;
+		if (juserIds != null && juserIds.size() > 0) {
+			userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
+		}
+		if (jdepartIds != null && jdepartIds.size() > 0) {
+			departIds = JSONObject.parseArray(jdepartIds.toJSONString(), String.class);
+		}
+		try {
+			rtd = graphManager.updateShareRight(id, userIds, departIds);
+			if (rtd != null) {
+				// 更新用户空间
+				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
+				userSpaceManager.updateGraph(rtd, Double.valueOf(0));
+				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+				ret.setData("data", rtd);
+				ret.setMsg("成功");
 				return ret;
-			}			
+			} else
+				throw new Exception();
+		} catch (Exception e) {
+			e.printStackTrace();
+			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
+			ret.setMsg("异常失败");
+			return ret;
 		}
-		if(jdepartIds!=null||jdepartIds.size()>0) {
-			try {
-				List<String> departIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
-				rtd = graphManager.updateShareRightDepartment(id, departIds);
-				if (rtd != null) {
-					// 更新用户空间
-					UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
-					userSpaceManager.updateGraph(rtd, Double.valueOf(0));
-					ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
-					ret.setMsg("成功");
-				} else
-					throw new Exception();
-			} catch (Exception e) {
-				e.printStackTrace();
-				ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
-				ret.setMsg("异常失败");
-				return ret;
-			}			
-		}
-		if(rtd!=null)
-			ret.setData("data", rtd);
-		else {
-			ret.setStatus(GlobalConsts.ResultCode_FAIL);
-		}
-		return ret;
 	}
+	
 
 	/**
 	 * 获取指定用户的实时数据列表

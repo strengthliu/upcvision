@@ -27,6 +27,7 @@ import com.surpass.vision.domain.AlertData;
 import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
+import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.historyData.HistoryDataManager;
 import com.surpass.vision.service.AuthorcationService;
 import com.surpass.vision.service.GraphService;
@@ -235,31 +236,37 @@ public class HistoryDataController extends BaseController {
 		}
 
 		// 认证+权限
-		HistoryData g = this.historyDataManager.getHistoryDataByKeys(id);
+		HistoryData g = historyDataManager.getHistoryDataByKeys(id);
 		UserRight ur = g.getRight(uid);
+
 		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateHistoryData, ur);
 		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
 			return ret;
 
 		// 取出参数
 		// var
-		// data={'uid':uid,'token':token,'userIds':Array.from(selectedUsers),'type':"HistoryData"};
+		// data={'uid':uid,'token':token,'userIds':Array.from(selectedUsers),'type':"Graph"};
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
 		JSONArray juserIds = user.getJSONArray("userIds");
-		String type = user.getString("type");
-		List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
-		// TODO: 检查参数合法性
-
+		JSONArray jdepartIds = user.getJSONArray("departIds");
+		HistoryData rtd = null;
+		List<String> userIds = null;
+		List<String> departIds = null;
+		if (juserIds != null && juserIds.size() > 0) {
+			userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
+		}
+		if (jdepartIds != null && jdepartIds.size() > 0) {
+			departIds = JSONObject.parseArray(jdepartIds.toJSONString(), String.class);
+		}
 		try {
-			HistoryData rtd = historyDataManager.updateShareRight(id, userIds);
+			rtd = historyDataManager.updateShareRight(id, userIds, departIds);
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
 				userSpaceManager.updateHistoryData(rtd, Double.valueOf(0));
 				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
-				ret.setMsg("成功");
 				ret.setData("data", rtd);
-				ret.setRefresh(true);
+				ret.setMsg("成功");
 				return ret;
 			} else
 				throw new Exception();
@@ -270,7 +277,6 @@ public class HistoryDataController extends BaseController {
 			return ret;
 		}
 	}
-	
 	/**
 	 * 获取一个历史数据
 	 * 

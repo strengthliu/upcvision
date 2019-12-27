@@ -654,7 +654,8 @@ public class UserSpaceManager {
 			try {
 				PointGroup p = (PointGroup) e.nextElement();
 				List<String> ls = p.removeUser(p.getId());
-				realTimeDataManager.updateShareRight(p.getId(),ls);
+				List<String> dls = p.removeDepart(p.getId());
+				realTimeDataManager.updateShareRight(p.getId(),ls,dls);
 			}catch(Exception ex) {	}
 		}
 		
@@ -664,7 +665,8 @@ public class UserSpaceManager {
 			try {
 				PointGroup p = (PointGroup) e.nextElement();
 				List<String> ls = p.removeUser(p.getId());
-				alertDataManager.updateShareRight(p.getId(),ls);
+				List<String> dls = p.removeDepart(p.getId());
+				alertDataManager.updateShareRight(p.getId(),ls,dls);
 			}catch(Exception ex) {	}
 		}
 
@@ -677,7 +679,8 @@ public class UserSpaceManager {
 			try {
 				PointGroup p = (PointGroup) e.nextElement();
 				List<String> ls = p.removeUser(p.getId());
-				historyDataManager.updateShareRight(p.getId(),ls);
+				List<String> dls = p.removeDepart(p.getId());
+				historyDataManager.updateShareRight(p.getId(),ls,dls);
 			}catch(Exception ex) {	}
 		}
 
@@ -687,7 +690,8 @@ public class UserSpaceManager {
 			try {
 				PointGroup p = (PointGroup) e.nextElement();
 				List<String> ls = p.removeUser(p.getId());
-				lineAlertDataManager.updateShareRight(p.getId(),ls);
+				List<String> dls = p.removeDepart(p.getId());
+				lineAlertDataManager.updateShareRight(p.getId(),ls,dls);
 			}catch(Exception ex) {	}
 		}
 
@@ -716,8 +720,9 @@ public class UserSpaceManager {
 				PointGroup p = (PointGroup) e.nextElement();
 				List<User> lu = p.getSharedUsers();
 				List<String> ls = p.removeUser(p.getId());
+				List<String> dls = p.removeDepart(p.getId());
 //				IDTools.splitID(str, splitChar)
-				AlertData rtd = alertDataManager.updateShareRight(p.getId(),ls);
+				AlertData rtd = alertDataManager.updateShareRight(p.getId(),ls,dls);
 			}catch(Exception ex) {	return false;}
 		}
 		return true;

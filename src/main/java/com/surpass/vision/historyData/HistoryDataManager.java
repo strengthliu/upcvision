@@ -23,6 +23,7 @@ import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.domain.User;
+import com.surpass.vision.domain.XYGraph;
 import com.surpass.vision.graph.GraphManager;
 import com.surpass.vision.lineAlertData.LineAlertDataManager;
 import com.surpass.vision.mapper.PointGroupDataMapper;
@@ -229,26 +230,8 @@ public class HistoryDataManager extends PointGroupDataManager {
 		return oldRtd;	
 	}
 
-	public HistoryData updateShareRight(Double itemId, List<String> userIdsid) {
-		// TODO Auto-generated method stub
-		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
-		if(pgd == null) {
-			throw new IllegalStateException("没有id为"+itemId+"这个数据");
-		}
-		String sharedUserIDs = "";
-		if(userIdsid != null) {
-			sharedUserIDs = IDTools.merge(userIdsid.toArray());
-		}
-		pgd.setShared(sharedUserIDs);
-		// 更新数据库
-		pointGroupService.updatePointGroupItem(pgd);
-		
-		// 更新缓存
-		HistoryData rtd = this.copyFromPointGroupData(pgd);
-		// 写缓存HistoryData，返回
-		redisService.set(GlobalConsts.Key_HistoryData_pre_+IDTools.toString(rtd.getId()),rtd);
-
-		return rtd;
+	public HistoryData updateShareRight(Double itemId, List<String> userIdsid, List<String> depIdsid) {
+		return (HistoryData) updateShareRight(new HistoryData(),GlobalConsts.Key_HistoryData_pre_,itemId, userIdsid,depIdsid);
 	}
 
 	public void updateHistoryData(HistoryData rtd) {

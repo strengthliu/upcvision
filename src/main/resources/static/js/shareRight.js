@@ -4,6 +4,8 @@
 console.log("userSpace => "+JSON.stringify(userSpace));
 var itemId,shareType;
 var dataItem;
+var shareURL;
+
 function setParameter(_shareType,_itemId){
 	_setParameter(_shareType,_itemId);
 //	console.log("dataItem -> "+JSON.stringify(dataItem));
@@ -16,25 +18,30 @@ function _setParameter(_shareType,_itemId){
 	switch(shareType){
 	case 'xydiagramlist'.toLowerCase():
 		dataItem = userSpace.xyGraph[itemId];
+		shareURL = "shareRightXYGraph";
 		break;
 	case 'diagramList'.toLowerCase():
 		_galleryKey = key;
 		_routeID = key;
 		_graphId = graphId;
-
-// dataItem = userSpace.xyGraph[itemId];
+		
+		shareURL = "shareRightGraph";
 		break;
 	case 'realtimedataList'.toLowerCase():
 		dataItem = userSpace.realTimeData[itemId];
+		shareURL = "shareRightRealTimeData";
 		break;
 	case 'alertdataList'.toLowerCase():
 		dataItem = userSpace.alertData[itemId];
+		shareURL = "shareRightAlertData";
 		break;
 	case 'historydataList'.toLowerCase():
 		dataItem = userSpace.historyData[itemId];
+		shareURL = "shareRightHistoryData";
 		break;
 	case 'lineAlertdataList'.toLowerCase():
 		dataItem = userSpace.lineAlertData[itemId];
+		shareURL = "shareRightLineAlertData";
 		break;
 	}
 }
@@ -186,8 +193,6 @@ var _dialogType;
 								},
 								controller : {
 									loadData : function(filter) {
-										console.log("loadData : function(filter) -filter = "+JSON.stringify(filter));
-
 										console.log("shareItemToDepart -> loadData");
 										var d = $.Deferred();
 										{
@@ -281,6 +286,187 @@ var _dialogType;
 	});
 })(jQuery);
 
+
+
+function updateShareToUser(item,dataItem) {
+	var value = item.shared;
+//	console.log("updateShareToUser");
+	// 根据value，把item加入或减出dataItem
+//	console.log("updateShart -》 "+JSON.stringify(item)+"  value="+value+" dataItem-> "+JSON.stringify(dataItem));
+	var data;
+	var sharedUsers = dataItem.sharedUsers;
+	var sharedDepartment = dataItem.sharedDepartment;
+	var userIds = new Array();
+	var departIds = new Array();
+	// 提交分享数据
+	if(!value){ // 增加一个分享用户
+		for(var ind=0;ind<sharedUsers.length;ind++){
+			var sharedUser = sharedUsers[ind];
+			userIds.push(sharedUser.id);
+		}
+		userIds.push(item.id);
+		if(sharedDepartment!=null&& sharedDepartment!="undefined")
+		for(var ind=0;ind<sharedDepartment.length;ind++){
+			departIds.push(sharedDepartment[ind].id);
+		}
+		data={'uid':uid,'token':token,'id':dataItemId,'userIds':userIds,'departIds':departIds};
+	} else {
+		for(var ind=0;ind<sharedUsers.length;ind++){
+			var sharedUser = sharedUsers[ind];
+			if(sharedUser.id!=item.id)
+				userIds.push(sharedUser.id);
+		}
+		if(sharedDepartment!=null&& sharedDepartment!="undefined")
+		for(var ind=0;ind<sharedDepartment.length;ind++){
+			var sharedDepartmentItem = sharedDepartment[ind];
+//			if(sharedDepartmentItem.id != item.id)
+			departIds.push(sharedDepartmentItem.id);
+		}
+		data={'uid':uid,'token':token,'id':dataItemId,'userIds':userIds,'departIds':departIds};
+	}
+
+	$.ajax({
+				type : "POST",
+				url : shareURL,
+				data: JSON.stringify(data),
+				contentType : "application/json",
+				datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
+				beforeSend : function() {
+					showLoading();
+				},
+				success : function(data) {
+					if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+//						 console.log("server info : "+JSON.stringify(data.data.data));
+						var ddd = data.data.data;
+						
+						switch(shareType){
+						case 'xydiagramlist'.toLowerCase():
+							userSpace.xyGraph[ddd.id]=ddd;
+							break;
+						case 'diagramList'.toLowerCase():
+							userSpace.graph[ddd.id]=ddd;
+							break;
+						case 'realtimedataList'.toLowerCase():
+							userSpace.realTimeData[ddd.id]=ddd;
+							break;
+						case 'alertdataList'.toLowerCase():
+							userSpace.alertData[ddd.id]=ddd;
+							break;
+						case 'historydataList'.toLowerCase():
+							userSpace.historyData[ddd.id]=ddd;
+							break;
+						case 'lineAlertdataList'.toLowerCase():
+							userSpace.lineAlertData[ddd.id]=ddd;
+							break;
+						}
+						$("#shareItemToUser").jsGrid("loadData", {});
+					} else {
+						alert("失败 ： " + data.msg);
+					}
+					hideLoading();
+				},
+				// 调用执行后调用的函数
+				complete : function(XMLHttpRequest, textStatus) {
+					hideLoading();
+				},
+				// 调用出错执行的函数
+				error : function(jqXHR, textStatus, errorThrown) {
+					hideLoading();
+				}
+			});
+
+}
+
+function updateShareToDepart(item,dataItem) {
+	var value = item.shared;
+	console.log("updateShareToUser");
+	// 根据value，把item加入或减出dataItem
+	console.log("updateShart -》 "+JSON.stringify(item)+"  value="+value+" dataItem-> "+JSON.stringify(dataItem));
+	var data;
+	var sharedUsers = dataItem.sharedUsers;
+	var sharedDepartment = dataItem.sharedDepartment;
+	var userIds = new Array();
+	var departIds = new Array();
+	// 提交分享数据
+	if(!value){
+		for(var ind=0;ind<sharedUsers.length;ind++){
+			var sharedUser = sharedUsers[ind];
+			userIds.push(sharedUser.id);
+		}
+		 // 增加一个分享部门
+		if(sharedDepartment!=null&& sharedDepartment!="undefined")
+		for(var ind=0;ind<sharedDepartment.length;ind++){
+			departIds.push(sharedDepartment[ind].id);
+		}
+		departIds.push(item.id);
+		data={'uid':uid,'token':token,'id':dataItemId,'userIds':userIds,'departIds':departIds};
+	} else {
+		for(var ind=0;ind<sharedDepartment.length;ind++){
+			var _sharedDepartment = sharedDepartment[ind];
+			if(_sharedDepartment.id!=item.id)
+				departIds.push(_sharedDepartment.id);
+		}
+		if(sharedUsers!=null&& sharedUsers!="undefined")
+		for(var ind=0;ind<sharedUsers.length;ind++){
+			var sharedUser = sharedUsers[ind];
+//			if(sharedDepartmentItem.id != item.id)
+			userIds.push(sharedUser.id);
+		}
+		data={'uid':uid,'token':token,'id':dataItemId,'userIds':userIds,'departIds':departIds};
+	}
+	console.log("data-> "+JSON.stringify(data));
+	$.ajax({
+				type : "POST",
+				url : shareURL,
+				data: JSON.stringify(data),
+				contentType : "application/json",
+				datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
+				beforeSend : function() {
+					showLoading();
+				},
+				success : function(data) {
+					if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+//						 console.log("server info : "+JSON.stringify(data.data.data));
+						var ddd = data.data.data;
+						
+						switch(shareType){
+						case 'xydiagramlist'.toLowerCase():
+							userSpace.xyGraph[ddd.id]=ddd;
+							break;
+						case 'diagramList'.toLowerCase():
+							userSpace.graph[ddd.id]=ddd;
+							break;
+						case 'realtimedataList'.toLowerCase():
+							userSpace.realTimeData[ddd.id]=ddd;
+							break;
+						case 'alertdataList'.toLowerCase():
+							userSpace.alertData[ddd.id]=ddd;
+							break;
+						case 'historydataList'.toLowerCase():
+							userSpace.historyData[ddd.id]=ddd;
+							break;
+						case 'lineAlertdataList'.toLowerCase():
+							userSpace.lineAlertData[ddd.id]=ddd;
+							break;
+						}
+						$("#shareItemToDepart").jsGrid("loadData", {});
+					} else {
+						alert("失败 ： " + data.msg);
+					}
+					hideLoading();
+				},
+				// 调用执行后调用的函数
+				complete : function(XMLHttpRequest, textStatus) {
+					hideLoading();
+				},
+				// 调用出错执行的函数
+				error : function(jqXHR, textStatus, errorThrown) {
+					hideLoading();
+				}
+			});
+
+}
+
 function loadUsers() {
 	console.log(0);
 	selectedUsers = new Set();
@@ -290,7 +476,6 @@ function loadUsers() {
 		alert("请选择要分享的内容。");
 		// return;
 	} else {
-
 		if (users == null || users == "undefined") {
 			console.log(2);
 			// getUserList(fillUserUI);

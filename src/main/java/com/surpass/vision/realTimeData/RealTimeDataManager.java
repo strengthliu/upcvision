@@ -18,6 +18,7 @@ import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.RealTimeData;
 import com.surpass.vision.domain.User;
+import com.surpass.vision.domain.XYGraph;
 import com.surpass.vision.pointGroup.PointGroupDataManager;
 import com.surpass.vision.server.Point;
 import com.surpass.vision.server.ServerManager;
@@ -209,25 +210,8 @@ public class RealTimeDataManager extends PointGroupDataManager {
 		return oldRtd;	
 	}
 
-	public RealTimeData updateShareRight(Double itemId, List<String> userIdsid) {
-		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
-		if(pgd == null) {
-			throw new IllegalStateException("没有id为"+itemId+"这个数据");
-		}
-		String sharedUserIDs = "";
-		if(userIdsid != null) {
-			sharedUserIDs = IDTools.merge(userIdsid.toArray());
-		}
-		pgd.setShared(sharedUserIDs);
-		// 更新数据库
-		pointGroupService.updatePointGroupItem(pgd);
-		
-		// 更新缓存
-		RealTimeData rtd = this.copyFromPointGroupData(pgd);
-		// 写缓存RealTimeData，返回
-		redisService.set(GlobalConsts.Key_RealTimeData_pre_+IDTools.toString(rtd.getId()),rtd);
-
-		return rtd;
+	public RealTimeData updateShareRight(Double itemId, List<String> userIdsid, List<String> depIdsid) {
+		return (RealTimeData) updateShareRight(new RealTimeData(),GlobalConsts.Key_RealTimeData_pre_,itemId, userIdsid,depIdsid);
 	}
 
 	public void updateRealTimeData(RealTimeData rtd) {

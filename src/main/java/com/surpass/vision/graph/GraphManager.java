@@ -17,6 +17,7 @@ import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.Graph;
 import com.surpass.vision.domain.HistoryData;
 import com.surpass.vision.domain.PointGroupData;
+import com.surpass.vision.domain.XYGraph;
 import com.surpass.vision.mapper.PointGroupDataMapper;
 import com.surpass.vision.server.ServerManager;
 import com.surpass.vision.service.RedisService;
@@ -330,25 +331,8 @@ System.out.println(aa.length);
 	}
 	
 
-	public Graph updateShareRight(Double itemId, List<String> userIdsid) {
-		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
-		if(pgd == null) {
-			throw new IllegalStateException("没有id为"+itemId+"这个数据");
-		}
-		String sharedUserIDs = "";
-		if(userIdsid != null) {
-			sharedUserIDs = IDTools.merge(userIdsid.toArray());
-		}
-		pgd.setShared(sharedUserIDs);
-		// 更新数据库
-		pointGroupService.updatePointGroupItem(pgd);
-		
-		// 更新缓存
-		Graph rtd = this.copyFromPointGroupData(pgd);
-		// 写缓存HistoryData，返回
-		redisService.set(GlobalConsts.Key_Graph_pre_+IDTools.toString(rtd.getId()),rtd);
-	
-		return rtd;	
+	public Graph updateShareRight(Double itemId, List<String> userIdsid, List<String> depIdsid) {
+		return (Graph) updateShareRight(new Graph(),GlobalConsts.Key_Graph_pre_,itemId, userIdsid,depIdsid);
 	}
 
 	public Graph getGraphByKeys(Double oldRtdId) {

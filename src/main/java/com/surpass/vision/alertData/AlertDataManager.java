@@ -19,6 +19,7 @@ import com.surpass.vision.domain.PointAlertData;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.AlertData;
 import com.surpass.vision.domain.User;
+import com.surpass.vision.domain.XYGraph;
 import com.surpass.vision.graph.GraphManager;
 import com.surpass.vision.historyData.HistoryDataManager;
 import com.surpass.vision.lineAlertData.LineAlertDataManager;
@@ -222,27 +223,8 @@ public class AlertDataManager extends PointGroupDataManager {
 		return oldRtd;	
 	}
 
-	public AlertData updateShareRight(Double itemId, List<String> userIdsid) {
-		// TODO Auto-generated method stub
-		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
-		if(pgd == null) {
-			throw new IllegalStateException("没有id为"+itemId+"这个数据");
-		}
-		String sharedUserIDs = "";
-		if(userIdsid != null) {
-			sharedUserIDs = IDTools.merge(userIdsid.toArray());
-		}
-		pgd.setShared(sharedUserIDs);
-		// 更新数据库
-		pointGroupService.updatePointGroupItem(pgd);
-		
-		// 更新缓存 
-		// TODO: 现在出现当用户删除以后，数据的共享用户是两个空值，怀疑是这里的问题
-		AlertData rtd = this.copyFromPointGroupData(pgd);
-		// 写缓存AlertData，返回
-		redisService.set(GlobalConsts.Key_AlertData_pre_+IDTools.toString(rtd.getId()),rtd);
-									  
-		return rtd;
+	public AlertData updateShareRight(Double itemId, List<String> userIdsid, List<String> depIdsid) {
+		return (AlertData) updateShareRight(new AlertData(),GlobalConsts.Key_AlertData_pre_,itemId, userIdsid,depIdsid);
 	}
 
 	public void updateAlertData(AlertData rtd) {
