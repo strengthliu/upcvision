@@ -21,7 +21,9 @@
 			Name : "普通用户",
 			Id : 3
 		} ];
+		var _depart = departdata;
 		// basic config
+		console.log("222-"+JSON.stringify(departdata));
 		if ($("#userInfoList").length) {
 			$("#userInfoList")
 					.jsGrid(
@@ -313,7 +315,10 @@
 											title : "部门",
 											editing : false,
 											name : "depart",
-											type : "text",
+											type : "select",
+											items : departdata,
+											valueField : "id",
+											textField : "departname",
 											width : 100
 										},
 										{
@@ -345,6 +350,10 @@
 		}
 
 //		var formSubmitHandler = $.noop;
+		function showDialoag(){
+			fillDepartmentSelect();
+			$('#userManager_edit_modal').modal('show');
+		}
 
 		var showDetailsDialog = function(dialogType, client) {
 			_dialogType = dialogType;
@@ -353,7 +362,8 @@
 			gf.value = "";
 			gf.outerHTML = gf.outerHTML;
 
-			$('#userManager_edit_modal').modal('show');
+			fillDepartmentData(showDialoag)
+//			$('#userManager_edit_modal').modal('show');
 			switch(dialogType){
 			case "Edit":
 				tuserInfo = client;
@@ -361,7 +371,8 @@
 				$("#_name").val(client.name);
 				$("#_username").val(client.username);
 				$("#_useraddress").val(client.address);
-				$("#_userdepart").val(client.depart);
+//				$("#_userdepart").val(client.depart);
+				setTUserInfo('depart',client.depart);
 				$("#_userdesc").val(client.desc);
 				$("#_usermobile").val(client.mobile);
 				$("#_useremail").val(client.email);
@@ -384,7 +395,6 @@
 				}
 				break;
 			case "Add":
-				
 				tuserInfo = client;
 				 console.log("Add  = "+JSON.stringify(client));
 				$("#_name").val(null);
@@ -408,7 +418,6 @@
 
 				break;
 			}
-
 		};
 	});
 })(jQuery);
@@ -439,7 +448,6 @@ function _insertItem(item) {
 	    	ajaxUploadPortrait(resolve,reject);
 	    });
 	    promise.then(function(value) {
-	    	
 	    	// 如果数据都正确，就执行上传。
 	    	item.photo = value;
 	    	console.log("_insertItem 1-> "+JSON.stringify(item));
@@ -448,34 +456,18 @@ function _insertItem(item) {
 	    	if(_dialogType=="Edit")
 	    		$("#userInfoList").jsGrid("updateItem", item);
 	        $('#userManager_edit_modal').modal('hide');
-
-//	    	ajaxUpdateUserInfo(value,function(value){
-//	    		console.log("v="+JSON.stringify(value));
-////	    		fixGraphList(value.data.graph);
-//	    	},function(err){
-//	    		console.log("err -> "+JSON.stringify(err));
-//	    	});
 	    },function(err){
-	    	
 	    });	
 	    hideLoading();
 		return;
 	}else{ // 如果没有图形，就是只改名字、描述。
 		console.log("没有图形，只修改名字描述。");
-		
 		// 如果数据都正确，就执行上传。
     	if(_dialogType=="Add")
     		$("#userInfoList").jsGrid("insertItem", item);
     	if(_dialogType=="Edit")
     		$("#userInfoList").jsGrid("updateItem", item);
         $('#userManager_edit_modal').modal('hide');
-
-//		ajaxUpdateUserInfo(null,function(value){
-//    		console.log("v="+JSON.stringify(value));
-////    		fixGraphList(value.data.graph);
-//		},function(err){
-//    		console.log("err -> "+JSON.stringify(err));			
-//		});
 		return;
 	}
 
@@ -534,6 +526,17 @@ function setTUserInfo(k, v) {
 		case 3:
 			_droprole.innerHTML = "普通用户";
 			break;
+		}
+	}
+	if (k == "depart") {
+//		console.log("depart -> "+v);
+		var _dropdepart = document.getElementById("_userdeparttext");
+		for(var inddep=0;inddep<departdata.length;inddep++){
+			var dep = departdata[inddep];
+			if(dep.id == v){
+				_dropdepart.innerHTML = dep.departname;
+				break;
+			}
 		}
 	}
 
@@ -729,3 +732,78 @@ function deleteCurrentUser() {
 }
 
 
+fillDepartmentSelect();
+function fillDepartmentSelect() {
+	var _dropdepart = document.getElementById("_departSelectItems");
+	_dropdepart.innerHTML = "";
+	var _dropdepartinnerHTML = "";
+//	console.log("departdata.length= "+departdata.length);
+	for(var inddep=0;inddep<departdata.length;inddep++){
+		var dep = departdata[inddep];
+		var itemstr = '<a class="dropdown-item" onclick="setTUserInfo(\'depart\','+dep.id+');">'+dep.departname+'</a>';
+		_dropdepartinnerHTML += itemstr;
+	}
+	_dropdepart.innerHTML = _dropdepartinnerHTML;
+}
+var departdata ;
+fillDepartmentData();
+function fillDepartmentData(func) {
+	var data = {
+		'uid' : 2,
+		'token' : token
+	};
+	console.log("fdsfdsafdsa");
+	$.ajax({
+		// 提交数据的类型 POST
+		// GET
+		type : "POST",
+		// 提交的网址
+		url : "getDepartList",
+		// 提交的数据
+		data : JSON.stringify(data),
+		contentType : "application/json",
+		// 返回数据的格式
+		datatype : "json",// "xml",
+		// "html",
+		// "script",
+		// "json",
+		// "jsonp",
+		// "text".
+		// 在请求之前调用的函数
+		beforeSend : function() {
+			showLoading();
+		},
+		// 成功返回之后调用的函数
+		success : function(data) {
+			if (data.status == "000") { // GlobalConsts.ResultCode_SUCCESS)
+				console.log("department => " + JSON.stringify(data));
+				var departs = data.data.departs;
+				departdata = new Array();
+				for(var inddep=0;inddep<departs.length;inddep++){
+					var dep = new Object();
+					var depdata = departs[inddep];
+					Object.keys(depdata).forEach(function(key){
+						var value = depdata[key];
+						if(key=="id") value = value+"";
+						dep[key] = value;
+					});
+					departdata.push(dep);
+				}
+				if(func!=null&&func!="undefined")
+					func();
+			} else {
+				console.log("department => " + JSON.stringify(data));
+				alert("失败11 ： " + data.msg);
+			}
+			hideLoading();
+		},
+		// 调用执行后调用的函数
+		complete : function(XMLHttpRequest, textStatus) {
+			hideLoading();
+		},
+		// 调用出错执行的函数
+		error : function(jqXHR, textStatus, errorThrown) {
+			hideLoading();
+		}
+	});
+}

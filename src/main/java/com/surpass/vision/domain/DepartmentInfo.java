@@ -1,6 +1,8 @@
 package com.surpass.vision.domain;
 
-public class DepartmentInfo extends BaseDomain {
+import java.io.Serializable;
+
+public class DepartmentInfo extends BaseDomain implements Serializable,Cloneable  {
     private Integer id;
 
     private String departname;
@@ -30,4 +32,10 @@ public class DepartmentInfo extends BaseDomain {
     public void setDepartdesc(String departdesc) {
         this.departdesc = departdesc == null ? null : departdesc.trim();
     }
+    
+    @Override
+    public DepartmentInfo clone() throws CloneNotSupportedException {
+    	return (DepartmentInfo) super.clone();
+    }
+
 }

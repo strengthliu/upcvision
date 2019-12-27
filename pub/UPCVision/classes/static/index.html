@@ -298,8 +298,12 @@
 					</a>
 						<div class="dropdown-menu navbar-dropdown w-100"
 							aria-labelledby="profileDropdown">
-
-							<!-- <a class="dropdown-item" onclick="routeTo('userManage','')"> -->
+							<!-- 
+							<a class="dropdown-item" onclick="showUserInfoDialog(null, null)">
+								<i class="mdi mdi-cached mr-2 text-success"></i> 个人喜好设置
+							</a>
+							 -->
+							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" onclick="showUserInfoDialog(null, null)">
 								<i class="mdi mdi-cached mr-2 text-success"></i> 修改个人信息
 							</a>
@@ -570,10 +574,14 @@
 
 					<!-- *******************************  用户管理 ******************************* -->
 					<!-- 
-					<li class="nav-item nav-category"><span class="nav-link">用户管理</span>
-					</li>
 					 -->
-					<li id="_userManager" class="nav-item" onclick="routeTo('userManage','')"><span
+					<li class="nav-item nav-category" id="userManagePart_Title" style="display:none;"><span class="nav-link">用户管理</span>
+					</li>
+					<li id="_departManager" class="nav-item" onclick="routeTo('departManage','')" style="display:none;"><span
+						class="nav-link"> <i class="icon-lock menu-icon"></i> <span
+							class="menu-title">部门管理</span>
+					</span></li>
+					<li id="_userManager" class="nav-item" onclick="routeTo('userManage','')" style="display:none;"><span
 						class="nav-link"> <i class="icon-lock menu-icon"></i> <span
 							class="menu-title">用户管理</span>
 					</span></li>
@@ -826,6 +834,8 @@
 	<script src="js/imgpreview.js"></script>
 	<script src="js/form-validation.js"></script>
 	<script src="js/bt-maxLength.js"></script>
+	
+<script src="js/userAndDepart.js"></script>
 
 	<!-- endinject -->
 	<!-- Custom js for this page-->

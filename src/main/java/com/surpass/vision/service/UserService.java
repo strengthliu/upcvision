@@ -13,6 +13,8 @@ public interface UserService {
 	//UserSpace buildUserSpace(Integer userID, String... token);
 
 	public UserInfo getUserById(Double userID);
+	
+	public DepartmentInfo getDepartById(Integer depID);
 
 	public List<UserInfo> getAllUsers();
 

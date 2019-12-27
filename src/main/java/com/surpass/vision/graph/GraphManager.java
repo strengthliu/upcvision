@@ -307,6 +307,28 @@ System.out.println(aa.length);
 //		}
 //	}
 
+	public Graph updateShareRightDepartment(Double itemId, List<String> depIdsid) {
+		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
+		if(pgd == null) {
+			throw new IllegalStateException("没有id为"+itemId+"这个数据");
+		}
+		String sharedDepIDs = "";
+		if(depIdsid != null) {
+			sharedDepIDs = IDTools.merge(depIdsid.toArray());
+		}
+		pgd.setShareddepart(sharedDepIDs);
+		// 更新数据库
+		pointGroupService.updatePointGroupItem(pgd);
+		
+		// 更新缓存
+		Graph rtd = this.copyFromPointGroupData(pgd);
+		// 写缓存HistoryData，返回
+		redisService.set(GlobalConsts.Key_Graph_pre_+IDTools.toString(rtd.getId()),rtd);
+	
+		return rtd;	
+		
+	}
+	
 
 	public Graph updateShareRight(Double itemId, List<String> userIdsid) {
 		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);

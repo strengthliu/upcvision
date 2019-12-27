@@ -63,6 +63,15 @@ public class PointGroup extends PointGroupData implements Serializable,Cloneable
 	}
 
 	List<User> sharedUsers; // 共享者 
+	List<DepartmentInfo> sharedDepartment;
+	
+	public List<DepartmentInfo> getSharedDepartment() {
+		return sharedDepartment;
+	}
+
+	public void setSharedDepartment(List<DepartmentInfo> sharedDepartment) {
+		this.sharedDepartment = sharedDepartment;
+	}
 
 	String type;
 	public User getCreaterUser() {
@@ -155,6 +164,21 @@ public class PointGroup extends PointGroupData implements Serializable,Cloneable
 		this.setSharedUsers(us);
 		return ret;
 	}
+	
+	public List<String> removeDepart(Double id2) {
+		ArrayList<String> ret = new ArrayList<String>();
+		ArrayList<DepartmentInfo> us = new ArrayList<DepartmentInfo>();
+		for(int i=0;i<this.sharedDepartment.size();i++) {
+			DepartmentInfo u = sharedDepartment.get(i);
+			if(u.getId().doubleValue() != id2) {
+				ret.add(IDTools.toString(u.getId()));
+				us.add(u);
+			}
+		}
+		this.setShareddepart(IDTools.merge(ret.toArray()));
+		this.setSharedDepartment(us);
+		return ret;
+	}
 
 	// 更新数据方法
 	
@@ -186,6 +210,12 @@ public class PointGroup extends PointGroupData implements Serializable,Cloneable
 			List<User> sharedUsers = new ArrayList<User>();
 			for(int indsu=0;indsu<this.sharedUsers.size();indsu++)
 				sharedUsers.add(this.sharedUsers.get(indsu).clone());
+			ret.setSharedUsers(sharedUsers);
+		}
+		if(this.sharedDepartment!=null) {
+			List<DepartmentInfo> sharedDepartment = new ArrayList<DepartmentInfo>();
+			for(int indsu=0;indsu<this.sharedDepartment.size();indsu++)
+				sharedDepartment.add(this.sharedDepartment.get(indsu).clone());
 			ret.setSharedUsers(sharedUsers);
 		}
 		return ret;

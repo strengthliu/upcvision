@@ -697,7 +697,8 @@ public class UserSpaceManager {
 			try {
 				PointGroup p = (PointGroup) e.nextElement();
 				List<String> ls = p.removeUser(p.getId());
-				xYGraphManager.updateShareRight(p.getId(),ls);
+				List<String> dls = p.removeDepart(p.getId());
+				xYGraphManager.updateShareRight(p.getId(),ls,dls);
 			}catch(Exception ex) {	}
 		}
 

@@ -148,30 +148,53 @@ public class GraphController extends BaseController {
 		// data={'uid':uid,'token':token,'userIds':Array.from(selectedUsers),'type':"Graph"};
 		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
 		JSONArray juserIds = user.getJSONArray("userIds");
+		JSONArray jdepartIds = user.getJSONArray("departIds");
 		String type = user.getString("type");
-
-		List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
-		// TODO: 检查参数合法性
-
-		try {
-			Graph rtd = graphManager.updateShareRight(id, userIds);
-			if (rtd != null) {
-				// 更新用户空间
-				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
-				userSpaceManager.updateGraph(rtd, Double.valueOf(0));
-				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
-				ret.setMsg("成功");
-				ret.setData("data", rtd);
-				ret.setRefresh(true);
+		Graph rtd = null;
+		if(juserIds!=null||juserIds.size()>0) {
+			try {
+				List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
+				rtd = graphManager.updateShareRight(id, userIds);
+				if (rtd != null) {
+					// 更新用户空间
+					UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
+					userSpaceManager.updateGraph(rtd, Double.valueOf(0));
+					ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+					ret.setMsg("成功");
+				} else
+					throw new Exception();
+			} catch (Exception e) {
+				e.printStackTrace();
+				ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
+				ret.setMsg("异常失败");
 				return ret;
-			} else
-				throw new Exception();
-		} catch (Exception e) {
-			e.printStackTrace();
-			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
-			ret.setMsg("异常失败");
-			return ret;
+			}			
 		}
+		if(jdepartIds!=null||jdepartIds.size()>0) {
+			try {
+				List<String> departIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
+				rtd = graphManager.updateShareRightDepartment(id, departIds);
+				if (rtd != null) {
+					// 更新用户空间
+					UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
+					userSpaceManager.updateGraph(rtd, Double.valueOf(0));
+					ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+					ret.setMsg("成功");
+				} else
+					throw new Exception();
+			} catch (Exception e) {
+				e.printStackTrace();
+				ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
+				ret.setMsg("异常失败");
+				return ret;
+			}			
+		}
+		if(rtd!=null)
+			ret.setData("data", rtd);
+		else {
+			ret.setStatus(GlobalConsts.ResultCode_FAIL);
+		}
+		return ret;
 	}
 
 	/**

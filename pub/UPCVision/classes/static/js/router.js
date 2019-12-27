@@ -179,6 +179,11 @@ function routeTo(diagram, key, graphId) {
 		break;
 
 	//     
+	case "departManage".toLowerCase():
+		currentUser = key;
+		$("#mainPanel").load("_departManage.html",null,hideLoading);
+		mainInfoNr.style.visibility = 'hidden';
+		break;
 	case "userManage".toLowerCase():
 		currentUser = key;
 		$("#mainPanel").load("_userManage.html",null,hideLoading);

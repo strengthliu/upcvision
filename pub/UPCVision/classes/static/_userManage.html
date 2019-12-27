@@ -70,7 +70,7 @@
 											<div class="form-group col-md-12">
 												<label class="col-md-4" for="designation">登录名(必填)</label> <input
 													type="text" class="form-control col-md-8" id="_name"
-													placeholder="Change depart description"
+													placeholder="请填写用户登录时使用的名称"
 													onChange="setTUserInfo('name',this.value);">
 											</div>
 										</div>
@@ -82,6 +82,7 @@
 													onChange="setTUserInfo('address',this.value);">
 											</div>
 										</div>
+										<!-- 
 										<div class="row">
 											<div class="form-group col-md-12">
 												<label class="col-md-4" for="designation">部门</label> <input
@@ -90,6 +91,23 @@
 													onChange="setTUserInfo('depart',this.value);">
 											</div>
 										</div>
+										 -->
+										<div class="row">
+											<div class="form-group col-md-12">
+												<label class="col-md-4" for="website">部门(必填)</label>
+												<div class="dropdown col-md-8">
+													<button class="btn btn-secondary dropdown-toggle"
+														type="button" id="_userdeparttext" data-toggle="dropdown"
+														aria-haspopup="true" aria-expanded="false">请选择</button>
+													<div class="dropdown-menu"
+														aria-labelledby="dropdownMenuButton2" id="_departSelectItems">
+														<a class="dropdown-item" onclick="setTUserInfo('depart',1);">XXX</a>
+														<div class="dropdown-divider"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										
 										<div class="row">
 											<div class="form-group col-md-12">
 												<label class="col-md-4" for="designation">描述</label> <input

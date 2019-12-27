@@ -3,6 +3,7 @@ package com.surpass.vision.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
@@ -414,28 +415,18 @@ public class AuthorcationController extends BaseController {
 	    ToWeb ret ;
 		String idstr = user.getString("id");
 		Integer id = null ;
-			// 新建
-			// 认证+权限
-			UserRight ur = new UserRight();
-			ret = authercation(uid, token, GlobalConsts.Operation_createUser,ur);
-			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
-				return ret;
-			if(StringUtil.isBlank(idstr)) {
-				id = newDepartId();	
-			}
-
-//		}
-//		else {
-//			// 修改
-//			id = Integer.valueOf(idstr);
-//			// 认证+权限
-//			DepartmentInfo g = this.userManager.getUserInfoByID(idstr);
-//			UserRight ur = g.getRight(id);
-//			ret = authercation(uid, token, GlobalConsts.Operation_updateUserInfo,ur);
-//			if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
-//				return ret;
-//		}
-		
+		// 新建
+		// 认证+权限
+		UserRight ur = new UserRight();
+		ret = authercation(uid, token, GlobalConsts.Operation_createUser,ur);
+		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+			return ret;
+		if(StringUtil.isBlank(idstr)) {
+			id = newDepartId();	
+		}else {
+			id = Integer.valueOf(idstr);
+		}
+		System.out.println("current -> "+new Date().toString());
 		try {
 			DepartmentInfo rtd = new DepartmentInfo();
 			rtd.setDepartname(departName);

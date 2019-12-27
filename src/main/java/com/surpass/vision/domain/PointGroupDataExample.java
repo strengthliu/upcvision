@@ -933,6 +933,76 @@ public class PointGroupDataExample {
             addCriterion("otherRule5 not between", value1, value2, "otherrule5");
             return (Criteria) this;
         }
+
+        public Criteria andShareddepartIsNull() {
+            addCriterion("sharedDepart is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareddepartIsNotNull() {
+            addCriterion("sharedDepart is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareddepartEqualTo(String value) {
+            addCriterion("sharedDepart =", value, "shareddepart");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareddepartNotEqualTo(String value) {
+            addCriterion("sharedDepart <>", value, "shareddepart");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareddepartGreaterThan(String value) {
+            addCriterion("sharedDepart >", value, "shareddepart");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareddepartGreaterThanOrEqualTo(String value) {
+            addCriterion("sharedDepart >=", value, "shareddepart");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareddepartLessThan(String value) {
+            addCriterion("sharedDepart <", value, "shareddepart");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareddepartLessThanOrEqualTo(String value) {
+            addCriterion("sharedDepart <=", value, "shareddepart");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareddepartLike(String value) {
+            addCriterion("sharedDepart like", value, "shareddepart");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareddepartNotLike(String value) {
+            addCriterion("sharedDepart not like", value, "shareddepart");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareddepartIn(List<String> values) {
+            addCriterion("sharedDepart in", values, "shareddepart");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareddepartNotIn(List<String> values) {
+            addCriterion("sharedDepart not in", values, "shareddepart");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareddepartBetween(String value1, String value2) {
+            addCriterion("sharedDepart between", value1, value2, "shareddepart");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareddepartNotBetween(String value1, String value2) {
+            addCriterion("sharedDepart not between", value1, value2, "shareddepart");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

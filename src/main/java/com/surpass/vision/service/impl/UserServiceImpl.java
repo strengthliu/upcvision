@@ -96,6 +96,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public void createOrUpdateDepartmentInfo(DepartmentInfo di) {
+		System.out.println("UserService.createOrUpateDepartmentInfo ->"+System.currentTimeMillis());
 		DepartmentInfo dt = departmentInfoMapper.selectByPrimaryKey(di.getId());
 		if(dt==null) {
 			departmentInfoMapper.insert(di);
@@ -113,4 +114,10 @@ public class UserServiceImpl implements UserService {
 	public Integer getMaxDepartId() {
 		return departmentInfoMapper.selectMaxId();
 	}
+
+	@Override
+	public DepartmentInfo getDepartById(Integer depID) {
+		return departmentInfoMapper.selectByPrimaryKey(depID);
+	}
+
 }

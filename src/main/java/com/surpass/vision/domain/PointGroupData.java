@@ -2,7 +2,7 @@ package com.surpass.vision.domain;
 
 import java.io.Serializable;
 
-public class PointGroupData extends BaseDomain implements Serializable, Cloneable  {
+public class PointGroupData extends BaseDomain implements Serializable, Cloneable {
     private Double id;
 
     private String type;
@@ -17,16 +17,8 @@ public class PointGroupData extends BaseDomain implements Serializable, Cloneabl
 
     private String points;
 
-    /**
-     *  graph：路径
-     *  pointGroup: 规则
-     */
     private String otherrule1;
 
-    /**
-     * graph: 图中text的id列表
-     * pointGroup: 说明
-     */
     private String otherrule2;
 
     private String otherrule3;
@@ -34,6 +26,8 @@ public class PointGroupData extends BaseDomain implements Serializable, Cloneabl
     private String otherrule4;
 
     private String otherrule5;
+
+    private String shareddepart;
 
     public Double getId() {
         return id;
@@ -130,7 +124,14 @@ public class PointGroupData extends BaseDomain implements Serializable, Cloneabl
     public void setOtherrule5(String otherrule5) {
         this.otherrule5 = otherrule5 == null ? null : otherrule5.trim();
     }
-    
+
+    public String getShareddepart() {
+        return shareddepart;
+    }
+
+    public void setShareddepart(String shareddepart) {
+        this.shareddepart = shareddepart == null ? null : shareddepart.trim();
+    }
     
     @Override
     public PointGroupData clone() throws CloneNotSupportedException {

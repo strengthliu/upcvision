@@ -2,11 +2,14 @@ package com.surpass.vision.service.impl;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Select;
 import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.mapper.PointGroupDataMapper;
@@ -17,6 +20,11 @@ import com.surpass.vision.tools.IDTools;
 public class PointGroupServiceImpl implements PointGroupService {
 	@Autowired
 	PointGroupDataMapper pointGroupDataMapper;
+
+	@Override
+	public List<PointGroupData> getAdminPointGroupData(String type) {
+		return pointGroupDataMapper.getAdminPointGroupData(type);
+	}
 
 	@Override
 	public List<PointGroupData> getAdminXYGraph() {

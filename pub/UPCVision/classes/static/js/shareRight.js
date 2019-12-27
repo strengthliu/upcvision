@@ -35,8 +35,8 @@ function doselectUser(id){
 	else
 		selectedUsers.delete(id);
 	console.log("dataItemId="+dataItemId+"  user:"+JSON.stringify(Array.from(selectedUsers)));
-	
 }
+
 function fillUserUI(users) {
 	if (userSpace == null || userSpace == "undefined") {
 		console.log("设置共享时用户空间为空。");
@@ -128,7 +128,12 @@ function fillUserUI(users) {
 //	var test=document.getElementsByTagName('html')[0].innerHTML;
 //	console.log(test);
 	var shareItemGroupUI = document.getElementById("shareItemGroupUI");
-	shareItemGroupUI.innerHTML = shareItemGroupUI_innerHTML;
+	if(shareItemGroupUI!=null&&shareItemGroupUI!=undefined){
+		shareItemGroupUI.innerHTML = shareItemGroupUI_innerHTML;
+		console.log("got shareItemGroupUI");
+	}else{
+		console.log("can not get shareItemGroupUI");
+	}
 
 }
 function hasProperty(arr,key1){

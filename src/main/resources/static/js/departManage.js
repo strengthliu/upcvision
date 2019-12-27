@@ -118,6 +118,7 @@
 										var data = {
 											'uid' : uid,
 											'token' : token,
+											'id': item.id,
 											'departname' : item.departname,
 											'departdesc' : item.departdesc
 										};
@@ -191,7 +192,8 @@
 									},
 									// 更新数据
 									updateItem : function(item) {
-										console.log("updateItem");
+										console.log("updateItem-> **********************************");
+										console.log("updateItem-> "+item.id);
 										var data = {
 											'uid' : uid,
 											'token' : token,

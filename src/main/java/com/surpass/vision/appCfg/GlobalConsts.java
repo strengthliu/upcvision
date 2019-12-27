@@ -42,6 +42,16 @@ public final class GlobalConsts {
 	public static final String Key_LineAlertData_pre_ = "Key_LineAlertData_pre_";
 	public static final String Key_XYGraph_pre_ = "Key_XYGraph_pre_";
 
+    /**
+     * PointGroupData表中，type的值的类型，没有写枚举。
+     */
+	public static final String Type_xygraph_ = "Key_XYGraph_pre_";
+	public static final String Type_realtimedata_ = "Key_RealTimeData_pre_";
+	public static final String Type_alertdata_ = "Key_AlertData_pre_";
+	public static final String Type_historydata_ = "Key_HistoryData_pre_";
+	public static final String Type_linealertdata_ = "Key_LineAlertData_pre_";
+	public static final String Type_graph_ = "Key_Graph_pre_";
+
 //	public static final String Key_AlertData_pre_ = null;
 
 	public static final String Key_Point_pre = "Key_Point_pre";
@@ -60,16 +70,6 @@ public final class GlobalConsts {
 	 */
 	public static final String Key_splitCharServerPoint = "\\";
 	public static final String Key_ServerNamePre = "\\\\";
-
-    /**
-     * PointGroupData表中，type的值的类型，没有写枚举。
-     */
-	public static final String Type_xygraph_ = "xygraph";
-	public static final String Type_realtimedata_ = "realtimedata";
-	public static final String Type_alertdata_ = "alertdata";
-	public static final String Type_historydata_ = "historydata";
-	public static final String Type_linealertdata_ = "linealertdata";
-	public static final String Type_graph_ = "graph";
 
 	/**
 	 * 解析图形文件

@@ -14,6 +14,7 @@
     <result column="otherRule3" jdbcType="VARCHAR" property="otherrule3" />
     <result column="otherRule4" jdbcType="VARCHAR" property="otherrule4" />
     <result column="otherRule5" jdbcType="VARCHAR" property="otherrule5" />
+    <result column="sharedDepart" jdbcType="VARCHAR" property="shareddepart" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -75,7 +76,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, type, name, owner, creater, shared, points, otherRule1, otherRule2, otherRule3, 
-    otherRule4, otherRule5
+    otherRule4, otherRule5, sharedDepart
   </sql>
   <select id="selectByExample" parameterType="com.surpass.vision.domain.PointGroupDataExample" resultMap="BaseResultMap">
     select
@@ -112,13 +113,13 @@
     insert into t_pointGroup (id, type, name, 
       owner, creater, shared, 
       points, otherRule1, otherRule2, 
-      otherRule3, otherRule4, otherRule5
-      )
+      otherRule3, otherRule4, otherRule5, 
+      sharedDepart)
     values (#{id,jdbcType=FLOAT}, #{type,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{owner,jdbcType=VARCHAR}, #{creater,jdbcType=VARCHAR}, #{shared,jdbcType=VARCHAR}, 
       #{points,jdbcType=VARCHAR}, #{otherrule1,jdbcType=VARCHAR}, #{otherrule2,jdbcType=VARCHAR}, 
-      #{otherrule3,jdbcType=VARCHAR}, #{otherrule4,jdbcType=VARCHAR}, #{otherrule5,jdbcType=VARCHAR}
-      )
+      #{otherrule3,jdbcType=VARCHAR}, #{otherrule4,jdbcType=VARCHAR}, #{otherrule5,jdbcType=VARCHAR}, 
+      #{shareddepart,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.surpass.vision.domain.PointGroupData">
     insert into t_pointGroup
@@ -159,6 +160,9 @@
       <if test="otherrule5 != null">
         otherRule5,
       </if>
+      <if test="shareddepart != null">
+        sharedDepart,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -196,6 +200,9 @@
       </if>
       <if test="otherrule5 != null">
         #{otherrule5,jdbcType=VARCHAR},
+      </if>
+      <if test="shareddepart != null">
+        #{shareddepart,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -244,6 +251,9 @@
       <if test="record.otherrule5 != null">
         otherRule5 = #{record.otherrule5,jdbcType=VARCHAR},
       </if>
+      <if test="record.shareddepart != null">
+        sharedDepart = #{record.shareddepart,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -262,7 +272,8 @@
       otherRule2 = #{record.otherrule2,jdbcType=VARCHAR},
       otherRule3 = #{record.otherrule3,jdbcType=VARCHAR},
       otherRule4 = #{record.otherrule4,jdbcType=VARCHAR},
-      otherRule5 = #{record.otherrule5,jdbcType=VARCHAR}
+      otherRule5 = #{record.otherrule5,jdbcType=VARCHAR},
+      sharedDepart = #{record.shareddepart,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -303,6 +314,9 @@
       <if test="otherrule5 != null">
         otherRule5 = #{otherrule5,jdbcType=VARCHAR},
       </if>
+      <if test="shareddepart != null">
+        sharedDepart = #{shareddepart,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=FLOAT}
   </update>
@@ -318,7 +332,8 @@
       otherRule2 = #{otherrule2,jdbcType=VARCHAR},
       otherRule3 = #{otherrule3,jdbcType=VARCHAR},
       otherRule4 = #{otherrule4,jdbcType=VARCHAR},
-      otherRule5 = #{otherrule5,jdbcType=VARCHAR}
+      otherRule5 = #{otherrule5,jdbcType=VARCHAR},
+      sharedDepart = #{shareddepart,jdbcType=VARCHAR}
     where id = #{id,jdbcType=FLOAT}
   </update>
 </mapper>

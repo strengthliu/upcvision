@@ -21,6 +21,7 @@ import com.surpass.vision.XYGraph.XYGraphManager;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.XYGraph;
+import com.surpass.vision.domain.Graph;
 import com.surpass.vision.domain.LineAlertData;
 import com.surpass.vision.domain.RealTimeData;
 import com.surpass.vision.domain.UserRight;
@@ -146,7 +147,7 @@ public class XYGraphController extends BaseController{
 		}
 
 		try {
-			XYGraph rtd = xYGraphManager.createXYGraph(GlobalConsts.Type_xygraph_, name, owner, creater,points,otherrule2,otherrule1,idstr);
+			XYGraph rtd = xYGraphManager.createXYGraph( name, owner, creater,points,otherrule2,otherrule1,idstr);
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
@@ -224,50 +225,56 @@ public class XYGraphController extends BaseController{
 	
 	@RequestMapping(value = "shareRightXYGraph", method = { RequestMethod.POST, RequestMethod.GET })
 	public ToWeb shareRight(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
-		Double uid = user.getDouble("uid");
-		String token = user.getString("token");
-		String idstr = user.getString("id");
-		Double id = null ;
-		if(StringUtil.isBlank(idstr)) {
-			
-		}else {
-			id = Double.valueOf(idstr);
-		}
-		
-		// 认证+权限
-		XYGraph g = this.xYGraphManager.getXYGraphByKeys(id);
-		UserRight ur = g.getRight(uid);
-		ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateXYGraph,ur);
-		if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
-			return ret;
+	Double uid = user.getDouble("uid");
+	String token = user.getString("token");
+	String idstr = user.getString("id");
+	Double id = null;
+	if (StringUtil.isBlank(idstr)) {
 
-		// 取出参数
-		// var data={'uid':uid,'token':token,'userIds':Array.from(selectedUsers),'type':"XYGraph"};
-		// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
-		JSONArray juserIds = user.getJSONArray("userIds");
-		String type = user.getString("type");
-		List<String> userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
-		// TODO: 检查参数合法性
-
-		try {
-			XYGraph rtd = xYGraphManager.updateShareRight(id,userIds);
-			if (rtd != null) {
-				// 更新用户空间
-				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
-				userSpaceManager.updateXYGraph(rtd,Double.valueOf(0));
-				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
-				ret.setMsg("成功");
-				ret.setData("data",rtd);
-				ret.setRefresh(true);
-				return ret;
-			} else
-				throw new Exception();
-		} catch (Exception e) {
-			e.printStackTrace();
-			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
-			ret.setMsg("异常失败");
-			return ret;
-		}
+	} else {
+		id = Double.valueOf(idstr);
 	}
 
+	// 认证+权限
+	XYGraph g = xYGraphManager.getXYGraphByKeys(id);
+	UserRight ur = g.getRight(uid);
+
+	ToWeb ret = authercation(uid, token, GlobalConsts.Operation_updateXYGraph, ur);
+	if (!StringUtil.isBlank(ret.getStatus()) && (!ret.getStatus().contentEquals(GlobalConsts.ResultCode_SUCCESS)))
+		return ret;
+
+	// 取出参数
+	// var
+	// data={'uid':uid,'token':token,'userIds':Array.from(selectedUsers),'type':"Graph"};
+	// {'uid':uid,'token':token,'points':selectedPoints,'name':targetName}
+	JSONArray juserIds = user.getJSONArray("userIds");
+	JSONArray jdepartIds = user.getJSONArray("departIds");
+	XYGraph rtd = null;
+	List<String> userIds = null;
+	List<String> departIds = null;
+	if(juserIds!=null&&juserIds.size()>0) {
+		userIds = JSONObject.parseArray(juserIds.toJSONString(), String.class);
+	}
+	if(jdepartIds!=null&&jdepartIds.size()>0) {
+		departIds = JSONObject.parseArray(jdepartIds.toJSONString(), String.class);
+	}
+	try {
+		rtd = xYGraphManager.updateShareRight(id, userIds, departIds);
+		if (rtd != null) {
+			// 更新用户空间
+			UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
+			userSpaceManager.updateXYGraph(rtd, Double.valueOf(0));
+			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+			ret.setData("data", rtd);
+			ret.setMsg("成功");
+			return ret;
+		} else
+			throw new Exception();
+	} catch (Exception e) {
+		e.printStackTrace();
+		ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
+		ret.setMsg("异常失败");
+		return ret;
+	}			
+}
 }

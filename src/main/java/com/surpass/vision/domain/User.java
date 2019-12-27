@@ -22,7 +22,17 @@ public class User extends BaseDomain implements Serializable,Cloneable  {
 
     private String name;
     
-    public Double getId() {
+    private String department;
+    
+    public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public Double getId() {
         return id;
     }
 

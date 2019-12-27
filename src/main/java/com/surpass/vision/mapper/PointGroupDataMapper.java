@@ -1,7 +1,6 @@
 package com.surpass.vision.mapper;
 
 import com.surpass.vision.appCfg.GlobalConsts;
-import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.PointGroupData;
 import com.surpass.vision.domain.PointGroupDataExample;
 import java.util.List;
@@ -34,6 +33,10 @@ public interface PointGroupDataMapper {
     int updateByPrimaryKey(PointGroupData record);
     
     // pointGroupMapper
+
+    @Select("select distinct * from t_pointGroup where type=#{type}")
+    @ResultMap("BaseResultMap")
+	List<PointGroupData> getAdminPointGroupData(@Param("type") String type);
 
     @Select("select distinct * from t_pointGroup where type='"+GlobalConsts.Type_xygraph_+"'")
     @ResultMap("BaseResultMap")

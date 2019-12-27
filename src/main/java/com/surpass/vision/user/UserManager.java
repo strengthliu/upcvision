@@ -59,6 +59,28 @@ public class UserManager {
 		return null;
 	}
 
+	public DepartmentInfo getDepartmentInfoByID(String depId) {
+		if(StringUtil.isBlank(depId)) return null;
+		DepartmentInfo ui = (DepartmentInfo) redisService.get(GlobalConsts.Key_DepartInfo_Pre_ + IDTools.toString(depId));
+		if(ui!=null&&(ui.getId()==0||ui.getId()==null)) {
+			System.out.println("什么鬼！！！");
+		}
+		if (ui != null)
+			return ui;
+		else {
+			// 到数据库里取
+			ui = userService.getDepartById(Integer.valueOf(depId));
+			if (ui != null) {
+				setDepartInfo(ui);
+				return ui;
+			}
+		}
+		return null;
+	}
+	public void setDepartInfo(DepartmentInfo dep) {
+		redisService.set(GlobalConsts.Key_DepartInfo_Pre_ + IDTools.toString(dep.getId()), dep);
+	}
+
 	public void setUserInfo(UserInfo user) {
 		redisService.set(GlobalConsts.Key_UserInfo_Pre_ + IDTools.toString(user.getId()), user);
 	}
@@ -168,6 +190,7 @@ public class UserManager {
 			UserInfo ui = users.get(i);
 			u.setId(ui.getId());
 			u.setName(ui.getName());
+			u.setDepartment(ui.getDepart());
 			ret.put(IDTools.toString(u.getId()), u);
 		}
 		return ret;

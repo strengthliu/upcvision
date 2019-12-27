@@ -78,6 +78,150 @@ function deleteItemAction(itemId) {
 
 }
 
+function updateShareToDepart(item) {
+	console.log("updateShart");
+	$("#shareItemToDepart").jsGrid("loadData", item);
+}
+
+function updateShareToUser(item,dataItem) {
+	var value = item.shared;
+//	console.log("updateShareToUser");
+	// 根据value，把item加入或减出dataItem
+//	console.log("updateShart -》 "+JSON.stringify(item)+"  value="+value+" dataItem-> "+JSON.stringify(dataItem));
+	var data;
+	var sharedUsers = dataItem.sharedUsers;
+	var sharedDepartment = dataItem.sharedDepartment;
+	var userIds = new Array();
+	var departIds = new Array();
+	// 提交分享数据
+	if(!value){ // 增加一个分享用户
+		for(var ind=0;ind<sharedUsers.length;ind++){
+			var sharedUser = sharedUsers[ind];
+			userIds.push(sharedUser.id);
+		}
+		userIds.push(item.id);
+		if(sharedDepartment!=null&& sharedDepartment!="undefined")
+		for(var ind=0;ind<sharedDepartment.length;ind++){
+			departIds.push(sharedDepartment[ind].id);
+		}
+		data={'uid':uid,'token':token,'id':dataItemId,'userIds':userIds,'departIds':departIds};
+	} else {
+		for(var ind=0;ind<sharedUsers.length;ind++){
+			var sharedUser = sharedUsers[ind];
+			if(sharedUser.id!=item.id)
+				userIds.push(sharedUser.id);
+		}
+		if(sharedDepartment!=null&& sharedDepartment!="undefined")
+		for(var ind=0;ind<sharedDepartment.length;ind++){
+			var sharedDepartmentItem = sharedDepartment[ind];
+//			if(sharedDepartmentItem.id != item.id)
+			departIds.push(sharedDepartmentItem.id);
+		}
+		data={'uid':uid,'token':token,'id':dataItemId,'userIds':userIds,'departIds':departIds};
+	}
+
+	$.ajax({
+				type : "POST",
+				url : "shareRightXYGraph",
+				data: JSON.stringify(data),
+				contentType : "application/json",
+				datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
+				beforeSend : function() {
+					showLoading();
+				},
+				success : function(data) {
+					if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+//						 console.log("server info : "+JSON.stringify(data.data.data));
+						var xyGraph = data.data.data;
+						userSpace.xyGraph[xyGraph.id]=xyGraph;
+						$("#shareItemToUser").jsGrid("loadData", {});
+					} else {
+						alert("失败 ： " + data.msg);
+					}
+					hideLoading();
+				},
+				// 调用执行后调用的函数
+				complete : function(XMLHttpRequest, textStatus) {
+					hideLoading();
+				},
+				// 调用出错执行的函数
+				error : function(jqXHR, textStatus, errorThrown) {
+					hideLoading();
+				}
+			});
+
+}
+
+function updateShareToDepart(item,dataItem) {
+	var value = item.shared;
+	console.log("updateShareToUser");
+	// 根据value，把item加入或减出dataItem
+	console.log("updateShart -》 "+JSON.stringify(item)+"  value="+value+" dataItem-> "+JSON.stringify(dataItem));
+	var data;
+	var sharedUsers = dataItem.sharedUsers;
+	var sharedDepartment = dataItem.sharedDepartment;
+	var userIds = new Array();
+	var departIds = new Array();
+	// 提交分享数据
+	if(!value){
+		for(var ind=0;ind<sharedUsers.length;ind++){
+			var sharedUser = sharedUsers[ind];
+			userIds.push(sharedUser.id);
+		}
+		 // 增加一个分享部门
+		if(sharedDepartment!=null&& sharedDepartment!="undefined")
+		for(var ind=0;ind<sharedDepartment.length;ind++){
+			departIds.push(sharedDepartment[ind].id);
+		}
+		departIds.push(item.id);
+		data={'uid':uid,'token':token,'id':dataItemId,'userIds':userIds,'departIds':departIds};
+	} else {
+		for(var ind=0;ind<sharedDepartment.length;ind++){
+			var _sharedDepartment = sharedDepartment[ind];
+			if(_sharedDepartment.id!=item.id)
+				departIds.push(_sharedDepartment.id);
+		}
+		if(sharedUsers!=null&& sharedUsers!="undefined")
+		for(var ind=0;ind<sharedUsers.length;ind++){
+			var sharedUser = sharedUsers[ind];
+//			if(sharedDepartmentItem.id != item.id)
+			userIds.push(sharedUser.id);
+		}
+		data={'uid':uid,'token':token,'id':dataItemId,'userIds':userIds,'departIds':departIds};
+	}
+	console.log("data-> "+JSON.stringify(data));
+	$.ajax({
+				type : "POST",
+				url : "shareRightXYGraph",
+				data: JSON.stringify(data),
+				contentType : "application/json",
+				datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
+				beforeSend : function() {
+					showLoading();
+				},
+				success : function(data) {
+					if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+//						 console.log("server info : "+JSON.stringify(data.data.data));
+						var xyGraph = data.data.data;
+						userSpace.xyGraph[xyGraph.id]=xyGraph;
+						$("#shareItemToDepart").jsGrid("loadData", {});
+					} else {
+						alert("失败 ： " + data.msg);
+					}
+					hideLoading();
+				},
+				// 调用执行后调用的函数
+				complete : function(XMLHttpRequest, textStatus) {
+					hideLoading();
+				},
+				// 调用出错执行的函数
+				error : function(jqXHR, textStatus, errorThrown) {
+					hideLoading();
+				}
+			});
+
+}
+
 function doShareActionToServer(){
 	if (user == null || user == "undefined") {
 		user = localStorage.user;
@@ -85,7 +229,7 @@ function doShareActionToServer(){
 		token = localStorage.token;
 	}
 	console.log("dataItemId="+dataItemId+"  user:"+JSON.stringify(Array.from(selectedUsers)));
-	var data={'uid':uid,'token':token,'id':dataItemId,'userIds':Array.from(selectedUsers),'type':"xyGraph"};
+	var data={'uid':uid,'token':token,'id':dataItemId,'userIds':Array.from(selectedUsers),'type':"xyGraph",departIds:''};
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -126,10 +270,12 @@ function doShareActionToServer(){
 
 var dataItemId;
 function shareItemAction(itemId) {
+	console.log("shareItemAction: "+itemId);
 	dataItemId = itemId;
 	shareType = _routeType;//"xyGraph";
+	setParameter(shareType,itemId);
 	$('#shareItemAction_mid').modal('show');
-	loadUsers();
+//	loadUsers();
 }
 
 /**

@@ -1,5 +1,4 @@
-
-<div class="modal-dialog modal-sm" role="document">
+<div class="modal-dialog" role="document">
 	<div class="modal-content">
 		<div class="modal-header">
 			<h4 class="card-title">分享</h4>
@@ -9,34 +8,49 @@
 			</button>
 		</div>
 		<div class="col-md-12 ">
-			<div class="row">
-				<p class="card-description">权限分享</p>
-			</div>
 			<div class="card">
-
 				<div class="modal-body">
-					<div class="modal-content">
-						<div style="height: 300px; overflow: auto;" id="shareItemGroupUI">
-							<div class="icheck-line">
-								<input tabindex="5" type="checkbox" id="line-checkbox-1">
-								<label for="line-checkbox-1">Checkbox 1</label>
-							</div>
+					<div class="col-md-12 grid-margin stretch-card">
+						<div class="card">
+							<div class="">
+								<ul class="nav nav-tabs tab-solid  tab-solid-primary"
+									role="tablist">
+									<li class="nav-item"><a class="nav-link active"
+										id="tab-6-1" data-toggle="tab" href="#home-6-1" role="tab"
+										aria-controls="home-6-1" aria-selected="true"><i
+											class="mdi mdi-home-outline"></i>分享给部门</a></li>
+									<li class="nav-item"><a class="nav-link" id="tab-6-2"
+										data-toggle="tab" href="#profile-6-2" role="tab"
+										aria-controls="profile-6-2" aria-selected="false"><i
+											class="mdi mdi-account-outline"></i>分享给用户</a></li>
 
+								</ul>
+								<div class="tab-content tab-content-solid">
+									<div class="tab-pane fade show active" id="home-6-1"
+										role="tabpanel" aria-labelledby="tab-6-1">
+										<div id="shareItemToDepart"></div>
+
+									</div>
+									<div class="tab-pane fade" id="profile-6-2" role="tabpanel"
+										aria-labelledby="tab-6-2">
+											<div id="shareItemToUser"></div>
+
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
+		<!-- 
 		<div class="modal-footer">
 			<button type="button" class="btn btn-success"
 				onclick="doShareActionToServer();">确定</button>
 			<button type="button" class="btn btn-light" onclick="cancel();">取消</button>
 		</div>
+		 -->
 	</div>
 </div>
-
-
-
-<script src="js/shareRight.js"</script>
-
+<script src="js/tabs.js"></script>
+<script src="js/shareRight.js"></script>

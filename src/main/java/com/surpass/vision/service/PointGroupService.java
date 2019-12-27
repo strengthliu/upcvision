@@ -6,6 +6,8 @@ import com.surpass.vision.domain.PointGroupData;
 
 public interface PointGroupService {
 
+	public List<PointGroupData> getAdminPointGroupData(String type);
+
 	public List<PointGroupData> getAdminXYGraph();
 
 	public List<PointGroupData> getAdminRealTimeData();
