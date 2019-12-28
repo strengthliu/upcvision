@@ -194,8 +194,16 @@ public class FileTool {
 				fl.setName(path);
 				fl.setFile(false);
 				fl.setSVG(false);
+				fl.setType(GlobalConsts.Type_graph_);
 				fl.setId(IDTools.newID());
 				// 目录是图，不添加到数据库、缓存。取数据时，根据图的目录，分解出结构关系。
+				/**
+				 * 需求修改：目录也要添加数据库，因为要做目录分享。
+				 * @since 2019.12.27
+				 */
+				// 同步数据库和缓存
+				fl = graphDataManager.copyGraphFromFileList(fl);
+				// 添加到根树里
 				children1.add(fl);
 			} else {
 				path = path.substring(0, path.length() - name.length() - 1);
@@ -220,12 +228,12 @@ public class FileTool {
 					 * FileWriter fw = new FileWriter(file,true); fw.write(fileContent); fw.close();
 					 * }
 					 */
-					if(fl.getName().contentEquals("Graphic147.svg"))
+					if (fl.getName().contentEquals("Graphic147.svg"))
 						System.out.println();
 					// 在图上显示数据的DOM的ID。
 					ArrayList<String> pointTextIDs = new ArrayList<String>();
 					/***********************************************************************************
-					 *      淮南图的数据格式
+					 * 淮南图的数据格式
 					 **********************************************************************************/
 					String otherRule3 = "";
 					JSONArray jsa = new JSONArray();
@@ -233,13 +241,13 @@ public class FileTool {
 					Elements docsg = doc.getElementsByTag(GlobalConsts.GPointTag);
 					for (int idocs = 0; idocs < docsg.size(); idocs++) {
 						Element eg = docsg.get(idocs);
-						String gPointId = eg.attr(GlobalConsts.GPointID);//PBD:PtTagName
+						String gPointId = eg.attr(GlobalConsts.GPointID);// PBD:PtTagName
 						if (!StringUtil.isBlank(gPointId)) {
-		//					System.out.println("图形："+fl.getName()+"，tag="+tag);
+							// System.out.println("图形："+fl.getName()+"，tag="+tag);
 							// 拆分 "\\RTDBB\81_3701_01_P02_C_out"，成服务器 点位名
 							String serverName = PointGroupDataManager.splitServerName1(gPointId);
 							String tagName = PointGroupDataManager.splitPointName1(gPointId);
-							if(tagName.contentEquals("81_3701_01_P02_C_out")) {
+							if (tagName.contentEquals("81_3701_01_P02_C_out")) {
 								System.out.println();
 							}
 							Point p = sm.getPointByID(serverName, tagName);
@@ -248,23 +256,25 @@ public class FileTool {
 
 								// 取text点
 								Elements docsText = eg.getElementsByTag(GlobalConsts.PointTag);
-								for(int indDocsText=0;indDocsText<docsText.size();indDocsText++) {
+								for (int indDocsText = 0; indDocsText < docsText.size(); indDocsText++) {
 									Element etext = docsText.get(indDocsText);
 
 									// TODO: 取出规则
 									/*
-									 *    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="19930" y="4680" id="DATAPOINT30_pbTextEl" PBD:Property="VAL">
-									 *    	#.##
-									 *    	<PB:MultiState id="DATAPOINT30_MS" PBD:PtTagName="\\RTDBB\81_3701_01_P02_C_out" TagName="81_3701_01_P02_C_out" ServerName="RTDBB" StateCount="2">
-									 *    		<PB:MSState id="DATAPOINT30_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" />
-									 *    		<PB:MSState id="DATAPOINT30_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" />
-									 *    	</PB:MultiState>
-									 *    </text>
+									 * <text fill="#000000" font-family="Helvetica" font-size="560"
+									 * font-weight="bold" text-anchor="middle" x="19930" y="4680"
+									 * id="DATAPOINT30_pbTextEl" PBD:Property="VAL"> #.## <PB:MultiState
+									 * id="DATAPOINT30_MS" PBD:PtTagName="\\RTDBB\81_3701_01_P02_C_out"
+									 * TagName="81_3701_01_P02_C_out" ServerName="RTDBB" StateCount="2"> <PB:MSState
+									 * id="DATAPOINT30_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" />
+									 * <PB:MSState id="DATAPOINT30_MSS2" Blink="0" Color="000000" LowerValue=""
+									 * UpperValue="" /> </PB:MultiState> </text>
 									 */
 									// 取MultiState
 									Elements pbMultiStates = etext.getElementsByTag(GlobalConsts.PBMultiStateTag);
-									for(int indPBMultiState=0;indPBMultiState<pbMultiStates.size();indPBMultiState++){
-										//eg.getElementsByTag(GlobalConsts.PointTag)
+									for (int indPBMultiState = 0; indPBMultiState < pbMultiStates
+											.size(); indPBMultiState++) {
+										// eg.getElementsByTag(GlobalConsts.PointTag)
 //										id="DATAPOINT32_MS" ;
 //										PBD:PtTagName="\\RTDBB\1060_FI_1002";
 //										TagName="1060_FI_1002"; 
@@ -272,8 +282,10 @@ public class FileTool {
 //										StateCount="2";
 										Element pbMultiMSState = pbMultiStates.get(indPBMultiState);
 										// 取MSState
-										Elements pbMSStateTags = pbMultiMSState.getElementsByTag(GlobalConsts.PBMSStateTag);
-										for(int indPBMSState=0;indPBMSState<pbMSStateTags.size();indPBMSState++) {
+										Elements pbMSStateTags = pbMultiMSState
+												.getElementsByTag(GlobalConsts.PBMSStateTag);
+										for (int indPBMSState = 0; indPBMSState < pbMSStateTags
+												.size(); indPBMSState++) {
 											Element pbMSState = docsText.get(indPBMultiState);
 //											id="DATAPOINT32_MSS2";
 //											Blink="0";
@@ -293,9 +305,9 @@ public class FileTool {
 					}
 //					if(pointTextIDs.size()>0)
 //						fl.setPointTextIDs(pointTextIDs);
-					
+
 					/***********************************************************************************
-					 *      普通图的数据格式
+					 * 普通图的数据格式
 					 **********************************************************************************/
 					Elements docs = doc.getElementsByTag(GlobalConsts.PointTag);
 					for (int idocs = 0; idocs < docs.size(); idocs++) {
@@ -311,16 +323,15 @@ public class FileTool {
 								pointTextIDs.add(tag);
 								// LOGGER.info("检查点位："+tag+" => "+sm.getPointByID(tag));
 							}
-						} 
+						}
 					}
 
 					fl.setPoints(IDTools.merge(pointIDs.toArray()));
-					if(pointTextIDs.size()>0)
+					if (pointTextIDs.size() > 0)
 						fl.setPointTextIDs(pointTextIDs);
 
-					
 					/***********************************************************************************
-					 *      生成缩略图
+					 * 生成缩略图
 					 **********************************************************************************/
 //					// 删除所有text
 //					Elements es = doc.getElementsByTag("text");
@@ -329,7 +340,7 @@ public class FileTool {
 //							es.get(indscript).remove();
 //						}
 //					}
-					
+
 					try {
 						// 生成图片
 //						Resource resource = new ClassPathResource("");
@@ -338,9 +349,10 @@ public class FileTool {
 						String physicalGraphPath = ServerConfig.getInstance().getPhysicalGraphPath(fl.getPath());
 						Elements es = doc.getElementsByTag(GlobalConsts.GraphElement);
 //						SVGTools.convertToPng(es.get(0).outerHtml(), physicalGraphPath + "\\" + fl.getName() + ".png");
-						String urlGraphPath = ServerConfig.getInstance().getURLFromPath(physicalGraphPath + "\\" + fl.getName() + ".png");
+						String urlGraphPath = ServerConfig.getInstance()
+								.getURLFromPath(physicalGraphPath + "\\" + fl.getName() + ".png");
 						File fimage = new File(urlGraphPath);
-						if(fimage.length()>0)
+						if (fimage.length() > 0)
 							fl.setImg(urlGraphPath);
 						else
 							fl.setImg(ServerConfig.getInstance().getDefaultGraphImg());
@@ -367,8 +379,8 @@ public class FileTool {
 		}
 	}
 
-	
-	public static Graph parseFileToGraph(String path,String fileName, String picurl, String name2, String desc, String uid) {
+	public static Graph parseFileToGraph(String path, String fileName, String picurl, String name2, String desc,
+			String uid) {
 		// 遍历文件目录
 		String string = fileName;
 		File file = new File(path, string);
@@ -413,25 +425,25 @@ public class FileTool {
 				 * FileWriter fw = new FileWriter(file,true); fw.write(fileContent); fw.close();
 				 * }
 				 */
-				if(fl.getName().contentEquals("Graphic147.svg"))
+				if (fl.getName().contentEquals("Graphic147.svg"))
 					System.out.println();
 				// 在图上显示数据的DOM的ID。
 				ArrayList<String> pointTextIDs = new ArrayList<String>();
 				/***********************************************************************************
-				 *      淮南图的数据格式
+				 * 淮南图的数据格式
 				 **********************************************************************************/
 				JSONArray jsa = new JSONArray();
 				// 先判断是否是g文件
 				Elements docsg = doc.getElementsByTag(GlobalConsts.GPointTag);
 				for (int idocs = 0; idocs < docsg.size(); idocs++) {
 					Element eg = docsg.get(idocs);
-					String gPointId = eg.attr(GlobalConsts.GPointID);//PBD:PtTagName
+					String gPointId = eg.attr(GlobalConsts.GPointID);// PBD:PtTagName
 					if (!StringUtil.isBlank(gPointId)) {
-	//					System.out.println("图形："+fl.getName()+"，tag="+tag);
+						// System.out.println("图形："+fl.getName()+"，tag="+tag);
 						// 拆分 "\\RTDBB\81_3701_01_P02_C_out"，成服务器 点位名
 						String serverName = PointGroupDataManager.splitServerName1(gPointId);
 						String tagName = PointGroupDataManager.splitPointName1(gPointId);
-						if(tagName.contentEquals("81_3701_01_P02_C_out")) {
+						if (tagName.contentEquals("81_3701_01_P02_C_out")) {
 							System.out.println();
 						}
 						Point p = sm.getPointByID(serverName, tagName);
@@ -440,23 +452,25 @@ public class FileTool {
 
 							// 取text点
 							Elements docsText = eg.getElementsByTag(GlobalConsts.PointTag);
-							for(int indDocsText=0;indDocsText<docsText.size();indDocsText++) {
+							for (int indDocsText = 0; indDocsText < docsText.size(); indDocsText++) {
 								Element etext = docsText.get(indDocsText);
 
 								// TODO: 取出规则
 								/*
-								 *    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="19930" y="4680" id="DATAPOINT30_pbTextEl" PBD:Property="VAL">
-								 *    	#.##
-								 *    	<PB:MultiState id="DATAPOINT30_MS" PBD:PtTagName="\\RTDBB\81_3701_01_P02_C_out" TagName="81_3701_01_P02_C_out" ServerName="RTDBB" StateCount="2">
-								 *    		<PB:MSState id="DATAPOINT30_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" />
-								 *    		<PB:MSState id="DATAPOINT30_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" />
-								 *    	</PB:MultiState>
-								 *    </text>
+								 * <text fill="#000000" font-family="Helvetica" font-size="560"
+								 * font-weight="bold" text-anchor="middle" x="19930" y="4680"
+								 * id="DATAPOINT30_pbTextEl" PBD:Property="VAL"> #.## <PB:MultiState
+								 * id="DATAPOINT30_MS" PBD:PtTagName="\\RTDBB\81_3701_01_P02_C_out"
+								 * TagName="81_3701_01_P02_C_out" ServerName="RTDBB" StateCount="2"> <PB:MSState
+								 * id="DATAPOINT30_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" />
+								 * <PB:MSState id="DATAPOINT30_MSS2" Blink="0" Color="000000" LowerValue=""
+								 * UpperValue="" /> </PB:MultiState> </text>
 								 */
 								// 取MultiState
 								Elements pbMultiStates = etext.getElementsByTag(GlobalConsts.PBMultiStateTag);
-								for(int indPBMultiState=0;indPBMultiState<pbMultiStates.size();indPBMultiState++){
-									//eg.getElementsByTag(GlobalConsts.PointTag)
+								for (int indPBMultiState = 0; indPBMultiState < pbMultiStates
+										.size(); indPBMultiState++) {
+									// eg.getElementsByTag(GlobalConsts.PointTag)
 //									id="DATAPOINT32_MS" ;
 //									PBD:PtTagName="\\RTDBB\1060_FI_1002";
 //									TagName="1060_FI_1002"; 
@@ -465,7 +479,7 @@ public class FileTool {
 									Element pbMultiMSState = pbMultiStates.get(indPBMultiState);
 									// 取MSState
 									Elements pbMSStateTags = pbMultiMSState.getElementsByTag(GlobalConsts.PBMSStateTag);
-									for(int indPBMSState=0;indPBMSState<pbMSStateTags.size();indPBMSState++) {
+									for (int indPBMSState = 0; indPBMSState < pbMSStateTags.size(); indPBMSState++) {
 										Element pbMSState = docsText.get(indPBMultiState);
 //										id="DATAPOINT32_MSS2";
 //										Blink="0";
@@ -485,9 +499,9 @@ public class FileTool {
 				}
 //				if(pointTextIDs.size()>0)
 //					fl.setPointTextIDs(pointTextIDs);
-				
+
 				/***********************************************************************************
-				 *      普通图的数据格式
+				 * 普通图的数据格式
 				 **********************************************************************************/
 				Elements docs = doc.getElementsByTag(GlobalConsts.PointTag);
 				for (int idocs = 0; idocs < docs.size(); idocs++) {
@@ -503,16 +517,15 @@ public class FileTool {
 							pointTextIDs.add(tag);
 							// LOGGER.info("检查点位："+tag+" => "+sm.getPointByID(tag));
 						}
-					} 
+					}
 				}
 
 				fl.setPoints(IDTools.merge(pointIDs.toArray()));
-				if(pointTextIDs.size()>0)
+				if (pointTextIDs.size() > 0)
 					fl.setPointTextIDs(pointTextIDs);
 
-				
 				/***********************************************************************************
-				 *      生成缩略图
+				 * 生成缩略图
 				 **********************************************************************************/
 //				// 删除所有text
 //				Elements es = doc.getElementsByTag("text");
@@ -521,7 +534,7 @@ public class FileTool {
 //						es.get(indscript).remove();
 //					}
 //				}
-				
+
 //				try {
 //					// 生成图片
 ////					Resource resource = new ClassPathResource("");
@@ -543,7 +556,7 @@ public class FileTool {
 				// 将这个文件添加到fileList库中及索引中。
 				// 同步数据库和缓存
 				Graph g = graphDataManager.copyGraphFromFileList(fl);
-				//((FileList)g).setId(g.getId());
+				// ((FileList)g).setId(g.getId());
 				repo.addChild(g);
 				System.out.println("11");
 				return g;
@@ -553,6 +566,7 @@ public class FileTool {
 		}
 		return null;
 	}
+
 //	/**
 //	 * 指导路径分成字符串数组。
 //	 * @param path
@@ -569,7 +583,7 @@ public class FileTool {
 
 	public static boolean delete(String wholePath) {
 		File dest = new File(wholePath);
-		if(dest.exists()) {
+		if (dest.exists()) {
 			return dest.delete();
 		}
 		return false;

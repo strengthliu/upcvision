@@ -89,7 +89,7 @@ function doShareActionToServer(){
 		uid = user.id;
 		token = localStorage.token;
 	}
-	console.log("dataItemId="+dataItemId+"  user:"+JSON.stringify(Array.from(selectedUsers)));
+//	console.log("dataItemId="+dataItemId+"  user:"+JSON.stringify(Array.from(selectedUsers)));
 	var data={'uid':uid,'token':token,'id':dataItemId,'userIds':Array.from(selectedUsers),'type':"xyGraph",departIds:''};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -131,7 +131,7 @@ function doShareActionToServer(){
 
 var dataItemId;
 function shareItemAction(itemId) {
-	console.log("shareItemAction: "+itemId);
+//	console.log("shareItemAction: "+itemId);
 	dataItemId = itemId;
 	shareType = _routeType;//"xyGraph";
 	setParameter(shareType,itemId);

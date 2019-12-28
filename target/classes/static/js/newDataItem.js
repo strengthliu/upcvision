@@ -68,7 +68,7 @@ function getPointByTagName(tagName){
 		if(tagName.indexOf(ss[indss])==0)
 			tagName = tagName.substring(ss[indss].length+1);
 	
-		console.log("ss[indss]="+ss[indss]+" tagName="+tagName+"  "+tagName.indexOf(ss[indss]));
+//		console.log("ss[indss]="+ss[indss]+" tagName="+tagName+"  "+tagName.indexOf(ss[indss]));
 		var p = serverList[ss[indss]].points[tagName];
 		if(p!=null && p!="undefined")
 			return p;
@@ -101,7 +101,7 @@ function buildNewItemUI(serverInfos) {
 	 //console.log("data =>"+actionType+"  "+itemID);
 
 	
-	console.log(" ----- debug 1 -----");
+//	console.log(" ----- debug 1 -----");
 	// console.log("buildNewItemUI");
 	// 清空服务器选择列表
 	$("#newItem_ServerSelectSect").html("");
@@ -110,7 +110,7 @@ function buildNewItemUI(serverInfos) {
 	Object.keys(serverInfos).forEach(function(key){
 		$("#newItem_ServerSelectSect").append("<option value='"+key+"'>"+key+"</option>");  // 为Select追加一个Option(下拉项)
 	});
-	console.log(" ----- debug 2 -----");
+//	console.log(" ----- debug 2 -----");
 	// 添加默认位号组
 	defaultServer = serverInfos[$("#newItem_ServerSelectSect").val()];
 	if(defaultServer==null || defaultServer=="undefined"){
@@ -125,7 +125,7 @@ function buildNewItemUI(serverInfos) {
 		$("#newItem_DeviceSelectSect").append("<option value='"+deviceInfos[keyDevice].id+"'>"+deviceInfos[keyDevice].deviceName+"</option>");  // 为Select追加一个Option(下拉项)
 	});
 
-	console.log(" ----- debug 3 -----");
+//	console.log(" ----- debug 3 -----");
 
 	// 添加默认左侧点位选择列表
 	defaultDevice = serverInfos[$("#newItem_ServerSelectSect").val()].devices[$("#newItem_DeviceSelectSect").val()-1];
@@ -134,7 +134,7 @@ function buildNewItemUI(serverInfos) {
 	var pointLeftBox = document.getElementById("newItem_pointlistleft");
 	pointLeftBox.innerHTML="";
 	var pointLeftBoxInnerHtml = "";
-	console.log(" ----- debug 4 -----"+JSON.stringify(defaultPoints));
+//	console.log(" ----- debug 4 -----"+JSON.stringify(defaultPoints));
 	Object.keys(defaultPoints).forEach(function(keyPoint){
 	// 排除已经选择的点位
 		
@@ -151,14 +151,14 @@ function buildNewItemUI(serverInfos) {
 
 	});
 	pointLeftBox.innerHTML=pointLeftBoxInnerHtml;
-	console.log(" ----- debug 5 -----");
+//	console.log(" ----- debug 5 -----");
 	
 	// 将已经选择的点位加进去到右侧
 	// 清空右侧已经选择项
 	var pointRightBox = document.getElementById("newItem_pointlistright");
 	pointRightBox.innerHTML="";
 	var pointRightBoxInnerHtml = "";
-	console.log(" ----- debug 6 -----");
+//	console.log(" ----- debug 6 -----");
  
 	selectedPoints.forEach(function(keyPoint)
 	{

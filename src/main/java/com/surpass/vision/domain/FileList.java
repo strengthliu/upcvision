@@ -20,7 +20,8 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 	 * 0：没有变化 1：该文件为新增文件 -1：该文件为删除文件
 	 */
 	int changed = 0;
-	Hashtable<String, FileList> children;
+//	Hashtable<String, FileList> children;
+	Hashtable children;
 	String img;
 	boolean isFile;
 	boolean isSVG;
@@ -332,7 +333,10 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 			FileList child = children1.get(i);
 
 			this.children.put(child.getWholePath(), child);
-			if (child.isFile)
+			/**
+			 * 修改：增加目录分享功能，所以目录也要保存起来
+			 */
+//			if (child.isFile)
 				inds.put(child.getId(), child);
 		}
 	}
@@ -352,7 +356,7 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 				Enumeration<String> e = this.children.keys();
 				while(e.hasMoreElements()) {
 					String key = (String) e.nextElement();
-					children.put(key, this.children.get(key).clone());
+					children.put(key, ((FileList) this.children.get(key)).clone());
 				}
 				ret.setChildren(children);
 //				ret.buildInds(inds);
@@ -371,7 +375,7 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 			Enumeration<String> e = this.children.keys();
 			while(e.hasMoreElements()) {
 				String key = e.nextElement();
-				FileList fl = this.children.get(key);
+				FileList fl = (FileList) this.children.get(key);
 				fl.buildInds(inds);
 			}
 		}

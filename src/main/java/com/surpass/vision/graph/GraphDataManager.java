@@ -150,7 +150,7 @@ public class GraphDataManager extends PointGroupDataManager {
 			String key = pgd.getName();
 			pgdh.put(key, pgd);
 		}
-		FileList fl = GraphManager.getInstance().getCurrentFileList();
+		FileList fl = GraphManager.getCurrentFileList();
 		if (fl == null)
 			return null;// 没有初始化
 		Graph ret = getGraph(GraphManager.getInstance().getArllGraph());
@@ -307,26 +307,95 @@ public class GraphDataManager extends PointGroupDataManager {
 				System.out.println();
 				e.printStackTrace();
 			}
+			return ret;
+		} else {
+			// 如果是目录
+			ret.setId(IDTools.newID());
+			ret.setFile(false);
+			// 同步数据库
+			//这里用到的getWholePath涉及到名字了
+			PointGroupData pgd = this.pointGroupService.getPointGroupDataByOtherRule1(GlobalConsts.Type_graph_,
+					fl.getWholePath());
+			if (pgd != null) { // 数据库里有了，就取出权限信息
+				// 用数据库的信息更新fileList
+				fl.setId(pgd.getId());
+				fl.setType(pgd.getType());
+				fl.setName(pgd.getName());
+				fl.setOwner(pgd.getOwner());
+				fl.setCreater(pgd.getCreater());
+				fl.setShared(pgd.getShared());
+				fl.setPoints(pgd.getPoints());
+				fl.setOtherrule1(pgd.getOtherrule1());
+				fl.setOtherrule2(pgd.getOtherrule2());
+				fl.setOtherrule3(pgd.getOtherrule3());
+				fl.setOtherrule4(pgd.getOtherrule4());
+				fl.setOtherrule5(pgd.getOtherrule5());
+				setRightInfo(ret, pgd);
+				
+				ret.setId(pgd.getId());
+				ret.setType(pgd.getType());
+				ret.setName(pgd.getName());
+				ret.setOwner(pgd.getOwner());
+				ret.setCreater(pgd.getCreater());
+				ret.setShared(pgd.getShared());
+				ret.setPoints(pgd.getPoints());
+				ret.setOtherrule1(pgd.getOtherrule1());
+				ret.setOtherrule2(pgd.getOtherrule2());
+				ret.setOtherrule3(pgd.getOtherrule3());
+				ret.setOtherrule4(pgd.getOtherrule4());
+				ret.setOtherrule5(pgd.getOtherrule5());
+				setRightInfo(ret, pgd);
+				ret.setNickName(pgd.getOtherrule4());
+				if(!StringUtil.isBlank(pgd.getOtherrule5()))
+					ret.setImg(pgd.getOtherrule5());
+				else
+					ret.setImg(graphDefaultImg);
+				ret.setDesc(pgd.getOtherrule2());
 
+			}else { // 否则就写入数据库
+				Double id = IDTools.newID();
+				ret.setName(fl.getName());
+				ret.setId(id);
+				ret.setType(fl.getType());
+				ret.setCreater(GlobalConsts.UserAdminID);
+				ret.setOwner(GlobalConsts.UserAdminID);
+				ret.setNickName(fl.getNickName());
+				ret.setOtherrule4(fl.getNickName());
+				ret.setOtherrule5(fl.getImg());
+//				ret.setImg(fl.getImg());
+				if(!StringUtil.isBlank(fl.getOtherrule5()))
+					ret.setImg(fl.getOtherrule5());
+				else
+					ret.setImg(graphDefaultImg);
+
+				ret.setOtherrule2(fl.getDesc());
+
+				// TODO: 处理数据库和缓存
+				// 数据库中创建一条
+				this.pointGroupService.newPointGroupData(ret);
+
+			}
+			// 更新缓存
+			try {
+				redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(ret.getId()), ret);
+			} catch (Exception e) {
+				System.out.println();
+				e.printStackTrace();
+			}
+
+			// 如果是目录，递归取子
+			Hashtable<String, FileList> flh = fl.getChildren();
+			if (flh != null) {
+				Hashtable<String, Graph> children = new Hashtable<String, Graph>();
+				flh.forEach((k, v) -> {
+					Graph graph = getGraph(v);
+					children.put(k, graph);
+					// System.out.println();
+				});
+				ret.setChildren(children);
+			}
 			return ret;
 		}
-
-		// 如果是目录
-		ret.setId(IDTools.newID());
-		ret.setFile(false);
-
-		// 如果是目录，递归取子
-		Hashtable<String, FileList> flh = fl.getChildren();
-		if (flh != null) {
-			Hashtable<String, Graph> children = new Hashtable<String, Graph>();
-			flh.forEach((k, v) -> {
-				Graph graph = getGraph(v);
-				children.put(k, graph);
-				// System.out.println();
-			});
-			ret.setChildren(children);
-		}
-		return ret;
 	}
 
 	public Graph copyFromPointGroupData(PointGroupData pgd) {

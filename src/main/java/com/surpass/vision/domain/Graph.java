@@ -18,8 +18,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import org.jsoup.helper.StringUtil;
 
@@ -42,7 +45,7 @@ import com.surpass.vision.server.Point;
  */
 public class Graph extends FileList implements Serializable,Cloneable {
 	int changed;
-	Hashtable<String,Graph> children;
+//	Hashtable<String,Graph> children;
 	String fileName;
 	String urlPath;
 
@@ -60,9 +63,11 @@ public class Graph extends FileList implements Serializable,Cloneable {
 			ret = new ArrayList<Double>();
 		ret.add(this.id);
 		if(this.children!=null) {
-			for(Map.Entry<String, Graph> entry: children.entrySet()){
-				entry.getValue().getIDList(ret);
-				}
+			Enumeration e=children.elements();
+			while(e.hasMoreElements()){
+				Graph _g =(Graph)e.nextElement();
+				_g.getIDList(ret);
+			}
 		}
 		return ret;
 	}
@@ -179,7 +184,7 @@ public class Graph extends FileList implements Serializable,Cloneable {
 				Enumeration<String> e = this.children.keys();
 				while(e.hasMoreElements()) {
 					String k = (String) e.nextElement();
-					Graph child = this.children.get(k);
+					Graph child = (Graph) children.get(k);
 					if(!child.isFile) {
 						if(path.contains(child.getPath()))
 							return child.getParentByPath(path);
@@ -222,7 +227,7 @@ public class Graph extends FileList implements Serializable,Cloneable {
 				Graph yangChild;
 				// 先找到我最接近rtd的孩子，叫yangChild，是个目录
 				while(e.hasMoreElements()) {
-					Graph child = this.children.get(e.nextElement());
+					Graph child = (Graph) this.children.get(e.nextElement());
 					if(child.isFile) {}
 					else {
 						if(rtd.getPath().contains(child.getPath())) {
@@ -285,7 +290,7 @@ private Graph getChildByPath(String pathName) {
 			Enumeration<String> e = this.children.keys();
 			while(e.hasMoreElements()) {
 				String key = (String) e.nextElement();
-				Graph f = this.children.get(key);
+				Graph f = (Graph) this.children.get(key);
 				if(pathName.contains(f.getPath())) {
 					return f.getChildByPath(pathName);
 				}
@@ -318,7 +323,7 @@ private Graph getChildByPath(String pathName) {
 				Graph _g = null;
 				while(e.hasMoreElements()) {
 					String key = (String) e.nextElement();
-					Graph g = this.children.get(key);
+					Graph g = (Graph) this.children.get(key);
 					if(rtd.getPath().contains(g.getPath())) {
 						_g = g.cutForChild(rtd);
 					} else {
@@ -349,7 +354,7 @@ private Graph getChildByPath(String pathName) {
 			Enumeration<String> e = this.children.keys();
 			while(e.hasMoreElements()) {
 				String key = (String) e.nextElement();
-				Graph _g = children.get(key);
+				Graph _g = (Graph) children.get(key);
 				if(_g.isFile)
 					children.remove(key);
 				else {
@@ -395,7 +400,7 @@ private Graph getChildByPath(String pathName) {
 			Enumeration<String> e = this.children.keys();
 			while(e.hasMoreElements()) {
 				String key = (String) e.nextElement();
-				children.put(key, this.children.get(key).clone());
+				children.put(key, ((Graph) this.children.get(key)).clone());
 			}
 		}
 		ret.setChildren(children);

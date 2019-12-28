@@ -217,7 +217,7 @@ System.out.println(aa.length);
 
 	public FileList getArllGraph() {
 		
-		return this.repo;
+		return repo;
 	}
 
 	public void reloadFileList(String graphPath2) {
@@ -332,7 +332,9 @@ System.out.println(aa.length);
 	
 
 	public Graph updateShareRight(Double itemId, List<String> userIdsid, List<String> depIdsid) {
-		return (Graph) updateShareRight(new Graph(),GlobalConsts.Key_Graph_pre_,itemId, userIdsid,depIdsid);
+		// 因为Graph与一般的XYGraph等不一样，他有一部分信息是存在FileList里，所以需要先取出来，再更新PointGroup的部分。
+		Graph g = this.getGraphByKeys(itemId);
+		return (Graph) updateShareRight(g,GlobalConsts.Key_Graph_pre_,itemId, userIdsid,depIdsid);
 	}
 
 	public Graph getGraphByKeys(Double oldRtdId) {

@@ -170,16 +170,14 @@ console.log("deleteItemAction uid="+uid+" token="+token+" id="+itemId);
 			hideLoading();
 		}
 	});
-
 }
-
+//console.log("graph-> "+JSON.stringify(userSpace.graph));
 var dataItemId;
 function shareItemAction(itemId) {
 	dataItemId = itemId;
 	shareType = _routeType;// "graph";
 	setParameter(shareType,itemId);
 	$('#shareItemAction_mid').modal('show');
-	loadUsers();
 }
 var _graphs;
 var step = 0;
@@ -260,7 +258,7 @@ function loadDefaultGraph(){
 	var defaultG;
 	var gCount = 0;
 	// 取指定路径下的所有文件图形
-	if(_graph.children!=null&&_graph.children!="undefined"){
+	if(_graph!=null&&_graph.children!=null&&_graph.children!="undefined"){
 		for(let key in _graph.children){
 			var _g = _graph.children[key];
 			if(_g.file && _g.svg){
