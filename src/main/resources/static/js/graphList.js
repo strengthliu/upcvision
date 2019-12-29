@@ -14,7 +14,7 @@ function newItemAction() {
 	init();
 	if(user.id == 2 || user.role == 1){
 	// alert("xyGraphList.newItemAction");
-		document.getElementById("divUpLoadGraphFile").style.visibility="visible";//显示
+		document.getElementById("divUpLoadGraphFile").style.display="block";//显示
 		$('#newItemAction_mid').modal('show');
 	}else {
 		alert("您没有权限进行新建操作。");
@@ -32,7 +32,7 @@ function editItemAction(itemId) {
 		if(user.role == 1 || user.id == _graph.creater || user.id == _graph.owner ){
 			console.log();
 			var _graph = getGraphByID(userSpace.graph,itemId);
-			document.getElementById("divUpLoadGraphFile").style.visibility="hidden";//隐藏
+			document.getElementById("divUpLoadGraphFile").style.display="none";//隐藏
 			console.log("itemId="+JSON.stringify(_graph));
 			//设置初始值。
 			document.getElementById("_updateGraphTitle").value = "修改图形";
@@ -314,15 +314,14 @@ function updateGraphListFrame(){
 // console.log(key+" => "+JSON.stringify(children[key]));
 			var _graph=children[key];
 			var diagram_gallery_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12"';
+			diagram_gallery_item_innerHTML += '>'; // 1
 			if(_graph.file && _graph.svg){
-				diagram_gallery_item_innerHTML += '>';
-				diagram_gallery_item_innerHTML += '<figure class="effect-text-in">';
+				diagram_gallery_item_innerHTML += '<figure class="effect-text-in">'; // 2
 				diagram_gallery_item_innerHTML += '<div></div>';				
-				diagram_gallery_item_innerHTML += '<img src="' + _graph.img + '" alt="image" ';
-				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramDetail\',\'' + _graph.urlPath + '\',\''+_graph.id+'\');"/>';
+				diagram_gallery_item_innerHTML += '<img src="' + _graph.img + '" alt="image" '; // 3
+				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramDetail\',\'' + _graph.urlPath + '\',\''+_graph.id+'\');"/>'; // 4
 				diagram_gallery_item_innerHTML += '<figcaption';
-				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramDetail\',\'' + _graph.urlPath + '\',\''+_graph.id+'\');">';
-
+				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramDetail\',\'' + _graph.urlPath + '\',\''+_graph.id+'\');">'; // 5
 				var desc = "";
 				if(_graph.desc!=null&&_graph.desc!="undefined"){
 					desc = _graph.desc;
@@ -352,29 +351,21 @@ function updateGraphListFrame(){
 					diagram_gallery_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
 					diagram_gallery_item_innerHTML += '</button>';
 				}
-				// 如果图的宽度大于可预览值，显示预览图形。
-				// TODO: if()
-				// diagram_gallery_item_innerHTML += '<button type="submit"
-				// class="btn btn-info btn-sm icon-btn ml-2" onclick="';
-				// diagram_gallery_item_innerHTML +=
-				// 'previewGraph(\''+_graph.id+'\')">';
-				// diagram_gallery_item_innerHTML += '<i class="mdi
-				// mdi-edit">Preview</i>';
-				// diagram_gallery_item_innerHTML += '</button>';
-				
-				// --------------一个图形div结束
+				diagram_gallery_item_innerHTML += '</figure>';
 				diagram_gallery_item_innerHTML += '</div>';
 
-			} else {
-				diagram_gallery_item_innerHTML += ' onclick="routeTo(' + "'"
-						+ "diagramList','" + _graph + "'" + ',\''+_graph.id+'\');">';
-				diagram_gallery_item_innerHTML += '<figure class="effect-text-in">';
-				diagram_gallery_item_innerHTML += '<img src="' + _graph.img + '" alt="image"/>';
-				diagram_gallery_item_innerHTML += '<figcaption><h4 style="color:#FFFF00">'
+			} else {// 目录的处理
+				diagram_gallery_item_innerHTML += '<figure class="effect-text-in">'; // 2
+				diagram_gallery_item_innerHTML += '<div></div>';				
+				diagram_gallery_item_innerHTML += '<img src="' + _graph.img + '" alt="image" '; //3
+				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramList\',\'' + _graph + "'" + ',\''+_graph.id+'\');">'; // 4
+				diagram_gallery_item_innerHTML += '<figcaption';
+				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramList\',\'' + _graph + '\',\''+_graph.id+'\');">'; // 5
+
+				diagram_gallery_item_innerHTML += '<h4 style="color:#FFFF00">'
 						+ _graph.name +"  " + '</h4><p>' + _graph.path
 						+ '</p></figcaption>';
 						// console.log(diagram_gallery_item_innerHTML);
-				diagram_gallery_item_innerHTML += '</figure>';
 				diagram_gallery_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 				// 判断权限
 				if(user.id == _graph.creater || user.id == _graph.owner || user.role == 1){
@@ -385,7 +376,8 @@ function updateGraphListFrame(){
 					diagram_gallery_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
 					diagram_gallery_item_innerHTML += '</button>';
 				}
-				diagram_gallery_item_innerHTML += '</div></div>';
+				diagram_gallery_item_innerHTML += '</figure></div>';
+//				diagram_gallery_item_innerHTML += '</figure>';
 
 
 			}
@@ -579,7 +571,7 @@ function doUpLoad(){
         console.log('err:', err)
         hideLoading();
         $('#newItemAction_mid').modal('hide');
-        document.getElementById("divUpLoadGraphFile").style.visibility="visible";//显示
+        document.getElementById("divUpLoadGraphFile").style.display="block";//显示
 
     });
 

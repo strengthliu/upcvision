@@ -78,14 +78,19 @@ function deleteItemAction(itemId) {
 
 }
 
+//function updateShareToDepart(item) {
+//	console.log("updateShart");
+//	$("#shareItemToDepart").jsGrid("loadData", item);
+//}
+
 function doShareActionToServer(){
 	if (user == null || user == "undefined") {
 		user = localStorage.user;
 		uid = user.id;
 		token = localStorage.token;
 	}
-	console.log("dataItemId="+dataItemId+"  user:"+JSON.stringify(Array.from(selectedUsers)));
-	var data={'uid':uid,'token':token,'id':dataItemId,'userIds':Array.from(selectedUsers),'type':"xyGraph"};
+//	console.log("dataItemId="+dataItemId+"  user:"+JSON.stringify(Array.from(selectedUsers)));
+	var data={'uid':uid,'token':token,'id':dataItemId,'userIds':Array.from(selectedUsers),'type':"xyGraph",departIds:''};
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -126,10 +131,12 @@ function doShareActionToServer(){
 
 var dataItemId;
 function shareItemAction(itemId) {
+//	console.log("shareItemAction: "+itemId);
 	dataItemId = itemId;
 	shareType = _routeType;//"xyGraph";
+	setParameter(shareType,itemId);
 	$('#shareItemAction_mid').modal('show');
-	loadUsers();
+//	loadUsers();
 }
 
 /**

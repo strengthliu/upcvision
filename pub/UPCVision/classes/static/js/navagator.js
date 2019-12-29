@@ -22,7 +22,7 @@
 			return;
 		}
 		
-		//// console.log(JSON.stringify(userSpace));
+//		console.log(JSON.stringify(userSpace));
 		/* 刷新流程图目录结构*/
 		var diagrams = userSpace.graph.children;
 //		console.log("diagrams = "+JSON.stringify(diagrams))
