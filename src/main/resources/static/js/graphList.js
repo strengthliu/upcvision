@@ -317,7 +317,17 @@ function updateGraphListFrame(){
 			diagram_gallery_item_innerHTML += '>'; // 1
 			if(_graph.file && _graph.svg){
 				diagram_gallery_item_innerHTML += '<figure class="effect-text-in">'; // 2
-				diagram_gallery_item_innerHTML += '<div></div>';				
+				diagram_gallery_item_innerHTML += '<div></div>';	
+//				 -                 // 如果图的宽度大于可预览值，显示预览图形,不显示缩略图。
+//				 -                 // TODO: if()
+//				 -                 // diagram_gallery_item_innerHTML += '<button type="submit"
+//				 -                 // class="btn btn-info btn-sm icon-btn ml-2" onclick="';
+//				 -                 // diagram_gallery_item_innerHTML +=
+//				 -                 // 'previewGraph(\''+_graph.id+'\')">';
+//				 -                 // diagram_gallery_item_innerHTML += '<i class="mdi
+//				 -                 // mdi-edit">Preview</i>';
+//				 -                 // diagram_gallery_item_innerHTML += '</button>';
+
 				diagram_gallery_item_innerHTML += '<img src="' + _graph.img + '" alt="image" '; // 3
 				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramDetail\',\'' + _graph.urlPath + '\',\''+_graph.id+'\');"/>'; // 4
 				diagram_gallery_item_innerHTML += '<figcaption';
