@@ -60,7 +60,7 @@ public class HistoryDataController extends BaseController {
 			return ret;
 
 		// 取出用户空间
-		UserSpace us = userSpaceManager.getUserSpace(Double.valueOf(uid));
+		UserSpace us = userSpaceManager.getUserSpaceWithDepartData(Double.valueOf(uid));
 		if (us == null) {
 			// token = TokenTools.genToken(uid.toString());
 			try {
@@ -263,7 +263,9 @@ public class HistoryDataController extends BaseController {
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
-				userSpaceManager.updateHistoryData(rtd, Double.valueOf(0));
+//				userSpaceManager.updateHistoryData(rtd, Double.valueOf(0));
+				userSpaceManager.updateHistoryData(g,rtd);
+
 				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
 				ret.setData("data", rtd);
 				ret.setMsg("成功");

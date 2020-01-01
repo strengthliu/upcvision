@@ -60,7 +60,7 @@ public class XYGraphManager extends PointGroupDataManager {
 	 */
 	public Hashtable getXYGraphHashtableByKeys(String LineAlertDataID) {
 //		Hashtable ret = new Hashtable();
-		return getPointGroupHashtableByKeys(GlobalConsts.Key_XYGraph_pre_,new PointGroup(),LineAlertDataID);
+		return getPointGroupHashtableByKeys(GlobalConsts.Key_XYGraph_pre_,new XYGraph(),LineAlertDataID);
 	}
 
 	private XYGraph getXYGraphRigidlyByKey(String idstr) {

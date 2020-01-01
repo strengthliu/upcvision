@@ -89,14 +89,26 @@ public class AuthorcationController extends BaseController {
 			tw.setRedirectUrl("login.html");
 			return tw;
 		}
+		// 如果是管理员，直接构造返回。
+		if(IDTools.toString(ui.getId()).contentEquals(GlobalConsts.UserAdminID) || ui.getRole()==GlobalConsts.UserRoleAdmin) {
+			UserSpace us = userSpaceManager.buildUserSpace(ui.getId());
+			tw.setStatus(GlobalConsts.ResultCode_SUCCESS);
+			tw.setMsg("登录成功！");
+			HashMap<String ,Object> hm = new HashMap<String ,Object>();
+			hm.put("userSpace",us);
+			//hm.put("userInfo", us.getUser());
+			tw.setData(hm);
+			return tw;
+		} 
+
 		// 返回UserSpace
 		UserSpace us = userSpaceManager.getUserSpace(ui.getId());
 		String token = "";
 		// 如果用户是guest，就返回https://pan.baidu.com/share/init?surl=vG9RwIcag-XbW7FmOH3ncg
 		if(us == null) {
 			try {
-				us = userSpaceManager.buildUserSpace(ui.getId(), token);
 				token = TokenTools.genToken(ui.getId().toString());
+				us = userSpaceManager.buildUserSpace(ui.getId(), token);
 			}catch(IllegalStateException e) {
 				e.printStackTrace();
 			}
@@ -104,11 +116,19 @@ public class AuthorcationController extends BaseController {
 			// 重新建token
 			if(ui.getRole() == GlobalConsts.UserRoleGuest) {
 				token = us.getToken();
-			} else
-				token = TokenTools.genToken(ui.getId().toString());
+			} else {
+				// 重新登录，如果不是guest，重建Token。
+				token = TokenTools.genToken(IDTools.toString(ui.getId()));
+			}
 		}
+		UserSpace usWithDep = null;
+		usWithDep = userSpaceManager.getUserSpaceWithDepartData(ui.getId());
+
+		usWithDep.setToken(token);
+//		UserSpace uss = userSpaceManager.getUserSpace(ui.getId());
 		us.setToken(token);
-		userSpaceManager.setUserSpace(ui.getId(), us);
+		userSpaceManager.setUserSpace(us);
+		
 		tw.setStatus(GlobalConsts.ResultCode_SUCCESS);
 		tw.setMsg("登录成功！");
 		HashMap<String ,Object> hm = new HashMap<String ,Object>();
@@ -175,7 +195,20 @@ public class AuthorcationController extends BaseController {
 		}
 		ToWeb ret = authercation(userId,token);
 		if(ret.getStatus()!= GlobalConsts.ResultCode_SUCCESS) return ret;
-		UserSpace us = userSpaceManager.getUserSpaceRigidly(userId);
+		// 如果是管理员，直接构造返回。
+		UserInfo ui = userManager.getUserInfoByID(uid);
+		if(IDTools.toString(ui.getId()).contentEquals(GlobalConsts.UserAdminID) || ui.getRole()==GlobalConsts.UserRoleAdmin) {
+			UserSpace us = userSpaceManager.buildUserSpace(ui.getId(),token);
+			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
+			ret.setMsg("登录成功！");
+			HashMap<String ,Object> hm = new HashMap<String ,Object>();
+			hm.put("userSpace",us);
+			//hm.put("userInfo", us.getUser());
+			ret.setData(hm);
+			return ret;
+		} 
+
+		UserSpace us = userSpaceManager.getUserSpaceWithDepartData(userId);
 		ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
 		ret.setData("userSpace", us);
 		return ret;

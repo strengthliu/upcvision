@@ -196,82 +196,163 @@ public class Graph extends FileList implements Serializable,Cloneable {
 	}
 
 	/**
+	 * 合并两个图（将rtd合并到this），结构以path为准，如果是文件图形重复，以rtd为准，更新this的图。
+	 * 
 	 * 添加或修改一个子。按目录结构，如果不是直接的子，就把中间的孩子们都补齐。
 	 * @param rtd
 	 */
 	public void addOrUpdateChild(Graph rtd) {
-		if(this.children==null) {
-			this.children = new Hashtable<String,Graph>();
-		}
+		if(this.isFile) return; // 不能对一个文件添加子
+		if(this.children==null) this.children = new Hashtable<String,Graph>();
 		if(rtd==null) return;
-		
-		if(rtd.getId()==null) { // 删除
+		if(rtd.getId()==null) { // 删除指令，一种特殊处理情况。
 			System.out.println("rtd.getId()="+rtd.getId()+" ret.getName()="+rtd.getName());
 			if(StringUtil.isBlank(rtd.getPath()))
 					return;
 			else
 				this.children.remove(rtd.getPath());
+			return;
 		}
-		else {
-			// 如果rtd的目录不是this的目录，就说明，级别不对
-//			if(!StringUtil.isBlank(this.getPath()) && rtd.getPath().contentEquals(this.getPath())) {		
-//				this.children.put(rtd.getWholePath(), rtd);	
-//			}
-//			else 
-			{
-				boolean hasYangChild = false;
-				if(this.children==null) {
-					this.children = new Hashtable<String,Graph>();
+//******************************************************************************************
+		boolean hasYangChild = false;
+		Enumeration e = this.children.keys();
+		Graph yangChild;
+		// 先找到我最接近rtd的孩子，叫yangChild，是个目录
+		// 如果this跟rtd是同一级别，执行所有的相对应的子合并
+		if(this.getPath().contentEquals(rtd.getPath())) {
+			// 如果rtd是文件，就加入（替换），
+			if(rtd.isFile) this.children.put(rtd.getWholePath(), rtd);
+			else {//否则，遍历双方的子
+				if(rtd.getChildren()==null||rtd.getChildren().size()==0) {//如果rtd是空目录，就填满
+					rtd.children = new Hashtable<String,Graph>();
 				}
-				Enumeration e = this.children.keys();
-				Graph yangChild;
-				// 先找到我最接近rtd的孩子，叫yangChild，是个目录
-				while(e.hasMoreElements()) {
-					Graph child = (Graph) this.children.get(e.nextElement());
-					if(child.isFile) {}
-					else {
-						if(rtd.getPath().contains(child.getPath())) {
-							hasYangChild = true;
-							child.addOrUpdateChild(rtd);
-							// 只这个子执行，不再执行后面的了。
-							return;
-						}
+				//执行所有的相对应的子合并。遍历rtd的子
+				Hashtable<String,Graph> hc = rtd.getChildren();
+				Enumeration ertd = hc.keys();
+				while(ertd.hasMoreElements()) {
+					Graph rtdChild = hc.get(ertd.nextElement());
+					if(!this.getChildren().containsKey(rtdChild.getWholePath())) {// 如果rtd有，而this没有，直接this加入
+						this.getChildren().put(rtdChild.getWholePath(), rtdChild);//这里直接加进去了，不用判断rtdChild是否是空目录，前面已经处理过了。
+					}else { // 如果this有，rtd也有，
+						Graph thisChild = (Graph) this.getChildren().get(rtdChild.getWholePath());
+						// 		如果这个子是文件，就替换
+						if(thisChild.isFile && rtdChild.isFile) this.getChildren().put(rtdChild.getWholePath(), rtdChild);
+						if(thisChild.isFile && !rtdChild.isFile) throw new IllegalStateException("同一级有重名的文件和目录。");
+						// 		如果这个子是目录，就递归
+						if(!thisChild.isFile && !rtdChild.isFile) thisChild.addOrUpdateChild(rtdChild);
 					}
-				}
-				// 已经到了最接近层，this就是yangChild
-				if(!hasYangChild) {
-					Graph graphTree = GraphManager.getGraphTree();
-					// 从树中找到yangChild的孩子中，rtd这一支的树，叫yangPar
-					Graph thisTreeNode = (Graph) graphTree.getChildByPath(this.getPath());
-					if(thisTreeNode == null) {
-						System.out.println("path="+this.getPath());
-					}
-					
-					Graph _g = thisTreeNode.cutForChild(rtd);
-					// 在yangPar中加入rtd这个孩子
-					if(_g.getPath().contentEquals(rtd.getPath()))
-						_g.children.put(rtd.getWholePath(), rtd);
-					else {
-						System.out.println("_g不是rtd是亲爹。");
-						throw new IllegalStateException("_g不是rtd是亲爹。");
-					}
-					
-					Graph _gChild = null ;
-					if(thisTreeNode.children.size()==1) {
-						Collection<?> c = thisTreeNode.children.values();
-						_gChild = (Graph) c.toArray()[0];
-					} else {
-						System.out.println(_g.children.size());
-						throw new IllegalStateException("初始化时没有注册过"+_g.getPath()+"这个目录。");
-					}
-					this.children.put(_gChild.getWholePath(), _gChild);
 				}
 			}
+		} else { // 否则找到this的子里这个path的那个目录，然后递归
+			if(!rtd.getPath().contains(this.getPath())) {
+				if(!this.getPath().contains(rtd.getPath()))return; // 如果这两个不是同一目录下的，就错了，啥也不做返回。
+				// rtd比this级别高，将自己被完整
+				rtd.addOrUpdateChild(rtd);// rtd里加上自己,
+				copyFromGraph(rtd);//自己的子换成rtd的子，自己的名字内容等都换成rtd
+			}
+			// 遍历this的子，找到子里面rtd目录
+			if(children.containsKey(rtd.getWholePath())) { // 如果子里面有rtd，这个子递归
+				Graph gChild = (Graph) children.get(rtd.getWholePath());
+				gChild.addOrUpdateChild(rtd);
+			}else{// 补足空目录结构到rtd，再递归
+				Graph graphTree = GraphManager.getGraphTree();// 取到graph里这个
+				Graph thisWholePath = graphTree.getChildByPath(this.getPath());
+				Graph gDir = thisWholePath.cutForChild(rtd);
+				this.getChildren().put(gDir.getWholePath(), gDir);// 把中间目录补完整
+				gDir.addOrUpdateChild(rtd);// 递归
+			}
 		}
+//		
+//		// 否则找子
+//		while(e.hasMoreElements()) {
+//			Graph child = (Graph) this.children.get(e.nextElement());
+//			if(child.isFile) {}
+//			else {
+//				if(rtd.getPath().contains(child.getPath())) {
+//					hasYangChild = true;
+//					child.addOrUpdateChild(rtd);
+//					// 只这个子执行，不再执行后面的了。
+//					return;
+//				}
+//			}
+//		}
+//		// 已经到了最接近层，this就是yangChild
+//		
+//		// 修剪这个图形，使之成为从根开始的图形。
+//		if(!hasYangChild) {
+//			Graph graphTree = GraphManager.getGraphTree(); // 取出整个图形树，没有文件的，只有目录
+//			// 从树中找到yangChild的孩子中，rtd这一支的树，叫yangPar
+//			Graph thisTreeNode = (Graph) graphTree.getChildByPath(this.getPath());// 取出当前图形的父亲或自己（如果是目录），是个目录
+//			if(thisTreeNode == null) {
+//				System.out.println("path="+this.getPath());
+//			}
+//			
+//			Graph _g = thisTreeNode.cutForChild(rtd); // 把这个目录修剪成只有rtd这一支
+//			// 在yangPar中加入rtd这个孩子
+//			if(_g.getPath().contentEquals(rtd.getPath())) { // 如果修剪后的目录与rtd目录一致，就加进去
+//				if(rtd.isFile)
+//					_g.children.put(rtd.getWholePath(), rtd);
+//				else { // 如果是目录，就所子加进去
+//					Enumeration ertd = rtd.getChildren().keys();
+//					while(ertd.hasMoreElements()) {
+//						String key = (String) ertd.nextElement();
+//						_g.children.put(key, rtd.getChildren().get(key));
+//					}
+//					// 如果没有子？？
+//				}
+//			}
+//			else {
+//				System.out.println("_g不是rtd是亲爹。");
+//				throw new IllegalStateException("_g不是rtd是亲爹。");
+//			}
+//			
+//			Graph _gChild = null ;
+//			if(thisTreeNode.children.size()==1) {
+//				Collection<?> c = thisTreeNode.children.values();
+//				_gChild = (Graph) c.toArray()[0];
+//				this.children.put(_gChild.getWholePath(), _gChild);
+//			} else {
+//				System.out.println(_g.children.size());
+//				// 如果thisTreeNode没有子，就是前面加入的是一个相同的空目录，什么也不用做
+////						throw new IllegalStateException("初始化时没有注册过"+_g.getPath()+"这个目录。");
+//			}
+//		}
+	}
+
+	private void copyFromGraph(Graph rtd) { // 自己的子换成rtd的子，自己的名字内容等都换成rtd
+		this.setChanged(rtd.getChanged());
+		this.setChildren(rtd.getChildren());
+		this.setCreater(rtd.getCreater());
+		this.setCreaterUser(rtd.getCreaterUser());
+		this.setDesc(rtd.getDesc());
+		this.setFile(rtd.isFile);
+		this.setFileName(rtd.getFileName());
+		this.setId(rtd.getId());
+		this.setImg(rtd.getImg());
+		this.setName(rtd.getName());
+		this.setNickName(rtd.getNickName());
+		this.setOtherrule1(rtd.getOtherrule1());
+		this.setOtherrule2(rtd.getOtherrule2());
+		this.setOtherrule3(rtd.getOtherrule3());
+		this.setOtherrule4(rtd.getOtherrule4());
+		this.setOtherrule5(rtd.getOtherrule5());
+		this.setOwner(rtd.getOwner());
+		this.setOwnerUser(rtd.getOwnerUser());
+		this.setPath(rtd.getPath());
+		this.setPointList(rtd.getPointList());
+		this.setPoints(rtd.getPoints());
+		this.setPointTextIDs(rtd.getPointTextIDs());
+		this.setShared(rtd.getShared());
+		this.setShareddepart(rtd.getShareddepart());
+		this.setSharedDepartment(rtd.getSharedDepartment());
+		this.setSharedUsers(rtd.getSharedUsers());
+		this.setSVG(rtd.isSVG);
+		this.setType(rtd.getType());
+		this.setUrlPath(rtd.getUrlPath());
 	}
 
 	/**
-	 * 返回指pathName的孩子。
+	 * 返回指定pathName的目录孩子。
 	 * 
 	 * TODO: 可能有BUG
 	 * 
@@ -281,7 +362,7 @@ public class Graph extends FileList implements Serializable,Cloneable {
 private Graph getChildByPath(String pathName) {
 		if(StringUtil.isBlank(pathName))
 			return null;
-		if (this.name.equals(pathName))
+		if (this.name.equals(pathName)) // name和pathName相等的，是目录，所以只会返回目录。
 			return this;
 		if (pathName.contains(this.name)) {
 			if (this.children == null) {

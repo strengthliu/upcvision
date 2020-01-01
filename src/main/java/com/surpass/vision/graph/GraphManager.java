@@ -224,7 +224,7 @@ System.out.println(aa.length);
 		try {
 			FileTool.find(graphPath2,serverManager,graphDataManager,graphPath,repo);
 			// 上传图形时，需要修改下面的这些值。再更新UserSpace
-			graph = this.copyGraphFromFileList(repo);
+			graph = copyGraphFromFileList(repo);
 			graphs = graph.clone();
 			graphs.clearLeaf();
 			printGraph(graphs,null);
@@ -330,6 +330,44 @@ System.out.println(aa.length);
 		
 	}
 	
+	
+	public Graph getGraphFromGraphTreeByKey(String key) {
+		
+		return null;
+	}
+	/**
+	 * 根据图ID列表，生成一张从根开始的图。
+	 * 用于UserSpace中的graph。
+	 * 
+	 * @param graphs
+	 * @return
+	 */
+	public Graph getGraphsByKeys(String graphs) {
+		Graph ret = getRootGraph();
+		if(StringUtil.isBlank(graphs))return ret;
+		// 分隔key
+		String[] keys = IDTools.splitID(graphs);
+		// 从缓存里取数据，如果没有，再调用服务。
+		for (int ik = 0; ik < keys.length; ik++) {
+			// 从缓存里取图
+			Graph g = this.getGraphRigidlyByKeys(keys[ik]);
+
+			if (g == null) {
+				System.out.println("没有指定ID=" + keys[ik] + "的图形。");
+				// TODO: 发消息给管理员。
+				// TODO: 把这个图形从userSpace中删除。
+//				throw new IllegalStateException("没有指定ID=" + keys[ik] + "的图形。");
+			} else {
+				if(g.isFile()) {
+					ret.addOrUpdateChild(g);
+				}else {
+					g = graph.getParentByPath(g.getPath());
+					ret.addOrUpdateChild(g);
+				}
+			}
+		}
+		return ret;
+	}
 
 	public Graph updateShareRight(Double itemId, List<String> userIdsid, List<String> depIdsid) {
 		// 因为Graph与一般的XYGraph等不一样，他有一部分信息是存在FileList里，所以需要先取出来，再更新PointGroup的部分。

@@ -2,8 +2,18 @@ package com.surpass.vision.domain;
 
 import java.io.Serializable;
 
-public class UserSpaceData extends BaseDomain implements Serializable {
-    private Double uid;
+public class UserSpaceData extends BaseDomain implements Serializable,Cloneable {
+	private String token;
+	
+    public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	private Double uid;
 
     private String right;
 
@@ -83,5 +93,19 @@ public class UserSpaceData extends BaseDomain implements Serializable {
         this.linealertdata = linealertdata == null ? null : linealertdata.trim();
     }
 
+    @Override
+    public UserSpaceData clone() {
+    	UserSpaceData usd = new UserSpaceData();
+    	usd.setAlertdata(alertdata);
+    	usd.setGraphs(graphs);
+    	usd.setHistorydata(historydata);
+    	usd.setLinealertdata(linealertdata);
+    	usd.setRealtimedata(realtimedata);
+    	usd.setRight(right);
+    	usd.setToken(token);
+    	usd.setUid(uid);
+    	usd.setXygraph(xygraph);
+		return usd;
+    }
 
 }

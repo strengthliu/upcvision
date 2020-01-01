@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.appCfg.ServerConfig;
+import com.surpass.vision.domain.DepartmentInfo;
 import com.surpass.vision.domain.FileList;
 import com.surpass.vision.domain.Graph;
 import com.surpass.vision.domain.HistoryData;
@@ -58,63 +59,8 @@ public class GraphDataManager extends PointGroupDataManager {
 	@Value("${upc.graphDefaultImg}")
 	private String graphDefaultImg;
 
-	/**
-	 * 根据图ID列表，生成一张从根开始的图。
-	 * 用于UserSpace中的graph。
-	 * 
-	 * @param graphs
-	 * @return
-	 */
-	public Graph getGraphsByKeys(String graphs) {
-		Graph ret = GraphManager.getRootGraph();
-		if(StringUtil.isBlank(graphs))return ret;
-		// 分隔key
-		String[] keys = IDTools.splitID(graphs);
-		// 从缓存里取数据，如果没有，再调用服务。
-		for (int ik = 0; ik < keys.length; ik++) {
-			// 从缓存里取图
-			Graph g = this.getGraphRigidlyByKeys(keys[ik]);
 
-			if (g == null) {
-				System.out.println("没有指定ID=" + keys[ik] + "的图形。");
-				// TODO: 发消息给管理员。
-				// TODO: 把这个图形从userSpace中删除。
-				
-//				throw new IllegalStateException("没有指定ID=" + keys[ik] + "的图形。");
-			} else {
-				if(g.isFile()) {
-					ret.addOrUpdateChild(g);
-				}else {
-					// 这是一个目录，取这个路径下的所有图形
-					
-//					pointGroupService.getPointGroupDataByOtherRule1(typeGraph, wholePath)
-				}
-//				String path = g.getPath();
-//				String splitChar = "";
-//				if (File.separator.contentEquals("\\"))
-//					splitChar = "\\\\";
-//				else
-//					splitChar = File.separator;
-//				String[] folds = path.split(splitChar);
-//				String curPath = "";
-//				Graph curG = null;
-//				for (int ifold = 0; ifold < folds.length; ifold++) {
-//					String lastPath = curPath;
-//					curPath = curPath + folds[ifold];
-//					FileList fl = g.getChild(curPath);
-//					if (fl == null) {
-//						if (StringUtil.isBlank(lastPath)) {
-//							ret.addChild(g);
-//						}
-//					}
-//				}
-			}
-		}
-		//
-		return ret;
-	}
-
-	private Graph getGraphRigidlyByKeys(String idstr) {
+	Graph getGraphRigidlyByKeys(String idstr) {
 		if (StringUtil.isBlank(idstr)) {
 			throw new IllegalStateException("id不能为空。");
 		}
@@ -258,6 +204,7 @@ public class GraphDataManager extends PointGroupDataManager {
 				fl.setOwner(pgd.getOwner());
 				fl.setCreater(pgd.getCreater());
 				fl.setShared(pgd.getShared());
+				fl.setShareddepart(pgd.getShareddepart());
 				fl.setPoints(pgd.getPoints());
 				fl.setOtherrule1(pgd.getOtherrule1());
 				fl.setOtherrule2(pgd.getOtherrule2());
@@ -272,6 +219,7 @@ public class GraphDataManager extends PointGroupDataManager {
 				ret.setOwner(pgd.getOwner());
 				ret.setCreater(pgd.getCreater());
 				ret.setShared(pgd.getShared());
+				ret.setShareddepart(pgd.getShareddepart());
 				ret.setPoints(pgd.getPoints());
 				ret.setOtherrule1(pgd.getOtherrule1());
 				ret.setOtherrule2(pgd.getOtherrule2());
@@ -324,6 +272,7 @@ public class GraphDataManager extends PointGroupDataManager {
 				fl.setOwner(pgd.getOwner());
 				fl.setCreater(pgd.getCreater());
 				fl.setShared(pgd.getShared());
+				fl.setShareddepart(pgd.getShareddepart());
 				fl.setPoints(pgd.getPoints());
 				fl.setOtherrule1(pgd.getOtherrule1());
 				fl.setOtherrule2(pgd.getOtherrule2());
@@ -338,6 +287,7 @@ public class GraphDataManager extends PointGroupDataManager {
 				ret.setOwner(pgd.getOwner());
 				ret.setCreater(pgd.getCreater());
 				ret.setShared(pgd.getShared());
+				ret.setShareddepart(pgd.getShareddepart());
 				ret.setPoints(pgd.getPoints());
 				ret.setOtherrule1(pgd.getOtherrule1());
 				ret.setOtherrule2(pgd.getOtherrule2());
@@ -448,6 +398,19 @@ public class GraphDataManager extends PointGroupDataManager {
 			}
 			ret.setSharedUsers(shares);
 
+			// ------------------ 设置分享部门 -------------------
+			String sharedDeps = pgd.getShareddepart();
+			String[] deps = IDTools.splitID(sharedDeps);
+			ArrayList<DepartmentInfo> departs = new ArrayList<DepartmentInfo>();
+			for (int iids = 0; iids < deps.length; iids++) {
+				String sid = deps[iids];
+				DepartmentInfo share = userManager.getDepartmentInfoByID(sid);
+				if (owner == null)
+					throw new IllegalStateException("没有'" + ownerId + "'这个部门id。");
+				departs.add(share);
+			}
+			ret.setSharedDepartment(departs);
+
 			ret.setOtherrule1(pgd.getOtherrule1());
 			ret.setOtherrule2(pgd.getOtherrule2());
 			ret.setOtherrule3(pgd.getOtherrule3());
@@ -486,6 +449,20 @@ public class GraphDataManager extends PointGroupDataManager {
 				shares.add(share);
 			}
 			ret.setSharedUsers(shares);
+			
+			// ------------------ 设置分享部门 -------------------
+			String sharedDeps = pgd.getShareddepart();
+			String[] deps = IDTools.splitID(sharedDeps);
+			ArrayList<DepartmentInfo> departs = new ArrayList<DepartmentInfo>();
+			for (int iids = 0; iids < deps.length; iids++) {
+				String sid = deps[iids];
+				DepartmentInfo share = userManager.getDepartmentInfoByID(sid);
+				if (owner == null)
+					throw new IllegalStateException("没有'" + ownerId + "'这个部门id。");
+				departs.add(share);
+			}
+			ret.setSharedDepartment(departs);
+
 		}
 
 	}
@@ -556,6 +533,8 @@ public class GraphDataManager extends PointGroupDataManager {
 			sharedUserIDs = IDTools.merge(userIdsid.toArray());
 		}
 		pgd.setShared(sharedUserIDs);
+		
+		
 		// 更新数据库
 		pointGroupService.updatePointGroupItem(pgd);
 

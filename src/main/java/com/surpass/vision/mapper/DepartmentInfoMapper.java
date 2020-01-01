@@ -2,8 +2,6 @@ package com.surpass.vision.mapper;
 
 import com.surpass.vision.domain.DepartmentInfo;
 import com.surpass.vision.domain.DepartmentInfoExample;
-import com.surpass.vision.domain.UserInfo;
-
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
@@ -42,6 +40,5 @@ public interface DepartmentInfoMapper {
     @ResultMap("BaseResultMap")
     Integer selectMaxId();
 
-    
 
 }

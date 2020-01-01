@@ -70,7 +70,7 @@ public class RealTimeDataController extends BaseController {
 			return ret;
 
 		// 取出用户空间
-		UserSpace us = userSpaceManager.getUserSpace(Double.valueOf(uid));
+		UserSpace us = userSpaceManager.getUserSpaceWithDepartData(Double.valueOf(uid));
 		if (us == null) {
 			// token = TokenTools.genToken(uid.toString());
 			try {
@@ -278,7 +278,8 @@ public class RealTimeDataController extends BaseController {
 			if (rtd != null) {
 				// 更新用户空间
 				UserSpace us = userSpaceManager.getUserSpaceRigidly(Double.valueOf(uid));
-				userSpaceManager.updateRealTimeData(rtd, Double.valueOf(0));
+//				userSpaceManager.updateRealTimeData(rtd, Double.valueOf(0));
+				userSpaceManager.updateRealTimeData(g,rtd);
 				ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
 				ret.setData("data", rtd);
 				ret.setMsg("成功");

@@ -17,6 +17,9 @@ import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.RealTimeData;
 import com.surpass.vision.domain.UserRight;
 import com.surpass.vision.domain.UserSpace;
+import com.surpass.vision.server.ControlMessage;
+import com.surpass.vision.server.ControlMessageServer;
+import com.surpass.vision.tools.IDTools;
 import com.surpass.vision.user.UserManager;
 import com.surpass.vision.userSpace.UserSpaceManager;
 
@@ -31,7 +34,10 @@ public class BaseController {
 
 	@Autowired
 	UserSpaceManager userSpaceManager;
-
+	
+	@Autowired
+	ControlMessageServer controlMessageServer;
+	
 	public ToWeb authercation(JSONObject user,HttpServletRequest request) {
 		Double uid = user.getDouble("uid");
 		String token = user.getString("token");
@@ -41,13 +47,20 @@ public class BaseController {
 	public ToWeb authercation(Double uid, String token) {
 		ToWeb ret = ToWeb.buildResult();
 		try {
-		if(!userSpaceManager.tokenVerification(uid, token)) {
-//			throw new NotAuthorizedException("You Don't Have Permission");
-			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
-			ret.setMsg("用户登录超时失效。请重新登录");
-			ret.setRedirectUrl("login.html");
-			return ret;
-		}
+			if(!userSpaceManager.tokenVerification(uid, token)) {
+	//			throw new NotAuthorizedException("You Don't Have Permission");
+				ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
+				ret.setMsg("用户身份验证失败。请重新登录");
+				ret.setRedirectUrl("login.html");
+				ret.setRefresh(true);
+				return ret;
+			}else {
+				ControlMessage cm = controlMessageServer.getMessage(IDTools.toString(uid));
+				if(cm!=null) {
+					if(cm.reloadUserSpace())
+						ret.setReloadUserSpace(true);
+				}
+			}
 		}catch(Exception e) {
 			ret.setStatus(GlobalConsts.ResultCode_AuthericationError);
 			ret.setMsg(e.getMessage());

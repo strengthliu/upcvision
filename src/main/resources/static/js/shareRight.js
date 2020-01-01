@@ -324,10 +324,12 @@ function updateShareToUser(item,dataItem) {
 							break;
 						case 'diagramList'.toLowerCase():
 						case 'diagramList'.toLowerCase():
-//							console.log("updateRight return -> "+JSON.stringify(ddd));
+							console.log("updateRight return -> "+JSON.stringify(ddd));
 //							console.log("updateRight userSpace.graph -> "+JSON.stringify(userSpace.graph));
 							var _g = getGraphByID(userSpace.graph,ddd.id);
 //							console.log("target graph-> "+JSON.stringify(_g));
+							_g.shared = ddd.shared;
+							_g.sharedUsers = ddd.sharedUsers;
 							_g.shareddepart = ddd.shareddepart;
 							_g.sharedDepartment = ddd.sharedDepartment;
 //							userSpace.graph[ddd.id]=ddd;
@@ -411,7 +413,7 @@ function updateShareToDepart(item,dataItem) {
 				},
 				success : function(data) {
 					if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
-//						 console.log("server info : "+JSON.stringify(data.data.data));
+						console.log("server info : "+JSON.stringify(data.data.data));
 						var ddd = data.data.data;
 						
 						switch(shareType){
@@ -423,6 +425,8 @@ function updateShareToDepart(item,dataItem) {
 							console.log("updateRight userSpace.graph -> "+JSON.stringify(userSpace.graph));
 							var _g = getGraphByID(userSpace.graph,ddd.id);
 							console.log("target graph-> "+JSON.stringify(_g));
+							_g.shared = ddd.shared;
+							_g.sharedUsers = ddd.sharedUsers;
 							_g.shareddepart = ddd.shareddepart;
 							_g.sharedDepartment = ddd.sharedDepartment;
 //							userSpace.graph[ddd.id]=ddd;

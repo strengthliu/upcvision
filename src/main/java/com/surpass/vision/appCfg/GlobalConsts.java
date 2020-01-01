@@ -58,6 +58,8 @@ public final class GlobalConsts {
 	public static final String Key_Device_pre_ = "Key_Device_pre_";
 	public static final String Key_Server_pre_ = "Key_Server_pre_";
 
+	public static final String Key_ControlMessage_pre = "Key_ControlMessage_pre";
+
     
     /**
      * 很多ID拼接成字符串时，分隔字符

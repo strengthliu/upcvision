@@ -22,6 +22,7 @@ public class ToWeb {
     private String redirectUrl; //重定向的url
     private boolean back;
     private boolean refresh; //刷新页面
+    private boolean reloadUserSpace; //刷新用户空间
     private Map<String, Object> data; //数据
 
     public ToWeb(){
@@ -31,7 +32,15 @@ public class ToWeb {
         status = GlobalConsts.ResultCode_SUCCESS;
     }
 
-    public static ToWeb buildResult(){
+    public boolean isReloadUserSpace() {
+		return reloadUserSpace;
+	}
+
+	public void setReloadUserSpace(boolean reloadUserSpace) {
+		this.reloadUserSpace = reloadUserSpace;
+	}
+
+	public static ToWeb buildResult(){
         return new ToWeb();
     }
 

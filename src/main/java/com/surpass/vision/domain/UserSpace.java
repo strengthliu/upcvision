@@ -2,14 +2,16 @@ package com.surpass.vision.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
+import com.surpass.vision.tools.IDTools;
 
-public class UserSpace implements Serializable {
+public class UserSpace extends UserSpaceData implements Serializable {
 	
 	/**
 	 * 用户可见的图
@@ -23,15 +25,11 @@ public class UserSpace implements Serializable {
 	Hashtable<String,XYGraph> xyGraph;
 	Hashtable<String,AlertData> alertData;
 
-	/**
-	 * 用户权限信息
-	 */
-	UserRight right;
 
 	/**
 	 * 
 	 */
-	String token;
+//	String token;
 //	Integer userID;
 
 	/**
@@ -69,13 +67,10 @@ public class UserSpace implements Serializable {
 		return realTimeData;
 	}
 
-	public UserRight getRight() {
-		return right;
-	}
 
-	public String getToken() {
-		return token;
-	}
+//	public String getToken() {
+//		return token;
+//	}
 
 	public UserInfo getUser() {
 		return user;
@@ -105,13 +100,10 @@ public class UserSpace implements Serializable {
 		this.realTimeData = realTimeData;
 	}
 	
-	public void setRight(UserRight right) {
-		this.right = right;
-	}
 	
-	public void setToken(String token) {
-		this.token = token;
-	}
+//	public void setToken(String token) {
+//		this.token = token;
+//	}
 	
 	public void setUser(UserInfo user) {
 		this.user = user;
@@ -255,5 +247,47 @@ public class UserSpace implements Serializable {
 			}
 		}
 		return true;
+	}
+
+	public void updateUserSpaceData() {
+		ArrayList<String> al = null;
+		String[] as = null;
+		if(historyData!=null) {
+			al = Collections.list(historyData.keys());
+			as = new String[al.size()];
+			al.toArray(as);
+			this.setHistorydata(IDTools.merge(as));
+		}
+		if(lineAlertData!=null) {
+			al = Collections.list(lineAlertData.keys());
+			as = new String[al.size()];
+			al.toArray(as);
+			this.setLinealertdata(IDTools.merge(as));
+		}
+		if(realTimeData!=null) {
+			al = Collections.list(realTimeData.keys());
+			as = new String[al.size()];
+			al.toArray(as);
+			this.setRealtimedata(IDTools.merge(as));
+		}
+		if(xyGraph!=null) {
+			al = Collections.list(xyGraph.keys());
+			as = new String[al.size()];
+			al.toArray(as);
+			this.setXygraph(IDTools.merge(as));
+		}
+		if(alertData!=null) {
+			al = Collections.list(alertData.keys());
+			as = new String[al.size()];
+			al.toArray(as);
+			this.setAlertdata(IDTools.merge(as));
+		}
+//		if(graph!=null) {
+//			ArrayList
+//			al = Collections.list(lineAlertData.keys());
+//			as = new String[al.size()];
+//			al.toArray(as);
+//			this.setLinealertdata(IDTools.merge(as));
+//		}
 	}
 }

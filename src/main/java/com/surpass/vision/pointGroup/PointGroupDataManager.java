@@ -49,12 +49,100 @@ public class PointGroupDataManager {
 	@Autowired
 	UserManager userManager;
 	
+	private void setPointGroupIDsFromDepart(DepartmentInfo di,String ids,String type) {
+		switch(type) {
+		case GlobalConsts.Key_AlertData_pre_:
+			di.setAlertdata(ids);
+			break;
+		case GlobalConsts.Key_Graph_pre_:
+			di.setGraphs(ids);
+			break;
+		case GlobalConsts.Key_HistoryData_pre_:
+			di.setHistorydata(ids);
+			break;
+		case GlobalConsts.Key_LineAlertData_pre_:
+			di.setLinealertdata(ids);
+			break;
+		case GlobalConsts.Key_RealTimeData_pre_:
+			di.setRealtimedata(ids);
+			break;
+		case GlobalConsts.Key_XYGraph_pre_:
+			di.setXygraph(ids);
+			break;
+		}
+	}
+	
+	private ArrayList<String> getPointGroupIDsFromDepart(DepartmentInfo di,String type) {
+		String pointGroupIDs = "";
+		switch(type) {
+		case GlobalConsts.Key_AlertData_pre_:
+			pointGroupIDs = di.getAlertdata();
+			break;
+		case GlobalConsts.Key_Graph_pre_:
+			pointGroupIDs = di.getGraphs();
+			break;
+		case GlobalConsts.Key_HistoryData_pre_:
+			pointGroupIDs = di.getHistorydata();
+			break;
+		case GlobalConsts.Key_LineAlertData_pre_:
+			pointGroupIDs = di.getLinealertdata();
+			break;
+		case GlobalConsts.Key_RealTimeData_pre_:
+			pointGroupIDs = di.getRealtimedata();
+			break;
+		case GlobalConsts.Key_XYGraph_pre_:
+			pointGroupIDs = di.getXygraph();
+			break;
+		}
+		ArrayList<String> ret = new ArrayList<String>();
+		ret.addAll(Arrays.asList(IDTools.splitID(pointGroupIDs)));
+		return ret;
+	}
+	
 	public PointGroup updateShareRight(PointGroup instance,String type,Double itemId, List<String> userIdsid, List<String> depIdsid) {
-		// TODO Auto-generated method stub
 		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
 		if(pgd == null) {
 			throw new IllegalStateException("没有id为"+itemId+"这个数据");
 		}
+		
+		// 更新depart表
+		String ss = pgd.getShareddepart(); // 修改之前部门ID，用于与depIdsid对比
+		List<String> sls = Arrays.asList(IDTools.splitID(ss));
+		// 对比出增加和减少的ID
+		List<String> sa = IDTools.getAggrandizement(sls, depIdsid);
+		List<String> sd = IDTools.getDecreament(sls, depIdsid);
+		
+		for(int inda=0;inda<sa.size();inda++) { // 原比新多的，要去掉
+			String said = sa.get(inda);
+			DepartmentInfo di = userManager.getDepartmentInfoByID(said);
+			ArrayList<String> ids = getPointGroupIDsFromDepart(di,type);
+			if(ids.contains(IDTools.toString(itemId))) {
+				ids.remove(IDTools.toString(itemId));
+			}else {
+				System.out.println("本应该存在"+itemId+"，但却没查到");
+			}
+			String [] sids = ids.toArray(new String[ids.size()]);
+			setPointGroupIDsFromDepart(di,IDTools.merge(sids),type);
+			userManager.createDepartment(di);
+			redisService.set(GlobalConsts.Key_DepartInfo_Pre_ + IDTools.toString(di.getId()),di);
+		}
+
+		for(int indd=0;indd<sd.size();indd++) {
+			String said = sd.get(indd);
+			DepartmentInfo di = userManager.getDepartmentInfoByID(said);
+			ArrayList<String> ids = getPointGroupIDsFromDepart(di,type);
+			if(!ids.contains(IDTools.toString(itemId))) {
+				ids.add(IDTools.toString(itemId));
+			}else {
+				System.out.println("本应该不存在"+itemId+"，但却查到了");				
+			}
+			String [] sids = ids.toArray(new String[ids.size()]);
+			setPointGroupIDsFromDepart(di,IDTools.merge(sids),type);
+			userManager.createDepartment(di);
+			redisService.set(GlobalConsts.Key_DepartInfo_Pre_ + IDTools.toString(di.getId()),di);
+		}
+		
+
 		String sharedUserIDs = "";
 		if(userIdsid != null) {
 			sharedUserIDs = IDTools.merge(userIdsid.toArray());
@@ -68,6 +156,7 @@ public class PointGroupDataManager {
 		pgd.setShareddepart(sharedDepIDs);
 		// 更新数据库
 		pointGroupService.updatePointGroupItem(pgd);
+
 		// 更新缓存
 		PointGroup rtd = copyFromPointGroupData(instance,pgd);
 		// 写缓存XYGraph，返回
@@ -356,7 +445,8 @@ public class PointGroupDataManager {
 					e.printStackTrace();
 				}
 			}
-			s1.add(idOwnerChange);
+			if(!StringUtil.isBlank(idOwnerChange))
+				s1.add(idOwnerChange);
 			return s1;
 		case GlobalConsts.KeyDecrement:
 			// 减少的分享用户ID

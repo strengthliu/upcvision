@@ -311,4 +311,11 @@ public class UserManager {
 		userService.createOrUpdateDepartmentInfo(rtd);
 		return rtd;
 	}
+
+	public String getAllDepartIDString() {
+		List<DepartmentInfo> ldi = this.getDepartList();
+		DepartmentInfo[]dia = new DepartmentInfo[ldi.size()];
+		dia = ldi.toArray(dia);
+		return IDTools.merge(dia);
+	}
 }

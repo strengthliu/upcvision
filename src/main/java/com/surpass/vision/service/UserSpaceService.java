@@ -11,7 +11,7 @@ public interface UserSpaceService {
 
 //	UserSpaceData getUserSpaceById(Double userID);
 	public UserSpaceData getUserSpaceById(Double userID);
-	void updateUserSpace(Double uid, UserSpace us);
+	void updateUserSpace(Double uid, UserSpaceData us);
 	public boolean deleteUserSpace(Double uid);
 
 

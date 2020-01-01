@@ -416,9 +416,10 @@ function buildPointKs(){
 //	console.log("-_graphId= "+_graphId+" graph= "+JSON.stringify(_graph,null,2));
 	var pointTextIDs = _graph.pointTextIDs;
 	var pointList = _graph.pointList;
-	for(var ind=0;ind<pointTextIDs.length;ind++){
-		pointKs[pointTextIDs[ind]] = pointList[ind];
-	}
+	if(pointTextIDs!=null&&pointTextIDs!="undefined")
+		for(var ind=0;ind<pointTextIDs.length;ind++){
+			pointKs[pointTextIDs[ind]] = pointList[ind];
+		}
 //	console.log("pointKs = "+JSON.stringify(pointKs));
 }
 

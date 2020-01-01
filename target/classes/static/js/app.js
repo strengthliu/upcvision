@@ -218,20 +218,21 @@ function loginByUserPassWord(uname, pwd) {
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			//console.log("登录成功返回： " + data);
+			console.log("登录成功返回： " + data);
 			if (data.status == "000"){//GlobalConsts.ResultCode_SUCCESS) {
 				// us = data.data;
 				userSpace = data.data.userSpace;
 				user = userSpace.user;
 				token = userSpace.token;
-				// console.log("登录成功，token="+token);
-				// alert("登录成功能 ，用户名为： "+JSON.stringify(user)+" token="+token);
+//				console.log("登录成功，用户名为： "+JSON.stringify(user)+" token="+token);
 				window.userSpace = userSpace;
 				localStorage.user = JSON.stringify(user);
-				console.log("登录成功，user=" + JSON.stringify(userSpace));
+				//console.log("登录成功，userSpace=" + JSON.stringify(userSpace));
 				localStorage.token = token;
+//				alert("login end. wait..");
 			} else {
 				console.log("登录失败 ： " + data.msg);
+//				alert();
 				window.location.href="login.html"
 			}
 			hideLoading();
@@ -251,7 +252,9 @@ function loginByUserPassWord(uname, pwd) {
 }
 
 async function getUserSpace(uid, token, sucessFucn) {
+	//console.log("async function getUserSpace uid="+uid+"  token="+token);
 	if(userSpace==null||userSpace=="undefined"){
+		
 	await $.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -271,10 +274,10 @@ async function getUserSpace(uid, token, sucessFucn) {
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			// console.log(JSON.stringify(data));
+//			 console.log("getUserSpace -> "+JSON.stringify(data));
 			if (data.status != "000"){//GlobalConsts.ResultCode_SUCCESS) { // 不成功
 //				alert(data.msg);
-				console.log("getUserSpace-> "+data.msg);
+//				console.log("getUserSpace-> "+data.msg);
 				localStorage.user = null;
 				localStorage.token = null;
 				userSpace = null;
@@ -408,7 +411,7 @@ function fillDepartmentData() {
 		'uid' : 2,
 		'token' : token
 	};
-	console.log("fdsfdsafdsa");
+//	console.log("fdsfdsafdsa");
 	$.ajax({
 		// 提交数据的类型 POST
 		// GET
@@ -447,7 +450,8 @@ function fillDepartmentData() {
 				}
 			} else {
 				console.log("department => " + JSON.stringify(data));
-				alert("失败11 ： " + data.msg);
+				console.log("department => " + "失败11 ： " + data.msg);
+//				alert("失败11 ： " + data.msg);
 			}
 			hideLoading();
 		},

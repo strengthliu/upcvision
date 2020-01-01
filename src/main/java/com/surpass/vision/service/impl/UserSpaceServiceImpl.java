@@ -48,8 +48,8 @@ public class UserSpaceServiceImpl implements UserSpaceService {
 
 	@Async("taskExecutor")
 	@Override
-	public void updateUserSpace(Double uid, UserSpace us) {
-		UserSpaceData usdm = us.createUserSpaceData();
+	public void updateUserSpace(Double uid, UserSpaceData us) {
+		UserSpaceData usdm = us;
 		UserSpaceData usd = usdMapper.selectByPrimaryKey(uid);
 		if(usd == null) { // 插入
 			usdMapper.insert(usdm);
