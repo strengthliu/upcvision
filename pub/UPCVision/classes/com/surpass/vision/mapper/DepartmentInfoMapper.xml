@@ -5,6 +5,12 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="departName" jdbcType="VARCHAR" property="departname" />
     <result column="departDesc" jdbcType="VARCHAR" property="departdesc" />
+    <result column="graphs" jdbcType="VARCHAR" property="graphs" />
+    <result column="xygraph" jdbcType="VARCHAR" property="xygraph" />
+    <result column="realtimedata" jdbcType="VARCHAR" property="realtimedata" />
+    <result column="alertdata" jdbcType="VARCHAR" property="alertdata" />
+    <result column="historydata" jdbcType="VARCHAR" property="historydata" />
+    <result column="linealertdata" jdbcType="VARCHAR" property="linealertdata" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, departName, departDesc
+    id, departName, departDesc, graphs, xygraph, realtimedata, alertdata, historydata, 
+    linealertdata
   </sql>
   <select id="selectByExample" parameterType="com.surpass.vision.domain.DepartmentInfoExample" resultMap="BaseResultMap">
     select
@@ -99,9 +106,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.surpass.vision.domain.DepartmentInfo">
-    insert into t_department (id, departName, departDesc
+    insert into t_department (id, departName, departDesc, 
+      graphs, xygraph, realtimedata, 
+      alertdata, historydata, linealertdata
       )
-    values (#{id,jdbcType=INTEGER}, #{departname,jdbcType=VARCHAR}, #{departdesc,jdbcType=VARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{departname,jdbcType=VARCHAR}, #{departdesc,jdbcType=VARCHAR}, 
+      #{graphs,jdbcType=VARCHAR}, #{xygraph,jdbcType=VARCHAR}, #{realtimedata,jdbcType=VARCHAR}, 
+      #{alertdata,jdbcType=VARCHAR}, #{historydata,jdbcType=VARCHAR}, #{linealertdata,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.surpass.vision.domain.DepartmentInfo">
@@ -116,6 +127,24 @@
       <if test="departdesc != null">
         departDesc,
       </if>
+      <if test="graphs != null">
+        graphs,
+      </if>
+      <if test="xygraph != null">
+        xygraph,
+      </if>
+      <if test="realtimedata != null">
+        realtimedata,
+      </if>
+      <if test="alertdata != null">
+        alertdata,
+      </if>
+      <if test="historydata != null">
+        historydata,
+      </if>
+      <if test="linealertdata != null">
+        linealertdata,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -126,6 +155,24 @@
       </if>
       <if test="departdesc != null">
         #{departdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="graphs != null">
+        #{graphs,jdbcType=VARCHAR},
+      </if>
+      <if test="xygraph != null">
+        #{xygraph,jdbcType=VARCHAR},
+      </if>
+      <if test="realtimedata != null">
+        #{realtimedata,jdbcType=VARCHAR},
+      </if>
+      <if test="alertdata != null">
+        #{alertdata,jdbcType=VARCHAR},
+      </if>
+      <if test="historydata != null">
+        #{historydata,jdbcType=VARCHAR},
+      </if>
+      <if test="linealertdata != null">
+        #{linealertdata,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -147,6 +194,24 @@
       <if test="record.departdesc != null">
         departDesc = #{record.departdesc,jdbcType=VARCHAR},
       </if>
+      <if test="record.graphs != null">
+        graphs = #{record.graphs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xygraph != null">
+        xygraph = #{record.xygraph,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realtimedata != null">
+        realtimedata = #{record.realtimedata,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alertdata != null">
+        alertdata = #{record.alertdata,jdbcType=VARCHAR},
+      </if>
+      <if test="record.historydata != null">
+        historydata = #{record.historydata,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linealertdata != null">
+        linealertdata = #{record.linealertdata,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -156,7 +221,13 @@
     update t_department
     set id = #{record.id,jdbcType=INTEGER},
       departName = #{record.departname,jdbcType=VARCHAR},
-      departDesc = #{record.departdesc,jdbcType=VARCHAR}
+      departDesc = #{record.departdesc,jdbcType=VARCHAR},
+      graphs = #{record.graphs,jdbcType=VARCHAR},
+      xygraph = #{record.xygraph,jdbcType=VARCHAR},
+      realtimedata = #{record.realtimedata,jdbcType=VARCHAR},
+      alertdata = #{record.alertdata,jdbcType=VARCHAR},
+      historydata = #{record.historydata,jdbcType=VARCHAR},
+      linealertdata = #{record.linealertdata,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -170,13 +241,37 @@
       <if test="departdesc != null">
         departDesc = #{departdesc,jdbcType=VARCHAR},
       </if>
+      <if test="graphs != null">
+        graphs = #{graphs,jdbcType=VARCHAR},
+      </if>
+      <if test="xygraph != null">
+        xygraph = #{xygraph,jdbcType=VARCHAR},
+      </if>
+      <if test="realtimedata != null">
+        realtimedata = #{realtimedata,jdbcType=VARCHAR},
+      </if>
+      <if test="alertdata != null">
+        alertdata = #{alertdata,jdbcType=VARCHAR},
+      </if>
+      <if test="historydata != null">
+        historydata = #{historydata,jdbcType=VARCHAR},
+      </if>
+      <if test="linealertdata != null">
+        linealertdata = #{linealertdata,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.surpass.vision.domain.DepartmentInfo">
     update t_department
     set departName = #{departname,jdbcType=VARCHAR},
-      departDesc = #{departdesc,jdbcType=VARCHAR}
+      departDesc = #{departdesc,jdbcType=VARCHAR},
+      graphs = #{graphs,jdbcType=VARCHAR},
+      xygraph = #{xygraph,jdbcType=VARCHAR},
+      realtimedata = #{realtimedata,jdbcType=VARCHAR},
+      alertdata = #{alertdata,jdbcType=VARCHAR},
+      historydata = #{historydata,jdbcType=VARCHAR},
+      linealertdata = #{linealertdata,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

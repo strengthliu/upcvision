@@ -11,10 +11,10 @@ public class TokenTools {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String token = TokenTools.genToken("15776297787942");
+		String token = TokenTools.genToken("15779380001740");
 		System.out.println(token);
-		token = "vCR3N6Pfczr8xPAZDi5yoN2oGAX7gHMY";
-		Boolean b = TokenTools.verificationToken("vCR3N6Pfczr8xPAZDi5yoN2oGAX7gHMY","15776297787942");
+		token = "Y_biE8PL7TGl2r-p_seo4bBCysZsKArr";
+		Boolean b = TokenTools.verificationToken("usw7Fv_oJVYGbaPSrff3_QF2KKOAiAlp","15779380001740");
 		if (b)
 			System.out.println("token正确");
 		else

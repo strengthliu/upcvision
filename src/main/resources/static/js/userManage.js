@@ -20,6 +20,9 @@
 		}, {
 			Name : "普通用户",
 			Id : 3
+		}, {
+			Name : "guest",
+			Id : 4
 		} ];
 		var _depart = departdata;
 		// basic config

@@ -3,7 +3,7 @@
  */
 
 console.log("--"+JSON.stringify(user));
-//if(user.role==1)
+if(user.role==1)
 {
 	var usermanagetitle = document.getElementById("userManagePart_Title");
 	usermanagetitle.style.display="block";
@@ -12,6 +12,11 @@ console.log("--"+JSON.stringify(user));
 	var usermanagetitle = document.getElementById("_userManager");
 	usermanagetitle.style.display="block";
 }	 
+var changepassword1 = document.getElementById("change-password1");
+var changepassword2 = document.getElementById("change-password2");
+changepassword1.value = "";
+changepassword2.value = "";
+
 //**************************************** 修改个人信息 begin
 function showUserInfoDialog(dialogType, client) {
 	console.log("function-> user = "+JSON.stringify(user));
@@ -93,7 +98,8 @@ function checkPassword(value) {
 	var notice = document.getElementById("passwordNitice");
 	var changepassword1 = document.getElementById("change-password1");
 	var changepassword2 = document.getElementById("change-password2");
-	if(changepassword1.value == "" &&changepassword2.value == "" )
+	console.log("checkPassword 1= "+changepassword1.value+"  2= "+changepassword2.value);
+	if((changepassword1.value==null || changepassword1.value=="undefined" ||changepassword1.value == "") && (changepassword2.value==null || changepassword2.value=="undefined" || changepassword2.value == "" ))
 		return true;
 	
 	var ret = true;

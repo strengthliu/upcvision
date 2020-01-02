@@ -90,6 +90,15 @@ case 2: // 组态用户
 //	}, false);
 	break;
 case 3: // 其他用户
+	oppertionButton.innerHTML = "";
+	mainPanel.appendChild(oppertionButton);
+	$("#toMenu").click(function() {
+		$(".info-nr-phone").toggleClass("info-nr-phone2");
+	});
+	break;
+case 4: // 其他用户
+	oppertionButton.innerHTML = "";
+	mainPanel.appendChild(oppertionButton);
 	$("#toMenu").click(function() {
 		$(".info-nr-phone").toggleClass("info-nr-phone2");
 	});

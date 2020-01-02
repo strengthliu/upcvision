@@ -16,6 +16,7 @@ function newItemAction() {
 	}
 }
 
+console.log("userSpace in XYGraphList -> "+JSON.stringify(userSpace));
 //_routeType = diagram;
 //_routeID = key;
 

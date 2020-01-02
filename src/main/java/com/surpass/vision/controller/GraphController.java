@@ -384,12 +384,13 @@ public class GraphController extends BaseController {
 				g.setImg(url);
 			g.setNickName(name);
 			g = graphManager.updateGraph(g);
-			// TODO: 下面这个有问题
-			graphManager.addOrUpdateGraphToTree(g);
-			// 更新该用户的userSpace
-			UserSpace uold = userSpaceManager.getUserSpace(duid);
-			Graph gus = uold.getGraph();
-			gus.addOrUpdateChild(g);
+			// 更改了设计，用户空间里只保存graphID，不再保存内容。只更新了图形的内容就可以了。
+//			// TODO: 下面这个有问题
+//			graphManager.addOrUpdateGraphToTree(g);
+//			// 更新该用户的userSpace
+//			UserSpace uold = userSpaceManager.getUserSpace(duid);
+//			Graph gus = uold.getGraph();
+//			gus.addOrUpdateChild(g);
 			
 			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
 			ret.setMsg("更新成功");

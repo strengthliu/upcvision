@@ -82,6 +82,7 @@ function initView() {
 	svg1 = svg1[0];
 	width = svg1.attributes.width.value;
 	height = svg1.attributes.height.value;
+	var trans;
 	// width = 960;
 	// height = 500;
 	// console.log("widthaaa=" + width + " heightbbb=" + height + "");
@@ -105,7 +106,6 @@ function initView() {
 		console.log("mouseup");
 		var t = d3.select(this);
 		var _x = t.attr("cx"), _y = t.attr("cy");
-		var trans;
 		if(translate!=null&&translate!="undefined"){
 			console.log("1  -------------------------------");
 			console.log("1  translate-> "+translate);
@@ -121,22 +121,22 @@ function initView() {
 
 	svg = d3.select("svg").call(drag);// .call(zoom);
 	function draged(d) {
-		// console.log("draged. scale=" + scale);
 		zoom.translate(translate);
 		d3.select(this).attr("cx", d3.event.x).attr("cy", d3.event.y);
-		// console.log("draged 1 . "+this);
 		var trans;
 		if(translate!=null&&translate!="undefined"){
 			console.log("-------------------------------");
 			console.log("translate-> "+translate);
 			console.log("translate event -> "+[ d3.event.x, d3.event.y]);
 //			trans= [ d3.event.x, d3.event.y];
+			// 增加translate[0]的偏移
 			trans= [ d3.event.x+translate[0], d3.event.y +translate[1]];
 		}else{
 			trans= [ d3.event.x, d3.event.y];
 		}
 		console.log("translate target -> "+trans);
-//		translate = trans;
+		translate = trans;
+//		zoom.translate(trans);
 		svg.attr("transform", "translate(" + trans + ")" +
 				// "translate(0,0)" +
 				"scale(" + scale + ")");
@@ -241,20 +241,22 @@ var height = 0;// svg.attributes.height.value;
 // 调试了4个小时才找到，这里值得记录一下。
 var zoom;// = d3.behavior.zoom().scaleExtent([0.1, 8]).on("zoom", zoomed);
 
+/**
+ * 真实执行缩放和移动
+ * @returns
+ */
 function zoomed() {
-	// console.log("zoomed() zoom.translate()="+zoom.translate()+"
-	// zoom.scale()="+zoom.scale());
-//	console.log("1 scale=" + scale);
-	// scale = scale.toFixed(2);
 	svg.attr("transform", "translate(" + translate + ")" +
-	// "translate(0,0)" +
 	"scale(" + scale + ")");
-	scrollTo();
-	// 计算scale，调整值
-	// svg.attr("transform", "translate(" + d3.event.translate + ")scale(" +
-	// d3.event.scale + ")");
+	scrollTo(); // 高速缩放拖拽轴
 }
 
+/**
+ * 移动和缩放指定值。
+ * @param _translate
+ * @param _scale
+ * @returns
+ */
 function interpolateZoom(_translate, _scale) {
 	if(_scale!=null&&_scale!="undefined")
 		scale = _scale;
@@ -263,6 +265,10 @@ function interpolateZoom(_translate, _scale) {
 	zoomed();
 }
 
+/**
+ * 点击事件处理
+ * @returns
+ */
 function zoomClick() {
 	switch (this.id) {
 	case 'zoom_up':
@@ -297,7 +303,7 @@ function zoomClick() {
 }
 
 var scale;
-var translate;
+var translate; // 当前位移，相对原图原点
 var fullScreenEnable = true;
 function fullScreen() {
 	if (!fullScreenEnable)
@@ -329,6 +335,8 @@ function fullScreenFn() {
 
 		var svgx = svg1.getBoundingClientRect().x;
 		var svgy = svg1.getBoundingClientRect().y;
+		
+//		trans= [ d3.event.x+translate[0], d3.event.y +translate[1]];
 
 		// 计算translate和scale,调用 function interpolateZoom (translate, scale)
 		var tx = svg.attr("width") / 2 * (1 - scale);

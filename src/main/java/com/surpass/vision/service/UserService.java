@@ -26,4 +26,6 @@ public interface UserService {
 	public void delDepartmentInfo(Integer deptID);
 
 	public Integer getMaxDepartId();
+
+	public UserInfo getUserByName(String uname);
 }

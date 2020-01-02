@@ -120,4 +120,16 @@ public class UserServiceImpl implements UserService {
 		return departmentInfoMapper.selectByPrimaryKey(depID);
 	}
 
+	@Override
+	public UserInfo getUserByName(String name) {
+		List<UserInfo> uil =userMapper.selectByName(name);
+		if(uil == null || uil.size()==0) {
+			return null;
+		}
+		if(uil.size()>1)
+			throw new IllegalStateException("有多个同名的用户。");
+		
+		return uil.get(0);
+	}
+
 }

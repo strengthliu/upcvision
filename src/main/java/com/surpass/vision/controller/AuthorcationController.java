@@ -75,13 +75,15 @@ public class AuthorcationController extends BaseController {
 		String pwd = user.getString("pwd");
 		System.out.println(uname+" "+pwd);
 		UserInfo ui = null;
-		try {
-			ui = login.VerificationAccount(uname, pwd); 
-		}catch(Exception e) {
-//			tw.setStatus(GlobalConsts.ResultCode_AuthericationError);
-//			tw.setMsg(e.toString());
-//			return tw;
-		}
+		ui = userManager.getUserInfoByName(uname);
+		if(ui!=null && ui.getRole()==GlobalConsts.UserRoleGuest)
+			try {
+				ui = login.VerificationAccount(uname, pwd); 
+			}catch(Exception e) {
+	//			tw.setStatus(GlobalConsts.ResultCode_AuthericationError);
+	//			tw.setMsg(e.toString());
+	//			return tw;
+			}
 		// TODO 没有这个用户
 		if(ui==null) {
 			tw.setStatus(GlobalConsts.ResultCode_FAIL);
@@ -107,7 +109,7 @@ public class AuthorcationController extends BaseController {
 		// 如果用户是guest，就返回https://pan.baidu.com/share/init?surl=vG9RwIcag-XbW7FmOH3ncg
 		if(us == null) {
 			try {
-				token = TokenTools.genToken(ui.getId().toString());
+				token = TokenTools.genToken(IDTools.toString(ui.getId()));
 				us = userSpaceManager.buildUserSpace(ui.getId(), token);
 			}catch(IllegalStateException e) {
 				e.printStackTrace();

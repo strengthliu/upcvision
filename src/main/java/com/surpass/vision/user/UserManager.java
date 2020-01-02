@@ -318,4 +318,9 @@ public class UserManager {
 		dia = ldi.toArray(dia);
 		return IDTools.merge(dia);
 	}
+
+	public UserInfo getUserInfoByName(String uname) {
+		UserInfo ui = userService.getUserByName(uname);
+		return ui;
+	}
 }

@@ -91,6 +91,7 @@ function _setParameter(_shareType,_itemId){
 																var _userInfoList = response.data.users;
 																var sharedUsers;
 																_setParameter(shareType,itemId);
+																console.log("dataItem-> "+JSON.stringify(dataItem));
 																if(dataItem!=null && dataItem!="undefined"){
 																	sharedUsers = dataItem.sharedUsers;
 																} else{
@@ -213,6 +214,8 @@ var _dialogType;
 																var _userInfoList = response.data.departs;
 																var sharedUsers;
 																_setParameter(shareType,itemId);
+																console.log("dataItem-> "+JSON.stringify(dataItem));
+
 																if(dataItem!=null && dataItem!="undefined"){
 																	sharedUsers = dataItem.sharedDepartment;
 																} else{
@@ -320,7 +323,16 @@ function updateShareToUser(item,dataItem) {
 							userSpace.xyGraph[ddd.id]=ddd;
 							break;
 						case 'diagramList'.toLowerCase():
-							userSpace.graph[ddd.id]=ddd;
+						case 'diagramList'.toLowerCase():
+							console.log("updateRight return -> "+JSON.stringify(ddd));
+//							console.log("updateRight userSpace.graph -> "+JSON.stringify(userSpace.graph));
+							var _g = getGraphByID(userSpace.graph,ddd.id);
+//							console.log("target graph-> "+JSON.stringify(_g));
+							_g.shared = ddd.shared;
+							_g.sharedUsers = ddd.sharedUsers;
+							_g.shareddepart = ddd.shareddepart;
+							_g.sharedDepartment = ddd.sharedDepartment;
+//							userSpace.graph[ddd.id]=ddd;
 							break;
 						case 'realtimedataList'.toLowerCase():
 							userSpace.realTimeData[ddd.id]=ddd;
@@ -357,7 +369,7 @@ function updateShareToDepart(item,dataItem) {
 	var value = item.shared;
 	console.log("updateShareToUser");
 	// 根据value，把item加入或减出dataItem
-	console.log("updateShart -》 "+JSON.stringify(item)+"  value="+value+" dataItem-> "+JSON.stringify(dataItem));
+//	console.log("updateShart -》 "+JSON.stringify(item)+"  value="+value+" dataItem-> "+JSON.stringify(dataItem));
 	var data;
 	var sharedUsers = dataItem.sharedUsers;
 	var sharedDepartment = dataItem.sharedDepartment;
@@ -401,7 +413,7 @@ function updateShareToDepart(item,dataItem) {
 				},
 				success : function(data) {
 					if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
-//						 console.log("server info : "+JSON.stringify(data.data.data));
+						console.log("server info : "+JSON.stringify(data.data.data));
 						var ddd = data.data.data;
 						
 						switch(shareType){
@@ -409,7 +421,15 @@ function updateShareToDepart(item,dataItem) {
 							userSpace.xyGraph[ddd.id]=ddd;
 							break;
 						case 'diagramList'.toLowerCase():
-							userSpace.graph[ddd.id]=ddd;
+							console.log("updateRight return -> "+JSON.stringify(ddd));
+							console.log("updateRight userSpace.graph -> "+JSON.stringify(userSpace.graph));
+							var _g = getGraphByID(userSpace.graph,ddd.id);
+							console.log("target graph-> "+JSON.stringify(_g));
+							_g.shared = ddd.shared;
+							_g.sharedUsers = ddd.sharedUsers;
+							_g.shareddepart = ddd.shareddepart;
+							_g.sharedDepartment = ddd.sharedDepartment;
+//							userSpace.graph[ddd.id]=ddd;
 							break;
 						case 'realtimedataList'.toLowerCase():
 							userSpace.realTimeData[ddd.id]=ddd;
@@ -424,6 +444,7 @@ function updateShareToDepart(item,dataItem) {
 							userSpace.lineAlertData[ddd.id]=ddd;
 							break;
 						}
+						console.log("updateRight loadData...");
 						$("#shareItemToDepart").jsGrid("loadData", {});
 					} else {
 						alert("失败 ： " + data.msg);

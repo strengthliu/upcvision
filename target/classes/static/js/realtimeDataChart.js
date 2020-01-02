@@ -115,26 +115,53 @@ function refreshDataTable(_cdata){
 //	alert();
 	for(var coli = 0;coli<_cdata.length;coli++){
 		var _tr = document.createElement("tr");  
-		for(var rowi = 0;rowi<_cdata[coli].length;rowi++){
-//			console.log('fdsafdsa')
-			var _td = document.createElement("td"); 
-			var _value = _cdata[coli][rowi];
-			switch(typeof _value){
-//			console.log(" typeof => "+typeof(_value));			
-			case 'number':
-				_td.innerText = (Math.round(_value * 10000)) / 10000+"";		
-				break;
-			case 'string':
-				_td.innerText = _cdata[coli][rowi];//_timeStr;
-				break;
-			default:
-				var _t = new Date(_cdata[coli][rowi]);
-				_td.innerText = _t.Format("hh:mm:ss");//_timeStr;					
-//				_td.innerText = _cdata[coli][rowi];//_timeStr;
-				break;
-			}
-			_tr.append(_td);
+		var _td1 = document.createElement("td"); 
+		var _td2 = document.createElement("td"); 
+		var _td3 = document.createElement("td"); 
+		_td1.innerText=_cdata[coli][0];
+		console.log("_cdata-> "+JSON.stringify(_cdata));
+		var rowi = _cdata[coli].length;
+		var _value = _cdata[coli][rowi];
+		
+		console.log(" typeof => "+typeof(_value));			
+		console.log(" _value => "+_value);			
+		switch(typeof _value){
+		case 'number':
+			_td3.innerText = (Math.round(_value * 10000)) / 10000+"";		
+			break;
+		case 'string':
+			_td3.innerText = _cdata[coli][rowi];//_timeStr;
+			break;
+		default:
+			var _t = new Date(_cdata[coli][rowi]);
+			_td3.innerText = _t.Format("hh:mm:ss");//_timeStr;					
+//			_td.innerText = _cdata[coli][rowi];//_timeStr;
+			break;
 		}
+		_tr.append(_td1);
+		_tr.append(_td2);
+		_tr.append(_td3);
+//
+//		for(var rowi = 0;rowi<_cdata[coli].length;rowi++){
+////			console.log('fdsafdsa')
+//			var _td = document.createElement("td"); 
+//			var _value = _cdata[coli][rowi];
+//			switch(typeof _value){
+////			console.log(" typeof => "+typeof(_value));			
+//			case 'number':
+//				_td.innerText = (Math.round(_value * 10000)) / 10000+"";		
+//				break;
+//			case 'string':
+//				_td.innerText = _cdata[coli][rowi];//_timeStr;
+//				break;
+//			default:
+//				var _t = new Date(_cdata[coli][rowi]);
+//				_td.innerText = _t.Format("hh:mm:ss");//_timeStr;					
+////				_td.innerText = _cdata[coli][rowi];//_timeStr;
+//				break;
+//			}
+//			_tr.append(_td);
+//		}
 
 		//		console.log(" _cdata[coli] "+JSON.stringify(_cdata[coli]));
 		if(_cdata[coli][0]=="time"){
