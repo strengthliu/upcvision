@@ -64,6 +64,9 @@
       } else {
         body.toggleClass('sidebar-icon-only');
       }
+      if (typeof fullScreen != 'undefined' && fullScreen instanceof Function) {
+    	  setTimeout("fullScreen()", 300);
+      }
     });
 
     //checkbox and radios
@@ -91,6 +94,9 @@
         } else if (document.msExitFullscreen) {
           document.msExitFullscreen();
         }
+      }
+      if (typeof fullScreen != 'undefined' && fullScreen instanceof Function) {
+      	fullScreen();
       }
     })
   });

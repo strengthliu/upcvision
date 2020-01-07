@@ -51,6 +51,11 @@ public class AuthorcationController extends BaseController {
 	@Autowired
 	LoginService login;
 	
+	@Value("${upc.adminPassword}")
+	private String adminPassword;
+	@Value("${upc.adminName}")
+	private String adminName;
+
 	@Autowired
 	UserSpaceManager userSpaceManager;
 	
@@ -75,16 +80,27 @@ public class AuthorcationController extends BaseController {
 		String pwd = user.getString("pwd");
 		System.out.println(uname+" "+pwd);
 		UserInfo ui = null;
-		ui = userManager.getUserInfoByName(uname);
-		if(ui!=null && ui.getRole()==GlobalConsts.UserRoleGuest)
-			try {
-				ui = login.VerificationAccount(uname, pwd); 
-			}catch(Exception e) {
-	//			tw.setStatus(GlobalConsts.ResultCode_AuthericationError);
-	//			tw.setMsg(e.toString());
-	//			return tw;
+		// 对admin进行特殊处理
+		if(uname.contentEquals(adminName)) {
+			if(pwd.contentEquals(adminPassword))
+				ui = userSpaceManager.getAdminUserInfo();
+			else {
+				tw.setStatus(GlobalConsts.ResultCode_FAIL);
+				tw.setMsg("用户名密码不正确");
+				tw.setRedirectUrl("login.html");
+				return tw;
 			}
-		// TODO 没有这个用户
+		}else {
+			ui = userManager.getUserInfoByName(uname);
+			if(ui!=null && ui.getRole()==GlobalConsts.UserRoleGuest)
+				try {
+					ui = login.VerificationAccount(uname, pwd); 
+				}catch(Exception e) {
+					tw.setStatus(GlobalConsts.ResultCode_AuthericationError);
+					tw.setMsg(e.toString());
+					return tw;
+				}
+		}
 		if(ui==null) {
 			tw.setStatus(GlobalConsts.ResultCode_FAIL);
 			tw.setMsg("用户名密码不正确");
@@ -199,8 +215,8 @@ public class AuthorcationController extends BaseController {
 		if(ret.getStatus()!= GlobalConsts.ResultCode_SUCCESS) return ret;
 		// 如果是管理员，直接构造返回。
 		UserInfo ui = userManager.getUserInfoByID(uid);
-		if(IDTools.toString(ui.getId()).contentEquals(GlobalConsts.UserAdminID) || ui.getRole()==GlobalConsts.UserRoleAdmin) {
-			UserSpace us = userSpaceManager.buildUserSpace(ui.getId(),token);
+		if(IDTools.toString(userId).contentEquals(GlobalConsts.UserAdminID) || ui.getRole()==GlobalConsts.UserRoleAdmin) {
+			UserSpace us = userSpaceManager.buildUserSpace(userId,token);
 			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
 			ret.setMsg("登录成功！");
 			HashMap<String ,Object> hm = new HashMap<String ,Object>();
@@ -228,7 +244,11 @@ public class AuthorcationController extends BaseController {
 
 		// 如果请求者是管理员，就返回全部用户信息，否则就只返回他自己的信息。
 		List<UserInfo>  hus = null;
-		UserInfo ui =userManager.getUserInfoByID(IDTools.toString(uid));
+		UserInfo ui =null;
+		if(IDTools.toString(uid).contentEquals(GlobalConsts.UserAdminID))
+			ui = userSpaceManager.getAdminUserInfo();
+		else
+			ui = userManager.getUserInfoByID(IDTools.toString(uid));
 		if(ui!=null && ui.getRole() == 1)
 			hus = userManager.getUserInfoList();
 		else {

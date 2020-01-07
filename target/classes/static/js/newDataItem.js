@@ -139,7 +139,7 @@ function buildNewItemUI(serverInfos) {
 	// 排除已经选择的点位
 		
 		if(contains(selectedPoints,defaultPoints[keyPoint].serverName,defaultPoints[keyPoint].tagName)){
-			console.log("  has key:"+keyPoint);
+//			console.log("  has key:"+keyPoint);
 		}else{
 			var pointLeftBoxInnerHtmlItem = '<div class="card rounded mb-2" id="div'+defaultPoints[keyPoint].tagName+'">'+
 			'<div><div class="media icheck-line"><input type="checkbox" id="check'+
@@ -164,8 +164,7 @@ function buildNewItemUI(serverInfos) {
 	{
 		var _point = getPointByTagName(keyPoint);
 		if(_point!=null){
-
-			console.log(" selectedPoints - "+_point+"  defaultPoints[keyPoint]="+JSON.stringify(_point));
+//			console.log(" selectedPoints - "+_point+"  defaultPoints[keyPoint]="+JSON.stringify(_point));
 			var pointRightBoxInnerHtmlItem = '<div class="card rounded mb-2" id="div'+_point.tagName+'">'+
 			'<div><div class="media icheck-line"><input type="checkbox" id="check'+
 			_point.tagName+'" checked="checked" onclick="newDataItem_leftboxitemcheck(\''+_point.tagName+'\');">'+
@@ -381,67 +380,11 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 	}
 }
 
-//
-//// 点击左侧框选择操作
-//function newDataItem_addboxitemcheck(elemId,editAction) {
-//	if(editAction==null || editAction=="undefined")
-//		editAction = false;
-//	// alert("check "+ elemId);
-//	var newItem_pointlistleft = document.getElementById("newItem_pointlistleft");
-//	var newItem_pointlistright = document.getElementById("newItem_pointlistright");
-//	console.log("elemId="+elemId);
-//	// 找出目标
-//	var targetCheck = document.getElementById("check"+elemId);
-//	if(targetCheck.checked == true || editAction){
-//		targetCheck.checked = true;
-//		var targetDiv = document.getElementById("div"+elemId);
-//		// 左侧删除
-//		newItem_pointlistleft.removeChild(targetDiv);
-//		// 右侧添加
-//		newItem_pointlistright.appendChild(targetDiv);
-//		selectedPoints.add(serverName+"\\"+elemId);
-//		var p = {'server':serverName,
-//				'tagName':elemId,
-//				'alertInterval':0,
-//				"stageValue":0,
-//				"upperLimit":0,
-//				"floorLimit":0,
-//				"color":"#ffe74c",
-//				"isx":false
-//				};
-//		_selectedPoints.push(p);
-//	}else {
-//		targetCheck.checked = false;
-//		var targetDiv = document.getElementById("div"+elemId);
-//		console.log();
-//		// 左侧删除
-//		newItem_pointlistright.removeChild(targetDiv);
-//		// 右侧添加
-//		newItem_pointlistleft.appendChild(targetDiv);
-//		selectedPoints.delete(serverName+"\\"+elemId);
-//		var p = {'server':serverName,
-//				'tagName':elemId,
-//				'alertInterval':0,
-//				"stageValue":0,
-//				"upperLimit":0,
-//				"floorLimit":0,
-//				"color":"#ffe74c",
-//				"isx":false,
-//				"relativetime":0,
-//				"starttime":"",
-//				"terminaltime":""
-//				};
-//
-//		_selectedPoints.splice(p);
-//
-//	}
-//}
-
 // 编辑按钮
 function editItem(){
 	var item;
 	// 编辑
-	 console.log("data =>"+actionType+"  "+itemID);
+//	 console.log("data =>"+actionType+"  "+itemID);
 	if(actionType!=null && actionType!="undefined" && itemID!=null && itemID!="undefined"){
 		switch(actionType.toLowerCase()){
 			case "realTimeData".toLowerCase():
@@ -460,30 +403,28 @@ function editItem(){
 				item = userSpace.xyGraph[itemID];
 				break;
 		}
-		console.log("data =>"+JSON.stringify(item));
+//		console.log("data =>"+JSON.stringify(item));
 		if(item!=null && item!="undefined"){
 			targetName = item.name; // 设置名称
 			var psel = document.getElementById("_targetNameUI");
-			console.log("newDataItem.js debug 1");
 			psel.value = targetName; // 设置名称显示
-			console.log("newDataItem.js debug 1_1");
 			
 			var pseld = document.getElementById("targetDesc");
 			targetDesc = item.desc;
-			console.log("newDataItem.js debug 2");
 			pseld.value = targetDesc;// 设置描述显示
-			console.log("newDataItem.js debug 2_2");
 			selectedPoints = new Set();
 			
 			Object.keys(item.pointList).forEach(function(key){
 				var id__= item.pointList[key].tagName;
-				console.log(" id = "+id__);
 				selectedPoints.add(serverName+"\\"+id__);
-
-//				newDataItem_addboxitemcheck(id__,true);
 			});
 			if(actionType.toLowerCase() == "historyData".toLowerCase()){
 				var _selectedPoints = item.otherrule1._selectedPoints;
+				fillAttribute(item.otherrule1);
+			}
+			if(actionType.toLowerCase() == "xyGraph".toLowerCase()){
+				_selectedPoints = JSON.parse(item.otherrule1);
+				console.log("1_selectedPoints -> "+JSON.stringify(_selectedPoints));
 				fillAttribute(item.otherrule1);
 			}
 			buildNewItemUI(serverList);

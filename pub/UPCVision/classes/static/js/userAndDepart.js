@@ -85,6 +85,9 @@ function setTUserInfo(k, v) {
 		case 3:
 			_droprole.innerHTML = "普通用户";
 			break;
+		case 4:
+			_droprole.innerHTML = "guest";
+			break;
 		}
 	}
 }

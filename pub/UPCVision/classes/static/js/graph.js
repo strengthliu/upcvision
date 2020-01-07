@@ -212,6 +212,9 @@ function removePointFromXYGraph(tagName){
 		        	CJY_XT31101_8: 'y',
 		        }
 			},
+		    zoom: {
+		        enabled: true
+		    },
 			grid : {
 				x : {
 					show : true
@@ -260,6 +263,7 @@ function buildChart(){
 //	console.log("buildChart()");
 //	console.log("cdata => "+JSON.stringify(cdata));
 	$('#exampleModal').modal('show');
+	
 	c3LineChart = c3.generate({
 		bindto : '#ui-historyDataLineChart',
 		data : {
@@ -272,6 +276,9 @@ function buildChart(){
 //	        	CJY_XT31101_8: 'y',
 //	        }
 		},
+	    zoom: {
+	        enabled: true
+	    },
 		grid : {
 			x : {
 				show : true
@@ -307,7 +314,8 @@ function buildChart(){
 			}
 		}
 	});
-	currentPlayStatus = true;
+//	currentPlayStatus = true;
+	_backward();
 //	console.log("buildChart() end");
 
 }
@@ -337,52 +345,6 @@ var cols;
 	}
 	cdata=cols;
 	_data=cols;
-//	c3LineChart = c3.generate({
-//		bindto : '#ui-historyDataLineChart',
-//		data : {
-//			x : 'time',
-//			xFormat : '%Y',
-//			columns : cols,
-//			type : 'spline',
-//	        axes: {
-//	        	CJY_XT31101_8: 'y',
-//	        }
-//		},
-//		grid : {
-//			x : {
-//				show : true
-//			},
-//			y : {
-//				show : true
-//			}
-//		},
-//		color : {
-//			pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
-//					'rgba(4,189,254,0.6)' ]
-//		},
-//		padding : {
-//			top : 10,
-//			right : 20,
-//			bottom : 30,
-//			left : 50,
-//		},
-//		axis : {
-//			x : {
-//				type : 'timeseries',
-//				// if true, treat x value as localtime (Default)
-//				// if false, convert to UTC internally
-//				localtime : true,
-//				tick : {
-//					format : '%Y-%m-%d %H:%M:%S'
-//				}
-//			},
-//			y : {
-//				show: true
-////				,
-////				label: 'Y2 Axis Label'
-//			}
-//		}
-//	});
 
 })(jQuery);
 
@@ -577,6 +539,9 @@ function switchTagFeatureInXYGraph(tarF){
 				columns : cdata,
 				type : 'spline',
 			},
+		    zoom: {
+		        enabled: true
+		    },
 			grid : {
 				x : {
 					show : true
@@ -681,10 +646,8 @@ function refreshData(data) {
 		if(key!="time"){
 			var ele = document.getElementById(key);
 			if(ele!=null && ele!="undefined"){
-	//				console.log(" set value for "+key);
 				// 加事件
 				ele.onclick = function(){
-	//					alert(ele.getAttribute("id"));
 					// 添加进趋势图的换成点位说明。
 					_addPointToXY(getNewLabelForData(ele.getAttribute("id")));
 					// pointGroup中的值不变，还是txtid。
@@ -702,22 +665,13 @@ function refreshData(data) {
 			}
 		}
 	});
-	
-//	for(var key in pointList_){
-//	for(var p in gl){
-//		//console.log(gl[p].config.id + "  ==  "+"point_" + key );
-//		if(gl[p].config.id == "point_" + key){
-//			gl[p].refresh(pointList_[key]);
-//		}
-//	}
-//}
 
 	if(currentPlayStatus){
 		// 刷新线图
 //		_forward(data.body);
-		play();
+//		play();
 		// 刷新表格
-		refreshDataTable(cdata);
+//		refreshDataTable(cdata);
 	}
 }
 
@@ -743,7 +697,7 @@ function refreshDataTable(_cdata){
 			var _value = _cdata[coli][rowi];
 			switch(typeof _value){
 			case 'number':
-				_td.innerText = (Math.round(_value * 10000)) / 10000+"";		
+				_td.innerText = (Math.round(_value * 1000)) / 1000+"";		
 				break;
 			case 'string':
 				_td.innerText += _cdata[coli][rowi];//_timeStr;
@@ -778,7 +732,7 @@ var _dataCount = 1000;
  * 当前值范围
  */
 var cdata = new Array();
-var cdataCount = 10;
+var cdataCount = 100;
 /**
  * 刷新值
  * 
@@ -1003,7 +957,7 @@ function addData(newData, _data_, cdatacount) {
  */
 function getHistoryData1(_historyDataDetailKey,startTime,endTime,pointGroup,func){
 	var data={'uid':uid,'token':token,'id':_historyDataDetailKey,'beginTime':startTime,'endTime':endTime,"pointList":pointGroup};
-//	 console.log("getHistoryData1  data = "+JSON.stringify(data));
+	 console.log("getHistoryData1  data = "+JSON.stringify(data));
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -1189,41 +1143,20 @@ function getCurrentStartTime(){
 function _backward() {
 	// 停止播放
 	currentPlayStatus = false;
-	
+	console.log("_backward ... ");
 	// 更新cdata数据
-//	console.log("hisotryData debug 0");
 	var _dataIndex ={};
 	for(var indrow=0;indrow<_data.length;indrow++){
 		_dataIndex[_data[indrow][0]]= indrow;
 	}						
 	oneStep = cdataCount*0.9;
-//	console.log("currentStartTimeInd="+currentStartTimeInd+" ?  oneStep="+oneStep);
-//	console.log("hisotryData debug 1");
 	if(currentStartTimeInd == null || currentStartTimeInd=="undefined"){
-//		console.log("hisotryData debug 2");
 		currentStartTimeInd =2;
 	}else{
-//		console.log("hisotryData debug 3");
 		if(currentStartTimeInd-oneStep>0){ // 向左
 			currentStartTimeInd = currentStartTimeInd-oneStep;
-//			console.log("hisotryData debug 4");
 		}else{
-//			console.log("hisotryData debug 5");
 			// TODO： 如果向左一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
-// currentStartTimeInd
-//			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data));
-//			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_dataIndex));
-//			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data[_dataIndex['time']]));
-//			console.log("_data[_dataIndex['time']][1]="+JSON.stringify(_data[_dataIndex['time']][1]));
-//			var _currentStartTimeInd = _data[_dataIndex['time']][1].getTime() - oneStep*1000;
-			var _currentStartTimeInd ;
-			if(_data[_dataIndex['time']][1]!="undefined"){
-				_currentStartTimeInd = _data[_dataIndex['time']][1].getTime() - 60*60*2*1000;
-			} else {
-				_currentStartTimeInd = new Date().getTime() - 60*60*2*1000;				
-			}
-			getHistoryData1("",_currentStartTimeInd,_data[_dataIndex['time']][1].getTime(),pointGroup,_backward);
-
 			var _currentStartTimeInd ;// 当前要查的时间的序号，不是具体时间。因为要数据数量。
 			var _endTime;
 			if(_data[_dataIndex['time']].length>1 && _data[_dataIndex['time']][1] != "undefined"){
@@ -1237,10 +1170,7 @@ function _backward() {
 			return;
 		}
 	}
-//	console.log("hisotryData debug 6");
-
 	var currentTime = _data[_dataIndex['time']][currentStartTimeInd];
-//	console.log("currentTime="+currentTime);
 	loadCData(currentTime);
 	reloadDataToDiagram();
 
@@ -1337,6 +1267,9 @@ function changex(tname) {
 				columns : cdata,
 				type : 'spline',
 			},
+		    zoom: {
+		        enabled: true
+		    },
 			grid : {
 				x : {
 					show : true
@@ -1381,6 +1314,9 @@ function changex(tname) {
 				columns : cdata,
 				type : 'spline',
 			},
+		    zoom: {
+		        enabled: true
+		    },
 			grid : {
 				x : {
 					show : true
@@ -1501,7 +1437,7 @@ function graphSubscribe(){
 			//console.log(" graph.js -> graphSubscribe() -> getGraphByURLPath(graph,_diagramShowKey="+_diagramShowKey+")");
 			var g = getGraphByPath(userSpace.graph,_diagramShowKey);
 			if(g == null || g == "undefined" || g.id==null ||g.id=="undefined"){
-				alert("您没有查看这个图形的权限。");
+				alert("不能访问这个图形。");
 				return;
 			}
 			

@@ -18669,7 +18669,7 @@ box-shadow:0px 3px 3px #c8c8c8 ;
 
 /* Modals */
 .modal .modal-dialog {
-  margin-top: calc(58px + 30px); }
+  margin-top: 30px; }
   .modal .modal-dialog .modal-content .modal-header {
     padding: 25px 26px; }
     .modal .modal-dialog .modal-content .modal-header .close span {
@@ -22652,7 +22652,7 @@ div.tagsinput {
 }
 
 .dialog-title {
-	cursor: move;
+/*	cursor: move;*/
 }
 
 .dialog-content {

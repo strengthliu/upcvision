@@ -1,79 +1,76 @@
 /**
- * 
+ *
  */
 
-//
-// //********************* 对话框拖拽 ********
-// var mouseX = 0;
-// var mouseY = 0;
-// var Dragging = function(validateHandler) {
-// //参数为验证点击区域是否为可移动区域，如果是返回欲移动元素，负责返回null
-// var draggingObj = null; //dragging Dialog
-// var diffX = 0;
-// var diffY = 0;
-//
-// function mouseHandler(e) {
-// switch (e.type) {
-// case 'mousedown':
-// draggingObj = validateHandler(e);//验证是否为可点击移动区域
-// if (draggingObj != null) {
-// diffX = e.clientX - draggingObj.offsetLeft;
-// diffY = e.clientY - draggingObj.offsetTop;
-// }
-// break;
-//
-// case 'mousemove':
-// mouseX = e.clientX;
-// mouseY = e.clientY;
-// if (draggingObj) {
-// draggingObj.style.left = (e.clientX - diffX) + 'px';
-// draggingObj.style.top = (e.clientY - diffY) + 'px';
-// }
-//
-// break;
-//
-// case 'mouseup':
-// draggingObj = null;
-// diffX = 0;
-// diffY = 0;
-// break;
-// }
-// }
-// ;
-//
-// return {
-// enable : function() {
-// document.addEventListener('mousedown', mouseHandler);
-// document.addEventListener('mousemove', mouseHandler);
-// document.addEventListener('mouseup', mouseHandler);
-// },
-// disable : function() {
-// document.removeEventListener('mousedown', mouseHandler);
-// document.removeEventListener('mousemove', mouseHandler);
-// document.removeEventListener('mouseup', mouseHandler);
-// }
-// }
-// }
-//
-// function getDraggingDialog(e) {
-// var target = e.target;
-// if (target.nodeName != "DIV")
-// return;
-// while (target
-// && (target.className.indexOf('dialog-title') == -1
-// || target.getAttribute("id") != "toMenu" || target.nodeName != "svg")) {
-// target = target.offsetParent;
-// }
-// if (target != null && target.nodeName == "svg")
-// return target;
-// else if (target != null) {
-// return target.offsetParent;
-// } else {
-// return null;
-// }
-// }
-//
-// Dragging(getDraggingDialog).enable();
+// ********************* 对话框拖拽 ********
+var mouseX = 0;
+var mouseY = 0;
+var Dragging = function(validateHandler) {
+	// 参数为验证点击区域是否为可移动区域，如果是返回欲移动元素，负责返回null
+	var draggingObj = null; // dragging Dialog
+	var diffX = 0;
+	var diffY = 0;
+
+	function mouseHandler(e) {
+		switch (e.type) {
+		case 'mousedown':
+			draggingObj = validateHandler(e);// 验证是否为可点击移动区域
+			if (draggingObj != null) {
+				diffX = e.clientX - draggingObj.offsetLeft;
+				diffY = e.clientY - draggingObj.offsetTop;
+			}
+			break;
+
+		case 'mousemove':
+			mouseX = e.clientX;
+			mouseY = e.clientY;
+			if (draggingObj) {
+				draggingObj.style.left = (e.clientX - diffX) + 'px';
+				draggingObj.style.top = (e.clientY - diffY) + 'px';
+			}
+			break;
+
+		case 'mouseup':
+			draggingObj = null;
+			diffX = 0;
+			diffY = 0;
+			break;
+		}
+		return {
+			enable : function() {
+				document.addEventListener('mousedown', mouseHandler);
+				document.addEventListener('mousemove', mouseHandler);
+				document.addEventListener('mouseup', mouseHandler);
+			},
+			disable : function() {
+				document.removeEventListener('mousedown', mouseHandler);
+				document.removeEventListener('mousemove', mouseHandler);
+				document.removeEventListener('mouseup', mouseHandler);
+			}
+		}
+	}
+}
+
+	function getDraggingDialog(e) {
+		var target = e.target;
+		if (target.nodeName != "DIV")
+			return;
+		while (target
+				&& (target.className.indexOf('dialog-title') == -1
+						|| target.getAttribute("id") != "toMenu" || target.nodeName != "svg")) {
+			target = target.offsetParent;
+		}
+		if (target != null && target.nodeName == "svg")
+			return target;
+		else if (target != null) {
+			return target.offsetParent;
+		} else {
+			return null;
+		}
+	}
+
+
+//Dragging(getDraggingDialog).enable();
 
 function initView() {
 
@@ -82,15 +79,12 @@ function initView() {
 	svg1 = svg1[0];
 	width = svg1.attributes.width.value;
 	height = svg1.attributes.height.value;
+	var svg1Rect = svg1.getBoundingClientRect();
+
+	console.log("===>svg x="+svg1Rect.left+" y="+svg1Rect.top+" width="+svg1.attributes.width.value+" height="+svg1.attributes.height.value);
 	var trans;
-	// width = 960;
-	// height = 500;
-	// console.log("widthaaa=" + width + " heightbbb=" + height + "");
 	// D3操作对象
-	zoom = d3.behavior.zoom().scaleExtent([ 0.5, 8 ]).on("zoom", null); // =
-																		// d3.zoom().scaleExtent([1,
-																		// 8]).on("zoom",
-																		// zoomed);
+	zoom = d3.behavior.zoom().scaleExtent([ 0.5, 8 ]).on("zoom", null);
 	svg = d3.select("svg").call(zoom);
 	drag = d3.behavior.drag().origin(function() {
 		var t = d3.select(this);
@@ -99,60 +93,41 @@ function initView() {
 			x : t.attr("cx"),
 			y : t.attr("cy")
 		};
-	}).on("drag", draged)
-	  .on("dragstart", function() {
+	}).on("drag", draged).on("dragstart", function() {
 		d3.event.sourceEvent.stopPropagation(); // silence other listeners
 	}).on("dragend", function() {
-		console.log("mouseup");
-		var t = d3.select(this);
-		var _x = t.attr("cx"), _y = t.attr("cy");
-		if(translate!=null&&translate!="undefined"){
-			console.log("1  -------------------------------");
-			console.log("1  translate-> "+translate);
-			console.log("1  translate event -> "+[ _x, _y]);
-//			trans= [ d3.event.x, d3.event.y];
-			trans= [ eval(_x+translate[0]), eval(_y +translate[1])];
-		}else{
-			trans= [ _x, _y];
-		}
-//		translate = trans;
-		console.log("1  trans-> "+trans);
+		translate = trans; // 拖拽结束时，更新translate
 	});
 
+	var trans;
 	svg = d3.select("svg").call(drag);// .call(zoom);
 	function draged(d) {
-		zoom.translate(translate);
-		d3.select(this).attr("cx", d3.event.x).attr("cy", d3.event.y);
-		var trans;
-		if(translate!=null&&translate!="undefined"){
+		// zoom.translate(translate);
+		// d3.select(this).attr("cx", d3.event.x).attr("cy", d3.event.y);
+		if (translate != null && translate != "undefined") {
 			console.log("-------------------------------");
-			console.log("translate-> "+translate);
-			console.log("translate event -> "+[ d3.event.x, d3.event.y]);
-//			trans= [ d3.event.x, d3.event.y];
+			console.log("translate-> " + translate);
+			console.log("translate event -> " + [ d3.event.x, d3.event.y ]);
+			trans = [ d3.event.x, d3.event.y ];
+			console.log();
 			// 增加translate[0]的偏移
-			trans= [ d3.event.x+translate[0], d3.event.y +translate[1]];
-		}else{
-			trans= [ d3.event.x, d3.event.y];
+			trans = [ d3.event.x + translate[0], d3.event.y + translate[1] ];
+		} else {
+			trans = [ d3.event.x, d3.event.y ];
 		}
-		console.log("translate target -> "+trans);
-		translate = trans;
-//		zoom.translate(trans);
-		svg.attr("transform", "translate(" + trans + ")" +
-				// "translate(0,0)" +
-				"scale(" + scale + ")");
+		console.log("translate target -> " + trans);
+		svg.attr("transform", "translate(" + trans + ")" + "scale(" + scale
+				+ ")");
 
-//		interpolateZoom();
-//		interpolateZoom(translate,scale);
-//		zoomed();
+		// translate = trans;
+		// zoom.translate(trans);
+		// interpolateZoom(translate,scale);
 	}
 	var diff = Math.round(((scale - 1) * 1000 + 600) / 100);
-	// console.log("scale=" + scale + " diff=" + diff);
-
 	// Range Slider
 	if ($("#value-range").length) {
 		var bigValueSlider = document.getElementById('value-range'), bigValueSpan = document
 				.getElementById('huge-value');
-
 		noUiSlider.create(bigValueSlider, {
 			start : 7,
 			step : 0,
@@ -182,7 +157,8 @@ function initView() {
 				bigValueSpan.innerHTML = scale;// range[Math.floor(values)];
 				scale = _num2;
 				console.log();
-				interpolateZoom([ 0, 0 ], scale);
+				interpolateZoom(translate, scale);
+//				interpolateZoom([ 0, 0 ], scale);
 				console.log("_num=" + _num + " values=" + values + " _num2="
 						+ _num2 + " scale=" + scale + "   ------");
 			}
@@ -202,18 +178,21 @@ function initView() {
 }
 
 function scrollTo(lab) {
+	 console.log("lab=" + lab);
+	 console.log("scale=" + scale);
 	if (lab == null || lab == "undefined") {
 		// lab = scale;
 		lab = (scale - 1) * 10 + 7;
 		lab = lab.toFixed(2);
 		// lab = Math.round(((scale - 1) * 1000 + 600) / 100);
 	}
-//	console.log("lab=" + lab);
+//	interpolateZoom(translate,scale);
+	 console.log("lab=" + lab);
 	var bigValueSpan = document.getElementById('huge-value');
 	if (bigValueSpan.innerHTML == "" || bigValueSpan.innerHTML == "undefined")
 		bigValueSpan.innerHTML = 1;
 	var _num = parseFloat(bigValueSpan.innerHTML);
-//	console.log("scrollTo-> " + lab + " scale=" + scale);
+	 console.log("scrollTo-> " + lab + " scale=" + scale);
 	var _num2 = lab;
 	if (_num != _num2) {
 		_slider.set(lab);
@@ -222,14 +201,14 @@ function scrollTo(lab) {
 }
 
 var number1 = 0;
-function shownumber1() {
-	// console.log("number = " + number1);
-	scale = 1 + (number1 - 600) / 1000;
-	interpolateZoom([ 0, 0 ], scale);
-	// interpolateZoom(translate, scale);
-	// svg.attr("transform", "translate(" + [ 0, 0 ] + ")" + "scale(" + scale+
-	// ")");
-}
+//function shownumber1() {
+//	// console.log("number = " + number1);
+//	scale = 1 + (number1 - 600) / 1000;
+//	interpolateZoom([ 0, 0 ], scale);
+//	// interpolateZoom(translate, scale);
+//	// svg.attr("transform", "translate(" + [ 0, 0 ] + ")" + "scale(" + scale+
+//	// ")");
+//}
 
 var svg1;
 var svg;// svg = document.getElementsByTagName("svg");
@@ -243,30 +222,38 @@ var zoom;// = d3.behavior.zoom().scaleExtent([0.1, 8]).on("zoom", zoomed);
 
 /**
  * 真实执行缩放和移动
+ *
  * @returns
  */
 function zoomed() {
-	svg.attr("transform", "translate(" + translate + ")" +
-	"scale(" + scale + ")");
+	if(translate==null||translate=="undefined")
+		translate=[0,0];
+	svg.attr("transform", "translate(" + translate + ")" + "scale(" + scale
+			+ ")");
 	scrollTo(); // 高速缩放拖拽轴
 }
 
 /**
  * 移动和缩放指定值。
+ *
  * @param _translate
  * @param _scale
  * @returns
  */
 function interpolateZoom(_translate, _scale) {
-	if(_scale!=null&&_scale!="undefined")
+	if (_scale != null && _scale != "undefined")
 		scale = _scale;
-	if(_translate!=null&&_translate!="undefined")
+	if (_translate != null && _translate != "undefined")
 		translate = _translate;
+	if(translate==null||translate=="undefined")
+		translate=[0,0];
+console.log("translate="+JSON.stringify(translate));
 	zoomed();
 }
 
 /**
  * 点击事件处理
+ *
  * @returns
  */
 function zoomClick() {
@@ -303,11 +290,13 @@ function zoomClick() {
 }
 
 var scale;
-var translate; // 当前位移，相对原图原点
+var translate = [0,0]; // 当前位移，相对原图原点
 var fullScreenEnable = true;
 function fullScreen() {
 	if (!fullScreenEnable)
 		fullScreenEnable = !fullScreenEnable;
+	fullScreenFn();
+	fullScreenFn();
 	fullScreenFn();
 }
 
@@ -316,27 +305,32 @@ function fullScreenFn() {
 		// 取当前页面宽度和高度
 		var _topToolsBar = document.getElementById("topToolsBar");
 		var topToolsBarRect = _topToolsBar.getBoundingClientRect();
+		//console.log("topToolsBarRect -> "+ topToolsBarRect.top+" "+ topToolsBarRect.left+" "+ topToolsBarRect.width+" "+ topToolsBarRect.height+" ");
+		//console.log("topToolsBarRect leftButton -> x="+ topToolsBarRect.left+" y="+ (topToolsBarRect.top + topToolsBarRect.height)+" ");
+
 		var _svgP = document.getElementById("mainPanel");// svg1.parentNode;
 		var mainToolsBarRect = _svgP.getBoundingClientRect();
+		console.log("mainPanel BarRect -> "+ mainToolsBarRect.top+" "+ mainToolsBarRect.left+" "+ mainToolsBarRect.width+" "+ mainToolsBarRect.height+" ");
 		// 取当前图形宽度和高度
 		// mainPanel屏幕左上角坐标
-		var y = mainToolsBarRect.y;// + mainToolsBarRect.height;
-		var x = mainToolsBarRect.x;
+		var y = mainToolsBarRect.top;// + mainToolsBarRect.height;
+		var x = mainToolsBarRect.left;
 		var mainPanelHeight = window.innerHeight - topToolsBarRect.height;
 		var mainPanelWidth = mainToolsBarRect.width;
 
 		var scale1 = mainPanelHeight / mainPanelWidth;
+		console.log("fullScreen => mainPanelHeight= "+ mainPanelHeight+"  mainPanelWidth= "+ mainPanelWidth);
 		var scale2 = height / width;
+		console.log("fullScreen => svg height= "+ height+"  width= "+ width);
 		if (scale1 > scale2) { // 图比屏幕扁，以图的宽为限
 			scale = mainPanelWidth / width;
 		} else {
 			scale = mainPanelHeight / height;
 		}
 
-		var svgx = svg1.getBoundingClientRect().x;
-		var svgy = svg1.getBoundingClientRect().y;
-		
-//		trans= [ d3.event.x+translate[0], d3.event.y +translate[1]];
+		var svgx = svg1.getBoundingClientRect().left;
+		var svgy = svg1.getBoundingClientRect().top;
+		console.log("fullScreen => svgx= "+ svgx+"  svgy= "+ svgy);
 
 		// 计算translate和scale,调用 function interpolateZoom (translate, scale)
 		var tx = svg.attr("width") / 2 * (1 - scale);
@@ -344,15 +338,10 @@ function fullScreenFn() {
 		if (translate == null || translate == "undefined")
 			translate = zoom.translate();
 
-		var _ttx = mainToolsBarRect.x - svgx + translate[0];// +
-															// svg.attr("width")
-															// / 2 * (1 -
-															// scale);
-		var _tty = mainToolsBarRect.y - svgy + translate[1];// +
-															// svg.attr("height")
-															// / 2 * (1 -
-															// scale);
-
+		var _ttx = mainToolsBarRect.left - svgx + translate[0];// +
+		var _tty = mainToolsBarRect.top - svgy + translate[1];// +
+		console.log("translate ->"+[ _ttx, _tty ]);
+		//console.log("fullScreen => _tty-> "+_tty+" mainToolsBarRect.left="+mainToolsBarRect.left+" svgx="+svgx+" translate[0]="+translate[0]);
 		interpolateZoom([ _ttx, _tty ], scale);
 
 		svg.attr("preserveAspectRatio", "none");
@@ -361,8 +350,8 @@ function fullScreenFn() {
 		svg1.setAttribute("width", mainPanelWidth / scale);
 		svg1.setAttribute("heigth", mainPanelHeight / scale);
 
-		svgx = svg1.getBoundingClientRect().x;
-		svgy = svg1.getBoundingClientRect().y;
+		svgx = svg1.getBoundingClientRect().left;
+		svgy = svg1.getBoundingClientRect().top;
 	}
 }
 

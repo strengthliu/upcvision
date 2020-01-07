@@ -78,11 +78,13 @@
 							<i class="mdi mdi-arrow-expand-down text-primary"></i>y轴缩小
 						</button>
 					</div>
-					<div class="btn-group">
-						
-						<label class="col-sm-3 col-form-label">数据刷新频率</label>
-						<input onchange="setTimeInterval(this.value);" id="2" data-step=1 data-min=1 data-max=60 data-digit=0 class="alignment" data-edit="true" value="1"/>
-				</div>
+					<div class="btn-group" style="display:none;">
+
+						<label class="col-sm-3 col-form-label">数据刷新频率</label> <input
+							onchange="setTimeInterval(this.value);" id="2" data-step=1
+							data-min=1 data-max=60 data-digit=0 class="alignment"
+							data-edit="true" value="1" />
+					</div>
 
 				</div>
 			</div>
@@ -114,18 +116,24 @@
 <script src="js/num-alignment.js"></script>
 <script>
 	// 自定义类型：参数为数组，可多条数据
-	alignmentFns.createType([{"test": {"step" : 1, "min" : 1, "max" : 999, "digit" : 0}}]);
-	
+	alignmentFns.createType([ {
+		"test" : {
+			"step" : 1,
+			"min" : 1,
+			"max" : 999,
+			"digit" : 0
+		}
+	} ]);
+
 	// 初始化
 	alignmentFns.initialize();
-	
+
 	// 销毁
 	alignmentFns.destroy();
-	
+
 	// js动态改变数据
 	$("#2").attr("data-max", "12")
 	// 初始化
 	alignmentFns.initialize();
-	
 </script>
 </script>

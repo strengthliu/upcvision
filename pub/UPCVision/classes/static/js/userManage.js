@@ -20,6 +20,9 @@
 		}, {
 			Name : "普通用户",
 			Id : 3
+		}, {
+			Name : "guest",
+			Id : 4
 		} ];
 		var _depart = departdata;
 		// basic config
@@ -112,15 +115,17 @@
 																var _userInfoList = $
 																		.grep(
 																				userInfoList,
-																				function(
-																						client) {
+																				function(client) {
+																					console.log("filter= "+JSON.stringify(filter));
+																					console.log("client= "+JSON.stringify(client));
+																					console.log("response.data= "+JSON.stringify(response.data));
 																					return (!filter.name || client.name
 																							.indexOf(filter.name) > -1)
-																							&& (!filter.userName || client.userName
+																							&& (!client || !filter.userName || client.userName
 																									.indexOf(filter.userName) > -1)
-																							&& (!filter.depart || client.depart
+																							&& (!client || !filter.depart || client.depart
 																									.indexOf(filter.depart) > -1)
-																							&& (!filter.role || client.role === filter.role);
+																							&& (!client || !filter.role || client.role === filter.role);
 																				});
 
 																d.resolve(_userInfoList);

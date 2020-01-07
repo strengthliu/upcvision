@@ -318,7 +318,7 @@ function updateRealTimeDataListFrame(){
 								realtimeDataList_ui_item_innerHTML += '<figcaption onclick="routeTo('
 									+ "'"
 									+ "realtimedataDetail','"
-									+ _realtimeData.id + "'" + ')"><h4>'
+									+ _realtimeData.id + "'" + ')"><h4 style="color:#000000;font-weight:bold">'
 										+ _realtimeData.name
 										+ '</h4><div>'
 										+'<h5></h5>'
@@ -354,7 +354,7 @@ function updateRealTimeDataListFrame(){
 								
 									realtimeDataList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
 									realtimeDataList_ui_item_innerHTML += 'deleteItemAction(\''+_realtimeData.id+'\')">';
-									realtimeDataList_ui_item_innerHTML += '<i class="mdi mdi-delete"></i>';
+									realtimeDataList_ui_item_innerHTML += 'Delete';//'<i class="mdi mdi-delete"></i>';
 									realtimeDataList_ui_item_innerHTML += '</button>';
 									
 									realtimeDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';

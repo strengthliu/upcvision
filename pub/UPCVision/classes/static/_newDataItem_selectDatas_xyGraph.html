@@ -115,7 +115,8 @@
 				<label>请输入这个组的说明</label>
 				<textarea class="form-control" rows="5" id="targetDesc"></textarea>
 			</div>
-			<div id="xyGraphgrid"  style="display:none;">目前看，XY图不需要提前设置XY轴信息，所以这里先隐藏掉，不使用了。</div>
+			
+			<div id="xyGraphgrid" >目前看，XY图不需要提前设置XY轴信息，所以这里先隐藏掉，不使用了。</div>
 		</div>
 	</div>
 </section>
@@ -177,6 +178,7 @@
 		itemID = "";
 		elemId="";
 		editAction="";
+		var xray="";
 
 		// 重置步骤数
 		stepCount = 2; // 总共有多少步
@@ -241,7 +243,6 @@
 
 	// 点击下一步
 	function nextStep() {
-		console.log("xyGraph newDataItem -> nextStep =>  currentStep="+currentStep+"    stepCount="+stepCount);
 		if (currentStep == stepCount) { // 保存按钮被点击了
 			// 这里
 			if (!selectedPoints.size > 0) {
@@ -251,21 +252,15 @@
 				alert("选择的点位太多了，系统算不过来。请选择少于10个点位");
 				return;
 			}
-			console.log("1 => "+JSON.stringify(_selectedPoints));
-
 			targetName = document.getElementById("_targetNameUI").value;
 			if (targetName)
 				if (targetName.length < 1) {
 					alert("给我取个名字吧，要不就找不到我了。");
 					return;
 				}
-			console.log("2 => "+JSON.stringify(_selectedPoints));
 			targetDesc = document.getElementById("targetDesc").value;
-			//init();
-			submitNewDataItem(selectedPoints, targetName, targetDesc);
+			submitNewDataItem(selectedPoints, targetName, targetDesc, xray);
 			var _selectedPoints = new Array();
-
-			console.log("3 => "+JSON.stringify(_selectedPoints));
 			return;
 		}
 		fillTable("xyGraphgrid");
@@ -293,17 +288,49 @@
 		currentStep++;
 	}
 
+	/**
+	 * 填写补充信息
+	 */
+	function fillAttribute(otherrule) {
+		_selectedPoints = JSON.parse(otherrule);
+	}
+
 	function fillTable(tableID) {
+		console.log("fillTable => _selectedPoints-> "+JSON.stringify(_selectedPoints));
+		if(_selectedPoints.length>0){
+			for(var i=0;i<_selectedPoints.length;i++){
+				if(_selectedPoints[i].isx){
+					xray=_selectedPoints[i];
+				}
+			}
+		}
 		$("#" + tableID).jsGrid({
 			height : "300px",
 			width : "100%",
 			filtering : false,
-			editing : true,
+			editing : false,
 			inserting : false,
 			sorting : true,
 			paging : false,
 			autoload : true,
 			data : Array.from(_selectedPoints),
+			rowClick: function(args) { 
+				if(!args.item.isx){
+					xray = args.item;
+					xray.isx = true;
+					for(var i=0;i<_selectedPoints.length;i++){
+						if(_selectedPoints[i].tagName == xray.tagName){
+							_selectedPoints[i].isx = true;
+						}else
+							_selectedPoints[i].isx = false;
+						$("#" + tableID).jsGrid("updateItem",_selectedPoints[i]).done(function() {
+						    console.log("data loaded");
+						});
+					}
+				}
+				//$("#" + tableID).jsGrid("loadData",xray);
+				console.log("rowClick-> "+JSON.stringify(Array.from(_selectedPoints)));
+			},
 			fields : [ {
 				title : "位号名",
 				name : "tagName",
@@ -311,33 +338,13 @@
 				width : 150,
 				editing : false
 			}, 
-	          {
-	            name: "isx",
-	            title: "设为X轴",
-				width : 50,
-	            itemTemplate: function(value, item) {
-	              return $("<div>")
-	                .addClass("form-check mt-0")
-	                .append(
-	                  $("<label>").addClass("form-check-label")
-	                  .append(
-	                    $("<input>").attr("type", "radio")
-	                    .addClass("form-radio-input")
-	                    .attr("checked", value || item.Checked)
-	                    .attr("id", "_setasxray")
-	                    
-	                  )
-	                  .append('<i class="input-helper"></i>')
-	                );
-	            }
-	          },
-			{
-				type : "control",
-				editButton : true,
-				deleteButton : false,
-				clearFilterButton : true,
-				modeSwitchButton : true
-			} ]
+          {
+            name: "isx",
+            title: "设为X轴",
+			type : "checkbox",
+			editing : false,
+			width : 50
+          } ]
 		});
 	}
 

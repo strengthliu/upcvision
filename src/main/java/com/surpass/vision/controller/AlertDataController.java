@@ -126,6 +126,7 @@ public class AlertDataController extends BaseController {
 		JSONArray points = user.getJSONArray("points");
 		String otherrule2 = user.getString("desc");
 		String otherrule1 = user.getString("rule");
+		String otherrule5 = user.getString("thumbnail");
 		ToWeb ret;
 		
 		// TODO: 检查参数合法性

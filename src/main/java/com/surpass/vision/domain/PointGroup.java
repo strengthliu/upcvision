@@ -16,6 +16,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.surpass.vision.server.Point;
 import com.surpass.vision.tools.IDTools;
@@ -33,6 +35,7 @@ import com.surpass.vision.tools.IDTools;
  * ---------------------------------------
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Component
 public class PointGroup extends PointGroupData implements Serializable,Cloneable{
 	private static final long serialVersionUID = -4373082997833397493L;
 
@@ -188,8 +191,12 @@ public class PointGroup extends PointGroupData implements Serializable,Cloneable
 		ret = (PointGroup) super.clone();
 		if(this.pointList!=null) {
 			List<Point> pointList = new ArrayList<Point>();
-			for(int indpl=0;indpl<this.pointList.size();indpl++)
+			for(int indpl=0;indpl<this.pointList.size();indpl++) {
+				if(this.pointList.get(indpl)==null) {
+					System.out.println("got null point....");
+				}else
 				pointList.add(this.pointList.get(indpl).clone());
+			}
 			ret.setPointList(pointList);
 		}
 		if(this.pointTextIDs!=null) {

@@ -331,7 +331,7 @@ function updateLineAlertDataListFrame(){
 								lineAlertDataList_ui_item_innerHTML += '<figcaption onclick="routeTo('
 									+ "'"
 									+ "linalertdataDetail','"
-									+ _lineAlertData.id + "'" + ')"><h4>'
+									+ _lineAlertData.id + "'" + ')"><h4 style="color:#000000;font-weight:bold">'
 										+ _lineAlertData.name
 										+ '</h4><div>'
 										+'<h5></h5>'
@@ -367,7 +367,7 @@ function updateLineAlertDataListFrame(){
 								
 									lineAlertDataList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
 									lineAlertDataList_ui_item_innerHTML += 'deleteItemAction(\''+_lineAlertData.id+'\')">';
-									lineAlertDataList_ui_item_innerHTML += '<i class="mdi mdi-delete"></i>';
+									lineAlertDataList_ui_item_innerHTML += 'Delete';//'<i class="mdi mdi-delete"></i>';
 									lineAlertDataList_ui_item_innerHTML += '</button>';
 									
 									lineAlertDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';

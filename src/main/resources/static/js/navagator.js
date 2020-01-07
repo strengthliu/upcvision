@@ -190,7 +190,7 @@
 		if(uialertdata==null || uialertdata=="undefined") {
 			return;
 		}else{
-			console.log(uialertdata+" "+JSON.stringify(uialertdata));
+			//console.log(uialertdata+" "+JSON.stringify(uialertdata));
 			//if (uialertdata != null && uialertdata != "undefined")
 			//	// console.log(uialertdata.innerHTML);
 			var itemsHtml = '<ul class="nav flex-column sub-menu">';
@@ -294,31 +294,32 @@
 		if(directreportingdatas == null || directreportingdatas == "undefined") directreportingdatas = {};
 		var uidirectreporting = document.getElementById("ui-directreporting");
 
-		//if (uidirectreporting != null && uidirectreporting != "undefined")
-		//	// console.log(uidirectreporting.innerHTML);
-		var itemsHtml = '<ul class="nav flex-column sub-menu">';
-		Object
-				.keys(directreportingdatas)
-				.forEach(
-						function(key) {
-							if (key != null 
-									&& key != "undefined") {
-								// console.log("======= debug 10");
-
-								var directreportingdata = directreportingdatas[key];
-								if(key == "") key = "未分类";
-
-								var item = '<li class="nav-item" onclick="routeTo('+"'linalertdataDetail','"+key+"');"+'"><text class="nav-link">'
-										+ directreportingdata.name + '</text></li>';
-								itemsHtml = itemsHtml + item;
-								// // console.log(key,obj[key]);
-							}
-						});
-		// console.log("======= debug 11");
-
-		itemsHtml = itemsHtml + "</ul>";
-		uidirectreporting.innerHTML = itemsHtml;//"<ul></ul>";
-		//// console.log(uidirectreporting.innerHTML);
+		if (uidirectreporting != null || uidirectreporting != "undefined"){
+		}else{
+			//	// console.log(uidirectreporting.innerHTML);
+			var itemsHtml = '<ul class="nav flex-column sub-menu">';
+			Object
+					.keys(directreportingdatas)
+					.forEach(
+							function(key) {
+								if (key != null 
+										&& key != "undefined") {
+									// console.log("======= debug 10");
+	
+									var directreportingdata = directreportingdatas[key];
+									if(key == "") key = "未分类";
+	
+									var item = '<li class="nav-item" onclick="routeTo('+"'linalertdataDetail','"+key+"');"+'"><text class="nav-link">'
+											+ directreportingdata.name + '</text></li>';
+									itemsHtml = itemsHtml + item;
+									// // console.log(key,obj[key]);
+								}
+							});
+			// console.log("======= debug 11");
+			itemsHtml = itemsHtml + "</ul>";
+			uidirectreporting.innerHTML = itemsHtml;//"<ul></ul>";
+			//// console.log(uidirectreporting.innerHTML);
+		}
 
 	}
 	

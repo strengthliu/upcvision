@@ -7,6 +7,7 @@ import java.nio.DoubleBuffer;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -26,6 +27,7 @@ import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.tools.EncodingTools;
 import com.surpass.vision.tools.IDTools;
+import com.surpass.vision.tools.TimeTools;
 
 @Component
 public class ServerManager {
@@ -277,17 +279,28 @@ public class ServerManager {
 	 * @param beginTime
 	 * @param endTime
 	 */
-	public HashMap<Long, Double> getPointHistoryValue(String srvName,String tagName,long id,long beginTime,long endTime) {
+	public synchronized HashMap<Long, Double> getPointHistoryValue(String srvName,String tagName,long id,long beginTime,long endTime) {
 		HashMap<Long, Double> ret = new HashMap<Long, Double>();
 		List<Double> pValueArray = new ArrayList<Double>(); 
 		int size = Math.round((endTime - beginTime) )+1;
+		System.out.println("------------------------------------------");
 		System.out.println(" 想要取数据个数： "+size);
 		List<Long> pnValueTimeArray = new ArrayList<Long>();
 		try {
+//			System.out.println("DBECGetTagRealHistory => srvName="+srvName+" tagName="+tagName+" id="+IDTools.toString(id)
+//			+" beginTime="+IDTools.toString(beginTime)+" endTime="+IDTools.toString(endTime)
+//			+" size="+size+" "+Thread.currentThread().getName()+":"+Thread.currentThread().getId());
+			System.out.println("gec.DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime)
+			+" "+Thread.currentThread().getName()+":"+Thread.currentThread().getId());
 			gec.DBECGetTagRealHistory(srvName, tagName, id, beginTime, endTime, pValueArray, size, pnValueTimeArray);
 		} catch (GecException e) {
-			// TODO Auto-generated catch block
+			System.out.println("gec.DBECGetTagRealHistory error occour --------------------" );
+			System.out.println("gec.DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime)
+			+" "+Thread.currentThread().getName()+":"+Thread.currentThread().getId());
+			System.out.println("gec.DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime) );
+			System.out.println("gec.DBECGetTagRealHistory error occour -- "+e.getMessage() );
 			e.printStackTrace();
+			System.out.println("gec.DBECGetTagRealHistory error occour --------------------" );
 		}
 		System.out.println("pValueArray.size() = "+pValueArray.size());
 		pValueArray.removeAll(Collections.singleton(null));

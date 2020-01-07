@@ -24,6 +24,7 @@ public class XYGraph extends PointGroup implements Serializable {
 	public XYGraph() {
 		super();
 		this.setType(GlobalConsts.Type_xygraph_);
+		this.setImg("/images/samples/xy.jpg");
 	}
 
 }

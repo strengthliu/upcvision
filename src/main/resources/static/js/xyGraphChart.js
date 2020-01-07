@@ -7,6 +7,17 @@ var charts = new Object();
 var _xyGraphDetailKey = _routeID;
 var x_axis = 'time';
 console.log("_xyGraphDetailKey: " + _xyGraphDetailKey);
+var t = userSpace.xyGraph[_xyGraphDetailKey];
+console.log("xyGraphChart -> "+JSON.stringify(t));
+var _selectedPoints = JSON.parse(t.otherrule1);
+
+for(var i=0;i<_selectedPoints.length;i++){
+	var item = _selectedPoints[i];
+	if(item.isx){
+		x_axis = item.tagName;
+		break;
+	}
+}
 
 function newItemAction() {
 	alert("xyGraph.js newItemAction。 从mainPanel中调用的。");
@@ -36,6 +47,7 @@ function updateXYGraphChart(ruserSpace) {
 		_innerHtml = _innerHtml + _itemHtml;
 	}
 	menuitem.innerHTML = _innerHtml;
+	
 }
 /**
  * 刷新数据
@@ -45,17 +57,22 @@ function updateXYGraphChart(ruserSpace) {
 
 function refreshData(data) {
 	var pointList_ = JSON.parse(data.body);
+//	console.log("pointList_=> "+JSON.stringify(pointList_));
+//	(Math.round(_value * 1000)) / 1000+"";
 	for(var key in pointList_){
+		if(key!="time"){
+			pointList_[key] = (Math.round(pointList_[key] * 1000)) / 1000;
+			console.log("  ==  "+"point_" + key +"  = "+pointList_[key]);
+		}
 		for(var p in gl){
-			//console.log(gl[p].config.id + "  ==  "+"point_" + key );
 			if(gl[p].config.id == "point_" + key){
 				gl[p].refresh(pointList_[key]);
 			}
 		}
 	}
-	addData(data.body,cdata,cdataCount);
+	addData(pointList_,cdata,cdataCount);
 
-	_forward(data.body);
+	_forward(pointList_);
 	// 刷新表格
 	refreshDataTable(cdata);
 
@@ -81,7 +98,7 @@ function refreshDataTable(_cdata){
 			switch(typeof _value){
 //			console.log(" typeof => "+typeof(_value));			
 			case 'number':
-				_td.innerText = (Math.round(_value * 10000)) / 10000+"";		
+				_td.innerText = (Math.round(_value * 1000)) / 1000+"";		
 				break;
 			case 'string':
 				_td.innerText += _cdata[coli][rowi];//_timeStr;
@@ -637,4 +654,4 @@ function pullUnreadMessage(destination) {
 		}
 	});
 }
-
+changex(x_axis);

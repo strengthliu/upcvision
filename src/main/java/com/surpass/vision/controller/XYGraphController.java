@@ -123,6 +123,8 @@ public class XYGraphController extends BaseController{
 		JSONArray points = user.getJSONArray("points");
 		String otherrule2 = user.getString("desc");
 		String otherrule1 = user.getString("rule");
+//		String xray = user.getString("xray");
+		
 		ToWeb ret;
 		
 		// TODO: 检查参数合法性

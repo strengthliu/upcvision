@@ -241,7 +241,7 @@ public class HistoryDataManager extends PointGroupDataManager {
 		redisService.set(GlobalConsts.Key_HistoryData_pre_+IDTools.toString(rtd.getId()),rtd);
 	}
 
-	public ArrayList getHistoryData(Double rtdId,long beginTime,long endTime) {
+	public synchronized ArrayList getHistoryData(Double rtdId,long beginTime,long endTime) {
 		// 取出服务器和id
 		HistoryData rtd = this.getHistoryDataByKeys(rtdId);
 		if(rtd!=null) {
@@ -271,7 +271,7 @@ public class HistoryDataManager extends PointGroupDataManager {
 		return 0;
 	}
 
-	public ArrayList getHistoryData(List<Point> lp,long beginTime,long endTime) {
+	public synchronized ArrayList getHistoryData(List<Point> lp,long beginTime,long endTime) {
 		ArrayList ret = new ArrayList();
 		
 		ArrayList[] dsy = new ArrayList[lp.size()];
@@ -320,7 +320,6 @@ public class HistoryDataManager extends PointGroupDataManager {
 					dstime2[pointInd].add((Long) time.get(itime));
 				}
 			}
-			
 		}
 
 		// 插值
@@ -330,10 +329,16 @@ public class HistoryDataManager extends PointGroupDataManager {
 			Double[] _y = (Double[]) dsy[pointInd].toArray(new Double[dsy[pointInd].size()]);
 			Double[] _x0 = null;
 			try {
-				_x0 = (Double[]) dstime2[pointInd].toArray(new Double[dstime2[pointInd].size()]);
+				// TODO: 下面那句，由于把Long转换成Double，导致了JAVA异常。
+				// 先采用值转换的方式，但这样会影响一点效率。后面再想办法改了。
+				_x0 = new Double[dstime2[pointInd].size()];
+				for(int i=0;i<dstime2[pointInd].size();i++) {
+					_x0[i] = Double.valueOf(dstime2[pointInd].get(i));
+				}
+//				_x0 = (Double[]) dstime2[pointInd].toArray(new Double[dstime2[pointInd].size()]);
 			}catch(Exception e) {
 				for(int i=0;i<dstime2[pointInd].size();i++) {
-					System.out.println(dstime2[pointInd].get(i));
+					System.out.println("getHistoryData-》插值时出错："+dstime2[pointInd].get(i));
 				}
 			}
 			Double[] _y0 = Newton_interpolation.Newton_inter_method(_x_,_y,_x0);
@@ -354,7 +359,7 @@ public class HistoryDataManager extends PointGroupDataManager {
 		return ret;
 	}
 
-	public ArrayList getHistoryData(JSONArray ja, Long _beginTime, Long _endTime) {
+	public synchronized ArrayList getHistoryData(JSONArray ja, Long _beginTime, Long _endTime) {
 		ArrayList<Point> pl = new ArrayList<Point>();
 		for(int i=0;i<ja.size();i++) {
 			String s_tagName = ja.getString(i);

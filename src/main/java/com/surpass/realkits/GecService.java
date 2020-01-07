@@ -526,7 +526,7 @@ public class GecService {
 				new NativeLong(nBeginTime), new NativeLong(nEndTime), valueArray, nArraySize, pnValueTimeArrayLong,
 				pnValueCount);
 		for (int i = 0; i < pnValueCount.getValue().longValue(); i++) {
-			System.out.println(valueArray.array()[i]);
+			// System.out.println(valueArray.array()[i]);
 			pValueArray.add(valueArray.array()[i]);
 			pnValueTimeArray.add(pnValueTimeArrayLong[i].longValue());
 		}

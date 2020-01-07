@@ -107,6 +107,7 @@ function routeTo(diagram, key, graphId) {
 		unsubscribe();
 
 	var mainInfoNr = document.getElementById("mainInfoNr");
+	var serachbox_topToolsBar = document.getElementById("serachbox_topToolsBar");
 //	showLoading();
 	switch (diagram.toLowerCase()) {
 	case "dashboard".toLowerCase():
@@ -122,6 +123,7 @@ function routeTo(diagram, key, graphId) {
 		// console.log("case diagramList " + key + " " + graphId);
 		$("#mainPanel").load("_gallery.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'visible';
+		serachbox_topToolsBar.style.display = "block";
 		break;
 	case "diagramDetail".toLowerCase():
 		console.log("key= "+key);
@@ -129,53 +131,64 @@ function routeTo(diagram, key, graphId) {
 		_graphId = graphId;
 		$("#mainPanel").load("_diagramShow.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
+		serachbox_topToolsBar.style.display = "none";
 		break;
 	case "xydiagramList".toLowerCase():
 		_xydiagramListKey = key;
 		$("#mainPanel").load("_xyGraphList.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'visible';
+		serachbox_topToolsBar.style.display = "block";
 		break;
 	case "xyGraphDetail".toLowerCase():
 		_xydiagramListKey = key;
 		$("#mainPanel").load("_xyGraphChart.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
+		serachbox_topToolsBar.style.display = "none";
 		break;
 	case "realtimedataList".toLowerCase():
 		_realtimedataListKey = key;
 		console.log("load _realtimeDataList.html");
 		$("#mainPanel").load("_realtimeDataList.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'visible';
+		serachbox_topToolsBar.style.display = "block";
 		break;
 	case "realtimedataDetail".toLowerCase():
 		_realtimeDataDetailKey = key;
 		$("#mainPanel").load("_realtimeDataChart.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
+		serachbox_topToolsBar.style.display = "none";
 		break;
 	case "alertdataList".toLowerCase():
 		$("#mainPanel").load("_alertDataList.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'visible';
+		serachbox_topToolsBar.style.display = "block";
 		break;
 	case "alertdataDetail".toLowerCase():
 		$("#mainPanel").load("_alertDataChart.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
+		serachbox_topToolsBar.style.display = "none";
 		break;
 	case "historydataList".toLowerCase():
 		$("#mainPanel").load("_historDataList.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'visible';
+		serachbox_topToolsBar.style.display = "block";
 		break;
 	case "historydatadetail".toLowerCase():
 		$("#mainPanel").load("_historyDataChart.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
+		serachbox_topToolsBar.style.display = "none";
 		break;
 	case "lineAlertdataList".toLowerCase():
 		_linealertdataListKey = key;
 		$("#mainPanel").load("_lineAlertDataList.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'visible';
+		serachbox_topToolsBar.style.display = "block";
 		break;
 	case "linalertdataDetail".toLowerCase():
 		_linealertdataListKey = key;
 		$("#mainPanel").load("_lineAlertDataChart.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
+		serachbox_topToolsBar.style.display = "none";
 		break;
 
 	//     
@@ -183,11 +196,13 @@ function routeTo(diagram, key, graphId) {
 		currentUser = key;
 		$("#mainPanel").load("_departManage.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
+		serachbox_topToolsBar.style.display = "none";
 		break;
 	case "userManage".toLowerCase():
 		currentUser = key;
 		$("#mainPanel").load("_userManage.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
+		serachbox_topToolsBar.style.display = "none";
 		break;
 	}
 

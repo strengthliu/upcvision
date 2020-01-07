@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.surpass.vision.appCfg.GlobalConsts;
+import com.surpass.vision.appCfg.NoRepeatSubmit;
 import com.surpass.vision.common.ToWeb;
 import com.surpass.vision.domain.AlertData;
 import com.surpass.vision.domain.HistoryData;
@@ -288,6 +289,7 @@ public class HistoryDataController extends BaseController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "getHistoryData", method = { RequestMethod.POST, RequestMethod.GET })
+//	@NoRepeatSubmit
 	public ToWeb getHistoryData(@RequestBody JSONObject user, HttpServletRequest request) throws Exception {
 		System.out.println("getHistoryData 1");
 		Double uid = user.getDouble("uid");

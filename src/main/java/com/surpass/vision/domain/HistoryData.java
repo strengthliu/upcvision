@@ -8,5 +8,6 @@ public class HistoryData extends PointGroup implements Serializable {
 	public HistoryData() {
 		super();
 		this.setType(GlobalConsts.Type_historydata_);
+		this.setImg("/images/samples/history.jpg");
 	}
 }

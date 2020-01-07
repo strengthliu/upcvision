@@ -276,7 +276,7 @@ function loadDefaultGraph(){
 				defaultG = _g;
 				for(var indDefaultSvg = 0;indDefaultSvg<defaultSVG.length;defaultSVG++){
 					// 是否存在defaultSVG里的主页，如果存在，就routeto
-					if(_g.name == defaultSVG[indDefaultSvg]){
+					if(_g.name.toLowerCase() == defaultSVG[indDefaultSvg].toLowerCase()){
 						routeTo('diagramDetail', _g.urlPath,_g.id);
 						return;
 					}
@@ -356,7 +356,7 @@ function updateGraphListFrame(){
 				}else{
 					nickName = _graph.name;
 				}
-				diagram_gallery_item_innerHTML += '<h4 style="color:#FFFF00;background-color=#556B2F">'
+				diagram_gallery_item_innerHTML += '<h4 style="color:#000000;font-weight:bold">'
 					+ nickName +"  "+ '</h4><p>' + desc
 					+ '</p></figcaption>';
 
@@ -376,7 +376,7 @@ function updateGraphListFrame(){
 					diagram_gallery_item_innerHTML += 'shareItemAction(\''+_graph.id+'\')">Share</button>';
 					diagram_gallery_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
 					diagram_gallery_item_innerHTML += 'deleteItemAction(\''+_graph.id+'\')">';
-					diagram_gallery_item_innerHTML += '<i class="mdi mdi-delete"></i>';
+					diagram_gallery_item_innerHTML += 'Delete';//'<i class="mdi mdi-delete"></i>';
 					diagram_gallery_item_innerHTML += '</button>';
 					diagram_gallery_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
 					diagram_gallery_item_innerHTML += 'editItemAction(\''+_graph.id+'\')">';
@@ -405,7 +405,7 @@ function updateGraphListFrame(){
 				}else{
 					nickName = _graph.name;
 				}
-				diagram_gallery_item_innerHTML += '<h4 style="color:#FFFF00;background-color=#556B2F">'
+				diagram_gallery_item_innerHTML += '<h4 style="color:#000000;font-weight:bold">'
 					+ nickName +"  "+ '</h4><p>' + desc
 					+ '</p></figcaption>';
 				diagram_gallery_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';

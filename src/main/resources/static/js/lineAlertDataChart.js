@@ -131,7 +131,7 @@ function refreshDataTable(_cdata) {
 			switch (typeof _value) {
 			// console.log(" typeof => "+typeof(_value));
 			case 'number':
-				_td.innerText = (Math.round(_value * 10000)) / 10000 + "";
+				_td.innerText = (Math.round(_value * 1000)) / 1000 + "";
 				break;
 			case 'string':
 				_td.innerText = _cdata[coli][rowi];// _timeStr;

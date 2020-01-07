@@ -113,7 +113,35 @@ function refreshDataTable(_cdata){
 // console.log('fdsafdsa')
 			var _td = document.createElement("td"); 
 			var _value = _cdata[coli][rowi];
-			_td.innerText = _cdata[coli][rowi];// _timeStr;
+			var _value = _cdata[coli][rowi];
+			switch(typeof _value){
+//			console.log(" typeof => "+typeof(_value));			
+			case 'number':
+				_td.innerText = (Math.round(_value * 1000)) / 1000+"";		
+				break;
+			case 'string':
+				_td.innerText += _cdata[coli][rowi];//_timeStr;
+//				if(rowi==0){
+//					var _rbox = document.createElement("input");
+//					_rbox.type="radio";
+//					_rbox.id="xray";
+//					_rbox.name="xray";
+//					_rbox.value=_cdata[coli][rowi];
+//					 if(x_axis === _cdata[coli][rowi])
+//						 _rbox.setAttribute("checked","checked"); 
+//					 _rbox.addEventListener("click",changex(cdata[coli][rowi]));
+//					        console.log(" = "+x_axis);
+//
+//					_td.prepend(_rbox);
+//				}
+				break;
+			default:
+				var _t = new Date(_cdata[coli][rowi]);
+				_td.innerText = _t.Format("hh:mm:ss");//_timeStr;					
+//				_td.innerText = _cdata[coli][rowi];//_timeStr;
+				break;
+			}
+//			_td.innerText = _cdata[coli][rowi];// _timeStr;
 
 			_tr.append(_td);
 		}

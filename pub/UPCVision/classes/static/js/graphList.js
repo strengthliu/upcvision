@@ -10,6 +10,15 @@
 var itemID = _routeID;
 var actionType = _routeType;// "graph";
 
+function doSearchAction(value){
+	if(value==null||value=="undefined"){
+		var input_serachbox_topToolsBar = document.getElementById("input_serachbox_topToolsBar");
+		value = input_serachbox_topToolsBar.value;
+	}
+	alert(value);
+	
+	input_serachbox_topToolsBar.value = null;
+}
 function newItemAction() {
 	init();
 	if(user.id == 2 || user.role == 1){
@@ -56,6 +65,7 @@ function editItemAction(itemId) {
 				gn.value = _graph.name;
 			
 			$('#newItemAction_mid').modal('show');
+			console.log("editItemAction(itemId) itemId="+itemId+" _graphId="+_graphId);
 		}else {
 			alert("您没有权限进行新建操作。");
 			return;
@@ -239,7 +249,7 @@ function getGraphByID(graph,id,l){
 //默认图形目录主页。当存在主页时，直接打开主页。
 var defaultSVG = ["main","index"];
 //如果目录内只有一个页面，是否直接打开。默认是。
-var loadOnlyGraph = true;
+var loadOnlyGraph = false; // TODO: 设置参数
 
 /**
 * 加载默认主页
@@ -266,7 +276,7 @@ function loadDefaultGraph(){
 				defaultG = _g;
 				for(var indDefaultSvg = 0;indDefaultSvg<defaultSVG.length;defaultSVG++){
 					// 是否存在defaultSVG里的主页，如果存在，就routeto
-					if(_g.name == defaultSVG[indDefaultSvg]){
+					if(_g.name.toLowerCase() == defaultSVG[indDefaultSvg].toLowerCase()){
 						routeTo('diagramDetail', _g.urlPath,_g.id);
 						return;
 					}
@@ -285,7 +295,9 @@ updateGraphListFrame();
 
 function updateGraphListFrame(){
 	var _galleryKey = _routeID;
-// console.log("_graphId= "+_graphId);
+	 console.log("_routeID= "+_routeID);
+	 console.log("_graphId= "+_graphId);
+ //alert();
 
 // // TODO: 如果key为空，就是异常，待处理。
 // if (_galleryKey == null || _galleryKey == "undefined")
@@ -338,15 +350,25 @@ function updateGraphListFrame(){
 				}else{
 					desc = _graph.path;
 				}
+				var nickName = "";
 				if(_graph.nickName!=null&&_graph.nickName!="undefined"){
-					diagram_gallery_item_innerHTML += '<h4 style="color:#FFFF00;background-color=#556B2F">'
-						+ _graph.nickName +"  "+ '</h4><p>' + desc
-						+ '</p></figcaption>';
+					nickName = _graph.nickName;
 				}else{
-					diagram_gallery_item_innerHTML += '<h4 style="color:#FFFF00;background-color=#556B2F">'
-						+ _graph.name +"  "+ '</h4><p>' + desc
-						+ '</p></figcaption>';
+					nickName = _graph.name;
 				}
+				diagram_gallery_item_innerHTML += '<h4 style="color:#000000;font-weight:bold">'
+					+ nickName +"  "+ '</h4><p>' + desc
+					+ '</p></figcaption>';
+
+//				if(_graph.nickName!=null&&_graph.nickName!="undefined"){
+//					diagram_gallery_item_innerHTML += '<h4 style="color:#FFFF00;background-color=#556B2F">'
+//						+ _graph.nickName +"  "+ '</h4><p>' + desc
+//						+ '</p></figcaption>';
+//				}else{
+//					diagram_gallery_item_innerHTML += '<h4 style="color:#FFFF00;background-color=#556B2F">'
+//						+ _graph.name +"  "+ '</h4><p>' + desc
+//						+ '</p></figcaption>';
+//				}
 				diagram_gallery_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 				// 判断权限
 				if(user.id == _graph.creater || user.id == _graph.owner || user.role == 1){
@@ -354,7 +376,7 @@ function updateGraphListFrame(){
 					diagram_gallery_item_innerHTML += 'shareItemAction(\''+_graph.id+'\')">Share</button>';
 					diagram_gallery_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
 					diagram_gallery_item_innerHTML += 'deleteItemAction(\''+_graph.id+'\')">';
-					diagram_gallery_item_innerHTML += '<i class="mdi mdi-delete"></i>';
+					diagram_gallery_item_innerHTML += 'Delete';//'<i class="mdi mdi-delete"></i>';
 					diagram_gallery_item_innerHTML += '</button>';
 					diagram_gallery_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
 					diagram_gallery_item_innerHTML += 'editItemAction(\''+_graph.id+'\')">';
@@ -371,11 +393,21 @@ function updateGraphListFrame(){
 				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramList\',\'' + _graph + "'" + ',\''+_graph.id+'\');">'; // 4
 				diagram_gallery_item_innerHTML += '<figcaption';
 				diagram_gallery_item_innerHTML += ' onclick="routeTo(\'diagramList\',\'' + _graph + '\',\''+_graph.id+'\');">'; // 5
-
-				diagram_gallery_item_innerHTML += '<h4 style="color:#FFFF00">'
-						+ _graph.name +"  " + '</h4><p>' + _graph.path
-						+ '</p></figcaption>';
-						// console.log(diagram_gallery_item_innerHTML);
+				var desc = "";
+				if(_graph.desc!=null&&_graph.desc!="undefined"){
+					desc = _graph.desc;
+				}else{
+					desc = _graph.path;
+				}
+				var nickName = "";
+				if(_graph.nickName!=null&&_graph.nickName!="undefined"){
+					nickName = _graph.nickName;
+				}else{
+					nickName = _graph.name;
+				}
+				diagram_gallery_item_innerHTML += '<h4 style="color:#000000;font-weight:bold">'
+					+ nickName +"  "+ '</h4><p>' + desc
+					+ '</p></figcaption>';
 				diagram_gallery_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 				// 判断权限
 				if(user.id == _graph.creater || user.id == _graph.owner || user.role == 1){
@@ -488,7 +520,7 @@ function ajaxUpdateGraphInfo(url,callback,reject){
         dataType : 'json',
         contentType:false,// 主要设置你发送给服务器的格式,设为false代表不设置内容类型
         success: function(rdata){
-        	console.log("return data = "+JSON.stringify(rdata));
+//        	console.log("return data = "+JSON.stringify(rdata));
         	
         	callback(rdata);
         },
@@ -514,21 +546,33 @@ function doUpLoad(){
 		    });
 		    promise.then(function(value) {
 		    	ajaxUpdateGraphInfo(value.data.url,function(value){
-		    		console.log("v="+JSON.stringify(value));
+//		    		console.log("v="+JSON.stringify(value));
+		    		 console.log("doUpLoad _routeID= "+_routeID);
+		    		 console.log("doUpLoad _graphId= "+_graphId);
+
 		    		fixGraphList(value.data.graph);
+		    		
 		    	},function(err){
 		    		
 		    	});
 		    },function(err){
 		    	
 		    });	
+		    
+   		 console.log("doUpLoad 1 _routeID= "+_routeID);
+		 console.log("doUpLoad 1 _graphId= "+_graphId);
 		    hideLoading();
 			return;
 		}else{ // 如果没有图形，就是只改名字、描述。
 			console.log("没有图形，只修改名字描述。");
 			ajaxUpdateGraphInfo(null,function(value){
-	    		console.log("v="+JSON.stringify(value));
+//	    		console.log("v="+JSON.stringify(value));
+//	    		alert();
+		   		 console.log("doUpLoad 2 _routeID= "+_routeID);
+				 console.log("doUpLoad 3 _graphId= "+_graphId);
 	    		fixGraphList(value.data.graph);
+//	    		console.log("1");
+//	    		alert();
 			},function(err){
 				
 			});
@@ -538,7 +582,8 @@ function doUpLoad(){
 		console.log("file1不为空，继续执行上传图形文件。");
 		console.log(""+file1);
 	}
-	
+	console.log("2");
+	//alert();
 	var wholePath = _graphs.path + "\\"+file1.name;
 	console.log("wholePath = "+wholePath);
 	var og = getGraphByPath(userSpace.graph,wholePath);
@@ -587,13 +632,34 @@ function doUpLoad(){
 
 }
 
+/**
+ * 把graph中，把_graph的ID或目录所指定的图，换成_graph。
+ * @param graph
+ * @param _graph
+ * @returns
+ */
+function setGraph(graphs,_graph){
+	// TODO:
+}
+
 function fixGraphList(response){
-    var g = getGraphByPath(userSpace.graph,_graphs.path);
+//	 console.log("fixGraphList 1 _routeID= "+_routeID);
+//	 console.log("fixGraphList 1 _graphId= "+_graphId);
+    $('#newItemAction_mid').modal('hide');
+//    console.log("fixGraphList graph= "+JSON.stringify(userSpace.graph));
+//    console.log("fixGraphList response= "+JSON.stringify(response));
+    // TODO: 新增一个方法，setGraph。现在下面这部分是有问题的，没有更新userSpace.graph。需要修改。
+    
+    var g = getParentGraphByPath(userSpace.graph,_graphs.path);
+//    console.log("fixGraphList g= "+JSON.stringify(g));
     g.children[response.wholePath] = response;
+//	 console.log("fixGraphList 2 _routeID= "+_routeID);
+//	 console.log("fixGraphList 2 _graphId= "+_graphId);
+
+
     updateGraphListFrame();
     init();
     hideLoading();
-    $('#newItemAction_mid').modal('hide');
 }
 
 function init(){
@@ -609,12 +675,13 @@ function init(){
 	var gn = document.getElementById("_graphName");
 	gn.value = "";
 }
+
 function getGraphByPath(graph,path){
 	if(path==null||path=="undefined") return graph;
 	//console.log("graph.wholePath="+graph.wholePath.toLowerCase()+"  ==  "+"path="+path.toLowerCase());
 	if(graph.wholePath.toLowerCase().indexOf(path.toLowerCase())!=-1){
 		//console.log("找到了");
-		_graphId = graph.id;
+		//_graphId = graph.id;
 		return graph;
 	}
 	else {
@@ -637,5 +704,32 @@ function getGraphByPath(graph,path){
 	}
 }
 
+function getParentGraphByPath(graph,path){
+	if(path==null||path=="undefined") return graph;
+	//console.log("graph.wholePath="+graph.wholePath.toLowerCase()+"  ==  "+"path="+path.toLowerCase());
+	{
+		// console.log(graph.wholePath.toLowerCase()+" 3");
+		var children = graph.children;
+		if(children!=null){
+			var keys = new Array();
+			Object.keys(children).forEach(function(key){
+				//console.log("4"+key);
+				keys.push(key);
+				children[key]
+			});
+			for(var i=0;i<keys.length;i++){
+				var child = children[keys[i]];
+				if(child.wholePath.toLowerCase()==path.toLowerCase())
+					return graph;
+				
+				if(path.toLowerCase().indexOf(child.wholePath.toLowerCase())!=-1){
+					var t = getParentGraphByPath(child,path);
+					if(t!=null) return t;
+				}
+			}
+		}
+		return null;
+	}
+}
 
 

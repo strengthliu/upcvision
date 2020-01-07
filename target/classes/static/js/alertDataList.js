@@ -324,7 +324,7 @@ function updateAlertDataListFrame(){
 								alertDataList_ui_item_innerHTML += '<figcaption onclick="routeTo('
 									+ "'"
 									+ "alertDataDetail','"
-									+ _alertData.id + "'" + ')"><h4>'
+									+ _alertData.id + "'" + ')"><h4 style="color:#000000;font-weight:bold">'
 										+ _alertData.name
 										+ '</h4><div>'
 										+'<h5></h5>'
@@ -360,7 +360,7 @@ function updateAlertDataListFrame(){
 								
 									alertDataList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
 									alertDataList_ui_item_innerHTML += 'deleteItemAction(\''+_alertData.id+'\')">';
-									alertDataList_ui_item_innerHTML += '<i class="mdi mdi-delete"></i>';
+									alertDataList_ui_item_innerHTML += 'Delete';//'<i class="mdi mdi-delete"></i>';
 									alertDataList_ui_item_innerHTML += '</button>';
 									
 									alertDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';

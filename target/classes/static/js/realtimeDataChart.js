@@ -105,72 +105,90 @@ function refreshData(data) {
 
 }
 
+//console.log("_cdata-> "+JSON.stringify(_cdata));
+var realtimeData = userSpace.realTimeData[_realtimeDataDetailKey];
+var points = realtimeData.pointList;
+var _points = {};
+for(var i=0;i<points.length;i++){
+	var _ps = points[i];
+	var _pt = new Object();
+	_pt['serverName']=_ps["serverName"];
+	_pt['tagName']=_ps["tagName"];
+	_pt['desc']=_ps["desc"];
+	_pt['enunit']=_ps["enunit"];
+	_points[_pt['tagName']]=_pt;
+}
+//console.log("_points=> "+JSON.stringify(_points));
+
 function refreshDataTable(_cdata){
 	var _datatableUI = document.getElementById("_datatableUI");
 	_datatableUI.innerHTML = "";
 	var _thead = document.createElement("thead");
-	var _tbody = document.createElement("tbody");
-
+//	var _tr = document.createElement("tr");  
+//	_tr.style['bgcolor']="green";
+//	_tr.style['border']="3";
+//	_tr.style['cellspacing']="1";
+	_thead.setAttribute('style',  "bgcolor='green' border='0' cellspacing='1'");
+	var _td1 = document.createElement("td"); 
+	_td1.style['bgcolor']="green";
+	_td1.innerText = "服务器";
+	_thead.append(_td1);
+	var _td2 = document.createElement("td"); 
+	_td2.innerText = "位号";
+	_thead.append(_td2);
+	var _td3 = document.createElement("td"); 
+	_td3.innerText = "说明";
+	_thead.append(_td3);
+	var _td4 = document.createElement("td"); 
+	_td4.innerText = "当前值";
+	_thead.append(_td4);
+	var _td5 = document.createElement("td"); 
+	_td5.innerText = "单位";
+	_thead.append(_td5);
+	
+//	console.log("realTimeData ->"+JSON.stringify(userSpace));
 //	console.log("refreshDataTable - _cdata "+JSON.stringify(_cdata));
 //	alert();
+	
+	var _tbody = document.createElement("tbody");
 	for(var coli = 0;coli<_cdata.length;coli++){
-		var _tr = document.createElement("tr");  
-		var _td1 = document.createElement("td"); 
-		var _td2 = document.createElement("td"); 
-		var _td3 = document.createElement("td"); 
-		_td1.innerText=_cdata[coli][0];
-		console.log("_cdata-> "+JSON.stringify(_cdata));
-		var rowi = _cdata[coli].length;
-		var _value = _cdata[coli][rowi];
-		
-		console.log(" typeof => "+typeof(_value));			
-		console.log(" _value => "+_value);			
-		switch(typeof _value){
-		case 'number':
-			_td3.innerText = (Math.round(_value * 10000)) / 10000+"";		
-			break;
-		case 'string':
-			_td3.innerText = _cdata[coli][rowi];//_timeStr;
-			break;
-		default:
-			var _t = new Date(_cdata[coli][rowi]);
-			_td3.innerText = _t.Format("hh:mm:ss");//_timeStr;					
-//			_td.innerText = _cdata[coli][rowi];//_timeStr;
-			break;
-		}
-		_tr.append(_td1);
-		_tr.append(_td2);
-		_tr.append(_td3);
-//
-//		for(var rowi = 0;rowi<_cdata[coli].length;rowi++){
-////			console.log('fdsafdsa')
-//			var _td = document.createElement("td"); 
-//			var _value = _cdata[coli][rowi];
-//			switch(typeof _value){
-////			console.log(" typeof => "+typeof(_value));			
-//			case 'number':
-//				_td.innerText = (Math.round(_value * 10000)) / 10000+"";		
-//				break;
-//			case 'string':
-//				_td.innerText = _cdata[coli][rowi];//_timeStr;
-//				break;
-//			default:
-//				var _t = new Date(_cdata[coli][rowi]);
-//				_td.innerText = _t.Format("hh:mm:ss");//_timeStr;					
-////				_td.innerText = _cdata[coli][rowi];//_timeStr;
-//				break;
-//			}
-//			_tr.append(_td);
-//		}
+		if(_cdata[coli][0]!="time"){
+			var _tr = document.createElement("tr");  
+			var _td1 = document.createElement("td"); 
+			var _td2 = document.createElement("td"); 
+			var _td3 = document.createElement("td"); 
+			var _td4 = document.createElement("td"); 
+			var _td5 = document.createElement("td"); 
+			
+			var tagName = _cdata[coli][0];
+			var _p = _points[tagName];
+			_td1.innerText=_p.serverName;
+			_tr.append(_td1);
+			var _td2 = document.createElement("td"); 
+			_td2.innerText = _p.tagName;
+			_tr.append(_td2);
+			var _td3 = document.createElement("td"); 
+			_td3.innerText = _p.desc;
+			_tr.append(_td3);
+			var _td4 = document.createElement("td"); 
+			var rowi = _cdata[coli].length-1;
+			var _value = (Math.round(_cdata[coli][rowi] * 1000)) / 1000+"";
+			_td4.innerText = _value;
+			_tr.append(_td4);
+			var _td5 = document.createElement("td"); 
+			_td5.innerText = _p.enunit;
+			_tr.append(_td5);
 
-		//		console.log(" _cdata[coli] "+JSON.stringify(_cdata[coli]));
-		if(_cdata[coli][0]=="time"){
-			_thead.append(_tr);
-			_datatableUI.prepend(_thead);
-		}
-		else
+			_tr.append(_td1);
+			_tr.append(_td2);
+			_tr.append(_td3);
+			_tr.append(_td4);
+			_tr.append(_td5);
+			
 			_tbody.append(_tr);
+		}
 	}
+	_datatableUI.append(_thead);
 	_datatableUI.append(_tbody);
 
 }

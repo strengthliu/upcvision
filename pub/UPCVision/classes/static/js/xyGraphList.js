@@ -139,7 +139,6 @@ function shareItemAction(itemId) {
 	$('#shareItemAction_mid').modal('show');
 //	loadUsers();
 }
-
 /**
  * 添加一个实时数据
  * 
@@ -148,16 +147,18 @@ function shareItemAction(itemId) {
  * @param targetDesc
  * @returns
  */
-function submitNewDataItem(selectedPoints,targetName,targetDesc){
+function submitNewDataItem(selectedPoints,targetName,targetDesc,xray){
 
 	var selectPointArray = new Array();
 	var i__ = 0;
 	for (let e of selectedPoints) {
 		selectPointArray[i__] = e;
+		console.log("selectPoint: "+i__+" -> "+JSON.stringify(e));
 		i__++;
 		}
-
-	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID};
+	var rule = JSON.stringify(_selectedPoints);
+	console.log("submitNewDataItem _selectedPoints => "+JSON.stringify(rule));
+	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID,'rule':rule};
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -293,7 +294,7 @@ function updateXYGraphListFrame(){
 								xyGraphList_ui_item_innerHTML += '<figcaption onclick="routeTo('
 									+ "'"
 									+ "xygraphDetail','"
-									+ _xyGraph_Data.id + "'" + ')"><h4>'
+									+ _xyGraph_Data.id + "'" + ')"><h4 style="color:#000000;font-weight:bold">'
 										+ _xyGraph_Data.name
 										+ '</h4><div>'
 										+'<h5></h5>'
@@ -329,7 +330,7 @@ function updateXYGraphListFrame(){
 								
 									xyGraphList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
 									xyGraphList_ui_item_innerHTML += 'deleteItemAction(\''+_xyGraph_Data.id+'\')">';
-									xyGraphList_ui_item_innerHTML += '<i class="mdi mdi-delete"></i>';
+									xyGraphList_ui_item_innerHTML += 'Delete';//'<i class="mdi mdi-delete"></i>';
 									xyGraphList_ui_item_innerHTML += '</button>';
 									
 									xyGraphList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';

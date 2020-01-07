@@ -328,7 +328,7 @@ function updateHistoryDataListFrame(){
 								historyDataList_ui_item_innerHTML += '<figcaption onclick="routeTo('
 									+ "'"
 									+ "historydataDetail','"
-									+ _historyData.id + "'" + ')"><h4>'
+									+ _historyData.id + "'" + ')"><h4 style="color:#000000;font-weight:bold">'
 										+ _historyData.name
 										+ '</h4><div>'
 										+'<h5></h5>'
@@ -364,7 +364,7 @@ function updateHistoryDataListFrame(){
 								
 									historyDataList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
 									historyDataList_ui_item_innerHTML += 'deleteItemAction(\''+_historyData.id+'\')">';
-									historyDataList_ui_item_innerHTML += '<i class="mdi mdi-delete"></i>';
+									historyDataList_ui_item_innerHTML += 'Delete';//'<i class="mdi mdi-delete"></i>';
 									historyDataList_ui_item_innerHTML += '</button>';
 									
 									historyDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';

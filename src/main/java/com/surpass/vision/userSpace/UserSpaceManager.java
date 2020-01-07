@@ -98,6 +98,15 @@ public class UserSpaceManager {
 	@Autowired
 	UserSpaceDataMapper usdMapper;
 
+	@Value("${upc.adminName}")
+	private String adminName;
+	
+	@Value("${upc.adminUserName}")
+	private String adminUserName;
+	
+	@Value("${upc.adminPortrait}")
+	private String adminPortrait;
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		String nk = "C:\\dev\\xiangmu\\WebRoot\\tu";
@@ -346,6 +355,15 @@ public class UserSpaceManager {
 		return us;	
 }
 
+	public UserInfo getAdminUserInfo() {
+		UserInfo user = new UserInfo();
+		user.setId(Double.valueOf(GlobalConsts.UserAdminID));
+		user.setName(adminName);
+		user.setUsername(adminUserName);
+		user.setPhoto(adminPortrait);
+		user.setRole(GlobalConsts.UserRoleAdmin);
+		return user;
+	}
 	/**
 	 * 清空用户空间表和缓存，引到buildUserSpace，相当于刷新userSpace的数据库记录。
 	 * @param userID
@@ -353,7 +371,16 @@ public class UserSpaceManager {
 	 * @return
 	 */
 	public UserSpace buildUserSpace(Double userID, String... token) {
-		// 如果是管理员，就建管理员空间。
+		// 如果是超级管理员，就直接建管理员空间。
+		if(userID.doubleValue() == Double.valueOf(GlobalConsts.UserAdminID).doubleValue()) {
+			UserInfo user = getAdminUserInfo();
+			
+			if(token==null||token.length==0)
+				return buildAdminUserSpace(user,null);
+			else
+				return buildAdminUserSpace(user,token[0]);
+		}
+		
 		UserInfo user = userManager.getUserInfoByID(IDTools.toString(userID));
 		if (user == null) {
 			System.out.println("id为" + userID + "的用户不存在，不能为其建立用户空间。");
