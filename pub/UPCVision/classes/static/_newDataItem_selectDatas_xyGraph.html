@@ -3,10 +3,10 @@
 	<div class="col-12 ">
 		<!--      <h4 class="card-title">鏌ヨ</h4>-->
 		<div class="row">
-			<div class="col-md-5">
+			<div class="col-md-6">
 				<div class="form-group row">
-					<label class="col-sm-3 col-form-label">服务器</label>
-					<div class="col-sm-9">
+					<label class="col-sm-2 col-form-label" style="align:center;">服务器</label>
+					<div class="col-sm-10" style="padding-left: 1px;">
 						<select class="form-control" id="newItem_ServerSelectSect">
 						</select>
 					</div>
@@ -14,8 +14,8 @@
 			</div>
 			<div class="col-md-6">
 				<div class="form-group row">
-					<label class="col-sm-3 col-form-label">位号组</label>
-					<div class="col-sm-6">
+					<label class="col-sm-2 col-form-label">位号组</label>
+					<div class="col-sm-10" style="padding-left: 1px;">
 						<select class="form-control" id="newItem_DeviceSelectSect">
 						</select>
 					</div>
@@ -308,10 +308,9 @@
 			height : "300px",
 			width : "100%",
 			filtering : false,
-			editing : false,
-			inserting : false,
+			editing : true,
 			sorting : true,
-			paging : false,
+			paging : true,
 			autoload : true,
 			data : Array.from(_selectedPoints),
 			rowClick: function(args) { 
@@ -342,8 +341,13 @@
             name: "isx",
             title: "设为X轴",
 			type : "checkbox",
-			editing : false,
-			width : 50
+			//editing : false,
+			sorting: false ,
+			width : 50,
+			//css: "cursor:pointer;background-color:red",
+            itemTemplate: function(value) {
+                return $("<div>").addClass("rating").append(Array(value + 1).join("&#9733;"));
+            }
           } ]
 		});
 	}

@@ -739,13 +739,13 @@ function refreshDataTable(_cdata){
  * 总值
  */
 var _data = new Array();
-var _dataCount = 1000;
+var _dataCount = 2400; // 前端保存的历史数据个数，这个要根据浏览器性能决定。
 
 /**
  * 当前值范围
  */
 var cdata = new Array();
-var cdataCount = 100;
+var cdataCount = 240; // 趋势图里，一页的数据量。30秒一个数，这是两个小时间的数据量。
 /**
  * 刷新值
  *
@@ -1232,6 +1232,10 @@ function _search(){
 function zoomin_x() {
 	_rateX = _rateX /2;
 	cdataCount = cdataCount * 1.5;
+	if(cdataCount >= _dataCount){
+		cdataCount = _dataCount;
+		alert("最大可以同时显示"+_dataCount+"个数据，现在已经最大了。");
+	}
 	loadCData(getCurrentStartTime());
 	reloadDataToDiagram();
 //	console.log("cdataCount = "+cdataCount);

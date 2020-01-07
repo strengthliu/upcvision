@@ -1,7 +1,7 @@
 //
 /**
  * 右键菜单
- * 
+ *
  * @param $
  * @returns
  */
@@ -50,7 +50,7 @@ function menuFunc(key, options) {
 					name : "重新连接数据",
 					icon : "edit"
 				},
-				"delete" : { 
+				"delete" : {
 					name : "删除",
 					icon : "delete"
 				},
@@ -100,7 +100,7 @@ function addPointToXYGraph(tagName){
 //		console.log("addPointToXYGraph:"+tagName);
 		// 添加进点组
 		pointGroup.push(tagName);
-		
+
 		// 修改cdata和_data时，修改tagName值为当前状态下的值。
 		var tagName = getNewLabelForData(tagName);
 		// 在刷新数据时，addData时，在_data中加一个
@@ -109,12 +109,12 @@ function addPointToXYGraph(tagName){
 		_dataIndex = new Array();
 		for(var indrow=0;indrow<_data.length;indrow++){
 			_dataIndex[_data[indrow][0]]= indrow;
-		}			
+		}
 		_cdataIndex = new Array();
 		for(var indrow=0;indrow<cdata.length;indrow++){
 			_cdataIndex[cdata[indrow][0]]= indrow;
-		}			
-		
+		}
+
 		// 处理cdata。_data处理方法参考这个。
 		if(_cdataIndex['time']=="undefined"||_cdataIndex['time']==null){
 //			console.log("deal with time serial. ");
@@ -137,7 +137,7 @@ function addPointToXYGraph(tagName){
 			cdata.push(tagserial);
 			//console.log(a);
 		}
-		
+
 		if(_dataIndex['time']=="undefined"||_dataIndex['time']==null){
 //			console.log("_data deal with time serial. ");
 			var timeserial = new Array();
@@ -159,15 +159,15 @@ function addPointToXYGraph(tagName){
 			_data.push(tagserial);
 			//console.log(a);
 		}
-				
+
 		/**
 		 * 历史数据怎么办？_data中保存，cdata中删除。
 		 * 删除了一点，这个点的数据的cdata删除，_data中保存。
-		 * 
+		 *
 		 * _data中保存最多点的数据，cdata中只保存当前看的数据。
-		 * 
+		 *
 		 */
-		
+
 		updateXYGraphChart();
 	}
 }
@@ -189,9 +189,9 @@ function removePointFromXYGraph(tagName){
 		_cdataIndex = new Array();
 		for(var indrow=0;indrow<cdata.length;indrow++){
 			_cdataIndex[cdata[indrow][0]]= indrow;
-		}			
+		}
 		cdata.splice(_cdataIndex[tagName],1);
-		
+
 //		console.log("cd -> "+JSON.stringify(cdata));
 		var _dt_ = new Array();
 		for(var i=0;i<cdata.length;i++){
@@ -256,14 +256,27 @@ function removePointFromXYGraph(tagName){
 }
 
 function closeGraph(){
-	
+
 }
+
 
 function buildChart(){
 //	console.log("buildChart()");
+	// 取数据到_data中。
+	if(_data.length>0 && _data[0].length==0){
+		_backward();
+//		getHistoryData1(,buildChart1)
+	} else {
+		buildChart1();
+	}
+
+}
+
+function buildChart1(){
+//	console.log("buildChart()");
 //	console.log("cdata => "+JSON.stringify(cdata));
 	$('#exampleModal').modal('show');
-	
+
 	c3LineChart = c3.generate({
 		bindto : '#ui-historyDataLineChart',
 		data : {
@@ -353,7 +366,7 @@ var cols;
  * 1、数据结构
  * （1）. _data、cdata内，保存的是当前显示的标签值，如点位描述。
  * （2）. pointGroup内，保存的是原始显示标签，是从服务器返回的那个，图形中text的id。
- * 
+ *
  */
 
 /**
@@ -366,7 +379,7 @@ var cols;
 var tagFeatureInXYGraph = 0;
 
 /**
- * 
+ *
  */
 var _graph = getGraphByID(userSpace.graph,_graphId);
 var pointKs;
@@ -426,11 +439,11 @@ function getOrigionLabel(currenttxtid){
 function getNewLabelForData(txtid,tagFeature){
 	var tartxt = null;
 	if(tagFeature!=null&&tagFeature!="undefined"){
-		
+
 	}
 	if(tartxt==null||tartxt=="undefined")
 		tartxt = txtid;
-	
+
 	if(pointKs[tartxt]!=null&&pointKs[tartxt]!="undefined"){
 		switch(tagFeatureInXYGraph){
 		case 0:
@@ -447,7 +460,7 @@ function getNewLabelForData(txtid,tagFeature){
 }
 
 /**
- * 
+ *
  * @param data 服务器返的数据对象。其中数据的标签一定是txtid。
  * @returns
  */
@@ -455,7 +468,7 @@ function changeDataToNewLabel(data){
 //	console.log("data");
 	var ret = new Object();
 	Object.keys(data).forEach(function(key){
-		var item = data[key]; 
+		var item = data[key];
 		if(key!="time"){
 			if(pointKs[key]!=null&&pointKs[key]!="undefined")
 			switch(tagFeatureInXYGraph){
@@ -501,16 +514,16 @@ function switchTagFeatureInXYGraph(tarF){
 			var txtid = getOrigionLabel(cdata[ind][0]);
 			_cdataLabelArray.push(txtid);
 		}
-		
+
 		var __dataLabelArray = new Array();
 		for(var ind=0;ind<_data.length;ind++){
 			var txtid = getOrigionLabel(_data[ind][0]);
 			__dataLabelArray.push(txtid);
 		}
-		
+
 		// 修改tagFeatureInXYGraph的值
 		tagFeatureInXYGraph = tarF;
-		
+
 		for(var ind=0;ind<cdata.length;ind++){
 			if(_data[ind][0]!="time"){
 				var txtid = _cdataLabelArray[ind];
@@ -519,7 +532,7 @@ function switchTagFeatureInXYGraph(tarF){
 			}else{}// 暂时不处理时间
 		}
 //		console.log("cdata -> "+JSON.stringify(cdata));
-		
+
 		var __dataLabelArray = new Array();
 		for(var ind=0;ind<_data.length;ind++){
 			if(_data[ind][0]!="time"){
@@ -639,7 +652,7 @@ function refreshData(data) {
 	addData(_dat,_data,10);
 //	console.log("cdata => "+JSON.stringify(cdata));
 
-	var ids = document.getElementsByTagName("text"); 
+	var ids = document.getElementsByTagName("text");
 	var _data_ = JSON.parse(data.body);
 //	console.log(JSON.stringify(_data));
 	Object.keys(_data_).forEach(function(key){
@@ -659,7 +672,7 @@ function refreshData(data) {
 	//				}
 				// 	画图形
 				ele.innerHTML =  Math.round(_data_[key]*10000)/10000;
-				
+
 			}else{
 				console.log("no element named "+key);
 			}
@@ -689,22 +702,22 @@ function refreshDataTable(_cdata){
 	var _thead = document.createElement("thead");
 	var _tbody = document.createElement("tbody");
 	for(var coli = 0;coli<_cdata.length;coli++){
-		var _tr = document.createElement("tr");  
+		var _tr = document.createElement("tr");
 		for(var rowi = 0;rowi<_cdata[coli].length;rowi++){
 			// 设为x轴
-			var _td = document.createElement("td"); 
-			
+			var _td = document.createElement("td");
+
 			var _value = _cdata[coli][rowi];
 			switch(typeof _value){
 			case 'number':
-				_td.innerText = (Math.round(_value * 1000)) / 1000+"";		
+				_td.innerText = (Math.round(_value * 1000)) / 1000+"";
 				break;
 			case 'string':
 				_td.innerText += _cdata[coli][rowi];//_timeStr;
 				break;
 			default:
 				var _t = new Date(_cdata[coli][rowi]);
-				_td.innerText = _t.Format("hh:mm:ss");//_timeStr;					
+				_td.innerText = _t.Format("hh:mm:ss");//_timeStr;
 				break;
 			}
 			_tr.append(_td);
@@ -726,16 +739,16 @@ function refreshDataTable(_cdata){
  * 总值
  */
 var _data = new Array();
-var _dataCount = 1000;
+var _dataCount = 2400; // 前端保存的历史数据个数，这个要根据浏览器性能决定。
 
 /**
  * 当前值范围
  */
 var cdata = new Array();
-var cdataCount = 100;
+var cdataCount = 240; // 趋势图里，一页的数据量。30秒一个数，这是两个小时间的数据量。
 /**
  * 刷新值
- * 
+ *
  */
 
 
@@ -747,8 +760,8 @@ function loadCData(startTime){
 	var _dataIndex ={};
 	for(var indrow=0;indrow<_data.length;indrow++){
 		_dataIndex[_data[indrow][0]]= indrow;
-	}			
-	
+	}
+
 // console.log("debug 2");
 	var dataInd = 0;
 	var _datatime = _data[_dataIndex['time']];
@@ -761,10 +774,11 @@ function loadCData(startTime){
 	}
 // console.log("debug 3");
 // console.log("debug "+JSON.stringify(_data));
-	
+
 	var _cdata = new Array();
 // console.log("cdataCount="+cdataCount);
 	for(var rowcount=0;rowcount<_data.length;rowcount++){
+		var loadCount = 0;
 		var rowd = new Array();
 		for(var icdata=0;icdata<cdataCount;icdata++){
 			if(dataInd+icdata<_data[rowcount].length){
@@ -777,16 +791,19 @@ function loadCData(startTime){
 				} else {
 //					console.log(" time: "+_data[rowcount][dataInd+icdata]+"  =  "+new Date(_data[rowcount][dataInd+icdata]));
 				}
-				
-				if(_data[rowcount][dataInd+icdata]!=0)
+
+				if(_data[rowcount][dataInd+icdata]!=0){
 					rowd.push(_data[rowcount][dataInd+icdata]);
+					loadCount++;
+				}
 //				console.log("minY_b="+_minY);
 //				console.log("maxY_b="+_maxY);
-				
+
 			}
 			else
 				break;
 		}
+//		console.log("loadCdata -> 加载数据："+_data[rowcount][0]+"，加载了 "+loadCount+"个数据。");
 		// 从前面把头添加上
 //		console.log("debug 4 => "+JSON.stringify(rowd));
 		rowd.splice(0,0,_data[rowcount][0]);
@@ -811,13 +828,13 @@ var __a = 0;
 function addHistoryData(historyData){
 	// 数据不正常就返回
 	if(historyData==null|| historyData=="undefined")return;
-	
+
 	if(_data ==null || _data=="undefined"){
 //		console.log("addHistoryData 1");
 		_data = historyData;
 		for(var indrow=0;indrow<_data.length;indrow++){
 			_dataIndex[_data[indrow][0]]= indrow;
-		}				
+		}
 		currentStartTime = _data[_dataIndex['time']][1];
 		currentStartTimeInd = 1;
 	}
@@ -833,7 +850,7 @@ function addHistoryData(historyData){
 			if(_data[indrow].length==2){
 				_data[indrow].pop();
 			}
-		}			
+		}
 //		console.log("addHistoryData 3 _data="+JSON.stringify(_data));
 
 		var index_data = _data[0].length-1;
@@ -862,6 +879,8 @@ function addHistoryData(historyData){
 //		console.log("addHistoryData 4 _data.length = "+_data[0].length);
 	}
 	__a++;
+	console.log("addHistoryData 4 _data.length = "+_data[0].length);
+
 
 }
 function _IsNaN(value) {
@@ -899,7 +918,7 @@ function addData(newData, _data_, cdatacount) {
 			if(_data_[ind_data][1]==0){
 				_data_[ind_data][1] = _ctime;
 			}else{
-				_data_[ind_data].push(_ctime);				
+				_data_[ind_data].push(_ctime);
 			}
 			timeInd = ind_data;
 		}
@@ -951,13 +970,14 @@ function addData(newData, _data_, cdatacount) {
 
 /**
  * 去服务器取数据，取回数据后，执行func方法
- * 
+ *
  * @param func
  * @returns
  */
 function getHistoryData1(_historyDataDetailKey,startTime,endTime,pointGroup,func){
 	var data={'uid':uid,'token':token,'id':_historyDataDetailKey,'beginTime':startTime,'endTime':endTime,"pointList":pointGroup};
-	 console.log("getHistoryData1  data = "+JSON.stringify(data));
+	console.log("getHistoryData1  data = "+JSON.stringify(data));
+	console.log("getHistoryData1 startTime="+new Date(startTime)+" endTime="+new Date(endTime)+" ");
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -976,6 +996,8 @@ function getHistoryData1(_historyDataDetailKey,startTime,endTime,pointGroup,func
 		success : function(data) {
 			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				var historyData = data.data.data;
+				console.log("historydata1.js 取回数据个数 => historyData1= "+historyData[0].length);
+
 //				console.log("historydata.js => historyData1= "+JSON.stringify(historyData));
 //				if(__a<3)
 				addHistoryData(historyData);
@@ -1025,7 +1047,7 @@ function getHistoryData(){
 					addHistoryData(historyData);
 					loadCData(1569151501);
 					reloadDataToDiagram();
-					// 
+					//
 				} else {
 					alert("失败 ： "+data.msg);
 				}
@@ -1034,7 +1056,7 @@ function getHistoryData(){
 			// 调用执行后调用的函数
 			complete : function(XMLHttpRequest, textStatus) {
 				hideLoading();
-			
+
 			},
 			// 调用出错执行的函数
 			error : function(jqXHR, textStatus, errorThrown) {
@@ -1073,9 +1095,9 @@ function play(){
  * 向前，向后
  */
 function _forward(_newData) {
-	
+
 	currentPlayStatus = false;
-	
+
 	// 如果是播放状态，就播放
 	if(currentPlayStatus){
 		c3LineChart.load({
@@ -1085,7 +1107,7 @@ function _forward(_newData) {
 			y : _minY - (_maxY-_minY)/2 * _rateY
 		});
 		c3LineChart.axis.max({
-			y : _maxY + (_maxY-_minY)/2 * _rateY 
+			y : _maxY + (_maxY-_minY)/2 * _rateY
 		});
 	}else{
 		// 否则加载历史数据
@@ -1094,13 +1116,14 @@ function _forward(_newData) {
 		var _dataIndex ={};
 		for(var indrow=0;indrow<_data.length;indrow++){
 			_dataIndex[_data[indrow][0]]= indrow;
-		}						
+		}
 //		console.log(" _forward 1");
 		oneStep = cdataCount*0.9;
 		var startTime;
 		if(currentStartTimeInd == null || currentStartTimeInd=="undefined"){
 			currentStartTimeInd =1;
-		}else{
+		}
+		{
 //			console.log(" _forward 2");
 
 			if(currentStartTimeInd+oneStep<_data[_dataIndex['time']].length){ // 向左
@@ -1137,7 +1160,7 @@ function getCurrentStartTime(){
 }
 /**
  * 向前（左）移动一次
- * 
+ *
  * @returns
  */
 function _backward() {
@@ -1148,24 +1171,30 @@ function _backward() {
 	var _dataIndex ={};
 	for(var indrow=0;indrow<_data.length;indrow++){
 		_dataIndex[_data[indrow][0]]= indrow;
-	}						
+	}
 	oneStep = cdataCount*0.9;
 	if(currentStartTimeInd == null || currentStartTimeInd=="undefined"){
 		currentStartTimeInd =2;
-	}else{
-		if(currentStartTimeInd-oneStep>0){ // 向左
+		console.log("_backward -> currentStartTimeInd=2");
+	}
+	{
+		if(currentStartTimeInd-oneStep>0){ // 当前时间序号，向左一个oneStep那么多，仍然有值
 			currentStartTimeInd = currentStartTimeInd-oneStep;
-		}else{
-			// TODO： 如果向左一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
-			var _currentStartTimeInd ;// 当前要查的时间的序号，不是具体时间。因为要数据数量。
+		}else{ //如果向左一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
+			var _currentStartTimeInd ;// 当前要查的时间的序号，是具体时间。// 因为要数据数量。
 			var _endTime;
+			// 如果时间维数据大于1，且时间维里是有时间数据的
 			if(_data[_dataIndex['time']].length>1 && _data[_dataIndex['time']][1] != "undefined"){
+				// 待取数的开始时间是第一个数据时间向前2个小时
 				_currentStartTimeInd = _data[_dataIndex['time']][1].getTime() - 60*60*2*1000;
 				_endTime = _data[_dataIndex['time']][1].getTime();
+				console.log("_backward 1.. _currentStartTimeInd="+_currentStartTimeInd+" _endTime="+_endTime);
 			} else {
 				_currentStartTimeInd = new Date().getTime() - 60*60*2*1000;
 				_endTime = new Date().getTime();
+				console.log("_backward 2.. _currentStartTimeInd="+_currentStartTimeInd+" _endTime="+_endTime);
 			}
+			console.log("_backward.. to getHistoryData1 _startTime="+new Date(_currentStartTimeInd)+" _endTime="+new Date(_endTime));
 			getHistoryData1("",_currentStartTimeInd,_endTime,pointGroup,_backward);
 			return;
 		}
@@ -1203,6 +1232,10 @@ function _search(){
 function zoomin_x() {
 	_rateX = _rateX /2;
 	cdataCount = cdataCount * 1.5;
+	if(cdataCount >= _dataCount){
+		cdataCount = _dataCount;
+		alert("最大可以同时显示"+_dataCount+"个数据，现在已经最大了。");
+	}
 	loadCData(getCurrentStartTime());
 	reloadDataToDiagram();
 //	console.log("cdataCount = "+cdataCount);
@@ -1230,8 +1263,8 @@ function reloadDataToDiagram(){
 		y : Math.round(_minY - (_maxY-_minY)/2 * _rateY)
 	});
 	c3LineChart.axis.max({
-		y : Math.round(_maxY + (_maxY-_minY)/2 * _rateY) 
-	});	
+		y : Math.round(_maxY + (_maxY-_minY)/2 * _rateY)
+	});
 }
 
 var _maxY = 0;
@@ -1440,9 +1473,9 @@ function graphSubscribe(){
 				alert("不能访问这个图形。");
 				return;
 			}
-			
+
 			_graphId = g.id;
-			
+
 		}
 		if(subscribe!=null && subscribe!="undefined")
 			subscribe.unsubscribe();
@@ -1517,7 +1550,7 @@ function connectlocal() {
 		 * '/message',function(greeting){
 		 * alert(JSON.parse(greeting.body).content);
 		 * showGreeting(JSON.parse(greeting.body).content); });
-		 * 
+		 *
 		 */
 		// alert("websocket connected 2.");
 		stompClient.ws.onclose = function() {
@@ -1555,4 +1588,3 @@ function pullUnreadMessage(destination) {
 		}
 	});
 }
-

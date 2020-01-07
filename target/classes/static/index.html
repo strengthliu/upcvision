@@ -6,6 +6,28 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>UPC VISION</title>
+<script type="text/javascript">
+var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器
+var isIE = userAgent.indexOf("compatible") > -1
+        && userAgent.indexOf("MSIE") > -1 && !isOpera; //判断是否IE浏览器
+var isEdge = userAgent.indexOf("Edge") > -1; //判断是否IE的Edge浏览器
+var isFF = userAgent.indexOf("Firefox") > -1; //判断是否Firefox浏览器
+var isSafari = userAgent.indexOf("Safari") > -1
+        && userAgent.indexOf("Chrome") == -1; //判断是否Safari浏览器
+var isChrome = userAgent.indexOf("Chrome") > -1
+        && userAgent.indexOf("Safari") > -1; //判断Chrome浏览器
+
+if (isIE) {
+	alert("你正在使用IE浏览器，很抱歉我们当前还不支持IE浏览器，请下载其他我们支持的浏览器。");
+	window.location.href="downLoadBrowser.html";
+}
+if (isSafari) {
+	alert("你正在使用Safari浏览器，很抱歉我们当前还不支持IE浏览器，请下载其他我们支持的浏览器。");
+	window.location.href="downLoadBrowser.html";
+}
+
+</script>
 <!-- plugins:css -->
 <link rel="stylesheet"
 	href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
@@ -79,6 +101,7 @@
 <script src="js/lodash.js"></script>
 
 <script type="text/javascript">
+       
 	/* 用户登录验证 */
 	if (localStorage.user != null && localStorage.user != 'undefined') {
 

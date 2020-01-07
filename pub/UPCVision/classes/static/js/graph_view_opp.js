@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 
 // ********************* 对话框拖拽 ********
@@ -79,6 +79,9 @@ function initView() {
 	svg1 = svg1[0];
 	width = svg1.attributes.width.value;
 	height = svg1.attributes.height.value;
+	var svg1Rect = svg1.getBoundingClientRect();
+
+	console.log("===>svg x="+svg1Rect.left+" y="+svg1Rect.top+" width="+svg1.attributes.width.value+" height="+svg1.attributes.height.value);
 	var trans;
 	// D3操作对象
 	zoom = d3.behavior.zoom().scaleExtent([ 0.5, 8 ]).on("zoom", null);
@@ -219,13 +222,12 @@ var zoom;// = d3.behavior.zoom().scaleExtent([0.1, 8]).on("zoom", zoomed);
 
 /**
  * 真实执行缩放和移动
- * 
+ *
  * @returns
  */
 function zoomed() {
 	if(translate==null||translate=="undefined")
 		translate=[0,0];
-console.log("translate="+JSON.stringify(translate));
 	svg.attr("transform", "translate(" + translate + ")" + "scale(" + scale
 			+ ")");
 	scrollTo(); // 高速缩放拖拽轴
@@ -233,7 +235,7 @@ console.log("translate="+JSON.stringify(translate));
 
 /**
  * 移动和缩放指定值。
- * 
+ *
  * @param _translate
  * @param _scale
  * @returns
@@ -243,13 +245,15 @@ function interpolateZoom(_translate, _scale) {
 		scale = _scale;
 	if (_translate != null && _translate != "undefined")
 		translate = _translate;
+	if(translate==null||translate=="undefined")
+		translate=[0,0];
 console.log("translate="+JSON.stringify(translate));
 	zoomed();
 }
 
 /**
  * 点击事件处理
- * 
+ *
  * @returns
  */
 function zoomClick() {
@@ -286,11 +290,13 @@ function zoomClick() {
 }
 
 var scale;
-var translate; // 当前位移，相对原图原点
+var translate = [0,0]; // 当前位移，相对原图原点
 var fullScreenEnable = true;
 function fullScreen() {
 	if (!fullScreenEnable)
 		fullScreenEnable = !fullScreenEnable;
+	fullScreenFn();
+	fullScreenFn();
 	fullScreenFn();
 }
 
@@ -299,9 +305,12 @@ function fullScreenFn() {
 		// 取当前页面宽度和高度
 		var _topToolsBar = document.getElementById("topToolsBar");
 		var topToolsBarRect = _topToolsBar.getBoundingClientRect();
+		//console.log("topToolsBarRect -> "+ topToolsBarRect.top+" "+ topToolsBarRect.left+" "+ topToolsBarRect.width+" "+ topToolsBarRect.height+" ");
+		//console.log("topToolsBarRect leftButton -> x="+ topToolsBarRect.left+" y="+ (topToolsBarRect.top + topToolsBarRect.height)+" ");
+
 		var _svgP = document.getElementById("mainPanel");// svg1.parentNode;
 		var mainToolsBarRect = _svgP.getBoundingClientRect();
-		console.log("mainToolsBarRect-> "+mainToolsBarRect);
+		console.log("mainPanel BarRect -> "+ mainToolsBarRect.top+" "+ mainToolsBarRect.left+" "+ mainToolsBarRect.width+" "+ mainToolsBarRect.height+" ");
 		// 取当前图形宽度和高度
 		// mainPanel屏幕左上角坐标
 		var y = mainToolsBarRect.top;// + mainToolsBarRect.height;
@@ -310,7 +319,9 @@ function fullScreenFn() {
 		var mainPanelWidth = mainToolsBarRect.width;
 
 		var scale1 = mainPanelHeight / mainPanelWidth;
+		console.log("fullScreen => mainPanelHeight= "+ mainPanelHeight+"  mainPanelWidth= "+ mainPanelWidth);
 		var scale2 = height / width;
+		console.log("fullScreen => svg height= "+ height+"  width= "+ width);
 		if (scale1 > scale2) { // 图比屏幕扁，以图的宽为限
 			scale = mainPanelWidth / width;
 		} else {
@@ -319,6 +330,7 @@ function fullScreenFn() {
 
 		var svgx = svg1.getBoundingClientRect().left;
 		var svgy = svg1.getBoundingClientRect().top;
+		console.log("fullScreen => svgx= "+ svgx+"  svgy= "+ svgy);
 
 		// 计算translate和scale,调用 function interpolateZoom (translate, scale)
 		var tx = svg.attr("width") / 2 * (1 - scale);
@@ -328,7 +340,8 @@ function fullScreenFn() {
 
 		var _ttx = mainToolsBarRect.left - svgx + translate[0];// +
 		var _tty = mainToolsBarRect.top - svgy + translate[1];// +
-
+		console.log("translate ->"+[ _ttx, _tty ]);
+		//console.log("fullScreen => _tty-> "+_tty+" mainToolsBarRect.left="+mainToolsBarRect.left+" svgx="+svgx+" translate[0]="+translate[0]);
 		interpolateZoom([ _ttx, _tty ], scale);
 
 		svg.attr("preserveAspectRatio", "none");
@@ -337,8 +350,8 @@ function fullScreenFn() {
 		svg1.setAttribute("width", mainPanelWidth / scale);
 		svg1.setAttribute("heigth", mainPanelHeight / scale);
 
-		svgx = svg1.getBoundingClientRect().x;
-		svgy = svg1.getBoundingClientRect().y;
+		svgx = svg1.getBoundingClientRect().left;
+		svgy = svg1.getBoundingClientRect().top;
 	}
 }
 

@@ -41,10 +41,8 @@ public class ServerManager {
 
 	@Value("${gc.library}")
 //	private String gcLibrary;
-	private String gcLibrary = "./geC.dll";
+	private String gcLibrary = "./gec().dll";
 
-
-	private JGecService gec;
 
 	@Reference
 	@Autowired
@@ -89,7 +87,7 @@ public class ServerManager {
 		super();
 		try {
 			// System.out.println("gcLibrary = "+gcLibrary);
-			gec = gec();
+//			gec = gec();
 			if (instance == null)
 				instance = this;
 		} catch (Exception e) {
@@ -138,11 +136,16 @@ public class ServerManager {
 	private void updateServerInfo() {
 //		String[] encodeString = {"",""};
 		boolean t = true;
-		List<String> servs;
+		List<String> servs = null;
 		try {
 			//
 			System.out.println(" ====================================  ");
-			servs = gec.DBECEnumServerName();
+			try {
+				servs = gec().DBECEnumServerName();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			System.out.println(" ====================================  ");
 			servers = new Hashtable<String, Server>();
 			// 取服务器信息
@@ -157,7 +160,7 @@ public class ServerManager {
 
 				List<String> devices;
 				try {
-					devices = gec.DBECEnumDeviceName(serverName);
+					devices = gec().DBECEnumDeviceName(serverName);
 				} catch (Exception e) {
 					e.printStackTrace();
 					throw new IllegalStateException("实时数据库服务运行错误，请查看是否已经正常启动。");
@@ -168,18 +171,30 @@ public class ServerManager {
 					System.out.println(" ====== deviceName : "+deviceName+" ==================");
 					Device device = new Device();
 					device.setDeviceName(deviceName);
-					Long deviceId = gec.DBECGetDeviceID(serverName, deviceName);
+					Long deviceId = null;
+					try {
+						deviceId = gec().DBECGetDeviceID(serverName, deviceName);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					device.setId(deviceId);
-					String deviceNote = gec.DBECGetDeviceNote(serverName, deviceName, deviceId);//transByteToString(buffer);
+					String deviceNote = null;
+					try {
+						deviceNote = gec().DBECGetDeviceNote(serverName, deviceName, deviceId);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}//transByteToString(buffer);
 					deviceNote = deviceNote.trim();
 					device.setDeviceNote(deviceNote);
 					//取点位信息
 					List<Long> pointIds = null;
 					try {
-						long num  = gec.DBECGetTagCountOfDeviceByDeviceName(serverName, deviceName);
+						long num  = gec().DBECGetTagCountOfDeviceByDeviceName(serverName, deviceName);
 						System.out.println(num+"设备个数");
 						if(num > 0)
-							pointIds = gec.DBECEnumTagIDOfDeviceByDeviceName(serverName, deviceName);
+							pointIds = gec().DBECEnumTagIDOfDeviceByDeviceName(serverName, deviceName);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -191,15 +206,39 @@ public class ServerManager {
 						Point point = new Point();
 						Long pointId = pointIds.get(ipoint);
 						//
-						String tagName = gec.DBECGetTagName(serverName, pointId);
+						String tagName = null;
+						try {
+							tagName = gec().DBECGetTagName(serverName, pointId);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						tagName = tagName.trim();
-						String tagdesc = gec.DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGNOTE");
+						String tagdesc = null;
+						try {
+							tagdesc = gec().DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGNOTE");
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 //						System.out.println("pointid: "+pointId+"  tagdesc: " + tagdesc);
 						if (StringUtil.isBlank(tagdesc))
 							tagdesc = "未知描述";
-						String enunit = gec.DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_ENUNITS");
+						String enunit = null;
+						try {
+							enunit = gec().DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_ENUNITS");
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 //						System.out.println(enunit);
-						String tagType = gec.DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGTYPE");
+						String tagType = null;
+						try {
+							tagType = gec().DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGTYPE");
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						tagType = tagType.trim();
 						point.setEnunit(enunit);
 						point.setTagType(tagType);
@@ -225,7 +264,7 @@ public class ServerManager {
 					redisService.set(GlobalConsts.Key_Server_pre_ + server.serverName, server);
 
 			}
-		} catch (GecException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -250,8 +289,8 @@ public class ServerManager {
 	public Point getPointByID(String serverName, String pointKey) {
 		if (StringUtil.isBlank(serverName))
 			serverName = defaultServer.getServerName();
-		// gec.g
-		// gec.DBECBatchGetTagRealField(lpszServerName, pnIDArray, lpszFieldName)
+		// gec().g
+		// gec().DBECBatchGetTagRealField(lpszServerName, pnIDArray, lpszFieldName)
 		return (Point) redisService
 				.get(GlobalConsts.Key_Point_pre + serverName + GlobalConsts.Key_splitCharServerPoint + pointKey);
 	}
@@ -279,7 +318,7 @@ public class ServerManager {
 	 * @param beginTime
 	 * @param endTime
 	 */
-	public synchronized HashMap<Long, Double> getPointHistoryValue(String srvName,String tagName,long id,long beginTime,long endTime) {
+	public HashMap<Long, Double> getPointHistoryValue(String srvName,String tagName,long id,long beginTime,long endTime) {
 		HashMap<Long, Double> ret = new HashMap<Long, Double>();
 		List<Double> pValueArray = new ArrayList<Double>(); 
 		int size = Math.round((endTime - beginTime) )+1;
@@ -290,17 +329,17 @@ public class ServerManager {
 //			System.out.println("DBECGetTagRealHistory => srvName="+srvName+" tagName="+tagName+" id="+IDTools.toString(id)
 //			+" beginTime="+IDTools.toString(beginTime)+" endTime="+IDTools.toString(endTime)
 //			+" size="+size+" "+Thread.currentThread().getName()+":"+Thread.currentThread().getId());
-			System.out.println("gec.DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime)
+			System.out.println("gec().DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime)
 			+" "+Thread.currentThread().getName()+":"+Thread.currentThread().getId());
-			gec.DBECGetTagRealHistory(srvName, tagName, id, beginTime, endTime, pValueArray, size, pnValueTimeArray);
-		} catch (GecException e) {
-			System.out.println("gec.DBECGetTagRealHistory error occour --------------------" );
-			System.out.println("gec.DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime)
+			gec().DBECGetTagRealHistory(srvName, tagName, id, beginTime, endTime, pValueArray, size, pnValueTimeArray);
+		} catch (Exception e) {
+			System.out.println("gec().DBECGetTagRealHistory error occour --------------------" );
+			System.out.println("gec().DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime)
 			+" "+Thread.currentThread().getName()+":"+Thread.currentThread().getId());
-			System.out.println("gec.DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime) );
-			System.out.println("gec.DBECGetTagRealHistory error occour -- "+e.getMessage() );
+			System.out.println("gec().DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime) );
+			System.out.println("gec().DBECGetTagRealHistory error occour -- "+e.getMessage() );
 			e.printStackTrace();
-			System.out.println("gec.DBECGetTagRealHistory error occour --------------------" );
+			System.out.println("gec().DBECGetTagRealHistory error occour --------------------" );
 		}
 		System.out.println("pValueArray.size() = "+pValueArray.size());
 		pValueArray.removeAll(Collections.singleton(null));
@@ -322,7 +361,13 @@ public class ServerManager {
 	}
 	
 	public Long getServerCurrentTime(String srvName) {
-		return gec.DBECGetServerCurrentTime(srvName)*1000;
+		try {
+			return gec().DBECGetServerCurrentTime(srvName)*1000;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public List getPointValue(String srvName, List<Long> idList, String fieldName) {
@@ -330,10 +375,10 @@ public class ServerManager {
 		if (StringUtil.isBlank(fieldName))
 			fieldName = "FN_RTVALUE";
 //		System.out.println("ServerManager.getPointValue("+srvName+",idList,fieldName)");
-//gec.DBACGetCurrentAlarm(lpszServerName, pnTagIDArray, pAlarmTypeArray, nArraySize, pValueArray, pOccuredTimeArray);
+//gec().DBACGetCurrentAlarm(lpszServerName, pnTagIDArray, pAlarmTypeArray, nArraySize, pValueArray, pOccuredTimeArray);
 		try {
-			return gec.DBECBatchGetTagRealField(srvName, idList, fieldName);
-		} catch (GecException e) {
+			return gec().DBECBatchGetTagRealField(srvName, idList, fieldName);
+		} catch (Exception e) {
 			e.printStackTrace();
 			return new ArrayList();
 		}
@@ -372,13 +417,13 @@ public class ServerManager {
 			List<Double> pValueArray = new ArrayList<Double>();
 			List<Long> pOccuredTimeArray = new ArrayList<Long>();
 			try {
-				gec.DBACGetCurrentAlarm(lpszServerName, pnTagIDArray, pAlarmTypeArray, nArraySize, pValueArray, pOccuredTimeArray);
+				gec().DBACGetCurrentAlarm(lpszServerName, pnTagIDArray, pAlarmTypeArray, nArraySize, pValueArray, pOccuredTimeArray);
 			
-				List<Double> hihiLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HIHILIMIT");
-				List<Double> hiLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HILIMIT");
-				List<Double> loloLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLOLIMIT");
-				List<Double> loLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLIMIT");
-				long serverTime = gec.DBECGetServerCurrentTime(lpszServerName);
+				List<Double> hihiLimit = gec().DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HIHILIMIT");
+				List<Double> hiLimit = gec().DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HILIMIT");
+				List<Double> loloLimit = gec().DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLOLIMIT");
+				List<Double> loLimit = gec().DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLIMIT");
+				long serverTime = gec().DBECGetServerCurrentTime(lpszServerName);
 				for(int i=0;i<pnTagIDArray.size();i++) {
 					PointAlertData pad = new PointAlertData(ph.get(pnTagIDArray.get(i)));
 					pad.setOccuredTime(pOccuredTimeArray.get(i));
@@ -391,7 +436,7 @@ public class ServerManager {
 					pad.setLoloLimit(loloLimit.get(i));
 					ret.add(pad);
 				}
-			} catch (GecException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -427,13 +472,13 @@ public class ServerManager {
 			List<Double> pValueArray = new ArrayList<Double>();
 			List<Long> pOccuredTimeArray = new ArrayList<Long>();
 			try {
-//				gec.DBACGetCurrentAlarm(lpszServerName, pnTagIDArray, pAlarmTypeArray, nArraySize, pValueArray, pOccuredTimeArray);
-				gec.DBACGetHistoryAlarm(lpszServerName, pnTagIDArray, nBeginTime, nEndTime, pnAlarmTagIDArray, nArraySize, pnAlarmCount, pAlarmBeginTimeArray, pAlarmEndTimeArray, pAlarmTypeArray);
+//				gec().DBACGetCurrentAlarm(lpszServerName, pnTagIDArray, pAlarmTypeArray, nArraySize, pValueArray, pOccuredTimeArray);
+				gec().DBACGetHistoryAlarm(lpszServerName, pnTagIDArray, nBeginTime, nEndTime, pnAlarmTagIDArray, nArraySize, pnAlarmCount, pAlarmBeginTimeArray, pAlarmEndTimeArray, pAlarmTypeArray);
 				
-				List<Double> hihiLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HIHILIMIT");
-				List<Double> hiLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HILIMIT");
-				List<Double> loloLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLOLIMIT");
-				List<Double> loLimit = gec.DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLIMIT");
+				List<Double> hihiLimit = gec().DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HIHILIMIT");
+				List<Double> hiLimit = gec().DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HILIMIT");
+				List<Double> loloLimit = gec().DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLOLIMIT");
+				List<Double> loLimit = gec().DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLIMIT");
 
 				for(int i=0;i<nArraySize;i++) {
 					PointAlertData pad = new PointAlertData(ph.get(pnTagIDArray.get(i)));
@@ -448,7 +493,7 @@ public class ServerManager {
 					pad.setAlertEndTime(pAlarmEndTimeArray.get(i));
 					ret.add(pad);
 				}			
-			} catch (GecException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

@@ -8772,6 +8772,7 @@ select.typeahead:focus::-ms-value {
 .col-form-label {
   padding-top: calc(0.56rem + 1px);
   padding-bottom: calc(0.56rem + 1px);
+  padding-left: calc(0.56rem + 2px);
   margin-bottom: 0;
   font-size: inherit;
   line-height: 1; }
