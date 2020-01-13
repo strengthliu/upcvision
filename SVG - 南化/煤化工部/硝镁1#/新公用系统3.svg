@@ -1,0 +1,1619 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/javascript'?>
+<!--Draw SVG: 2019-11-25 09:41:35 47-Monday-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="background-color:#000000" width="1066" height="800" viewbox="0 0 1066 800">
+<defs>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient2">
+<stop offset="0" stop-color="#212121" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#C0C0C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#212121" stop-opacity="1"/>
+</linearGradient>
+<pattern id="BRH_DIAGCROSS3" patternUnits="userSpaceOnUse" x="0" y="0" width="10" height="10"><line x1="0" y1="0" x2="10" y2="10" stroke="#FFFFFF" stroke-width="0.5"/><line x1="0" y1="10" x2="10" y2="0" stroke="#FFFFFF" stroke-width="0.5"/></pattern>
+<pattern id="BRH_DIAGCROSS4" patternUnits="userSpaceOnUse" x="0" y="0" width="10" height="10"><line x1="0" y1="0" x2="10" y2="10" stroke="#FFFFFF" stroke-width="0.5"/><line x1="0" y1="10" x2="10" y2="0" stroke="#FFFFFF" stroke-width="0.5"/></pattern>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient8">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient9">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient10">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient14">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient15">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient16">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient17">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient209_0">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient209_1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient210_0">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient210_1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient211_0">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient211_1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient217">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient218">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient219_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient219_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient220_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient220_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient221_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient221_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient222_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient222_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient223_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient223_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient224_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient224_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient225_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient225_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient226">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient227">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient228_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient228_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient229_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient229_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient230_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient230_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient231_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient231_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient232_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient232_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient233_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient233_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient234_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient234_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient235_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient235_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient236_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient236_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient237_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient237_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient238_0_0_0">
+<stop offset="0" stop-color="#4D4D4D" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#4D4D4D" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient238_0_0_1">
+<stop offset="0" stop-color="#4C4C4C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#4C4C4C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient238_0_1">
+<stop offset="0" stop-color="#626262" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#C0C0C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#626262" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient282_0_0_0">
+<stop offset="0" stop-color="#4D4D4D" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#4D4D4D" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient282_0_0_1">
+<stop offset="0" stop-color="#4C4C4C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#4C4C4C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient282_0_1">
+<stop offset="0" stop-color="#626262" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#C0C0C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#626262" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient283_0_0_0">
+<stop offset="0" stop-color="#4D4D4D" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#4D4D4D" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient283_0_0_1">
+<stop offset="0" stop-color="#4C4C4C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#4C4C4C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient283_0_1">
+<stop offset="0" stop-color="#626262" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#C0C0C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#626262" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient284_0_0_0">
+<stop offset="0" stop-color="#4D4D4D" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#4D4D4D" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient284_0_0_1">
+<stop offset="0" stop-color="#4C4C4C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#4C4C4C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient284_0_1">
+<stop offset="0" stop-color="#626262" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#C0C0C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#626262" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient285_0_0_0">
+<stop offset="0" stop-color="#4D4D4D" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#4D4D4D" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient285_0_0_1">
+<stop offset="0" stop-color="#4C4C4C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#4C4C4C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient285_0_1">
+<stop offset="0" stop-color="#626262" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#C0C0C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#626262" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient434">
+<stop offset="0" stop-color="#111111" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#636563" stop-opacity="1"/>
+<stop offset="1" stop-color="#111111" stop-opacity="1"/>
+</linearGradient>
+</defs>
+<rect shape-type="rectangle" x="963" y="483" width="3" height="53" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="949" y="464" width="8" height="8" fill="url(#lgradient2)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="658" y="611" width="29" height="23" fill="url(#BRH_DIAGCROSS3)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="476" y="611" width="29" height="25" fill="url(#BRH_DIAGCROSS4)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="0" y="1" width="1065" height="38" fill="#636563" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="282" y="3" width="500" height="33" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="26.750000" font-weight="bold" x="450" y="30">公用系统3</text>
+<rect shape-type="rectangle" x="905" y="537" width="92" height="101" fill="url(#lgradient8)" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="957" y="458" width="16" height="5" fill="url(#lgradient9)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="957" y="463" width="16" height="21" fill="url(#lgradient10)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="965" cy="473" rx="7" ry="7" fill="#FF0000" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="polygon" points="953,484 960,484 957,536 952,536 956,488 953,488 953,488" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="polygon" points="976,484 969,484 972,536 977,536 973,488 976,488 976,488" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="960" y="488" width="9" height="5" fill="url(#lgradient14)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="960" y="498" width="9" height="5" fill="url(#lgradient15)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="960" y="528" width="9" height="4" fill="url(#lgradient16)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="962" y="493" width="5" height="5" fill="url(#lgradient17)" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="941" y1="417" x2="941" y2="538" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="876" y1="550" x2="905" y2="550" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="940" y1="416" x2="760" y2="416" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="623" y1="416" x2="743" y2="416" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="591" y1="416" x2="611" y2="416" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="572" y1="416" x2="536" y2="416" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="752" y1="387" x2="752" y2="605" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="739" y1="605" x2="752" y2="605" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="806" y1="603" x2="819" y2="603" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="876" y1="550" x2="876" y2="740" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="876" y1="740" x2="428" y2="740" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="774" y1="694" x2="774" y2="737" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="429" y1="741" x2="429" y2="694" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="830" y1="694" x2="609" y2="694" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="303" y1="695" x2="549" y2="695" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="526" y1="694" x2="526" y2="647" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="428" y1="628" x2="428" y2="694" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="374" y1="629" x2="374" y2="695" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="319" y1="629" x2="319" y2="695" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="649" y1="692" x2="649" y2="645" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="716" y1="693" x2="716" y2="627" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="787" y1="690" x2="787" y2="624" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="819" y1="603" x2="819" y2="477" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="819" y1="476" x2="752" y2="476" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="819" y1="498" x2="757" y2="498" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="708" y1="498" x2="748" y2="498" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="752" y1="518" x2="704" y2="518" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="704" y1="517" x2="704" y2="476" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="704" y1="477" x2="619" y2="477" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="589" y1="478" x2="611" y2="478" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="635" y1="416" x2="635" y2="474" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="635" y1="487" x2="635" y2="593" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="616" y1="356" x2="616" y2="598" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="621" y1="441" x2="634" y2="441" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="594" y1="441" x2="607" y2="441" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="579" y1="441" x2="531" y2="441" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="519" y1="441" x2="236" y2="441" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="546" y1="415" x2="546" y2="599" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="525" y1="413" x2="525" y2="597" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="525" y1="415" x2="18" y2="415" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="340" y1="607" x2="353" y2="607" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="393" y1="604" x2="406" y2="604" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="443" y1="606" x2="456" y2="606" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="456" y1="606" x2="456" y2="513" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="407" y1="604" x2="407" y2="511" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="353" y1="607" x2="353" y2="514" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="463" y1="511" x2="302" y2="511" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="391" y1="450" x2="391" y2="507" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="308" y1="451" x2="308" y2="508" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="389" y1="328" x2="389" y2="406" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="305" y1="352" x2="382" y2="352" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="306" y1="407" x2="306" y2="353" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="305" y1="382" x2="233" y2="382" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="148" y1="382" x2="169" y2="382" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="148" y1="382" x2="148" y2="406" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="148" y1="426" x2="148" y2="603" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="273" y1="442" x2="273" y2="711" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="246" y1="711" x2="273" y2="711" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="218" y1="721" x2="113" y2="721" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="87" y1="624" x2="114" y2="624" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="177" y1="620" x2="204" y2="620" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="113" y1="624" x2="113" y2="721" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="204" y1="622" x2="204" y2="719" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="229" y1="530" x2="156" y2="530" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="82" y1="531" x2="141" y2="531" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="176" y1="534" x2="176" y2="594" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="83" y1="530" x2="83" y2="599" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="51" y1="598" x2="51" y2="482" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="51" y1="483" x2="145" y2="483" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="148" y1="442" x2="172" y2="442" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="228" y1="471" x2="252" y2="471" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="252" y1="472" x2="252" y2="529" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="590" y1="478" x2="590" y2="351" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="590" y1="352" x2="394" y2="352" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="227" y1="409" x2="227" y2="310" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="214" y1="410" x2="214" y2="311" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="198" y1="410" x2="198" y2="311" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="182" y1="412" x2="182" y2="313" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="228" y1="460" x2="228" y2="427" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="213" y1="459" x2="213" y2="426" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="179" y1="460" x2="179" y2="427" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="198" y1="458" x2="198" y2="425" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="142" y1="218" x2="142" y2="119" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="121" y1="208" x2="121" y2="109" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="101" y1="200" x2="101" y2="101" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="75" y1="194" x2="75" y2="95" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="52" y1="86" x2="52" y2="208" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="30" y1="78" x2="30" y2="200" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="29" y1="78" x2="484" y2="78" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="52" y1="87" x2="442" y2="87" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="74" y1="94" x2="406" y2="94" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="101" y1="102" x2="371" y2="102" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="121" y1="109" x2="329" y2="109" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="141" y1="120" x2="224" y2="120" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="35,192 22,192 26,150 32,150 35,192" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="22" y="139" width="14" height="12" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="58,192 45,192 49,150 55,150 58,192" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="45" y="139" width="14" height="12" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="82,192 69,192 73,151 79,151 82,192" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="69" y="140" width="14" height="12" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="105,192 92,192 96,151 102,151 105,192" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="92" y="140" width="14" height="12" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="125,192 113,192 116,151 122,151 125,192" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="113" y="140" width="13" height="12" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="147,192 134,192 138,151 144,151 147,192" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="134" y="140" width="14" height="12" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+</g>
+<line shape-type="limitline" x1="202" y1="228" x2="224" y2="228" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="225" y1="121" x2="225" y2="228" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="192" y1="290" x2="192" y2="254" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="32" y1="293" x2="575" y2="293" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="33" y1="293" x2="33" y2="276" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="133" y1="286" x2="133" y2="269" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="133" y1="297" x2="133" y2="308" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="132" y1="309" x2="650" y2="309" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="650" y1="265" x2="650" y2="307" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="251" y1="292" x2="251" y2="256" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="318" y1="290" x2="318" y2="254" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="386" y1="290" x2="386" y2="254" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="445" y1="291" x2="445" y2="255" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="510" y1="290" x2="510" y2="254" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="575" y1="290" x2="575" y2="254" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="734" y1="259" x2="734" y2="301" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="260" y1="230" x2="282" y2="230" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="283" y1="186" x2="283" y2="230" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="327" y1="232" x2="349" y2="232" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="350" y1="188" x2="350" y2="232" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="417" y1="187" x2="417" y2="231" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="476" y1="186" x2="476" y2="230" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="541" y1="188" x2="541" y2="232" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="615" y1="186" x2="615" y2="230" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="395" y1="232" x2="417" y2="232" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="453" y1="230" x2="475" y2="230" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="519" y1="233" x2="541" y2="233" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="592" y1="230" x2="614" y2="230" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="269" y1="184" x2="615" y2="184" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="330" y1="109" x2="330" y2="182" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="371" y1="101" x2="371" y2="184" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="407" y1="95" x2="407" y2="181" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="442" y1="87" x2="442" y2="182" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="485" y1="78" x2="485" y2="181" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="520" y1="79" x2="520" y2="180" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="557" y1="79" x2="557" y2="180" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="733" y1="301" x2="972" y2="301" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="842" y1="297" x2="842" y2="261" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="906" y1="298" x2="906" y2="262" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="972" y1="299" x2="972" y2="263" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="854" y1="238" x2="876" y2="238" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="873" y1="196" x2="873" y2="240" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="917" y1="241" x2="939" y2="241" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="938" y1="195" x2="938" y2="239" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="982" y1="241" x2="1004" y2="241" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1006" y1="197" x2="1006" y2="241" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="735" y1="130" x2="735" y2="197" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="713" y1="107" x2="713" y2="197" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1050" y1="64" x2="1050" y2="191" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1026" y1="64" x2="1026" y2="191" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1005" y1="50" x2="1005" y2="192" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="965" y1="193" x2="965" y2="73" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="926" y1="192" x2="926" y2="91" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="882" y1="186" x2="882" y2="107" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="839" y1="192" x2="839" y2="131" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="835" y1="193" x2="1056" y2="193" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="734" y1="130" x2="839" y2="130" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="712" y1="107" x2="881" y2="107" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="926" y1="92" x2="687" y2="92" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="965" y1="72" x2="661" y2="72" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1005" y1="50" x2="636" y2="50" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="689" y1="91" x2="689" y2="203" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="661" y1="71" x2="661" y2="205" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="636" y1="50" x2="636" y2="209" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<g shape-type="group">
+<line shape-type="limitline" x1="832" y1="707" x2="831" y2="680" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="838" y1="707" x2="837" y2="680" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="limitline" x1="603" y1="703" x2="602" y2="676" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="609" y1="703" x2="608" y2="676" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="limitline" x1="549" y1="709" x2="548" y2="682" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="555" y1="709" x2="554" y2="682" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="limitline" x1="296" y1="710" x2="295" y2="683" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="302" y1="710" x2="301" y2="683" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="limitline" x1="293" y1="524" x2="292" y2="497" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="299" y1="524" x2="298" y2="497" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="limitline" x1="465" y1="523" x2="464" y2="496" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="471" y1="523" x2="470" y2="496" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="limitline" x1="825" y1="207" x2="824" y2="180" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="831" y1="207" x2="830" y2="180" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="limitline" x1="1057" y1="206" x2="1056" y2="179" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1063" y1="206" x2="1062" y2="179" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+</g>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="7" y="401">C31601A~E FROM 稀硝酸镁</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="221" y="583">J31605</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="322" y="648">J31601A/B/C</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="256" y="734">J31613</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="722" y="648">J31602A/B</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="950" y="450">J31606</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="767" y="397">TO 浓镁高位槽</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="631" y="361">FROM C31604A~E</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="405" y="342">TO 31604A~E</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="322" y="201">J31603A/B/C/D/E/F</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="196" y="275">J31604</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="889" y="216">J31608A/B/C</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1" y="131">J31614</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="153" y="153">J31616</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="586" y="136">J31615</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" writing-mode="tb" glyph-orientation-vertical="0" x="566" y="84">TO稀硝酸装置</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" writing-mode="tb" glyph-orientation-vertical="0" x="528" y="92">TO中和池</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" writing-mode="tb" glyph-orientation-vertical="0" x="1011" y="114">TO中和池</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" writing-mode="tb" glyph-orientation-vertical="0" x="1030" y="92">TO稀硝酸装置</text>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="101,603 34,603 68,592 68,592 101,603" fill="url(#lgradient209_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="34" y="604" width="67" height="40" fill="url(#lgradient209_1)" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="196,605 129,605 163,594 163,594 196,605" fill="url(#lgradient210_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="129" y="606" width="67" height="40" fill="url(#lgradient210_1)" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="236,497 169,497 203,508 203,508 236,497" fill="url(#lgradient211_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="169" y="449" width="67" height="48" fill="url(#lgradient211_1)" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="741,192 728,192 732,150 738,150 741,192" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="728" y="139" width="14" height="12" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="719,192 706,192 710,150 716,150 719,192" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="706" y="139" width="14" height="12" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="695,192 682,192 686,150 692,150 695,192" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="682" y="139" width="14" height="12" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="669,192 656,192 660,150 666,150 669,192" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="656" y="139" width="14" height="12" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="642,192 629,192 633,150 639,150 642,192" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="629" y="139" width="14" height="12" fill="#FFFFFF" stroke="#000000" stroke-width="2.00"/>
+</g>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="619" y="199" width="159" height="70" fill="url(#lgradient217)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="5" y="201" width="163" height="76" fill="url(#lgradient218)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="218,734 211,734 214,728 221,728 218,734" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="208" y="734" width="11" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="231,734 238,734 235,728 228,728 231,734" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="229" y="734" width="13" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 225,706 A 6,6 0 1,0 223,716" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="223" y1="715" x2="243" y2="716" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="222" y="706" width="24" height="9" fill="url(#lgradient219_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="243" y="705" width="5" height="12" fill="url(#lgradient219_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="243" y="705" width="5" height="12" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="223" y1="706" x2="244" y2="707" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="225" cy="719" rx="16" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="225" cy="719" rx="16" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 219,730 A 15,12 0 1,0 229,708" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="225" cy="719" rx="6" ry="5" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="225" cy="719" rx="4" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="222" y1="722" x2="227" y2="714" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="227" y1="722" x2="221" y2="716" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="229" y1="719" x2="219" y2="719" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="225" cy="719" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="313,627 306,627 309,621 316,621 313,627" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="303" y="627" width="11" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="326,627 332,627 329,621 323,621 326,627" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="324" y="627" width="12" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 320,599 A 6,6 0 1,0 318,608" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="318" y1="607" x2="338" y2="608" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="317" y="599" width="24" height="8" fill="url(#lgradient220_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="338" y="598" width="5" height="11" fill="url(#lgradient220_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="338" y="598" width="5" height="11" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="318" y1="599" x2="339" y2="600" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="320" cy="612" rx="15" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="320" cy="612" rx="15" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 314,623 A 14,12 0 1,0 323,601" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="320" cy="612" rx="6" ry="6" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="320" cy="611" rx="4" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="317" y1="615" x2="322" y2="606" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="322" y1="615" x2="316" y2="608" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="324" y1="611" x2="314" y2="611" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="320" cy="611" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="367,626 360,626 363,620 370,620 367,626" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="357" y="626" width="11" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="380,626 386,626 383,620 377,620 380,626" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="378" y="626" width="13" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 374,598 A 6,6 0 1,0 372,607" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="372" y1="606" x2="392" y2="607" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="371" y="598" width="24" height="8" fill="url(#lgradient221_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="392" y="597" width="5" height="11" fill="url(#lgradient221_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="392" y="597" width="5" height="11" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="372" y1="598" x2="393" y2="599" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="374" cy="611" rx="16" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="374" cy="611" rx="16" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 368,622 A 15,12 0 1,0 378,600" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="374" cy="611" rx="6" ry="6" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="374" cy="610" rx="4" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="371" y1="614" x2="376" y2="605" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="376" y1="614" x2="370" y2="607" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="378" y1="610" x2="368" y2="610" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="374" cy="610" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="419,627 413,627 416,621 422,621 419,627" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="409" y="627" width="11" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="432,627 439,627 436,621 429,621 432,627" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="430" y="627" width="13" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 426,599 A 6,6 0 1,0 424,608" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="424" y1="607" x2="444" y2="608" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="423" y="599" width="24" height="8" fill="url(#lgradient222_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="444" y="598" width="5" height="11" fill="url(#lgradient222_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="444" y="598" width="5" height="11" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="424" y1="599" x2="445" y2="600" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="426" cy="612" rx="16" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="426" cy="612" rx="16" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 420,623 A 15,12 0 1,0 430,601" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="426" cy="612" rx="6" ry="6" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="426" cy="611" rx="4" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="423" y1="615" x2="428" y2="606" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="428" y1="615" x2="422" y2="608" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="430" y1="611" x2="420" y2="611" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="426" cy="611" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="708,627 702,627 705,621 711,621 708,627" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="699" y="627" width="10" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="722,627 728,627 725,621 719,621 722,627" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="720" y="627" width="12" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 716,599 A 6,6 0 1,0 714,608" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="714" y1="607" x2="733" y2="608" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="713" y="599" width="23" height="8" fill="url(#lgradient223_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="733" y="598" width="6" height="11" fill="url(#lgradient223_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="733" y="598" width="6" height="11" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="714" y1="599" x2="734" y2="600" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="715" cy="612" rx="15" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="715" cy="612" rx="15" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 710,623 A 14,12 0 1,0 719,601" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="715" cy="612" rx="6" ry="6" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="715" cy="611" rx="5" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="713" y1="615" x2="718" y2="606" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="718" y1="615" x2="711" y2="608" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="720" y1="611" x2="709" y2="611" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="715" cy="611" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="780,627 774,627 777,621 783,621 780,627" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="770" y="627" width="11" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="793,627 799,627 796,621 790,621 793,627" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="791" y="627" width="13" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 786,599 A 7,6 0 1,0 784,608" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="784" y1="607" x2="805" y2="608" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="783" y="599" width="25" height="8" fill="url(#lgradient224_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="805" y="598" width="5" height="11" fill="url(#lgradient224_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="805" y="598" width="5" height="11" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="784" y1="599" x2="806" y2="600" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="787" cy="612" rx="16" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="787" cy="612" rx="16" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 781,623 A 15,12 0 1,0 791,601" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="786" cy="612" rx="6" ry="6" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="786" cy="611" rx="5" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="783" y1="615" x2="789" y2="606" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="789" y1="615" x2="782" y2="608" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="791" y1="611" x2="780" y2="611" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="786" cy="611" rx="2" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="257,554 263,554 260,548 254,548 257,554" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="255" y="554" width="13" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="244,554 236,554 239,548 247,548 244,554" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="233" y="554" width="12" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 252,535 A 6,6 0 1,0 250,526" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="251" y1="534" x2="232" y2="535" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="229" y="526" width="24" height="8" fill="url(#lgradient225_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="228" y="525" width="4" height="11" fill="url(#lgradient225_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="228" y="525" width="4" height="11" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="251" y1="526" x2="231" y2="527" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="250" cy="539" rx="16" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="250" cy="539" rx="15" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 245,528 A 15,12 0 1,0 255,550" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="250" cy="539" rx="6" ry="6" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="250" cy="538" rx="4" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="252" y1="542" x2="247" y2="533" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="247" y1="542" x2="253" y2="535" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="245" y1="539" x2="255" y2="539" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="250" cy="538" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="485" y="597" width="90" height="53" fill="url(#lgradient226)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="586" y="595" width="90" height="53" fill="url(#lgradient227)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="900,264 894,264 897,257 903,257 900,264" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="890" y="264" width="11" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="912,264 919,264 916,257 909,257 912,264" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="910" y="264" width="14" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 906,236 A 7,6 0 1,0 904,246" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="904" y1="245" x2="925" y2="246" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="903" y="236" width="25" height="9" fill="url(#lgradient228_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="925" y="235" width="5" height="12" fill="url(#lgradient228_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="925" y="235" width="5" height="12" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="904" y1="236" x2="926" y2="237" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="907" cy="250" rx="16" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="907" cy="249" rx="16" ry="12" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 901,259 A 15,11 0 1,0 911,239" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="906" cy="249" rx="6" ry="5" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="905" cy="249" rx="4" ry="3" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="903" y1="251" x2="908" y2="244" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="908" y1="251" x2="902" y2="245" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="910" y1="248" x2="900" y2="248" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="905" cy="249" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="969,261 963,261 966,255 972,255 969,261" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="959" y="261" width="11" height="4" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="982,261 989,261 986,255 979,255 982,261" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="980" y="261" width="13" height="4" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 976,234 A 6,6 0 1,0 974,244" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="974" y1="243" x2="994" y2="244" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="973" y="234" width="24" height="9" fill="url(#lgradient229_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="994" y="233" width="5" height="12" fill="url(#lgradient229_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="994" y="233" width="5" height="12" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="974" y1="234" x2="995" y2="235" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="976" cy="247" rx="16" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="976" cy="247" rx="16" ry="12" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 970,257 A 15,11 0 1,0 980,236" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="976" cy="247" rx="6" ry="5" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="975" cy="247" rx="4" ry="3" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="973" y1="249" x2="978" y2="242" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="978" y1="249" x2="972" y2="243" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="980" y1="246" x2="970" y2="246" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="975" cy="247" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="835,260 828,260 831,254 838,254 835,260" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="825" y="260" width="10" height="4" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="848,260 854,260 851,254 845,254 848,260" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="846" y="260" width="12" height="4" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 842,233 A 6,6 0 1,0 840,243" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="840" y1="242" x2="859" y2="243" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="839" y="233" width="24" height="9" fill="url(#lgradient230_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="859" y="232" width="6" height="12" fill="url(#lgradient230_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="859" y="232" width="6" height="12" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="840" y1="233" x2="860" y2="234" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="841" cy="246" rx="15" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="841" cy="246" rx="15" ry="12" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 836,256 A 14,11 0 1,0 845,235" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="841" cy="246" rx="6" ry="5" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="841" cy="246" rx="5" ry="3" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="839" y1="248" x2="844" y2="241" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="844" y1="248" x2="838" y2="242" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="846" y1="245" x2="835" y2="245" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="841" cy="246" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="571,254 565,254 568,248 574,248 571,254" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="561" y="254" width="11" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="584,254 591,254 588,248 581,248 584,254" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="582" y="254" width="13" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 578,226 A 6,6 0 1,0 576,236" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="576" y1="234" x2="596" y2="235" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="575" y="226" width="24" height="8" fill="url(#lgradient231_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="596" y="225" width="5" height="11" fill="url(#lgradient231_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="596" y="225" width="5" height="11" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="576" y1="226" x2="597" y2="227" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="578" cy="240" rx="15" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="578" cy="239" rx="15" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 573,250 A 14,12 0 1,0 582,228" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="578" cy="239" rx="6" ry="6" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="577" cy="239" rx="4" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="575" y1="242" x2="580" y2="233" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="580" y1="242" x2="574" y2="235" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="582" y1="239" x2="572" y2="239" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="577" cy="239" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="499,254 493,254 496,248 502,248 499,254" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="489" y="254" width="11" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="511,254 518,254 515,248 508,248 511,254" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="509" y="254" width="14" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 505,226 A 7,6 0 1,0 503,236" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="503" y1="234" x2="524" y2="235" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="502" y="226" width="25" height="8" fill="url(#lgradient232_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="524" y="225" width="5" height="11" fill="url(#lgradient232_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="524" y="225" width="5" height="11" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="503" y1="226" x2="525" y2="227" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="506" cy="240" rx="16" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="506" cy="239" rx="16" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 500,250 A 15,12 0 1,0 510,228" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="505" cy="239" rx="6" ry="6" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="505" cy="239" rx="4" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="502" y1="242" x2="507" y2="233" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="507" y1="242" x2="501" y2="235" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="509" y1="239" x2="499" y2="239" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="505" cy="239" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="435,251 428,251 431,245 438,245 435,251" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="425" y="251" width="10" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="448,251 454,251 451,245 445,245 448,251" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="446" y="251" width="12" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 442,223 A 6,6 0 1,0 440,232" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="440" y1="231" x2="459" y2="232" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="439" y="223" width="24" height="8" fill="url(#lgradient233_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="459" y="222" width="6" height="11" fill="url(#lgradient233_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="459" y="222" width="6" height="11" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="440" y1="223" x2="460" y2="224" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="442" cy="237" rx="15" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="442" cy="236" rx="15" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 436,247 A 14,12 0 1,0 445,225" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="442" cy="236" rx="6" ry="6" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="441" cy="236" rx="5" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="439" y1="239" x2="444" y2="230" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="444" y1="239" x2="438" y2="232" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="446" y1="235" x2="435" y2="235" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="442" cy="235" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="377,253 371,253 374,247 380,247 377,253" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="367" y="253" width="11" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="389,253 396,253 393,247 386,247 389,253" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="388" y="253" width="13" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 383,225 A 7,6 0 1,0 381,234" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="381" y1="233" x2="402" y2="234" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="380" y="225" width="25" height="8" fill="url(#lgradient234_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="402" y="224" width="5" height="11" fill="url(#lgradient234_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="402" y="224" width="5" height="11" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="381" y1="225" x2="403" y2="226" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="384" cy="239" rx="16" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="384" cy="238" rx="16" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 378,249 A 15,12 0 1,0 388,227" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="384" cy="238" rx="6" ry="6" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="383" cy="238" rx="5" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="380" y1="241" x2="385" y2="232" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="385" y1="241" x2="379" y2="234" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="388" y1="238" x2="377" y2="238" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="383" cy="238" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="311,256 304,256 307,250 314,250 311,256" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="301" y="256" width="10" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="324,256 330,256 327,250 321,250 324,256" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="322" y="256" width="12" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 318,228 A 6,6 0 1,0 316,238" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="316" y1="236" x2="335" y2="237" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="315" y="228" width="24" height="8" fill="url(#lgradient235_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="335" y="227" width="6" height="12" fill="url(#lgradient235_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="335" y="227" width="6" height="12" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="316" y1="228" x2="336" y2="229" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="318" cy="242" rx="15" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="318" cy="241" rx="15" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 312,252 A 14,12 0 1,0 321,230" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="318" cy="241" rx="6" ry="6" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="318" cy="241" rx="4" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="315" y1="244" x2="320" y2="235" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="320" y1="244" x2="314" y2="238" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="322" y1="241" x2="311" y2="241" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="318" cy="241" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="246,256 240,256 243,250 249,250 246,256" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="236" y="256" width="11" height="4" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="259,257 266,257 263,251 256,251 259,257" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="257" y="257" width="13" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 253,227 A 6,7 0 1,0 251,238" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="251" y1="236" x2="271" y2="237" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="250" y="227" width="24" height="9" fill="url(#lgradient236_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="271" y="226" width="5" height="13" fill="url(#lgradient236_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="271" y="226" width="5" height="13" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="251" y1="227" x2="272" y2="228" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="254" cy="241" rx="15" ry="14" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="254" cy="241" rx="15" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 248,252 A 14,12 0 1,0 257,229" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="253" cy="241" rx="6" ry="6" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="253" cy="241" rx="4" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="250" y1="244" x2="255" y2="235" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="255" y1="244" x2="249" y2="238" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="257" y1="241" x2="247" y2="241" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="253" cy="241" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="185,254 178,254 181,248 188,248 185,254" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="175" y="254" width="10" height="4" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="198,255 204,255 201,249 195,249 198,255" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="196" y="255" width="12" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 192,225 A 6,7 0 1,0 190,236" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="190" y1="234" x2="209" y2="235" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="189" y="225" width="24" height="9" fill="url(#lgradient237_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="209" y="224" width="6" height="12" fill="url(#lgradient237_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="209" y="224" width="6" height="12" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="190" y1="225" x2="210" y2="226" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="192" cy="239" rx="15" ry="14" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="192" cy="239" rx="15" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 186,250 A 14,12 0 1,0 195,227" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="192" cy="239" rx="6" ry="6" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="191" cy="239" rx="5" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="189" y1="242" x2="194" y2="233" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="194" y1="242" x2="188" y2="235" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="196" y1="239" x2="185" y2="239" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="192" cy="239" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="trapezium" points="832,154 845,154 838,164 838,164 832,154" fill="url(#lgradient238_0_0_0)" stroke="#000000" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="832,173 845,173 838,164 838,164 832,173" fill="url(#lgradient238_0_0_1)" stroke="#000000" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="827" y="161" width="11" height="5" fill="url(#lgradient238_0_1)" stroke-width="1.00"/>
+</g>
+<path shape-type="chord" d="M 829,156 A 26,12 0 1,0 829,175 z" fill="#C0C0C0" stroke="#808080" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="261" y1="196" x2="261" y2="169" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="268" y1="196" x2="267" y2="169" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="5" y="410" width="12" height="7" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="16,407 16,420 24,414 24,414 16,407" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="386" y="328" width="6" height="13" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="395,329 383,329 389,322 389,322 395,329" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="501" y="349" width="13" height="6" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="502,359 502,347 495,353 495,353 502,359" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="749" y="386" width="6" height="13" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="758,387 746,387 752,380 752,380 758,387" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="1022" y="61" width="6" height="13" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="1031,63 1019,63 1025,55 1025,55 1031,63" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="1047" y="61" width="6" height="13" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="1056,63 1044,63 1050,55 1050,55 1056,63" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="517" y="77" width="6" height="13" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="526,78 514,78 520,71 520,71 526,78" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="555" y="77" width="5" height="13" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="564,78 552,78 558,71 558,71 564,78" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+</g>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="26" y="148">A</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="50" y="149">B</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="73" y="150">C</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="96" y="150">D</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="117" y="150">E</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="633" y="149">E</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="660" y="149">D</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="685" y="149">C</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="709" y="149">B</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="732" y="149">A</text>
+<g shape-type="group">
+<rect shape-type="rectangle" x="482" y="145" width="6" height="14" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="491,146 479,146 485,139 485,139 491,146" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="440" y="144" width="5" height="14" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="448,145 436,145 442,138 442,138 448,145" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="403" y="144" width="6" height="14" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="413,145 400,145 407,138 407,138 413,145" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="369" y="144" width="6" height="13" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="378,145 366,145 372,138 372,138 378,145" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="326" y="144" width="6" height="13" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="335,145 323,145 329,138 329,138 335,145" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="880" y="169" width="5" height="13" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="889,170 877,170 883,163 883,163 889,170" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="922" y="169" width="6" height="13" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="931,170 919,170 925,163 925,163 931,170" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="961" y="168" width="6" height="13" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="970,169 958,169 964,162 964,162 970,169" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="1002" y="169" width="6" height="14" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="1011,170 999,170 1005,163 1005,163 1011,170" fill="#FF00FF" stroke="#FF00FF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="845" y="413" width="13" height="5" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="846,423 846,411 839,417 839,417 846,423" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="265" y="380" width="12" height="5" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="266,390 266,378 258,384 258,384 266,390" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="48" y="550" width="6" height="11" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="57,560 45,560 51,569 51,569 57,560" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="144" y="501" width="6" height="11" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="153,511 141,511 147,520 147,520 153,511" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="270" y="619" width="6" height="13" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="279,620 267,620 273,612 273,612 279,620" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="557" y="735" width="12" height="7" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="568,732 568,745 576,739 576,739 568,732" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="523" y="655" width="6" height="12" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="532,666 520,666 526,674 526,674 532,666" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="646" y="657" width="6" height="12" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="655,668 643,668 649,676 649,676 655,668" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="522" y="512" width="6" height="13" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="531,524 519,524 525,532 525,532 531,524" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="544" y="512" width="6" height="13" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="553,524 541,524 547,532 547,532 553,524" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="632" y="514" width="6" height="12" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="641,525 629,525 635,533 635,533 641,525" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="611" y="514" width="7" height="12" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="621,525 608,525 615,533 615,533 621,525" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="305" y="469" width="5" height="13" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="314,470 302,470 308,462 308,462 314,470" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="613" y="349" width="5" height="11" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="621,359 609,359 615,368 615,368 621,359" fill="#00FF00" stroke="#00FFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="trapezium" points="876,134 888,134 882,144 882,144 876,134" fill="url(#lgradient282_0_0_0)" stroke="#000000" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="876,153 888,153 882,144 882,144 876,153" fill="url(#lgradient282_0_0_1)" stroke="#000000" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="871" y="142" width="9" height="4" fill="url(#lgradient282_0_1)" stroke-width="1.00"/>
+</g>
+<path shape-type="chord" d="M 872,136 A 26,12 0 1,0 872,155 z" fill="#C0C0C0" stroke="#808080" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="trapezium" points="919,132 931,132 925,142 925,142 919,132" fill="url(#lgradient283_0_0_0)" stroke="#000000" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="919,151 931,151 925,142 925,142 919,151" fill="url(#lgradient283_0_0_1)" stroke="#000000" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="914" y="140" width="10" height="4" fill="url(#lgradient283_0_1)" stroke-width="1.00"/>
+</g>
+<path shape-type="chord" d="M 915,134 A 26,12 0 1,0 915,153 z" fill="#C0C0C0" stroke="#808080" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="trapezium" points="957,110 970,110 963,120 963,120 957,110" fill="url(#lgradient284_0_0_0)" stroke="#000000" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="957,129 970,129 963,120 963,120 957,129" fill="url(#lgradient284_0_0_1)" stroke="#000000" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="952" y="118" width="11" height="4" fill="url(#lgradient284_0_1)" stroke-width="1.00"/>
+</g>
+<path shape-type="chord" d="M 954,112 A 26,12 0 1,0 954,131 z" fill="#C0C0C0" stroke="#808080" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="trapezium" points="998,86 1010,86 1004,96 1004,96 998,86" fill="url(#lgradient285_0_0_0)" stroke="#000000" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="998,105 1010,105 1004,96 1004,96 998,105" fill="url(#lgradient285_0_0_1)" stroke="#000000" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="993" y="94" width="10" height="4" fill="url(#lgradient285_0_1)" stroke-width="1.00"/>
+</g>
+<path shape-type="chord" d="M 994,88 A 26,12 0 1,0 994,107 z" fill="#C0C0C0" stroke="#808080" stroke-width="1.00"/>
+</g>
+<rect shape-type="rectangle" x="953" y="656" width="63" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1016" y="656" width="29" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1024" y="671">mm</text>
+<rect shape-type="rectangle" x="974" y="410" width="45" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1019" y="410" width="27" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1028" y="426">A</text>
+<rect shape-type="rectangle" x="802" y="634" width="41" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="844" y="634" width="28" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="854" y="649">A</text>
+<rect shape-type="rectangle" x="732" y="551" width="41" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="774" y="551" width="31" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="786" y="566">A</text>
+<rect shape-type="rectangle" x="597" y="545" width="62" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="659" y="545" width="29" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="667" y="559">mm</text>
+<rect shape-type="rectangle" x="473" y="545" width="62" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="535" y="545" width="32" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="369" y="558" width="40" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="410" y="558" width="25" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="420" y="573">A</text>
+<rect shape-type="rectangle" x="404" y="652" width="41" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="446" y="652" width="26" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="454" y="667">A</text>
+<rect shape-type="rectangle" x="279" y="558" width="41" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="321" y="558" width="25" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="328" y="573">A</text>
+<rect shape-type="rectangle" x="219" y="649" width="40" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="260" y="649" width="24" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="269" y="664">A</text>
+<rect shape-type="rectangle" x="139" y="544" width="40" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="180" y="544" width="25" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="188" y="559">A</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="545" y="560">mm</text>
+<rect shape-type="rectangle" x="7" y="306" width="63" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="70" y="306" width="36" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="81" y="321">mm</text>
+<rect shape-type="rectangle" x="155" y="174" width="40" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="196" y="174" width="25" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="203" y="188">A</text>
+<rect shape-type="rectangle" x="240" y="277" width="40" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="280" y="277" width="27" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="289" y="291">A</text>
+<rect shape-type="rectangle" x="256" y="44" width="41" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="298" y="44" width="28" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="305" y="58">A</text>
+<rect shape-type="rectangle" x="459" y="261" width="41" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="500" y="261" width="27" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="510" y="277">A</text>
+<rect shape-type="rectangle" x="550" y="261" width="39" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="590" y="261" width="27" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="598" y="276">A</text>
+<rect shape-type="rectangle" x="670" y="311" width="62" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="732" y="311" width="26" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="739" y="327">mm</text>
+<rect shape-type="rectangle" x="800" y="311" width="40" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="841" y="311" width="24" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="847" y="327">A</text>
+<rect shape-type="rectangle" x="879" y="311" width="41" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="921" y="311" width="25" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="928" y="327">A</text>
+<rect shape-type="rectangle" x="959" y="310" width="41" height="28" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1001" y="310" width="25" height="28" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1010" y="326">A</text>
+<rect shape-type="rectangle" x="748" y="139" width="41" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="789" y="139" width="25" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="797" y="154">%</text>
+<rect shape-type="rectangle" x="727" y="98" width="41" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="768" y="98" width="25" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="777" y="114">%</text>
+<rect shape-type="rectangle" x="797" y="76" width="41" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="838" y="76" width="25" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="848" y="93">%</text>
+<rect shape-type="rectangle" x="867" y="57" width="40" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="907" y="57" width="26" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="916" y="73">%</text>
+<rect shape-type="rectangle" x="936" y="41" width="41" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="977" y="41" width="25" height="27" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="985" y="57">%</text>
+<rect shape-type="rectangle" x="347" y="44" width="41" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="389" y="44" width="28" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="396" y="57">A</text>
+<rect shape-type="rectangle" x="439" y="44" width="41" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="481" y="44" width="28" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="488" y="59">A</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="12.500000" font-weight="bold" x="58" y="242">F31603</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="12.500000" font-weight="bold" x="676" y="237">F31604</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="12.500000" font-weight="bold" x="927" y="593">F31608</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="12.500000" font-weight="bold" x="603" y="625">F31602</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="12.500000" font-weight="bold" x="503" y="628">F31601</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="180" y="478">F31605</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="41" y="628">F31606A</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="135" y="629">F31606B</text>
+<line shape-type="limitline" x1="244" y1="548" x2="205" y2="548" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="310" y1="604" x2="310" y2="584" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="376" y1="599" x2="376" y2="585" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="419" y1="649" x2="419" y2="628" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="231" y1="705" x2="231" y2="674" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="511" y1="597" x2="511" y2="572" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="626" y1="592" x2="626" y2="573" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="734" y1="604" x2="734" y2="577" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="805" y1="629" x2="805" y2="608" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="1027" y1="585" x2="997" y2="585" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="1029" y1="655" x2="1029" y2="585" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="1009" y1="476" x2="1009" y2="438" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="975" y1="480" x2="1009" y2="480" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="59" y1="307" x2="59" y2="275" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="689" y1="309" x2="689" y2="266" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="261" y1="275" x2="261" y2="263" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="186" y1="229" x2="186" y2="199" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="313" y1="230" x2="313" y2="68" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="389" y1="226" x2="389" y2="69" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="453" y1="226" x2="453" y2="69" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="851" y1="308" x2="851" y2="259" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="919" y1="310" x2="919" y2="255" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="981" y1="307" x2="981" y2="256" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="821" y1="161" x2="813" y2="153" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="989" y1="90" x2="989" y2="67" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="line" x1="866" y1="136" x2="793" y2="111" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="line" x1="912" y1="130" x2="867" y2="91" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="line" x1="948" y1="113" x2="932" y2="83" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_LT_31604" font-size="12.500000" x="18" y="324">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31604" font-size="12.500000" x="162" y="191">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31603A" font-size="12.500000" x="248" y="294">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31603B" font-size="12.500000" x="265" y="61">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31603C" font-size="12.500000" x="356" y="60">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31603D" font-size="12.500000" x="449" y="61">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31603E" font-size="12.500000" x="468" y="280">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31603F" font-size="12.500000" x="556" y="280">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_LT_31605" font-size="12.500000" x="682" y="330">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31608A" font-size="12.500000" x="806" y="330">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31608B" font-size="12.500000" x="886" y="331">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31608C" font-size="12.500000" x="968" y="331">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_HIC_31602A#MV" font-size="12.500000" x="751" y="157">XXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_HIC_31602C#MV" font-size="12.500000" x="800" y="95">XXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_HIC_31602D#MV" font-size="12.500000" x="870" y="75">XXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_HIC_31602E#MV" font-size="12.500000" x="942" y="58">XXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_HIC_31602B#MV" font-size="12.500000" x="731" y="116">XXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31605" font-size="12.500000" x="147" y="562">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31613" font-size="12.500000" x="227" y="666">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31601A" font-size="12.500000" x="284" y="575">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31601B" font-size="12.500000" x="379" y="575">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31601C" font-size="12.500000" x="414" y="669">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_LT_31602" font-size="12.500000" x="481" y="562">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_LT_31603" font-size="12.500000" x="613" y="561">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31602A" font-size="12.500000" x="742" y="568">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31602B" font-size="12.500000" x="808" y="652">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_II_J31606" font-size="12.500000" x="985" y="428">XX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XSB_XM1_LT_31606" font-size="12.500000" x="964" y="673">XXXX</text>
+<rect shape-type="rectangle" x="1" y="756" width="1065" height="44" fill="url(#lgradient434)" stroke="#636563" stroke-width="1.00"/>
+<a xlink:href="硝镁系统1#.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="15" y="761" width="118" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="74" y="782" shape-type="buttontext">硝镁系统1</text>
+</g>
+</a>
+<a xlink:href="硝镁系统2#.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="148" y="761" width="117" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="207" y="782" shape-type="buttontext">硝镁系统2</text>
+</g>
+</a>
+<a xlink:href="硝镁系统3#.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="279" y="761" width="120" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="339" y="782" shape-type="buttontext">硝镁系统3</text>
+</g>
+</a>
+<a xlink:href="硝镁系统4#.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="409" y="761" width="120" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="469" y="782" shape-type="buttontext">硝镁系统4</text>
+</g>
+</a>
+<a xlink:href="硝镁系统5#.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="542" y="761" width="116" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="600" y="782" shape-type="buttontext">硝镁系统5</text>
+</g>
+</a>
+<a xlink:href="新公用系统1.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="674" y="761" width="121" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="734" y="782" shape-type="buttontext">新公用系统1</text>
+</g>
+</a>
+<a xlink:href="新公用系统2.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="808" y="761" width="121" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="868" y="782" shape-type="buttontext">新公用系统2</text>
+</g>
+</a>
+<a xlink:href="新公用系统3.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="942" y="761" width="121" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="1002" y="782" shape-type="buttontext">新公用系统3</text>
+</g>
+</a>
+<a xlink:href="XM1#_ML.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="963" y="1" width="100" height="33" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#800000" font-size="13.500000" font-weight="bold" x="1013" y="24" shape-type="buttontext">返回上一级</text>
+</g>
+</a>
+</svg>

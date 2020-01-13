@@ -1,0 +1,1325 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/javascript'?>
+<!--Draw SVG: 2019-11-25 09:41:48 47-Monday-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="background-color:#000000" width="1066" height="800" viewbox="0 0 1066 800">
+<defs>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient1">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient2">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient3">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient4">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient5">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient6">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient7">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient8">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient9">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<radialGradient cx="100%" cy="0%" fx="100%" fy="0%" r="100.000000%" id="rpgradient10">
+<stop offset="0.354838709677419" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.67741935483871" stop-color="#FFFFFF" stop-opacity="1"/><stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="0%" cy="0%" fx="0%" fy="0%" r="100.000000%" id="rpgradient11">
+<stop offset="0.354838709677419" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.67741935483871" stop-color="#FFFFFF" stop-opacity="1"/><stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</radialGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient12">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient13">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient15">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient17">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient18">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient19">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient20">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient22_18">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient22_19">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient22_20">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient22_24">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient23_0">
+<stop offset="0" stop-color="#595959" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#C0C0C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#595959" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient23_1">
+<stop offset="0" stop-color="#595959" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#C0C0C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#595959" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient24">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient25">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient26">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient27">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient28">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient29">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient30">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient31">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient32">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient33">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient34">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient35">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient36">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient37">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient38">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient39">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient40">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient41">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient42">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient43">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient44">
+<stop offset="0" stop-color="#000021" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#0000C0" stop-opacity="1"/>
+<stop offset="1" stop-color="#000021" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient45">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient46">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient47">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient48">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient49">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient50">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient51">
+<stop offset="0" stop-color="#2C2C16" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFF80" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C16" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient52">
+<stop offset="0" stop-color="#2C2C16" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFF80" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C16" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient53">
+<stop offset="0" stop-color="#2C2C16" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFF80" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C16" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient54">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient55">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient56">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient57">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient58">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient59">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient60">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient61">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient62">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient63">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient64">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient65">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient66">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient80">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient81">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient82_0">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient82_1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient83">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient84">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient85">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient86">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient87">
+<stop offset="0" stop-color="#2C0000" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FF0000" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C0000" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient88">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient89">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient90_18">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient90_19">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient90_20">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient90_24">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient91">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient92_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient92_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient93_2_2">
+<stop offset="0" stop-color="#545454" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#545454" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient93_2_3_0">
+<stop offset="0" stop-color="#696969" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#D8D8D8" stop-opacity="1"/>
+<stop offset="1" stop-color="#696969" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient94_18">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient94_19">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient94_20">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient94_24">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient95_18">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient95_19">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient95_20">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient95_24">
+<stop offset="0" stop-color="#202020" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#BBBBBB" stop-opacity="1"/>
+<stop offset="1" stop-color="#202020" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient140">
+<stop offset="0" stop-color="#111111" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#636563" stop-opacity="1"/>
+<stop offset="1" stop-color="#111111" stop-opacity="1"/>
+</linearGradient>
+</defs>
+<rect shape-type="rectangle" x="74" y="216" width="159" height="5" fill="url(#lgradient1)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="395" y="607" width="27" height="5" fill="url(#lgradient2)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="248" y="608" width="27" height="5" fill="url(#lgradient3)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="194" y="557" width="57" height="62" fill="url(#lgradient4)" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="825" y="316" width="15" height="29" fill="url(#lgradient5)" stroke="#808080" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="846,306 819,306 827,318 839,318 846,306" fill="url(#lgradient6)" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="819" y="251" width="28" height="57" fill="url(#lgradient7)" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="843" y="354" width="23" height="13" fill="url(#lgradient8)" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="869" y="329" width="15" height="20" fill="url(#lgradient9)" stroke="#808080" stroke-width="1.00"/>
+<path shape-type="roundpipe" d="M 846,368 A 21,25 0 0,1 825,343 L 838,343 A 8,9 0 0,0 846,352 z" fill="url(#rpgradient10)" stroke-width="1.00"/>
+<path shape-type="roundpipe" d="M 862,368 A 22,21 0 0,0 884,347 L 870,347 A 8,8 0 0,1 862,355 z" fill="url(#rpgradient11)" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="888,326 862,326 869,337 881,337 888,326" fill="url(#lgradient12)" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="862" y="220" width="29" height="22" fill="url(#lgradient13)" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="237" y="561" width="12" height="55" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="339" y="556" width="57" height="62" fill="url(#lgradient15)" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="382" y="560" width="12" height="55" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="231" y="323" width="9" height="25" fill="url(#lgradient17)" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="273" y="323" width="9" height="25" fill="url(#lgradient18)" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="492" y="311" width="7" height="18" fill="url(#lgradient19)" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="515" y="311" width="7" height="18" fill="url(#lgradient20)" stroke="#808080" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="58" y="155" width="20" height="7" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="59,154 59,163 48,159 48,159 59,154" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="pie" d="M 168,200 A 5,3 0 0,0 158,200 L 164,200 z" fill="#AFAFAF" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<line shape-type="limitline" x1="161" y1="206" x2="163" y2="207" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="159" y1="209" x2="161" y2="210" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="159" y="207" width="1" height="3" fill="#C0C0C0" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="159" y1="208" x2="158" y2="209" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="161" y1="206" x2="160" y2="209" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="159" y="204" width="10" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="159" y="204" width="10" height="1" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="171" y="200" width="2" height="3" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="159" y="217" width="9" height="7" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="157" y="218" width="3" height="5" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="168" y="218" width="2" height="5" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="157" y="218" width="13" height="4" fill="#D4D4D4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="163" y="196" width="2" height="3" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="161" y="196" width="2" height="1" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="161" y1="196" x2="154" y2="197" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="156" y1="197" x2="163" y2="198" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<line shape-type="limitline" x1="156" y1="198" x2="155" y2="197" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="156" y1="198" x2="153" y2="199" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="limitline" x1="155" y1="197" x2="154" y2="196" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="155" y1="197" x2="152" y2="198" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<line shape-type="line" x1="152" y1="198" x2="152" y2="197" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="153" y1="198" x2="152" y2="199" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="152" y1="198" x2="151" y2="203" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="152" y1="199" x2="151" y2="203" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="163" y="207" width="2" height="5" fill="url(#lgradient22_18)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="163" y="204" width="2" height="3" fill="url(#lgradient22_19)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="163" y="212" width="2" height="1" fill="url(#lgradient22_20)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="160" y="213" width="7" height="1" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="161" y1="214" x2="160" y2="213" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="166" y1="214" x2="165" y2="213" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="159" y="215" width="9" height="2" fill="url(#lgradient22_24)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="160" y="214" width="8" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="161" y1="215" x2="160" y2="214" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="166" y1="215" x2="165" y2="214" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="168" y1="214" x2="167" y2="217" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="159" y1="214" x2="158" y2="217" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="165" y1="206" x2="169" y2="207" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="159" y1="218" x2="157" y2="219" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="168" y1="218" x2="170" y2="219" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="160" y1="223" x2="157" y2="224" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="168" y1="223" x2="170" y2="224" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="160" y="224" width="8" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="161" y1="225" x2="160" y2="224" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="166" y1="225" x2="165" y2="224" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<line shape-type="limitline" x1="160" y1="225" x2="159" y2="223" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="168" y1="223" x2="167" y2="225" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="160" y="217" width="8" height="3" fill="#D4D4D4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="161" y="218" width="6" height="4" fill="#9B9B9B" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="170" y="217" width="2" height="5" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="170" y="216" width="2" height="1" fill="#EBEBEB" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="170" y="221" width="2" height="3" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="155" y="217" width="2" height="5" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="155" y="216" width="2" height="1" fill="#EBEBEB" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="155" y="222" width="2" height="3" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="167" y="205" width="1" height="2" fill="#C0C0C0" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="156" y1="205" x2="152" y2="203" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="155" y1="205" x2="152" y2="203" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="153" y="200" width="2" height="3" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="153" y="200" width="22" height="2" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="156" y="199" width="15" height="2" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="156" y="201" width="15" height="3" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="156" y="199" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="159" y="199" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="163" y="199" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="166" y="199" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="168" y="199" width="2" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="153" y="200" width="20" height="2" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="153" y="201" width="20" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="159" y1="217" x2="168" y2="218" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="161" y="204" width="5" height="1" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="168" y="204" width="2" height="9" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="168" y="204" width="1" height="9" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="159" y="213" width="11" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="159" y="213" width="11" height="1" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="158" y="204" width="1" height="9" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="157" y="204" width="1" height="9" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="line" x1="156" y1="206" x2="156" y2="205" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="155" y1="205" x2="155" y2="205" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="155" y="212" width="1" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="154" y="206" width="4" height="2" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="154" y="208" width="4" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="154" y="210" width="3" height="2" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="113,213 113,225 100,219 100,219 113,213" fill="url(#lgradient23_0)" stroke="#808080" stroke-width="3.00"/>
+<polygon shape-type="trapezium" points="86,213 86,225 100,219 100,219 86,213" fill="url(#lgradient23_1)" stroke="#808080" stroke-width="3.00"/>
+</g>
+<rect shape-type="rectangle" x="78" y="156" width="174" height="5" fill="url(#lgradient24)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="269" y="222" width="163" height="5" fill="url(#lgradient25)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="428" y="221" width="4" height="43" fill="url(#lgradient26)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="270" y="221" width="4" height="43" fill="url(#lgradient27)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="250" y="156" width="5" height="91" fill="url(#lgradient28)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="231" y="216" width="5" height="43" fill="url(#lgradient29)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="428" y="262" width="65" height="5" fill="url(#lgradient30)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="496" y="201" width="4" height="59" fill="url(#lgradient31)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="496" y="200" width="527" height="5" fill="url(#lgradient32)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="831" y="134" width="5" height="93" fill="url(#lgradient33)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="876" y="160" width="4" height="59" fill="url(#lgradient34)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="831" y="132" width="189" height="5" fill="url(#lgradient35)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="876" y="160" width="147" height="5" fill="url(#lgradient36)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="731" y="239" width="95" height="5" fill="url(#lgradient37)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="730" y="239" width="4" height="59" fill="url(#lgradient38)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="730" y="424" width="65" height="5" fill="url(#lgradient39)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="730" y="442" width="65" height="5" fill="url(#lgradient40)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="782" y="603" width="4" height="78" fill="url(#lgradient41)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="640" y="696" width="376" height="5" fill="url(#lgradient42)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="640" y="280" width="4" height="421" fill="url(#lgradient43)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="527" y="281" width="113" height="5" fill="url(#lgradient44)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="384" y="462" width="410" height="5" fill="url(#lgradient45)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="420" y="676" width="366" height="5" fill="url(#lgradient46)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="420" y="608" width="4" height="71" fill="url(#lgradient47)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="274" y="656" width="249" height="5" fill="url(#lgradient48)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="272" y="609" width="4" height="53" fill="url(#lgradient49)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="527" y="426" width="4" height="134" fill="url(#lgradient50)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="197" y="511" width="4" height="39" fill="url(#lgradient51)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="340" y="513" width="4" height="39" fill="url(#lgradient52)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="110" y="510" width="234" height="5" fill="url(#lgradient53)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="383" y="462" width="4" height="86" fill="url(#lgradient54)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="369" y="399" width="4" height="139" fill="url(#lgradient55)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="354" y="439" width="4" height="97" fill="url(#lgradient56)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="243" y="478" width="4" height="76" fill="url(#lgradient57)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="229" y="442" width="4" height="112" fill="url(#lgradient58)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="207" y="398" width="4" height="153" fill="url(#lgradient59)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="245" y="477" width="282" height="5" fill="url(#lgradient60)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="65" y="440" width="293" height="5" fill="url(#lgradient61)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="68" y="426" width="463" height="5" fill="url(#lgradient62)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="64" y="398" width="309" height="5" fill="url(#lgradient63)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="67" y="375" width="437" height="5" fill="url(#lgradient64)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="503" y="303" width="4" height="78" fill="url(#lgradient65)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="519" y="590" width="4" height="70" fill="url(#lgradient66)" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="24" y="150">TO氢气包T22304</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="25" y="198">FROM苯胺装置</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="13" y="364">TO环己胺粗品贮罐T22106</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="15" y="393">FROM苯胺罐T22208</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="16" y="420">TO苯胺预热器TE22302</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="13" y="461">FROM苯胺装置</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="25" y="514">低压氮气</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1001" y="279">低压蒸汽</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="920" y="124">FROM氢气换热器E22104</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="960" y="153">TO固定床反应器</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="935" y="193">TO氢气换热器E22104</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="714" y="619">P22103A/B</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="537" y="606">P22103C/D</text>
+<rect shape-type="rectangle" x="862" y="242" width="27" height="84" fill="url(#lgradient80)" stroke="#808080" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="891,220 861,220 869,209 883,209 891,220" fill="url(#lgradient81)" stroke="#808080" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="825" y="226" width="16" height="15" fill="url(#lgradient82_0)" stroke="#808080" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="847,251 819,251 826,240 840,240 847,251" fill="url(#lgradient82_1)" stroke="#808080" stroke-width="1.00"/>
+</g>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="489" y="255" width="38" height="62" fill="url(#lgradient83)" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="226" y="243" width="61" height="87" fill="url(#lgradient84)" stroke="#808080" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="336,555 397,555 366,525 366,525 336,555" fill="url(#lgradient85)" stroke="#808080" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="192,557 253,557 222,527 222,527 192,557" fill="url(#lgradient86)" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="890" y="254" width="155" height="5" fill="url(#lgradient87)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="728" y="388" width="4" height="59" fill="url(#lgradient88)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="715" y="280" width="31" height="126" fill="url(#lgradient89)" stroke="#808080" stroke-width="1.00"/>
+<g shape-type="group">
+<path shape-type="pie" d="M 770,405 A 5,3 0 0,0 760,405 L 765,404 z" fill="#AFAFAF" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<line shape-type="limitline" x1="764" y1="411" x2="765" y2="412" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="761" y1="415" x2="764" y2="416" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="761" y="412" width="2" height="4" fill="#C0C0C0" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="761" y1="414" x2="760" y2="415" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="764" y1="411" x2="763" y2="415" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="761" y="409" width="10" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="761" y="409" width="10" height="1" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="773" y="405" width="2" height="3" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="761" y="423" width="9" height="6" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="759" y="424" width="4" height="4" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="770" y="424" width="2" height="4" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="759" y="424" width="13" height="3" fill="#D4D4D4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="765" y="401" width="2" height="3" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="764" y="401" width="1" height="1" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="764" y1="401" x2="756" y2="402" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="758" y1="402" x2="765" y2="403" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<line shape-type="limitline" x1="758" y1="403" x2="757" y2="402" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="758" y1="403" x2="755" y2="404" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="limitline" x1="757" y1="402" x2="756" y2="401" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="757" y1="402" x2="754" y2="403" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<line shape-type="line" x1="754" y1="403" x2="754" y2="402" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="755" y1="403" x2="754" y2="404" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="754" y1="403" x2="753" y2="408" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="754" y1="404" x2="753" y2="408" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="765" y="412" width="2" height="6" fill="url(#lgradient90_18)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="765" y="409" width="2" height="3" fill="url(#lgradient90_19)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="765" y="418" width="2" height="1" fill="url(#lgradient90_20)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="763" y="419" width="6" height="1" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="764" y1="420" x2="763" y2="419" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="768" y1="420" x2="767" y2="419" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="761" y="421" width="9" height="2" fill="url(#lgradient90_24)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="763" y="420" width="7" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="764" y1="421" x2="763" y2="420" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="768" y1="421" x2="767" y2="420" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="770" y1="420" x2="769" y2="423" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="761" y1="420" x2="760" y2="423" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="767" y1="411" x2="771" y2="412" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="761" y1="424" x2="759" y2="425" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="770" y1="424" x2="772" y2="425" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="763" y1="428" x2="759" y2="429" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="770" y1="428" x2="772" y2="429" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="763" y="429" width="7" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="764" y1="430" x2="763" y2="429" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="768" y1="430" x2="767" y2="429" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<line shape-type="limitline" x1="763" y1="430" x2="762" y2="428" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="770" y1="428" x2="769" y2="430" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="763" y="423" width="7" height="2" fill="#D4D4D4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="764" y="424" width="5" height="3" fill="#9B9B9B" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="772" y="424" width="2" height="3" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="772" y="423" width="2" height="1" fill="#EBEBEB" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="772" y="427" width="2" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="757" y="424" width="2" height="4" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="757" y="423" width="2" height="1" fill="#EBEBEB" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="757" y="427" width="2" height="3" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="769" y="410" width="1" height="2" fill="#C0C0C0" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="758" y1="410" x2="754" y2="408" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="757" y1="410" x2="754" y2="408" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="755" y="405" width="2" height="3" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="755" y="405" width="22" height="2" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="758" y="404" width="15" height="2" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="758" y="406" width="15" height="3" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="758" y="404" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="761" y="404" width="2" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="765" y="404" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="768" y="404" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="770" y="404" width="2" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="755" y="405" width="20" height="2" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="755" y="406" width="20" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="761" y1="423" x2="770" y2="424" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="764" y="409" width="4" height="1" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="770" y="409" width="2" height="11" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="770" y="409" width="1" height="11" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="761" y="420" width="11" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="761" y="420" width="11" height="1" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="760" y="409" width="1" height="11" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="759" y="409" width="1" height="11" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="line" x1="758" y1="411" x2="758" y2="410" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="757" y1="410" x2="757" y2="411" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="757" y="418" width="1" height="2" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="756" y="411" width="4" height="4" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="756" y="415" width="4" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="756" y="417" width="3" height="2" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+</g>
+<rect shape-type="rectangle" x="792" y="425" width="4" height="146" fill="url(#lgradient91)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="778,601 772,601 775,595 781,595 778,601" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="769" y="601" width="10" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="790,601 796,601 794,595 788,595 790,601" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="789" y="601" width="11" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 787,586 A 7,6 0 0,0 799,588" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="798" y1="586" x2="797" y2="570" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="789" y="568" width="9" height="21" fill="url(#lgradient92_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="786" y="567" width="14" height="3" fill="url(#lgradient92_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="786" y="567" width="14" height="3" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="789" y1="586" x2="788" y2="570" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="784" cy="586" rx="14" ry="14" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="784" cy="585" rx="14" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 779,597 A 13,12 0 1,0 788,574" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="784" cy="585" rx="6" ry="5" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="783" cy="585" rx="4" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="781" y1="587" x2="786" y2="580" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="786" y1="587" x2="780" y2="581" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="788" y1="584" x2="778" y2="584" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="783" cy="585" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<polygon shape-type="parallel" points="515,592 508,592 511,585 518,585 515,592" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="505" y="592" width="11" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="526,592 532,592 530,585 524,585 526,592" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="525" y="592" width="11" height="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<path shape-type="arc" d="M 524,577 A 7,5 0 0,0 536,578" fill="none" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="534" y1="577" x2="533" y2="561" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="525" y="559" width="9" height="20" fill="url(#lgradient93_2_2)" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="523" y="558" width="13" height="3" fill="url(#lgradient93_2_3_0)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="523" y="558" width="13" height="3" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="525" y1="577" x2="524" y2="560" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="521" cy="577" rx="14" ry="13" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="521" cy="577" rx="14" ry="13" fill="#D8D8D8" stroke="#000000" stroke-width="1.00"/>
+<path shape-type="arc" d="M 515,588 A 13,12 0 1,0 524,566" fill="none" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="521" cy="576" rx="5" ry="5" fill="#A2A2A2" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="520" cy="576" rx="4" ry="4" stroke="#000000" stroke-width="1.00"/>
+</g>
+<line shape-type="line" x1="518" y1="579" x2="523" y2="571" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="523" y1="579" x2="517" y2="573" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<line shape-type="line" x1="524" y1="576" x2="515" y2="576" fill="#00FFFF" stroke="#C0C0C0" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="520" cy="576" rx="1" ry="1" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+</g>
+</g>
+<g shape-type="group">
+<path shape-type="pie" d="M 321,202 A 5,3 0 0,0 311,202 L 317,202 z" fill="#AFAFAF" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<line shape-type="limitline" x1="315" y1="208" x2="316" y2="209" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="313" y1="211" x2="315" y2="212" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="313" y="209" width="1" height="3" fill="#C0C0C0" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="313" y1="210" x2="312" y2="211" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="315" y1="208" x2="314" y2="211" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="313" y="206" width="9" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="313" y="206" width="9" height="1" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="324" y="202" width="2" height="3" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="313" y="220" width="8" height="6" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="310" y="221" width="4" height="4" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="321" y="221" width="2" height="4" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="310" y="221" width="13" height="3" fill="#D4D4D4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="316" y="198" width="2" height="3" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="315" y="198" width="1" height="1" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="315" y1="198" x2="307" y2="199" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="309" y1="199" x2="316" y2="200" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<line shape-type="limitline" x1="309" y1="200" x2="308" y2="199" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="309" y1="200" x2="306" y2="201" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="limitline" x1="308" y1="199" x2="307" y2="198" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="308" y1="199" x2="305" y2="200" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<line shape-type="line" x1="305" y1="200" x2="305" y2="199" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="306" y1="200" x2="305" y2="201" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="305" y1="200" x2="304" y2="205" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="305" y1="201" x2="304" y2="205" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="316" y="209" width="2" height="5" fill="url(#lgradient94_18)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="316" y="206" width="2" height="3" fill="url(#lgradient94_19)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="316" y="214" width="2" height="1" fill="url(#lgradient94_20)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="314" y="215" width="6" height="1" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="315" y1="216" x2="314" y2="215" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="319" y1="216" x2="318" y2="215" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="313" y="217" width="8" height="3" fill="url(#lgradient94_24)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="314" y="216" width="7" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="315" y1="217" x2="314" y2="216" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="319" y1="217" x2="318" y2="216" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="321" y1="216" x2="320" y2="220" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="313" y1="216" x2="312" y2="220" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="318" y1="208" x2="322" y2="209" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="313" y1="221" x2="310" y2="222" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="321" y1="221" x2="323" y2="222" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="314" y1="225" x2="310" y2="226" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="321" y1="225" x2="323" y2="226" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="314" y="226" width="7" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="315" y1="227" x2="314" y2="226" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="319" y1="227" x2="318" y2="226" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<line shape-type="limitline" x1="314" y1="227" x2="313" y2="225" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="321" y1="225" x2="320" y2="227" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="314" y="220" width="7" height="2" fill="#D4D4D4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="315" y="221" width="5" height="3" fill="#9B9B9B" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="323" y="221" width="2" height="3" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="323" y="220" width="2" height="1" fill="#EBEBEB" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="323" y="224" width="2" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="308" y="221" width="2" height="4" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="308" y="220" width="2" height="1" fill="#EBEBEB" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="308" y="224" width="2" height="3" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="320" y="207" width="1" height="2" fill="#C0C0C0" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="309" y1="207" x2="305" y2="205" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="308" y1="207" x2="305" y2="205" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="306" y="202" width="2" height="3" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="306" y="202" width="22" height="2" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="309" y="201" width="15" height="2" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="309" y="203" width="15" height="3" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="309" y="201" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="313" y="201" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="316" y="201" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="319" y="201" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="321" y="201" width="2" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="306" y="202" width="20" height="2" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="306" y="203" width="20" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="313" y1="220" x2="321" y2="221" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="315" y="206" width="4" height="1" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="321" y="206" width="2" height="9" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="321" y="206" width="1" height="9" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="313" y="215" width="10" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="313" y="215" width="10" height="1" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="311" y="206" width="2" height="9" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="310" y="206" width="1" height="9" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="line" x1="309" y1="208" x2="309" y2="207" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="308" y1="207" x2="308" y2="207" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="308" y="214" width="1" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="307" y="208" width="4" height="2" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="307" y="210" width="4" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="307" y="212" width="3" height="2" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+</g>
+<g shape-type="group">
+<path shape-type="pie" d="M 1001,235 A 5,3 0 0,0 992,235 L 997,235 z" fill="#AFAFAF" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<line shape-type="limitline" x1="995" y1="241" x2="996" y2="242" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="993" y1="244" x2="995" y2="245" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="993" y="242" width="1" height="3" fill="#C0C0C0" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="993" y1="243" x2="992" y2="244" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="995" y1="241" x2="994" y2="244" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="993" y="239" width="9" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="993" y="239" width="9" height="1" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="1004" y="235" width="2" height="3" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="993" y="253" width="8" height="6" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="991" y="254" width="3" height="4" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="1001" y="254" width="2" height="4" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="991" y="254" width="12" height="3" fill="#D4D4D4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="996" y="231" width="2" height="3" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="995" y="231" width="1" height="1" fill="#B6B6B6" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="995" y1="231" x2="988" y2="232" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="990" y1="232" x2="996" y2="233" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<line shape-type="limitline" x1="990" y1="234" x2="989" y2="233" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="990" y1="234" x2="986" y2="235" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="limitline" x1="989" y1="233" x2="988" y2="232" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="989" y1="233" x2="985" y2="234" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<line shape-type="line" x1="985" y1="233" x2="985" y2="232" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="986" y1="233" x2="985" y2="234" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="985" y1="233" x2="984" y2="238" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="985" y1="234" x2="984" y2="238" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="996" y="242" width="2" height="5" fill="url(#lgradient95_18)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="996" y="239" width="2" height="3" fill="url(#lgradient95_19)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="996" y="247" width="2" height="1" fill="url(#lgradient95_20)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="994" y="248" width="6" height="1" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="995" y1="249" x2="994" y2="248" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="999" y1="249" x2="998" y2="248" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="993" y="250" width="8" height="3" fill="url(#lgradient95_24)" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="994" y="249" width="7" height="3" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="995" y1="250" x2="994" y2="249" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="999" y1="250" x2="998" y2="249" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="1001" y1="249" x2="1000" y2="253" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="993" y1="249" x2="992" y2="253" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="998" y1="241" x2="1002" y2="242" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="993" y1="254" x2="991" y2="255" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="1001" y1="254" x2="1003" y2="255" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="994" y1="258" x2="991" y2="259" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="1001" y1="258" x2="1003" y2="259" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="994" y="260" width="7" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="995" y1="261" x2="994" y2="260" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="999" y1="261" x2="998" y2="260" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<line shape-type="limitline" x1="994" y1="260" x2="993" y2="258" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="1001" y1="258" x2="1000" y2="260" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="994" y="253" width="7" height="2" fill="#D4D4D4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="995" y="254" width="5" height="3" fill="#9B9B9B" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="1003" y="255" width="2" height="3" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="1003" y="254" width="2" height="1" fill="#EBEBEB" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="1003" y="258" width="2" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="989" y="255" width="2" height="4" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="989" y="254" width="2" height="1" fill="#EBEBEB" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="989" y="258" width="2" height="3" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="1000" y="240" width="1" height="2" fill="#C0C0C0" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="990" y1="240" x2="985" y2="238" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="989" y1="240" x2="985" y2="238" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="986" y="235" width="3" height="3" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="986" y="235" width="22" height="2" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="990" y="234" width="14" height="2" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="990" y="236" width="14" height="3" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="990" y="234" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="993" y="234" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="996" y="234" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="999" y="234" width="1" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="1001" y="234" width="2" height="4" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="986" y="235" width="20" height="2" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="986" y="236" width="20" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="993" y1="253" x2="1001" y2="254" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="995" y="239" width="4" height="1" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="1001" y="239" width="2" height="10" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="1001" y="239" width="1" height="10" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="993" y="249" width="10" height="1" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="993" y="249" width="10" height="1" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="992" y="239" width="1" height="10" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="991" y="239" width="1" height="10" fill="#008000" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<line shape-type="line" x1="990" y1="241" x2="990" y2="240" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="line" x1="989" y1="240" x2="989" y2="241" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="989" y="247" width="1" height="2" stroke="#FFFFFF" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="988" y="241" width="4" height="3" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="988" y="244" width="4" height="2" fill="#808080" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+<rect shape-type="rectangle" x="988" y="246" width="3" height="2" fill="#BCBCBC" stroke="#FFFFFF" stroke-width="2.00"/>
+</g>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="44" y="214" width="19" height="8" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="61,213 61,223 74,218 74,218 61,213" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="50" y="373" width="20" height="7" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="51,372 51,381 40,377 40,377 51,372" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="38" y="396" width="17" height="7" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="55,395 55,404 67,400 67,400 55,395" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="47" y="424" width="19" height="7" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="47,423 47,432 36,428 36,428 47,423" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="34" y="439" width="18" height="6" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="52,437 52,446 64,442 64,442 52,437" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="81" y="508" width="19" height="7" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="99,507 99,516 111,512 111,512 99,507" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="1038" y="254" width="19" height="7" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="1039,253 1039,262 1027,258 1027,258 1039,253" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="1017" y="199" width="18" height="8" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="1034,198 1034,208 1047,203 1047,203 1034,198" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="1018" y="158" width="18" height="8" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="1035,157 1035,167 1048,162 1048,162 1035,157" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="1026" y="129" width="20" height="7" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="1027,128 1027,137 1016,133 1016,133 1027,128" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="1024" y="695" width="20" height="7" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="1025,694 1025,703 1014,699 1014,699 1025,694" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="917" y="688">FROM氢气冷却器E22111</text>
+<rect shape-type="rectangle" x="1" y="2" width="1065" height="37" fill="#636563" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="283" y="3" width="500" height="33" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="26.750000" font-weight="bold" x="442" y="30">6500T加氢1</text>
+<text font-family="宋体" text-anchor="start" fill="#00008E" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="191" y="584">T22105b</text>
+<text font-family="宋体" text-anchor="start" fill="#00008E" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="335" y="586">T22105a</text>
+<text font-family="宋体" text-anchor="start" fill="#00008E" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="236" y="291">T22109</text>
+<text font-family="宋体" text-anchor="start" fill="#00008E" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="490" y="291">T22104</text>
+<text font-family="宋体" text-anchor="start" fill="#00008E" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="714" y="371">E22102</text>
+<text font-family="宋体" text-anchor="start" fill="#00008E" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="860" y="291">E22103</text>
+<line shape-type="limitline" x1="172" y1="198" x2="161" y2="198" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="197" y1="220" x2="197" y2="198" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="158" y1="184" x2="158" y2="199" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="174" y1="185" x2="158" y2="185" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="135" y1="254" x2="135" y2="219" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="181" y1="282" x2="181" y2="219" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="314" y1="200" x2="314" y2="183" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="372" y1="183" x2="329" y2="183" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="374" y1="224" x2="374" y2="183" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="526" y1="198" x2="526" y2="172" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="615" y1="203" x2="615" y2="171" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="886" y1="358" x2="877" y2="358" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="827" y1="347" x2="803" y2="347" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="729" y1="262" x2="715" y2="262" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="817" y1="408" x2="776" y2="408" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="850" y1="454" x2="795" y2="454" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="850" y1="454" x2="850" y2="430" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="150" y1="470" x2="150" y2="444" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="457" y="460" width="20" height="7" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="458,459 458,468 447,464 447,464 458,459" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="316" y="654" width="18" height="7" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="333,653 333,662 346,658 346,658 333,653" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="516" y="675" width="18" height="7" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="533,674 533,683 546,679 546,679 533,674" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="381" y="221" width="19" height="7" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="399,220 399,229 411,225 411,225 399,220" fill="#00FF00" stroke="#000000" stroke-width="1.00"/>
+</g>
+<a xlink:href="\苯化工部\环己胺\加氢\JQ_ML.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="963" y="3" width="100" height="33" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#800000" font-size="13.500000" font-weight="bold" x="1013" y="26" shape-type="buttontext">返回上一级</text>
+</g>
+</a>
+<rect shape-type="rectangle" x="0" y="757" width="1066" height="43" fill="url(#lgradient140)" stroke="#636563" stroke-width="1.00"/>
+<a xlink:href="1500T导热油系统.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="7" y="761" width="138" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="76" y="782" shape-type="buttontext">1500T导热油系统</text>
+</g>
+</a>
+<a xlink:href="1500T加氢1.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="156" y="761" width="139" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="226" y="782" shape-type="buttontext">1500T加氢1</text>
+</g>
+</a>
+<a xlink:href="6500T加氢1.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="458" y="761" width="136" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="526" y="782" shape-type="buttontext">6500T加氢1</text>
+</g>
+</a>
+<a xlink:href="6500T导热油系统.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="307" y="761" width="137" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="376" y="782" shape-type="buttontext">6500T导热油系统</text>
+</g>
+</a>
+<a xlink:href="6500T加氢2.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="607" y="761" width="138" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="676" y="782" shape-type="buttontext">6500T加氢2</text>
+</g>
+</a>
+<a xlink:href="氢压机.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="907" y="761" width="137" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="975" y="782" shape-type="buttontext">氢压机</text>
+</g>
+</a>
+<a xlink:href="固定床反应器.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="757" y="761" width="137" height="31" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="825" y="782" shape-type="buttontext">固定床反应器</text>
+</g>
+</a>
+<g shape-type="group">
+<rect shape-type="rectangle" x="174" y="174" width="52" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="227" y="174" width="36" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="277" y="158" width="52" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="330" y="158" width="36" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="BHGB_HJA_PT_22102" font-size="12.500000" x="281" y="174">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="BHGB_HJA_PT_22101" font-size="12.500000" x="179" y="191">XXXX</text>
+<g shape-type="group">
+<rect shape-type="rectangle" x="63" y="247" width="60" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="125" y="247" width="42" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="BHGB_HJA_FT_22102" font-size="12.500000" x="69" y="263">XXXX</text>
+<g shape-type="group">
+<rect shape-type="rectangle" x="131" y="278" width="52" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="184" y="278" width="36" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="201" y="295">%</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="BHGB_HJA_AT_22101" font-size="12.500000" x="135" y="295">XXXX</text>
+<g shape-type="group">
+<rect shape-type="rectangle" x="461" y="153" width="61" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="523" y="153" width="42" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="573" y="153" width="52" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="626" y="153" width="37" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="643" y="170">%</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="BHGB_HJA_FT_22103" font-size="12.500000" x="475" y="170">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="BHGB_HJA_AT_22102" font-size="12.500000" x="579" y="170">XXXX</text>
+<g shape-type="group">
+<rect shape-type="rectangle" x="104" y="462" width="52" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="157" y="462" width="36" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="BHGB_HJA_FT_22104" font-size="12.500000" x="108" y="480">XXXX</text>
+<g shape-type="group">
+<rect shape-type="rectangle" x="75" y="578" width="52" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="128" y="578" width="36" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="143" y="592">mm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="BHGB_HJA_LT_22103B" font-size="12.500000" x="79" y="595">XXXX</text>
+<g shape-type="group">
+<rect shape-type="rectangle" x="406" y="567" width="52" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="459" y="567" width="36" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="474" y="581">mm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="BHGB_HJA_LT_22103A" font-size="12.500000" x="412" y="584">XXXX</text>
+<g shape-type="group">
+<rect shape-type="rectangle" x="819" y="403" width="52" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="872" y="403" width="36" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="882" y="418">L/h</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="BHGB_HJA_FT_22105" font-size="12.500000" x="825" y="419">XXXX</text>
+<g shape-type="group">
+<rect shape-type="rectangle" x="890" y="347" width="52" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="943" y="347" width="36" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="957" y="363">℃</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="BHGB_HJA_TE_22105" font-size="12.500000" x="894" y="363">XXXX</text>
+<g shape-type="group">
+<rect shape-type="rectangle" x="756" y="368" width="52" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="809" y="368" width="36" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<line shape-type="limitline" x1="804" y1="364" x2="804" y2="348" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00" stroke-dasharray="5 10"/>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="BHGB_HJA_PT_22103" font-size="12.500000" x="762" y="385">XXXX</text>
+<g shape-type="group">
+<rect shape-type="rectangle" x="625" y="249" width="52" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="678" y="249" width="36" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="692" y="265">℃</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="BHGB_HJA_TE_22104" font-size="12.500000" x="632" y="266">XXXX</text>
+<g shape-type="group">
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="13.250000" font-weight="bold" x="158" y="477">m</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="7.250000" font-weight="bold" x="165" y="471">3</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="14.000000" font-weight="bold" x="167" y="478">/h</text>
+</g>
+<g shape-type="group">
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="14.000000" font-weight="bold" x="128" y="265">N</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="13.250000" font-weight="bold" x="139" y="265">m</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="7.250000" font-weight="bold" x="144" y="258">3</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="14.000000" font-weight="bold" x="149" y="265">/h</text>
+</g>
+<g shape-type="group">
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="13.250000" font-weight="bold" x="335" y="173">k</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="14.750000" font-weight="bold" x="345" y="174">Pa</text>
+</g>
+<g shape-type="group">
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="14.000000" font-weight="bold" x="527" y="172">N</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="13.250000" font-weight="bold" x="538" y="172">m</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="8.000000" font-weight="bold" x="543" y="166">3</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="14.000000" font-weight="bold" x="548" y="172">/h</text>
+</g>
+<g shape-type="group">
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="12.500000" font-weight="bold" x="814" y="382">k</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="14.750000" font-weight="bold" x="823" y="384">Pa</text>
+</g>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="13.250000" font-weight="bold" x="235" y="190">MPa</text>
+</svg>

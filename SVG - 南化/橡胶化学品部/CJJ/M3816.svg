@@ -1,0 +1,790 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/javascript'?>
+<!--Draw SVG: 2019-11-25 09:41:12 47-Monday-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="background-color:#000000" width="1066" height="800" viewbox="0 0 1066 800">
+<defs>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient2">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient3">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient4">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient102">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient103">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient104">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient105">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient120">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient121">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient122">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient123">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient138">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient139">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient140">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient141">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient156_0">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient156_1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient156_2">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient157_0">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient157_1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient157_2">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient158_0">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient158_1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient158_2">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient159_0">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient159_1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient159_2">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient160_0">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient160_1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient161_0">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient161_1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient162_0">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient162_1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient163_0">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient163_1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient164">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient165">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient166">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient167">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient168">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient169">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient170">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient171">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient172">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient173">
+<stop offset="0" stop-color="#161616" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#808080" stop-opacity="1"/>
+<stop offset="1" stop-color="#161616" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient174">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient175">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient176">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient177">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient178">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient179">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient180">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient181">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient186">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient187">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient189_3">
+<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="100%" stop-color="#2C2C2C" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient190_3">
+<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="100%" stop-color="#2C2C2C" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient191_3">
+<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="100%" stop-color="#2C2C2C" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient192_3">
+<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="100%" stop-color="#2C2C2C" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient193_3">
+<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="100%" stop-color="#2C2C2C" stop-opacity="1"/>
+</radialGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient194_0">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient194_1">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient241">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient242">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient243">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="lgradient282">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient283">
+<stop offset="0" stop-color="#111111" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#636563" stop-opacity="1"/>
+<stop offset="1" stop-color="#111111" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient301">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+</defs>
+<polygon shape-type="trapezium" points="541,304 541,277 528,284 528,296 541,304" fill="url(#lgradient1)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="554,290 554,257 540,265 540,281 554,290" fill="url(#lgradient2)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="553" y="257" width="140" height="36" fill="url(#lgradient3)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="692,290 692,257 706,265 706,281 692,290" fill="url(#lgradient4)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="1" y="0" width="1065" height="40" fill="#636563" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="297" y="3" width="500" height="33" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="8" y="5" width="67" height="29" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="12.500000" font-weight="bold" x="20" y="24">M3816</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="26.000000" font-weight="bold" x="466" y="30">流化床A</text>
+<line shape-type="limitline" x1="111" y1="53" x2="44" y2="53" fill="#0075BD" stroke="#0075BD" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="111" y1="82" x2="111" y2="52" fill="#0075BD" stroke="#0075BD" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="216" y1="138" x2="61" y2="138" fill="#9C9A9C" stroke="#9C9A9C" stroke-width="3.00"/>
+<line shape-type="limitline" x1="246" y1="114" x2="246" y2="92" fill="#FF8A42" stroke="#0075BD" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="300" y1="164" x2="300" y2="145" fill="#FF8A42" stroke="#0075BD" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="623" y1="234" x2="623" y2="175" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="769" y1="177" x2="622" y2="177" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="768" y1="220" x2="768" y2="176" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="895" y1="226" x2="739" y2="226" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="894" y1="270" x2="894" y2="227" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="925" y1="269" x2="895" y2="269" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="940" y1="257" x2="940" y2="232" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1003" y1="232" x2="940" y2="232" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="740" y1="256" x2="740" y2="226" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="768" y1="263" x2="768" y2="231" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="783" y1="264" x2="751" y2="264" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="685" y1="234" x2="557" y2="234" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="558" y1="257" x2="558" y2="235" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="585" y1="257" x2="585" y2="235" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="636" y1="257" x2="636" y2="235" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="609" y1="257" x2="609" y2="235" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="684" y1="234" x2="684" y2="257" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="662" y1="257" x2="662" y2="235" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="391" y1="208" x2="391" y2="238" fill="#0075BD" stroke="#0075BD" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="530" y1="245" x2="530" y2="275" fill="#0075BD" stroke="#0075BD" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="226" y1="361" x2="71" y2="361" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="227" y1="439" x2="227" y2="361" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="194" y1="439" x2="194" y2="361" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="194" y1="440" x2="327" y2="440" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="604" y1="542" x2="604" y2="306" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="605" y1="541" x2="134" y2="541" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="134" y1="555" x2="134" y2="542" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="125" y1="568" x2="75" y2="568" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="228" y1="510" x2="64" y2="510" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="227" y1="509" x2="227" y2="576" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="193" y1="509" x2="193" y2="576" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="194" y1="576" x2="329" y2="576" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="203" y1="649" x2="203" y2="716" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="232" y1="649" x2="232" y2="716" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="232" y1="650" x2="68" y2="650" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="204" y1="717" x2="339" y2="717" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="128" y1="698" x2="128" y2="685" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="128" y1="684" x2="651" y2="684" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="119" y1="711" x2="69" y2="711" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="652" y1="305" x2="652" y2="686" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="134" y1="397" x2="556" y2="397" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="133" y1="410" x2="133" y2="397" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="125" y1="420" x2="75" y2="420" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="556" y1="305" x2="556" y2="397" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="702" y1="724" x2="702" y2="283" fill="#FF8284" stroke="#FF8284" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="999" y1="722" x2="703" y2="722" fill="#FF8284" stroke="#FF8284" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="714" y1="369" x2="714" y2="280" fill="#FF8284" stroke="#FF8284" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="714" y1="369" x2="756" y2="369" fill="#FF8284" stroke="#FF8284" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="737" y1="387" x2="737" y2="708" fill="#FF8284" stroke="#FF8284" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="738" y1="388" x2="771" y2="388" fill="#FF8284" stroke="#FF8284" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="738" y1="706" x2="1004" y2="706" fill="#FF8284" stroke="#FF8284" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="742" y1="335" x2="742" y2="359" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="794" y1="333" x2="794" y2="357" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="743" y1="359" x2="794" y2="359" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="771" y1="359" x2="771" y2="393" fill="#FF8284" stroke="#FF8284" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="758" y1="368" x2="758" y2="393" fill="#FF8284" stroke="#FF8284" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="780" y1="367" x2="780" y2="392" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="781" y1="368" x2="843" y2="368" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="843" y1="367" x2="843" y2="438" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="773" y1="434" x2="773" y2="456" fill="#007D7B" stroke="#007D7B" stroke-width="3.00"/>
+<line shape-type="limitline" x1="797" y1="476" x2="833" y2="476" fill="#007D7B" stroke="#007D7B" stroke-width="3.00"/>
+<line shape-type="limitline" x1="833" y1="476" x2="833" y2="523" fill="#007D7B" stroke="#007D7B" stroke-width="3.00"/>
+<line shape-type="limitline" x1="844" y1="438" x2="868" y2="438" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="834" y1="523" x2="883" y2="523" fill="#007D7B" stroke="#007D7B" stroke-width="3.00"/>
+<line shape-type="limitline" x1="873" y1="358" x2="873" y2="461" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="884" y1="495" x2="884" y2="523" fill="#007D7B" stroke="#007D7B" stroke-width="3.00"/>
+<line shape-type="limitline" x1="875" y1="496" x2="895" y2="496" fill="#007D7B" stroke="#007D7B" stroke-width="3.00"/>
+<line shape-type="limitline" x1="873" y1="358" x2="940" y2="358" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="879" y1="357" x2="879" y2="447" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="879" y1="447" x2="1020" y2="447" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="970" y1="366" x2="1030" y2="366" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="970" y1="366" x2="970" y2="399" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="939" y1="357" x2="939" y2="414" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="940" y1="415" x2="952" y2="415" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="882" y1="438" x2="908" y2="438" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="908" y1="421" x2="908" y2="438" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="887" y1="588" x2="887" y2="610" fill="#FF8284" stroke="#FF8284" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="900" y1="631" x2="1000" y2="631" fill="#FF8284" stroke="#FF8284" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="858" y1="323" x2="858" y2="292" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1011" y1="323" x2="858" y2="323" fill="#FF8284" stroke="#FF8284" stroke-width="3.00"/>
+<line shape-type="limitline" x1="958" y1="373" x2="958" y2="350" fill="#00FFFF" stroke="#000000" stroke-width="3.00" stroke-dasharray="5 10"/>
+<line shape-type="limitline" x1="958" y1="373" x2="939" y2="373" fill="#00FFFF" stroke="#000000" stroke-width="3.00" stroke-dasharray="5 10"/>
+<rect shape-type="rectangle" x="865" y="606" width="8" height="42" fill="none" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="roundRectangle" rx="20" ry="20" x="878" y="611" width="22" height="37" fill="none" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="864" y="651" width="47" height="8" fill="none" stroke="#FFFFFF" stroke-width="2.00"/>
+<ellipse shape-type="ellipse" cx="875" cy="664" rx="6" ry="6" fill="none" stroke="#FFFFFF" stroke-width="2.00"/>
+<ellipse shape-type="ellipse" cx="900" cy="664" rx="6" ry="6" fill="none" stroke="#FFFFFF" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="35" y="86" width="33" height="7" fill="url(#lgradient102)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="41" y="81" width="23" height="15" fill="url(#lgradient103)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="68" y="77" width="11" height="24" fill="url(#lgradient104)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="78" y="84" width="181" height="12" fill="url(#lgradient105)" stroke="#C0C0C0" stroke-width="2.00"/>
+<line shape-type="line" x1="92" y1="86" x2="80" y2="94" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="91" y1="86" x2="103" y2="94" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="116" y1="85" x2="104" y2="93" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="115" y1="85" x2="127" y2="93" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="141" y1="85" x2="129" y2="93" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="140" y1="85" x2="152" y2="93" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="167" y1="85" x2="155" y2="93" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="166" y1="85" x2="178" y2="93" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="191" y1="85" x2="179" y2="93" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="190" y1="85" x2="202" y2="93" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="216" y1="85" x2="204" y2="93" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="215" y1="85" x2="227" y2="93" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="241" y1="85" x2="229" y2="93" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="240" y1="85" x2="252" y2="93" fill="#FFFFFF" stroke="#636563" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="184" y="200" width="33" height="7" fill="url(#lgradient120)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="190" y="195" width="23" height="15" fill="url(#lgradient121)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="217" y="192" width="11" height="24" fill="url(#lgradient122)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="227" y="198" width="181" height="12" fill="url(#lgradient123)" stroke="#C0C0C0" stroke-width="2.00"/>
+<line shape-type="line" x1="241" y1="200" x2="229" y2="208" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="240" y1="200" x2="252" y2="208" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="265" y1="199" x2="253" y2="207" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="264" y1="199" x2="276" y2="207" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="290" y1="199" x2="278" y2="207" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="289" y1="199" x2="301" y2="207" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="316" y1="199" x2="304" y2="207" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="315" y1="199" x2="327" y2="207" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="340" y1="199" x2="328" y2="207" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="339" y1="199" x2="351" y2="207" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="365" y1="199" x2="353" y2="207" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="364" y1="199" x2="376" y2="207" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="390" y1="199" x2="378" y2="207" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="389" y1="199" x2="401" y2="207" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="313" y="241" width="33" height="7" fill="url(#lgradient138)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="319" y="236" width="23" height="15" fill="url(#lgradient139)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="346" y="232" width="11" height="24" fill="url(#lgradient140)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="356" y="239" width="181" height="12" fill="url(#lgradient141)" stroke="#C0C0C0" stroke-width="2.00"/>
+<line shape-type="line" x1="370" y1="241" x2="358" y2="249" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="369" y1="241" x2="381" y2="249" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="394" y1="240" x2="382" y2="248" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="393" y1="240" x2="405" y2="248" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="419" y1="240" x2="407" y2="248" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="418" y1="240" x2="430" y2="248" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="445" y1="240" x2="433" y2="248" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="444" y1="240" x2="456" y2="248" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="469" y1="240" x2="457" y2="248" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="468" y1="240" x2="480" y2="248" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="494" y1="240" x2="482" y2="248" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="493" y1="240" x2="505" y2="248" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="519" y1="240" x2="507" y2="248" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<line shape-type="line" x1="518" y1="240" x2="530" y2="248" fill="#00FFFF" stroke="#636563" stroke-width="3.00"/>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="240,146 240,112 223,121 223,137 240,146" fill="url(#lgradient156_0)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="297,146 297,112 314,121 314,137 297,146" fill="url(#lgradient156_1)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="240" y="112" width="58" height="36" fill="url(#lgradient156_2)" stroke="#C0C0C0" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="186,416 186,382 169,391 169,407 186,416" fill="url(#lgradient157_0)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="242,416 242,382 260,391 260,407 242,416" fill="url(#lgradient157_1)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="186" y="382" width="58" height="35" fill="url(#lgradient157_2)" stroke="#C0C0C0" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="186,558 186,524 169,533 169,549 186,558" fill="url(#lgradient158_0)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="242,558 242,524 260,533 260,549 242,558" fill="url(#lgradient158_1)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="186" y="524" width="58" height="35" fill="url(#lgradient158_2)" stroke="#C0C0C0" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="191,700 191,668 175,676 175,692 191,700" fill="url(#lgradient159_0)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="248,700 248,668 265,676 265,692 248,700" fill="url(#lgradient159_1)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="191" y="668" width="58" height="33" fill="url(#lgradient159_2)" stroke="#C0C0C0" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="877,274 842,274 852,292 868,292 877,274" fill="url(#lgradient160_0)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="842" y="213" width="37" height="62" fill="url(#lgradient160_1)" stroke="#C0C0C0" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="890" y="343" width="36" height="61" fill="url(#lgradient161_0)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="925,404 890,404 900,422 916,422 925,404" fill="url(#lgradient161_1)" stroke="#C0C0C0" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="788,414 753,414 763,433 779,433 788,414" fill="url(#lgradient162_0)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="753" y="393" width="36" height="24" fill="url(#lgradient162_1)" stroke="#C0C0C0" stroke-width="2.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="781,494 781,456 800,466 800,484 781,494" fill="url(#lgradient163_0)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="760" y="456" width="24" height="38" fill="url(#lgradient163_1)" stroke="#C0C0C0" stroke-width="2.00"/>
+</g>
+<polygon shape-type="trapezium" points="751,277 728,277 735,309 745,309 751,277" fill="url(#lgradient164)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="804,275 781,275 788,309 798,309 804,275" fill="url(#lgradient165)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="727" y="256" width="26" height="22" fill="url(#lgradient166)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="781" y="255" width="25" height="22" fill="url(#lgradient167)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="748,322 732,322 736,334 744,334 748,322" fill="url(#lgradient168)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="732" y="309" width="17" height="14" fill="url(#lgradient169)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="801,322 785,322 789,334 797,334 801,322" fill="url(#lgradient170)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="785" y="309" width="17" height="14" fill="url(#lgradient171)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="916,502 892,502 898,529 910,529 916,502" fill="url(#lgradient172)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="891" y="487" width="27" height="16" fill="url(#lgradient173)" stroke="#808080" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="913,540 896,540 901,549 909,549 913,540" fill="url(#lgradient174)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="896" y="529" width="18" height="12" fill="url(#lgradient175)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="873,501 849,501 855,528 867,528 873,501" fill="url(#lgradient176)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="848" y="487" width="27" height="16" fill="url(#lgradient177)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="870,539 853,539 858,548 866,548 870,539" fill="url(#lgradient178)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="853" y="528" width="18" height="12" fill="url(#lgradient179)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="913,565 851,565 867,588 897,588 913,565" fill="url(#lgradient180)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="851" y="547" width="64" height="19" fill="url(#lgradient181)" stroke="#C0C0C0" stroke-width="2.00"/>
+<line shape-type="limitline" x1="869" y1="488" x2="869" y2="475" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="898" y1="488" x2="898" y2="475" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="912" y1="488" x2="912" y2="475" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<line shape-type="limitline" x1="853" y1="488" x2="853" y2="475" fill="#00FFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="117,73 105,73 108,83 114,83 117,73" fill="url(#lgradient186)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="396,227 384,227 387,239 393,239 396,227" fill="url(#lgradient187)" stroke="#C0C0C0" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="901,442 901,433 892,437 892,437 901,442" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<g shape-type="group">
+<rect shape-type="rectangle" x="130" y="404" width="4" height="20" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="130" y="433" width="5" height="7" fill="#808080" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="111" y="433" width="5" height="7" fill="#808080" stroke="#000000" stroke-width="2.00"/>
+<ellipse shape-type="ellipse" cx="123" cy="422" rx="16" ry="16" fill="url(#rgradient189_3)" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="134" y="551" width="4" height="19" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="134" y="580" width="5" height="6" fill="#808080" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="115" y="580" width="6" height="6" fill="#808080" stroke="#000000" stroke-width="2.00"/>
+<ellipse shape-type="ellipse" cx="128" cy="569" rx="16" ry="15" fill="url(#rgradient190_3)" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="127" y="693" width="6" height="19" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="127" y="722" width="6" height="7" fill="#808080" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="108" y="722" width="7" height="7" fill="#808080" stroke="#000000" stroke-width="2.00"/>
+<ellipse shape-type="ellipse" cx="122" cy="711" rx="15" ry="15" fill="url(#rgradient191_3)" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="938" y="255" width="4" height="19" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="938" y="283" width="6" height="7" fill="#808080" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="919" y="283" width="6" height="7" fill="#808080" stroke="#000000" stroke-width="2.00"/>
+<ellipse shape-type="ellipse" cx="931" cy="273" rx="16" ry="15" fill="url(#rgradient192_3)" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="967" y="402" width="4" height="19" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="967" y="431" width="5" height="6" fill="#808080" stroke="#000000" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="948" y="431" width="5" height="6" fill="#808080" stroke="#000000" stroke-width="2.00"/>
+<ellipse shape-type="ellipse" cx="960" cy="420" rx="16" ry="15" fill="url(#rgradient193_3)" stroke="#000000" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="trapezium" points="318,181 282,181 291,199 309,199 318,181" fill="url(#lgradient194_0)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="282" y="159" width="37" height="24" fill="url(#lgradient194_1)" stroke="#C0C0C0" stroke-width="2.00"/>
+</g>
+<line shape-type="limitline" x1="685" y1="143" x2="685" y2="175" fill="#00FFFF" stroke="#000000" stroke-width="3.00" stroke-dasharray="5 10"/>
+<polygon shape-type="trapezium" points="848,710 848,701 839,705 839,705 848,710" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="93,365 93,356 102,360 102,360 93,365" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="146,401 146,392 155,396 155,396 146,401" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="272,444 272,435 281,439 281,439 272,444" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="87,514 87,505 96,509 96,509 87,514" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="274,581 274,572 283,576 283,576 274,581" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="283,546 283,537 292,541 292,541 283,546" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="145,545 145,536 154,540 154,540 145,545" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="97,655 97,646 106,650 106,650 97,655" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="146,689 146,680 155,684 155,684 146,689" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="267,722 267,713 276,717 276,717 267,722" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="838,727 838,718 847,722 847,722 838,727" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="935,635 935,626 944,630 944,630 935,635" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="809,482 809,471 820,476 820,476 809,482" fill="#007D7B" stroke="#007D7B" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="985,372 985,361 996,366 996,366 985,372" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="971,236 971,225 982,230 982,230 971,236" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="782,232 782,221 793,226 793,226 782,232" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="69,57 69,46 80,51 80,51 69,57" fill="#0075BD" stroke="#0075BD" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="775,365 766,365 771,373 771,373 775,365" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="777,444 768,444 773,452 773,452 777,444" fill="#007D7B" stroke="#007D7B" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="891,593 882,593 887,601 887,601 891,593" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="897,241 888,241 893,249 893,249 897,241" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="942,383 933,383 938,391 938,391 942,383" fill="#FF8284" stroke="#FF8284" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="534,256 525,256 530,264 530,264 534,256" fill="#0075BD" stroke="#0075BD" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="395,214 386,214 391,222 391,222 395,214" fill="#0075BD" stroke="#0075BD" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="304,148 295,148 300,156 300,156 304,148" fill="#0075BD" stroke="#0075BD" stroke-width="2.00"/>
+<polygon shape-type="trapezium" points="250,99 241,99 246,107 246,107 250,99" fill="#0075BD" stroke="#0075BD" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="650" y="124" width="50" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="699" y="124" width="31" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="701" y="138">DEGC</text>
+<rect shape-type="rectangle" x="934" y="331" width="50" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="983" y="331" width="31" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="988" y="345">KPa</text>
+<rect shape-type="rectangle" x="442" y="211" width="50" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="491" y="211" width="31" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFF00" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="500" y="225">BP</text>
+<rect shape-type="rectangle" x="327" y="149" width="50" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="376" y="149" width="34" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFF00" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="388" y="164">BP</text>
+<rect shape-type="rectangle" x="327" y="96" width="50" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="376" y="96" width="34" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="388" y="112">A</text>
+<rect shape-type="rectangle" x="157" y="239" width="50" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="206" y="239" width="34" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="219" y="254">A</text>
+<rect shape-type="rectangle" x="524" y="274" width="182" height="12" fill="url(#lgradient241)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="524" y="272" width="15" height="8" fill="url(#lgradient242)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="707" y="268" width="13" height="16" fill="url(#lgradient243)" stroke="#C0C0C0" stroke-width="2.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="20" y="56">CBS</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="36" y="142">CA</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="148" y="106">L38208A</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="255" y="226">L38212A</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="393" y="273">X38209A</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="11" y="363">低压蒸汽</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="334" y="440">冷凝水</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="333" y="580">冷凝水</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="9" y="514">低压蒸汽</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="7" y="654">低压蒸汽</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="340" y="721">冷凝水</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="103" y="452">K38202A</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="101" y="599">K38205A</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="143" y="728">K38206A</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="744" y="345">X38210A</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="911" y="305">X38203A</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1005" y="234">尾气</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1031" y="370">尾气</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1027" y="452">PG</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="983" y="422">K38204</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="989" y="625">粉状CBS成品</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1009" y="709">大粒CBS</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="989" y="736">粉状CBS成品</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="245" y="134">X38208A</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="276" y="178">V38207A</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="585" y="273">E38208A</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="839" y="248">X38211A</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="887" y="379">X38213</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="751" y="408">V38206</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="760" y="480">X38212</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="861" y="569">X38214</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="189" y="397">E38207A</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="190" y="541">E38209A</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="197" y="682">E38210A</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="207" y="411">1#</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="206" y="554">2#</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="211" y="697">3#</text>
+<polygon shape-type="trapezium" points="106,142 106,133 115,137 115,137 106,142" fill="#9C9A9C" stroke="#9C9A9C" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="541" y="282" width="154" height="24" fill="url(#lgradient282)" stroke="#C0C0C0" stroke-width="2.00"/>
+<rect shape-type="rectangle" x="1" y="741" width="1063" height="59" fill="url(#lgradient283)" stroke="#636563" stroke-width="1.00"/>
+<a xlink:href="GT3800.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="1" y="741" width="161" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="82" y="762" shape-type="buttontext">CBS可燃,有毒气体探头</text>
+</g>
+</a>
+<a xlink:href="M3811.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="107" y="771" width="73" height="28" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="144" y="791" shape-type="buttontext">公用工程</text>
+</g>
+</a>
+<a xlink:href="M3802.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="253" y="741" width="75" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="291" y="762" shape-type="buttontext">NEX配制</text>
+</g>
+</a>
+<a xlink:href="M3801.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="171" y="741" width="73" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="208" y="762" shape-type="buttontext">CAS配制</text>
+</g>
+</a>
+<a xlink:href="M3803.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="339" y="741" width="113" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="396" y="762" shape-type="buttontext">高压反应A,B系列</text>
+</g>
+</a>
+<a xlink:href="M3804.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="463" y="741" width="111" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="519" y="762" shape-type="buttontext">蒸汽汽提A,B系列</text>
+</g>
+</a>
+<a xlink:href="M3805.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="586" y="741" width="133" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="652" y="762" shape-type="buttontext">造粒及酸性气体处理</text>
+</g>
+</a>
+<a xlink:href="M3806.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="727" y="741" width="115" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="784" y="762" shape-type="buttontext">苯胺水吸滤及回收</text>
+</g>
+</a>
+<a xlink:href="M3807.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="849" y="741" width="81" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="889" y="762" shape-type="buttontext">成盐</text>
+</g>
+</a>
+<a xlink:href="M3808.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="940" y="741" width="119" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="999" y="762" shape-type="buttontext">粗M工序公用管网</text>
+</g>
+</a>
+<a xlink:href="M3810.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="1" y="771" width="94" height="28" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="48" y="791" shape-type="buttontext">氧化工序</text>
+</g>
+</a>
+<a xlink:href="M3812.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="191" y="771" width="72" height="28" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="227" y="791" shape-type="buttontext">压滤系统</text>
+</g>
+</a>
+<a xlink:href="M3813.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="275" y="771" width="72" height="28" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="311" y="791" shape-type="buttontext">母液罐区</text>
+</g>
+</a>
+<a xlink:href="M3814.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="362" y="771" width="73" height="28" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="399" y="791" shape-type="buttontext">蒸馏系统</text>
+</g>
+</a>
+<a xlink:href="M3815.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="448" y="771" width="83" height="28" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="490" y="791" shape-type="buttontext">干燥系统</text>
+</g>
+</a>
+<a xlink:href="M3817.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="543" y="771" width="85" height="28" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="585" y="791" shape-type="buttontext">流化床（B）</text>
+</g>
+</a>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="XHB_CJJ_TE38216" font-size="12.500000" x="654" y="139">XXXX</text>
+<polygon shape-type="trapezium" points="919,477 848,477 867,462 901,462 919,477" fill="url(#lgradient301)" stroke="#C0C0C0" stroke-width="2.00"/>
+<a xlink:href="\橡胶化学品部\CJJ\CJJ_ML.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="964" y="2" width="97" height="32" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#800000" font-size="13.500000" font-weight="bold" x="1012" y="24" shape-type="buttontext">返回上一级</text>
+</g>
+</a>
+</svg>

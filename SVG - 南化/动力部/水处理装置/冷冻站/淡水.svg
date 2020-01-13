@@ -1,0 +1,1023 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/javascript'?>
+<!--Draw SVG: 2019-11-25 09:41:05 47-Monday-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="background-color:#000000" width="1422" height="800" viewbox="0 0 1422 800">
+<defs>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient124">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient125">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient126">
+<stop offset="0" stop-color="#2C2C2C" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#2C2C2C" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient137_1_1">
+<stop offset="0" stop-color="#767676" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#E8E8E8" stop-opacity="1"/>
+<stop offset="1" stop-color="#767676" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient137_1_6">
+<stop offset="0" stop-color="#767676" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#E8E8E8" stop-opacity="1"/>
+<stop offset="1" stop-color="#767676" stop-opacity="1"/>
+</linearGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient137_1_13_0">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#6D6D6D" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient137_1_13_1">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#838383" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient137_1_13_2">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#A5A5A5" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient137_1_13_3">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#C2C2C2" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient137_1_13_4">
+<stop offset="0%" stop-color="#808080" stop-opacity="1"/>
+<stop offset="100%" stop-color="#4F4F4F" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient137_1_13_5">
+<stop offset="0%" stop-color="#C0C0C0" stop-opacity="1"/>
+<stop offset="100%" stop-color="#9B9B9B" stop-opacity="1"/>
+</radialGradient>
+<linearGradient x1="0%" y1="60%" x2="100%" y2="40%" id="lgradient137_1_14">
+<stop offset="0" stop-color="#575757" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#575757" stop-opacity="1"/></linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient144_1_1">
+<stop offset="0" stop-color="#767676" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#E8E8E8" stop-opacity="1"/>
+<stop offset="1" stop-color="#767676" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient144_1_6">
+<stop offset="0" stop-color="#767676" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#E8E8E8" stop-opacity="1"/>
+<stop offset="1" stop-color="#767676" stop-opacity="1"/>
+</linearGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient144_1_13_0">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#6D6D6D" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient144_1_13_1">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#838383" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient144_1_13_2">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#A5A5A5" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient144_1_13_3">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#C2C2C2" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient144_1_13_4">
+<stop offset="0%" stop-color="#808080" stop-opacity="1"/>
+<stop offset="100%" stop-color="#4F4F4F" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient144_1_13_5">
+<stop offset="0%" stop-color="#C0C0C0" stop-opacity="1"/>
+<stop offset="100%" stop-color="#9B9B9B" stop-opacity="1"/>
+</radialGradient>
+<linearGradient x1="0%" y1="60%" x2="100%" y2="40%" id="lgradient144_1_14">
+<stop offset="0" stop-color="#575757" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#575757" stop-opacity="1"/></linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient145_1_1">
+<stop offset="0" stop-color="#767676" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#E8E8E8" stop-opacity="1"/>
+<stop offset="1" stop-color="#767676" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient145_1_6">
+<stop offset="0" stop-color="#767676" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#E8E8E8" stop-opacity="1"/>
+<stop offset="1" stop-color="#767676" stop-opacity="1"/>
+</linearGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient145_1_13_0">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#6D6D6D" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient145_1_13_1">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#838383" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient145_1_13_2">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#A5A5A5" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient145_1_13_3">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#C2C2C2" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient145_1_13_4">
+<stop offset="0%" stop-color="#808080" stop-opacity="1"/>
+<stop offset="100%" stop-color="#4F4F4F" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient145_1_13_5">
+<stop offset="0%" stop-color="#C0C0C0" stop-opacity="1"/>
+<stop offset="100%" stop-color="#9B9B9B" stop-opacity="1"/>
+</radialGradient>
+<linearGradient x1="0%" y1="60%" x2="100%" y2="40%" id="lgradient145_1_14">
+<stop offset="0" stop-color="#575757" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#575757" stop-opacity="1"/></linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient147_1_1">
+<stop offset="0" stop-color="#767676" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#E8E8E8" stop-opacity="1"/>
+<stop offset="1" stop-color="#767676" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient147_1_6">
+<stop offset="0" stop-color="#767676" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#E8E8E8" stop-opacity="1"/>
+<stop offset="1" stop-color="#767676" stop-opacity="1"/>
+</linearGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient147_1_13_0">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#6D6D6D" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient147_1_13_1">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#838383" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient147_1_13_2">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#A5A5A5" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient147_1_13_3">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#C2C2C2" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient147_1_13_4">
+<stop offset="0%" stop-color="#808080" stop-opacity="1"/>
+<stop offset="100%" stop-color="#4F4F4F" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient147_1_13_5">
+<stop offset="0%" stop-color="#C0C0C0" stop-opacity="1"/>
+<stop offset="100%" stop-color="#9B9B9B" stop-opacity="1"/>
+</radialGradient>
+<linearGradient x1="0%" y1="60%" x2="100%" y2="40%" id="lgradient147_1_14">
+<stop offset="0" stop-color="#575757" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#575757" stop-opacity="1"/></linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient332_1_1">
+<stop offset="0" stop-color="#767676" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#E8E8E8" stop-opacity="1"/>
+<stop offset="1" stop-color="#767676" stop-opacity="1"/>
+</linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient332_1_6">
+<stop offset="0" stop-color="#767676" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#E8E8E8" stop-opacity="1"/>
+<stop offset="1" stop-color="#767676" stop-opacity="1"/>
+</linearGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient332_1_13_0">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#6D6D6D" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient332_1_13_1">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#838383" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient332_1_13_2">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#A5A5A5" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient332_1_13_3">
+<stop offset="0%" stop-color="#D5D5D5" stop-opacity="1"/>
+<stop offset="100%" stop-color="#C2C2C2" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient332_1_13_4">
+<stop offset="0%" stop-color="#808080" stop-opacity="1"/>
+<stop offset="100%" stop-color="#4F4F4F" stop-opacity="1"/>
+</radialGradient>
+<radialGradient cx="50.000000%" cy="50.000000%" r="50.000000%" fx="50.000000%" fy="50.000000%" id="rgradient332_1_13_5">
+<stop offset="0%" stop-color="#C0C0C0" stop-opacity="1"/>
+<stop offset="100%" stop-color="#9B9B9B" stop-opacity="1"/>
+</radialGradient>
+<linearGradient x1="0%" y1="60%" x2="100%" y2="40%" id="lgradient332_1_14">
+<stop offset="0" stop-color="#575757" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#FFFFFF" stop-opacity="1"/>
+<stop offset="1" stop-color="#575757" stop-opacity="1"/></linearGradient>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient433">
+<stop offset="0" stop-color="#111111" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#636563" stop-opacity="1"/>
+<stop offset="1" stop-color="#111111" stop-opacity="1"/>
+</linearGradient>
+</defs>
+<g shape-type="group">
+<rect shape-type="rectangle" x="635" y="170" width="55" height="25" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="691" y="170" width="35" height="25" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="635" y="197" width="55" height="24" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="691" y="197" width="35" height="24" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="635" y="224" width="55" height="25" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="691" y="224" width="35" height="25" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="635" y="251" width="55" height="24" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="691" y="251" width="35" height="24" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="635" y="278" width="55" height="24" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="691" y="278" width="35" height="24" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="635" y="305" width="55" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="691" y="305" width="35" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="635" y="331" width="55" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="691" y="331" width="35" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="634" y="359" width="56" height="25" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="691" y="359" width="35" height="25" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="635" y="388" width="55" height="25" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="691" y="388" width="35" height="25" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="635" y="417" width="55" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="691" y="417" width="35" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="635" y="444" width="55" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="691" y="444" width="35" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<rect shape-type="rectangle" x="635" y="469" width="55" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="691" y="469" width="35" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+</g>
+<text font-family="宋体" text-anchor="start" fill="#00FF00" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="699" y="484">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF00" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="699" y="459">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF00" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="699" y="433">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF00" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="699" y="405">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF00" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="700" y="376">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF00" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="700" y="348">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF00" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="700" y="320">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF00" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="699" y="295">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF00" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="703" y="268">H</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF00" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="703" y="239">A</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI15" font-size="14.000000" x="641" y="186">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI16" font-size="12.500000" x="641" y="212">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI26" font-size="14.000000" x="641" y="483">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI25" font-size="13.250000" x="641" y="459">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI24" font-size="14.750000" x="641" y="432">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI23" font-size="14.000000" x="641" y="406">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI22" font-size="12.500000" x="641" y="376">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI21" font-size="13.250000" x="641" y="348">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI17" font-size="14.000000" x="641" y="240">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI18" font-size="14.000000" x="641" y="267">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI20" font-size="14.000000" x="641" y="321">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI19" font-size="14.000000" x="641" y="294">XXXX</text>
+<rect shape-type="rectangle" x="1080" y="466" width="57" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1079" y="438" width="57" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1080" y="411" width="57" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1080" y="383" width="57" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1080" y="357" width="57" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1080" y="329" width="57" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1081" y="303" width="57" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1081" y="275" width="57" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1081" y="247" width="57" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1081" y="220" width="57" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1082" y="193" width="57" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI26" font-size="14.000000" x="1085" y="480">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI25" font-size="14.000000" x="1085" y="455">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI24" font-size="14.750000" x="1085" y="427">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI23" font-size="14.750000" x="1085" y="399">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI22" font-size="14.750000" x="1085" y="371">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI21" font-size="14.000000" x="1085" y="344">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI20" font-size="14.000000" x="1085" y="316">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI19" font-size="14.000000" x="1085" y="291">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI18" font-size="14.000000" x="1085" y="263">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI17" font-size="13.250000" x="1085" y="234">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI16" font-size="13.250000" x="1085" y="208">XXXX</text>
+<rect shape-type="rectangle" x="1082" y="166" width="57" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1388" y1="93" x2="255" y2="94" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="7.250000" x="101" y="500">HV-4</text>
+<line shape-type="limitline" x1="1322" y1="166" x2="1321" y2="636" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1224" y="193" width="25" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="8.750000" font-weight="bold" x="1232" y="206">A</text>
+<rect shape-type="rectangle" x="1188" y="193" width="36" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="441" y="168" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="168" width="46" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1232" y="69" width="47" height="22" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.750000" font-weight="bold" x="1238" y="86">m3/h</text>
+<rect shape-type="rectangle" x="1167" y="69" width="64" height="22" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="319" y="181">吸气压力</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="444" y="179">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="373" y="140">31.5机组1#通讯数据</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="925" y="133">31.5机组2#通讯数据</text>
+<rect shape-type="rectangle" x="1132" y="69" width="35" height="22" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1064" y="69" width="67" height="22" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="1142" y="84">℃</text>
+<rect shape-type="rectangle" x="1222" y="364" width="27" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1230" y="378">A</text>
+<rect shape-type="rectangle" x="1184" y="364" width="36" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1372" y="341" width="34" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1330" y="341" width="40" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1379" y="355">℃</text>
+<rect shape-type="rectangle" x="1189" y="239" width="61" height="47" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1188" y="308" width="62" height="46" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="441" y="196" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="196" width="46" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="316" y="209">排气压力</text>
+<rect shape-type="rectangle" x="441" y="224" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="224" width="46" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="316" y="238">喷油压力</text>
+<line shape-type="limitline" x1="109" y1="249" x2="281" y2="250" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="132" y="268" width="94" height="26" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="143" y="286">防老剂RD</text>
+<rect shape-type="rectangle" x="131" y="317" width="94" height="26" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="135" y="333">防老剂4020</text>
+<rect shape-type="rectangle" x="441" y="250" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="250" width="46" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="287" y="265">精过滤前压力</text>
+<rect shape-type="rectangle" x="441" y="278" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="278" width="46" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="316" y="293">吸气温度</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="571" y="181">油差压</text>
+<rect shape-type="rectangle" x="441" y="306" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="306" width="46" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="314" y="321">排气温度</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="537" y="237">主电机电流</text>
+<rect shape-type="rectangle" x="441" y="333" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="333" width="46" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="315" y="348">喷油温度</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="554" y="264">运行时间</text>
+<rect shape-type="rectangle" x="441" y="361" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="361" width="46" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="302" y="375">油加热温度</text>
+<rect shape-type="rectangle" x="441" y="389" width="34" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="389" width="46" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="289" y="404">冷媒出口温度</text>
+<rect shape-type="rectangle" x="441" y="416" width="34" height="22" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="416" width="46" height="22" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="345" y="430">能级</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="449" y="428">%</text>
+<rect shape-type="rectangle" x="441" y="471" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="471" width="46" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="312" y="486">蒸发温度</text>
+<line shape-type="limitline" x1="106" y1="250" x2="105" y2="180" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="57" y="95" width="70" height="94" fill="url(#lgradient124)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="49" y="94" width="87" height="8" fill="url(#lgradient125)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="49" y="185" width="87" height="11" fill="url(#lgradient126)" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="11.750000" font-weight="bold" x="58" y="163">膨胀水箱</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="67" y="141">V42101</text>
+<line shape-type="limitline" x1="20" y1="267" x2="19" y2="114" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="58" y1="114" x2="22" y2="115" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="57" y1="216" x2="20" y2="217" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="58" y1="196" x2="57" y2="216" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="74" y="71" width="39" height="22" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="84" y="84">m</text>
+<rect shape-type="rectangle" x="31" y="71" width="41" height="22" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1323" y1="500" x2="1149" y2="501" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<g shape-type="group">
+<polygon shape-type="parallel" points="1156,533 1136,533 1136,540 1156,540 1156,533" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="1149" cy="526" rx="18" ry="12" fill="none" stroke="#000000" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1143" y="508" width="12" height="3" fill="url(#lgradient137_1_1)" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="1154" y1="510" x2="1153" y2="508" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1143" y1="510" x2="1142" y2="508" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="line" x1="1146" y1="515" x2="1143" y2="510" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="line" x1="1163" y1="518" x2="1154" y2="510" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1140" y="507" width="17" height="1" fill="url(#lgradient137_1_6)" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="1157" y1="507" x2="1141" y2="508" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1157" y1="508" x2="1141" y2="509" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1157" y1="508" x2="1156" y2="506" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1141" y1="508" x2="1140" y2="507" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1143" y1="510" x2="1142" y2="508" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<path shape-type="pie" d="M 1172,502 A 0,0 0 1,0 1172,502 L 1172,502 z" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="1148" cy="526" rx="17" ry="11" fill="url(#rgradient137_1_13_0)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1148" cy="525" rx="16" ry="9" fill="url(#rgradient137_1_13_1)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1147" cy="525" rx="13" ry="8" fill="url(#rgradient137_1_13_2)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1147" cy="525" rx="11" ry="7" fill="url(#rgradient137_1_13_3)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1148" cy="525" rx="9" ry="6" fill="url(#rgradient137_1_13_4)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1148" cy="525" rx="6" ry="4" fill="url(#rgradient137_1_13_5)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1146" y="524" width="3" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1147" y="522" width="2" height="4" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="1152" y1="526" x2="1144" y2="527" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1164" y1="525" x2="1163" y2="526" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1155" y="524" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1153" y="528" width="1" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1148" y="529" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1144" y="529" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1154" y="522" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1141" y="526" width="1" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1140" y="524" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1142" y="521" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1146" y="520" width="1" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1150" y="520" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+</g>
+<polygon shape-type="parallel" points="1153,520 1164,520 1155,511 1144,511 1153,520" fill="url(#lgradient137_1_14)" stroke="#000000" stroke-width="1.00"/>
+</g>
+<polygon shape-type="polygon" points="1155,536 1155,536 1155,536 1155,536 1155,536 1155,536 1156,536 1156,536 1156,536 1157,536 1157,536 1157,536 1157,536 1157,536 1157,536 1157,536 1156,536 1154,537 1156,536 1156,536 1157,536 1157,536 1157,537 1157,537 1157,537 1158,538 1158,538 1158,538 1158,538 1159,538 1159,539 1159,539 1159,539 1159,539 1159,540 1160,540 1160,540 1160,540 1161,540 1161,541 1160,541 1160,541 1159,541 1159,541 1159,541 1159,541 1158,541 1158,541 1158,541 1157,541 1157,541 1157,541 1157,541 1156,541 1156,541 1156,541 1155,541 1155,541 1155,541 1155,541 1154,541 1154,541" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="1144" cy="537" rx="5" ry="5" fill="#B3B3B3" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1144" cy="536" rx="4" ry="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1142" y="534" width="2" height="1" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1142" y="536" width="2" height="3" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1145" y="534" width="1" height="1" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1145" y="536" width="2" height="3" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+</g>
+<ellipse shape-type="ellipse" cx="1144" cy="537" rx="5" ry="5" fill="none" stroke="#000000" stroke-width="3.00"/>
+</g>
+<line shape-type="limitline" x1="1165" y1="541" x2="1155" y2="542" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1155" y1="541" x2="1154" y2="538" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+</g>
+<line shape-type="limitline" x1="1150" y1="501" x2="1149" y2="519" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1150" y1="574" x2="1149" y2="557" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1326" y1="556" x2="1150" y2="557" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="1120" y="551">P42101C</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.750000" font-weight="bold" x="1124" y="612">P42102B</text>
+<line shape-type="limitline" x1="118" y1="585" x2="1141" y2="586" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<g shape-type="group">
+<polygon shape-type="parallel" points="1156,592 1136,592 1136,597 1156,597 1156,592" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="1149" cy="584" rx="18" ry="12" fill="none" stroke="#000000" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1143" y="567" width="12" height="2" fill="url(#lgradient144_1_1)" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="1154" y1="569" x2="1153" y2="567" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1143" y1="569" x2="1142" y2="567" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="line" x1="1146" y1="573" x2="1143" y2="569" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="line" x1="1163" y1="576" x2="1154" y2="569" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1140" y="566" width="17" height="1" fill="url(#lgradient144_1_6)" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="1157" y1="565" x2="1141" y2="566" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1157" y1="567" x2="1141" y2="568" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1157" y1="567" x2="1156" y2="565" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1141" y1="567" x2="1140" y2="565" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1143" y1="569" x2="1142" y2="567" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<path shape-type="pie" d="M 1172,560 A 0,0 0 1,0 1172,560 L 1172,560 z" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="1148" cy="583" rx="17" ry="11" fill="url(#rgradient144_1_13_0)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1148" cy="583" rx="16" ry="10" fill="url(#rgradient144_1_13_1)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1147" cy="583" rx="13" ry="9" fill="url(#rgradient144_1_13_2)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1147" cy="582" rx="11" ry="7" fill="url(#rgradient144_1_13_3)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1148" cy="582" rx="9" ry="6" fill="url(#rgradient144_1_13_4)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1148" cy="582" rx="6" ry="4" fill="url(#rgradient144_1_13_5)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1146" y="581" width="3" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1147" y="579" width="2" height="4" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="1152" y1="583" x2="1144" y2="584" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1164" y1="582" x2="1163" y2="583" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1155" y="581" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1153" y="585" width="1" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1148" y="586" width="2" height="3" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1144" y="586" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1154" y="579" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1141" y="583" width="1" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1140" y="581" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1142" y="578" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1146" y="577" width="1" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1150" y="577" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+</g>
+<polygon shape-type="parallel" points="1153,578 1164,578 1155,569 1144,569 1153,578" fill="url(#lgradient144_1_14)" stroke="#000000" stroke-width="1.00"/>
+</g>
+<polygon shape-type="polygon" points="1155,594 1155,594 1155,594 1155,594 1155,594 1155,594 1156,594 1156,594 1156,594 1157,594 1157,594 1157,594 1157,594 1157,594 1157,594 1157,594 1156,594 1154,595 1156,594 1156,594 1157,594 1157,594 1157,594 1157,594 1157,595 1158,595 1158,595 1158,595 1158,596 1159,596 1159,596 1159,596 1159,597 1159,597 1159,597 1160,597 1160,597 1160,597 1161,597 1161,598 1160,598 1160,598 1159,598 1159,598 1159,598 1159,598 1158,598 1158,598 1158,598 1157,598 1157,598 1157,598 1157,598 1156,598 1156,598 1156,598 1155,598 1155,598 1155,598 1155,598 1154,598 1154,598" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="1144" cy="594" rx="5" ry="4" fill="#B3B3B3" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1144" cy="594" rx="4" ry="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1142" y="592" width="2" height="1" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1142" y="594" width="2" height="2" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1145" y="592" width="1" height="1" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1145" y="594" width="2" height="2" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+</g>
+<ellipse shape-type="ellipse" cx="1144" cy="594" rx="5" ry="4" fill="none" stroke="#000000" stroke-width="3.00"/>
+</g>
+<line shape-type="limitline" x1="1165" y1="598" x2="1155" y2="599" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1155" y1="598" x2="1154" y2="595" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+</g>
+<g shape-type="group">
+<polygon shape-type="parallel" points="123,628 103,628 103,633 123,633 123,628" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="116" cy="620" rx="18" ry="12" fill="none" stroke="#000000" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="109" y="603" width="13" height="2" fill="url(#lgradient145_1_1)" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="122" y1="605" x2="121" y2="603" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="109" y1="605" x2="108" y2="603" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="line" x1="114" y1="609" x2="109" y2="605" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="line" x1="129" y1="613" x2="122" y2="605" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="107" y="602" width="18" height="1" fill="url(#lgradient145_1_6)" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="124" y1="601" x2="107" y2="602" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="124" y1="603" x2="107" y2="604" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="125" y1="603" x2="124" y2="601" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="107" y1="603" x2="106" y2="601" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="110" y1="605" x2="109" y2="603" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<path shape-type="pie" d="M 140,597 A 0,0 0 1,0 140,597 L 141,597 z" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="116" cy="619" rx="17" ry="11" fill="url(#rgradient145_1_13_0)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="115" cy="619" rx="16" ry="10" fill="url(#rgradient145_1_13_1)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="115" cy="619" rx="14" ry="9" fill="url(#rgradient145_1_13_2)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="115" cy="618" rx="12" ry="7" fill="url(#rgradient145_1_13_3)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="116" cy="619" rx="10" ry="6" fill="url(#rgradient145_1_13_4)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="115" cy="619" rx="7" ry="4" fill="url(#rgradient145_1_13_5)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="114" y="618" width="3" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="115" y="616" width="1" height="4" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="119" y1="620" x2="110" y2="621" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="131" y1="619" x2="130" y2="620" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="123" y="618" width="1" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="120" y="622" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="116" y="623" width="1" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="110" y="623" width="3" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="122" y="616" width="1" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="107" y="620" width="1" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="106" y="618" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="108" y="615" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="113" y="614" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="118" y="614" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+</g>
+<polygon shape-type="parallel" points="120,615 131,615 121,605 110,605 120,615" fill="url(#lgradient145_1_14)" stroke="#000000" stroke-width="1.00"/>
+</g>
+<polygon shape-type="polygon" points="124,630 124,630 124,630 124,630 124,630 124,630 125,630 125,630 125,630 126,630 126,630 126,630 126,630 126,630 126,630 126,630 125,630 122,631 125,630 125,630 126,630 126,630 126,630 126,630 126,631 127,631 127,631 127,631 127,632 128,632 128,632 128,632 128,633 128,633 128,633 129,633 129,633 129,633 129,633 129,634 129,634 129,634 128,634 128,634 128,634 128,634 127,634 127,634 127,634 126,634 126,634 126,634 126,634 125,634 125,634 125,634 124,634 124,634 124,634 124,634 123,634 123,634" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="112" cy="630" rx="6" ry="4" fill="#B3B3B3" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="111" cy="630" rx="5" ry="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="108" y="628" width="2" height="1" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="109" y="630" width="1" height="2" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="111" y="628" width="3" height="1" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="113" y="630" width="1" height="2" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+</g>
+<ellipse shape-type="ellipse" cx="112" cy="630" rx="6" ry="4" fill="none" stroke="#000000" stroke-width="3.00"/>
+</g>
+<line shape-type="limitline" x1="131" y1="634" x2="122" y2="635" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="123" y1="634" x2="122" y2="631" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+</g>
+<line shape-type="limitline" x1="122" y1="604" x2="121" y2="588" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<g shape-type="group">
+<polygon shape-type="parallel" points="186,628 167,628 167,633 186,633 186,628" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="180" cy="620" rx="18" ry="12" fill="none" stroke="#000000" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="173" y="603" width="12" height="2" fill="url(#lgradient147_1_1)" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="185" y1="605" x2="184" y2="603" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="173" y1="605" x2="172" y2="603" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="line" x1="177" y1="609" x2="173" y2="605" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="line" x1="193" y1="613" x2="185" y2="605" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="171" y="602" width="18" height="1" fill="url(#lgradient147_1_6)" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="188" y1="601" x2="171" y2="602" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="188" y1="603" x2="171" y2="604" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="189" y1="603" x2="188" y2="601" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="171" y1="603" x2="170" y2="601" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="174" y1="605" x2="173" y2="603" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<path shape-type="pie" d="M 203,597 A 0,0 0 1,0 203,597 L 204,597 z" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="179" cy="619" rx="18" ry="11" fill="url(#rgradient147_1_13_0)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="179" cy="619" rx="16" ry="10" fill="url(#rgradient147_1_13_1)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="179" cy="619" rx="14" ry="9" fill="url(#rgradient147_1_13_2)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="179" cy="618" rx="12" ry="7" fill="url(#rgradient147_1_13_3)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="180" cy="619" rx="10" ry="6" fill="url(#rgradient147_1_13_4)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="179" cy="619" rx="6" ry="4" fill="url(#rgradient147_1_13_5)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="177" y="618" width="3" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="178" y="616" width="1" height="4" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="182" y1="620" x2="174" y2="621" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="195" y1="619" x2="194" y2="620" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="186" y="618" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="183" y="622" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="179" y="623" width="1" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="174" y="623" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="185" y="616" width="1" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="171" y="620" width="1" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="170" y="618" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="172" y="615" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="176" y="614" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="181" y="614" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+</g>
+<polygon shape-type="parallel" points="184,615 195,615 185,605 174,605 184,615" fill="url(#lgradient147_1_14)" stroke="#000000" stroke-width="1.00"/>
+</g>
+<polygon shape-type="polygon" points="187,630 187,630 187,630 187,630 187,630 188,630 188,630 188,630 189,630 189,630 189,630 190,630 190,630 190,630 189,630 189,630 189,630 185,631 188,630 189,630 189,630 189,630 190,630 190,630 190,631 190,631 191,631 191,631 191,632 191,632 192,632 192,632 192,633 192,633 192,633 193,633 193,633 193,633 193,633 193,634 193,634 193,634 192,634 192,634 192,634 191,634 191,634 191,634 190,634 190,634 190,634 189,634 189,634 189,634 188,634 188,634 188,634 187,634 187,634 187,634 186,634 186,634" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="175" cy="630" rx="6" ry="4" fill="#B3B3B3" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="175" cy="630" rx="4" ry="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="172" y="628" width="2" height="1" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="173" y="630" width="1" height="2" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="175" y="628" width="2" height="1" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="176" y="630" width="1" height="2" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+</g>
+<ellipse shape-type="ellipse" cx="175" cy="630" rx="6" ry="4" fill="none" stroke="#000000" stroke-width="3.00"/>
+</g>
+<line shape-type="limitline" x1="195" y1="634" x2="185" y2="635" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="186" y1="634" x2="185" y2="631" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+</g>
+<line shape-type="limitline" x1="185" y1="604" x2="184" y2="588" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="33" y="624">P42103A</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="204" y="624">P42103B</text>
+<line shape-type="limitline" x1="109" y1="661" x2="177" y2="662" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="178" y1="709" x2="177" y2="638" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="109" y1="634" x2="108" y2="660" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="1194" y="232">K42101A</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="1190" y="301">K42101B</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="1194" y="257">螺杆机</text>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1196" y="325">螺杆机</text>
+<rect shape-type="rectangle" x="1201" y="265" width="40" height="14" fill="#C0C0C0" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1202" y="333" width="40" height="14" fill="#C0C0C0" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="1136" y1="526" x2="1056" y2="527" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1056" y1="526" x2="1055" y2="657" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1231" y="508" width="27" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1240" y="523">A</text>
+<rect shape-type="rectangle" x="1179" y="508" width="51" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1230" y="569" width="27" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1238" y="583">A</text>
+<rect shape-type="rectangle" x="1177" y="569" width="51" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="290" y="664" width="35" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="291" y="678">m3/h</text>
+<rect shape-type="rectangle" x="207" y="664" width="83" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="290" y="685" width="35" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="303" y="701">t</text>
+<rect shape-type="rectangle" x="207" y="685" width="83" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="448" y="294">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="448" y="320">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="449" y="348">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="448" y="374">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="449" y="484">℃</text>
+<rect shape-type="rectangle" x="441" y="498" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="498" width="46" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="312" y="513">冷凝温度</text>
+<rect shape-type="rectangle" x="441" y="526" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="526" width="46" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="300" y="540">吸气过热度</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="449" y="540">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="449" y="513">℃</text>
+<rect shape-type="rectangle" x="441" y="553" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="553" width="46" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="310" y="568">排吸差压</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="448" y="403">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="503" y="291">电机前轴承温度</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="503" y="320">电机后轴承温度</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="503" y="345">电机1#绕组温度</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="476" y="430">压缩机1#吸气端温度</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="485" y="484">压缩机排气端温度</text>
+<rect shape-type="rectangle" x="441" y="443" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="394" y="443" width="46" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="314" y="457">电机负载</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="449" y="456">%</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="540" y="209">过滤器差压</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="143" y="725">来自外管</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="503" y="372">电机2#绕组温度</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="504" y="401">电机3#绕组温度</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="475" y="456">压缩机2#吸气端温度</text>
+<rect shape-type="rectangle" x="132" y="192" width="94" height="26" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="140" y="208">氯化苯装置</text>
+<rect shape-type="rectangle" x="132" y="357" width="94" height="26" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="143" y="374">硝基氯苯</text>
+<rect shape-type="rectangle" x="131" y="405" width="94" height="26" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="143" y="423">促进剂N</text>
+<rect shape-type="rectangle" x="97" y="463" width="134" height="26" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="105" y="480">离子膜烧碱装置</text>
+<line shape-type="limitline" x1="282" y1="213" x2="281" y2="586" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="256" y1="94" x2="255" y2="464" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="284" y1="290" x2="226" y2="291" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="256" y1="271" x2="224" y2="272" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="282" y1="338" x2="224" y2="339" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="256" y1="318" x2="224" y2="319" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="281" y1="213" x2="226" y2="214" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="254" y1="197" x2="224" y2="198" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="284" y1="379" x2="224" y2="380" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="256" y1="363" x2="224" y2="364" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="282" y1="428" x2="224" y2="429" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="256" y1="408" x2="224" y2="409" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="286" y1="485" x2="229" y2="486" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="256" y1="465" x2="227" y2="466" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1391" y1="91" x2="1390" y2="315" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1270" y="201" width="39" height="34" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="11.750000" font-weight="bold" x="1274" y="221">淡水</text>
+<rect shape-type="rectangle" x="1271" y="290" width="39" height="34" fill="#FFFFFF" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#000000" shape-type="text" id="" font-size="11.750000" font-weight="bold" x="1275" y="310">淡水</text>
+<line shape-type="limitline" x1="1308" y1="224" x2="1323" y2="225" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1306" y1="206" x2="1356" y2="207" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1321" y1="167" x2="1359" y2="168" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1357" y1="314" x2="1356" y2="168" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1309" y1="315" x2="1325" y2="316" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1308" y1="297" x2="1357" y2="298" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1359" y1="315" x2="1391" y2="316" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="892" y="166" width="34" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="166" width="45" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="765" y="179">吸气压力</text>
+<rect shape-type="rectangle" x="892" y="193" width="34" height="22" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="193" width="45" height="22" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="764" y="207">排气压力</text>
+<rect shape-type="rectangle" x="892" y="221" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="221" width="45" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="764" y="236">喷油压力</text>
+<rect shape-type="rectangle" x="892" y="248" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="248" width="45" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="732" y="263">精过滤前压力</text>
+<rect shape-type="rectangle" x="892" y="276" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="276" width="45" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="762" y="291">吸气温度</text>
+<rect shape-type="rectangle" x="1139" y="166" width="34" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1082" y="166" width="57" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1038" y="179">油差压</text>
+<rect shape-type="rectangle" x="892" y="304" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="304" width="45" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="762" y="319">排气温度</text>
+<rect shape-type="rectangle" x="1139" y="220" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="1150" y="233">A</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1008" y="234">主电机电流</text>
+<rect shape-type="rectangle" x="892" y="331" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="331" width="45" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="762" y="345">喷油温度</text>
+<rect shape-type="rectangle" x="1139" y="247" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="1148" y="263">H</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1020" y="260">运行时间</text>
+<rect shape-type="rectangle" x="892" y="359" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="359" width="45" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="751" y="373">油加热温度</text>
+<rect shape-type="rectangle" x="892" y="385" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="385" width="45" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="735" y="402">冷媒出口温度</text>
+<rect shape-type="rectangle" x="892" y="414" width="34" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="414" width="45" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="796" y="428">能级</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="900" y="427">%</text>
+<rect shape-type="rectangle" x="892" y="469" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="469" width="45" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="762" y="484">蒸发温度</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="899" y="292">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="899" y="317">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="900" y="345">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="899" y="372">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="900" y="483">℃</text>
+<rect shape-type="rectangle" x="892" y="496" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="496" width="45" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="762" y="511">冷凝温度</text>
+<rect shape-type="rectangle" x="892" y="524" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="524" width="45" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="744" y="539">吸气过热度</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="900" y="538">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="900" y="511">℃</text>
+<rect shape-type="rectangle" x="892" y="550" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="550" width="45" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="762" y="566">排吸差压</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="899" y="401">℃</text>
+<rect shape-type="rectangle" x="1138" y="274" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="980" y="287">电机前轴承温度</text>
+<rect shape-type="rectangle" x="1139" y="302" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="981" y="316">电机后轴承温度</text>
+<rect shape-type="rectangle" x="1139" y="328" width="34" height="22" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="978" y="342">电机1#绕组温度</text>
+<rect shape-type="rectangle" x="1139" y="356" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1139" y="383" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1139" y="410" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="950" y="428">压缩机1#吸气端温度</text>
+<rect shape-type="rectangle" x="1136" y="438" width="37" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="1146" y="290">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="1147" y="316">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="1148" y="344">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="1147" y="371">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="1148" y="454">℃</text>
+<rect shape-type="rectangle" x="1139" y="466" width="34" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="963" y="480">压缩机排气端温度</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="1149" y="481">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="1147" y="400">℃</text>
+<rect shape-type="rectangle" x="892" y="441" width="34" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="846" y="441" width="45" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="762" y="456">电机负载</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="900" y="454">%</text>
+<rect shape-type="rectangle" x="1138" y="193" width="34" height="22" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1008" y="207">过滤器差压</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="977" y="369">电机2#绕组温度</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="977" y="399">电机3#绕组温度</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="11.000000" font-weight="bold" x="1147" y="427">℃</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="950" y="453">压缩机2#吸气端温度</text>
+<line shape-type="limitline" x1="1147" y1="652" x2="1146" y2="634" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1323" y1="633" x2="1146" y2="634" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="1121" y="690">P42102A</text>
+<g shape-type="group">
+<polygon shape-type="parallel" points="1153,669 1133,669 1133,675 1153,675 1153,669" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="1146" cy="661" rx="18" ry="12" fill="none" stroke="#000000" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1140" y="644" width="12" height="3" fill="url(#lgradient332_1_1)" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="1152" y1="646" x2="1151" y2="644" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1140" y1="646" x2="1139" y2="644" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="line" x1="1144" y1="650" x2="1140" y2="646" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="line" x1="1159" y1="653" x2="1152" y2="646" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1138" y="643" width="17" height="1" fill="url(#lgradient332_1_6)" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="1154" y1="643" x2="1138" y2="644" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1154" y1="644" x2="1138" y2="645" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1155" y1="644" x2="1154" y2="642" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1138" y1="644" x2="1137" y2="643" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1141" y1="646" x2="1140" y2="644" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<path shape-type="pie" d="M 1170,638 A 0,0 0 1,0 1170,638 L 1170,638 z" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="1146" cy="661" rx="18" ry="11" fill="url(#rgradient332_1_13_0)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1145" cy="661" rx="16" ry="10" fill="url(#rgradient332_1_13_1)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1145" cy="661" rx="14" ry="9" fill="url(#rgradient332_1_13_2)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1145" cy="660" rx="12" ry="7" fill="url(#rgradient332_1_13_3)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1145" cy="660" rx="10" ry="6" fill="url(#rgradient332_1_13_4)" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1145" cy="660" rx="6" ry="4" fill="url(#rgradient332_1_13_5)" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1144" y="659" width="3" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1145" y="657" width="1" height="4" stroke="#000000" stroke-width="1.00"/>
+<line shape-type="limitline" x1="1149" y1="661" x2="1141" y2="662" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1161" y1="660" x2="1160" y2="661" fill="#00FFFF" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1153" y="659" width="1" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1150" y="664" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1146" y="665" width="1" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1141" y="665" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1152" y="657" width="1" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1138" y="661" width="1" height="3" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1136" y="659" width="3" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1139" y="656" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1143" y="655" width="2" height="1" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1148" y="655" width="2" height="2" stroke="#000000" stroke-width="1.00"/>
+</g>
+<polygon shape-type="parallel" points="1150,655 1161,655 1152,647 1141,647 1150,655" fill="url(#lgradient332_1_14)" stroke="#000000" stroke-width="1.00"/>
+</g>
+<polygon shape-type="polygon" points="1153,672 1153,672 1153,672 1153,672 1153,672 1153,672 1154,672 1154,672 1154,672 1155,672 1155,672 1155,672 1155,672 1155,672 1155,672 1155,672 1154,672 1152,673 1154,672 1154,672 1155,672 1155,672 1155,672 1155,672 1155,673 1156,673 1156,673 1156,673 1156,674 1157,674 1157,674 1157,674 1157,675 1157,675 1157,675 1158,675 1158,675 1158,675 1159,675 1159,676 1158,676 1158,676 1157,676 1157,676 1157,676 1157,676 1156,676 1156,676 1156,676 1155,676 1155,676 1155,676 1155,676 1154,676 1154,676 1154,676 1153,676 1153,676 1153,676 1153,676 1152,676 1152,676" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<g shape-type="group">
+<g shape-type="group">
+<ellipse shape-type="ellipse" cx="1141" cy="672" rx="6" ry="4" fill="#B3B3B3" stroke="#000000" stroke-width="1.00"/>
+<ellipse shape-type="ellipse" cx="1141" cy="672" rx="5" ry="3" fill="#808080" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1139" y="670" width="2" height="1" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1140" y="672" width="1" height="2" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1142" y="670" width="2" height="1" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="1143" y="672" width="1" height="2" fill="#DBDBDB" stroke="#000000" stroke-width="1.00"/>
+</g>
+<ellipse shape-type="ellipse" cx="1141" cy="672" rx="6" ry="4" fill="none" stroke="#000000" stroke-width="3.00"/>
+</g>
+<line shape-type="limitline" x1="1161" y1="676" x2="1152" y2="677" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+<line shape-type="limitline" x1="1153" y1="676" x2="1152" y2="673" fill="#00FFFF" stroke="#000000" stroke-width="3.00"/>
+</g>
+<rect shape-type="rectangle" x="1227" y="646" width="27" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1235" y="661">A</text>
+<rect shape-type="rectangle" x="1167" y="646" width="59" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1309" y="646" width="35" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1263" y="646" width="45" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="1313" y="661">MPa</text>
+<line shape-type="limitline" x1="1138" y1="657" x2="1054" y2="658" fill="#0000A0" stroke="#00FF00" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="239" y="652">供水盐水</text>
+<rect shape-type="rectangle" x="424" y="664" width="36" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="426" y="678">m3/h</text>
+<rect shape-type="rectangle" x="342" y="664" width="81" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="424" y="685" width="36" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="438" y="701">t</text>
+<rect shape-type="rectangle" x="342" y="685" width="81" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="329" y="653">氯碱冷冻淡水出水</text>
+<rect shape-type="rectangle" x="570" y="664" width="35" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="571" y="678">m3/h</text>
+<rect shape-type="rectangle" x="488" y="664" width="81" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="570" y="685" width="35" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="583" y="701">t</text>
+<rect shape-type="rectangle" x="488" y="685" width="81" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="484" y="653">氯碱冷冻淡水回水</text>
+<rect shape-type="rectangle" x="731" y="665" width="36" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="732" y="679">m3/h</text>
+<rect shape-type="rectangle" x="648" y="665" width="81" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="731" y="686" width="36" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="745" y="702">t</text>
+<rect shape-type="rectangle" x="648" y="686" width="81" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="635" y="654">助剂冷冻淡水出水</text>
+<rect shape-type="rectangle" x="874" y="665" width="35" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="10.250000" font-weight="bold" x="875" y="679">m3/h</text>
+<rect shape-type="rectangle" x="790" y="665" width="82" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="874" y="686" width="35" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="886" y="702">t</text>
+<rect shape-type="rectangle" x="790" y="686" width="82" height="23" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="788" y="654">助剂冷冻淡水回水</text>
+<rect shape-type="rectangle" x="1007" y="666" width="36" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1008" y="680">m3/h</text>
+<rect shape-type="rectangle" x="923" y="666" width="82" height="20" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="1007" y="689" width="36" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1020" y="703">t</text>
+<rect shape-type="rectangle" x="923" y="689" width="82" height="21" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="948" y="655">补充水</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_LISA_42101" font-size="14.750000" x="-27" y="86">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_TI_42104" font-size="13.250000" x="1069" y="84">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_FI_42102" font-size="13.250000" x="1172" y="84">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_II_K42101b" font-size="13.250000" x="1190" y="379">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_TI_42103" font-size="13.250000" x="1336" y="355">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_II_K42101a" font-size="13.250000" x="1195" y="209">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_II_P42101c" font-size="14.000000" x="1182" y="523">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_II_P42101a" font-size="14.000000" x="1172" y="661">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_PISA_42102" font-size="14.000000" x="1270" y="661">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_FI_42103" font-size="13.250000" x="928" y="681">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_FI_42104" font-size="13.250000" x="795" y="679">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_FI_42106" font-size="13.250000" x="652" y="679">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_FI_42105" font-size="14.000000" x="494" y="679">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_FI_42102" font-size="14.000000" x="348" y="679">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_FI_42101" font-size="14.000000" x="213" y="676">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_II_P42101b" font-size="13.250000" x="1182" y="584">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI0" font-size="13.250000" x="399" y="183">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI1" font-size="13.250000" x="399" y="211">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI2" font-size="13.250000" x="399" y="239">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI3" font-size="14.000000" x="399" y="265">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI4" font-size="14.000000" x="399" y="292">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI5" font-size="14.000000" x="399" y="322">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI6" font-size="14.000000" x="399" y="348">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI7" font-size="14.000000" x="399" y="376">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI8" font-size="14.000000" x="399" y="401">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI9" font-size="13.250000" x="399" y="431">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI10" font-size="13.250000" x="399" y="458">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI11" font-size="14.000000" x="399" y="486">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI12" font-size="14.000000" x="399" y="513">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI13" font-size="14.000000" x="399" y="539">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P1AI14" font-size="14.750000" x="399" y="566">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI0" font-size="13.250000" x="852" y="180">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI1" font-size="13.250000" x="852" y="208">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI2" font-size="13.250000" x="852" y="236">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI3" font-size="14.000000" x="852" y="261">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI4" font-size="14.000000" x="852" y="290">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI5" font-size="14.000000" x="852" y="318">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI6" font-size="13.250000" x="852" y="345">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI7" font-size="13.250000" x="852" y="372">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI8" font-size="14.750000" x="852" y="398">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI9" font-size="14.750000" x="852" y="425">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI10" font-size="13.250000" x="852" y="454">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI11" font-size="14.000000" x="852" y="481">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI12" font-size="14.750000" x="852" y="509">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI13" font-size="14.750000" x="852" y="536">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI14" font-size="14.750000" x="852" y="563">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_P2AI15" font-size="12.500000" x="1085" y="180">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_LLLJ42101" font-size="14.750000" x="212" y="699">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_LLLJ42102" font-size="14.750000" x="347" y="701">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_LLLJ42105" font-size="14.750000" x="494" y="701">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_LLLJ42106" font-size="13.250000" x="654" y="703">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_LLLJ42104" font-size="13.250000" x="794" y="703">XXXX</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LDZ_LLLJ42103" font-size="14.000000" x="929" y="705">XXXX</text>
+<rect shape-type="rectangle" x="9" y="-1" width="1405" height="39" fill="#636563" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="394" y="2" width="659" height="34" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="26.750000" font-weight="bold" x="663" y="30">淡水</text>
+<a xlink:href="\动力部\水处理装置\冷冻站\LDZ_ML.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="1280" y="0" width="131" height="35" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#800000" font-size="13.500000" font-weight="bold" x="1345" y="24" shape-type="buttontext">返回上一级</text>
+</g>
+</a>
+<rect shape-type="rectangle" x="1" y="761" width="1421" height="40" fill="url(#lgradient433)" stroke="#636563" stroke-width="1.00"/>
+<a xlink:href="盐水.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="15" y="763" width="133" height="35" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="13.500000" font-weight="bold" x="82" y="786" shape-type="buttontext">盐水</text>
+</g>
+</a>
+<a xlink:href="淡水.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="191" y="764" width="133" height="35" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="13.500000" font-weight="bold" x="258" y="787" shape-type="buttontext">淡水</text>
+</g>
+</a>
+<a xlink:href="冷却水.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="366" y="762" width="133" height="35" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="13.500000" font-weight="bold" x="433" y="785" shape-type="buttontext">冷却水</text>
+</g>
+</a>
+<a xlink:href="冷冻水.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="539" y="764" width="133" height="35" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="13.500000" font-weight="bold" x="606" y="787" shape-type="buttontext">冷冻水</text>
+</g>
+</a>
+<a xlink:href="参数1.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="1091" y="764" width="133" height="35" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="13.500000" font-weight="bold" x="1157" y="787" shape-type="buttontext">参数一</text>
+</g>
+</a>
+<a xlink:href="参数2.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="1265" y="766" width="133" height="35" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="13.500000" font-weight="bold" x="1331" y="789" shape-type="buttontext">参数二</text>
+</g>
+</a>
+<a xlink:href="溴化锂通讯.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="722" y="763" width="133" height="35" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="13.500000" font-weight="bold" x="788" y="786" shape-type="buttontext">溴化锂通讯</text>
+</g>
+</a>
+<a xlink:href="减温减压.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="905" y="764" width="134" height="35" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="13.500000" font-weight="bold" x="972" y="787" shape-type="buttontext">减温减压</text>
+</g>
+</a>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="445" y="208">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="443" y="236">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="444" y="263">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="443" y="567">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="695" y="186">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="693" y="212">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="893" y="179">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="895" y="207">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="894" y="234">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="896" y="261">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="896" y="261">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="896" y="564">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1142" y="178">MPa</text>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="1142" y="207">MPa</text>
+</svg>

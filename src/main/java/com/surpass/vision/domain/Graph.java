@@ -52,7 +52,10 @@ public class Graph extends FileList implements Serializable,Cloneable {
 	public Graph() {
 		super();
 		this.setType(GlobalConsts.Type_graph_);
-		this.setImg("/images/samples/graph.jpg");
+		if(this.isFile)
+			this.setImg("/images/samples/graph.jpg");
+		else
+			this.setImg("/images/samples/graph_dir.jpg");
 	}
 
 	public int getChanged() {

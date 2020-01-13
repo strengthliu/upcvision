@@ -411,23 +411,36 @@ public class UserSpaceManager {
 	}
 
 	private UserSpace buildAdminUserSpace(UserInfo user,String tk) {
+		System.out.println(" buildAdminUserSpace 1 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		UserSpaceData usd = new UserSpaceData();// = userSpaceDataMapper.selectByPrimaryKey(userID);
 		UserSpace us = new UserSpace();
 		us.setUid(user.getId());
 		usd.setUid(user.getId());
 		us.setUser(user);
+		System.out.println(" buildAdminUserSpace 2 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		Graph gf = graphDataManager.getAdminGraph();
+		System.out.println(" buildAdminUserSpace 3 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		us.setGraph(gf);
 //		usd.setGraphs(graphs);
+		System.out.println(" buildAdminUserSpace 4 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		Hashtable<String, XYGraph> xyGraph = xYGraphManager.getAdminXYGraphHashtable();
+		System.out.println(" buildAdminUserSpace 5 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		us.setXyGraph(xyGraph);
+		System.out.println(" buildAdminUserSpace 6 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		Hashtable<String, RealTimeData> realTimeData = realTimeDataManager.getAdminRealTimeDataHashtable();
+		System.out.println(" buildAdminUserSpace 7 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		us.setRealTimeData(realTimeData);
+		System.out.println(" buildAdminUserSpace 8 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		Hashtable<String, AlertData> alertData = alertDataManager.getAdminAlertDataHashtable();
+		System.out.println(" buildAdminUserSpace 9 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		us.setAlertData(alertData);
+		System.out.println(" buildAdminUserSpace 10 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		Hashtable<String, HistoryData> historyData = historyDataManager.getAdminHistoryDataHashtable();
+		System.out.println(" buildAdminUserSpace 11 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		us.setHistoryData(historyData);
+		System.out.println(" buildAdminUserSpace 12 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		Hashtable<String, LineAlertData> lineAlertData = lineAlertDataManager.getAdminLineAlertDataHashtable();
+		System.out.println(" buildAdminUserSpace 13 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		us.setLineAlertData(lineAlertData);
 
 //		String tk = "";

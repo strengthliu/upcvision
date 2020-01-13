@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/javascript'?>
+<!--Draw SVG: 2019-11-25 09:41:34 47-Monday-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="background-color:#000000" width="1066" height="800" viewbox="0 0 1066 800">
+<defs>
+<linearGradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="lgradient5">
+<stop offset="0" stop-color="#111111" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#636563" stop-opacity="1"/>
+<stop offset="1" stop-color="#111111" stop-opacity="1"/>
+</linearGradient>
+</defs>
+<rect shape-type="rectangle" x="-1" y="1" width="1069" height="41" fill="#636563" stroke="#808080" stroke-width="1.00"/>
+<rect shape-type="rectangle" x="282" y="5" width="500" height="33" stroke="#000000" stroke-width="1.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="26.750000" font-weight="bold" x="421" y="30">有毒气体报警</text>
+<a xlink:href="AQG_ML.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="954" y="3" width="100" height="33" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#800000" font-size="13.500000" font-weight="bold" x="1004" y="26" shape-type="buttontext">返回上一级</text>
+</g>
+</a>
+<rect shape-type="rectangle" x="-1" y="754" width="1070" height="45" fill="url(#lgradient5)" stroke="#636563" stroke-width="1.00"/>
+<a xlink:href="流程图一.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="8" y="760" width="91" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="54" y="781" shape-type="buttontext">流程图一</text>
+</g>
+</a>
+<a xlink:href="流程图二.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="114" y="760" width="91" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="160" y="781" shape-type="buttontext">流程图二</text>
+</g>
+</a>
+<a xlink:href="流程图三.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="220" y="760" width="93" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="267" y="781" shape-type="buttontext">流程图三</text>
+</g>
+</a>
+<a xlink:href="有毒气体报警.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="327" y="760" width="92" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="373" y="781" shape-type="buttontext">有毒气体报警</text>
+</g>
+</a>
+<a xlink:href="冰机A.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="434" y="760" width="92" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="480" y="781" shape-type="buttontext">冰机A</text>
+</g>
+</a>
+<a xlink:href="冰机B.svg">
+<g shape-type="button">
+<rect fill="#C0C0C0" stroke-width="0.3" stroke="#FFFFFF" x="541" y="760" width="92" height="30" shape-type="buttonrect"/>
+<text font-family="宋体" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12.000000" x="587" y="781" shape-type="buttontext">冰机B</text>
+</g>
+</a>
+<g shape-type="group">
+<rect shape-type="rectangle" x="-35" y="612" width="14" height="8" stroke="#FFFFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="-22,609 -22,623 -14,616 -14,616 -22,609" stroke="#FFFFFF" stroke-width="1.00"/>
+</g>
+<g shape-type="group">
+<g shape-type="group">
+<rect shape-type="rectangle" x="1036" y="730" width="14" height="7" stroke="#FFFFFF" stroke-width="1.00"/>
+<polygon shape-type="trapezium" points="1049,727 1049,741 1057,734 1057,734 1049,727" stroke="#FFFFFF" stroke-width="1.00"/>
+</g>
+<ellipse shape-type="ellipse" cx="1045" cy="734" rx="14" ry="13" fill="none" stroke="#FFFFFF" stroke-width="1.00"/>
+</g>
+<line shape-type="limitline" x1="20" y1="62" x2="381" y2="62" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="248" y="91" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="336" y="91" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="339" y="106">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="251" y="107">XXXX</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="46" y="78">位号</text>
+<line shape-type="limitline" x1="20" y1="87" x2="377" y2="87" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="154" y="79">位置</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="304" y="78">数值</text>
+<line shape-type="limitline" x1="20" y1="121" x2="378" y2="121" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="41" y="106">GIA_101</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="112" y="106">T101A罐顶氨气泄漏</text>
+<rect shape-type="rectangle" x="248" y="124" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="334" y="124" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="337" y="139">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="249" y="140">XXXX</text>
+<line shape-type="limitline" x1="18" y1="154" x2="376" y2="154" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="39" y="139">GIA_102</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="110" y="139">T101A罐底氨气泄漏</text>
+<rect shape-type="rectangle" x="248" y="157" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="336" y="157" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="339" y="172">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="251" y="173">XXXX</text>
+<line shape-type="limitline" x1="20" y1="187" x2="378" y2="187" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="41" y="172">GIA_103</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="112" y="172">T101A切断阀组氨气</text>
+<rect shape-type="rectangle" x="248" y="190" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="334" y="190" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="337" y="205">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="249" y="206">XXXX</text>
+<line shape-type="limitline" x1="18" y1="220" x2="376" y2="220" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="39" y="205">GIA_104</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="110" y="205">T101A调节阀组氨气</text>
+<rect shape-type="rectangle" x="248" y="224" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="337" y="224" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="340" y="239">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="252" y="240">XXXX</text>
+<line shape-type="limitline" x1="21" y1="254" x2="379" y2="254" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="42" y="239">GIA_105</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="113" y="239">T101B罐顶氨气泄漏</text>
+<rect shape-type="rectangle" x="248" y="257" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="335" y="257" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="338" y="272">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="250" y="273">XXXX</text>
+<line shape-type="limitline" x1="19" y1="287" x2="377" y2="287" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="40" y="272">GIA_106</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="111" y="272">T101B罐底氨气泄漏</text>
+<rect shape-type="rectangle" x="248" y="290" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="337" y="290" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="340" y="305">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="252" y="306">XXXX</text>
+<line shape-type="limitline" x1="21" y1="320" x2="379" y2="320" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="42" y="305">GIA_107</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="113" y="305">T101B切断阀组氨气</text>
+<rect shape-type="rectangle" x="248" y="323" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="335" y="323" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="338" y="338">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="250" y="339">XXXX</text>
+<line shape-type="limitline" x1="19" y1="353" x2="377" y2="353" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="40" y="338">GIA_108</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="111" y="338">T101B调节阀组氨气</text>
+<rect shape-type="rectangle" x="248" y="357" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="337" y="357" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="340" y="372">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="252" y="373">XXXX</text>
+<line shape-type="limitline" x1="21" y1="387" x2="379" y2="387" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="42" y="372">GIA_109</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="113" y="372">T101C罐顶氨气泄漏</text>
+<rect shape-type="rectangle" x="248" y="390" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="335" y="390" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="338" y="405">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="250" y="406">XXXX</text>
+<line shape-type="limitline" x1="19" y1="420" x2="377" y2="420" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="40" y="405">GIA_110</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="111" y="405">T101C罐底氨气泄漏</text>
+<rect shape-type="rectangle" x="248" y="423" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="337" y="423" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="340" y="438">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="252" y="439">XXXX</text>
+<line shape-type="limitline" x1="21" y1="453" x2="379" y2="453" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="42" y="438">GIA_111</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="113" y="438">T101C切断阀组氨气</text>
+<rect shape-type="rectangle" x="248" y="456" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="335" y="456" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="338" y="471">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="250" y="472">XXXX</text>
+<line shape-type="limitline" x1="19" y1="486" x2="377" y2="486" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="40" y="471">GIA_112</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="111" y="471">T101C调节阀组氨气</text>
+<rect shape-type="rectangle" x="248" y="490" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="338" y="490" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="341" y="505">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="253" y="506">XXXX</text>
+<line shape-type="limitline" x1="22" y1="520" x2="380" y2="520" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="43" y="505">GIA_113</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="114" y="505">1#冰机进口氨气泄漏</text>
+<rect shape-type="rectangle" x="248" y="523" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="336" y="523" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="339" y="538">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="251" y="539">XXXX</text>
+<line shape-type="limitline" x1="20" y1="553" x2="378" y2="553" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="41" y="538">GIA_114</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="112" y="538">1#冰机出口氨气泄漏</text>
+<rect shape-type="rectangle" x="248" y="556" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="338" y="556" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="341" y="571">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="253" y="572">XXXX</text>
+<line shape-type="limitline" x1="22" y1="586" x2="380" y2="586" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="43" y="571">GIA_115</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="114" y="571">2#冰机进口氨气泄漏</text>
+<rect shape-type="rectangle" x="248" y="589" width="88" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="336" y="589" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="339" y="604">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="251" y="605">XXXX</text>
+<line shape-type="limitline" x1="20" y1="619" x2="378" y2="619" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="41" y="604">GIA_116</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="112" y="604">2#冰机出口氨气泄漏</text>
+<line shape-type="limitline" x1="444" y1="62" x2="806" y2="62" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="675" y="91" width="85" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="760" y="91" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="763" y="106">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="675" y="107">XXXX</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="470" y="78">位号</text>
+<line shape-type="limitline" x1="444" y1="87" x2="801" y2="87" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="578" y="79">位置</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="728" y="78">数值</text>
+<line shape-type="limitline" x1="444" y1="121" x2="802" y2="121" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="465" y="106">GIA_117</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="536" y="106">1#液氨泵氨气泄漏</text>
+<rect shape-type="rectangle" x="675" y="124" width="85" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="758" y="124" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="761" y="139">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="673" y="140">XXXX</text>
+<line shape-type="limitline" x1="442" y1="154" x2="800" y2="154" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="463" y="139">GIA_118</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="534" y="139">2#液氨泵氨气泄漏</text>
+<rect shape-type="rectangle" x="675" y="157" width="85" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="760" y="157" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="763" y="172">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="675" y="173">XXXX</text>
+<line shape-type="limitline" x1="444" y1="187" x2="802" y2="187" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="465" y="172">GIA_119</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="536" y="172">3#液氨泵氨气泄漏</text>
+<rect shape-type="rectangle" x="675" y="190" width="85" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="758" y="190" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="761" y="205">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="673" y="206">XXXX</text>
+<line shape-type="limitline" x1="442" y1="220" x2="800" y2="220" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="463" y="205">GIA_120</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="534" y="205">1#液氨泵氨气泄漏</text>
+<rect shape-type="rectangle" x="675" y="224" width="85" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="761" y="224" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="764" y="239">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="676" y="240">XXXX</text>
+<line shape-type="limitline" x1="445" y1="254" x2="803" y2="254" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="466" y="239">GIA_121</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="537" y="239">2#液氨泵氨气泄漏</text>
+<rect shape-type="rectangle" x="675" y="257" width="85" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="759" y="257" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="762" y="272">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="674" y="273">XXXX</text>
+<line shape-type="limitline" x1="443" y1="287" x2="801" y2="287" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="464" y="272">GIA_122</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="535" y="272">3#液氨泵氨气泄漏</text>
+<rect shape-type="rectangle" x="675" y="290" width="85" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="761" y="290" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="764" y="305">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="676" y="306">XXXX</text>
+<line shape-type="limitline" x1="445" y1="320" x2="803" y2="320" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="466" y="305">GIA_123</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="537" y="305">流量计氨气泄漏</text>
+<rect shape-type="rectangle" x="675" y="323" width="85" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="759" y="323" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="762" y="338">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="674" y="339">XXXX</text>
+<line shape-type="limitline" x1="443" y1="353" x2="801" y2="353" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="464" y="338">GIA_124</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="535" y="338">板换氨气泄漏</text>
+<rect shape-type="rectangle" x="675" y="357" width="85" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<rect shape-type="rectangle" x="761" y="357" width="22" height="26" fill="#4A494A" stroke="#C0C0C0" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#00FF42" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="764" y="372">ppm</text>
+<text font-family="Arial" text-anchor="start" fill="#00FFFF" shape-type="realdata" id="DLB_LX_LI_3101" font-size="12.500000" x="676" y="373">XXXX</text>
+<line shape-type="limitline" x1="445" y1="387" x2="803" y2="387" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="466" y="372">GIA_125</text>
+<text font-family="宋体" text-anchor="start" fill="#FFFFFF" shape-type="text" id="" font-size="9.500000" font-weight="bold" x="537" y="372">XV101氨气泄漏检测</text>
+<line shape-type="limitline" x1="444" y1="62" x2="444" y2="388" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="805" y1="63" x2="805" y2="389" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="19" y1="61" x2="19" y2="619" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="380" y1="62" x2="380" y2="620" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="246" y1="61" x2="246" y2="619" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="96" y1="61" x2="96" y2="619" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="519" y1="60" x2="519" y2="386" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+<line shape-type="limitline" x1="671" y1="62" x2="671" y2="388" fill="#00FFFF" stroke="#FFFFFF" stroke-width="3.00"/>
+</svg>

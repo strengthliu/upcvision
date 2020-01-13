@@ -133,7 +133,7 @@ public class ServerManager {
 //
 //实型字段域值
 
-	private void updateServerInfo() {
+	private synchronized void updateServerInfo() {
 //		String[] encodeString = {"",""};
 		boolean t = true;
 		List<String> servs = null;
@@ -195,20 +195,30 @@ public class ServerManager {
 						System.out.println(num+"设备个数");
 						if(num > 0)
 							pointIds = gec().DBECEnumTagIDOfDeviceByDeviceName(serverName, deviceName);
+						System.out.println("debug lab 1");
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 					if(pointIds == null)
 						pointIds = new ArrayList<Long>();
 
+					System.out.println("debug lab 2");
 					ByteBuffer tagbuffer = ByteBuffer.allocate(GlobalConsts.DeviceNoteLength);
+					System.out.println("debug lab 3");
 					for (int ipoint = 0; ipoint < pointIds.size(); ipoint++) {
 						Point point = new Point();
 						Long pointId = pointIds.get(ipoint);
 						//
 						String tagName = null;
 						try {
+							System.out.println("debug lab 4");
+							//============== 这里发生一次虚拟机崩溃退出. 次数:1+1+1+1
+							// serverName=NCIC  pointId=41978
+							// serverName=NCIC  pointId=41981
+							// serverName=NCIC  pointId=41975
+							System.out.println("debug lab - serverName="+serverName+"  pointId="+pointId);
 							tagName = gec().DBECGetTagName(serverName, pointId);
+							System.out.println("debug lab 5");
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -216,7 +226,9 @@ public class ServerManager {
 						tagName = tagName.trim();
 						String tagdesc = null;
 						try {
+							System.out.println("debug lab 6");
 							tagdesc = gec().DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGNOTE");
+							System.out.println("debug lab 7");
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -226,7 +238,9 @@ public class ServerManager {
 							tagdesc = "未知描述";
 						String enunit = null;
 						try {
+							System.out.println("debug lab 8");
 							enunit = gec().DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_ENUNITS");
+							System.out.println("debug lab 9");
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -234,7 +248,9 @@ public class ServerManager {
 //						System.out.println(enunit);
 						String tagType = null;
 						try {
+							System.out.println("debug lab 10");
 							tagType = gec().DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGTYPE");
+							System.out.println("debug lab 11");
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -250,18 +266,24 @@ public class ServerManager {
 						point.setDesc(tagdesc);
 						device.addPoint(point);
 						server.addPoint(point);
+						System.out.println("debug lab 12");
 						// 使用tag做key
 //						if (redisService != null)
 							redisService.set(GlobalConsts.Key_Point_pre + serverName
 									+ GlobalConsts.Key_splitCharServerPoint + point.tagName.toString(), point);
+							System.out.println("debug lab 13");
 					}
 					server.addDevice(device);
+					System.out.println("debug lab 14");
 //					if (redisService != null)
 						redisService.set(GlobalConsts.Key_Device_pre_ + IDTools.toString(device.id), device);
+						System.out.println("debug lab 15");
 				}
 				servers.put(server.getServerName(), server);
 //				if (redisService != null)
+				System.out.println("debug lab 16");
 					redisService.set(GlobalConsts.Key_Server_pre_ + server.serverName, server);
+					System.out.println("debug lab 17");
 
 			}
 		} catch (Exception e) {
@@ -318,7 +340,7 @@ public class ServerManager {
 	 * @param beginTime
 	 * @param endTime
 	 */
-	public HashMap<Long, Double> getPointHistoryValue(String srvName,String tagName,long id,long beginTime,long endTime) {
+	public synchronized HashMap<Long, Double> getPointHistoryValue(String srvName,String tagName,long id,long beginTime,long endTime) {
 		HashMap<Long, Double> ret = new HashMap<Long, Double>();
 		List<Double> pValueArray = new ArrayList<Double>(); 
 		int size = Math.round((endTime - beginTime) )+1;
@@ -370,7 +392,7 @@ public class ServerManager {
 		return null;
 	}
 	
-	public List getPointValue(String srvName, List<Long> idList, String fieldName) {
+	public synchronized List getPointValue(String srvName, List<Long> idList, String fieldName) {
 		// TODO Auto-generated method stub
 		if (StringUtil.isBlank(fieldName))
 			fieldName = "FN_RTVALUE";
@@ -393,7 +415,7 @@ public class ServerManager {
 	}
 
 	
-	public List<PointAlertData> getPointAlertData(List<Point> pl) {
+	public synchronized List<PointAlertData> getPointAlertData(List<Point> pl) {
 		List<PointAlertData> ret = new ArrayList<PointAlertData>();
 		int nArraySize = pl.size();
 		HashMap<Long,Point> ph = new HashMap<Long,Point>();
@@ -444,7 +466,7 @@ public class ServerManager {
 		return ret;
 	}
 	
-	public List<PointAlertData> getHistoryPointAlertData(List<Point> pl, Long nBeginTime, Long nEndTime) {
+	public synchronized List<PointAlertData> getHistoryPointAlertData(List<Point> pl, Long nBeginTime, Long nEndTime) {
 		List<PointAlertData> ret = new ArrayList<PointAlertData>();
 		int nArraySize = pl.size();
 		HashMap<Long,Point> ph = new HashMap<Long,Point>();

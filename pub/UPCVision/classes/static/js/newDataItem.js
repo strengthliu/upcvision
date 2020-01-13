@@ -59,6 +59,18 @@ if(serverList == null || serverList=="undefined"){
 	buildNewItemUI(serverList);
 }
 
+function addAll_pointlistleft(){
+	console.log("filterPoints-> "+JSON.stringify(filterPoints));
+	console.log("----------------------------------------------------");
+	if(filterPoints!=null&&filterPoints!="undefined"){
+		for(var ind = 0;ind<filterPoints.length;ind++){
+			var _item = filterPoints[ind];
+			newDataItem_leftboxitemcheck(_item.tagName,true);
+		}
+//		
+	}
+}
+
 function getPointByTagName(tagName){
 	var ss = Object.keys(serverList);
 	
@@ -229,6 +241,7 @@ function buildNewItemUI(serverInfos) {
 	});
 }
 
+var filterPoints;
 // 左侧点击过滤
 function filterNewItem_pointlistleft(){
 	var filterTagName = document.getElementById("newItem_pointfilterpointname").value;
@@ -246,7 +259,7 @@ function filterNewItem_pointlistleft(){
 	var defaultDevice = serverList[$("#newItem_ServerSelectSect").val()].devices[$("#newItem_DeviceSelectSect").val()-1];
 	var _Points = defaultDevice.points;
 	// console.log(JSON.stringify(_Points));
-	var filterPoints = new Array();
+	filterPoints = new Array();
 	// 过滤
 	if(!(filterTagDesc == "" && filterTagName == "")) 
 	{
@@ -290,11 +303,16 @@ function filterNewItem_pointlistleft(){
 			pointLeftBoxInnerHtml += pointLeftBoxInnerHtmlItem;
 		});
 		pointLeftBox.innerHTML=pointLeftBoxInnerHtml;
-		
 	}
 }
 
 // 点击左侧框选择操作
+/**
+ * 点击左侧框选择操作
+ * @param elemId 左侧位号的tagName
+ * @param editAction
+ * @returns
+ */
 function newDataItem_leftboxitemcheck(elemId,editAction) {
 	if(editAction==null || editAction=="undefined")
 		editAction = false;
@@ -324,11 +342,6 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 					};
 			_selectedPoints.push(p);
 		}else {
-//			Elements es = document.querySelectorAll("#div"+elemId);
-//			for(var i =0;i<es.length;i++){
-//				var targetDiv1=es[i];
-//				console.log("outer: "+targetDiv1.outerHTML);
-//			}
 			var targetDiv = document.getElementById("div"+elemId);
 			console.log("outer: "+targetDiv.parentNode.outerHTML);
 			console.log("====================================================");
@@ -356,8 +369,20 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 					"starttime":"",
 					"terminaltime":""
 					};
-	
-			_selectedPoints.splice(p);
+			console.log("_selectedPoints-> "+JSON.stringify(_selectedPoints));
+			for(var ind_sel=0;ind_sel<_selectedPoints.length;ind_sel++){
+				var _item = _selectedPoints[ind_sel];
+				if(_item.server==serverName && _item.tagName==elemId){
+					console.log("splice item");
+					_selectedPoints.splice(ind_sel,1);
+//					delete _selectedPoints[ind_sel];
+//					break;
+				}else{
+					_selectedPoints[ind_sel].isx = false;
+				}
+			}
+			
+			console.log("_selectedPoints-> "+JSON.stringify(_selectedPoints));
 	
 		}
 	}else {

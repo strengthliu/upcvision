@@ -18,7 +18,7 @@ public class ServerConfig {
 	// 图形的URL目录
 	@Value("${upc.graphPath}")
 	private String graphPath;
-
+	
 	// 图形的缩略图目录
 	@Value("${upc.graphServerPath}")
 	private String graphServerPath;
@@ -26,6 +26,11 @@ public class ServerConfig {
 	// 默认缩略图
 	@Value("${upc.graphDefaultImg}")
 	private String graphDefaultImg;
+
+	
+	// 图形的URL目录
+	@Value("${upc.graphDirDefaultImg}")
+	private String graphDirDefaultImg;
 
 //    @Autowired
 //    private AuthHandshakeInterceptor authHandshakeInterceptor;
@@ -138,6 +143,10 @@ String path = ret;
 	public String getDefaultGraphImg() {
 		// TODO Auto-generated method stub
 		return getURLFromPath(graphDefaultImg);
+	}
+
+	public String getDefaultGraphDirImg() {
+		return getURLFromPath(graphDirDefaultImg);
 	}
 
 //	public

@@ -97,12 +97,13 @@ if(_cdataIndex==null||_cdataIndex=="undefined")
 function addPointToXYGraph(tagName){
 	// 如果点组里不包含这个点
 	if(pointGroup.indexOf(tagName)==-1){
-//		console.log("addPointToXYGraph:"+tagName);
+		console.log("addPointToXYGraph:"+tagName);
 		// 添加进点组
 		pointGroup.push(tagName);
 
 		// 修改cdata和_data时，修改tagName值为当前状态下的值。
-		var tagName = getNewLabelForData(tagName);
+		var __tagName = getNewLabelForData(tagName);
+		console.log("__tagName = "+__tagName);
 		// 在刷新数据时，addData时，在_data中加一个
 		// 向_data和cdata中加入一个数据，之后addData才能真正将数据加入。
 		// 构建_data序号。
@@ -123,7 +124,7 @@ function addPointToXYGraph(tagName){
 			cdata.push(timeserial);
 			_cdataIndex['time'] = cdata.length -1;
 		}
-		if(_cdataIndex[tagName]=="undefined"||_cdataIndex[tagName]==null){
+		if(_cdataIndex[__tagName]=="undefined"||_cdataIndex[__tagName]==null){
 //			console.log("deal with "+tagName+".");
 //			console.log("deal with "+tagName+". "+JSON.stringify(_cdataIndex)+" "+JSON.stringify(cdata));
 			var tagserial = new Array();
@@ -145,8 +146,9 @@ function addPointToXYGraph(tagName){
 			_data.push(timeserial);
 			_dataIndex['time'] = _data.length -1;
 		}
+		console.log("_dataIndex[tagName]== " +_dataIndex[tagName] +"tagName= "+tagName );
 		if(_dataIndex[tagName]=="undefined"||_dataIndex[tagName]==null){
-//			console.log("deal with "+tagName+".");
+			console.log("deal with "+tagName+".");
 //			console.log("deal with "+tagName+". "+JSON.stringify(_cdataIndex)+" "+JSON.stringify(cdata));
 			var tagserial = new Array();
 			tagserial.push(tagName);
@@ -263,8 +265,10 @@ function closeGraph(){
 function buildChart(){
 //	console.log("buildChart()");
 	// 取数据到_data中。
-	if(_data.length>0 && _data[0].length==0){
+	if(_data.length>0 && _data[0].length<10){
 		_backward();
+		$('#exampleModal').modal('show');
+		//loadCData();
 //		getHistoryData1(,buildChart1)
 	} else {
 		buildChart1();
@@ -276,6 +280,7 @@ function buildChart1(){
 //	console.log("buildChart()");
 //	console.log("cdata => "+JSON.stringify(cdata));
 	$('#exampleModal').modal('show');
+	loadCData();
 
 	c3LineChart = c3.generate({
 		bindto : '#ui-historyDataLineChart',
@@ -379,11 +384,32 @@ var cols;
 var tagFeatureInXYGraph = 0;
 
 /**
- *
+ * 当前图形
  */
 var _graph = getGraphByID(userSpace.graph,_graphId);
+
+/**
+ * 当前图形中的点列表：
+ * {
+    "DATAPOINT1_pbTextEl":{
+        "id":8792,
+        "tagName":"570_FT_10104",
+        "desc":"生活污水去T-101",
+        "deviceName":"GROUP1",
+        "serverName":"RTDBB",
+        "enunit":"",
+        "tagType":"",
+        "values":null
+    },
+    ...
+    }
+ */
 var pointKs;
 buildPointKs();
+/**
+ * 构建当前图形的点位信息表
+ * @returns
+ */
 function buildPointKs(){
 	if(pointKs==null || pointKs=="undefined"){
 		pointKs = new Object();
@@ -395,7 +421,6 @@ function buildPointKs(){
 		for(var ind=0;ind<pointTextIDs.length;ind++){
 			pointKs[pointTextIDs[ind]] = pointList[ind];
 		}
-//	console.log("pointKs = "+JSON.stringify(pointKs));
 }
 
 /**
@@ -437,6 +462,7 @@ function getOrigionLabel(currenttxtid){
  * @returns 当前状态下的值
  */
 function getNewLabelForData(txtid,tagFeature){
+//	console.log("pointKs=> "+JSON.stringify(pointKs));
 	var tartxt = null;
 	if(tagFeature!=null&&tagFeature!="undefined"){
 
@@ -662,9 +688,15 @@ function refreshData(data) {
 				// 加事件
 				ele.onclick = function(){
 					// 添加进趋势图的换成点位说明。
-					_addPointToXY(getNewLabelForData(ele.getAttribute("id")));
+					var _tagname = getNewLabelForData(ele.getAttribute("id"));
+					_addPointToXY(_tagname);
 					// pointGroup中的值不变，还是txtid。
-					addPointToXYGraph((ele.getAttribute("id")));
+					// TODO:  ==================================================
+//					console.log("_tagname() -> "+_tagname);
+//					console.log("ele.getAttribute(\"id\") -> "+ele.getAttribute("id"));
+//					console.log("ele.getAttribute(\"id\") -> "+ele.getAttribute("id"));
+					addPointToXYGraph(_tagname);
+//					console.log("_data => "+JSON.stringify(_data,null,2));
 				}
 				// 画点图
 	//				if(gl[p].config.id == "point_" + key){
@@ -745,7 +777,7 @@ var _dataCount = 2400; // 前端保存的历史数据个数，这个要根据浏
  * 当前值范围
  */
 var cdata = new Array();
-var cdataCount = 240; // 趋势图里，一页的数据量。30秒一个数，这是两个小时间的数据量。
+var cdataCount = 600; // 趋势图里，一页的数据量。30秒一个数，这是两个小时间的数据量。
 /**
  * 刷新值
  *
@@ -756,12 +788,17 @@ var currentStartTime;
 var currentStartTimeInd;
 function loadCData(startTime){
 
+	
 	var _currentStartTimeInd = 0;
 	var _dataIndex ={};
 	for(var indrow=0;indrow<_data.length;indrow++){
 		_dataIndex[_data[indrow][0]]= indrow;
 	}
+	if(startTime==null||startTime=="undefined"){
+		_data[_dataIndex['time']][1];
+	}
 
+	console.log("loadCData startTime = "+startTime);
 // console.log("debug 2");
 	var dataInd = 0;
 	var _datatime = _data[_dataIndex['time']];
@@ -818,13 +855,18 @@ function loadCData(startTime){
 // console.log("cdata= "+JSON.stringify(cdata));
 // currentStartTime = _data[_dataIndex['time']][1];
 // currentStartTimeInd = 1;
-
+	console.log("loadCdata 加载了"+cdata[0].length+"个数据。");
 	currentStartTime = startTime;
 	currentStartTimeInd = _currentStartTimeInd;
 }
 
 var _dataIndex;
 var __a = 0;
+/**
+ * 将历史数据添加到_data中
+ * @param historyData
+ * @returns
+ */
 function addHistoryData(historyData){
 	// 数据不正常就返回
 	if(historyData==null|| historyData=="undefined")return;
@@ -974,7 +1016,8 @@ function addData(newData, _data_, cdatacount) {
  * @param func
  * @returns
  */
-function getHistoryData1(_historyDataDetailKey,startTime,endTime,pointGroup,func){
+function getHistoryData1(_historyDataDetailKey,startTime,endTime,pointGroup,func,backward_d){
+	console.log("getHistoryData1 -> backcount="+backcount);
 	var data={'uid':uid,'token':token,'id':_historyDataDetailKey,'beginTime':startTime,'endTime':endTime,"pointList":pointGroup};
 	console.log("getHistoryData1  data = "+JSON.stringify(data));
 	console.log("getHistoryData1 startTime="+new Date(startTime)+" endTime="+new Date(endTime)+" ");
@@ -997,16 +1040,21 @@ function getHistoryData1(_historyDataDetailKey,startTime,endTime,pointGroup,func
 			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				var historyData = data.data.data;
 				console.log("historydata1.js 取回数据个数 => historyData1= "+historyData[0].length);
-
+				if(backward_d)
+					currentStartTimeInd = currentStartTimeInd + historyData[0].length;
+				else {
+					
+				}
 //				console.log("historydata.js => historyData1= "+JSON.stringify(historyData));
 //				if(__a<3)
 				addHistoryData(historyData);
 //				console.log("getHistoryData1 startTime="+startTime+" - "+new Date(startTime));
 //				console.log("getHistoryData1 historyData[0].length= "+historyData[0].length);
-
-//				func();
+				hideLoading();
+				func();
 			} else {
 				alert("失败 ： "+data.msg);
+				hideLoading();
 			}
 			hideLoading();
 		},
@@ -1045,7 +1093,7 @@ function getHistoryData(){
 					var historyData = data.data.data;
 //					console.log("historydata.js => historyData= "+JSON.stringify(historyData));
 					addHistoryData(historyData);
-					loadCData(1569151501);
+					loadCData();
 					reloadDataToDiagram();
 					//
 				} else {
@@ -1091,6 +1139,12 @@ function play(){
 	}
 //	console.log("play -> "+JSON.stringify(cdata));
 }
+
+/**
+ * 取历史数据时开始时间与当前时间最小差
+ */
+var minCurrentTime = 60*1000;
+
 /**
  * 向前，向后
  */
@@ -1124,8 +1178,7 @@ function _forward(_newData) {
 			currentStartTimeInd =1;
 		}
 		{
-//			console.log(" _forward 2");
-
+			console.log(" _forward 2 currentStartTimeInd="+currentStartTimeInd+" _data.length="+_data[_dataIndex['time']].length+" oneStep="+oneStep);
 			if(currentStartTimeInd+oneStep<_data[_dataIndex['time']].length){ // 向左
 				currentStartTimeInd = currentStartTimeInd+oneStep;
 			}
@@ -1135,7 +1188,11 @@ function _forward(_newData) {
 				var _endTime = currentStartTimeInd+oneStep*1000;
 				if(_endTime>new Date().getTime())
 					_endTime = new Date().getTime();
-				getHistoryData1("",currentStartTimeInd,_endTime,pointGroup,_forward);
+				if(new Date().getTime() - currentStartTimeInd < minCurrentTime){
+					alert("取数据的开始时间太近了，现在还有更近的历史数据。");
+					return;
+				}
+				getHistoryData1("",currentStartTimeInd,_endTime,pointGroup,_forward,false);
 				return;
 			}
 		}
@@ -1163,6 +1220,7 @@ function getCurrentStartTime(){
  *
  * @returns
  */
+var backcount = 0;
 function _backward() {
 	// 停止播放
 	currentPlayStatus = false;
@@ -1175,7 +1233,7 @@ function _backward() {
 	oneStep = cdataCount*0.9;
 	if(currentStartTimeInd == null || currentStartTimeInd=="undefined"){
 		currentStartTimeInd =2;
-		console.log("_backward -> currentStartTimeInd=2");
+		console.log("_backward -> currentStartTimeInd === 2");
 	}
 	{
 		if(currentStartTimeInd-oneStep>0){ // 当前时间序号，向左一个oneStep那么多，仍然有值
@@ -1183,6 +1241,7 @@ function _backward() {
 		}else{ //如果向左一步已经超过了_data的左边界，就去服务器取数据，添加后，再取
 			var _currentStartTimeInd ;// 当前要查的时间的序号，是具体时间。// 因为要数据数量。
 			var _endTime;
+			console.log("_backward  currentStartTimeInd = "+currentStartTimeInd);
 			// 如果时间维数据大于1，且时间维里是有时间数据的
 			if(_data[_dataIndex['time']].length>1 && _data[_dataIndex['time']][1] != "undefined"){
 				// 待取数的开始时间是第一个数据时间向前2个小时
@@ -1195,7 +1254,13 @@ function _backward() {
 				console.log("_backward 2.. _currentStartTimeInd="+_currentStartTimeInd+" _endTime="+_endTime);
 			}
 			console.log("_backward.. to getHistoryData1 _startTime="+new Date(_currentStartTimeInd)+" _endTime="+new Date(_endTime));
-			getHistoryData1("",_currentStartTimeInd,_endTime,pointGroup,_backward);
+			backcount++;
+			if(backcount<3){
+				console.log("_backward.. to getHistoryData1 backcount="+backcount);
+				getHistoryData1("",_currentStartTimeInd,_endTime,pointGroup,_backward,true);
+			}
+			else
+				backcount = 0;
 			return;
 		}
 	}
@@ -1212,7 +1277,7 @@ function _search(){
 //console.log("flow");
 //	console.log("_startTime_="+_startTime_+"  _endTime_="+_endTime_);
 	//getHistoryData1(_historyDataDetailKey,_startTime_,_endTime_,addHistoryData);
-	getHistoryData1("",_startTime_,_endTime_,pointGroup,_backward);
+	getHistoryData1("",_startTime_,_endTime_,pointGroup,_backward,true);
 }
 
 /**
@@ -1244,6 +1309,8 @@ function zoomin_x() {
 function zoomout_x() {
 	_rateX = _rateX *2;
 	cdataCount = cdataCount / 1.5;
+	if(cdataCount<100)
+		cdataCount = 100;
 //	console.log("cdataCount = "+cdataCount);
 	loadCData(getCurrentStartTime());
 	reloadDataToDiagram();
@@ -1254,10 +1321,69 @@ function zoomout_x() {
  * @returns
  */
 function reloadDataToDiagram(){
+	if(c3LineChart==null || c3LineChart=="undefined"){
+		console.log("reloadDataToDiagram -> c3LineChart没有创建，执行buildChart");
+		buildChart();
+		return;
+	}
 	// UI加载数据，显示
 	// TODO: 增加flow效果
-	c3LineChart.load({
-		columns : cdata
+//	var _ids = new Array();
+//	for(var indc=0;indc<cdata.length;indc++){
+//		_ids.push(cdata[indc][0]);
+//	}
+//	c3LineChart.unload({
+//		ids:_ids
+//	});
+//	c3LineChart.load({
+//		columns : cdata,
+//		unload: ['data2', 'data3']
+//	});
+
+	c3LineChart = c3.generate({
+		bindto : '#ui-historyDataLineChart',
+		data : {
+			x : xray,
+			xFormat : '%Y',
+			columns : cdata,
+			type : 'spline',
+		},
+	    zoom: {
+	        enabled: true
+	    },
+		grid : {
+			x : {
+				show : true
+			},
+			y : {
+				show : true
+			}
+		},
+		color : {
+			pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
+					'rgba(4,189,254,0.6)' ]
+		},
+		padding : {
+			top : 10,
+			right : 30,
+			bottom : 30,
+			left : 50,
+		},
+		axis : {
+			x : {
+				type : 'timeseries',
+				// if true, treat x value as localtime (Default)
+				// if false, convert to UTC internally
+				localtime : true,
+				tick : {
+					format : '%Y-%m-%d %H:%M:%S'
+				}
+			},
+			y : {
+				show: true,
+				label: 'Y2 Axis Label'
+			}
+		}
 	});
 	c3LineChart.axis.min({
 		y : Math.round(_minY - (_maxY-_minY)/2 * _rateY)
@@ -1326,7 +1452,7 @@ function changex(tname) {
 					type : 'timeseries',
 					// if true, treat x value as localtime (Default)
 					// if false, convert to UTC internally
-					localtime : false,
+					localtime : true,
 					tick : {
 						format : '%Y-%m-%d %H:%M:%S'
 					}

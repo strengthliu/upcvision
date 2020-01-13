@@ -129,6 +129,7 @@ function routeTo(diagram, key, graphId) {
 		console.log("key= "+key);
 		_diagramShowKey = key;
 		_graphId = graphId;
+		
 		$("#mainPanel").load("_diagramShow.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
 		serachbox_topToolsBar.style.display = "none";

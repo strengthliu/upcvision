@@ -121,9 +121,9 @@
 																					console.log("response.data= "+JSON.stringify(response.data));
 																					return (!filter.name || client.name
 																							.indexOf(filter.name) > -1)
-																							&& (!client || !filter.userName || client.userName
+																							&& (!client || !client.userName || !filter.userName || client.userName
 																									.indexOf(filter.userName) > -1)
-																							&& (!client || !filter.depart || client.depart
+																							&& (!client || !client.depart || !filter.depart || client.depart
 																									.indexOf(filter.depart) > -1)
 																							&& (!client || !filter.role || client.role === filter.role);
 																				});
@@ -443,7 +443,22 @@ function _insertItem(item) {
 		alert("您输入了新密码，但两次输入的不一致。请重新输入。");
 		return;
 	}
-
+	if(tuserInfo.depart==null || tuserInfo.depart=="undefined"){
+		alert("您必须为用户选择部门。");
+		return;
+	}
+	if(tuserInfo.name==null || tuserInfo.name=="undefined"){
+		alert("您必须为用户起一个登录用的用户名。");
+		return;
+	}
+	if(tuserInfo.role==null || tuserInfo.role=="undefined"){
+		alert("您必须为用户设定一个角色。");
+		return;
+	}
+	if(tuserInfo.pwd==null || tuserInfo.pwd=="undefined"){
+		alert("您还没有为用户设定密码。");
+		return;
+	}
     // 如果有头像，要先上传头像
 	var file=$("#_userPortrait")[0].files[0];
 	if(file!="null" && (file+"")!="undefined"){
@@ -512,12 +527,6 @@ function setTUserInfo(k, v) {
 		// return;
 	}
 	
-	if(k=="labelmobile"){
-		
-	}
-	if(k=="labelemail"){
-		
-	}
 	tuserInfo[k] = v;
 	if (k == "role") {
 		var _droprole = document.getElementById("_userrole");
@@ -542,6 +551,34 @@ function setTUserInfo(k, v) {
 				_dropdepart.innerHTML = dep.departname;
 				break;
 			}
+		}
+	}
+	if(k == "mobile"){
+		var labelmobile = document.getElementById("labelmobile");
+		var _usermobile = document.getElementById("_usermobile");
+		
+		const reg = /^1[3456789]\d{9}$/;
+		if(!reg.test(_usermobile.value)){
+			labelmobile.innerHTML="手机号码格式不正确";
+			labelmobile.style.color="red";
+		}else{
+			labelmobile.innerHTML="手机号码";
+			labelmobile.style.color="black";			
+		}
+		
+	}
+	if (k == "email"){
+		var labelemail = document.getElementById("labelemail");
+		var _useremail = document.getElementById("_useremail");
+		var _val = _useremail.value;
+		const reg= /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+		console.log(reg.test("12962039@qq.com"));
+		if(!reg.test(_val)){
+			labelemail.innerHTML="电子邮件格式不正确";
+			labelemail.style.color="red";
+		}else{
+			labelemail.innerHTML="电子邮件";
+			labelemail.style.color="black";			
 		}
 	}
 

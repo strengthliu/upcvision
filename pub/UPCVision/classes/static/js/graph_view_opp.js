@@ -71,17 +71,29 @@ var Dragging = function(validateHandler) {
 
 
 //Dragging(getDraggingDialog).enable();
-
+function _IsNaN(value) {
+	if(value == null || value == "undefined")
+		return false;
+	return typeof value === 'number' && !isNaN(value);
+}
+	  
 function initView() {
 
 	// 获取图形宽高
 	svg1 = document.getElementsByTagName("svg");
+	console.log("graph_view_opp.js->initView => svg1= "+svg1+" asJson="+JSON.stringify(svg1)+" length="+svg1.length);
 	svg1 = svg1[0];
+	console.log("graph_view_opp.js->initView => 2 svg1= "+svg1+" asJson="+JSON.stringify(svg1));
 	width = svg1.attributes.width.value;
 	height = svg1.attributes.height.value;
-	var svg1Rect = svg1.getBoundingClientRect();
+	var mainToolsBarRect = svg1.getBoundingClientRect();
+	console.log("initView -> mainPanel BarRect -> "+ mainToolsBarRect.top+" "+ mainToolsBarRect.left+" "+ mainToolsBarRect.width+" "+ mainToolsBarRect.height+" ");
+	if(!_IsNaN(width))
+		width = mainToolsBarRect.width;
+	if(!_IsNaN(height))
+		height = mainToolsBarRect.height;
 
-	console.log("===>svg x="+svg1Rect.left+" y="+svg1Rect.top+" width="+svg1.attributes.width.value+" height="+svg1.attributes.height.value);
+	//console.log("===>svg x="+mainToolsBarRect.left+" y="+mainToolsBarRect.top+" width="+mainToolsBarRect.attributes.width.value+" height="+mainToolsBarRect.attributes.height.value);
 	var trans;
 	// D3操作对象
 	zoom = d3.behavior.zoom().scaleExtent([ 0.5, 8 ]).on("zoom", null);
@@ -330,7 +342,7 @@ function fullScreenFn() {
 
 		var svgx = svg1.getBoundingClientRect().left;
 		var svgy = svg1.getBoundingClientRect().top;
-		console.log("fullScreen => svgx= "+ svgx+"  svgy= "+ svgy);
+		console.log("fullScreen => svgx= "+ svgx+"  svgy= "+ svgy+" scale="+scale);
 
 		// 计算translate和scale,调用 function interpolateZoom (translate, scale)
 		var tx = svg.attr("width") / 2 * (1 - scale);
@@ -341,6 +353,7 @@ function fullScreenFn() {
 		var _ttx = mainToolsBarRect.left - svgx + translate[0];// +
 		var _tty = mainToolsBarRect.top - svgy + translate[1];// +
 		console.log("translate ->"+[ _ttx, _tty ]);
+		console.log("scale -> "+scale);
 		//console.log("fullScreen => _tty-> "+_tty+" mainToolsBarRect.left="+mainToolsBarRect.left+" svgx="+svgx+" translate[0]="+translate[0]);
 		interpolateZoom([ _ttx, _tty ], scale);
 

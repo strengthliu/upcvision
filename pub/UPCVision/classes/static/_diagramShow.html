@@ -1,4 +1,7 @@
 
+<script src="./js/graph.js"></script>
+<script src="./js/graph_view_opp.js"></script>
+<script src="./js/c3.js"></script>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -16,7 +19,7 @@
 				</button>
 				<button class="navbar-toggler navbar-toggler align-self-center"
 					type="button" data-toggle="tooltip" data-placement="bottom"
-					title="打开/关闭数据表格" onclick="switchWin('_datatableUI');">
+					title="打开/关闭数据表格" onclick="switchWin('_datatableUI');" style="display:none;">
 					<span class="icon-grid"></span>
 				</button>
 				<button class="navbar-toggler navbar-toggler align-self-center"
@@ -345,6 +348,17 @@
 	function getGraphByPath_1(graph, path) {
 		if (path == null || path == "undefined")
 			return graph;
+		if(path.startsWith("..\\")||path.startsWith("../")){
+			console.log("getGraphByPath_1 0-> "+path);
+			path = path.substring(3,path.length-1);
+			console.log("getGraphByPath_1 1-> "+path);
+		}
+		if(path.startsWith("..\\..\\")||path.startsWith("../../")){
+			console.log("getGraphByPath_1 0-> "+path);
+			path = path.substring(6,path.length-1);
+			console.log("getGraphByPath_1 1-> "+path);
+		}
+		
 		//console.log("graph.wholePath="+graph.wholePath.toLowerCase()+"  ==  "+"path="+path.toLowerCase());
 		if (graph.wholePath.toLowerCase().indexOf(path.toLowerCase()) != -1) {
 			//console.log("找到了");
@@ -407,6 +421,7 @@
 				} else {
 					_graphId = g.id;
 					_diagramShowKey = g.urlPath;
+					console.log("从图里面点链接，图形地址是："+this.href.baseVal);
 					routeTo("diagramDetail", this.href.baseVal);
 				}
 				return false;
@@ -465,8 +480,6 @@
 <script src="vendors/lightgallery/js/lightgallery-all.min.js"></script>
 -->
 
-<script src="./js/graph.js"></script>
-<script src="./js/graph_view_opp.js"></script>
 <script type="text/javascript" src="js/iscroll.js"></script>
 <script type="text/javascript" src="js/navbarscroll.js"></script>
 <script src="js/settings.js"></script>

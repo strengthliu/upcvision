@@ -196,6 +196,8 @@ public class FileTool {
 				fl.setSVG(false);
 				fl.setType(GlobalConsts.Type_graph_);
 				fl.setId(IDTools.newID());
+				fl.setImg(ServerConfig.getInstance().getDefaultGraphDirImg());
+
 				// 目录是图，不添加到数据库、缓存。取数据时，根据图的目录，分解出结构关系。
 				/**
 				 * 需求修改：目录也要添加数据库，因为要做目录分享。
@@ -354,8 +356,10 @@ public class FileTool {
 						File fimage = new File(urlGraphPath);
 						if (fimage.length() > 0)
 							fl.setImg(urlGraphPath);
-						else
+						else {
+							
 							fl.setImg(ServerConfig.getInstance().getDefaultGraphImg());
+						}
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

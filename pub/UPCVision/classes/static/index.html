@@ -22,8 +22,9 @@ if (isIE) {
 	alert("你正在使用IE浏览器，很抱歉我们当前还不支持IE浏览器，请下载其他我们支持的浏览器。");
 	window.location.href="downLoadBrowser.html";
 }
-if (isSafari) {
-	alert("你正在使用Safari浏览器，很抱歉我们当前还不支持IE浏览器，请下载其他我们支持的浏览器。");
+if (isSafari) 
+{
+	alert("你正在使用Safari浏览器，很抱歉我们当前还不支持Safari浏览器，请下载其他我们支持的浏览器。");
 	window.location.href="downLoadBrowser.html";
 }
 
@@ -49,14 +50,11 @@ if (isSafari) {
 <link rel="shortcut icon" href="images/favicon.png" />
 
 <!-- plugin css for this page -->
-<link rel="stylesheet"
-	href="vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
 <!-- plugin css for this page -->
 <!-- End plugin css for this page -->
 
 <!-- End plugin css for this page -->
 <!-- inject:css -->
-<link rel="stylesheet" href="css/style.css">
 <!-- endinject -->
 <!-- 
 <script src="js/jquery-2.2.4.js"></script>
@@ -238,6 +236,7 @@ if (isSafari) {
 				</ul>
 
 				<ul class="navbar-nav navbar-nav-right">
+				<!-- 
 					<li class="nav-item dropdown d-none d-lg-flex"><a
 						class="nav-link dropdown-toggle" id="languageDropdown" href="#"
 						data-toggle="dropdown"> 简体中文 </a>
@@ -245,18 +244,15 @@ if (isSafari) {
 							aria-labelledby="languageDropdown">
 							<a class="dropdown-item" href="#"> 简体中文 </a>
 							<div class="dropdown-divider"></div>
-							<!-- 
 							<a class="dropdown-item" href="#"> English </a>
 							<div class="dropdown-divider"></div>
-							 -->
 						</div></li>
 					<li class="nav-item dropdown" data-toggle="tooltip"
 						data-placement="bottom" title="消息通知"><a
 						class="nav-link count-indicator dropdown-toggle"
 						id="messageDropdown" href="#" data-toggle="dropdown"
-						aria-expanded="false"> <i class="mdi mdi-email-outline"></i> <!-- 
+						aria-expanded="false"> <i class="mdi mdi-email-outline"></i>  
 						<span class="count bg-warning">5</span>
-						-->
 					</a>
 						<div
 							class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
@@ -268,7 +264,6 @@ if (isSafari) {
 									<h6 class="preview-subject ellipsis">没有新消息</h6>
 								</div>
 							</a>
-							<!-- 
 							<a class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<img src="images/faces/face4.jpg" alt="image"
@@ -280,7 +275,6 @@ if (isSafari) {
 									<p class="text-muted">1 Minutes ago</p>
 								</div>
 							</a>
- 							-->
 							<div class="dropdown-divider"></div>
 							<h6 class="p-3 mb-0 text-center">0 new messages</h6>
 						</div></li>
@@ -288,16 +282,14 @@ if (isSafari) {
 						data-placement="bottom" title="提醒信息"><a
 						class="nav-link count-indicator dropdown-toggle"
 						id="notificationDropdown" href="#" data-toggle="dropdown"> <i
-							class="mdi mdi-bell-outline"></i> <!-- 
+							class="mdi mdi-bell-outline"></i> 
 							<span class="count bg-danger">7</span>
-							 -->
 					</a>
 						<div
 							class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
 							aria-labelledby="notificationDropdown">
 							<h6 class="p-3 mb-0">Notifications</h6>
 							<div class="dropdown-divider"></div>
-							<!-- 
 							<a class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<div class="preview-icon bg-info">
@@ -310,7 +302,6 @@ if (isSafari) {
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
-							 -->
 							<a class="dropdown-item preview-item">
 								<div class="preview-item-content">
 									<h6 class="preview-subject">没有通知</h6>
@@ -319,12 +310,13 @@ if (isSafari) {
 							<div class="dropdown-divider"></div>
 							<h6 class="p-3 mb-0 text-center">查看所有通知</h6>
 						</div></li>
+						 -->
 					<li class="nav-item dropdown">
 						<!--            右侧的用户头像姓名     --> <a
 						class="nav-link dropdown-toggle nav-profile" id="profileDropdown"
 						href="#" data-toggle="dropdown" aria-expanded="false"> <img
 							id="_userfaceRight" src="images/faces/user1.png" alt="image">
-							<span class="d-none d-lg-inline" id="userNameUIRight">张三</span>
+							<span class="d-none d-lg-inline" id="userNameUIRight">用户名</span>
 					</a>
 						<div class="dropdown-menu navbar-dropdown w-100"
 							aria-labelledby="profileDropdown">
@@ -434,8 +426,9 @@ if (isSafari) {
 							</div>
 							<script type="text/javascript">
 								var changeUserInfo = document.getElementById("changeUserInfo");
-								if(user.name == "admin") 
-									document.getElementById("changeUserInfo").style.visibility="hidden";// style=display="none"
+								console.log("index -> user.id="+user.id);
+								if(user.id == 2) 
+									document.getElementById("changeUserInfo").style.display="none"
 								else
 									console.log("user.name="+JSON.stringify(user.name));
 								setUserInfo();

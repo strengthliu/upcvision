@@ -265,12 +265,19 @@ public class JGecService extends ObjectPool<GecService> {
 	}
 	
 	public String DBECGetTagName(String serverName,long tagId) throws GecException{
+		System.out.println("debug lab DBECGetTagName 1");
 		GecService gs = gecService();
+		System.out.println("debug lab DBECGetTagName 2");
 		StringBuffer lpNameBuffer = new StringBuffer();
+		System.out.println("debug lab DBECGetTagName 3");
 		Long length = gs.DBECGetTagNameMaxLen();
+		System.out.println("debug lab DBECGetTagName 4");
 		boolean r = gs.DBECGetTagName(serverName, tagId, lpNameBuffer, length.intValue());
+		System.out.println("debug lab DBECGetTagName 5");
 		this.returnObject(gs);
+		System.out.println("debug lab DBECGetTagName 6");
 		throwException(r);
+		System.out.println("debug lab DBECGetTagName 7");
 		return lpNameBuffer.toString();
 	}
 

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
@@ -53,11 +54,16 @@ public class GraphDataManager extends PointGroupDataManager {
 
 	@Value("${upc.graphPath}")
 	private String graphPath;
+	
 	@Value("${upc.graphServerPath}")
 	private String graphServerPath;
 
 	@Value("${upc.graphDefaultImg}")
 	private String graphDefaultImg;
+
+	// 图形的URL目录
+	@Value("${upc.graphDirDefaultImg}")
+	private String graphDirDefaultImg;
 
 
 	Graph getGraphRigidlyByKeys(String idstr) {
@@ -115,7 +121,12 @@ public class GraphDataManager extends PointGroupDataManager {
 
 		Graph ret = null;
 		try {
+			long t1 = System.currentTimeMillis();
 			ret = copyGraphFromFileList(fl);
+			long t2 = System.currentTimeMillis();
+			long tt = (t2-t1);
+			if(tt>100)
+			System.out.println(" ->  -> getGraph 用时："+tt+" 毫秒 "+fl.getName());
 		} catch (Exception e) {
 			System.out.println("copyGraphFromFileList时异常");
 			e.printStackTrace();
@@ -131,6 +142,12 @@ public class GraphDataManager extends PointGroupDataManager {
 	 * @return
 	 */
 	public Graph copyGraphFromFileList(FileList fl) {
+
+		long t1 = System.currentTimeMillis();
+		long t2 = System.currentTimeMillis();
+		long tt = (t2-t1);
+//		System.out.println(" ->  -> copyGraphFromFileList 用时："+tt+" 毫秒");
+
 		boolean noCache = false;
 		Graph ret = new Graph(); // 返回的图形
 		
@@ -165,8 +182,12 @@ public class GraphDataManager extends PointGroupDataManager {
 		ret.setType(fl.getType());
 
 		// 设置缩略图
-		if (fl.getImg() == null || fl.getImg() == "")
-			ret.setImg(graphDefaultImg);
+		if (fl.getImg() == null || fl.getImg() == "") {
+			if(fl.isFile())
+				ret.setImg(graphDefaultImg);
+			else
+				ret.setImg(graphDirDefaultImg);
+		}
 
 		// 设置URLpath
 		String urlPath = ServerConfig.getInstance().getURLFromPath(fl.getWholePath());
@@ -595,8 +616,12 @@ public class GraphDataManager extends PointGroupDataManager {
 		pgd.setCreater(g.getCreater());
 		pgd.setOwner(g.getOwner());
 		// 设置缩略图
-		if (StringUtil.isBlank(g.getImg()))
-			pgd.setOtherrule5(graphDefaultImg);
+		if (StringUtil.isBlank(g.getImg())) {
+			if(g.isFile())
+				pgd.setOtherrule5(graphDefaultImg);
+			else
+				pgd.setOtherrule5(graphDirDefaultImg);
+		}
 		else
 			pgd.setOtherrule5(g.getImg());
 		// 更新数据库

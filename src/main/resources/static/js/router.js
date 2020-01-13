@@ -129,6 +129,8 @@ function routeTo(diagram, key, graphId) {
 		console.log("key= "+key);
 		_diagramShowKey = key;
 		_graphId = graphId;
+		console.log("=====调试图形svg未加载问题 ===== router.js -> diagramDetail");
+		console.log("=====调试图形svg未加载问题 ===== router.js -> diagramDetail");
 		$("#mainPanel").load("_diagramShow.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
 		serachbox_topToolsBar.style.display = "none";

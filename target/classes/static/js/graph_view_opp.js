@@ -71,17 +71,37 @@ var Dragging = function(validateHandler) {
 
 
 //Dragging(getDraggingDialog).enable();
-
+function _IsNaN(value) {
+	if(value == null || value == "undefined")
+		return false;
+	return typeof value === 'number' && !isNaN(value);
+}
+	  
 function initView() {
-
+//	console.log("graph_view_opp.js ---> initView ---> 1");
 	// 获取图形宽高
-	svg1 = document.getElementsByTagName("svg");
-	svg1 = svg1[0];
+	
+	var _diagramShow = document.getElementsByTagName("_diagramShow");
+//	console.log("graph_view_opp.js -> 加载的图形文件内容为： "+_diagramShow.innerHTML);
+	var __svg1 = document.getElementsByTagName("svg");
+//	console.log("graph_view_opp.js ---> initView ---> 2");
+//	console.log("graph_view_opp.js->initView => svg1= "+__svg1+" asJson="+JSON.stringify(__svg1)+" length="+__svg1.length);
+//	console.log("graph_view_opp.js ---> initView ---> 3");
+	svg1 = __svg1[0];
+//	console.log("graph_view_opp.js ---> initView ---> 4");
+//	console.log("graph_view_opp.js->initView => 2 svg1= "+svg1+" asJson="+JSON.stringify(svg1));
 	width = svg1.attributes.width.value;
+//	console.log("graph_view_opp.js ---> initView ---> 5");
 	height = svg1.attributes.height.value;
-	var svg1Rect = svg1.getBoundingClientRect();
+//	console.log("graph_view_opp.js ---> initView ---> 6");
+	var mainToolsBarRect = svg1.getBoundingClientRect();
+//	console.log("initView -> mainPanel BarRect -> "+ mainToolsBarRect.top+" "+ mainToolsBarRect.left+" "+ mainToolsBarRect.width+" "+ mainToolsBarRect.height+" ");
+	if(!_IsNaN(width))
+		width = mainToolsBarRect.width;
+	if(!_IsNaN(height))
+		height = mainToolsBarRect.height;
 
-	console.log("===>svg x="+svg1Rect.left+" y="+svg1Rect.top+" width="+svg1.attributes.width.value+" height="+svg1.attributes.height.value);
+	//console.log("===>svg x="+mainToolsBarRect.left+" y="+mainToolsBarRect.top+" width="+mainToolsBarRect.attributes.width.value+" height="+mainToolsBarRect.attributes.height.value);
 	var trans;
 	// D3操作对象
 	zoom = d3.behavior.zoom().scaleExtent([ 0.5, 8 ]).on("zoom", null);
@@ -105,17 +125,17 @@ function initView() {
 		// zoom.translate(translate);
 		// d3.select(this).attr("cx", d3.event.x).attr("cy", d3.event.y);
 		if (translate != null && translate != "undefined") {
-			console.log("-------------------------------");
-			console.log("translate-> " + translate);
-			console.log("translate event -> " + [ d3.event.x, d3.event.y ]);
+//			console.log("-------------------------------");
+//			console.log("translate-> " + translate);
+//			console.log("translate event -> " + [ d3.event.x, d3.event.y ]);
 			trans = [ d3.event.x, d3.event.y ];
-			console.log();
+//			console.log();
 			// 增加translate[0]的偏移
 			trans = [ d3.event.x + translate[0], d3.event.y + translate[1] ];
 		} else {
 			trans = [ d3.event.x, d3.event.y ];
 		}
-		console.log("translate target -> " + trans);
+//		console.log("translate target -> " + trans);
 		svg.attr("transform", "translate(" + trans + ")" + "scale(" + scale
 				+ ")");
 
@@ -152,15 +172,15 @@ function initView() {
 			var _num2 = 1 + (values - 7)/10; // 新倍数
 			_num2 = _num2.toFixed(2);
 			if (_num != _num2) {
-				console.log("_num=" + _num + " values=" + values + " _num2="
-						+ _num2 + " scale=" + scale);
+//				console.log("_num=" + _num + " values=" + values + " _num2="
+//						+ _num2 + " scale=" + scale);
 				bigValueSpan.innerHTML = scale;// range[Math.floor(values)];
 				scale = _num2;
-				console.log();
+//				console.log();
 				interpolateZoom(translate, scale);
 //				interpolateZoom([ 0, 0 ], scale);
-				console.log("_num=" + _num + " values=" + values + " _num2="
-						+ _num2 + " scale=" + scale + "   ------");
+//				console.log("_num=" + _num + " values=" + values + " _num2="
+//						+ _num2 + " scale=" + scale + "   ------");
 			}
 			// console.log("number = " + number1);
 			// svg.attr("transform", "translate(" + [ 0, 0 ] + ")" + "scale(" +
@@ -168,7 +188,7 @@ function initView() {
 
 		});
 
-		console.log("set _slider.");
+//		console.log("set _slider.");
 		_slider = bigValueSlider.noUiSlider;
 		// _slider.set(5.32);
 	}
@@ -178,8 +198,8 @@ function initView() {
 }
 
 function scrollTo(lab) {
-	 console.log("lab=" + lab);
-	 console.log("scale=" + scale);
+//	 console.log("lab=" + lab);
+//	 console.log("scale=" + scale);
 	if (lab == null || lab == "undefined") {
 		// lab = scale;
 		lab = (scale - 1) * 10 + 7;
@@ -187,12 +207,12 @@ function scrollTo(lab) {
 		// lab = Math.round(((scale - 1) * 1000 + 600) / 100);
 	}
 //	interpolateZoom(translate,scale);
-	 console.log("lab=" + lab);
+//	 console.log("lab=" + lab);
 	var bigValueSpan = document.getElementById('huge-value');
 	if (bigValueSpan.innerHTML == "" || bigValueSpan.innerHTML == "undefined")
 		bigValueSpan.innerHTML = 1;
 	var _num = parseFloat(bigValueSpan.innerHTML);
-	 console.log("scrollTo-> " + lab + " scale=" + scale);
+//	 console.log("scrollTo-> " + lab + " scale=" + scale);
 	var _num2 = lab;
 	if (_num != _num2) {
 		_slider.set(lab);
@@ -247,7 +267,7 @@ function interpolateZoom(_translate, _scale) {
 		translate = _translate;
 	if(translate==null||translate=="undefined")
 		translate=[0,0];
-console.log("translate="+JSON.stringify(translate));
+//console.log("translate="+JSON.stringify(translate));
 	zoomed();
 }
 
@@ -310,7 +330,7 @@ function fullScreenFn() {
 
 		var _svgP = document.getElementById("mainPanel");// svg1.parentNode;
 		var mainToolsBarRect = _svgP.getBoundingClientRect();
-		console.log("mainPanel BarRect -> "+ mainToolsBarRect.top+" "+ mainToolsBarRect.left+" "+ mainToolsBarRect.width+" "+ mainToolsBarRect.height+" ");
+//		console.log("mainPanel BarRect -> "+ mainToolsBarRect.top+" "+ mainToolsBarRect.left+" "+ mainToolsBarRect.width+" "+ mainToolsBarRect.height+" ");
 		// 取当前图形宽度和高度
 		// mainPanel屏幕左上角坐标
 		var y = mainToolsBarRect.top;// + mainToolsBarRect.height;
@@ -319,9 +339,9 @@ function fullScreenFn() {
 		var mainPanelWidth = mainToolsBarRect.width;
 
 		var scale1 = mainPanelHeight / mainPanelWidth;
-		console.log("fullScreen => mainPanelHeight= "+ mainPanelHeight+"  mainPanelWidth= "+ mainPanelWidth);
+//		console.log("fullScreen => mainPanelHeight= "+ mainPanelHeight+"  mainPanelWidth= "+ mainPanelWidth);
 		var scale2 = height / width;
-		console.log("fullScreen => svg height= "+ height+"  width= "+ width);
+//		console.log("fullScreen => svg height= "+ height+"  width= "+ width);
 		if (scale1 > scale2) { // 图比屏幕扁，以图的宽为限
 			scale = mainPanelWidth / width;
 		} else {
@@ -330,7 +350,7 @@ function fullScreenFn() {
 
 		var svgx = svg1.getBoundingClientRect().left;
 		var svgy = svg1.getBoundingClientRect().top;
-		console.log("fullScreen => svgx= "+ svgx+"  svgy= "+ svgy);
+//		console.log("fullScreen => svgx= "+ svgx+"  svgy= "+ svgy+" scale="+scale);
 
 		// 计算translate和scale,调用 function interpolateZoom (translate, scale)
 		var tx = svg.attr("width") / 2 * (1 - scale);
@@ -340,7 +360,8 @@ function fullScreenFn() {
 
 		var _ttx = mainToolsBarRect.left - svgx + translate[0];// +
 		var _tty = mainToolsBarRect.top - svgy + translate[1];// +
-		console.log("translate ->"+[ _ttx, _tty ]);
+//		console.log("translate ->"+[ _ttx, _tty ]);
+//		console.log("scale -> "+scale);
 		//console.log("fullScreen => _tty-> "+_tty+" mainToolsBarRect.left="+mainToolsBarRect.left+" svgx="+svgx+" translate[0]="+translate[0]);
 		interpolateZoom([ _ttx, _tty ], scale);
 
@@ -413,7 +434,7 @@ function adjustToFreezeAll() {
 }
 
 $(window).resize(function() {
-	console.log("fullScreen on window.resize(). ");
+//	console.log("fullScreen on window.resize(). ");
 	fullScreen();
 });
 

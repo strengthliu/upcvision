@@ -97,7 +97,7 @@ function _setParameter(_shareType,_itemId){
 																} else{
 																	sharedUsers = [];
 																}
-//																console.log("userInfoList="+JSON.stringify(userInfoList));
+																console.log("userInfoList="+JSON.stringify(userInfoList));
 //																if(dataItem!=null&&dataItem!="undefined")
 //																	console.log("dataItem.sharedUsers="+JSON.stringify(dataItem.sharedUsers));
 																// dataItem.sharedUsers=[]

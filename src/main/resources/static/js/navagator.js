@@ -294,7 +294,7 @@
 		if(directreportingdatas == null || directreportingdatas == "undefined") directreportingdatas = {};
 		var uidirectreporting = document.getElementById("ui-directreporting");
 
-		if (uidirectreporting != null || uidirectreporting != "undefined"){
+		if (uidirectreporting == null || uidirectreporting == "undefined"){
 		}else{
 			//	// console.log(uidirectreporting.innerHTML);
 			var itemsHtml = '<ul class="nav flex-column sub-menu">';
