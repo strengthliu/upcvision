@@ -37,7 +37,7 @@ import com.surpass.vision.server.ServerManager;
 import com.surpass.vision.service.RedisService;
 
 public class FileTool {
-	private static final Logger LOGGER = LoggerFactory.getLogger(UpdateGraphDirctory.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(FileTool.class);
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -244,6 +244,7 @@ public class FileTool {
 					for (int idocs = 0; idocs < docsg.size(); idocs++) {
 						Element eg = docsg.get(idocs);
 						String gPointId = eg.attr(GlobalConsts.GPointID);// PBD:PtTagName
+//						LOGGER.info("检查点位：gPointId="+gPointId);
 						if (!StringUtil.isBlank(gPointId)) {
 							// System.out.println("图形："+fl.getName()+"，tag="+tag);
 							// 拆分 "\\RTDBB\81_3701_01_P02_C_out"，成服务器 点位名
@@ -254,7 +255,7 @@ public class FileTool {
 							}
 							Point p = sm.getPointByID(serverName, tagName);
 							if (p != null) {
-								// LOGGER.info("检查点位："+tag+" => "+sm.getPointByID(tag));
+								 LOGGER.info("检查点位："+tagName);
 
 								// 取text点
 								Elements docsText = eg.getElementsByTag(GlobalConsts.PointTag);
@@ -272,36 +273,53 @@ public class FileTool {
 									 * <PB:MSState id="DATAPOINT30_MSS2" Blink="0" Color="000000" LowerValue=""
 									 * UpperValue="" /> </PB:MultiState> </text>
 									 */
-									// 取MultiState
+									// 取MultiState PB:IsMultiState="True"
 									Elements pbMultiStates = etext.getElementsByTag(GlobalConsts.PBMultiStateTag);
-									for (int indPBMultiState = 0; indPBMultiState < pbMultiStates
-											.size(); indPBMultiState++) {
-										// eg.getElementsByTag(GlobalConsts.PointTag)
-//										id="DATAPOINT32_MS" ;
-//										PBD:PtTagName="\\RTDBB\1060_FI_1002";
-//										TagName="1060_FI_1002"; 
-//										ServerName="RTDBB"; 
-//										StateCount="2";
-										Element pbMultiMSState = pbMultiStates.get(indPBMultiState);
-										// 取MSState
-										Elements pbMSStateTags = pbMultiMSState
-												.getElementsByTag(GlobalConsts.PBMSStateTag);
-										for (int indPBMSState = 0; indPBMSState < pbMSStateTags
-												.size(); indPBMSState++) {
-											Element pbMSState = docsText.get(indPBMultiState);
-//											id="DATAPOINT32_MSS2";
-//											Blink="0";
-//											Color="000000";
-//											LowerValue="";
-//											UpperValue="";
+									if(pbMultiStates.size()>0) {
+										JSONObject jo = new JSONObject();
+										for (int indPBMultiState = 0; indPBMultiState < pbMultiStates
+												.size(); indPBMultiState++) {
+											// eg.getElementsByTag(GlobalConsts.PointTag)
+	//										id="DATAPOINT32_MS" ;
+	//										PBD:PtTagName="\\RTDBB\1060_FI_1002";
+	//										TagName="1060_FI_1002"; 
+	//										ServerName="RTDBB"; 
+	//										StateCount="2";
+											Element pbMultiMSState = pbMultiStates.get(indPBMultiState);
+											// 取MSState
+											Elements pbMSStateTags = pbMultiMSState
+													.getElementsByTag(GlobalConsts.PBMSStateTag);
+											for (int indPBMSState = 0; indPBMSState < pbMSStateTags
+													.size(); indPBMSState++) {
+												Element pbMSState = pbMSStateTags.get(indPBMSState);
+												String id = pbMSState.attr("id");
+												String Blink= pbMSState.attr("Blink");
+												String Color= pbMSState.attr("Color");
+												String LowerValue= pbMSState.attr("LowerValue");
+												String UpperValue= pbMSState.attr("UpperValue");
+												jo.put("id", id);
+												jo.put("Blink", Blink);
+												jo.put("Color", Color);
+												jo.put("LowerValue", LowerValue);
+												jo.put("UpperValue", UpperValue);
+											}
+											
 										}
 									}
+
+//									 <g id="BARGRAPH1" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\RTDBB\LT_85_7301_10_L01A" PB:Start="0" PB:Upper="100" PB:Type="12">
+//								    <rect x="16900" y="15340" width="780" height="2920" stroke-width="0" fill="#FFFFFF" id="BARGRAPH1_pbBarBoundingRectEl" />
+//								    <rect x="16900" y="15340" width="780" height="2920" stroke-width="0" fill="#00FF00" id="BARGRAPH1_pbBarTagRectEl" stroke="none" PBD:Property="VAL" />
+//								  </g>
 
 									// 取出点的text的ID
 									String textId = etext.attr("id");
 									pointIDs.add(p.wholeName());
 									pointTextIDs.add(textId);
 								}
+//								LOGGER.error("数据不一致错误，图上的点在实时数据库中不存在。\t 图：\t "+fl.getWholePath()+"\t 点：\t 服务器：\t"+serverName+"\t tagName:\t"+tagName);
+							}else {
+								LOGGER.error("数据不一致错误，图上的点在实时数据库中不存在。\t 图：\t "+fl.getWholePath()+"\t 点：\t 服务器：\t"+serverName+"\t tagName:\t"+tagName);
 							}
 						}
 					}

@@ -6,9 +6,11 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.server.ServerHttpRequest;
+import org.springframework.http.server.ServletServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.server.support.DefaultHandshakeHandler;
@@ -24,10 +26,21 @@ public class PrincipalHandshakeHandler  extends DefaultHandshakeHandler{
     @Override
     protected Principal determineUser(ServerHttpRequest request, WebSocketHandler wsHandler, Map<String, Object> attributes) {
         System.out.println("determineUser");
-    	HttpSession session = SpringContextUtils.getSession();
+//    	HttpSession session = SpringContextUtils.getSession();
+    	HttpSession session = getSession(request);
         User loginUser = (User) session.getAttribute(GlobalConsts.SESSION_USER);
         String login = (String) session.getAttribute("login");
-        
+        String user = (String)session.getAttribute("loginName");
+
+        if(StringUtils.isEmpty(session.getId())){
+        	logger.error("当前请求不是一般http请求");
+        	return new MyPrincipal(session.getId());
+//            return null;
+        }else {
+        	logger.info("");
+        }
+//        logger.info(" MyDefaultHandshakeHandler login = " + user);        
+    	logger.info("PrincipalHandshakeHandler:"+request.getURI().getPath());
 //        request.getRemoteAddress()
         // 先不做用户处理。
         if(true) return new MyPrincipal("");
@@ -40,4 +53,11 @@ public class PrincipalHandshakeHandler  extends DefaultHandshakeHandler{
         }
     }
 
+    private HttpSession getSession(ServerHttpRequest request) {
+        if (request instanceof ServletServerHttpRequest) {
+            ServletServerHttpRequest serverRequest = (ServletServerHttpRequest) request;
+            return serverRequest.getServletRequest().getSession(false);
+        }
+        return null;
+    }
 }

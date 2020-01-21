@@ -216,9 +216,7 @@ public class AuthorcationController extends BaseController {
 		// 如果是管理员，直接构造返回。
 		UserInfo ui = userManager.getUserInfoByID(uid);
 		if(IDTools.toString(userId).contentEquals(GlobalConsts.UserAdminID) || ui.getRole()==GlobalConsts.UserRoleAdmin) {
-			System.out.println(" getUserSpace 1 => "+new Date(System.currentTimeMillis()).toLocaleString());
 			UserSpace us = userSpaceManager.buildUserSpace(userId,token);
-			System.out.println(" getUserSpace 1 => "+new Date(System.currentTimeMillis()).toLocaleString());
 			ret.setStatus(GlobalConsts.ResultCode_SUCCESS);
 			ret.setMsg("登录成功！");
 			HashMap<String ,Object> hm = new HashMap<String ,Object>();

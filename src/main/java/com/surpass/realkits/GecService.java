@@ -15,39 +15,39 @@ import com.surpass.realkits.exception.GecException;
 
 public class GecService {
 
-	protected static volatile GecService gecService = null;
-	protected static volatile Gec gec = null;
-	protected static volatile String dllPath = null;
+	protected GecService gecService = null;
+	protected Gec gec = null;
+	protected String dllPath = null;
 
-	private GecService() {
+	public GecService() {
 	}
 
-	public static GecService getGcService() throws GecException {
-		if (gecService == null) {
-			synchronized (GecService.class) {
-				if (gecService == null) {
-					gecService = new GecService();
-				}
-			}
-		}
-		if (gec == null) {
-			synchronized (Gec.class) {
-				if (gec == null && dllPath != null) {
-					gec = (Gec) Native.loadLibrary(dllPath, Gec.class);
-				}
-				if (dllPath == null) {
-					throw new GecException("please set dll path");
-				}
-			}
-		}
-		return gecService;
+//	public static GecService getGcService() {
+//		if (gecService == null) {
+//			synchronized (GecService.class) {
+//				if (gecService == null) {
+//					gecService = new GecService();
+//				}
+//			}
+//		}
+//		if (gec == null) {
+//			synchronized (Gec.class) {
+//				if (gec == null && dllPath != null) {
+//					gec = (Gec) Native.loadLibrary(dllPath, Gec.class);
+//				}
+//				if (dllPath == null) {
+//					throw new GecException("please set dll path");
+//				}
+//			}
+//		}
+//		return gecService;
+//	}
+
+	public void setDllPath(String dllPath) {
+		dllPath = dllPath;
 	}
 
-	public static void setDllPath(String dllPath) {
-		GecService.dllPath = dllPath;
-	}
-
-	public static Gec getGec() {
+	public Gec getGec() {
 		return gec;
 	}
 

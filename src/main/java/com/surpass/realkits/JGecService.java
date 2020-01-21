@@ -6,6 +6,7 @@ import java.nio.DoubleBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.jna.Native;
 import com.sun.jna.NativeLong;
 import com.sun.jna.ptr.DoubleByReference;
 import com.sun.jna.ptr.NativeLongByReference;
@@ -25,17 +26,26 @@ public class JGecService extends ObjectPool<GecService> {
 
 	@Override
 	public PooledObject<GecService> create() {
-		// TODO Auto-generated method stub
+		// TODO GecService里面使用了单例和静态变量，这将导致这里使用池没有任何意义。
 //		return null;
-		GecService.setDllPath(dllPath);
-		GecService gs = null;
+		GecService gecService = new GecService();
 		try {
-			gs = GecService.getGcService();
-		} catch (GecException e) {
+			gecService.setDllPath(dllPath);
+			if (gecService.gec == null) {
+			synchronized (Gec.class) {
+				if (gecService.gec == null && dllPath != null) {
+					gecService.gec = (Gec) Native.loadLibrary(dllPath, Gec.class);
+				}
+				if (dllPath == null) {
+					throw new GecException("please set dll path");
+				}
+			}
+			}
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
-		return new PooledObject<GecService>(gs);
+		return new PooledObject<GecService>(gecService);
 	}
 
 	/**
@@ -265,19 +275,14 @@ public class JGecService extends ObjectPool<GecService> {
 	}
 	
 	public String DBECGetTagName(String serverName,long tagId) throws GecException{
-		System.out.println("debug lab DBECGetTagName 1");
 		GecService gs = gecService();
-		System.out.println("debug lab DBECGetTagName 2");
 		StringBuffer lpNameBuffer = new StringBuffer();
-		System.out.println("debug lab DBECGetTagName 3");
 		Long length = gs.DBECGetTagNameMaxLen();
-		System.out.println("debug lab DBECGetTagName 4");
+//		System.out.println("debug lab DBECGetTagName begin ...");
 		boolean r = gs.DBECGetTagName(serverName, tagId, lpNameBuffer, length.intValue());
-		System.out.println("debug lab DBECGetTagName 5");
+//		System.out.println("debug lab DBECGetTagName end ...");
 		this.returnObject(gs);
-		System.out.println("debug lab DBECGetTagName 6");
 		throwException(r);
-		System.out.println("debug lab DBECGetTagName 7");
 		return lpNameBuffer.toString();
 	}
 

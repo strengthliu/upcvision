@@ -258,21 +258,6 @@ public class UserSpaceManager {
 		}
 	}
 
-//	public UserSpace buildUserSpace(Integer uid, String string) {
-//		this.buildUserSpace(uid, string)
-//		UserSpace us = userService.buildUserSpace(uid, string);
-//		this.setUserSpace(us);
-//		return us;
-//	}
-
-//	public List<RealTimeData> getRealTimeData(Double uid) {
-//		return (List<RealTimeData>) redisService.get(GlobalConsts.Key_RealTimeData_pre_ + IDTools.toString(uid));
-//	}
-//
-//	public void setRealTimeData(Integer uid, List<RealTimeData> rtdl) {
-//		redisService.set(GlobalConsts.Key_RealTimeData_pre_ + IDTools.toString(uid), rtdl);
-//	}
-
 	public UserSpace buildUserSpace(UserSpaceData usd, String... token) {
 		if (usd == null) { 
 			return null;
@@ -383,7 +368,7 @@ public class UserSpaceManager {
 		
 		UserInfo user = userManager.getUserInfoByID(IDTools.toString(userID));
 		if (user == null) {
-			System.out.println("id为" + userID + "的用户不存在，不能为其建立用户空间。");
+			LOGGER.warn("id为" + userID + "的用户不存在，不能为其建立用户空间。");
 			// TODO: 由于数据不一致导致。有图形等PointGroup里，存在该用户为分享用户。
 			// TODO: 发消息给管理员，修复数据。
 			throw new IllegalStateException("id为" + userID + "的用户不存在，不能为其建立用户空间。");
@@ -411,36 +396,26 @@ public class UserSpaceManager {
 	}
 
 	private UserSpace buildAdminUserSpace(UserInfo user,String tk) {
-		System.out.println(" buildAdminUserSpace 1 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		UserSpaceData usd = new UserSpaceData();// = userSpaceDataMapper.selectByPrimaryKey(userID);
 		UserSpace us = new UserSpace();
 		us.setUid(user.getId());
 		usd.setUid(user.getId());
 		us.setUser(user);
-		System.out.println(" buildAdminUserSpace 2 => "+new Date(System.currentTimeMillis()).toLocaleString());
+		LOGGER.debug(" buildAdminUserSpace 2 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		Graph gf = graphDataManager.getAdminGraph();
-		System.out.println(" buildAdminUserSpace 3 => "+new Date(System.currentTimeMillis()).toLocaleString());
+		LOGGER.debug(" buildAdminUserSpace 2 => "+new Date(System.currentTimeMillis()).toLocaleString());
+
 		us.setGraph(gf);
 //		usd.setGraphs(graphs);
-		System.out.println(" buildAdminUserSpace 4 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		Hashtable<String, XYGraph> xyGraph = xYGraphManager.getAdminXYGraphHashtable();
-		System.out.println(" buildAdminUserSpace 5 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		us.setXyGraph(xyGraph);
-		System.out.println(" buildAdminUserSpace 6 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		Hashtable<String, RealTimeData> realTimeData = realTimeDataManager.getAdminRealTimeDataHashtable();
-		System.out.println(" buildAdminUserSpace 7 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		us.setRealTimeData(realTimeData);
-		System.out.println(" buildAdminUserSpace 8 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		Hashtable<String, AlertData> alertData = alertDataManager.getAdminAlertDataHashtable();
-		System.out.println(" buildAdminUserSpace 9 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		us.setAlertData(alertData);
-		System.out.println(" buildAdminUserSpace 10 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		Hashtable<String, HistoryData> historyData = historyDataManager.getAdminHistoryDataHashtable();
-		System.out.println(" buildAdminUserSpace 11 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		us.setHistoryData(historyData);
-		System.out.println(" buildAdminUserSpace 12 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		Hashtable<String, LineAlertData> lineAlertData = lineAlertDataManager.getAdminLineAlertDataHashtable();
-		System.out.println(" buildAdminUserSpace 13 => "+new Date(System.currentTimeMillis()).toLocaleString());
 		us.setLineAlertData(lineAlertData);
 
 //		String tk = "";

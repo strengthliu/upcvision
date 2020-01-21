@@ -14,6 +14,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.jsoup.helper.StringUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Reference;
@@ -26,11 +28,13 @@ import com.surpass.vision.domain.PointAlertData;
 import com.surpass.vision.appCfg.GlobalConsts;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.tools.EncodingTools;
+import com.surpass.vision.tools.FileTool;
 import com.surpass.vision.tools.IDTools;
 import com.surpass.vision.tools.TimeTools;
 
 @Component
 public class ServerManager {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ServerManager.class);
 
 	public static Server defaultServer;
 	static Hashtable<String, Server> servers = new Hashtable<String, Server>();
@@ -50,6 +54,12 @@ public class ServerManager {
 
 	public String name = "s1";
 
+	/**
+	 * 在调用读取点位名称时，有时会出虚拟机崩溃的错误，目前分析可能的原因是内存交换时出的错。
+	 * 当前方案采用：查看了这么多个点后，就回收一下内存垃圾。
+	 */
+	int _GCTimes = 25000;
+	
 	List<Double> pointID;
 
 	public static void main(String[] args) {
@@ -135,24 +145,25 @@ public class ServerManager {
 
 	private synchronized void updateServerInfo() {
 //		String[] encodeString = {"",""};
+		int _gcTimes = 0;
 		boolean t = true;
 		List<String> servs = null;
 		try {
 			//
-			System.out.println(" ====================================  ");
+			LOGGER.debug(" ====================================  ");
 			try {
 				servs = gec().DBECEnumServerName();
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			System.out.println(" ====================================  ");
+			LOGGER.debug(" ====================================  ");
 			servers = new Hashtable<String, Server>();
 			// 取服务器信息
 			for (int iserver = 0; iserver < servs.size(); iserver++) {
 				Server server = new Server();
 				String serverName = servs.get(iserver).toUpperCase();
-				System.out.println(" ====== Server : "+serverName+" ==================");
+				LOGGER.debug(" ====== Server : \"+serverName+\" ==================");
 
 				server.setServerName(serverName);
 				defaultServer = server;
@@ -163,12 +174,13 @@ public class ServerManager {
 					devices = gec().DBECEnumDeviceName(serverName);
 				} catch (Exception e) {
 					e.printStackTrace();
+					LOGGER.error("实时数据库服务运行错误，请查看是否已经正常启动。");
 					throw new IllegalStateException("实时数据库服务运行错误，请查看是否已经正常启动。");
 				}
 
 				for (int idevice = 0; idevice < devices.size(); idevice++) {
 					String deviceName = devices.get(idevice);
-					System.out.println(" ====== deviceName : "+deviceName+" ==================");
+					LOGGER.debug(" ====== deviceName : "+deviceName+" ==================");
 					Device device = new Device();
 					device.setDeviceName(deviceName);
 					Long deviceId = null;
@@ -192,33 +204,38 @@ public class ServerManager {
 					List<Long> pointIds = null;
 					try {
 						long num  = gec().DBECGetTagCountOfDeviceByDeviceName(serverName, deviceName);
-						System.out.println(num+"设备个数");
+						LOGGER.debug(num+"设备个数");
 						if(num > 0)
 							pointIds = gec().DBECEnumTagIDOfDeviceByDeviceName(serverName, deviceName);
-						System.out.println("debug lab 1");
+						//System.out.println("debug lab 1");
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 					if(pointIds == null)
 						pointIds = new ArrayList<Long>();
 
-					System.out.println("debug lab 2");
+					//System.out.println("debug lab 2");
 					ByteBuffer tagbuffer = ByteBuffer.allocate(GlobalConsts.DeviceNoteLength);
-					System.out.println("debug lab 3");
+					//System.out.println("debug lab 3");
 					for (int ipoint = 0; ipoint < pointIds.size(); ipoint++) {
 						Point point = new Point();
 						Long pointId = pointIds.get(ipoint);
 						//
 						String tagName = null;
 						try {
-							System.out.println("debug lab 4");
+							//System.out.println("debug lab 4");
 							//============== 这里发生一次虚拟机崩溃退出. 次数:1+1+1+1
 							// serverName=NCIC  pointId=41978
 							// serverName=NCIC  pointId=41981
 							// serverName=NCIC  pointId=41975
-							System.out.println("debug lab - serverName="+serverName+"  pointId="+pointId);
+							//System.out.println("debug lab - serverName="+serverName+"  pointId="+pointId);
 							tagName = gec().DBECGetTagName(serverName, pointId);
-							System.out.println("debug lab 5");
+							// 怀疑是内存交换产生的问题，这里增加垃圾收集，看看效果会如何。
+							if(_gcTimes > _GCTimes) {
+								_gcTimes = 0;
+								System.gc();
+							}
+							//System.out.println("debug lab 5");
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -226,9 +243,9 @@ public class ServerManager {
 						tagName = tagName.trim();
 						String tagdesc = null;
 						try {
-							System.out.println("debug lab 6");
+							//System.out.println("debug lab 6");
 							tagdesc = gec().DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGNOTE");
-							System.out.println("debug lab 7");
+							//System.out.println("debug lab 7");
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -238,9 +255,9 @@ public class ServerManager {
 							tagdesc = "未知描述";
 						String enunit = null;
 						try {
-							System.out.println("debug lab 8");
+							//System.out.println("debug lab 8");
 							enunit = gec().DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_ENUNITS");
-							System.out.println("debug lab 9");
+							//System.out.println("debug lab 9");
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -248,9 +265,9 @@ public class ServerManager {
 //						System.out.println(enunit);
 						String tagType = null;
 						try {
-							System.out.println("debug lab 10");
+							//System.out.println("debug lab 10");
 							tagType = gec().DBECGetTagStringFields(serverName, tagName, pointId, tagbuffer,"FN_TAGTYPE");
-							System.out.println("debug lab 11");
+							//System.out.println("debug lab 11");
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -266,24 +283,24 @@ public class ServerManager {
 						point.setDesc(tagdesc);
 						device.addPoint(point);
 						server.addPoint(point);
-						System.out.println("debug lab 12");
+						//System.out.println("debug lab 12");
 						// 使用tag做key
 //						if (redisService != null)
 							redisService.set(GlobalConsts.Key_Point_pre + serverName
 									+ GlobalConsts.Key_splitCharServerPoint + point.tagName.toString(), point);
-							System.out.println("debug lab 13");
+							//System.out.println("debug lab 13");
 					}
 					server.addDevice(device);
-					System.out.println("debug lab 14");
-//					if (redisService != null)
+					//System.out.println("debug lab 14");
+					if (redisService != null)
 						redisService.set(GlobalConsts.Key_Device_pre_ + IDTools.toString(device.id), device);
-						System.out.println("debug lab 15");
+						//System.out.println("debug lab 15");
 				}
 				servers.put(server.getServerName(), server);
 //				if (redisService != null)
-				System.out.println("debug lab 16");
-					redisService.set(GlobalConsts.Key_Server_pre_ + server.serverName, server);
-					System.out.println("debug lab 17");
+				//System.out.println("debug lab 16");
+				redisService.set(GlobalConsts.Key_Server_pre_ + server.serverName, server);
+				//System.out.println("debug lab 17");
 
 			}
 		} catch (Exception e) {
@@ -351,19 +368,19 @@ public class ServerManager {
 //			System.out.println("DBECGetTagRealHistory => srvName="+srvName+" tagName="+tagName+" id="+IDTools.toString(id)
 //			+" beginTime="+IDTools.toString(beginTime)+" endTime="+IDTools.toString(endTime)
 //			+" size="+size+" "+Thread.currentThread().getName()+":"+Thread.currentThread().getId());
-			System.out.println("gec().DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime)
+			LOGGER.debug("gec().DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime)
 			+" "+Thread.currentThread().getName()+":"+Thread.currentThread().getId());
 			gec().DBECGetTagRealHistory(srvName, tagName, id, beginTime, endTime, pValueArray, size, pnValueTimeArray);
 		} catch (Exception e) {
-			System.out.println("gec().DBECGetTagRealHistory error occour --------------------" );
-			System.out.println("gec().DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime)
+			LOGGER.error("gec().DBECGetTagRealHistory error occour --------------------" );
+			LOGGER.error("gec().DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime)
 			+" "+Thread.currentThread().getName()+":"+Thread.currentThread().getId());
-			System.out.println("gec().DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime) );
-			System.out.println("gec().DBECGetTagRealHistory error occour -- "+e.getMessage() );
+			LOGGER.error("gec().DBECGetTagRealHistory beginTime= "+TimeTools.parseStr(beginTime)+" endTime= "+TimeTools.parseStr(endTime));
+			LOGGER.error("gec().DBECGetTagRealHistory error occour -- "+e.getMessage());
 			e.printStackTrace();
-			System.out.println("gec().DBECGetTagRealHistory error occour --------------------" );
+			LOGGER.error("gec().DBECGetTagRealHistory error occour --------------------");
 		}
-		System.out.println("pValueArray.size() = "+pValueArray.size());
+		LOGGER.debug("pValueArray.size() = "+pValueArray.size());
 		pValueArray.removeAll(Collections.singleton(null));
 		pnValueTimeArray.removeAll(Collections.singleton(null));
 		if(pValueArray.size() == pnValueTimeArray.size()) {
@@ -371,7 +388,7 @@ public class ServerManager {
 				ret.put(pnValueTimeArray.get(i),pValueArray.get(i));
 			}
 		} else {
-			System.out.println("查询历史值时，返回的时间和值不对应。");
+			LOGGER.info("查询历史值时，返回的时间和值不对应。");
 		}
 	
 		return ret;
@@ -516,18 +533,11 @@ public class ServerManager {
 					ret.add(pad);
 				}			
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 		}
 		return ret;
 	}
-
-//	public Hashtable<String, Point> getGraphPointInfoMapper(Double id) {
-//		Hashtable<String,Point> ret = new Hashtable<String,Point>();
-//		
-//		return null;
-//	}
 
 }

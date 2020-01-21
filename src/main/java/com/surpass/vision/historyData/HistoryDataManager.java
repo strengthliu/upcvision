@@ -241,7 +241,7 @@ public class HistoryDataManager extends PointGroupDataManager {
 		redisService.set(GlobalConsts.Key_HistoryData_pre_+IDTools.toString(rtd.getId()),rtd);
 	}
 
-	public synchronized ArrayList getHistoryData(Double rtdId,long beginTime,long endTime) {
+	public ArrayList getHistoryData(Double rtdId,long beginTime,long endTime) {
 		// 取出服务器和id
 		HistoryData rtd = this.getHistoryDataByKeys(rtdId);
 		if(rtd!=null) {
@@ -271,7 +271,7 @@ public class HistoryDataManager extends PointGroupDataManager {
 		return 0;
 	}
 
-	public synchronized ArrayList getHistoryData(List<Point> lp,long beginTime,long endTime) {
+	public ArrayList getHistoryData(List<Point> lp,long beginTime,long endTime) {
 		ArrayList ret = new ArrayList();
 		
 		ArrayList[] dsy = new ArrayList[lp.size()];
@@ -359,7 +359,7 @@ public class HistoryDataManager extends PointGroupDataManager {
 		return ret;
 	}
 
-	public synchronized ArrayList getHistoryData(JSONArray ja, Long _beginTime, Long _endTime) {
+	public ArrayList getHistoryData(JSONArray ja, Long _beginTime, Long _endTime) {
 		ArrayList<Point> pl = new ArrayList<Point>();
 		for(int i=0;i<ja.size();i++) {
 			String s_tagName = ja.getString(i);

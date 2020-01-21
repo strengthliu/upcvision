@@ -13,40 +13,46 @@ var historyStepCount = 50;
 var currentStepInRouteList;
 var _realtimeDataDetailKey;
 
-//console.log("2222222 = " + currentStepInRouteList);
+//// console.log(" router... 2222222 = " + currentStepInRouteList);
 function routeTo(diagram, key, graphId) {
-	//console.log("11111 = " + currentStepInRouteList);
+	//// console.log(" router... 11111 = " + currentStepInRouteList);
 
 	// 初始化步数记录
 	if (routeList == null || routeList == "undefined") {
 		if (localStorage.routeList == null
+				|| localStorage.routeList == "null"
 				|| localStorage.routeList == "undefined")
 			routeList = new Array();
-		else
+		else{
+			// console.log(" router... localStorage.routeList="+JSON.stringify(localStorage.routeList));
 			routeList = JSON.parse(localStorage.routeList);
+		}
 	}
 	if(currentStepInRouteList!=currentStepInRouteList){
-		console.log("重新初始化频数");
+		// console.log(" router... 重新初始化频数");
 		currentStepInRouteList = -1;
 	}
 	
 	if (currentStepInRouteList == null || currentStepInRouteList == "undefined"
 			|| currentStepInRouteList == 'NaN') {
 		if (localStorage.currentStepInRouteList == null
+				|| localStorage.currentStepInRouteList == "null"
 				|| localStorage.currentStepInRouteList == "undefined") {
-			//console.log("if");
+			//// console.log(" router... if");
 			currentStepInRouteList = -1;
 		} else {
-			//console.log("else");
+			// console.log(" router... 重新从缓存里取currentStepInRouteList");
 			currentStepInRouteList = parseInt(localStorage.currentStepInRouteList);
 		}
 	}
-	//console.log("currentStepInRouteList=" + currentStepInRouteList + "  routeList.length="+ routeList.length);
-	// console.log("currentStepInRouteList= "+currentStepInRouteList);
+	
+	// console.log(" router... currentStepInRouteList=" + currentStepInRouteList + "  routeList.length="+ routeList.length);
+	// // console.log(" router... currentStepInRouteList= "+currentStepInRouteList);
 	// 如果当前参数diagram为空，就是点了前进后退
 	if (diagram == null || diagram == "undefined") {
-		console.log("点了前进后退");
+		// console.log(" router... 点了前进后退");
 		// 如果当前步骤数在记录范围，就跳转
+//		// console.log(" router... ");
 		if (currentStepInRouteList < routeList.length && currentStepInRouteList >= 0) {
 			// 传递参数
 			_routeType = routeList[currentStepInRouteList]._routeType;
@@ -56,6 +62,9 @@ function routeTo(diagram, key, graphId) {
 			key = _routeID;
 			graphId = _graphId;
 
+			// console.log(" router... 执行前进后退后, _routeID="+_routeID+" diagram="+diagram);
+			// console.log(" router... 执行前进后退后，currentStepInRouteList=" + currentStepInRouteList
+			//		+ "  routeList.length=" + routeList.length);
 		} else {
 			alert("已经到头了。");
 			// TODO: 应该设置页面显示不能点击。现在是因为没有这个图标，就先提示。
@@ -70,15 +79,16 @@ function routeTo(diagram, key, graphId) {
 	} else {
 		// 如果当前是最后一步，就是正常点进来的
 		if (currentStepInRouteList == routeList.length - 1) {
-
+			
 		} else { // 否则就是上一步下一步后，点了跳转功能
 			// 删除当前步后面的记录
-//			console.log("前进后退后，中间点了正常跳转功能。前：  currentStepInRouteList=" + currentStepInRouteList
-//					+ "  routeList.length=" + routeList.length);
+			// console.log(" router... 前进后退后，中间点了正常跳转功能。前：  currentStepInRouteList=" + currentStepInRouteList
+			//		+ "  routeList.length=" + routeList.length);
+//			currentStepInRouteList = routeList.length - 1;
 			routeList.splice(currentStepInRouteList + 1, routeList.length - currentStepInRouteList
 					- 1);
-//			console.log("前进后退后，中间点了正常跳转功能。后：  currentStepInRouteList=" + currentStepInRouteList
-//					+ "  routeList.length=" + routeList.length);
+			// console.log(" router... 前进后退后，中间点了正常跳转功能。后：  currentStepInRouteList=" + currentStepInRouteList
+			//		+ "  routeList.length=" + routeList.length);
 		}
 		// 传递参数
 		_routeType = diagram.toLowerCase();
@@ -97,10 +107,13 @@ function routeTo(diagram, key, graphId) {
 		localStorage.routeList = JSON.stringify(routeList);
 
 		currentStepInRouteList++;
+		if(currentStepInRouteList > routeList.length - 1)
+			currentStepInRouteList = routeList.length - 1;
+		
 		localStorage.currentStepInRouteList = currentStepInRouteList+"";
 
-//		console.log("执行正常跳转后，currentStepInRouteList=" + currentStepInRouteList
-//				+ "  routeList.length=" + routeList.length);
+		// console.log(" router... 执行正常跳转后，currentStepInRouteList=" + currentStepInRouteList
+		//		+ "  routeList.length=" + routeList.length);
 	}
 
 	if (unsubscribe != null && unsubscribe != "undefined")
@@ -108,6 +121,9 @@ function routeTo(diagram, key, graphId) {
 
 	var mainInfoNr = document.getElementById("mainInfoNr");
 	var serachbox_topToolsBar = document.getElementById("serachbox_topToolsBar");
+	// console.log(" router... switch前 , _routeID="+_routeID+" diagram="+diagram);
+	// console.log(" router... switch前 ，currentStepInRouteList=" + currentStepInRouteList
+	//		+ "  routeList.length=" + routeList.length);
 //	showLoading();
 	switch (diagram.toLowerCase()) {
 	case "dashboard".toLowerCase():
@@ -120,17 +136,17 @@ function routeTo(diagram, key, graphId) {
 		_galleryKey = key;
 		_routeID = key;
 		_graphId = graphId;
-		// console.log("case diagramList " + key + " " + graphId);
+		// // console.log(" router... case diagramList " + key + " " + graphId);
 		$("#mainPanel").load("_gallery.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'visible';
 		serachbox_topToolsBar.style.display = "block";
 		break;
 	case "diagramDetail".toLowerCase():
-		console.log("key= "+key);
+		// console.log(" router... key= "+key);
 		_diagramShowKey = key;
 		_graphId = graphId;
-		console.log("=====调试图形svg未加载问题 ===== router.js -> diagramDetail");
-		console.log("=====调试图形svg未加载问题 ===== router.js -> diagramDetail");
+		// console.log(" router... =====调试图形svg未加载问题 ===== router.js -> diagramDetail");
+		// console.log(" router... =====调试图形svg未加载问题 ===== router.js -> diagramDetail");
 		$("#mainPanel").load("_diagramShow.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
 		serachbox_topToolsBar.style.display = "none";
@@ -149,7 +165,7 @@ function routeTo(diagram, key, graphId) {
 		break;
 	case "realtimedataList".toLowerCase():
 		_realtimedataListKey = key;
-		console.log("load _realtimeDataList.html");
+		// console.log(" router... load _realtimeDataList.html");
 		$("#mainPanel").load("_realtimeDataList.html",null,hideLoading);
 		mainInfoNr.style.visibility = 'visible';
 		serachbox_topToolsBar.style.display = "block";
@@ -211,23 +227,30 @@ function routeTo(diagram, key, graphId) {
 }
 
 function stepBackward() {
-	if (localStorage.currentStepInRouteList == null
-			|| localStorage.currentStepInRouteList == "undefined") {
-		//console.log("1111");
-		currentStepInRouteList = -1;
-	} else {
-		//console.log("2222 = "+localStorage.currentStepInRouteList);
-		currentStepInRouteList = parseInt(localStorage.currentStepInRouteList);
+	if (currentStepInRouteList == null || currentStepInRouteList == "undefined"
+		|| currentStepInRouteList == 'NaN') {
+		if (localStorage.currentStepInRouteList == null
+				|| localStorage.currentStepInRouteList == "undefined") {
+			// console.log(" router... 1111");
+			currentStepInRouteList = -1;
+		} else {
+			// console.log(" router... 2222 = "+localStorage.currentStepInRouteList);
+			currentStepInRouteList = parseInt(localStorage.currentStepInRouteList);
+		}
 	}
 	currentStepInRouteList--;
+	// console.log(" router... stepBackward->  currentStepInRouteList=" + currentStepInRouteList + "  routeList.length="+ routeList.length);
 	routeTo();
 }
 function stepForward() {
-	if (localStorage.currentStepInRouteList == null
-			|| localStorage.currentStepInRouteList == "undefined") {
-		currentStepInRouteList = -1;
-	} else {
-		currentStepInRouteList = parseInt(localStorage.currentStepInRouteList);
+	if (currentStepInRouteList == null || currentStepInRouteList == "undefined"
+		|| currentStepInRouteList == 'NaN') {
+		if (localStorage.currentStepInRouteList == null
+				|| localStorage.currentStepInRouteList == "undefined") {
+			currentStepInRouteList = -1;
+		} else {
+			currentStepInRouteList = parseInt(localStorage.currentStepInRouteList);
+		}
 	}
 	currentStepInRouteList++;
 	routeTo();

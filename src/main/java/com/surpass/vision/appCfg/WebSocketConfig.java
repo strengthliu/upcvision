@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.ChannelRegistration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
@@ -41,11 +42,22 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
      */
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
+        // 自定义调度器，用于控制心跳线程
+        ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
+        // 线程池线程数，心跳连接开线程
+        taskScheduler.setPoolSize(5);
+        // 线程名前缀
+        taskScheduler.setThreadNamePrefix("websocket-heartbeat-thread-");
+        // 初始化
+        taskScheduler.initialize();
+
+    	
         // config.enableSimpleBroker("/topic");
         // 这句话表示客户单向服务器端发送时的主题上面需要加"/app"作为前缀。
         config.setApplicationDestinationPrefixes("/app");
         // 这句话表示在topic和user这两个域上可以向客户端发消息。
-        config.enableSimpleBroker("/topic", "/user","/hello");
+        config.enableSimpleBroker("/topic", "/user","/hello").setHeartbeatValue(new long[]{10000,10000})
+        .setTaskScheduler(taskScheduler);;
         // 这句话表示给指定用户发送一对一的主题前缀是"/user"
         config.setUserDestinationPrefix("/user");
     }

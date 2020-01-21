@@ -1,3 +1,4 @@
+
 //
 /**
  * 右键菜单
@@ -1142,6 +1143,7 @@ function play(){
 
 	if(currentPlayStatus){
 		c3LineChart.load({
+			type : 'spline',
 			columns : cdata
 		});
 	}
@@ -1163,6 +1165,7 @@ function _forward(_newData) {
 	// 如果是播放状态，就播放
 	if(currentPlayStatus){
 		c3LineChart.load({
+			type : 'spline',
 			columns : cdata
 		});
 		c3LineChart.axis.min({
@@ -1336,7 +1339,6 @@ function zoomout_x() {
  * @returns
  */
 function reloadDataToDiagram(){
-	showLoading();
 	if(c3LineChart==null || c3LineChart=="undefined"){
 		console.log("reloadDataToDiagram -> c3LineChart没有创建，执行buildChart");
 		buildChart();
@@ -1356,6 +1358,7 @@ function reloadDataToDiagram(){
 //		unload: ['data2', 'data3']
 //	});
 
+	showLoading();
 	c3LineChart = c3.generate({
 		bindto : '#ui-historyDataLineChart',
 		data : {
@@ -1731,3 +1734,55 @@ function pullUnreadMessage(destination) {
 		}
 	});
 }
+
+function save_Data2File(){
+	console.log("save_Data2File");
+	if(_data==null | _data=="undefined"||_data.length==0){
+		alert("当前还没有历史数据，请先查询后再执行导出操作。");
+		return;
+	}
+	var _exp = "";
+	console.log("0 -> "+JSON.stringify(_data));
+	var _dataIndex = new Array();
+	for(var indrow=0;indrow<_data.length;indrow++){
+		_dataIndex[_data[indrow][0]]= indrow;
+	}
+
+	var title = "";
+	title +='time';
+	for(var itind=0;itind<_data.length;itind++){
+		console.log(" 1 -> "+_data[itind]);
+		if(itind!=_dataIndex['time'])
+			title+= " \t ,"+(_data[itind][0]);
+	}
+	_exp+=title;
+	
+	for(var indtime=1;indtime<_data[_dataIndex['time']].length;indtime++){
+		var _row = "";
+		var _ti = new Date(_data[_dataIndex['time']][indtime]);
+		console.log("year = "+_ti.getFullYear());
+		_ti = _ti.getFullYear()+"-"+(_ti.getMonth()+1)+"-"+_ti.getDate()+" "+_ti.getHours()+":"+_ti.getMinutes()+":"+_ti.getSeconds();//+" "+_ti.getMilliseconds();
+		_ti = _ti.format("yyyy-MM-dd hh:mm:ss");
+		console.log(" 2 -> "+_data[_dataIndex['time']][indtime]);
+		_row+=_ti;
+		for(var itind1=0;itind1<_data.length;itind1++){
+			console.log(" 3 -> "+_data[itind1][indtime]+" ");
+			if(itind1!=_dataIndex['time'])
+				_row+=" \t ,"+(_data[itind1][indtime]);
+		}
+		_exp+=" \n "+_row;
+	}
+	console.log("_exp => "+_exp);
+	saveToFile("exportHistory.csv",_exp);
+//	saveToFile("exportHistory.csv",_data);
+}
+
+function saveToFile(fileName,code){
+    // if(isEmpty(code)) {
+    //     code = '';
+    // }
+
+    var file = new File([code], fileName, { type: "text/plain;charset=utf-8" });
+    saveAs(file);
+}
+

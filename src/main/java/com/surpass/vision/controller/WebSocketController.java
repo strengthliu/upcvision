@@ -1,6 +1,8 @@
 package com.surpass.vision.controller;
 
 import org.jsoup.helper.StringUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Headers;
@@ -24,12 +26,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 /**
  * websocket
  * 消息推送(个人和广播)
  */
 @Controller
 public class WebSocketController {
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private SocketServer socketServer;
@@ -40,41 +46,6 @@ public class WebSocketController {
     @Autowired
     private SimpUserRegistry userRegistry;
     
-//    /**
-//     *
-//     * 客户端页面
-//     * @return
-//     */
-//    @RequestMapping(value = "/index")
-//    public String idnex() {
-//
-//        return "index";
-//    }
-
-//    /**
-//     * 个人信息推送
-//     * @return
-//     */
-//    @RequestMapping("sendmsg")
-//    @ResponseBody
-//    public String sendmsg(String msg, String username){
-//        //第一个参数 :msg 发送的信息内容
-//        //第二个参数为用户长连接传的用户人数
-//        String [] persons = username.split(",");
-//        SocketServer.SendMany(msg,persons);
-//        return "success";
-//    }
-
-//    /**
-//     * 推送给所有在线用户
-//     * @return
-//     */
-//    @RequestMapping("sendAll")
-//    @ResponseBody
-//    public String sendAll(String msg){
-//        SocketServer.sendAll(msg);
-//        return "success";
-//    }
     
     @Autowired
     private SimpMessageSendingOperations simpMessageSendingOperations;
@@ -113,47 +84,11 @@ public class WebSocketController {
         	break;
         }
         String topicRequest = "/topic/"+type+"/"+id;
+        logger.info(topicRequest);
         socketServer.addRequest(type,topicRequest,Double.valueOf(id));
         
-//        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
-//        try {
-//			Thread.sleep(500);
-//	        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
-//			Thread.sleep(500);
-//	        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
-//			Thread.sleep(500);
-//	        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-        
-//        this.messagingTemplate.convertAndSend("/topic/realTimeData/"+topic, new Greeting("Hello," + topic + "!"));
-//        this.messagingTemplate.convertAndSend("/topic/greeting/11", new Greeting("Hello1," + topic + "!"));
         
     }
  
-    /**
-     * 这里用的是@SendToUser，这就是发送给单一客户端的标志。本例中，
-     * 客户端接收一对一消息的主题应该是“/user/” + 用户Id + “/message” ,这里的用户id可以是一个普通的字符串，只要每个用户端都使用自己的id并且服务端知道每个用户的id就行。
-     * @return
-     */
-    @MessageMapping("/message")
-    @SendToUser("/message")
-    public Greeting handleSubscribe(@Header("atytopic") String topic,@Header("id") String id,@Header("type") String type, @Headers Map<String, Object> headers) {
-        System.out.println("connected successfully....");
-        System.out.println(topic+"  "+ type);
-        return new Greeting("I am a msg from SubscribeMapping('/macro').");
-    }
- 
-    /**
-     * 测试对指定用户发送消息方法
-     * @return
-     */
-    @RequestMapping(path = "/send", method = RequestMethod.GET)
-    public Greeting send() {
-        simpMessageSendingOperations.convertAndSendToUser("1", "/message", new Greeting("I am a msg from SubscribeMapping('/macro')."));
-        return new Greeting("I am a msg from SubscribeMapping('/macro').");
-    }
-
+//    socketServer
 }

@@ -9,6 +9,8 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 
 import org.jsoup.helper.StringUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Reference;
@@ -33,9 +35,11 @@ import com.surpass.vision.service.PointGroupService;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.tools.IDTools;
 import com.surpass.vision.user.UserManager;
+import com.surpass.vision.userSpace.UserSpaceManager;
 
 @Component
 public class GraphDataManager extends PointGroupDataManager {
+	private static final Logger LOGGER = LoggerFactory.getLogger(GraphDataManager.class);
 
 //	@Reference
 	@Autowired
@@ -126,7 +130,7 @@ public class GraphDataManager extends PointGroupDataManager {
 			long t2 = System.currentTimeMillis();
 			long tt = (t2-t1);
 			if(tt>100)
-			System.out.println(" ->  -> getGraph 用时："+tt+" 毫秒 "+fl.getName());
+				LOGGER.debug(" ->  -> getGraph 用时："+tt+" 毫秒 "+fl.getName());
 		} catch (Exception e) {
 			System.out.println("copyGraphFromFileList时异常");
 			e.printStackTrace();
