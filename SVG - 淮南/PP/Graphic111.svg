@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg height="100%" width="100%" viewBox="0 0 64000 32000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:PB="urn:osisoft-com-pb" xmlns:PBI="urn:osisoft-com-interface" xmlns:PBD="urn:osisoft-com-data" style="background-color:#C0C0C0">
+  <title>Graphic111</title>
+  <defs>
+    <pattern id="-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE25-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE26-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE26-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE27-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE31-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE31-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE33-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE34-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE34-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE35-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <PBD:TagUses tag="\\RTDBB\170_LI_691">
+      <PBI:Symbol name="DATAPOINT213" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\170_LI_692">
+      <PBI:Symbol name="DATAPOINT214" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\170_FT_691">
+      <PBI:Symbol name="DATAPOINT215" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\170_FIQ_691">
+      <PBI:Symbol name="DATAPOINT216" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\170_PT_692">
+      <PBI:Symbol name="DATAPOINT217" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\170_FT_692">
+      <PBI:Symbol name="DATAPOINT218" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\170_FIQ_692">
+      <PBI:Symbol name="DATAPOINT219" PB:Type="7" />
+    </PBD:TagUses>
+  </defs>
+  <path id="LINE89" d="M 37520 12860 l 13060 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE88" d="M 34680 11080 l 15800 0" stroke="#000000" stroke-width="40" fill="none" />
+  <g id="TEXT26">
+    <rect x="25000" y="0" width="14000" height="2000" stroke-width="0" fill="none" id="TEXT26_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="720" font-weight="bold" text-anchor="middle" x="32000" y="1360" id="TEXT26_pbTextEl">废水池</text>
+  </g>
+  <rect x="37120" y="21020" width="1200" height="5920" stroke="#000000" stroke-width="20" fill="url(#-hatchpattern)" />
+  <path d="M 37120 28060 l 14040 0 0 -1100 -14040 0 0 1100 0 0" stroke="#000000" stroke-width="20" fill="url(#-hatchpattern)" />
+  <rect x="49920" y="21020" width="1200" height="5920" stroke="#000000" stroke-width="20" fill="url(#-hatchpattern)" />
+  <rect x="38320" y="25440" width="11560" height="1500" stroke="#000000" stroke-width="20" fill="#00FF00" id="RECTANGLE16" />
+  <rect x="34860" y="21500" width="700" height="700" stroke="#000000" stroke-width="20" fill="#FF0000" id="RECTANGLE17" />
+  <path id="POLYGON63" d="M 40620 20240 l 0 5180" stroke="#000000" stroke-width="20" fill="none" />
+  <rect x="34880" y="23220" width="700" height="700" stroke="#000000" stroke-width="20" fill="#FF0000" id="RECTANGLE21" />
+  <rect x="34880" y="24960" width="700" height="700" stroke="#000000" stroke-width="20" fill="#FF0000" id="RECTANGLE22" />
+  <rect x="34880" y="26520" width="700" height="700" stroke="#000000" stroke-width="20" fill="#FF0000" id="RECTANGLE23" />
+  <path id="LINE66" d="M 43960 18340 l 0 7600" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="POLYGON67" d="M 43900 18400 l 12240 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE67" d="M 47120 20940 l 0 5060" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE68" d="M 47060 20900 l 9020 0" stroke="#000000" stroke-width="40" fill="none" />
+  <rect x="9040" y="10900" width="1200" height="7080" stroke="#000000" stroke-width="20" fill="url(#RECTANGLE25-hatchpattern)" id="RECTANGLE25" />
+  <path id="RECTANGLE26" d="M 21860 18000 l -12840 0 0 1220 12840 0 0 -1220 0 0" stroke="#000000" stroke-width="20" fill="url(#RECTANGLE26-hatchpattern)" />
+  <rect x="21880" y="16360" width="1200" height="2820" stroke="#000000" stroke-width="20" fill="url(#RECTANGLE27-hatchpattern)" id="RECTANGLE27" />
+  <path id="RECTANGLE31" d="M 33440 15160 l -11580 0 0 1200 11580 0 0 -1200 0 0" stroke="#000000" stroke-width="20" fill="url(#RECTANGLE31-hatchpattern)" />
+  <rect x="10260" y="15160" width="11560" height="2940" stroke="#000000" stroke-width="20" fill="#00FF00" id="RECTANGLE32" />
+  <rect x="33460" y="8800" width="1200" height="7540" stroke="#000000" stroke-width="20" fill="url(#RECTANGLE33-hatchpattern)" id="RECTANGLE33" />
+  <path id="RECTANGLE34" d="M 34660 16340 l 6580 0 0 -1200 -6580 0 0 1200 0 0" stroke="#000000" stroke-width="20" fill="url(#RECTANGLE34-hatchpattern)" />
+  <rect x="41240" y="8800" width="1200" height="7540" stroke="#000000" stroke-width="20" fill="url(#RECTANGLE35-hatchpattern)" id="RECTANGLE35" />
+  <rect x="21840" y="12160" width="11560" height="2940" stroke="#000000" stroke-width="20" fill="#00FF00" id="RECTANGLE37" />
+  <path id="LINE77" d="M 15040 9520 l 0 8120" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE78" d="M 16700 6600 l 0 11060" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE79" d="M 5580 6500 l 11100 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE80" d="M 5880 9580 l 9020 0" stroke="#000000" stroke-width="40" fill="none" />
+  <g name="SimpleFan2">
+    <path d="M 5679 9756 l 13 -11 13 -12 14 -11 11 -11 13 -12 12 -13 11 -13 11 -12 12 -13 9 -15 10 -13 9 -13 10 -16 9 -15 8 -15 7 -15 8 -15 7 -15 6 -16 6 -17 5 -15 6 -17 4 -17 6 -17 3 -15 2 -17 4 -17 2 -17 2 -17 2 -17 0 -17 0 -17 237 0 0 -594 -828 0 -31 2 -30 2 -29 4 -30 6 -28 5 -29 8 -26 9 -27 12 -26 11 -25 13 -25 16 -24 15 -23 17 -23 17 -22 19 -19 19 -21 21 -19 20 -17 23 -17 23 -15 25 -14 24 -13 27 -11 24 -12 27 -9 28 -8 29 -7 28 -6 29 -4 30 -2 30 0 31 0 17 0 17 2 17 2 17 2 17 4 17 4 17 3 17 4 15 4 17 6 17 5 15 6 17 8 16 5 15 8 17 9 15 8 15 9 13 8 16 9 13 12 15 9 13 12 13 11 14 11 13 12 11 13 12 11 11 14 11 13 12 13 11 -178 355 1065 0 -176 -355 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 5679 9756 l 0 0 13 -11 13 -12 14 -11 11 -11 13 -12 12 -13 11 -13 11 -12 12 -13 9 -15 10 -13 9 -13 10 -16 9 -15 8 -15 7 -15 8 -15 7 -15 6 -16 6 -17 5 -15 6 -17 4 -17 6 -17 3 -15 2 -17 4 -17 2 -17 2 -17 2 -17 0 -17 0 -17 237 0 0 -594 -828 0 0 0 -31 2 -30 2 -29 4 -30 6 -28 5 -29 8 -26 9 -27 12 -26 11 -25 13 -25 16 -24 15 -23 17 -23 17 -22 19 -19 19 -21 21 -19 20 -17 23 -17 23 -15 25 -14 24 -13 27 -11 24 -12 27 -9 28 -8 29 -7 28 -6 29 -4 30 -2 30 0 31 0 0 0 17 0 17 2 17 2 17 2 17 4 17 4 17 3 17 4 15 4 17 6 17 5 15 6 17 8 16 5 15 8 17 9 15 8 15 9 13 8 16 9 13 12 15 9 13 12 13 11 14 11 13 12 11 13 12 11 11 14 11 13 12 13 11 -178 355 1065 0 -176 -355" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 5679 9756 l 0 0 -10 6 -9 7 -12 6 -9 8 -10 5 -11 6 -9 6 -12 5 -9 6 -12 6 -11 4 -9 5 -12 4 -11 4 -12 6 -11 3 -11 4 -12 2 -11 4 -11 4 -12 2 -11 1 -11 2 -14 4 -11 2 -11 0 -12 2 -13 2 -11 0 -12 0 -13 2 -11 0 0 0 -12 0 -11 -2 -13 0 -12 0 -11 -2 -12 -2 -13 -2 -11 -2 -12 -2 -11 -2 -11 -1 -12 -4 -11 -2 -11 -4 -12 -4 -11 -4 -12 -3 -11 -4 -11 -4 -12 -6 -9 -3 -11 -6 -10 -6 -11 -4 -10 -5 -11 -6 -10 -7 -11 -6 -9 -6 -10 -6 -9 -7 -10 -6" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 5323 8987 l 30 0 30 6 27 7 28 10 25 13 24 13 23 17 21 19 19 21 17 23 15 24 13 27 10 26 7 29 4 30 2 31 -2 30 -4 28 -7 29 -10 26 -13 27 -15 24 -17 23 -19 21 -21 19 -23 17 -24 15 -25 11 -28 12 -27 6 -30 5 -30 2 -31 -2 -28 -5 -29 -6 -28 -12 -25 -11 -24 -15 -23 -17 -21 -19 -19 -21 -17 -23 -15 -24 -13 -27 -10 -26 -7 -29 -4 -28 -2 -30 2 -31 4 -30 7 -29 10 -26 13 -27 15 -24 17 -23 19 -21 21 -19 23 -17 24 -13 25 -13 28 -10 29 -7 28 -6 31 0 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 5323 8987 l 0 0 30 0 30 6 27 7 28 10 25 13 24 13 23 17 21 19 19 21 17 23 15 24 13 27 10 26 7 29 4 30 2 31 0 0 -2 30 -4 28 -7 29 -10 26 -13 27 -15 24 -17 23 -19 21 -21 19 -23 17 -24 15 -25 11 -28 12 -27 6 -30 5 -30 2 0 0 -31 -2 -28 -5 -29 -6 -28 -12 -25 -11 -24 -15 -23 -17 -21 -19 -19 -21 -17 -23 -15 -24 -13 -27 -10 -26 -7 -29 -4 -28 -2 -30 0 0 2 -31 4 -30 7 -29 10 -26 13 -27 15 -24 17 -23 19 -21 21 -19 23 -17 24 -13 25 -13 28 -10 29 -7 28 -6 31 0" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path id="LINE81" d="M 6140 8820 l 5920 0" stroke="#000000" stroke-width="40" fill="none" />
+  <g name="SimpleFan2">
+    <path d="M 5719 6696 l 13 -11 13 -12 14 -11 11 -11 13 -12 12 -13 11 -13 11 -12 12 -13 9 -15 10 -13 9 -13 10 -16 9 -15 8 -15 7 -15 8 -15 7 -15 6 -16 6 -17 5 -15 6 -17 4 -17 6 -17 3 -15 2 -17 4 -17 2 -17 2 -17 2 -17 0 -17 0 -17 237 0 0 -594 -828 0 -31 2 -30 2 -29 4 -30 6 -28 5 -29 8 -26 9 -27 12 -26 11 -25 13 -25 16 -24 15 -23 17 -23 17 -22 19 -19 19 -21 21 -19 20 -17 23 -17 23 -15 25 -14 24 -13 27 -11 24 -12 27 -9 28 -8 29 -7 28 -6 29 -4 30 -2 30 0 31 0 17 0 17 2 17 2 17 2 17 4 17 4 17 3 17 4 15 4 17 6 17 5 15 6 17 8 16 5 15 8 17 9 15 8 15 9 13 8 16 9 13 12 15 9 13 12 13 11 14 11 13 12 11 13 12 11 11 14 11 13 12 13 11 -178 355 1065 0 -176 -355 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 5719 6696 l 0 0 13 -11 13 -12 14 -11 11 -11 13 -12 12 -13 11 -13 11 -12 12 -13 9 -15 10 -13 9 -13 10 -16 9 -15 8 -15 7 -15 8 -15 7 -15 6 -16 6 -17 5 -15 6 -17 4 -17 6 -17 3 -15 2 -17 4 -17 2 -17 2 -17 2 -17 0 -17 0 -17 237 0 0 -594 -828 0 0 0 -31 2 -30 2 -29 4 -30 6 -28 5 -29 8 -26 9 -27 12 -26 11 -25 13 -25 16 -24 15 -23 17 -23 17 -22 19 -19 19 -21 21 -19 20 -17 23 -17 23 -15 25 -14 24 -13 27 -11 24 -12 27 -9 28 -8 29 -7 28 -6 29 -4 30 -2 30 0 31 0 0 0 17 0 17 2 17 2 17 2 17 4 17 4 17 3 17 4 15 4 17 6 17 5 15 6 17 8 16 5 15 8 17 9 15 8 15 9 13 8 16 9 13 12 15 9 13 12 13 11 14 11 13 12 11 13 12 11 11 14 11 13 12 13 11 -178 355 1065 0 -176 -355" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 5719 6696 l 0 0 -10 6 -9 7 -12 6 -9 8 -10 5 -11 6 -9 6 -12 5 -9 6 -12 6 -11 4 -9 5 -12 4 -11 4 -12 6 -11 3 -11 4 -12 2 -11 4 -11 4 -12 2 -11 1 -11 2 -14 4 -11 2 -11 0 -12 2 -13 2 -11 0 -12 0 -13 2 -11 0 0 0 -12 0 -11 -2 -13 0 -12 0 -11 -2 -12 -2 -13 -2 -11 -2 -12 -2 -11 -2 -11 -1 -12 -4 -11 -2 -11 -4 -12 -4 -11 -4 -12 -3 -11 -4 -11 -4 -12 -6 -9 -3 -11 -6 -10 -6 -11 -4 -10 -5 -11 -6 -10 -7 -11 -6 -9 -6 -10 -6 -9 -7 -10 -6" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 5363 5927 l 30 0 30 6 27 7 28 10 25 13 24 13 23 17 21 19 19 21 17 23 15 24 13 27 10 26 7 29 4 30 2 31 -2 30 -4 28 -7 29 -10 26 -13 27 -15 24 -17 23 -19 21 -21 19 -23 17 -24 15 -25 11 -28 12 -27 6 -30 5 -30 2 -31 -2 -28 -5 -29 -6 -28 -12 -25 -11 -24 -15 -23 -17 -21 -19 -19 -21 -17 -23 -15 -24 -13 -27 -10 -26 -7 -29 -4 -28 -2 -30 2 -31 4 -30 7 -29 10 -26 13 -27 15 -24 17 -23 19 -21 21 -19 23 -17 24 -13 25 -13 28 -10 29 -7 28 -6 31 0 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 5363 5927 l 0 0 30 0 30 6 27 7 28 10 25 13 24 13 23 17 21 19 19 21 17 23 15 24 13 27 10 26 7 29 4 30 2 31 0 0 -2 30 -4 28 -7 29 -10 26 -13 27 -15 24 -17 23 -19 21 -21 19 -23 17 -24 15 -25 11 -28 12 -27 6 -30 5 -30 2 0 0 -31 -2 -28 -5 -29 -6 -28 -12 -25 -11 -24 -15 -23 -17 -21 -19 -19 -21 -17 -23 -15 -24 -13 -27 -10 -26 -7 -29 -4 -28 -2 -30 0 0 2 -31 4 -30 7 -29 10 -26 13 -27 15 -24 17 -23 19 -21 21 -19 23 -17 24 -13 25 -13 28 -10 29 -7 28 -6 31 0" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path id="LINE82" d="M 6180 5780 l 5920 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE83" d="M 12160 6840 l 0 1960" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE84" d="M 12140 4260 l 0 1960" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE85" d="M 12140 4280 l 34560 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE86" d="M 19400 9920 l 0 5940" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE87" d="M 27620 9900 l 0 4200" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE90" d="M 37480 11020 l 0 1780" stroke="#000000" stroke-width="40" fill="none" />
+  <g name="SimpleFan2">
+    <path d="M 57039 18636 l 13 -11 13 -12 14 -11 11 -11 13 -12 12 -13 11 -13 11 -12 12 -13 9 -15 10 -13 9 -13 10 -16 9 -15 8 -15 7 -15 8 -15 7 -15 6 -16 6 -17 5 -15 6 -17 4 -17 6 -17 3 -15 2 -17 4 -17 2 -17 2 -17 2 -17 0 -17 0 -17 237 0 0 -594 -828 0 -31 2 -30 2 -29 4 -30 6 -28 5 -29 8 -26 9 -27 12 -26 11 -25 13 -25 16 -24 15 -23 17 -23 17 -22 19 -19 19 -21 21 -19 20 -17 23 -17 23 -15 25 -14 24 -13 27 -11 24 -12 27 -9 28 -8 29 -7 28 -6 29 -4 30 -2 30 0 31 0 17 0 17 2 17 2 17 2 17 4 17 4 17 3 17 4 15 4 17 6 17 5 15 6 17 8 16 5 15 8 17 9 15 8 15 9 13 8 16 9 13 12 15 9 13 12 13 11 14 11 13 12 11 13 12 11 11 14 11 13 12 13 11 -178 355 1065 0 -176 -355 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 57039 18636 l 0 0 13 -11 13 -12 14 -11 11 -11 13 -12 12 -13 11 -13 11 -12 12 -13 9 -15 10 -13 9 -13 10 -16 9 -15 8 -15 7 -15 8 -15 7 -15 6 -16 6 -17 5 -15 6 -17 4 -17 6 -17 3 -15 2 -17 4 -17 2 -17 2 -17 2 -17 0 -17 0 -17 237 0 0 -594 -828 0 0 0 -31 2 -30 2 -29 4 -30 6 -28 5 -29 8 -26 9 -27 12 -26 11 -25 13 -25 16 -24 15 -23 17 -23 17 -22 19 -19 19 -21 21 -19 20 -17 23 -17 23 -15 25 -14 24 -13 27 -11 24 -12 27 -9 28 -8 29 -7 28 -6 29 -4 30 -2 30 0 31 0 0 0 17 0 17 2 17 2 17 2 17 4 17 4 17 3 17 4 15 4 17 6 17 5 15 6 17 8 16 5 15 8 17 9 15 8 15 9 13 8 16 9 13 12 15 9 13 12 13 11 14 11 13 12 11 13 12 11 11 14 11 13 12 13 11 -178 355 1065 0 -176 -355" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 57039 18636 l 0 0 -10 6 -9 7 -12 6 -9 8 -10 5 -11 6 -9 6 -12 5 -9 6 -12 6 -11 4 -9 5 -12 4 -11 4 -12 6 -11 3 -11 4 -12 2 -11 4 -11 4 -12 2 -11 1 -11 2 -14 4 -11 2 -11 0 -12 2 -13 2 -11 0 -12 0 -13 2 -11 0 0 0 -12 0 -11 -2 -13 0 -12 0 -11 -2 -12 -2 -13 -2 -11 -2 -12 -2 -11 -2 -11 -1 -12 -4 -11 -2 -11 -4 -12 -4 -11 -4 -12 -3 -11 -4 -11 -4 -12 -6 -9 -3 -11 -6 -10 -6 -11 -4 -10 -5 -11 -6 -10 -7 -11 -6 -9 -6 -10 -6 -9 -7 -10 -6" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 56683 17867 l 30 0 30 6 27 7 28 10 25 13 24 13 23 17 21 19 19 21 17 23 15 24 13 27 10 26 7 29 4 30 2 31 -2 30 -4 28 -7 29 -10 26 -13 27 -15 24 -17 23 -19 21 -21 19 -23 17 -24 15 -25 11 -28 12 -27 6 -30 5 -30 2 -31 -2 -28 -5 -29 -6 -28 -12 -25 -11 -24 -15 -23 -17 -21 -19 -19 -21 -17 -23 -15 -24 -13 -27 -10 -26 -7 -29 -4 -28 -2 -30 2 -31 4 -30 7 -29 10 -26 13 -27 15 -24 17 -23 19 -21 21 -19 23 -17 24 -13 25 -13 28 -10 29 -7 28 -6 31 0 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 56683 17867 l 0 0 30 0 30 6 27 7 28 10 25 13 24 13 23 17 21 19 19 21 17 23 15 24 13 27 10 26 7 29 4 30 2 31 0 0 -2 30 -4 28 -7 29 -10 26 -13 27 -15 24 -17 23 -19 21 -21 19 -23 17 -24 15 -25 11 -28 12 -27 6 -30 5 -30 2 0 0 -31 -2 -28 -5 -29 -6 -28 -12 -25 -11 -24 -15 -23 -17 -21 -19 -19 -21 -17 -23 -15 -24 -13 -27 -10 -26 -7 -29 -4 -28 -2 -30 0 0 2 -31 4 -30 7 -29 10 -26 13 -27 15 -24 17 -23 19 -21 21 -19 23 -17 24 -13 25 -13 28 -10 29 -7 28 -6 31 0" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="SimpleFan2">
+    <path d="M 57039 21176 l 13 -11 13 -12 14 -11 11 -11 13 -12 12 -13 11 -13 11 -12 12 -13 9 -15 10 -13 9 -13 10 -16 9 -15 8 -15 7 -15 8 -15 7 -15 6 -16 6 -17 5 -15 6 -17 4 -17 6 -17 3 -15 2 -17 4 -17 2 -17 2 -17 2 -17 0 -17 0 -17 237 0 0 -594 -828 0 -31 2 -30 2 -29 4 -30 6 -28 5 -29 8 -26 9 -27 12 -26 11 -25 13 -25 16 -24 15 -23 17 -23 17 -22 19 -19 19 -21 21 -19 20 -17 23 -17 23 -15 25 -14 24 -13 27 -11 24 -12 27 -9 28 -8 29 -7 28 -6 29 -4 30 -2 30 0 31 0 17 0 17 2 17 2 17 2 17 4 17 4 17 3 17 4 15 4 17 6 17 5 15 6 17 8 16 5 15 8 17 9 15 8 15 9 13 8 16 9 13 12 15 9 13 12 13 11 14 11 13 12 11 13 12 11 11 14 11 13 12 13 11 -178 355 1065 0 -176 -355 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 57039 21176 l 0 0 13 -11 13 -12 14 -11 11 -11 13 -12 12 -13 11 -13 11 -12 12 -13 9 -15 10 -13 9 -13 10 -16 9 -15 8 -15 7 -15 8 -15 7 -15 6 -16 6 -17 5 -15 6 -17 4 -17 6 -17 3 -15 2 -17 4 -17 2 -17 2 -17 2 -17 0 -17 0 -17 237 0 0 -594 -828 0 0 0 -31 2 -30 2 -29 4 -30 6 -28 5 -29 8 -26 9 -27 12 -26 11 -25 13 -25 16 -24 15 -23 17 -23 17 -22 19 -19 19 -21 21 -19 20 -17 23 -17 23 -15 25 -14 24 -13 27 -11 24 -12 27 -9 28 -8 29 -7 28 -6 29 -4 30 -2 30 0 31 0 0 0 17 0 17 2 17 2 17 2 17 4 17 4 17 3 17 4 15 4 17 6 17 5 15 6 17 8 16 5 15 8 17 9 15 8 15 9 13 8 16 9 13 12 15 9 13 12 13 11 14 11 13 12 11 13 12 11 11 14 11 13 12 13 11 -178 355 1065 0 -176 -355" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 57039 21176 l 0 0 -10 6 -9 7 -12 6 -9 8 -10 5 -11 6 -9 6 -12 5 -9 6 -12 6 -11 4 -9 5 -12 4 -11 4 -12 6 -11 3 -11 4 -12 2 -11 4 -11 4 -12 2 -11 1 -11 2 -14 4 -11 2 -11 0 -12 2 -13 2 -11 0 -12 0 -13 2 -11 0 0 0 -12 0 -11 -2 -13 0 -12 0 -11 -2 -12 -2 -13 -2 -11 -2 -12 -2 -11 -2 -11 -1 -12 -4 -11 -2 -11 -4 -12 -4 -11 -4 -12 -3 -11 -4 -11 -4 -12 -6 -9 -3 -11 -6 -10 -6 -11 -4 -10 -5 -11 -6 -10 -7 -11 -6 -9 -6 -10 -6 -9 -7 -10 -6" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 56683 20407 l 30 0 30 6 27 7 28 10 25 13 24 13 23 17 21 19 19 21 17 23 15 24 13 27 10 26 7 29 4 30 2 31 -2 30 -4 28 -7 29 -10 26 -13 27 -15 24 -17 23 -19 21 -21 19 -23 17 -24 15 -25 11 -28 12 -27 6 -30 5 -30 2 -31 -2 -28 -5 -29 -6 -28 -12 -25 -11 -24 -15 -23 -17 -21 -19 -19 -21 -17 -23 -15 -24 -13 -27 -10 -26 -7 -29 -4 -28 -2 -30 2 -31 4 -30 7 -29 10 -26 13 -27 15 -24 17 -23 19 -21 21 -19 23 -17 24 -13 25 -13 28 -10 29 -7 28 -6 31 0 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 56683 20407 l 0 0 30 0 30 6 27 7 28 10 25 13 24 13 23 17 21 19 19 21 17 23 15 24 13 27 10 26 7 29 4 30 2 31 0 0 -2 30 -4 28 -7 29 -10 26 -13 27 -15 24 -17 23 -19 21 -21 19 -23 17 -24 15 -25 11 -28 12 -27 6 -30 5 -30 2 0 0 -31 -2 -28 -5 -29 -6 -28 -12 -25 -11 -24 -15 -23 -17 -21 -19 -19 -21 -17 -23 -15 -24 -13 -27 -10 -26 -7 -29 -4 -28 -2 -30 0 0 2 -31 4 -30 7 -29 10 -26 13 -27 15 -24 17 -23 19 -21 21 -19 23 -17 24 -13 25 -13 28 -10 29 -7 28 -6 31 0" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT27">
+    <rect x="4380" y="7040" width="2300" height="860" stroke-width="0" fill="none" id="TEXT27_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="5530" y="7750" id="TEXT27_pbTextEl">P691B</text>
+  </g>
+  <g id="TEXT28">
+    <rect x="4160" y="10060" width="2300" height="860" stroke-width="0" fill="none" id="TEXT28_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="5310" y="10770" id="TEXT28_pbTextEl">P691A</text>
+  </g>
+  <g id="TEXT29">
+    <rect x="27800" y="5520" width="2300" height="860" stroke-width="0" fill="none" id="TEXT29_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="28950" y="6230" id="TEXT29_pbTextEl">FIQ691</text>
+  </g>
+  <g id="TEXT30">
+    <rect x="29520" y="6380" width="980" height="520" stroke-width="0" fill="none" id="TEXT30_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="30010" y="6920" id="TEXT30_pbTextEl">t/h</text>
+  </g>
+  <path id="POLYGON90" d="M 29000 4220 l 0 1140" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="LINE91" d="M 33500 4400 l 0 1140" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <g id="TEXT31">
+    <rect x="31880" y="5640" width="2300" height="860" stroke-width="0" fill="none" id="TEXT31_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33030" y="6350" id="TEXT31_pbTextEl">PI692</text>
+  </g>
+  <g id="TEXT32">
+    <rect x="33520" y="6440" width="1900" height="520" stroke-width="0" fill="none" id="TEXT32_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="34470" y="6980" id="TEXT32_pbTextEl">MPaG</text>
+  </g>
+  <g id="TEXT34">
+    <rect x="55700" y="19060" width="2300" height="860" stroke-width="0" fill="none" id="TEXT34_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="56850" y="19770" id="TEXT34_pbTextEl">P692A</text>
+  </g>
+  <g id="TEXT35">
+    <rect x="55760" y="21600" width="2300" height="860" stroke-width="0" fill="none" id="TEXT35_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="56910" y="22310" id="TEXT35_pbTextEl">P692B</text>
+  </g>
+  <g name="Valve3d7">
+    <path d="M 35780 10454 l 526 0 0 251 -526 0 0 -251 0 0" stroke-width="0" fill="#000000" />
+    <path d="M 35780 10454 l 526 0 0 251 -526 0 0 -251" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 36042 10676 l 0 426 -46 0 0 -426 46 0 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 36037 10676 l 0 426 -38 0 0 -426 38 0 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 36031 10676 l 0 426 -24 0 0 -426 24 0 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 36023 10676 l 0 426 -8 0 0 -426 8 0 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 35996 10676 l 0 426" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 36042 11102 l 0 -426" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 35703 11292 l 0 -400 634 400 0 -400 -634 400 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 35703 11270 l 0 -356 634 356 0 -356 -634 356 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 35703 11229 l 0 -274 634 274 0 -274 -634 274 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 35703 11188 l 0 -194 634 194 0 -194 -634 194 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 35703 11158 l 0 -132 634 132 0 -132 -634 132 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 35703 11117 l 0 -50 634 50 0 -50 -634 50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 35703 11292 l 0 -400 634 400 0 -400 -634 400" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 35757 10428 l 525 0 0 251 -525 0 0 -251 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 35757 10428 l 525 0 0 251 -525 0 0 -251" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="Valve3d7">
+    <path d="M 39180 12234 l 526 0 0 251 -526 0 0 -251 0 0" stroke-width="0" fill="#000000" />
+    <path d="M 39180 12234 l 526 0 0 251 -526 0 0 -251" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 39442 12456 l 0 426 -46 0 0 -426 46 0 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 39437 12456 l 0 426 -38 0 0 -426 38 0 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 39431 12456 l 0 426 -24 0 0 -426 24 0 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 39423 12456 l 0 426 -8 0 0 -426 8 0 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 39396 12456 l 0 426" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 39442 12882 l 0 -426" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 39103 13072 l 0 -400 634 400 0 -400 -634 400 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 39103 13050 l 0 -356 634 356 0 -356 -634 356 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 39103 13009 l 0 -274 634 274 0 -274 -634 274 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 39103 12968 l 0 -194 634 194 0 -194 -634 194 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 39103 12938 l 0 -132 634 132 0 -132 -634 132 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 39103 12897 l 0 -50 634 50 0 -50 -634 50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 39103 13072 l 0 -400 634 400 0 -400 -634 400" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 39157 12208 l 525 0 0 251 -525 0 0 -251 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 39157 12208 l 525 0 0 251 -525 0 0 -251" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <rect x="31940" y="10140" width="700" height="700" stroke="#000000" stroke-width="20" fill="#FF0000" id="RECTANGLE38" />
+  <rect x="31960" y="12500" width="700" height="700" stroke="#000000" stroke-width="20" fill="#FF0000" id="RECTANGLE40" />
+  <rect x="7440" y="11640" width="700" height="700" stroke="#000000" stroke-width="20" fill="#FF0000" id="RECTANGLE41" />
+  <rect x="7400" y="13320" width="700" height="700" stroke="#000000" stroke-width="20" fill="#FF0000" id="RECTANGLE43" />
+  <rect x="7340" y="15680" width="700" height="700" stroke="#000000" stroke-width="20" fill="#FF0000" id="RECTANGLE44" />
+  <rect x="7320" y="17240" width="700" height="700" stroke="#000000" stroke-width="20" fill="#00FF00" id="RECTANGLE45" />
+  <g id="TEXT36">
+    <rect x="18080" y="8400" width="2300" height="860" stroke-width="0" fill="none" id="TEXT36_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="19230" y="9110" id="TEXT36_pbTextEl">LI691</text>
+  </g>
+  <g id="TEXT37">
+    <rect x="19660" y="9200" width="980" height="520" stroke-width="0" fill="none" id="TEXT37_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="20150" y="9740" id="TEXT37_pbTextEl">%</text>
+  </g>
+  <g id="TEXT38">
+    <rect x="26240" y="8460" width="2300" height="860" stroke-width="0" fill="none" id="TEXT38_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="27390" y="9170" id="TEXT38_pbTextEl">LI692</text>
+  </g>
+  <g id="TEXT39">
+    <rect x="27820" y="9260" width="980" height="520" stroke-width="0" fill="none" id="TEXT39_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="28310" y="9800" id="TEXT39_pbTextEl">%</text>
+  </g>
+  <rect x="22920" y="8600" width="1160" height="1040" stroke="#000000" stroke-width="20" fill="#FFFF00" id="RECTANGLE48" />
+  <rect x="23340" y="9640" width="240" height="4260" stroke="#000000" stroke-width="20" fill="#C0C0C0" id="RECTANGLE49" />
+  <rect x="22280" y="13660" width="2360" height="1440" stroke="#000000" stroke-width="20" fill="#C0C0C0" id="RECTANGLE50" />
+  <path id="POLYGON100" d="M 22280 15100 l 2420 -1440" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="POLYGON101" d="M 22280 13720 l 2300 1380" stroke="#000000" stroke-width="20" fill="none" />
+  <g id="TEXT40">
+    <rect x="22280" y="7580" width="2300" height="860" stroke-width="0" fill="none" id="TEXT40_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="23430" y="8290" id="TEXT40_pbTextEl">MY-639</text>
+  </g>
+  <g id="TEXT41">
+    <rect x="34760" y="11400" width="2300" height="860" stroke-width="0" fill="none" id="TEXT41_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="35910" y="12110" id="TEXT41_pbTextEl">HV691</text>
+  </g>
+  <g id="TEXT42">
+    <rect x="38320" y="13240" width="2300" height="860" stroke-width="0" fill="none" id="TEXT42_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39470" y="13950" id="TEXT42_pbTextEl">HV692</text>
+  </g>
+  <g id="TEXT43">
+    <rect x="5020" y="11620" width="2300" height="860" stroke-width="0" fill="none" id="TEXT43_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="6170" y="12330" id="TEXT43_pbTextEl">-2.8m</text>
+  </g>
+  <g id="TEXT44">
+    <rect x="5020" y="13240" width="2300" height="860" stroke-width="0" fill="none" id="TEXT44_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="6170" y="13950" id="TEXT44_pbTextEl">-3m</text>
+  </g>
+  <g id="TEXT45">
+    <rect x="5020" y="15560" width="2300" height="860" stroke-width="0" fill="none" id="TEXT45_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="6170" y="16270" id="TEXT45_pbTextEl">-4.8m</text>
+  </g>
+  <g id="TEXT46">
+    <rect x="5020" y="17160" width="2300" height="860" stroke-width="0" fill="none" id="TEXT46_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="6170" y="17870" id="TEXT46_pbTextEl">-5m</text>
+  </g>
+  <g id="TEXT47">
+    <rect x="29680" y="10060" width="2300" height="860" stroke-width="0" fill="none" id="TEXT47_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="30830" y="10770" id="TEXT47_pbTextEl">-2m</text>
+  </g>
+  <g id="TEXT48">
+    <rect x="29720" y="12420" width="2300" height="860" stroke-width="0" fill="none" id="TEXT48_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="30870" y="13130" id="TEXT48_pbTextEl">-4.5m</text>
+  </g>
+  <g id="TEXT49">
+    <rect x="29700" y="14120" width="2300" height="860" stroke-width="0" fill="none" id="TEXT49_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="30850" y="14830" id="TEXT49_pbTextEl">-4.7m</text>
+  </g>
+  <g id="TEXT50">
+    <rect x="32280" y="21380" width="2300" height="860" stroke-width="0" fill="none" id="TEXT50_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33430" y="22090" id="TEXT50_pbTextEl">-1.3m</text>
+  </g>
+  <g id="TEXT51">
+    <rect x="32280" y="23140" width="2300" height="860" stroke-width="0" fill="none" id="TEXT51_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33430" y="23850" id="TEXT51_pbTextEl">-1.5m</text>
+  </g>
+  <g id="TEXT52">
+    <rect x="32240" y="24880" width="2300" height="860" stroke-width="0" fill="none" id="TEXT52_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33390" y="25590" id="TEXT52_pbTextEl">-3.3m</text>
+  </g>
+  <g id="TEXT53">
+    <rect x="32220" y="26500" width="2300" height="860" stroke-width="0" fill="none" id="TEXT53_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33370" y="27210" id="TEXT53_pbTextEl">-3.5m</text>
+  </g>
+  <g id="TEXT54">
+    <rect x="39340" y="18760" width="2300" height="860" stroke-width="0" fill="none" id="TEXT54_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="40490" y="19470" id="TEXT54_pbTextEl">LI695</text>
+  </g>
+  <g id="TEXT55">
+    <rect x="40920" y="19580" width="980" height="520" stroke-width="0" fill="none" id="TEXT55_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41410" y="20120" id="TEXT55_pbTextEl">%</text>
+  </g>
+  <g id="TEXT56">
+    <rect x="59060" y="18560" width="2300" height="860" stroke-width="0" fill="none" id="TEXT56_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="60210" y="19270" id="TEXT56_pbTextEl">FIQ692</text>
+  </g>
+  <g id="TEXT57">
+    <rect x="60780" y="19420" width="980" height="520" stroke-width="0" fill="none" id="TEXT57_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="61270" y="19960" id="TEXT57_pbTextEl">t/h</text>
+  </g>
+  <g id="TEXT58">
+    <rect x="13820" y="19380" width="4420" height="980" stroke-width="0" fill="none" id="TEXT58_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="16030" y="20150" id="TEXT58_pbTextEl">生产污水池</text>
+  </g>
+  <g id="TEXT59">
+    <rect x="25640" y="16580" width="4420" height="980" stroke-width="0" fill="none" id="TEXT59_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="27850" y="17350" id="TEXT59_pbTextEl">初期雨水池</text>
+  </g>
+  <g id="TEXT60">
+    <rect x="36000" y="16580" width="4420" height="980" stroke-width="0" fill="none" id="TEXT60_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="38210" y="17350" id="TEXT60_pbTextEl">切换井</text>
+  </g>
+  <g id="TEXT61">
+    <rect x="42100" y="28280" width="4420" height="980" stroke-width="0" fill="none" id="TEXT61_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="44310" y="29050" id="TEXT61_pbTextEl">生活污水池</text>
+  </g>
+  <g id="TEXT63">
+    <rect x="41720" y="3000" width="7300" height="980" stroke-width="0" fill="none" id="TEXT63_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="45370" y="3770" id="TEXT63_pbTextEl">排进全厂生产污水管道</text>
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 48968 4222 l -863 284 0 -189 -1353 0 0 -194 1353 0 0 -189 863 288 0 0" stroke-width="0" fill="#C0C0C0" />
+    <path d="M 48968 4222 l -863 284 0 -189 -1353 0 0 -194 1353 0 0 -189 863 288" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 52508 12862 l -863 284 0 -189 -1353 0 0 -194 1353 0 0 -189 863 288 0 0" stroke-width="0" fill="#C0C0C0" />
+    <path d="M 52508 12862 l -863 284 0 -189 -1353 0 0 -194 1353 0 0 -189 863 288" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 50212 11022 l 863 284 0 -189 1353 0 0 -194 -1353 0 0 -189 -863 288 0 0" stroke-width="0" fill="#C0C0C0" />
+    <path d="M 50212 11022 l 863 284 0 -189 1353 0 0 -194 -1353 0 0 -189 -863 288" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT64">
+    <rect x="42780" y="9600" width="9660" height="980" stroke-width="0" fill="none" id="TEXT64_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="47610" y="10370" id="TEXT64_pbTextEl">来自装置污染区初期雨水系统</text>
+  </g>
+  <g id="TEXT65">
+    <rect x="42780" y="11500" width="9660" height="980" stroke-width="0" fill="none" id="TEXT65_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="47610" y="12270" id="TEXT65_pbTextEl">后期雨水切换至街区雨水系统</text>
+  </g>
+  <g id="TEXT67">
+    <rect x="58000" y="2980" width="2300" height="860" stroke="#000000" stroke-width="20" fill="#00FF00" id="TEXT67_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="59150" y="3690" id="TEXT67_pbTextEl">IA-603</text>
+  </g>
+  <g id="DATAPOINT213" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\170_LI_691" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="18420" y="9260" width="1140" height="520" stroke-width="0" fill="none" id="DATAPOINT213_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18990" y="9800" id="DATAPOINT213_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT214" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\170_LI_692" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="26680" y="9220" width="1140" height="520" stroke-width="0" fill="none" id="DATAPOINT214_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="27250" y="9760" id="DATAPOINT214_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT215" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\170_FT_691" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="28040" y="6420" width="1140" height="520" stroke-width="0" fill="none" id="DATAPOINT215_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="28610" y="6960" id="DATAPOINT215_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT216" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\170_FIQ_691" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="28040" y="7180" width="1140" height="520" stroke-width="0" fill="none" id="DATAPOINT216_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="28610" y="7720" id="DATAPOINT216_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT354">
+    <rect x="29560" y="7220" width="980" height="520" stroke-width="0" fill="none" id="TEXT354_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="30050" y="7760" id="TEXT354_pbTextEl">t</text>
+  </g>
+  <g id="DATAPOINT217" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\170_PT_692" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="32120" y="6420" width="1140" height="520" stroke-width="0" fill="none" id="DATAPOINT217_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32690" y="6960" id="DATAPOINT217_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT218" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\170_FT_692" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="59200" y="19480" width="1140" height="520" stroke-width="0" fill="none" id="DATAPOINT218_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="59770" y="20020" id="DATAPOINT218_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT219" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\170_FIQ_692" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="59200" y="20220" width="1140" height="520" stroke-width="0" fill="none" id="DATAPOINT219_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="59770" y="20760" id="DATAPOINT219_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT359">
+    <rect x="60720" y="20260" width="980" height="520" stroke-width="0" fill="none" id="TEXT359_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="61210" y="20800" id="TEXT359_pbTextEl">t</text>
+  </g>
+</svg>

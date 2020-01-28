@@ -1,0 +1,1407 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg height="100%" width="100%" viewBox="0 0 64000 32000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:PB="urn:osisoft-com-pb" xmlns:PBI="urn:osisoft-com-interface" xmlns:PBD="urn:osisoft-com-data" style="background-color:#C0C0C0">
+  <title>Graphic16</title>
+  <defs>
+    <PBD:TagUses tag="\\\">
+      <PBI:Symbol name="BARGRAPH1" PB:Type="12" />
+      <PBI:Symbol name="BARGRAPH3" PB:Type="12" />
+      <PBI:Symbol name="BARGRAPH4" PB:Type="12" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_FT_1203_BC">
+      <PBI:Symbol name="DATAPOINT3" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_PT_1210">
+      <PBI:Symbol name="DATAPOINT4" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_YIT_B1202">
+      <PBI:Symbol name="DATAPOINT5" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1210">
+      <PBI:Symbol name="DATAPOINT6" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1613">
+      <PBI:Symbol name="DATAPOINT7" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_PT_1202">
+      <PBI:Symbol name="DATAPOINT8" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_LT_1613A">
+      <PBI:Symbol name="DATAPOINT9" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_LT_1613B">
+      <PBI:Symbol name="DATAPOINT10" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_LT_1614">
+      <PBI:Symbol name="DATAPOINT11" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_PT_1601">
+      <PBI:Symbol name="DATAPOINT12" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1211">
+      <PBI:Symbol name="DATAPOINT13" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1212">
+      <PBI:Symbol name="DATAPOINT14" PB:Type="7" />
+      <PBI:Symbol name="DATAPOINT20" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1216">
+      <PBI:Symbol name="DATAPOINT16" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_ST_1101A">
+      <PBI:Symbol name="DATAPOINT17" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_ST_1101B">
+      <PBI:Symbol name="DATAPOINT18" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_ST_1101C">
+      <PBI:Symbol name="DATAPOINT19" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_FT_1202_BC">
+      <PBI:Symbol name="DATAPOINT21" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1358">
+      <PBI:Symbol name="DATAPOINT22" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1357">
+      <PBI:Symbol name="DATAPOINT23" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1354">
+      <PBI:Symbol name="DATAPOINT24" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1353">
+      <PBI:Symbol name="DATAPOINT25" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_PDT_1701">
+      <PBI:Symbol name="DATAPOINT26" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1611">
+      <PBI:Symbol name="DATAPOINT27" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1215">
+      <PBI:Symbol name="DATAPOINT28" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_FT_1204_BC">
+      <PBI:Symbol name="DATAPOINT29" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_LT_1204">
+      <PBI:Symbol name="DATAPOINT30" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1213">
+      <PBI:Symbol name="DATAPOINT31" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_PT_1209A">
+      <PBI:Symbol name="DATAPOINT32" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_PT_1209B">
+      <PBI:Symbol name="DATAPOINT33" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_YIT_P1001">
+      <PBI:Symbol name="DATAPOINT34" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_YIT_P1002">
+      <PBI:Symbol name="DATAPOINT35" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_YIT_P1003">
+      <PBI:Symbol name="DATAPOINT36" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1703">
+      <PBI:Symbol name="DATAPOINT37" PB:Type="7" />
+      <PBI:Symbol name="DATAPOINT47" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_PT_1701B">
+      <PBI:Symbol name="DATAPOINT38" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1701B">
+      <PBI:Symbol name="DATAPOINT39" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_LT_1201">
+      <PBI:Symbol name="DATAPOINT40" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1701A">
+      <PBI:Symbol name="DATAPOINT41" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_PT_1701A">
+      <PBI:Symbol name="DATAPOINT42" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1702A">
+      <PBI:Symbol name="DATAPOINT43" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_PT_1208">
+      <PBI:Symbol name="DATAPOINT44" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1217">
+      <PBI:Symbol name="DATAPOINT45" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1406">
+      <PBI:Symbol name="DATAPOINT46" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_PDT_1702">
+      <PBI:Symbol name="DATAPOINT48" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1407A">
+      <PBI:Symbol name="DATAPOINT49" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1407B">
+      <PBI:Symbol name="DATAPOINT50" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_YIT_P1009">
+      <PBI:Symbol name="DATAPOINT51" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_YIT_P1010">
+      <PBI:Symbol name="DATAPOINT52" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1214">
+      <PBI:Symbol name="DATAPOINT53" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_LT_1611A">
+      <PBI:Symbol name="DATAPOINT54" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_LT_1611B">
+      <PBI:Symbol name="DATAPOINT55" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_LT_1612">
+      <PBI:Symbol name="DATAPOINT56" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_LT_1202">
+      <PBI:Symbol name="DATAPOINT57" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\5400_TT_1702B">
+      <PBI:Symbol name="DATAPOINT58" PB:Type="7" />
+    </PBD:TagUses>
+  </defs>
+  <path id="ELLIPSE98" d="M 43440 4640 l -20 62 -20 38 -20 30 -20 23 -20 21 -20 17 -20 15 -20 14 -20 11 -20 11 -20 9 -20 7 -20 7 -20 6 -20 5 -20 4 -20 3 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -3 -20 -4 -20 -5 -20 -6 -20 -7 -20 -7 -20 -9 -20 -11 -20 -11 -20 -14 -20 -15 -20 -17 -20 -21 -20 -23 -20 -30 -20 -38 -20 -62 0 -119 20 -62 20 -38 20 -30 20 -23 20 -21 20 -17 20 -15 20 -14 20 -11 20 -11 20 -9 20 -7 20 -7 20 -6 20 -5 20 -4 20 -3 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 3 20 4 20 5 20 6 20 7 20 7 20 9 20 11 20 11 20 14 20 15 20 17 20 21 20 23 20 30 20 38 20 62 0 119" stroke="#FF0000" stroke-width="20" fill="#C0C0C0" />
+  <path id="POLYGON65" d="M 40340 14000 l -19260 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 9060 20066 l -40 150 -40 82 -40 62 -40 50 -40 42 -40 36 -40 32 -40 28 -40 24 -40 21 -40 19 -40 16 -40 15 -40 11 -40 10 -40 8 -40 7 -40 4 -40 3 -40 0 0 0 -40 0 -40 -3 -40 -4 -40 -7 -40 -8 -40 -10 -40 -11 -40 -15 -40 -16 -40 -19 -40 -21 -40 -24 -40 -28 -40 -32 -40 -36 -40 -42 -40 -50 -40 -62 -40 -82 -40 -150 0 -171 40 -150 40 -82 40 -62 40 -50 40 -42 40 -36 40 -32 40 -28 40 -24 40 -21 40 -19 40 -16 40 -15 40 -11 40 -10 40 -8 40 -7 40 -4 40 -3 40 -1 0 0 40 1 40 3 40 4 40 7 40 8 40 10 40 11 40 15 40 16 40 19 40 21 40 24 40 28 40 32 40 36 40 42 40 50 40 62 40 82 40 150 0 171" stroke="#FF0000" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 7600 19640 l 1240 760" stroke="#FF0000" stroke-width="20" fill="none" />
+  <g id="TEXT61">
+    <rect x="14780" y="14000" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT61_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="17270" y="14880" id="TEXT61_pbTextEl">1#机2#高危输水</text>
+  </g>
+  <g id="TEXT50">
+    <rect x="440" y="7680" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT50_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="2930" y="8560" id="TEXT50_pbTextEl">冷脱盐水</text>
+  </g>
+  <path d="M 24900 4224 l -40 144 -40 79 -40 59 -40 49 -40 40 -40 35 -40 30 -40 26 -40 22 -40 20 -40 18 -40 14 -40 13 -40 10 -40 9 -40 6 -40 5 -40 3 -40 0 0 0 -40 0 -40 -3 -40 -5 -40 -6 -40 -9 -40 -10 -40 -13 -40 -14 -40 -18 -40 -20 -40 -22 -40 -26 -40 -30 -40 -35 -40 -40 -40 -49 -40 -59 -40 -79 -40 -144 0 -167 40 -144 40 -79 40 -59 40 -49 40 -40 40 -35 40 -30 40 -26 40 -22 40 -20 40 -18 40 -14 40 -13 40 -10 40 -9 40 -6 40 -5 40 -3 40 -1 0 0 40 1 40 3 40 5 40 6 40 9 40 10 40 13 40 14 40 18 40 20 40 22 40 26 40 30 40 35 40 40 40 49 40 59 40 79 40 144 0 167" stroke="#FF0000" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 23540 3780 l 1260 740" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path d="M 7280 4224 l -40 144 -40 79 -40 59 -40 49 -40 40 -40 35 -40 30 -40 26 -40 22 -40 20 -40 18 -40 14 -40 13 -40 10 -40 9 -40 6 -40 5 -40 3 -40 0 0 0 -40 0 -40 -3 -40 -5 -40 -6 -40 -9 -40 -10 -40 -13 -40 -14 -40 -18 -40 -20 -40 -22 -40 -26 -40 -30 -40 -35 -40 -40 -40 -49 -40 -59 -40 -79 -40 -144 0 -167 40 -144 40 -79 40 -59 40 -49 40 -40 40 -35 40 -30 40 -26 40 -22 40 -20 40 -18 40 -14 40 -13 40 -10 40 -9 40 -6 40 -5 40 -3 40 -1 0 0 40 1 40 3 40 5 40 6 40 9 40 10 40 13 40 14 40 18 40 20 40 22 40 26 40 30 40 35 40 40 40 49 40 59 40 79 40 144 0 167" stroke="#FF0000" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 5920 3780 l 1260 740" stroke="#FF0000" stroke-width="20" fill="none" />
+  <g id="TEXT1">
+    <rect x="27180" y="340" width="10880" height="2120" stroke-width="0" fill="none" id="TEXT1_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="800" font-weight="bold" text-anchor="middle" x="32620" y="1800" id="TEXT1_pbTextEl">#1机热力系统</text>
+  </g>
+  <rect x="22580" y="7580" width="5820" height="520" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE1" />
+  <rect x="28420" y="6320" width="3040" height="2960" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE2" />
+  <path id="POLYGON7" d="M 42340 9920 l 0 -4220 -10880 620 0 2960 10880 640" stroke="#000000" stroke-width="20" fill="none" />
+  <rect x="42340" y="7600" width="9020" height="520" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE3" />
+  <rect x="51360" y="6580" width="4880" height="2680" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE4" />
+  <rect x="56240" y="7640" width="4720" height="520" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE5" />
+  <g id="TEXT2">
+    <rect x="32020" y="7160" width="5280" height="1440" stroke-width="0" fill="none" id="TEXT2_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="34660" y="8160" id="TEXT2_pbTextEl">1#抽凝机</text>
+  </g>
+  <g id="TEXT5">
+    <rect x="51180" y="7160" width="5280" height="1440" stroke-width="0" fill="none" id="TEXT5_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="53820" y="8160" id="TEXT5_pbTextEl">发电机</text>
+  </g>
+  <rect x="12940" y="8280" width="3980" height="1380" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE6" />
+  <g id="TEXT6">
+    <rect x="13220" y="8420" width="3700" height="1260" stroke="#C0C0C0" stroke-width="20" fill="none" id="TEXT6_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="15070" y="9330" id="TEXT6_pbTextEl">均压箱</text>
+  </g>
+  <path id="POLYGON12" d="M 29620 6300 l 0 -1820 -25980 0" stroke="#FF0000" stroke-width="40" fill="none" />
+  <path id="POLYGON13" d="M 15000 8300 l 0 -1960" stroke="#FF0000" stroke-width="40" fill="none" />
+  <path id="POLYGON14" d="M 15020 6340 l -11340 0" stroke="#FF0000" stroke-width="40" fill="none" />
+  <path id="POLYGON15" d="M 13480 8300 l 0 -680" stroke="#FF0000" stroke-width="40" fill="none" />
+  <path id="POLYGON16" d="M 13480 7660 l -4800 0" stroke="#FF0000" stroke-width="40" fill="none" />
+  <path id="POLYGON17" d="M 15020 6860 l 8840 0" stroke="#FF0000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="POLYGON18" d="M 23800 6920 l 0 680" stroke="#FF0000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="POLYGON19" d="M 16980 9140 l 3600 0" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path id="POLYGON20" d="M 20580 9140 l 0 -1940" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path id="POLYGON21" d="M 20560 6580 l 0 -1840" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path id="POLYGON22" d="M 20580 4080 l 0 -980" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path id="POLYGON23" d="M 20640 3160 l 25180 0" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path id="POLYGON24" d="M 45760 3220 l 0 3480" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path id="POLYGON25" d="M 3640 8720 l 4980 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON26" d="M 8560 8720 l 0 -900" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON27" d="M 41360 9880 l 0 3140" stroke="#FF0000" stroke-width="40" fill="none" />
+  <rect x="12420" y="10280" width="2640" height="4680" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE7" />
+  <path id="POLYGON29" d="M 12420 11080 l 2300 0" stroke="#808080" stroke-width="60" fill="none" />
+  <path id="LINE29" d="M 12420 14100 l 2120 0" stroke="#808080" stroke-width="60" fill="none" />
+  <path id="POLYGON30" d="M 13420 12560 l 1240 -1440" stroke="#808080" stroke-width="60" fill="none" />
+  <path id="POLYGON31" d="M 13420 12620 l 1180 1480" stroke="#808080" stroke-width="60" fill="none" />
+  <rect x="12360" y="18780" width="2640" height="4680" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE8" />
+  <path id="LINE32" d="M 12340 19580 l 2280 0" stroke="#808080" stroke-width="60" fill="none" />
+  <path id="LINE33" d="M 12360 22600 l 2120 0" stroke="#808080" stroke-width="60" fill="none" />
+  <path id="LINE34" d="M 13340 21060 l 1280 -1440" stroke="#808080" stroke-width="60" fill="none" />
+  <path id="LINE35" d="M 13340 21120 l 1180 1480" stroke="#808080" stroke-width="60" fill="none" />
+  <path id="POLYGON35" d="M 11500 14060 l 0 5620" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="POLYGON36" d="M 11420 14060 l 1080 0" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="POLYGON37" d="M 11500 19680 l 920 0" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="POLYGON38" d="M 12420 11020 l -8920 0" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="LINE38" d="M 12320 22660 l -8920 0" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="POLYGON39" d="M 10980 11240 l 0 11120" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON40" d="M 10200 10440 l 0 12760" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON41" d="M 10940 10860 l 0 -440" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON42" d="M 10940 10440 l -680 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON43" d="M 10240 23160 l 680 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON44" d="M 10980 22740 l 0 460" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON45" d="M 12360 20360 l -8820 0" stroke="#00D200" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="POLYGON46" d="M 12440 12920 l -7500 0" stroke="#00D200" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="POLYGON47" d="M 4900 12860 l 0 4820" stroke="#00D200" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="POLYGON48" d="M 5020 17680 l 7420 0" stroke="#00D200" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="POLYGON49" d="M 12520 17640 l 0 1100" stroke="#00D200" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="POLYGON50" d="M 15080 14100 l 3940 0" stroke="#00D200" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="POLYGON51" d="M 18940 14120 l 0 900" stroke="#00D200" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="LINE51" d="M 15060 22620 l 3920 0" stroke="#00D200" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="LINE52" d="M 18880 22640 l 0 1020" stroke="#00D200" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="POLYGON52" d="M 36600 9580 l 0 4100" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path id="POLYGON53" d="M 32360 9340 l 0 2860" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path id="POLYGON54" d="M 38240 13680 l -5960 0" stroke="#FF0000" stroke-width="40" fill="none" />
+  <path id="LINE54" d="M 32920 12240 l -4300 0" stroke="#FF0000" stroke-width="40" fill="none" />
+  <path id="POLYGON55" d="M 32940 12000 l 0 400" stroke="#FF0000" stroke-width="40" fill="none" />
+  <path id="LINE55" d="M 33040 12000 l 0 400" stroke="#FF0000" stroke-width="40" fill="none" />
+  <path id="LINE56" d="M 38260 13440 l 0 400" stroke="#FF0000" stroke-width="40" fill="none" />
+  <path id="LINE57" d="M 38380 13420 l 0 400" stroke="#FF0000" stroke-width="40" fill="none" />
+  <path id="POLYGON57" d="M 15080 11020 l 14600 0" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path id="POLYGON58" d="M 29640 11020 l 0 1180" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path id="POLYGON59" d="M 15000 19080 l 4720 0" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path id="POLYGON60" d="M 19680 19080 l 0 -6220" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path id="POLYGON61" d="M 19700 12900 l 13000 0" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path id="POLYGON62" d="M 32640 12920 l 0 700" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path d="M 40240 14500 l 2180 0 -220 -1480 -1740 0 -220 1480 0 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 42860 15612 l -40 231 -40 129 -40 100 -40 83 -40 71 -40 64 -40 57 -40 51 -40 48 -40 44 -40 40 -40 38 -40 35 -40 33 -40 30 -40 29 -40 26 -40 25 -40 23 -40 22 -40 20 -40 18 -40 18 -40 16 -40 15 -40 13 -40 12 -40 12 -40 10 -40 8 -40 8 -40 7 -40 6 -40 4 -40 4 -40 2 -40 2 -40 0 0 0 -40 0 -40 -2 -40 -2 -40 -4 -40 -4 -40 -6 -40 -7 -40 -8 -40 -8 -40 -10 -40 -12 -40 -12 -40 -13 -40 -15 -40 -16 -40 -18 -40 -18 -40 -20 -40 -22 -40 -23 -40 -25 -40 -26 -40 -29 -40 -30 -40 -33 -40 -35 -40 -38 -40 -40 -40 -44 -40 -48 -40 -51 -40 -57 -40 -64 -40 -71 -40 -83 -40 -100 -40 -129 -40 -231 0 -263 40 -231 40 -129 40 -100 40 -83 40 -71 40 -64 40 -57 40 -51 40 -48 40 -44 40 -40 40 -38 40 -35 40 -33 40 -30 40 -29 40 -26 40 -25 40 -23 40 -22 40 -20 40 -18 40 -18 40 -16 40 -15 40 -13 40 -12 40 -12 40 -10 40 -8 40 -8 40 -7 40 -6 40 -4 40 -4 40 -2 40 -2 40 -1 0 0 40 1 40 2 40 2 40 4 40 4 40 6 40 7 40 8 40 8 40 10 40 12 40 12 40 13 40 15 40 16 40 18 40 18 40 20 40 22 40 23 40 25 40 26 40 29 40 30 40 33 40 35 40 38 40 40 40 44 40 48 40 51 40 57 40 64 40 71 40 83 40 100 40 129 40 231 0 263" stroke="#000000" stroke-width="20" fill="none" />
+  <rect x="40700" y="16800" width="1300" height="1260" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="POLYGON66" d="M 21100 14060 l 0 11820" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON67" d="M 42280 13620 l 18920 0" stroke="#00FFFF" stroke-width="40" fill="none" />
+  <path id="POLYGON68" d="M 42700 14840 l -1160 0" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="LINE68" d="M 42680 16160 l -1180 0" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="POLYGON69" d="M 42160 15520 l -660 -740" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="POLYGON70" d="M 42080 15520 l -660 600" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="LINE70" d="M 39980 14840 l 1180 0" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="LINE71" d="M 40000 16160 l 1180 0" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="LINE72" d="M 40540 15520 l 640 -700" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="LINE73" d="M 40600 15520 l 680 620" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="POLYGON73" d="M 39980 14780 l -10500 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON74" d="M 29480 14780 l 0 8180" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON75" d="M 39940 16160 l -8680 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON76" d="M 31260 16120 l 0 6820" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON77" d="M 42700 14840 l 5440 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON78" d="M 48120 14840 l 0 8040" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON79" d="M 42700 16080 l 3960 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON80" d="M 46640 16080 l 0 6700" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON81" d="M 41320 18020 l 0 12440" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="POLYGON82" d="M 38900 24740 l 4820 0" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="POLYGON83" d="M 43700 24720 l 0 3320" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="LINE83" d="M 38900 24720 l 0 3320" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="POLYGON84" d="M 38900 28020 l 4800 0" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="POLYGON85" d="M 41220 30460 l -37880 0" stroke="#00D200" stroke-width="40" fill="none" />
+  <rect x="17540" y="27720" width="4040" height="1540" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE10" />
+  <g id="BARGRAPH1" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\\" PB:Start="0" PB:Upper="100" PB:Type="12">
+    <rect x="16780" y="27820" width="760" height="1440" stroke-width="0" fill="#C0C0C0" id="BARGRAPH1_pbBarBoundingRectEl" />
+    <rect x="16780" y="27820" width="760" height="1440" stroke-width="0" fill="#00D200" id="BARGRAPH1_pbBarTagRectEl" stroke="none" PBD:Property="" />
+  </g>
+  <path id="POLYGON87" d="M 19480 27780 l 0 1480" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="POLYGON88" d="M 21100 25840 l -5500 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON89" d="M 15600 25840 l 0 4560" stroke="#00D200" stroke-width="20" fill="none" />
+  <rect x="54440" y="12800" width="1640" height="1580" stroke="#000000" stroke-width="20" fill="#C0C0C0" id="RECTANGLE11" />
+  <g id="TEXT7">
+    <rect x="53660" y="14520" width="3400" height="1080" stroke-width="0" fill="none" id="TEXT7_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="55360" y="15340" id="TEXT7_pbTextEl">1#机真空泵</text>
+  </g>
+  <g name="SimpleTank4">
+    <path d="M 61884 13286 l 0 756 -608 0 0 -756 0 -5 1 -4 3 -3 3 -5 4 -4 3 -5 4 -3 7 -5 5 -3 7 -5 7 -3 8 -3 9 -4 8 -3 10 -4 11 -3 10 -2 11 -4 11 -2 12 -2 13 -2 13 -3 13 -2 13 -1 14 -2 14 -1 15 -1 14 -2 16 -1 14 0 15 -1 16 0 16 0 15 1 14 0 16 1 14 2 15 1 14 1 14 2 13 1 13 2 13 3 13 2 12 2 11 2 11 4 12 2 9 3 10 4 9 3 8 4 8 3 7 3 7 5 6 3 6 5 5 3 4 5 2 4 3 5 3 3 1 4 0 5 0 0" stroke-width="0" fill="#C0C0C0" />
+    <path d="M 61884 13286 l 0 756 -608 0 0 -756 0 0 0 -5 1 -4 3 -3 3 -5 4 -4 3 -5 4 -3 7 -5 5 -3 7 -5 7 -3 8 -3 9 -4 8 -3 10 -4 11 -3 10 -2 11 -4 11 -2 12 -2 13 -2 13 -3 13 -2 13 -1 14 -2 14 -1 15 -1 14 -2 16 -1 14 0 15 -1 16 0 0 0 16 0 15 1 14 0 16 1 14 2 15 1 14 1 14 2 13 1 13 2 13 3 13 2 12 2 11 2 11 4 12 2 9 3 10 4 9 3 8 4 8 3 7 3 7 5 6 3 6 5 5 3 4 5 2 4 3 5 3 3 1 4 0 5" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 61276 13308 l 608 0" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path id="POLYGON91" d="M 61580 14860 l 0 1580" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON92" d="M 61580 16440 l -8960 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON93" d="M 52740 16440 l 0 -2780" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON94" d="M 61180 12560 l 0 -1020" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON95" d="M 61120 11580 l -3340 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE106" d="M 61660 16440 l -8680 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <g id="TEXT9">
+    <rect x="53600" y="20840" width="3400" height="1080" stroke-width="0" fill="none" id="TEXT9_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="55300" y="21660" id="TEXT9_pbTextEl">1#机真空泵</text>
+  </g>
+  <g name="SimpleTank4">
+    <path d="M 61824 19646 l 0 756 -608 0 0 -756 0 -5 1 -4 3 -3 3 -5 4 -4 3 -5 4 -3 7 -5 5 -3 7 -5 7 -3 8 -3 9 -4 8 -3 10 -4 11 -3 10 -2 11 -4 11 -2 12 -2 13 -2 13 -3 13 -2 13 -1 14 -2 14 -1 15 -1 14 -2 16 -1 14 0 15 -1 16 0 16 0 15 1 14 0 16 1 14 2 15 1 14 1 14 2 13 1 13 2 13 3 13 2 12 2 11 2 11 4 12 2 9 3 10 4 9 3 8 4 8 3 7 3 7 5 6 3 6 5 5 3 4 5 2 4 3 5 3 3 1 4 0 5 0 0" stroke-width="0" fill="#C0C0C0" />
+    <path d="M 61824 19646 l 0 756 -608 0 0 -756 0 0 0 -5 1 -4 3 -3 3 -5 4 -4 3 -5 4 -3 7 -5 5 -3 7 -5 7 -3 8 -3 9 -4 8 -3 10 -4 11 -3 10 -2 11 -4 11 -2 12 -2 13 -2 13 -3 13 -2 13 -1 14 -2 14 -1 15 -1 14 -2 16 -1 14 0 15 -1 16 0 0 0 16 0 15 1 14 0 16 1 14 2 15 1 14 1 14 2 13 1 13 2 13 3 13 2 12 2 11 2 11 4 12 2 9 3 10 4 9 3 8 4 8 3 7 3 7 5 6 3 6 5 5 3 4 5 2 4 3 5 3 3 1 4 0 5" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 61216 19668 l 608 0" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path id="LINE107" d="M 61520 21180 l 0 1580" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE108" d="M 61520 22760 l -8820 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE109" d="M 52660 22760 l 0 -2780" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE110" d="M 61100 18880 l 0 -1000" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE111" d="M 61060 17920 l -3340 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON112" d="M 48900 13600 l 0 6360" stroke="#00FFFF" stroke-width="40" fill="none" />
+  <path id="POLYGON113" d="M 60760 20020 l -11920 0" stroke="#00FFFF" stroke-width="40" fill="none" />
+  <rect x="54360" y="19140" width="1640" height="1580" stroke="#000000" stroke-width="20" fill="#C0C0C0" id="RECTANGLE13" />
+  <rect x="54120" y="28680" width="8700" height="2120" stroke="#000000" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 56280 28700 l 0 2100" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 58460 28700 l 0 2100" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 60620 28700 l 0 2100" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 54580 28720 l 0 1360" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 55780 30060 l 0 -1360" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 54560 30060 l 640 -600" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 55160 29480 l 600 560" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 56740 28740 l 0 1360" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 57960 30100 l 0 -1360" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 56720 30100 l 620 -620" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 57320 29500 l 620 580" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 58960 28720 l 0 1360" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 60160 30080 l 0 -1360" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 58940 30080 l 620 -620" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 59540 29480 l 580 580" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 61120 28720 l 0 1360" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 62340 30080 l 0 -1360" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 61120 30080 l 640 -620" stroke="#00D200" stroke-width="20" fill="none" />
+  <path d="M 61740 29480 l 580 580" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON132" d="M 63200 26520 l -11420 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON133" d="M 63180 27220 l -14600 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON134" d="M 61120 28700 l 0 -1500" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON135" d="M 62340 28720 l 0 -1420" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON136" d="M 62340 26540 l 0 560" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE136" d="M 58960 28700 l 0 -1500" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE137" d="M 60180 28720 l 0 -1420" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE138" d="M 60180 26540 l 0 560" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE139" d="M 56740 28700 l 0 -1500" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE140" d="M 57960 28720 l 0 -1420" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE141" d="M 57960 26540 l 0 560" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE142" d="M 54580 28700 l 0 -1500" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE143" d="M 55800 28720 l 0 -1420" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE144" d="M 55800 26540 l 0 560" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON144" d="M 63180 26400 l 0 240" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE145" d="M 63220 27120 l 0 240" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON145" d="M 46380 19840 l -14500 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON146" d="M 46940 19840 l 860 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON147" d="M 48260 19800 l 340 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON148" d="M 48600 19760 l 0 1300" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON149" d="M 48640 21040 l 3160 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON150" d="M 51760 21060 l 0 5440" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON151" d="M 46500 21680 l -14500 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON152" d="M 46840 21680 l 1060 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON153" d="M 48300 21660 l 300 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON154" d="M 48620 21640 l 0 5620" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON155" d="M 29640 19860 l 1380 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE155" d="M 29560 21680 l 1400 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON156" d="M 29200 19860 l -480 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON157" d="M 28780 19860 l 0 -3220" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON158" d="M 28780 16700 l -4960 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON159" d="M 28780 18900 l -4920 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON160" d="M 23820 16700 l 0 4960" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON161" d="M 29300 21660 l -5480 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON162" d="M 17800 30480 l 0 -1200" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="POLYGON163" d="M 21240 30400 l 0 -1120" stroke="#00D200" stroke-width="40" fill="none" />
+  <path id="POLYGON164" d="M 17760 29220 l 0 -720 380 0 420 -580 0 880 340 -340 360 0 0 760" stroke="#808080" stroke-width="60" fill="none" />
+  <path id="LINE164" d="M 19740 29220 l 0 -720 380 0 420 -580 0 880 340 -340 360 0 0 760" stroke="#808080" stroke-width="60" fill="none" />
+  <path id="POLYGON165" d="M 18000 27700 l 0 -1660" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="POLYGON166" d="M 18000 25660 l 0 -840" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="POLYGON167" d="M 18000 24880 l -10680 0" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="POLYGON168" d="M 14160 24880 l 0 2200" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="POLYGON169" d="M 14160 27020 l -3360 0" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="LINE169" d="M 7360 24880 l 0 2200" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="LINE170" d="M 7360 27020 l -3700 0" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="POLYGON170" d="M 3720 26980 l 0 -600" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="LINE171" d="M 10800 26980 l 0 -600" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="POLYGON171" d="M 33280 19860 l 0 920" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON172" d="M 33260 20740 l -1820 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON173" d="M 31000 20740 l -1520 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE173" d="M 33120 21720 l 0 920" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="LINE174" d="M 33100 22600 l -1840 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON174" d="M 43280 19860 l 0 860" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON175" d="M 43320 20720 l 3100 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON176" d="M 46880 20680 l 1200 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON177" d="M 43420 21740 l 0 760" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON178" d="M 43440 22440 l 3200 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <g name="Valve3d2">
+    <path d="M 50672 12980 l -632 0 4 -53 11 -56 12 -50 24 -53 27 -45 31 -46 35 -41 43 -42 47 -30 47 -30 51 -31 54 -22 59 -19 62 -12 59 -7 66 -4 67 4 62 7 59 12 58 19 55 22 54 31 51 30 43 30 43 42 35 41 35 46 24 45 23 53 16 50 8 56 3 53 -636 0 0 0" stroke-width="0" fill="#003C00" />
+    <path d="M 50719 12855 l 0 754 -117 0 0 -754 117 0 0 0" stroke-width="0" fill="#009600" />
+    <path d="M 50719 12855 l 0 754 -78 0 0 -754 78 0 0 0" stroke-width="0" fill="#00B400" />
+    <path d="M 50758 12855 l 0 754 -78 0 0 -754 78 0 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 50524 12821 l 0 758 0 0 0 -758 0 0 0 0" stroke-width="0" fill="#F00000" />
+    <path d="M 50621 12848 l 0 776" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 50735 13624 l 0 -776" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 50680 12980 l -625 0 0 -64 0 -30 0 -65 40 -60 39 -31 0 -34 39 -60 39 -34 78 -31 39 -30 39 -34 78 -30 39 0 78 -30 39 0 78 0 78 0 39 0 78 30 39 0 78 30 39 34 39 30 39 31 78 34 0 60 39 34 39 31 40 60 0 65 0 30 0 64 -625 0 0 0" stroke-width="0" fill="#005A00" />
+    <path d="M 50680 12980 l -585 0 0 -64 0 -30 39 -65 0 -30 39 -61 39 -34 39 -60 39 -34 0 -31 78 -30 39 -34 39 -30 78 0 39 -30 39 0 78 0 39 0 78 0 39 30 78 0 39 30 39 34 39 30 39 31 39 34 39 60 39 34 39 61 0 30 0 65 39 30 0 64 -585 0 0 0" stroke-width="0" fill="#007800" />
+    <path d="M 50680 12980 l -468 0 0 -64 0 -30 39 -65 0 -30 39 -61 0 -34 39 -60 39 -34 0 -31 39 -30 39 -34 39 -30 39 0 78 -30 39 0 39 0 39 0 39 0 39 30 39 0 78 30 0 34 39 30 39 31 39 34 39 60 0 34 39 61 0 30 0 65 39 30 0 64 -468 0 0 0" stroke-width="0" fill="#009600" />
+    <path d="M 50680 12980 l -351 0 0 -64 0 -30 39 -65 0 -60 0 -31 39 -34 0 -60 39 -34 0 -31 39 -30 39 -34 39 -30 0 0 39 -30 39 0 39 0 39 0 39 0 0 30 39 0 39 30 39 34 0 30 39 31 39 34 0 60 39 34 0 31 0 60 0 65 39 30 0 64 -351 0 0 0" stroke-width="0" fill="#00B400" />
+    <path d="M 50680 12980 l -234 0 0 -64 0 -30 39 -65 0 -60 0 -31 0 -34 39 -60 0 -34 0 -31 39 -30 0 -34 39 -30 0 0 39 -30 0 0 39 0 0 0 39 0 39 30 0 0 39 30 0 34 0 30 39 31 0 34 39 60 0 34 0 31 0 60 0 65 39 30 0 64 -234 0 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 50676 12988 l -636 0 0 0 4 -57 11 -53 16 -53 20 -49 27 -46 31 -45 39 -42 39 -41 47 -31 47 -30 55 -30 54 -23 59 -19 58 -11 63 -8 66 -3 0 0 66 3 63 8 58 11 59 19 55 23 58 30 47 30 47 31 39 41 35 42 35 45 24 46 23 49 16 53 11 53 4 57 -640 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 50680 12980 l -78 0 0 -64 0 -30 0 -65 0 -60 39 -31 0 -34 0 -60 0 -34 0 -31 0 -30 0 -34 0 -30 0 0 39 -30 0 0 0 0 0 0 0 0 0 30 39 0 0 30 0 34 0 30 0 31 0 34 0 60 0 34 0 31 0 60 0 65 0 30 0 64 -39 0 0 0" stroke-width="0" fill="#00F000" />
+    <path d="M 49899 13953 l 0 -658 1562 658 0 -658 -1562 658 0 0" stroke-width="0" fill="#005A00" />
+    <path d="M 49899 13953 l 0 -670 1562 670 0 -670 -1562 670 0 0" stroke-width="0" fill="#007800" />
+    <path d="M 49899 13859 l 0 -470 1562 470 0 -470 -1562 470 0 0" stroke-width="0" fill="#009600" />
+    <path d="M 49899 13798 l 0 -344 1562 344 0 -344 -1562 344 0 0" stroke-width="0" fill="#00B400" />
+    <path d="M 49899 13734 l 0 -220 1562 220 0 -220 -1562 220 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 49899 13673 l 0 -94 1562 94 0 -94 -1562 94 0 0" stroke-width="0" fill="#00F000" />
+    <path d="M 49907 13953 l 0 -662 1554 662 0 -662 -1554 662" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="Valve3d2">
+    <path d="M 50792 19360 l -632 0 4 -53 11 -56 12 -50 24 -53 27 -45 31 -46 35 -41 43 -42 47 -30 47 -30 51 -31 54 -22 59 -19 62 -12 59 -7 66 -4 67 4 62 7 59 12 58 19 55 22 54 31 51 30 43 30 43 42 35 41 35 46 24 45 23 53 16 50 8 56 3 53 -636 0 0 0" stroke-width="0" fill="#003C00" />
+    <path d="M 50839 19235 l 0 754 -117 0 0 -754 117 0 0 0" stroke-width="0" fill="#009600" />
+    <path d="M 50839 19235 l 0 754 -78 0 0 -754 78 0 0 0" stroke-width="0" fill="#00B400" />
+    <path d="M 50878 19235 l 0 754 -78 0 0 -754 78 0 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 50644 19201 l 0 758 0 0 0 -758 0 0 0 0" stroke-width="0" fill="#F00000" />
+    <path d="M 50741 19228 l 0 776" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 50855 20004 l 0 -776" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 50800 19360 l -625 0 0 -64 0 -30 0 -65 40 -60 39 -31 0 -34 39 -60 39 -34 78 -31 39 -30 39 -34 78 -30 39 0 78 -30 39 0 78 0 78 0 39 0 78 30 39 0 78 30 39 34 39 30 39 31 78 34 0 60 39 34 39 31 40 60 0 65 0 30 0 64 -625 0 0 0" stroke-width="0" fill="#005A00" />
+    <path d="M 50800 19360 l -585 0 0 -64 0 -30 39 -65 0 -30 39 -61 39 -34 39 -60 39 -34 0 -31 78 -30 39 -34 39 -30 78 0 39 -30 39 0 78 0 39 0 78 0 39 30 78 0 39 30 39 34 39 30 39 31 39 34 39 60 39 34 39 61 0 30 0 65 39 30 0 64 -585 0 0 0" stroke-width="0" fill="#007800" />
+    <path d="M 50800 19360 l -468 0 0 -64 0 -30 39 -65 0 -30 39 -61 0 -34 39 -60 39 -34 0 -31 39 -30 39 -34 39 -30 39 0 78 -30 39 0 39 0 39 0 39 0 39 30 39 0 78 30 0 34 39 30 39 31 39 34 39 60 0 34 39 61 0 30 0 65 39 30 0 64 -468 0 0 0" stroke-width="0" fill="#009600" />
+    <path d="M 50800 19360 l -351 0 0 -64 0 -30 39 -65 0 -60 0 -31 39 -34 0 -60 39 -34 0 -31 39 -30 39 -34 39 -30 0 0 39 -30 39 0 39 0 39 0 39 0 0 30 39 0 39 30 39 34 0 30 39 31 39 34 0 60 39 34 0 31 0 60 0 65 39 30 0 64 -351 0 0 0" stroke-width="0" fill="#00B400" />
+    <path d="M 50800 19360 l -234 0 0 -64 0 -30 39 -65 0 -60 0 -31 0 -34 39 -60 0 -34 0 -31 39 -30 0 -34 39 -30 0 0 39 -30 0 0 39 0 0 0 39 0 39 30 0 0 39 30 0 34 0 30 39 31 0 34 39 60 0 34 0 31 0 60 0 65 39 30 0 64 -234 0 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 50796 19368 l -636 0 0 0 4 -57 11 -53 16 -53 20 -49 27 -46 31 -45 39 -42 39 -41 47 -31 47 -30 55 -30 54 -23 59 -19 58 -11 63 -8 66 -3 0 0 66 3 63 8 58 11 59 19 55 23 58 30 47 30 47 31 39 41 35 42 35 45 24 46 23 49 16 53 11 53 4 57 -640 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 50800 19360 l -78 0 0 -64 0 -30 0 -65 0 -60 39 -31 0 -34 0 -60 0 -34 0 -31 0 -30 0 -34 0 -30 0 0 39 -30 0 0 0 0 0 0 0 0 0 30 39 0 0 30 0 34 0 30 0 31 0 34 0 60 0 34 0 31 0 60 0 65 0 30 0 64 -39 0 0 0" stroke-width="0" fill="#00F000" />
+    <path d="M 50019 20333 l 0 -658 1562 658 0 -658 -1562 658 0 0" stroke-width="0" fill="#005A00" />
+    <path d="M 50019 20333 l 0 -670 1562 670 0 -670 -1562 670 0 0" stroke-width="0" fill="#007800" />
+    <path d="M 50019 20239 l 0 -470 1562 470 0 -470 -1562 470 0 0" stroke-width="0" fill="#009600" />
+    <path d="M 50019 20178 l 0 -344 1562 344 0 -344 -1562 344 0 0" stroke-width="0" fill="#00B400" />
+    <path d="M 50019 20114 l 0 -220 1562 220 0 -220 -1562 220 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 50019 20053 l 0 -94 1562 94 0 -94 -1562 94 0 0" stroke-width="0" fill="#00F000" />
+    <path d="M 50027 20333 l 0 -662 1554 662 0 -662 -1554 662" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 3633 4462 l -602 300 0 -200 -944 0 0 -204 944 0 0 -200 602 304 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 3633 4462 l -602 300 0 -200 -944 0 0 -204 944 0 0 -200 602 304" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT10">
+    <rect x="400" y="2940" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT10_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="2890" y="3820" id="TEXT10_pbTextEl">超高压蒸汽母管</text>
+  </g>
+  <path d="M 6520 4500 l 0 -460" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 6820 3873 l -14 41 -13 26 -13 21 -14 17 -13 15 -13 12 -14 12 -13 10 -13 9 -14 8 -13 7 -13 6 -14 6 -13 5 -13 4 -14 4 -13 3 -13 2 -14 2 -13 2 -13 1 -14 0 -13 0 -13 0 -14 -1 -13 -2 -13 -2 -14 -2 -13 -3 -13 -4 -14 -4 -13 -5 -13 -6 -14 -6 -13 -7 -13 -8 -14 -9 -13 -10 -13 -12 -14 -12 -13 -15 -13 -17 -14 -21 -13 -26 -13 -41 0 -105 13 -41 13 -26 14 -21 13 -17 13 -15 14 -12 13 -12 13 -10 14 -9 13 -8 13 -7 14 -6 13 -6 13 -5 14 -4 13 -4 13 -3 14 -2 13 -2 13 -2 14 -1 13 0 13 0 14 0 13 1 13 2 14 2 13 2 13 3 14 4 13 4 13 5 14 6 13 6 13 7 14 8 13 9 13 10 14 12 13 12 13 15 14 17 13 21 13 26 14 41 0 105" stroke="#808080" stroke-width="20" fill="#00FF00" />
+  <g>
+    <rect x="6320" y="3640" width="340" height="340" stroke-width="0" fill="#00FF00" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="6490" y="4090">M</text>
+  </g>
+  <path d="M 6220 4320 l 0 320 620 -300 0 300 -620 -300 0 -20" stroke="#000000" stroke-width="20" fill="#00FF00" />
+  <g name="StraightArrow1">
+    <path d="M 3653 6322 l -602 300 0 -200 -944 0 0 -204 944 0 0 -200 602 304 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 3653 6322 l -602 300 0 -200 -944 0 0 -204 944 0 0 -200 602 304" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT45">
+    <rect x="420" y="4880" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT45_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="2910" y="5760" id="TEXT45_pbTextEl">中压蒸汽母管</text>
+  </g>
+  <g id="TEXT46">
+    <rect x="4620" y="4560" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT46_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="7110" y="5440" id="TEXT46_pbTextEl">1#机主汽隔离</text>
+  </g>
+  <g name="Valve3d5">
+    <path d="M 7295 6093 l -355 207 355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 7295 6111 l -355 189 355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 7295 6156 l -355 144 355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 7295 6195 l -355 105 355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 7295 6229 l -355 71 355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 7295 6276 l -355 24 355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 7295 6093 l -355 207 355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 6585 6093 l 355 207 -355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 6585 6111 l 355 189 -355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 6585 6156 l 355 144 -355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 6585 6195 l 355 105 -355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 6585 6229 l 355 71 -355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 6585 6276 l 355 24 -355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 6585 6093 l 355 207 -355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 3673 7662 l -602 300 0 -200 -944 0 0 -204 944 0 0 -200 602 304 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 3673 7662 l -602 300 0 -200 -944 0 0 -204 944 0 0 -200 602 304" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT47">
+    <rect x="420" y="6460" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT47_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="2910" y="7340" id="TEXT47_pbTextEl">1#汽机进汽母管</text>
+  </g>
+  <path d="M 24160 4480 l 0 -460" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 24460 3853 l -14 41 -13 26 -13 21 -14 17 -13 15 -13 12 -14 12 -13 10 -13 9 -14 8 -13 7 -13 6 -14 6 -13 5 -13 4 -14 4 -13 3 -13 2 -14 2 -13 2 -13 1 -14 0 -13 0 -13 0 -14 -1 -13 -2 -13 -2 -14 -2 -13 -3 -13 -4 -14 -4 -13 -5 -13 -6 -14 -6 -13 -7 -13 -8 -14 -9 -13 -10 -13 -12 -14 -12 -13 -15 -13 -17 -14 -21 -13 -26 -13 -41 0 -105 13 -41 13 -26 14 -21 13 -17 13 -15 14 -12 13 -12 13 -10 14 -9 13 -8 13 -7 14 -6 13 -6 13 -5 14 -4 13 -4 13 -3 14 -2 13 -2 13 -2 14 -1 13 0 13 0 14 0 13 1 13 2 14 2 13 2 13 3 14 4 13 4 13 5 14 6 13 6 13 7 14 8 13 9 13 10 14 12 13 12 13 15 14 17 13 21 13 26 14 41 0 105" stroke="#808080" stroke-width="20" fill="#00FF00" />
+  <g>
+    <rect x="23960" y="3620" width="340" height="340" stroke-width="0" fill="#00FF00" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="24130" y="4070">M</text>
+  </g>
+  <path d="M 23840 4300 l 0 320 640 -300 0 300 -640 -300 0 -20" stroke="#000000" stroke-width="20" fill="#00FF00" />
+  <g id="TEXT49">
+    <rect x="21820" y="4600" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT49_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="24310" y="5480" id="TEXT49_pbTextEl">1#机主汽前电</text>
+  </g>
+  <path d="M 8725 7659 l -10 41 -10 22 -10 17 -10 13 -10 11 -10 10 -10 8 -10 7 -10 7 -10 6 -10 5 -10 4 -10 4 -10 3 -10 3 -10 2 -10 2 -10 1 -10 1 -10 0 -10 0 -10 0 -10 -1 -10 -1 -10 -2 -10 -2 -10 -3 -10 -3 -10 -4 -10 -4 -10 -5 -10 -6 -10 -7 -10 -7 -10 -8 -10 -10 -10 -11 -10 -13 -10 -17 -10 -22 -10 -41 0 -37 10 -41 10 -22 10 -17 10 -13 10 -11 10 -10 10 -8 10 -7 10 -7 10 -6 10 -5 10 -4 10 -4 10 -3 10 -3 10 -2 10 -2 10 -1 10 -1 10 0 10 0 10 0 10 1 10 1 10 2 10 2 10 3 10 3 10 4 10 4 10 5 10 6 10 7 10 7 10 8 10 10 10 11 10 13 10 17 10 22 10 41 0 37" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 8380 7560 l 120 200" stroke="#000000" stroke-width="40" fill="none" />
+  <path d="M 8500 7760 l 180 -220" stroke="#000000" stroke-width="40" fill="none" />
+  <g name="StraightArrow1">
+    <path d="M 3633 8701 l -602 110 0 -74 -944 0 0 -74 944 0 0 -74 602 112 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 3633 8701 l -602 110 0 -74 -944 0 0 -74 944 0 0 -74 602 112" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path id="POLYGON196" d="M 3660 7660 l 4660 0" stroke="#FF0000" stroke-width="40" fill="none" />
+  <path id="POLYGON197" d="M 15040 6380 l 2000 0" stroke="#FF0000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <g name="StraightArrow1">
+    <path d="M 18573 6341 l -602 110 0 -74 -944 0 0 -74 944 0 0 -74 602 112 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 18573 6341 l -602 110 0 -74 -944 0 0 -74 944 0 0 -74 602 112" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT52">
+    <rect x="17240" y="5520" width="2900" height="520" stroke-width="0" fill="none" id="TEXT52_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="18690" y="6060" id="TEXT52_pbTextEl">去冷凝器</text>
+  </g>
+  <g id="TEXT54">
+    <rect x="9560" y="6280" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT54_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="12050" y="7160" id="TEXT54_pbTextEl">1#机汽封压力调节</text>
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 1907 10981 l 602 110 0 -74 944 0 0 -74 -944 0 0 -74 -602 112 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 1907 10981 l 602 110 0 -74 944 0 0 -74 -944 0 0 -74 -602 112" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT55">
+    <rect x="480" y="9640" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT55_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="2970" y="10520" id="TEXT55_pbTextEl">高压给水母管</text>
+  </g>
+  <path d="M 6100 10980 l 0 -580" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 6460 10159 l -20 62 -20 38 -20 28 -20 23 -20 20 -20 17 -20 14 -20 13 -20 10 -20 10 -20 8 -20 6 -20 6 -20 5 -20 3 -20 3 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -3 -20 -3 -20 -5 -20 -6 -20 -6 -20 -8 -20 -10 -20 -10 -20 -13 -20 -14 -20 -17 -20 -20 -20 -23 -20 -28 -20 -38 -20 -62 0 -117 20 -62 20 -38 20 -28 20 -23 20 -20 20 -17 20 -14 20 -13 20 -10 20 -10 20 -8 20 -6 20 -6 20 -5 20 -3 20 -3 20 -1 20 -1 0 0 20 1 20 1 20 3 20 3 20 5 20 6 20 6 20 8 20 10 20 10 20 13 20 14 20 17 20 20 20 23 20 28 20 38 20 62 0 117" stroke="#808080" stroke-width="20" fill="#FF0000" />
+  <g>
+    <rect x="5880" y="9880" width="440" height="440" stroke-width="0" fill="#FF0000" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="6100" y="10380">M</text>
+  </g>
+  <path d="M 5760 10740 l 0 440 720 -400 0 360 -720 -380 0 -20" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <g id="TEXT57">
+    <rect x="3580" y="11020" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT57_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="6070" y="11900" id="TEXT57_pbTextEl">1#机高加出水</text>
+  </g>
+  <g id="TEXT58">
+    <rect x="4940" y="13040" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT58_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="7430" y="13920" id="TEXT58_pbTextEl">1#机2#高输水旁路</text>
+  </g>
+  <g id="TEXT59">
+    <rect x="11540" y="14860" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT59_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="14030" y="15740" id="TEXT59_pbTextEl">1#机2#高加</text>
+  </g>
+  <path d="M 17300 14100 l 0 -580" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 17680 13279 l -20 62 -20 38 -20 28 -20 23 -20 20 -20 17 -20 14 -20 13 -20 10 -20 10 -20 8 -20 6 -20 6 -20 5 -20 3 -20 3 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -3 -20 -3 -20 -5 -20 -6 -20 -6 -20 -8 -20 -10 -20 -10 -20 -13 -20 -14 -20 -17 -20 -20 -20 -23 -20 -28 -20 -38 -20 -62 0 -117 20 -62 20 -38 20 -28 20 -23 20 -20 20 -17 20 -14 20 -13 20 -10 20 -10 20 -8 20 -6 20 -6 20 -5 20 -3 20 -3 20 -1 20 -1 0 0 20 1 20 1 20 3 20 3 20 5 20 6 20 6 20 8 20 10 20 10 20 13 20 14 20 17 20 20 20 23 20 28 20 38 20 62 0 117" stroke="#808080" stroke-width="20" fill="#00FF00" />
+  <g>
+    <rect x="17100" y="13000" width="440" height="440" stroke-width="0" fill="#00FF00" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="17320" y="13500">M</text>
+  </g>
+  <path d="M 16980 13860 l 0 420 740 -380 0 360 -740 -380 0 -20" stroke="#000000" stroke-width="20" fill="#00FF00" />
+  <g name="Valve2">
+    <path d="M 3228 14688 l 0 -546 994 546 0 -546 -994 546" stroke="#000000" stroke-width="20" fill="#00D200" />
+    <path d="M 3720 14414 l 58 -28 0 -479 -111 0 0 479 58 28 -5 0" stroke="#000000" stroke-width="20" fill="#00D200" />
+    <rect x="3318" y="13712" width="804" height="244" stroke="#000000" stroke-width="20" fill="#00D200" />
+  </g>
+  <g name="Valve2">
+    <path d="M 3288 17008 l 0 -546 994 546 0 -546 -994 546" stroke="#000000" stroke-width="20" fill="#00D200" />
+    <path d="M 3780 16734 l 58 -28 0 -479 -111 0 0 479 58 28 -5 0" stroke="#000000" stroke-width="20" fill="#00D200" />
+    <rect x="3378" y="16032" width="804" height="244" stroke="#000000" stroke-width="20" fill="#00D200" />
+  </g>
+  <g id="TEXT62">
+    <rect x="1880" y="17300" width="3020" height="820" stroke-width="0" fill="none" id="TEXT62_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="3390" y="17990" id="TEXT62_pbTextEl">高加解列</text>
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 2027 20361 l 602 110 0 -74 944 0 0 -74 -944 0 0 -74 -602 112 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 2027 20361 l 602 110 0 -74 944 0 0 -74 -944 0 0 -74 -602 112" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT63">
+    <rect x="160" y="19040" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT63_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="2650" y="19920" id="TEXT63_pbTextEl">输水去高压除氧器</text>
+  </g>
+  <path d="M 8260 20340 l 0 -440" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 8560 19713 l -14 41 -13 26 -13 21 -14 17 -13 15 -13 12 -14 12 -13 10 -13 9 -14 8 -13 7 -13 6 -14 6 -13 5 -13 4 -14 4 -13 3 -13 2 -14 2 -13 2 -13 1 -14 0 -13 0 -13 0 -14 -1 -13 -2 -13 -2 -14 -2 -13 -3 -13 -4 -14 -4 -13 -5 -13 -6 -14 -6 -13 -7 -13 -8 -14 -9 -13 -10 -13 -12 -14 -12 -13 -15 -13 -17 -14 -21 -13 -26 -13 -41 0 -105 13 -41 13 -26 14 -21 13 -17 13 -15 14 -12 13 -12 13 -10 14 -9 13 -8 13 -7 14 -6 13 -6 13 -5 14 -4 13 -4 13 -3 14 -2 13 -2 13 -2 14 -1 13 0 13 0 14 0 13 1 13 2 14 2 13 2 13 3 14 4 13 4 13 5 14 6 13 6 13 7 14 8 13 9 13 10 14 12 13 12 13 15 14 17 13 21 13 26 14 41 0 105" stroke="#808080" stroke-width="20" fill="#00FF00" />
+  <g>
+    <rect x="8060" y="19500" width="340" height="340" stroke-width="0" fill="#00FF00" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="8230" y="19950">M</text>
+  </g>
+  <path d="M 7960 20180 l 0 300 620 -280 0 280 -620 -280 0 -20" stroke="#000000" stroke-width="20" fill="#00FF00" />
+  <path d="M 8140 12900 l 0 -580" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 8520 12079 l -20 62 -20 38 -20 28 -20 23 -20 20 -20 17 -20 14 -20 13 -20 10 -20 10 -20 8 -20 6 -20 6 -20 5 -20 3 -20 3 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -3 -20 -3 -20 -5 -20 -6 -20 -6 -20 -8 -20 -10 -20 -10 -20 -13 -20 -14 -20 -17 -20 -20 -20 -23 -20 -28 -20 -38 -20 -62 0 -117 20 -62 20 -38 20 -28 20 -23 20 -20 20 -17 20 -14 20 -13 20 -10 20 -10 20 -8 20 -6 20 -6 20 -5 20 -3 20 -3 20 -1 20 -1 0 0 20 1 20 1 20 3 20 3 20 5 20 6 20 6 20 8 20 10 20 10 20 13 20 14 20 17 20 20 20 23 20 28 20 38 20 62 0 117" stroke="#808080" stroke-width="20" fill="#00FF00" />
+  <g>
+    <rect x="7940" y="11800" width="440" height="440" stroke-width="0" fill="#00FF00" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="8160" y="12300">M</text>
+  </g>
+  <path d="M 7820 12660 l 0 420 740 -380 0 360 -740 -380 0 -20" stroke="#000000" stroke-width="20" fill="#00FF00" />
+  <g id="TEXT66">
+    <rect x="4600" y="20420" width="5640" height="1200" stroke-width="0" fill="none" id="TEXT66_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="7420" y="21300" id="TEXT66_pbTextEl">1#机1#高输水旁路</text>
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 3313 22601 l -602 110 0 -74 -944 0 0 -74 944 0 0 -74 602 112 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 3313 22601 l -602 110 0 -74 -944 0 0 -74 944 0 0 -74 602 112" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT67">
+    <rect x="260" y="21380" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT67_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="2750" y="22260" id="TEXT67_pbTextEl">高压给水冷母管</text>
+  </g>
+  <path d="M 6640 22640 l 0 -580" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 7000 21839 l -20 62 -20 38 -20 28 -20 23 -20 20 -20 17 -20 14 -20 13 -20 10 -20 10 -20 8 -20 6 -20 6 -20 5 -20 3 -20 3 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -3 -20 -3 -20 -5 -20 -6 -20 -6 -20 -8 -20 -10 -20 -10 -20 -13 -20 -14 -20 -17 -20 -20 -20 -23 -20 -28 -20 -38 -20 -62 0 -117 20 -62 20 -38 20 -28 20 -23 20 -20 20 -17 20 -14 20 -13 20 -10 20 -10 20 -8 20 -6 20 -6 20 -5 20 -3 20 -3 20 -1 20 -1 0 0 20 1 20 1 20 3 20 3 20 5 20 6 20 6 20 8 20 10 20 10 20 13 20 14 20 17 20 20 20 23 20 28 20 38 20 62 0 117" stroke="#808080" stroke-width="20" fill="#FF0000" />
+  <g>
+    <rect x="6420" y="21540" width="440" height="440" stroke-width="0" fill="#FF0000" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="6640" y="22040">M</text>
+  </g>
+  <path d="M 6300 22400 l 0 460 740 -420 0 360 -740 -380 0 -20" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <g id="TEXT69">
+    <rect x="4100" y="22600" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT69_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="6590" y="23480" id="TEXT69_pbTextEl">1#机高加进水</text>
+  </g>
+  <g id="TEXT70">
+    <rect x="11260" y="23300" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT70_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="13750" y="24180" id="TEXT70_pbTextEl">1#机1#高加</text>
+  </g>
+  <g id="TEXT71">
+    <rect x="17080" y="29100" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT71_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="19570" y="29980" id="TEXT71_pbTextEl">#1机轴加</text>
+  </g>
+  <g name="Valve3d5">
+    <path d="M 17587 29496 l 213 344 216 -344 -429 0 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 17606 29496 l 194 344 194 -344 -388 0 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 17652 29496 l 148 344 148 -344 -296 0 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 17692 29496 l 108 344 108 -344 -216 0 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 17727 29496 l 73 344 76 -344 -149 0 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 17776 29496 l 24 344 27 -344 -51 0 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 17587 29496 l 213 344 216 -344 -429 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 17587 30184 l 213 -344 216 344 -429 0 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 17606 30184 l 194 -344 194 344 -388 0 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 17652 30184 l 148 -344 148 344 -296 0 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 17692 30184 l 108 -344 108 344 -216 0 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 17727 30184 l 73 -344 76 344 -149 0 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 17776 30184 l 24 -344 27 344 -51 0 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 17587 30184 l 213 -344 216 344 -429 0" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="Valve3d5">
+    <path d="M 21007 29496 l 213 344 216 -344 -429 0 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 21026 29496 l 194 344 194 -344 -388 0 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 21072 29496 l 148 344 148 -344 -296 0 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 21112 29496 l 108 344 108 -344 -216 0 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 21147 29496 l 73 344 76 -344 -149 0 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 21196 29496 l 24 344 27 -344 -51 0 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 21007 29496 l 213 344 216 -344 -429 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 21007 30184 l 213 -344 216 344 -429 0 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 21026 30184 l 194 -344 194 344 -388 0 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 21072 30184 l 148 -344 148 344 -296 0 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 21112 30184 l 108 -344 108 344 -216 0 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 21147 30184 l 73 -344 76 344 -149 0 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 21196 30184 l 24 -344 27 344 -51 0 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 21007 30184 l 213 -344 216 344 -429 0" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 1767 30401 l 602 110 0 -74 944 0 0 -74 -944 0 0 -74 -602 112 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 1767 30401 l 602 110 0 -74 944 0 0 -74 -944 0 0 -74 -602 112" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT72">
+    <rect x="220" y="29120" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT72_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="2710" y="30000" id="TEXT72_pbTextEl">凝结水冷母管</text>
+  </g>
+  <path d="M 17300 22620 l 0 -580" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 17680 21819 l -20 62 -20 38 -20 28 -20 23 -20 20 -20 17 -20 14 -20 13 -20 10 -20 10 -20 8 -20 6 -20 6 -20 5 -20 3 -20 3 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -3 -20 -3 -20 -5 -20 -6 -20 -6 -20 -8 -20 -10 -20 -10 -20 -13 -20 -14 -20 -17 -20 -20 -20 -23 -20 -28 -20 -38 -20 -62 0 -117 20 -62 20 -38 20 -28 20 -23 20 -20 20 -17 20 -14 20 -13 20 -10 20 -10 20 -8 20 -6 20 -6 20 -5 20 -3 20 -3 20 -1 20 -1 0 0 20 1 20 1 20 3 20 3 20 5 20 6 20 6 20 8 20 10 20 10 20 13 20 14 20 17 20 20 20 23 20 28 20 38 20 62 0 117" stroke="#808080" stroke-width="20" fill="#00FF00" />
+  <g>
+    <rect x="17100" y="21520" width="440" height="440" stroke-width="0" fill="#00FF00" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="17320" y="22020">M</text>
+  </g>
+  <path d="M 16980 22380 l 0 420 740 -380 0 360 -740 -380 0 -20" stroke="#000000" stroke-width="20" fill="#00FF00" />
+  <g id="TEXT74">
+    <rect x="14840" y="22520" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT74_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="17330" y="23400" id="TEXT74_pbTextEl">1#机1#高危输水</text>
+  </g>
+  <rect x="14540" y="6140" width="820" height="400" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 14960 6140 l 0 -440" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 14902 5740 l -45 -13 -30 -14 -23 -13 -18 -13 -16 -14 -14 -13 -13 -13 -10 -14 -10 -13 -9 -13 -7 -14 -7 -13 -5 -13 -5 -14 -5 -13 -3 -13 -3 -14 -2 -13 -2 -13 -1 -14 0 -13 0 0 0 -13 1 -14 2 -13 2 -13 3 -14 3 -13 5 -13 5 -14 5 -13 7 -13 7 -14 9 -13 10 -13 10 -14 13 -13 14 -13 16 -14 18 -13 23 -13 30 -14 45 -13 116 0 45 13 30 14 23 13 18 13 16 14 14 13 13 13 10 14 10 13 9 13 7 14 7 13 5 13 5 14 5 13 3 13 3 14 2 13 2 13 1 14 0 13 0 0 0 13 -1 14 -2 13 -2 13 -3 14 -3 13 -5 13 -5 14 -5 13 -7 13 -7 14 -9 13 -10 13 -10 14 -13 13 -14 13 -16 14 -18 13 -23 13 -30 14 -45 13 -116 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <g>
+    <rect x="14620" y="5160" width="640" height="620" stroke-width="0" fill="none" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="14940" y="5750">M</text>
+  </g>
+  <path d="M 20920 24580 l 400 0 0 800 -400 0 0 -800 0 0" stroke="#808080" stroke-width="20" fill="#FF0000" />
+  <path d="M 21320 24980 l 460 0" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 21962 25260 l -45 -13 -30 -14 -23 -13 -18 -13 -16 -14 -14 -13 -13 -13 -10 -14 -10 -13 -9 -13 -7 -14 -7 -13 -5 -13 -5 -14 -5 -13 -3 -13 -3 -14 -2 -13 -2 -13 -1 -14 0 -13 0 0 0 -13 1 -14 2 -13 2 -13 3 -14 3 -13 5 -13 5 -14 5 -13 7 -13 7 -14 9 -13 10 -13 10 -14 13 -13 14 -13 16 -14 18 -13 23 -13 30 -14 45 -13 116 0 45 13 30 14 23 13 18 13 16 14 14 13 13 13 10 14 10 13 9 13 7 14 7 13 5 13 5 14 5 13 3 13 3 14 2 13 2 13 1 14 0 13 0 0 0 13 -1 14 -2 13 -2 13 -3 14 -3 13 -5 13 -5 14 -5 13 -7 13 -7 14 -9 13 -10 13 -10 14 -13 13 -14 13 -16 14 -18 13 -23 13 -30 14 -45 13 -116 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <g>
+    <rect x="21700" y="24660" width="640" height="620" stroke-width="0" fill="none" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="22020" y="25250">M</text>
+  </g>
+  <g id="TEXT76">
+    <rect x="22400" y="24300" width="6300" height="1200" stroke-width="0" fill="none" id="TEXT76_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="25550" y="25180" id="TEXT76_pbTextEl">1#机凝结再循环调节阀</text>
+  </g>
+  <path d="M 24240 19788 l -20 72 -20 44 -20 34 -20 27 -20 24 -20 20 -20 17 -20 16 -20 14 -20 12 -20 11 -20 9 -20 9 -20 7 -20 6 -20 5 -20 4 -20 3 -20 3 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -3 -20 -3 -20 -4 -20 -5 -20 -6 -20 -7 -20 -9 -20 -9 -20 -11 -20 -12 -20 -14 -20 -16 -20 -17 -20 -20 -20 -24 -20 -27 -20 -34 -20 -44 -20 -72 0 -135 20 -72 20 -44 20 -34 20 -27 20 -24 20 -20 20 -17 20 -16 20 -14 20 -12 20 -11 20 -9 20 -9 20 -7 20 -6 20 -5 20 -4 20 -3 20 -3 20 -1 20 -1 0 0 20 1 20 1 20 3 20 3 20 4 20 5 20 6 20 7 20 9 20 9 20 11 20 12 20 14 20 16 20 17 20 20 20 24 20 27 20 34 20 44 20 72 0 135" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 24180 19500 l -360 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 23480 19940 l 340 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 26600 18948 l -20 72 -20 44 -20 34 -20 27 -20 24 -20 20 -20 17 -20 16 -20 14 -20 12 -20 11 -20 9 -20 9 -20 7 -20 6 -20 5 -20 4 -20 3 -20 3 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -3 -20 -3 -20 -4 -20 -5 -20 -6 -20 -7 -20 -9 -20 -9 -20 -11 -20 -12 -20 -14 -20 -16 -20 -17 -20 -20 -20 -24 -20 -27 -20 -34 -20 -44 -20 -72 0 -135 20 -72 20 -44 20 -34 20 -27 20 -24 20 -20 20 -17 20 -16 20 -14 20 -12 20 -11 20 -9 20 -9 20 -7 20 -6 20 -5 20 -4 20 -3 20 -3 20 -1 20 -1 0 0 20 1 20 1 20 3 20 3 20 4 20 5 20 6 20 7 20 9 20 9 20 11 20 12 20 14 20 16 20 17 20 20 20 24 20 27 20 34 20 44 20 72 0 135" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 25760 18880 l 300 0" stroke="#00D200" stroke-width="20" fill="#808080" />
+  <path d="M 26040 18900 l 20 180" stroke="#00D200" stroke-width="20" fill="#808080" />
+  <path d="M 26060 19060 l 160 -500" stroke="#00D200" stroke-width="20" fill="#808080" />
+  <path d="M 26260 18600 l 60 280" stroke="#00D200" stroke-width="20" fill="#808080" />
+  <path d="M 26320 18880 l 240 0" stroke="#00D200" stroke-width="20" fill="#808080" />
+  <path d="M 26620 16808 l -20 72 -20 44 -20 34 -20 27 -20 24 -20 20 -20 17 -20 16 -20 14 -20 12 -20 11 -20 9 -20 9 -20 7 -20 6 -20 5 -20 4 -20 3 -20 3 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -3 -20 -3 -20 -4 -20 -5 -20 -6 -20 -7 -20 -9 -20 -9 -20 -11 -20 -12 -20 -14 -20 -16 -20 -17 -20 -20 -20 -24 -20 -27 -20 -34 -20 -44 -20 -72 0 -135 20 -72 20 -44 20 -34 20 -27 20 -24 20 -20 20 -17 20 -16 20 -14 20 -12 20 -11 20 -9 20 -9 20 -7 20 -6 20 -5 20 -4 20 -3 20 -3 20 -1 20 -1 0 0 20 1 20 1 20 3 20 3 20 4 20 5 20 6 20 7 20 9 20 9 20 11 20 12 20 14 20 16 20 17 20 20 20 24 20 27 20 34 20 44 20 72 0 135" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 25780 16740 l 300 0" stroke="#00D200" stroke-width="20" fill="#808080" />
+  <path d="M 26040 16760 l 40 160" stroke="#00D200" stroke-width="20" fill="#808080" />
+  <path d="M 26080 16900 l 160 -480" stroke="#00D200" stroke-width="20" fill="#808080" />
+  <path d="M 26260 16460 l 60 280" stroke="#00D200" stroke-width="20" fill="#808080" />
+  <path d="M 26320 16740 l 260 0" stroke="#00D200" stroke-width="20" fill="#808080" />
+  <g id="TEXT77">
+    <rect x="23820" y="17160" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT77_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="26310" y="18040" id="TEXT77_pbTextEl">1#机A冷油器</text>
+  </g>
+  <g id="TEXT78">
+    <rect x="23780" y="19200" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT78_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="26270" y="20080" id="TEXT78_pbTextEl">1#机B冷油器</text>
+  </g>
+  <g name="Valve3d5">
+    <path d="M 32715 20513 l -355 207 355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 32715 20531 l -355 189 355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 32715 20576 l -355 144 355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 32715 20615 l -355 105 355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 32715 20649 l -355 71 355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 32715 20696 l -355 24 355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 32715 20513 l -355 207 355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 32005 20513 l 355 207 -355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 32005 20531 l 355 189 -355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 32005 20576 l 355 144 -355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 32005 20615 l 355 105 -355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 32005 20649 l 355 71 -355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 32005 20696 l 355 24 -355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 32005 20513 l 355 207 -355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="Valve3d5">
+    <path d="M 32715 22353 l -355 207 355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 32715 22371 l -355 189 355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 32715 22416 l -355 144 355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 32715 22455 l -355 105 355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 32715 22489 l -355 71 355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 32715 22536 l -355 24 355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 32715 22353 l -355 207 355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 32005 22353 l 355 207 -355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 32005 22371 l 355 189 -355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 32005 22416 l 355 144 -355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 32005 22455 l 355 105 -355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 32005 22489 l 355 71 -355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 32005 22536 l 355 24 -355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 32005 22353 l 355 207 -355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="Valve3d5">
+    <path d="M 45415 20473 l -355 207 355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 45415 20491 l -355 189 355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 45415 20536 l -355 144 355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 45415 20575 l -355 105 355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 45415 20609 l -355 71 355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 45415 20656 l -355 24 355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 45415 20473 l -355 207 355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 44705 20473 l 355 207 -355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 44705 20491 l 355 189 -355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 44705 20536 l 355 144 -355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 44705 20575 l 355 105 -355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 44705 20609 l 355 71 -355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 44705 20656 l 355 24 -355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 44705 20473 l 355 207 -355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="Valve3d5">
+    <path d="M 45415 22213 l -355 207 355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 45415 22231 l -355 189 355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 45415 22276 l -355 144 355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 45415 22315 l -355 105 355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 45415 22349 l -355 71 355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 45415 22396 l -355 24 355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 45415 22213 l -355 207 355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 44705 22213 l 355 207 -355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 44705 22231 l 355 189 -355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 44705 22276 l 355 144 -355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 44705 22315 l 355 105 -355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 44705 22349 l 355 71 -355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 44705 22396 l 355 24 -355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 44705 22213 l 355 207 -355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="Valve3d5">
+    <path d="M 40595 19633 l -355 207 355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 40595 19651 l -355 189 355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 40595 19696 l -355 144 355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 40595 19735 l -355 105 355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 40595 19769 l -355 71 355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 40595 19816 l -355 24 355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 40595 19633 l -355 207 355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 39885 19633 l 355 207 -355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 39885 19651 l 355 189 -355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 39885 19696 l 355 144 -355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 39885 19735 l 355 105 -355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 39885 19769 l 355 71 -355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 39885 19816 l 355 24 -355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 39885 19633 l 355 207 -355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="Valve3d5">
+    <path d="M 40595 21453 l -355 207 355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 40595 21471 l -355 189 355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 40595 21516 l -355 144 355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 40595 21555 l -355 105 355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 40595 21589 l -355 71 355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 40595 21636 l -355 24 355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 40595 21453 l -355 207 355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 39885 21453 l 355 207 -355 209 0 -416 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 39885 21471 l 355 189 -355 189 0 -378 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 39885 21516 l 355 144 -355 144 0 -288 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 39885 21555 l 355 105 -355 105 0 -210 0 0" stroke-width="0" fill="#D2D2D2" />
+    <path d="M 39885 21589 l 355 71 -355 73 0 -144 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 39885 21636 l 355 24 -355 26 0 -50 0 0" stroke-width="0" fill="#FFFFFF" />
+    <path d="M 39885 21453 l 355 207 -355 209 0 -416" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path d="M 34540 14760 l 0 -420" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 34900 14185 l -14 34 -13 23 -13 18 -14 15 -13 13 -13 11 -14 10 -13 9 -13 8 -14 8 -13 6 -13 7 -14 5 -13 5 -13 5 -14 4 -13 4 -13 3 -14 3 -13 2 -13 3 -14 1 -13 2 -13 1 -14 1 -13 0 -13 0 0 0 -14 0 -13 0 -13 -1 -14 -1 -13 -2 -13 -1 -14 -3 -13 -2 -13 -3 -14 -3 -13 -4 -13 -4 -14 -5 -13 -5 -13 -5 -14 -7 -13 -6 -13 -8 -14 -8 -13 -9 -13 -10 -14 -11 -13 -13 -13 -15 -14 -18 -13 -23 -13 -34 0 -89 13 -34 13 -23 14 -18 13 -15 13 -13 14 -11 13 -10 13 -9 14 -8 13 -8 13 -6 14 -7 13 -5 13 -5 14 -5 13 -4 13 -4 14 -3 13 -3 13 -2 14 -3 13 -1 13 -2 14 -1 13 -1 13 0 14 -1 0 0 13 1 13 0 14 1 13 1 13 2 14 1 13 3 13 2 14 3 13 3 13 4 14 4 13 5 13 5 14 5 13 7 13 6 14 8 13 8 13 9 14 10 13 11 13 13 14 15 13 18 13 23 14 34 0 89" stroke="#808080" stroke-width="20" fill="#FF0000" />
+  <g>
+    <rect x="34340" y="13980" width="440" height="320" stroke-width="0" fill="#FF0000" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="34560" y="14420">M</text>
+  </g>
+  <path d="M 34200 14600 l 0 340 740 -300 0 260 -740 -280 0 -20" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 37840 16140 l 0 -420" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 38200 15545 l -14 34 -13 23 -13 18 -14 15 -13 13 -13 11 -14 10 -13 9 -13 8 -14 8 -13 6 -13 7 -14 5 -13 5 -13 5 -14 4 -13 4 -13 3 -14 3 -13 2 -13 3 -14 1 -13 2 -13 1 -14 1 -13 0 -13 0 0 0 -14 0 -13 0 -13 -1 -14 -1 -13 -2 -13 -1 -14 -3 -13 -2 -13 -3 -14 -3 -13 -4 -13 -4 -14 -5 -13 -5 -13 -5 -14 -7 -13 -6 -13 -8 -14 -8 -13 -9 -13 -10 -14 -11 -13 -13 -13 -15 -14 -18 -13 -23 -13 -34 0 -89 13 -34 13 -23 14 -18 13 -15 13 -13 14 -11 13 -10 13 -9 14 -8 13 -8 13 -6 14 -7 13 -5 13 -5 14 -5 13 -4 13 -4 14 -3 13 -3 13 -2 14 -3 13 -1 13 -2 14 -1 13 -1 13 0 14 -1 0 0 13 1 13 0 14 1 13 1 13 2 14 1 13 3 13 2 14 3 13 3 13 4 14 4 13 5 13 5 14 5 13 7 13 6 14 8 13 8 13 9 14 10 13 11 13 13 14 15 13 18 13 23 14 34 0 89" stroke="#808080" stroke-width="20" fill="#FF0000" />
+  <g>
+    <rect x="37620" y="15340" width="440" height="320" stroke-width="0" fill="#FF0000" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="37840" y="15780">M</text>
+  </g>
+  <path d="M 37480 15980 l 0 300 740 -280 0 260 -740 -260 0 -20" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 46100 14780 l 0 -400" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 46460 14205 l -14 34 -13 23 -13 18 -14 15 -13 13 -13 11 -14 10 -13 9 -13 8 -14 8 -13 6 -13 7 -14 5 -13 5 -13 5 -14 4 -13 4 -13 3 -14 3 -13 2 -13 3 -14 1 -13 2 -13 1 -14 1 -13 0 -13 0 0 0 -14 0 -13 0 -13 -1 -14 -1 -13 -2 -13 -1 -14 -3 -13 -2 -13 -3 -14 -3 -13 -4 -13 -4 -14 -5 -13 -5 -13 -5 -14 -7 -13 -6 -13 -8 -14 -8 -13 -9 -13 -10 -14 -11 -13 -13 -13 -15 -14 -18 -13 -23 -13 -34 0 -89 13 -34 13 -23 14 -18 13 -15 13 -13 14 -11 13 -10 13 -9 14 -8 13 -8 13 -6 14 -7 13 -5 13 -5 14 -5 13 -4 13 -4 14 -3 13 -3 13 -2 14 -3 13 -1 13 -2 14 -1 13 -1 13 0 14 -1 0 0 13 1 13 0 14 1 13 1 13 2 14 1 13 3 13 2 14 3 13 3 13 4 14 4 13 5 13 5 14 5 13 7 13 6 14 8 13 8 13 9 14 10 13 11 13 13 14 15 13 18 13 23 14 34 0 89" stroke="#808080" stroke-width="20" fill="#FF0000" />
+  <g>
+    <rect x="45880" y="13980" width="440" height="320" stroke-width="0" fill="#FF0000" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="46100" y="14420">M</text>
+  </g>
+  <path d="M 45760 14620 l 0 340 740 -300 0 260 -740 -280 0 -20" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 43540 16080 l 0 -420" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 43900 15485 l -14 34 -13 23 -13 18 -14 15 -13 13 -13 11 -14 10 -13 9 -13 8 -14 8 -13 6 -13 7 -14 5 -13 5 -13 5 -14 4 -13 4 -13 3 -14 3 -13 2 -13 3 -14 1 -13 2 -13 1 -14 1 -13 0 -13 0 0 0 -14 0 -13 0 -13 -1 -14 -1 -13 -2 -13 -1 -14 -3 -13 -2 -13 -3 -14 -3 -13 -4 -13 -4 -14 -5 -13 -5 -13 -5 -14 -7 -13 -6 -13 -8 -14 -8 -13 -9 -13 -10 -14 -11 -13 -13 -13 -15 -14 -18 -13 -23 -13 -34 0 -89 13 -34 13 -23 14 -18 13 -15 13 -13 14 -11 13 -10 13 -9 14 -8 13 -8 13 -6 14 -7 13 -5 13 -5 14 -5 13 -4 13 -4 14 -3 13 -3 13 -2 14 -3 13 -1 13 -2 14 -1 13 -1 13 0 14 -1 0 0 13 1 13 0 14 1 13 1 13 2 14 1 13 3 13 2 14 3 13 3 13 4 14 4 13 5 13 5 14 5 13 7 13 6 14 8 13 8 13 9 14 10 13 11 13 13 14 15 13 18 13 23 14 34 0 89" stroke="#808080" stroke-width="20" fill="#FF0000" />
+  <g>
+    <rect x="43340" y="15280" width="440" height="320" stroke-width="0" fill="#FF0000" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="43560" y="15720">M</text>
+  </g>
+  <path d="M 43180 15900 l 0 320 740 -300 0 280 -740 -280 0 -20" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <g id="BARGRAPH3" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\\" PB:Start="0" PB:Upper="100" PB:Type="12">
+    <rect x="41720" y="16840" width="280" height="1220" stroke-width="0" fill="#C0C0C0" id="BARGRAPH3_pbBarBoundingRectEl" />
+    <rect x="41720" y="16840" width="280" height="1220" stroke-width="0" fill="#00D200" id="BARGRAPH3_pbBarTagRectEl" stroke="none" PBD:Property="" />
+  </g>
+  <g id="BARGRAPH4" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\\" PB:Start="0" PB:Upper="100" PB:Type="12">
+    <rect x="40740" y="16780" width="280" height="1280" stroke-width="0" fill="#C0C0C0" id="BARGRAPH4_pbBarBoundingRectEl" />
+    <rect x="40740" y="16780" width="280" height="1280" stroke-width="0" fill="#00D200" id="BARGRAPH4_pbBarTagRectEl" stroke="none" PBD:Property="" />
+  </g>
+  <g id="TEXT83">
+    <rect x="30800" y="14840" width="5420" height="1080" stroke-width="0" fill="none" id="TEXT83_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="33510" y="15660" id="TEXT83_pbTextEl">1#机B循环水出口</text>
+  </g>
+  <g id="TEXT84">
+    <rect x="33860" y="16260" width="5940" height="1080" stroke-width="0" fill="none" id="TEXT84_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="36830" y="17080" id="TEXT84_pbTextEl">1#机B循环水进口</text>
+  </g>
+  <g id="TEXT85">
+    <rect x="43460" y="14660" width="5360" height="1080" stroke-width="0" fill="none" id="TEXT85_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="46140" y="15480" id="TEXT85_pbTextEl">1#机A循环水出口</text>
+  </g>
+  <g id="TEXT86">
+    <rect x="42580" y="16060" width="5120" height="1080" stroke-width="0" fill="none" id="TEXT86_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="45140" y="16880" id="TEXT86_pbTextEl">1#机A循环水进口</text>
+  </g>
+  <path d="M 32050 9980 l 155 40 86 40 64 40 52 40 43 40 38 40 33 40 28 40 25 40 22 40 19 40 17 40 14 40 11 40 10 40 8 40 6 40 3 40 2 40 0 40 -2 40 -3 40 -6 40 -8 40 -10 40 -11 40 -14 40 -17 40 -19 40 -22 40 -25 40 -28 40 -33 40 -38 40 -43 40 -52 40 -64 40 -86 40 -155 40 -179 0 -155 -40 -86 -40 -64 -40 -52 -40 -43 -40 -38 -40 -33 -40 -28 -40 -25 -40 -22 -40 -19 -40 -17 -40 -14 -40 -11 -40 -10 -40 -8 -40 -6 -40 -3 -40 -2 -40 0 -40 2 -40 3 -40 6 -40 8 -40 10 -40 11 -40 14 -40 17 -40 19 -40 22 -40 25 -40 28 -40 33 -40 38 -40 43 -40 52 -40 64 -40 86 -40 155 -40 179 0" stroke="#FF0000" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 31620 11400 l 780 -1220" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path d="M 32360 10780 l -460 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 31711 10440 l 40 14 26 13 20 13 17 14 14 13 13 13 11 14 10 13 9 13 8 14 7 13 6 13 6 14 5 13 5 13 4 14 3 13 3 13 3 14 2 13 1 13 2 14 0 13 0 13 0 0 0 14 0 13 -2 13 -1 14 -2 13 -3 13 -3 14 -3 13 -4 13 -5 14 -5 13 -6 13 -6 14 -7 13 -8 13 -9 14 -10 13 -11 13 -13 14 -14 13 -17 13 -20 14 -26 13 -40 13 -101 0 -40 -13 -26 -13 -20 -14 -17 -13 -14 -13 -13 -14 -11 -13 -10 -13 -9 -14 -8 -13 -7 -13 -6 -14 -6 -13 -5 -13 -5 -14 -4 -13 -3 -13 -3 -14 -3 -13 -2 -13 -1 -14 -2 -13 0 -13 -1 -14 0 0 1 -13 0 -13 2 -14 1 -13 2 -13 3 -14 3 -13 3 -13 4 -14 5 -13 5 -13 6 -14 6 -13 7 -13 8 -14 9 -13 10 -13 11 -14 13 -13 14 -13 17 -14 20 -13 26 -13 40 -14 101 0" stroke="#808080" stroke-width="20" fill="#00FF00" />
+  <g>
+    <rect x="31460" y="10620" width="340" height="360" stroke-width="0" fill="#00FF00" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="31630" y="11080">M</text>
+  </g>
+  <path d="M 32160 11060 l 340 0 -300 -640 280 0 -300 640 -20 0" stroke="#000000" stroke-width="20" fill="#00FF00" />
+  <path d="M 36310 10920 l 155 40 86 40 64 40 52 40 43 40 38 40 33 40 28 40 25 40 22 40 19 40 17 40 14 40 11 40 10 40 8 40 6 40 3 40 2 40 0 40 -2 40 -3 40 -6 40 -8 40 -10 40 -11 40 -14 40 -17 40 -19 40 -22 40 -25 40 -28 40 -33 40 -38 40 -43 40 -52 40 -64 40 -86 40 -155 40 -179 0 -155 -40 -86 -40 -64 -40 -52 -40 -43 -40 -38 -40 -33 -40 -28 -40 -25 -40 -22 -40 -19 -40 -17 -40 -14 -40 -11 -40 -10 -40 -8 -40 -6 -40 -3 -40 -2 -40 0 -40 2 -40 3 -40 6 -40 8 -40 10 -40 11 -40 14 -40 17 -40 19 -40 22 -40 25 -40 28 -40 33 -40 38 -40 43 -40 52 -40 64 -40 86 -40 155 -40 179 0" stroke="#FF0000" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 35880 12340 l 780 -1200" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path d="M 36620 11740 l -460 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 35971 11380 l 40 14 26 13 20 13 17 14 14 13 13 13 11 14 10 13 9 13 8 14 7 13 6 13 6 14 5 13 5 13 4 14 3 13 3 13 3 14 2 13 1 13 2 14 0 13 0 13 0 0 0 14 0 13 -2 13 -1 14 -2 13 -3 13 -3 14 -3 13 -4 13 -5 14 -5 13 -6 13 -6 14 -7 13 -8 13 -9 14 -10 13 -11 13 -13 14 -14 13 -17 13 -20 14 -26 13 -40 13 -101 0 -40 -13 -26 -13 -20 -14 -17 -13 -14 -13 -13 -14 -11 -13 -10 -13 -9 -14 -8 -13 -7 -13 -6 -14 -6 -13 -5 -13 -5 -14 -4 -13 -3 -13 -3 -14 -3 -13 -2 -13 -1 -14 -2 -13 0 -13 -1 -14 0 0 1 -13 0 -13 2 -14 1 -13 2 -13 3 -14 3 -13 3 -13 4 -14 5 -13 5 -13 6 -14 6 -13 7 -13 8 -14 9 -13 10 -13 11 -14 13 -13 14 -13 17 -14 20 -13 26 -13 40 -14 101 0" stroke="#808080" stroke-width="20" fill="#00FF00" />
+  <g>
+    <rect x="35720" y="11560" width="340" height="360" stroke-width="0" fill="#00FF00" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="35890" y="12020">M</text>
+  </g>
+  <path d="M 36420 12000 l 340 0 -300 -620 280 0 -300 620 -20 0" stroke="#000000" stroke-width="20" fill="#00FF00" />
+  <g id="TEXT89">
+    <rect x="37380" y="11580" width="2780" height="1080" stroke-width="0" fill="none" id="TEXT89_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="38770" y="12400" id="TEXT89_pbTextEl">1#机二抽</text>
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 26967 12221 l 602 110 0 -74 944 0 0 -74 -944 0 0 -74 -602 112 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 26967 12221 l 602 110 0 -74 944 0 0 -74 -944 0 0 -74 -602 112" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 30707 13581 l 602 110 0 -74 944 0 0 -74 -944 0 0 -74 -602 112 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 30707 13581 l 602 110 0 -74 944 0 0 -74 -944 0 0 -74 -602 112" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT90">
+    <rect x="25560" y="11440" width="3080" height="540" stroke-width="0" fill="none" id="TEXT90_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="27100" y="11990" id="TEXT90_pbTextEl">高压蒸汽管网</text>
+  </g>
+  <g id="TEXT91">
+    <rect x="27540" y="13300" width="3080" height="540" stroke-width="0" fill="none" id="TEXT91_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="29080" y="13850" id="TEXT91_pbTextEl">中压蒸汽管网</text>
+  </g>
+  <g id="TEXT92">
+    <rect x="29420" y="11620" width="3080" height="540" stroke-width="0" fill="none" id="TEXT92_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="30960" y="12170" id="TEXT92_pbTextEl">高压蒸汽母管</text>
+  </g>
+  <g id="TEXT93">
+    <rect x="32900" y="10200" width="3140" height="1080" stroke-width="0" fill="none" id="TEXT93_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="34470" y="11020" id="TEXT93_pbTextEl">1#机一抽</text>
+  </g>
+  <g id="TEXT94">
+    <rect x="33020" y="12980" width="3080" height="540" stroke-width="0" fill="none" id="TEXT94_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="34560" y="13530" id="TEXT94_pbTextEl">中压蒸汽母管</text>
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 29461 24350 l 113 -584 -75 0 0 -916 -78 0 0 916 -75 0 115 584 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 29461 24350 l 113 -584 -75 0 0 -916 -78 0 0 916 -75 0 115 584" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 31201 22950 l 113 584 -75 0 0 916 -78 0 0 -916 -75 0 115 -584 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 31201 22950 l 113 584 -75 0 0 916 -78 0 0 -916 -75 0 115 -584" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path id="POLYGON262" d="M 45540 6700 l 460 0 -220 320 -220 -320 -20 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path id="POLYGON263" d="M 42040 5560 l 0 -640" stroke="#00D200" stroke-width="20" fill="none" />
+  <path id="POLYGON264" d="M 42020 5000 l 2240 0" stroke="#00D200" stroke-width="20" fill="none" />
+  <g name="StraightArrow1">
+    <path d="M 44087 4981 l 602 110 0 -74 944 0 0 -74 -944 0 0 -74 -602 112 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 44087 4981 l 602 110 0 -74 944 0 0 -74 -944 0 0 -74 -602 112" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="Valve2">
+    <path d="M 42737 5166 l 0 -298 612 298 0 -298 -612 298" stroke="#000000" stroke-width="20" fill="#00D200" />
+    <path d="M 43040 5017 l 36 -15 0 -262 -68 0 0 262 35 15 -3 0" stroke="#000000" stroke-width="20" fill="#00D200" />
+    <rect x="42793" y="4634" width="494" height="133" stroke="#000000" stroke-width="20" fill="#00D200" />
+  </g>
+  <g id="TEXT96">
+    <rect x="37160" y="4120" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT96_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="39650" y="5000" id="TEXT96_pbTextEl">1#机后气缸喷水</text>
+  </g>
+  <path id="POLYGON265" d="M 23580 7260 l 460 0 -220 320 -200 -320 -40 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path id="POLYGON266" d="M 29380 4940 l 440 0 -200 320 -200 -320 -40 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path id="POLYGON267" d="M 25100 14240 l 0 -440 240 200 -240 220 0 20" stroke="#000000" stroke-width="20" fill="#00D200" />
+  <path d="M 23780 12626 l -40 150 -40 82 -40 62 -40 50 -40 42 -40 36 -40 32 -40 28 -40 24 -40 21 -40 19 -40 16 -40 15 -40 11 -40 10 -40 8 -40 7 -40 4 -40 3 -40 0 0 0 -40 0 -40 -3 -40 -4 -40 -7 -40 -8 -40 -10 -40 -11 -40 -15 -40 -16 -40 -19 -40 -21 -40 -24 -40 -28 -40 -32 -40 -36 -40 -42 -40 -50 -40 -62 -40 -82 -40 -150 0 -171 40 -150 40 -82 40 -62 40 -50 40 -42 40 -36 40 -32 40 -28 40 -24 40 -21 40 -19 40 -16 40 -15 40 -11 40 -10 40 -8 40 -7 40 -4 40 -3 40 -1 0 0 40 1 40 3 40 4 40 7 40 8 40 10 40 11 40 15 40 16 40 19 40 21 40 24 40 28 40 32 40 36 40 42 40 50 40 62 40 82 40 150 0 171" stroke="#FF0000" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 22320 12200 l 1240 760" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path d="M 22960 12920 l 0 -460" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 23300 12291 l -14 40 -13 26 -13 20 -14 17 -13 14 -13 13 -14 11 -13 10 -13 9 -14 8 -13 7 -13 6 -14 6 -13 5 -13 5 -14 4 -13 3 -13 3 -14 3 -13 2 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -2 -13 -3 -14 -3 -13 -3 -13 -4 -14 -5 -13 -5 -13 -6 -14 -6 -13 -7 -13 -8 -14 -9 -13 -10 -13 -11 -14 -13 -13 -14 -13 -17 -14 -20 -13 -26 -13 -40 0 -101 13 -40 13 -26 14 -20 13 -17 13 -14 14 -13 13 -11 13 -10 14 -9 13 -8 13 -7 14 -6 13 -6 13 -5 14 -5 13 -4 13 -3 14 -3 13 -3 13 -2 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 2 14 3 13 3 13 3 14 4 13 5 13 5 14 6 13 6 13 7 14 8 13 9 13 10 14 11 13 13 13 14 14 17 13 20 13 26 14 40 0 101" stroke="#808080" stroke-width="20" fill="#00FF00" />
+  <g>
+    <rect x="22760" y="12040" width="360" height="340" stroke-width="0" fill="#00FF00" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="22940" y="12490">M</text>
+  </g>
+  <path d="M 22680 12720 l 0 340 640 -300 0 280 -640 -300 0 -20" stroke="#000000" stroke-width="20" fill="#00FF00" />
+  <path d="M 19620 10786 l -40 150 -40 82 -40 62 -40 50 -40 42 -40 36 -40 32 -40 28 -40 24 -40 21 -40 19 -40 16 -40 15 -40 11 -40 10 -40 8 -40 7 -40 4 -40 3 -40 0 0 0 -40 0 -40 -3 -40 -4 -40 -7 -40 -8 -40 -10 -40 -11 -40 -15 -40 -16 -40 -19 -40 -21 -40 -24 -40 -28 -40 -32 -40 -36 -40 -42 -40 -50 -40 -62 -40 -82 -40 -150 0 -171 40 -150 40 -82 40 -62 40 -50 40 -42 40 -36 40 -32 40 -28 40 -24 40 -21 40 -19 40 -16 40 -15 40 -11 40 -10 40 -8 40 -7 40 -4 40 -3 40 -1 0 0 40 1 40 3 40 4 40 7 40 8 40 10 40 11 40 15 40 16 40 19 40 21 40 24 40 28 40 32 40 36 40 42 40 50 40 62 40 82 40 150 0 171" stroke="#FF0000" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 18180 10360 l 1240 760" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path d="M 18800 11080 l 0 -440" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 19140 10451 l -14 40 -13 26 -13 20 -14 17 -13 14 -13 13 -14 11 -13 10 -13 9 -14 8 -13 7 -13 6 -14 6 -13 5 -13 5 -14 4 -13 3 -13 3 -14 3 -13 2 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -2 -13 -3 -14 -3 -13 -3 -13 -4 -14 -5 -13 -5 -13 -6 -14 -6 -13 -7 -13 -8 -14 -9 -13 -10 -13 -11 -14 -13 -13 -14 -13 -17 -14 -20 -13 -26 -13 -40 0 -101 13 -40 13 -26 14 -20 13 -17 13 -14 14 -13 13 -11 13 -10 14 -9 13 -8 13 -7 14 -6 13 -6 13 -5 14 -5 13 -4 13 -3 14 -3 13 -3 13 -2 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 2 14 3 13 3 13 3 14 4 13 5 13 5 14 6 13 6 13 7 14 8 13 9 13 10 14 11 13 13 13 14 14 17 13 20 13 26 14 40 0 101" stroke="#808080" stroke-width="20" fill="#00FF00" />
+  <g>
+    <rect x="18600" y="10200" width="360" height="340" stroke-width="0" fill="#00FF00" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="18780" y="10650">M</text>
+  </g>
+  <path d="M 18520 10880 l 0 340 660 -300 0 280 -660 -300 0 -20" stroke="#000000" stroke-width="20" fill="#00FF00" />
+  <g id="TEXT100">
+    <rect x="16520" y="11240" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT100_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="19010" y="12120" id="TEXT100_pbTextEl">1#机2#高进汽</text>
+  </g>
+  <g id="TEXT98">
+    <rect x="20760" y="12960" width="4980" height="1200" stroke-width="0" fill="none" id="TEXT98_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="23250" y="13840" id="TEXT98_pbTextEl">1#机1#高进汽</text>
+  </g>
+  <path id="POLYGON271" d="M 18740 15060 l 460 0 -200 320 -220 -320 -40 0" stroke="#000000" stroke-width="20" fill="#00D200" />
+  <path id="POLYGON272" d="M 18720 23560 l 460 0 -220 320 -220 -320 -20 0" stroke="#000000" stroke-width="20" fill="#00D200" />
+  <g id="TEXT101">
+    <rect x="17440" y="15580" width="3080" height="540" stroke-width="0" fill="none" id="TEXT101_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="18980" y="16130" id="TEXT101_pbTextEl">定排</text>
+  </g>
+  <g id="TEXT102">
+    <rect x="17380" y="24000" width="3080" height="540" stroke-width="0" fill="none" id="TEXT102_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="18920" y="24550" id="TEXT102_pbTextEl">定排</text>
+  </g>
+  <g id="TEXT103">
+    <rect x="56840" y="30780" width="3400" height="1080" stroke-width="0" fill="none" id="TEXT103_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="58540" y="31600" id="TEXT103_pbTextEl">1#机空冷器</text>
+  </g>
+  <path d="M 51280 27268 l -20 72 -20 44 -20 34 -20 27 -20 24 -20 20 -20 17 -20 16 -20 14 -20 12 -20 11 -20 9 -20 9 -20 7 -20 6 -20 5 -20 4 -20 3 -20 3 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -3 -20 -3 -20 -4 -20 -5 -20 -6 -20 -7 -20 -9 -20 -9 -20 -11 -20 -12 -20 -14 -20 -16 -20 -17 -20 -20 -20 -24 -20 -27 -20 -34 -20 -44 -20 -72 0 -135 20 -72 20 -44 20 -34 20 -27 20 -24 20 -20 20 -17 20 -16 20 -14 20 -12 20 -11 20 -9 20 -9 20 -7 20 -6 20 -5 20 -4 20 -3 20 -3 20 -1 20 -1 0 0 20 1 20 1 20 3 20 3 20 4 20 5 20 6 20 7 20 9 20 9 20 11 20 12 20 14 20 16 20 17 20 20 20 24 20 27 20 34 20 44 20 72 0 135" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 51100 27540 l 0 -340" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 50640 26860 l 0 340" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 44200 26438 l -20 83 -20 51 -20 39 -20 33 -20 28 -20 25 -20 22 -20 19 -20 18 -20 16 -20 15 -20 13 -20 12 -20 11 -20 10 -20 9 -20 8 -20 7 -20 6 -20 6 -20 5 -20 4 -20 3 -20 2 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -2 -20 -3 -20 -4 -20 -5 -20 -6 -20 -6 -20 -7 -20 -8 -20 -9 -20 -10 -20 -11 -20 -12 -20 -13 -20 -15 -20 -16 -20 -18 -20 -19 -20 -22 -20 -25 -20 -28 -20 -33 -20 -39 -20 -51 -20 -83 0 -155 20 -83 20 -51 20 -39 20 -33 20 -28 20 -25 20 -22 20 -19 20 -18 20 -16 20 -15 20 -13 20 -12 20 -11 20 -10 20 -9 20 -8 20 -7 20 -6 20 -6 20 -5 20 -4 20 -3 20 -2 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 2 20 3 20 4 20 5 20 6 20 6 20 7 20 8 20 9 20 10 20 11 20 12 20 13 20 15 20 16 20 18 20 19 20 22 20 25 20 28 20 33 20 39 20 51 20 83 0 155" stroke="#FF0000" stroke-width="20" fill="#808080" />
+  <g name="StraightArrow1">
+    <path d="M 43661 26860 l 196 -374 -131 0 0 -586 -132 0 0 586 -131 0 198 374 0 0" stroke-width="0" fill="#787878" />
+    <path d="M 43661 26860 l 196 -374 -131 0 0 -586 -132 0 0 586 -131 0 198 374" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path d="M 41840 26398 l -20 83 -20 51 -20 39 -20 33 -20 28 -20 25 -20 22 -20 19 -20 18 -20 16 -20 15 -20 13 -20 12 -20 11 -20 10 -20 9 -20 8 -20 7 -20 6 -20 6 -20 5 -20 4 -20 3 -20 2 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -2 -20 -3 -20 -4 -20 -5 -20 -6 -20 -6 -20 -7 -20 -8 -20 -9 -20 -10 -20 -11 -20 -12 -20 -13 -20 -15 -20 -16 -20 -18 -20 -19 -20 -22 -20 -25 -20 -28 -20 -33 -20 -39 -20 -51 -20 -83 0 -155 20 -83 20 -51 20 -39 20 -33 20 -28 20 -25 20 -22 20 -19 20 -18 20 -16 20 -15 20 -13 20 -12 20 -11 20 -10 20 -9 20 -8 20 -7 20 -6 20 -6 20 -5 20 -4 20 -3 20 -2 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 2 20 3 20 4 20 5 20 6 20 6 20 7 20 8 20 9 20 10 20 11 20 12 20 13 20 15 20 16 20 18 20 19 20 22 20 25 20 28 20 33 20 39 20 51 20 83 0 155" stroke="#FF0000" stroke-width="20" fill="#808080" />
+  <g name="StraightArrow1">
+    <path d="M 41301 26820 l 196 -374 -131 0 0 -586 -132 0 0 586 -131 0 198 374 0 0" stroke-width="0" fill="#787878" />
+    <path d="M 41301 26820 l 196 -374 -131 0 0 -586 -132 0 0 586 -131 0 198 374" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path d="M 39420 26438 l -20 83 -20 51 -20 39 -20 33 -20 28 -20 25 -20 22 -20 19 -20 18 -20 16 -20 15 -20 13 -20 12 -20 11 -20 10 -20 9 -20 8 -20 7 -20 6 -20 6 -20 5 -20 4 -20 3 -20 2 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -2 -20 -3 -20 -4 -20 -5 -20 -6 -20 -6 -20 -7 -20 -8 -20 -9 -20 -10 -20 -11 -20 -12 -20 -13 -20 -15 -20 -16 -20 -18 -20 -19 -20 -22 -20 -25 -20 -28 -20 -33 -20 -39 -20 -51 -20 -83 0 -155 20 -83 20 -51 20 -39 20 -33 20 -28 20 -25 20 -22 20 -19 20 -18 20 -16 20 -15 20 -13 20 -12 20 -11 20 -10 20 -9 20 -8 20 -7 20 -6 20 -6 20 -5 20 -4 20 -3 20 -2 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 2 20 3 20 4 20 5 20 6 20 6 20 7 20 8 20 9 20 10 20 11 20 12 20 13 20 15 20 16 20 18 20 19 20 22 20 25 20 28 20 33 20 39 20 51 20 83 0 155" stroke="#FF0000" stroke-width="20" fill="#808080" />
+  <g name="StraightArrow1">
+    <path d="M 38881 26860 l 196 -374 -131 0 0 -586 -132 0 0 586 -131 0 198 374 0 0" stroke-width="0" fill="#787878" />
+    <path d="M 38881 26860 l 196 -374 -131 0 0 -586 -132 0 0 586 -131 0 198 374" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT104">
+    <rect x="43280" y="26900" width="3400" height="1080" stroke-width="0" fill="none" id="TEXT104_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="44980" y="27720" id="TEXT104_pbTextEl">3#凝结水泵</text>
+  </g>
+  <g id="TEXT105">
+    <rect x="39700" y="26920" width="3400" height="1080" stroke-width="0" fill="none" id="TEXT105_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="41400" y="27740" id="TEXT105_pbTextEl">2#凝结水泵</text>
+  </g>
+  <g id="TEXT106">
+    <rect x="36120" y="26940" width="3400" height="1080" stroke-width="0" fill="none" id="TEXT106_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="37820" y="27760" id="TEXT106_pbTextEl">1#凝结水泵</text>
+  </g>
+  <path d="M 62100 21978 l -20 83 -20 51 -20 39 -20 33 -20 28 -20 25 -20 22 -20 19 -20 18 -20 16 -20 15 -20 13 -20 12 -20 11 -20 10 -20 9 -20 8 -20 7 -20 6 -20 6 -20 5 -20 4 -20 3 -20 2 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -2 -20 -3 -20 -4 -20 -5 -20 -6 -20 -6 -20 -7 -20 -8 -20 -9 -20 -10 -20 -11 -20 -12 -20 -13 -20 -15 -20 -16 -20 -18 -20 -19 -20 -22 -20 -25 -20 -28 -20 -33 -20 -39 -20 -51 -20 -83 0 -155 20 -83 20 -51 20 -39 20 -33 20 -28 20 -25 20 -22 20 -19 20 -18 20 -16 20 -15 20 -13 20 -12 20 -11 20 -10 20 -9 20 -8 20 -7 20 -6 20 -6 20 -5 20 -4 20 -3 20 -2 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 2 20 3 20 4 20 5 20 6 20 6 20 7 20 8 20 9 20 10 20 11 20 12 20 13 20 15 20 16 20 18 20 19 20 22 20 25 20 28 20 33 20 39 20 51 20 83 0 155" stroke="#808080" stroke-width="20" fill="#00D200" />
+  <g name="StraightArrow1">
+    <path d="M 61561 22420 l 196 -374 -131 0 0 -586 -132 0 0 586 -131 0 198 374 0 0" stroke-width="0" fill="#787878" />
+    <path d="M 61561 22420 l 196 -374 -131 0 0 -586 -132 0 0 586 -131 0 198 374" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path id="ELLIPSE95" d="M 62160 15578 l -20 83 -20 51 -20 39 -20 33 -20 28 -20 25 -20 22 -20 19 -20 18 -20 16 -20 15 -20 13 -20 12 -20 11 -20 10 -20 9 -20 8 -20 7 -20 6 -20 6 -20 5 -20 4 -20 3 -20 2 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -2 -20 -3 -20 -4 -20 -5 -20 -6 -20 -6 -20 -7 -20 -8 -20 -9 -20 -10 -20 -11 -20 -12 -20 -13 -20 -15 -20 -16 -20 -18 -20 -19 -20 -22 -20 -25 -20 -28 -20 -33 -20 -39 -20 -51 -20 -83 0 -155 20 -83 20 -51 20 -39 20 -33 20 -28 20 -25 20 -22 20 -19 20 -18 20 -16 20 -15 20 -13 20 -12 20 -11 20 -10 20 -9 20 -8 20 -7 20 -6 20 -6 20 -5 20 -4 20 -3 20 -2 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 2 20 3 20 4 20 5 20 6 20 6 20 7 20 8 20 9 20 10 20 11 20 12 20 13 20 15 20 16 20 18 20 19 20 22 20 25 20 28 20 33 20 39 20 51 20 83 0 155" stroke="#FF0000" stroke-width="20" fill="#00D200" />
+  <g name="StraightArrow1">
+    <path d="M 61621 16000 l 196 -374 -131 0 0 -586 -132 0 0 586 -131 0 198 374 0 0" stroke-width="0" fill="#787878" />
+    <path d="M 61621 16000 l 196 -374 -131 0 0 -586 -132 0 0 586 -131 0 198 374" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path d="M 55760 20078 l -20 83 -20 51 -20 39 -20 33 -20 28 -20 25 -20 22 -20 19 -20 18 -20 16 -20 15 -20 13 -20 12 -20 11 -20 10 -20 9 -20 8 -20 7 -20 6 -20 6 -20 5 -20 4 -20 3 -20 2 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -2 -20 -3 -20 -4 -20 -5 -20 -6 -20 -6 -20 -7 -20 -8 -20 -9 -20 -10 -20 -11 -20 -12 -20 -13 -20 -15 -20 -16 -20 -18 -20 -19 -20 -22 -20 -25 -20 -28 -20 -33 -20 -39 -20 -51 -20 -83 0 -155 20 -83 20 -51 20 -39 20 -33 20 -28 20 -25 20 -22 20 -19 20 -18 20 -16 20 -15 20 -13 20 -12 20 -11 20 -10 20 -9 20 -8 20 -7 20 -6 20 -6 20 -5 20 -4 20 -3 20 -2 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 2 20 3 20 4 20 5 20 6 20 6 20 7 20 8 20 9 20 10 20 11 20 12 20 13 20 15 20 16 20 18 20 19 20 22 20 25 20 28 20 33 20 39 20 51 20 83 0 155" stroke="#808080" stroke-width="20" fill="#00D200" />
+  <g name="StraightArrow1">
+    <path d="M 55735 19999 l -385 -190 0 126 -605 0 0 130 605 0 0 126 385 -192 0 0" stroke-width="0" fill="#787878" />
+    <path d="M 55735 19999 l -385 -190 0 126 -605 0 0 130 605 0 0 126 385 -192" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path d="M 55800 13658 l -20 83 -20 51 -20 39 -20 33 -20 28 -20 25 -20 22 -20 19 -20 18 -20 16 -20 15 -20 13 -20 12 -20 11 -20 10 -20 9 -20 8 -20 7 -20 6 -20 6 -20 5 -20 4 -20 3 -20 2 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -2 -20 -3 -20 -4 -20 -5 -20 -6 -20 -6 -20 -7 -20 -8 -20 -9 -20 -10 -20 -11 -20 -12 -20 -13 -20 -15 -20 -16 -20 -18 -20 -19 -20 -22 -20 -25 -20 -28 -20 -33 -20 -39 -20 -51 -20 -83 0 -155 20 -83 20 -51 20 -39 20 -33 20 -28 20 -25 20 -22 20 -19 20 -18 20 -16 20 -15 20 -13 20 -12 20 -11 20 -10 20 -9 20 -8 20 -7 20 -6 20 -6 20 -5 20 -4 20 -3 20 -2 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 2 20 3 20 4 20 5 20 6 20 6 20 7 20 8 20 9 20 10 20 11 20 12 20 13 20 15 20 16 20 18 20 19 20 22 20 25 20 28 20 33 20 39 20 51 20 83 0 155" stroke="#808080" stroke-width="20" fill="#00D200" />
+  <g name="StraightArrow1">
+    <path d="M 55775 13579 l -385 -190 0 126 -605 0 0 130 605 0 0 126 385 -192 0 0" stroke-width="0" fill="#787878" />
+    <path d="M 55775 13579 l -385 -190 0 126 -605 0 0 130 605 0 0 126 385 -192" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT107">
+    <rect x="59200" y="22780" width="4060" height="1080" stroke-width="0" fill="none" id="TEXT107_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="61230" y="23600" id="TEXT107_pbTextEl">1#机2#循环泵</text>
+  </g>
+  <g id="TEXT108">
+    <rect x="59600" y="16280" width="4060" height="1080" stroke-width="0" fill="none" id="TEXT108_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="61630" y="17100" id="TEXT108_pbTextEl">1#机1#循环泵</text>
+  </g>
+  <g id="TEXT109">
+    <rect x="48320" y="20100" width="4820" height="1080" stroke-width="0" fill="none" id="TEXT109_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="50730" y="20920" id="TEXT109_pbTextEl">1#机2#入口蝶阀</text>
+  </g>
+  <g id="TEXT110">
+    <rect x="48580" y="13840" width="4960" height="1080" stroke-width="0" fill="none" id="TEXT110_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="51060" y="14660" id="TEXT110_pbTextEl">1#机1#入口蝶阀</text>
+  </g>
+  <g id="TEXT111">
+    <rect x="60940" y="19120" width="1080" height="1940" stroke-width="0" fill="none" id="TEXT111_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="61480" y="19810" id="TEXT111_pbTextEl">汽分<tspan x="61480" dy="560">水离</tspan><tspan x="61480" dy="560">  器</tspan></text>
+  </g>
+  <g id="TEXT112">
+    <rect x="60960" y="12760" width="1080" height="1940" stroke-width="0" fill="none" id="TEXT112_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="61500" y="13450" id="TEXT112_pbTextEl">汽分<tspan x="61500" dy="560">水离</tspan><tspan x="61500" dy="560">  器</tspan></text>
+  </g>
+  <g name="Valve2">
+    <path d="M 59377 11706 l 0 -298 612 298 0 -298 -612 298" stroke="#000000" stroke-width="20" fill="#00D200" />
+    <path d="M 59680 11557 l 36 -15 0 -262 -68 0 0 262 35 15 -3 0" stroke="#000000" stroke-width="20" fill="#00D200" />
+    <rect x="59433" y="11174" width="494" height="133" stroke="#000000" stroke-width="20" fill="#00D200" />
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 57833 11601 l -602 110 0 -74 -944 0 0 -74 944 0 0 -74 602 112 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 57833 11601 l -602 110 0 -74 -944 0 0 -74 944 0 0 -74 602 112" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT113">
+    <rect x="57080" y="10080" width="5040" height="1080" stroke-width="0" fill="none" id="TEXT113_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="59600" y="10900" id="TEXT113_pbTextEl">1#机1#真空补水</text>
+  </g>
+  <g id="TEXT114">
+    <rect x="52760" y="11380" width="3380" height="540" stroke-width="0" fill="none" id="TEXT114_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="54450" y="11930" id="TEXT114_pbTextEl">自冷脱盐水母管</text>
+  </g>
+  <g name="Valve2">
+    <path d="M 59557 18066 l 0 -298 612 298 0 -298 -612 298" stroke="#000000" stroke-width="20" fill="#00D200" />
+    <path d="M 59860 17917 l 36 -15 0 -262 -68 0 0 262 35 15 -3 0" stroke="#000000" stroke-width="20" fill="#00D200" />
+    <rect x="59613" y="17534" width="494" height="133" stroke="#000000" stroke-width="20" fill="#00D200" />
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 57773 17921 l -602 110 0 -74 -944 0 0 -74 944 0 0 -74 602 112 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 57773 17921 l -602 110 0 -74 -944 0 0 -74 944 0 0 -74 602 112" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT115">
+    <rect x="52660" y="17620" width="3380" height="540" stroke-width="0" fill="none" id="TEXT115_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="54350" y="18170" id="TEXT115_pbTextEl">自冷脱盐水母管</text>
+  </g>
+  <g id="TEXT116">
+    <rect x="54820" y="16620" width="5040" height="1080" stroke-width="0" fill="none" id="TEXT116_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="57340" y="17440" id="TEXT116_pbTextEl">1#机2#真空补水</text>
+  </g>
+  <g id="TEXT117">
+    <rect x="39760" y="15000" width="3140" height="1080" stroke-width="0" fill="none" id="TEXT117_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="41330" y="15820" id="TEXT117_pbTextEl">1#机凝集器</text>
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 46621 22770 l 113 584 -75 0 0 916 -78 0 0 -916 -75 0 115 -584 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 46621 22770 l 113 584 -75 0 0 916 -78 0 0 -916 -75 0 115 -584" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 48101 24350 l 113 -584 -75 0 0 -916 -78 0 0 916 -75 0 115 584 0 0" stroke-width="0" fill="#00D200" />
+    <path d="M 48101 24350 l 113 -584 -75 0 0 -916 -78 0 0 916 -75 0 115 584" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path id="POLYGON273" d="M 53000 16080 l -460 0 220 -300 200 300 40 0" stroke="#000000" stroke-width="20" fill="#00D200" />
+  <path id="POLYGON274" d="M 52900 22240 l -440 0 200 -320 200 320 40 0" stroke="#000000" stroke-width="20" fill="#00D200" />
+  <g id="TEXT118">
+    <rect x="2540" y="27900" width="5640" height="1200" stroke-width="0" fill="none" id="TEXT118_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="5360" y="28780" id="TEXT118_pbTextEl">1#机B轴加风机</text>
+  </g>
+  <g id="TEXT119">
+    <rect x="9620" y="27900" width="5640" height="1200" stroke-width="0" fill="none" id="TEXT119_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="12440" y="28780" id="TEXT119_pbTextEl">1#机A轴加风机</text>
+  </g>
+  <path id="POLYGON275" d="M 42820 4400 l 540 400" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path d="M 5741 27960 l -137 -40 -73 -40 -54 -40 -43 -40 -35 -40 -29 -40 -25 -40 -19 -40 -17 -40 -13 -40 -10 -40 -7 -40 -4 -40 -1 -40 0 0 1 -40 4 -40 7 -40 10 -40 13 -40 17 -40 19 -40 25 -40 29 -40 35 -40 43 -40 54 -40 73 -40 137 -40 158 0 137 40 73 40 54 40 43 40 35 40 29 40 25 40 19 40 17 40 13 40 10 40 7 40 4 40 1 40 0 0 -1 40 -4 40 -7 40 -10 40 -13 40 -17 40 -19 40 -25 40 -29 40 -35 40 -43 40 -54 40 -73 40 -137 40 -158 0" stroke="#000000" stroke-width="20" fill="#00D200" />
+  <path d="M 5750 27800 l -73 -20 -45 -20 -34 -20 -28 -20 -24 -20 -20 -20 -18 -20 -15 -20 -14 -20 -12 -20 -11 -20 -9 -20 -8 -20 -7 -20 -5 -20 -5 -20 -4 -20 -2 -20 -2 -20 0 -20 0 0 0 -20 2 -20 2 -20 4 -20 5 -20 5 -20 7 -20 8 -20 9 -20 11 -20 12 -20 14 -20 15 -20 18 -20 20 -20 24 -20 28 -20 34 -20 45 -20 73 -20 140 0 73 20 45 20 34 20 28 20 24 20 20 20 18 20 15 20 14 20 12 20 11 20 9 20 8 20 7 20 5 20 5 20 4 20 2 20 2 20 0 20 0 0 0 20 -2 20 -2 20 -4 20 -5 20 -5 20 -7 20 -8 20 -9 20 -11 20 -12 20 -14 20 -15 20 -18 20 -20 20 -24 20 -28 20 -34 20 -45 20 -73 20 -140 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 5640 26860 l -680 0 0 340 360 0" stroke="#000000" stroke-width="20" fill="#00D200" />
+  <path d="M 12921 27920 l -137 -40 -73 -40 -54 -40 -43 -40 -35 -40 -29 -40 -25 -40 -19 -40 -17 -40 -13 -40 -10 -40 -7 -40 -4 -40 -1 -40 0 0 1 -40 4 -40 7 -40 10 -40 13 -40 17 -40 19 -40 25 -40 29 -40 35 -40 43 -40 54 -40 73 -40 137 -40 158 0 137 40 73 40 54 40 43 40 35 40 29 40 25 40 19 40 17 40 13 40 10 40 7 40 4 40 1 40 0 0 -1 40 -4 40 -7 40 -10 40 -13 40 -17 40 -19 40 -25 40 -29 40 -35 40 -43 40 -54 40 -73 40 -137 40 -158 0" stroke="#000000" stroke-width="20" fill="#00D200" />
+  <path d="M 12930 27760 l -73 -20 -45 -20 -34 -20 -28 -20 -24 -20 -20 -20 -18 -20 -15 -20 -14 -20 -12 -20 -11 -20 -9 -20 -8 -20 -7 -20 -5 -20 -5 -20 -4 -20 -2 -20 -2 -20 0 -20 0 0 0 -20 2 -20 2 -20 4 -20 5 -20 5 -20 7 -20 8 -20 9 -20 11 -20 12 -20 14 -20 15 -20 18 -20 20 -20 24 -20 28 -20 34 -20 45 -20 73 -20 140 0 73 20 45 20 34 20 28 20 24 20 20 20 18 20 15 20 14 20 12 20 11 20 9 20 8 20 7 20 5 20 5 20 4 20 2 20 2 20 0 20 0 0 0 20 -2 20 -2 20 -4 20 -5 20 -5 20 -7 20 -8 20 -9 20 -11 20 -12 20 -14 20 -15 20 -18 20 -20 20 -24 20 -28 20 -34 20 -45 20 -73 20 -140 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 12840 26820 l -700 0 0 340 360 0" stroke="#000000" stroke-width="20" fill="#00D200" />
+  <path id="ELLIPSE106" d="M 50618 11900 l -66 -20 -39 -20 -30 -20 -24 -20 -20 -20 -16 -20 -15 -20 -12 -20 -10 -20 -9 -20 -7 -20 -6 -20 -4 -20 -4 -20 -1 -20 -1 -20 0 0 1 -20 1 -20 4 -20 4 -20 6 -20 7 -20 9 -20 10 -20 12 -20 15 -20 16 -20 20 -20 24 -20 30 -20 39 -20 66 -20 124 0 66 20 39 20 30 20 24 20 20 20 16 20 15 20 12 20 10 20 9 20 7 20 6 20 4 20 4 20 1 20 1 20 0 0 -1 20 -1 20 -4 20 -4 20 -6 20 -7 20 -9 20 -10 20 -12 20 -15 20 -16 20 -20 20 -24 20 -30 20 -39 20 -66 20 -124 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path id="ELLIPSE107" d="M 48978 13000 l -66 -20 -39 -20 -30 -20 -24 -20 -20 -20 -16 -20 -15 -20 -12 -20 -10 -20 -9 -20 -7 -20 -6 -20 -4 -20 -4 -20 -1 -20 -1 -20 0 0 1 -20 1 -20 4 -20 4 -20 6 -20 7 -20 9 -20 10 -20 12 -20 15 -20 16 -20 20 -20 24 -20 30 -20 39 -20 66 -20 124 0 66 20 39 20 30 20 24 20 20 20 16 20 15 20 12 20 10 20 9 20 7 20 6 20 4 20 4 20 1 20 1 20 0 0 -1 20 -1 20 -4 20 -4 20 -6 20 -7 20 -9 20 -10 20 -12 20 -15 20 -16 20 -20 20 -24 20 -30 20 -39 20 -66 20 -124 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path id="ELLIPSE108" d="M 50738 18360 l -66 -20 -39 -20 -30 -20 -24 -20 -20 -20 -16 -20 -15 -20 -12 -20 -10 -20 -9 -20 -7 -20 -6 -20 -4 -20 -4 -20 -1 -20 -1 -20 0 0 1 -20 1 -20 4 -20 4 -20 6 -20 7 -20 9 -20 10 -20 12 -20 15 -20 16 -20 20 -20 24 -20 30 -20 39 -20 66 -20 124 0 66 20 39 20 30 20 24 20 20 20 16 20 15 20 12 20 10 20 9 20 7 20 6 20 4 20 4 20 1 20 1 20 0 0 -1 20 -1 20 -4 20 -4 20 -6 20 -7 20 -9 20 -10 20 -12 20 -15 20 -16 20 -20 20 -24 20 -30 20 -39 20 -66 20 -124 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path id="ELLIPSE109" d="M 49378 19440 l -66 -20 -39 -20 -30 -20 -24 -20 -20 -20 -16 -20 -15 -20 -12 -20 -10 -20 -9 -20 -7 -20 -6 -20 -4 -20 -4 -20 -1 -20 -1 -20 0 0 1 -20 1 -20 4 -20 4 -20 6 -20 7 -20 9 -20 10 -20 12 -20 15 -20 16 -20 20 -20 24 -20 30 -20 39 -20 66 -20 124 0 66 20 39 20 30 20 24 20 20 20 16 20 15 20 12 20 10 20 9 20 7 20 6 20 4 20 4 20 1 20 1 20 0 0 -1 20 -1 20 -4 20 -4 20 -6 20 -7 20 -9 20 -10 20 -12 20 -15 20 -16 20 -20 20 -24 20 -30 20 -39 20 -66 20 -124 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path id="ELLIPSE110" d="M 62998 14580 l -66 -20 -39 -20 -30 -20 -24 -20 -20 -20 -16 -20 -15 -20 -12 -20 -10 -20 -9 -20 -7 -20 -6 -20 -4 -20 -4 -20 -1 -20 -1 -20 0 0 1 -20 1 -20 4 -20 4 -20 6 -20 7 -20 9 -20 10 -20 12 -20 15 -20 16 -20 20 -20 24 -20 30 -20 39 -20 66 -20 124 0 66 20 39 20 30 20 24 20 20 20 16 20 15 20 12 20 10 20 9 20 7 20 6 20 4 20 4 20 1 20 1 20 0 0 -1 20 -1 20 -4 20 -4 20 -6 20 -7 20 -9 20 -10 20 -12 20 -15 20 -16 20 -20 20 -24 20 -30 20 -39 20 -66 20 -124 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path id="ELLIPSE111" d="M 62938 21100 l -66 -20 -39 -20 -30 -20 -24 -20 -20 -20 -16 -20 -15 -20 -12 -20 -10 -20 -9 -20 -7 -20 -6 -20 -4 -20 -4 -20 -1 -20 -1 -20 0 0 1 -20 1 -20 4 -20 4 -20 6 -20 7 -20 9 -20 10 -20 12 -20 15 -20 16 -20 20 -20 24 -20 30 -20 39 -20 66 -20 124 0 66 20 39 20 30 20 24 20 20 20 16 20 15 20 12 20 10 20 9 20 7 20 6 20 4 20 4 20 1 20 1 20 0 0 -1 20 -1 20 -4 20 -4 20 -6 20 -7 20 -9 20 -10 20 -12 20 -15 20 -16 20 -20 20 -24 20 -30 20 -39 20 -66 20 -124 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path id="ELLIPSE112" d="M 62998 13340 l -66 -20 -39 -20 -30 -20 -24 -20 -20 -20 -16 -20 -15 -20 -12 -20 -10 -20 -9 -20 -7 -20 -6 -20 -4 -20 -4 -20 -1 -20 -1 -20 0 0 1 -20 1 -20 4 -20 4 -20 6 -20 7 -20 9 -20 10 -20 12 -20 15 -20 16 -20 20 -20 24 -20 30 -20 39 -20 66 -20 124 0 66 20 39 20 30 20 24 20 20 20 16 20 15 20 12 20 10 20 9 20 7 20 6 20 4 20 4 20 1 20 1 20 0 0 -1 20 -1 20 -4 20 -4 20 -6 20 -7 20 -9 20 -10 20 -12 20 -15 20 -16 20 -20 20 -24 20 -30 20 -39 20 -66 20 -124 0" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path id="ELLIPSE113" d="M 62938 19740 l -66 -20 -39 -20 -30 -20 -24 -20 -20 -20 -16 -20 -15 -20 -12 -20 -10 -20 -9 -20 -7 -20 -6 -20 -4 -20 -4 -20 -1 -20 -1 -20 0 0 1 -20 1 -20 4 -20 4 -20 6 -20 7 -20 9 -20 10 -20 12 -20 15 -20 16 -20 20 -20 24 -20 30 -20 39 -20 66 -20 124 0 66 20 39 20 30 20 24 20 20 20 16 20 15 20 12 20 10 20 9 20 7 20 6 20 4 20 4 20 1 20 1 20 0 0 -1 20 -1 20 -4 20 -4 20 -6 20 -7 20 -9 20 -10 20 -12 20 -15 20 -16 20 -20 20 -24 20 -30 20 -39 20 -66 20 -124 0" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path id="ELLIPSE114" d="M 1278 17900 l -66 -20 -39 -20 -30 -20 -24 -20 -20 -20 -16 -20 -15 -20 -12 -20 -10 -20 -9 -20 -7 -20 -6 -20 -4 -20 -4 -20 -1 -20 -1 -20 0 0 1 -20 1 -20 4 -20 4 -20 6 -20 7 -20 9 -20 10 -20 12 -20 15 -20 16 -20 20 -20 24 -20 30 -20 39 -20 66 -20 124 0 66 20 39 20 30 20 24 20 20 20 16 20 15 20 12 20 10 20 9 20 7 20 6 20 4 20 4 20 1 20 1 20 0 0 -1 20 -1 20 -4 20 -4 20 -6 20 -7 20 -9 20 -10 20 -12 20 -15 20 -16 20 -20 20 -24 20 -30 20 -39 20 -66 20 -124 0" stroke="#000000" stroke-width="20" fill="#808080" />
+  <g id="TEXT120">
+    <rect x="29160" y="23460" width="820" height="7000" stroke-width="0" fill="none" id="TEXT120_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="29570" y="24720" id="TEXT120_pbTextEl">至<tspan x="29570" dy="560">循</tspan><tspan x="29570" dy="560">环</tspan><tspan x="29570" dy="560">冷</tspan><tspan x="29570" dy="560">却</tspan><tspan x="29570" dy="560">水</tspan><tspan x="29570" dy="560">回</tspan><tspan x="29570" dy="560">水</tspan><tspan x="29570" dy="560">母</tspan><tspan x="29570" dy="560">管</tspan></text>
+  </g>
+  <g id="TEXT121">
+    <rect x="30820" y="22800" width="760" height="8440" stroke-width="0" fill="none" id="TEXT121_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="31200" y="24780" id="TEXT121_pbTextEl">至<tspan x="31200" dy="560">循</tspan><tspan x="31200" dy="560">环</tspan><tspan x="31200" dy="560">冷</tspan><tspan x="31200" dy="560">却</tspan><tspan x="31200" dy="560">水</tspan><tspan x="31200" dy="560">上</tspan><tspan x="31200" dy="560">水</tspan><tspan x="31200" dy="560">母</tspan><tspan x="31200" dy="560">管</tspan></text>
+  </g>
+  <g id="TEXT123">
+    <rect x="46320" y="22400" width="760" height="8440" stroke-width="0" fill="none" id="TEXT123_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="46700" y="24380" id="TEXT123_pbTextEl">至<tspan x="46700" dy="560">循</tspan><tspan x="46700" dy="560">环</tspan><tspan x="46700" dy="560">冷</tspan><tspan x="46700" dy="560">却</tspan><tspan x="46700" dy="560">水</tspan><tspan x="46700" dy="560">上</tspan><tspan x="46700" dy="560">水</tspan><tspan x="46700" dy="560">母</tspan><tspan x="46700" dy="560">管</tspan></text>
+  </g>
+  <g id="TEXT124">
+    <rect x="47680" y="23160" width="820" height="7000" stroke-width="0" fill="none" id="TEXT124_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="48090" y="24420" id="TEXT124_pbTextEl">至<tspan x="48090" dy="560">循</tspan><tspan x="48090" dy="560">环</tspan><tspan x="48090" dy="560">冷</tspan><tspan x="48090" dy="560">却</tspan><tspan x="48090" dy="560">水</tspan><tspan x="48090" dy="560">回</tspan><tspan x="48090" dy="560">水</tspan><tspan x="48090" dy="560">母</tspan><tspan x="48090" dy="560">管</tspan></text>
+  </g>
+  <path id="POLYGON277" d="M 43940 13660 l 0 -2640" stroke="#808080" stroke-width="20" fill="none" />
+  <path d="M 44250 13120 l -155 -40 -86 -40 -64 -40 -52 -40 -43 -40 -38 -40 -33 -40 -28 -40 -25 -40 -22 -40 -19 -40 -17 -40 -14 -40 -11 -40 -10 -40 -8 -40 -6 -40 -3 -40 -2 -40 0 -40 2 -40 3 -40 6 -40 8 -40 10 -40 11 -40 14 -40 17 -40 19 -40 22 -40 25 -40 28 -40 33 -40 38 -40 43 -40 52 -40 64 -40 86 -40 155 -40 179 0 155 40 86 40 64 40 52 40 43 40 38 40 33 40 28 40 25 40 22 40 19 40 17 40 14 40 11 40 10 40 8 40 6 40 3 40 2 40 0 40 -2 40 -3 40 -6 40 -8 40 -10 40 -11 40 -14 40 -17 40 -19 40 -22 40 -25 40 -28 40 -33 40 -38 40 -43 40 -52 40 -64 40 -86 40 -155 40 -179 0" stroke="#FF0000" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 44680 11700 l -780 1220" stroke="#FF0000" stroke-width="20" fill="none" />
+  <path d="M 43940 12300 l 460 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 44589 12640 l -40 -14 -26 -13 -20 -13 -17 -14 -14 -13 -13 -13 -11 -14 -10 -13 -9 -13 -8 -14 -7 -13 -6 -13 -6 -14 -5 -13 -5 -13 -4 -14 -3 -13 -3 -13 -3 -14 -2 -13 -1 -13 -2 -14 0 -13 0 -13 0 0 0 -14 0 -13 2 -13 1 -14 2 -13 3 -13 3 -14 3 -13 4 -13 5 -14 5 -13 6 -13 6 -14 7 -13 8 -13 9 -14 10 -13 11 -13 13 -14 14 -13 17 -13 20 -14 26 -13 40 -13 101 0 40 13 26 13 20 14 17 13 14 13 13 14 11 13 10 13 9 14 8 13 7 13 6 14 6 13 5 13 5 14 4 13 3 13 3 14 3 13 2 13 1 14 2 13 0 13 1 14 0 0 -1 13 0 13 -2 14 -1 13 -2 13 -3 14 -3 13 -3 13 -4 14 -5 13 -5 13 -6 14 -6 13 -7 13 -8 14 -9 13 -10 13 -11 14 -13 13 -14 13 -17 14 -20 13 -26 13 -40 14 -101 0" stroke="#808080" stroke-width="20" fill="#00FF00" />
+  <g>
+    <rect x="44480" y="12100" width="340" height="360" stroke-width="0" fill="#00FF00" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="44650" y="12560">M</text>
+  </g>
+  <path d="M 44140 12020 l -340 0 300 640 -280 0 300 -640 20 0" stroke="#000000" stroke-width="20" fill="#00FF00" />
+  <g id="TEXT126">
+    <rect x="44060" y="10320" width="5040" height="1080" stroke-width="0" fill="none" id="TEXT126_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="46580" y="11140" id="TEXT126_pbTextEl">1#机真空破坏阀</text>
+  </g>
+  <path d="M 9940 10680 l 460 0 -200 320 -200 -320 -60 0" stroke="#000000" stroke-width="20" fill="#FFFFFF" />
+  <path d="M 10580 10780 l 0 440 -320 -180 320 -220 0 -40" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 9860 11240 l 0 -440 300 220 -300 200 0 20" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 10000 11380 l 440 0 -200 -320 -200 320 -40 0" stroke="#000000" stroke-width="20" fill="#FFFFFF" />
+  <path d="M 9920 22160 l 460 0 -200 280 -220 -280 -40 0" stroke="#000000" stroke-width="20" fill="#FFFFFF" />
+  <path d="M 10560 22240 l 0 440 -320 -180 320 -220 0 -40" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 9840 22700 l 0 -440 300 220 -300 200 0 20" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 9960 22820 l 460 0 -220 -300 -180 300 -60 0" stroke="#000000" stroke-width="20" fill="#FFFFFF" />
+  <g id="DATAPOINT3" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_FT_1203_BC" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="9200" y="3420" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT3_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="10000" y="3960" id="DATAPOINT3_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT4" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_PT_1210" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="14840" y="3360" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT4_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="15640" y="3900" id="DATAPOINT4_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT5" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_YIT_B1202" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="12280" y="5400" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT5_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="13080" y="5940" id="DATAPOINT5_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT6" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1210" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="7500" y="6620" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT6_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="8300" y="7160" id="DATAPOINT6_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT7" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1613" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="8260" y="10300" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT7_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="9060" y="10840" id="DATAPOINT7_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT8" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_PT_1202" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="15420" y="7600" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT8_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="16220" y="8140" id="DATAPOINT8_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT9" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_LT_1613A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="15060" y="11320" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT9_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="15860" y="11860" id="DATAPOINT9_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT10" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_LT_1613B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="15060" y="12000" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT10_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="15860" y="12540" id="DATAPOINT10_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT11" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_LT_1614" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="15060" y="12840" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT11_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="15860" y="13380" id="DATAPOINT11_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT12" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_PT_1601" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="17740" y="18240" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT12_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18540" y="18780" id="DATAPOINT12_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT13" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1211" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="28620" y="9320" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT13_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29420" y="9860" id="DATAPOINT13_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT14" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1212" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="28620" y="9760" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT14_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29420" y="10300" id="DATAPOINT14_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT16" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1216" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="28580" y="10260" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT16_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29380" y="10800" id="DATAPOINT16_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT17" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_ST_1101A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="32600" y="3660" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT17_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33400" y="4200" id="DATAPOINT17_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT18" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_ST_1101B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="32600" y="4340" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT18_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33400" y="4880" id="DATAPOINT18_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT19" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_ST_1101C" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="32600" y="5000" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT19_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33400" y="5540" id="DATAPOINT19_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT20" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1212" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38820" y="10080" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT20_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39620" y="10620" id="DATAPOINT20_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT21" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_FT_1202_BC" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38820" y="10640" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT21_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39620" y="11180" id="DATAPOINT21_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT22" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1358" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="26960" y="16040" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT22_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="27760" y="16580" id="DATAPOINT22_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT23" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1357" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="23860" y="16140" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT23_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="24660" y="16680" id="DATAPOINT23_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT24" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1354" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27200" y="18300" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT24_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="28000" y="18840" id="DATAPOINT24_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT25" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1353" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="24400" y="18300" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT25_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="25200" y="18840" id="DATAPOINT25_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT26" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_PDT_1701" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="24540" y="20380" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT26_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="25340" y="20920" id="DATAPOINT26_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT27" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1611" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="8260" y="21980" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT27_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="9060" y="22520" id="DATAPOINT27_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT28" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1215" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="8320" y="29640" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT28_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="9120" y="30180" id="DATAPOINT28_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT29" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_FT_1204_BC" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="12260" y="29740" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT29_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="13060" y="30280" id="DATAPOINT29_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT30" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_LT_1204" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="15880" y="29480" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT30_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="16680" y="30020" id="DATAPOINT30_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT31" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1213" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="28220" y="29500" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT31_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29020" y="30040" id="DATAPOINT31_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT32" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_PT_1209A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38680" y="28760" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT32_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39480" y="29300" id="DATAPOINT32_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT33" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_PT_1209B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38760" y="29680" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT33_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39560" y="30220" id="DATAPOINT33_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT34" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_YIT_P1001" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38900" y="24920" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT34_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39700" y="25460" id="DATAPOINT34_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT35" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_YIT_P1002" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="41160" y="24940" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT35_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41960" y="25480" id="DATAPOINT35_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT36" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_YIT_P1003" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="43920" y="24920" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT36_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="44720" y="25460" id="DATAPOINT36_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT37" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1703" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="51100" y="27680" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT37_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="51900" y="28220" id="DATAPOINT37_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT38" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_PT_1701B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="36480" y="17460" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT38_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="37280" y="18000" id="DATAPOINT38_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT39" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1701B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="31460" y="19040" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT39_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32260" y="19580" id="DATAPOINT39_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT40" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_LT_1201" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="41420" y="18660" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT40_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="42220" y="19200" id="DATAPOINT40_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT41" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1701A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="44360" y="18660" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT41_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="45160" y="19200" id="DATAPOINT41_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT42" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_PT_1701A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="44420" y="17660" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT42_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="45220" y="18200" id="DATAPOINT42_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT43" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1702A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="44040" y="14160" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT43_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="44840" y="14700" id="DATAPOINT43_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT44" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_PT_1208" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="46200" y="12880" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT44_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="47000" y="13420" id="DATAPOINT44_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT45" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1217" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="43860" y="8660" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT45_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="44660" y="9200" id="DATAPOINT45_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT46" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1406" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="48320" y="8600" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT46_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="49120" y="9140" id="DATAPOINT46_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT47" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1703" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="48500" y="9340" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT47_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="49300" y="9880" id="DATAPOINT47_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT48" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_PDT_1702" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="48440" y="10040" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT48_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="49240" y="10580" id="DATAPOINT48_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT49" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1407A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="54040" y="9480" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT49_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="54840" y="10020" id="DATAPOINT49_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT50" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1407B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="54020" y="10080" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT50_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="54820" y="10620" id="DATAPOINT50_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT51" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_YIT_P1009" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="54300" y="12140" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT51_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="12680" id="DATAPOINT51_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT52" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_YIT_P1010" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="54340" y="18480" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT52_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55140" y="19020" id="DATAPOINT52_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT53" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1214" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="14840" y="2600" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT53_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="15640" y="3140" id="DATAPOINT53_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT54" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_LT_1611A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="15340" y="19680" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT54_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="16140" y="20220" id="DATAPOINT54_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT55" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_LT_1611B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="15340" y="20340" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT55_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="16140" y="20880" id="DATAPOINT55_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT56" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_LT_1612" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="15340" y="21160" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT56_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="16140" y="21700" id="DATAPOINT56_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT57" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_LT_1202" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="39320" y="18720" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT57_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="40120" y="19260" id="DATAPOINT57_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT58" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\5400_TT_1702B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="36120" y="14060" width="1600" height="520" stroke-width="0" fill="none" id="DATAPOINT58_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="36920" y="14600" id="DATAPOINT58_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+</svg>

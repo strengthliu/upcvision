@@ -14,6 +14,39 @@ public class Point implements Serializable,Cloneable {
 	String enunit; // 数据单位 ，FN_ENUNITS
 	String tagType; // 位号类型，FN_TAGTYPE
 	
+//	double hihiLimit;
+//	double hiLimit;
+//	double loLimit;
+//	double loloLimit;	
+	Double hihiLimit;
+	Double hiLimit;
+	Double loloLimit;
+	Double loLimit;
+	
+	public double getHihiLimit() {
+		return hihiLimit;
+	}
+	public void setHihiLimit(double hihiLimit) {
+		this.hihiLimit = hihiLimit;
+	}
+	public double getHiLimit() {
+		return hiLimit;
+	}
+	public void setHiLimit(double hiLimit) {
+		this.hiLimit = hiLimit;
+	}
+	public double getLoLimit() {
+		return loLimit;
+	}
+	public void setLoLimit(double loLimit) {
+		this.loLimit = loLimit;
+	}
+	public double getLoloLimit() {
+		return loloLimit;
+	}
+	public void setLoloLimit(double loloLimit) {
+		this.loloLimit = loloLimit;
+	}
 	public Long getId() {
 		return id;
 	}

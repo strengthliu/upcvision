@@ -1,0 +1,881 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg height="100%" width="100%" viewBox="0 0 64000 32000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:PB="urn:osisoft-com-pb" xmlns:PBI="urn:osisoft-com-interface" xmlns:PBD="urn:osisoft-com-data" style="background-color:#C0C0C0">
+  <title>Graphic8</title>
+  <defs>
+    <PBD:TagUses tag="\\RTDBB\85_7303_27_P02_C">
+      <PBI:Symbol name="DATAPOINT2_MS" PB:Type="7" PB:Parent="DATAPOINT2" />
+      <PBI:Symbol name="DATAPOINT255_MS" PB:Type="7" PB:Parent="DATAPOINT255" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1060_PT_1016">
+      <PBI:Symbol name="DATAPOINT3_MS" PB:Type="7" PB:Parent="DATAPOINT3" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1370_PT_7101">
+      <PBI:Symbol name="DATAPOINT6_MS" PB:Type="7" PB:Parent="DATAPOINT6" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1700_PT_Q002">
+      <PBI:Symbol name="DATAPOINT7_MS" PB:Type="7" PB:Parent="DATAPOINT7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\PT_85_7303_27_P01">
+      <PBI:Symbol name="DATAPOINT1_MS" PB:Type="7" PB:Parent="DATAPOINT1" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\85_7303_27_F02_C">
+      <PBI:Symbol name="DATAPOINT14_MS" PB:Type="7" PB:Parent="DATAPOINT14" />
+      <PBI:Symbol name="DATAPOINT254_MS" PB:Type="7" PB:Parent="DATAPOINT254" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1060_FT_1002">
+      <PBI:Symbol name="DATAPOINT15_MS" PB:Type="7" PB:Parent="DATAPOINT15" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1370_FT_7101">
+      <PBI:Symbol name="DATAPOINT18_MS" PB:Type="7" PB:Parent="DATAPOINT18" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1700_FT_Q002">
+      <PBI:Symbol name="DATAPOINT19_MS" PB:Type="7" PB:Parent="DATAPOINT19" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1271_PT_0003">
+      <PBI:Symbol name="DATAPOINT28_MS" PB:Type="7" PB:Parent="DATAPOINT28" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1272_PT_0003">
+      <PBI:Symbol name="DATAPOINT29_MS" PB:Type="7" PB:Parent="DATAPOINT29" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1370_PT_7105">
+      <PBI:Symbol name="DATAPOINT30_MS" PB:Type="7" PB:Parent="DATAPOINT30" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\150_PT_8104">
+      <PBI:Symbol name="DATAPOINT31_MS" PB:Type="7" PB:Parent="DATAPOINT31" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\210_PT_7401">
+      <PBI:Symbol name="DATAPOINT32_MS" PB:Type="7" PB:Parent="DATAPOINT32" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\160_PT_90009">
+      <PBI:Symbol name="DATAPOINT33_MS" PB:Type="7" PB:Parent="DATAPOINT33" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_PT_1016">
+      <PBI:Symbol name="DATAPOINT34_MS" PB:Type="7" PB:Parent="DATAPOINT34" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_PT_2303">
+      <PBI:Symbol name="DATAPOINT35_MS" PB:Type="7" PB:Parent="DATAPOINT35" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1271_FT_0003">
+      <PBI:Symbol name="DATAPOINT41_MS" PB:Type="7" PB:Parent="DATAPOINT41" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1272_FT_0003">
+      <PBI:Symbol name="DATAPOINT42_MS" PB:Type="7" PB:Parent="DATAPOINT42" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1370_FT_7105">
+      <PBI:Symbol name="DATAPOINT43_MS" PB:Type="7" PB:Parent="DATAPOINT43" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\150_FT_8104">
+      <PBI:Symbol name="DATAPOINT44_MS" PB:Type="7" PB:Parent="DATAPOINT44" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\210_FT_7401">
+      <PBI:Symbol name="DATAPOINT45_MS" PB:Type="7" PB:Parent="DATAPOINT45" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\160_FT_90009_TP">
+      <PBI:Symbol name="DATAPOINT46_MS" PB:Type="7" PB:Parent="DATAPOINT46" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_FT_1004">
+      <PBI:Symbol name="DATAPOINT47_MS" PB:Type="7" PB:Parent="DATAPOINT47" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_FT_2303">
+      <PBI:Symbol name="DATAPOINT48_MS" PB:Type="7" PB:Parent="DATAPOINT48" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1060_Ft_5005">
+      <PBI:Symbol name="DATAPOINT53_MS" PB:Type="7" PB:Parent="DATAPOINT53" />
+      <PBI:Symbol name="DATAPOINT54_MS" PB:Type="7" PB:Parent="DATAPOINT54" />
+      <PBI:Symbol name="DATAPOINT55_MS" PB:Type="7" PB:Parent="DATAPOINT55" />
+      <PBI:Symbol name="DATAPOINT56_MS" PB:Type="7" PB:Parent="DATAPOINT56" />
+      <PBI:Symbol name="DATAPOINT57_MS" PB:Type="7" PB:Parent="DATAPOINT57" />
+      <PBI:Symbol name="DATAPOINT58_MS" PB:Type="7" PB:Parent="DATAPOINT58" />
+      <PBI:Symbol name="DATAPOINT59_MS" PB:Type="7" PB:Parent="DATAPOINT59" />
+      <PBI:Symbol name="DATAPOINT61_MS" PB:Type="7" PB:Parent="DATAPOINT61" />
+      <PBI:Symbol name="DATAPOINT62_MS" PB:Type="7" PB:Parent="DATAPOINT62" />
+      <PBI:Symbol name="DATAPOINT63_MS" PB:Type="7" PB:Parent="DATAPOINT63" />
+      <PBI:Symbol name="DATAPOINT64_MS" PB:Type="7" PB:Parent="DATAPOINT64" />
+      <PBI:Symbol name="DATAPOINT65_MS" PB:Type="7" PB:Parent="DATAPOINT65" />
+      <PBI:Symbol name="DATAPOINT67_MS" PB:Type="7" PB:Parent="DATAPOINT67" />
+      <PBI:Symbol name="DATAPOINT68_MS" PB:Type="7" PB:Parent="DATAPOINT68" />
+      <PBI:Symbol name="DATAPOINT69_MS" PB:Type="7" PB:Parent="DATAPOINT69" />
+      <PBI:Symbol name="DATAPOINT70_MS" PB:Type="7" PB:Parent="DATAPOINT70" />
+      <PBI:Symbol name="DATAPOINT71_MS" PB:Type="7" PB:Parent="DATAPOINT71" />
+      <PBI:Symbol name="DATAPOINT72_MS" PB:Type="7" PB:Parent="DATAPOINT72" />
+      <PBI:Symbol name="DATAPOINT73_MS" PB:Type="7" PB:Parent="DATAPOINT73" />
+      <PBI:Symbol name="DATAPOINT74_MS" PB:Type="7" PB:Parent="DATAPOINT74" />
+      <PBI:Symbol name="DATAPOINT75_MS" PB:Type="7" PB:Parent="DATAPOINT75" />
+      <PBI:Symbol name="DATAPOINT76_MS" PB:Type="7" PB:Parent="DATAPOINT76" />
+      <PBI:Symbol name="DATAPOINT77_MS" PB:Type="7" PB:Parent="DATAPOINT77" />
+      <PBI:Symbol name="DATAPOINT78_MS" PB:Type="7" PB:Parent="DATAPOINT78" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\M560_PT_1301">
+      <PBI:Symbol name="DATAPOINT95_MS" PB:Type="7" PB:Parent="DATAPOINT95" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\430_PT_1204">
+      <PBI:Symbol name="DATAPOINT97_MS" PB:Type="7" PB:Parent="DATAPOINT97" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\180_PIC_0106">
+      <PBI:Symbol name="DATAPOINT105_MS" PB:Type="7" PB:Parent="DATAPOINT105" />
+      <PBI:Symbol name="DATAPOINT257_MS" PB:Type="7" PB:Parent="DATAPOINT257" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1060_PT_1010">
+      <PBI:Symbol name="DATAPOINT106_MS" PB:Type="7" PB:Parent="DATAPOINT106" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\PT_85_7103_98_P05">
+      <PBI:Symbol name="DATAPOINT118_MS" PB:Type="7" PB:Parent="DATAPOINT118" />
+      <PBI:Symbol name="DATAPOINT37_MS" PB:Type="7" PB:Parent="DATAPOINT37" />
+      <PBI:Symbol name="DATAPOINT38_MS" PB:Type="7" PB:Parent="DATAPOINT38" />
+      <PBI:Symbol name="DATAPOINT39_MS" PB:Type="7" PB:Parent="DATAPOINT39" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1060_FT_1012">
+      <PBI:Symbol name="DATAPOINT119_MS" PB:Type="7" PB:Parent="DATAPOINT119" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1201_FT_1901">
+      <PBI:Symbol name="DATAPOINT120_MS" PB:Type="7" PB:Parent="DATAPOINT120" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\1202_FT_1901">
+      <PBI:Symbol name="DATAPOINT121_MS" PB:Type="7" PB:Parent="DATAPOINT121" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\FT_85_7303_17_F01">
+      <PBI:Symbol name="DATAPOINT250_MS" PB:Type="7" PB:Parent="DATAPOINT250" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\180_FT_0102">
+      <PBI:Symbol name="DATAPOINT259_MS" PB:Type="7" PB:Parent="DATAPOINT259" />
+      <PBI:Symbol name="DATAPOINT26_MS" PB:Type="7" PB:Parent="DATAPOINT26" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\FT_85_7303_18_F01">
+      <PBI:Symbol name="DATAPOINT8_MS" PB:Type="7" PB:Parent="DATAPOINT8" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\FT_85_7303_17_18_F01">
+      <PBI:Symbol name="DATAPOINT9_MS" PB:Type="7" PB:Parent="DATAPOINT9" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\SMN_001">
+      <PBI:Symbol name="DATAPOINT10_MS" PB:Type="7" PB:Parent="DATAPOINT10" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\580_FT_10608">
+      <PBI:Symbol name="DATAPOINT11_MS" PB:Type="7" PB:Parent="DATAPOINT11" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\M560_FT_1301">
+      <PBI:Symbol name="DATAPOINT12_MS" PB:Type="7" PB:Parent="DATAPOINT12" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\430_FT_1204">
+      <PBI:Symbol name="DATAPOINT20_MS" PB:Type="7" PB:Parent="DATAPOINT20" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\430_FT_2205">
+      <PBI:Symbol name="DATAPOINT21_MS" PB:Type="7" PB:Parent="DATAPOINT21" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_FT_1005">
+      <PBI:Symbol name="DATAPOINT22_MS" PB:Type="7" PB:Parent="DATAPOINT22" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_FT_2302">
+      <PBI:Symbol name="DATAPOINT23_MS" PB:Type="7" PB:Parent="DATAPOINT23" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_FT_3502">
+      <PBI:Symbol name="DATAPOINT24_MS" PB:Type="7" PB:Parent="DATAPOINT24" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\GWN_001">
+      <PBI:Symbol name="DATAPOINT25_MS" PB:Type="7" PB:Parent="DATAPOINT25" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\PT_85_7103_01_P01">
+      <PBI:Symbol name="DATAPOINT36_MS" PB:Type="7" PB:Parent="DATAPOINT36" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\QYZL">
+      <PBI:Symbol name="DATAPOINT49_MS" PB:Type="7" PB:Parent="DATAPOINT49" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\FT_85_7103_01_F01">
+      <PBI:Symbol name="DATAPOINT50_MS" PB:Type="7" PB:Parent="DATAPOINT50" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\81_3701_01_F02">
+      <PBI:Symbol name="DATAPOINT51_MS" PB:Type="7" PB:Parent="DATAPOINT51" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\82_3701_01_F02">
+      <PBI:Symbol name="DATAPOINT52_MS" PB:Type="7" PB:Parent="DATAPOINT52" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\83_3701_01_F02">
+      <PBI:Symbol name="DATAPOINT60_MS" PB:Type="7" PB:Parent="DATAPOINT60" />
+    </PBD:TagUses>
+  </defs>
+  <path id="LINE18708" d="M 480 2540 l 63040 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18709" d="M 480 4360 l 63040 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18710" d="M 480 6100 l 63040 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18711" d="M 6600 7920 l 56920 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18712" d="M 480 9680 l 63040 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18713" d="M 480 11500 l 63040 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18714" d="M 6480 13240 l 57040 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18715" d="M 480 15060 l 63040 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18716" d="M 480 16800 l 63040 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18717" d="M 6520 18620 l 57000 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18718" d="M 6480 20380 l 57040 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18719" d="M 6520 22200 l 57000 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18720" d="M 6480 23980 l 57040 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18721" d="M 2560 25760 l 60960 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18722" d="M 520 27580 l 63000 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18723" d="M 6560 29320 l 56960 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="POLYGON18736" d="M 480 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18737" d="M 2540 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18738" d="M 6480 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18739" d="M 9180 4160 l 0 27080" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18740" d="M 16220 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18741" d="M 20160 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18742" d="M 24100 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18743" d="M 28040 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18744" d="M 31980 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18745" d="M 35920 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18746" d="M 39860 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18747" d="M 43780 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18748" d="M 47720 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18749" d="M 51660 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18750" d="M 55600 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18751" d="M 59540 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE18752" d="M 63480 2580 l 0 28660" stroke="#000000" stroke-width="20" fill="none" />
+  <g id="TEXT6661">
+    <rect x="860" y="2880" width="1360" height="1200" stroke-width="0" fill="none" id="TEXT6661_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="1540" y="3760" id="TEXT6661_pbTextEl">序号</text>
+  </g>
+  <g id="TEXT6662">
+    <rect x="3860" y="2880" width="1360" height="1200" stroke-width="0" fill="none" id="TEXT6662_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="4540" y="3760" id="TEXT6662_pbTextEl">介质</text>
+  </g>
+  <g id="TEXT189">
+    <rect x="6420" y="4780" width="2800" height="980" stroke-width="0" fill="none" id="TEXT189_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7820" y="5550" id="TEXT189_pbTextEl">指标</text>
+  </g>
+  <g id="TEXT190">
+    <rect x="6420" y="6120" width="2800" height="1880" stroke-width="0" fill="none" id="TEXT190_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7820" y="7060" id="TEXT190_pbTextEl">压力<tspan x="7820" dy="560">（MPa）</tspan></text>
+  </g>
+  <g id="TEXT191">
+    <rect x="6380" y="7900" width="2800" height="2120" stroke-width="0" fill="none" id="TEXT191_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7780" y="8960" id="TEXT191_pbTextEl">流量<tspan x="7780" dy="560">（t./h）</tspan></text>
+  </g>
+  <g id="TEXT192">
+    <rect x="6400" y="9940" width="2800" height="1280" stroke-width="0" fill="none" id="TEXT192_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7800" y="10860" id="TEXT192_pbTextEl">指标</text>
+  </g>
+  <g id="TEXT193">
+    <rect x="6400" y="11540" width="2800" height="1880" stroke-width="0" fill="none" id="TEXT193_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7800" y="12480" id="TEXT193_pbTextEl">压力<tspan x="7800" dy="560">（MPa）</tspan></text>
+  </g>
+  <g id="TEXT194">
+    <rect x="6360" y="13340" width="2800" height="2120" stroke-width="0" fill="none" id="TEXT194_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7760" y="14400" id="TEXT194_pbTextEl">流量<tspan x="7760" dy="560">（t./h）</tspan></text>
+  </g>
+  <g id="TEXT195">
+    <rect x="6480" y="15300" width="2800" height="1280" stroke-width="0" fill="none" id="TEXT195_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7880" y="16220" id="TEXT195_pbTextEl">指标</text>
+  </g>
+  <g id="TEXT196">
+    <rect x="6480" y="16840" width="2800" height="1880" stroke-width="0" fill="none" id="TEXT196_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7880" y="17780" id="TEXT196_pbTextEl">压力<tspan x="7880" dy="560">（MPa）</tspan></text>
+  </g>
+  <g id="TEXT197">
+    <rect x="6440" y="18600" width="2800" height="2120" stroke-width="0" fill="none" id="TEXT197_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7840" y="19660" id="TEXT197_pbTextEl">流量<tspan x="7840" dy="560">（t./h）</tspan></text>
+  </g>
+  <g id="TEXT198">
+    <rect x="6400" y="20400" width="2800" height="2120" stroke-width="0" fill="none" id="TEXT198_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7800" y="21740" id="TEXT198_pbTextEl">指标</text>
+  </g>
+  <g id="TEXT199">
+    <rect x="6480" y="22440" width="2800" height="1280" stroke-width="0" fill="none" id="TEXT199_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7880" y="23080" id="TEXT199_pbTextEl">压力<tspan x="7880" dy="560">（MPa）</tspan></text>
+  </g>
+  <g id="TEXT200">
+    <rect x="6480" y="23980" width="2800" height="1880" stroke-width="0" fill="none" id="TEXT200_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7880" y="24920" id="TEXT200_pbTextEl">流量<tspan x="7880" dy="560">（t./h）</tspan></text>
+  </g>
+  <g id="TEXT201">
+    <rect x="6400" y="27540" width="2800" height="2120" stroke-width="0" fill="none" id="TEXT201_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7800" y="28600" id="TEXT201_pbTextEl">压力<tspan x="7800" dy="560">（MPa）</tspan></text>
+  </g>
+  <g id="TEXT202">
+    <rect x="6360" y="29320" width="2800" height="2120" stroke-width="0" fill="none" id="TEXT202_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7760" y="30380" id="TEXT202_pbTextEl">流量<tspan x="7760" dy="560">（t./h）</tspan></text>
+  </g>
+  <g id="TEXT203">
+    <rect x="6480" y="26000" width="2800" height="1280" stroke-width="0" fill="none" id="TEXT203_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7880" y="26920" id="TEXT203_pbTextEl">指标</text>
+  </g>
+  <g id="TEXT215">
+    <rect x="10680" y="4640" width="3800" height="1200" stroke-width="0" fill="none" id="TEXT215_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="12580" y="5520" id="TEXT215_pbTextEl">实时值</text>
+  </g>
+  <g id="TEXT216">
+    <rect x="16380" y="4640" width="3500" height="1200" stroke-width="0" fill="none" id="TEXT216_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18130" y="5520" id="TEXT216_pbTextEl">4.0MPa管网</text>
+  </g>
+  <g id="TEXT217">
+    <rect x="20740" y="4640" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT217_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="22140" y="5520" id="TEXT217_pbTextEl">煤气化</text>
+  </g>
+  <g id="TEXT218">
+    <rect x="24680" y="4640" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT218_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="26080" y="5520" id="TEXT218_pbTextEl">净化一</text>
+  </g>
+  <g id="TEXT219">
+    <rect x="28620" y="4640" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT219_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="30020" y="5520" id="TEXT219_pbTextEl">净化二</text>
+  </g>
+  <g id="TEXT220">
+    <rect x="32560" y="4640" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT220_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33960" y="5520" id="TEXT220_pbTextEl">甲醇合成</text>
+  </g>
+  <g id="TEXT221">
+    <rect x="36500" y="4640" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT221_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="37900" y="5520" id="TEXT221_pbTextEl">聚丙烯</text>
+  </g>
+  <g id="TEXT241">
+    <rect x="10680" y="9960" width="3800" height="1200" stroke-width="0" fill="none" id="TEXT241_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="12580" y="10840" id="TEXT241_pbTextEl">实时值</text>
+  </g>
+  <g id="TEXT242">
+    <rect x="16420" y="9960" width="3540" height="1200" stroke-width="0" fill="none" id="TEXT242_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18190" y="10840" id="TEXT242_pbTextEl">0.75MPa管网</text>
+  </g>
+  <g id="TEXT243">
+    <rect x="20740" y="9960" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT243_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="22140" y="10840" id="TEXT243_pbTextEl">净化一</text>
+  </g>
+  <g id="TEXT244">
+    <rect x="24680" y="9960" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT244_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="26080" y="10840" id="TEXT244_pbTextEl">净化二</text>
+  </g>
+  <g id="TEXT245">
+    <rect x="28620" y="9960" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT245_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="30020" y="10840" id="TEXT245_pbTextEl">甲醇合成</text>
+  </g>
+  <g id="TEXT246">
+    <rect x="32240" y="9960" width="3360" height="1200" stroke-width="0" fill="none" id="TEXT246_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33920" y="10840" id="TEXT246_pbTextEl">MTO（含OCC）</text>
+  </g>
+  <g id="TEXT247">
+    <rect x="36500" y="9960" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT247_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="37900" y="10840" id="TEXT247_pbTextEl">OCC</text>
+  </g>
+  <g id="TEXT248">
+    <rect x="40420" y="9960" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT248_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41820" y="10840" id="TEXT248_pbTextEl">聚乙烯</text>
+  </g>
+  <g id="TEXT249">
+    <rect x="44360" y="9960" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT249_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="45760" y="10840" id="TEXT249_pbTextEl">乙烯罐区</text>
+  </g>
+  <g id="TEXT250">
+    <rect x="48300" y="9960" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT250_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="49700" y="10840" id="TEXT250_pbTextEl">丙烯罐区</text>
+  </g>
+  <g id="TEXT254">
+    <rect x="10680" y="15320" width="3800" height="1200" stroke-width="0" fill="none" id="TEXT254_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="12580" y="16200" id="TEXT254_pbTextEl">实时值</text>
+  </g>
+  <g id="TEXT255">
+    <rect x="16200" y="15320" width="3820" height="1200" stroke-width="0" fill="none" id="TEXT255_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18110" y="16200" id="TEXT255_pbTextEl">0.35MPa管网</text>
+  </g>
+  <g id="TEXT256">
+    <rect x="20740" y="15320" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT256_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="22140" y="16200" id="TEXT256_pbTextEl">煤气化</text>
+  </g>
+  <g id="TEXT257">
+    <rect x="24680" y="15320" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT257_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="26080" y="16200" id="TEXT257_pbTextEl">净化一</text>
+  </g>
+  <g id="TEXT258">
+    <rect x="28620" y="15320" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT258_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="30020" y="16200" id="TEXT258_pbTextEl">净化二</text>
+  </g>
+  <g id="TEXT259">
+    <rect x="32560" y="15320" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT259_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33960" y="16200" id="TEXT259_pbTextEl">甲醇合成</text>
+  </g>
+  <g id="TEXT260">
+    <rect x="36500" y="15320" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT260_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="37900" y="16200" id="TEXT260_pbTextEl">硫回收</text>
+  </g>
+  <g id="TEXT261">
+    <rect x="40100" y="15320" width="3500" height="1200" stroke-width="0" fill="none" id="TEXT261_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41850" y="16200" id="TEXT261_pbTextEl">MTO（含OCC）</text>
+  </g>
+  <g id="TEXT262">
+    <rect x="44360" y="15320" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT262_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="45760" y="16200" id="TEXT262_pbTextEl">OCC</text>
+  </g>
+  <g id="TEXT263">
+    <rect x="48300" y="15320" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT263_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="49700" y="16200" id="TEXT263_pbTextEl">聚乙烯</text>
+  </g>
+  <g id="TEXT264">
+    <rect x="52240" y="15320" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT264_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="53640" y="16200" id="TEXT264_pbTextEl">聚丙烯</text>
+  </g>
+  <g id="TEXT265">
+    <rect x="56160" y="15320" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT265_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57560" y="16200" id="TEXT265_pbTextEl">装卸站</text>
+  </g>
+  <g id="TEXT266">
+    <rect x="60100" y="15320" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT266_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="61500" y="16200" id="TEXT266_pbTextEl">锅炉装置</text>
+  </g>
+  <g id="TEXT267">
+    <rect x="10680" y="20640" width="3800" height="1200" stroke-width="0" fill="none" id="TEXT267_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="12580" y="21520" id="TEXT267_pbTextEl">实时值</text>
+  </g>
+  <g id="TEXT268">
+    <rect x="16800" y="20640" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT268_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18200" y="21520" id="TEXT268_pbTextEl">圆形料场</text>
+  </g>
+  <g id="TEXT269">
+    <rect x="20740" y="20640" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT269_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="22140" y="21520" id="TEXT269_pbTextEl">污水装置</text>
+  </g>
+  <g id="TEXT270">
+    <rect x="24680" y="20640" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT270_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="26080" y="21520" id="TEXT270_pbTextEl">火炬</text>
+  </g>
+  <g id="TEXT271">
+    <rect x="28620" y="20640" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT271_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="30020" y="21520" id="TEXT271_pbTextEl">中化室</text>
+  </g>
+  <g id="TEXT272">
+    <rect x="32560" y="20640" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT272_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33960" y="21520" id="TEXT272_pbTextEl">甲醇罐区</text>
+  </g>
+  <g id="TEXT273">
+    <rect x="36180" y="20640" width="3500" height="1200" stroke-width="0" fill="none" id="TEXT273_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="37930" y="21520" id="TEXT273_pbTextEl">己烯_1罐区</text>
+  </g>
+  <g id="TEXT274">
+    <rect x="40420" y="20640" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT274_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41820" y="21520" id="TEXT274_pbTextEl">乙烯罐区</text>
+  </g>
+  <g id="TEXT275">
+    <rect x="44360" y="20640" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT275_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="45760" y="21520" id="TEXT275_pbTextEl">丙烯罐区</text>
+  </g>
+  <g id="TEXT276">
+    <rect x="48300" y="20640" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT276_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="49700" y="21520" id="TEXT276_pbTextEl">C4C5罐区</text>
+  </g>
+  <g id="TEXT277">
+    <rect x="52000" y="20640" width="3220" height="1200" stroke-width="0" fill="none" id="TEXT277_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="53610" y="21520" id="TEXT277_pbTextEl">码头罐区</text>
+  </g>
+  <g id="TEXT280">
+    <rect x="10680" y="26120" width="3800" height="1200" stroke-width="0" fill="none" id="TEXT280_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="12580" y="27000" id="TEXT280_pbTextEl">实时值</text>
+  </g>
+  <g id="TEXT281">
+    <rect x="16800" y="26120" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT281_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18200" y="27000" id="TEXT281_pbTextEl">煤气化</text>
+  </g>
+  <g id="TEXT282">
+    <rect x="20740" y="26120" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT282_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="22140" y="27000" id="TEXT282_pbTextEl">净化一</text>
+  </g>
+  <g id="TEXT283">
+    <rect x="24680" y="26120" width="2800" height="1200" stroke-width="0" fill="none" id="TEXT283_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="26080" y="27000" id="TEXT283_pbTextEl">净化二</text>
+  </g>
+  <g id="DATAPOINT2" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\85_7303_27_P02_C" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="17260" y="6540" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT2_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="18070" y="7240" id="DATAPOINT2_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT2_MS" PBD:PtTagName="\\RTDBB\85_7303_27_P02_C" TagName="85_7303_27_P02_C" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT2_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT2_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT3" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_PT_1016" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="21220" y="6540" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT3_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="22030" y="7240" id="DATAPOINT3_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT3_MS" PBD:PtTagName="\\RTDBB\1060_PT_1016" TagName="1060_PT_1016" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT3_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT3_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT6" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1370_PT_7101" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="33080" y="6540" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT6_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="33890" y="7240" id="DATAPOINT6_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT6_MS" PBD:PtTagName="\\RTDBB\1370_PT_7101" TagName="1370_PT_7101" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT6_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT6_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT7" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1700_PT_Q002" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="37040" y="6540" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT7_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="37850" y="7240" id="DATAPOINT7_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT7_MS" PBD:PtTagName="\\RTDBB\1700_PT_Q002" TagName="1700_PT_Q002" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT7_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT7_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT1" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\PT_85_7303_27_P01" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="11700" y="6700" width="1740" height="580" stroke-width="0" fill="none" id="DATAPOINT1_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="12570" y="7270" id="DATAPOINT1_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT1_MS" PBD:PtTagName="\\RTDBB\PT_85_7303_27_P01" TagName="PT_85_7303_27_P01" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT1_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT1_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT14" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\85_7303_27_F02_C" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="17260" y="8360" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT14_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="18070" y="9060" id="DATAPOINT14_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT14_MS" PBD:PtTagName="\\RTDBB\85_7303_27_F02_C" TagName="85_7303_27_F02_C" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT14_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT14_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT15" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_FT_1002" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="21220" y="8360" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT15_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="22030" y="9060" id="DATAPOINT15_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT15_MS" PBD:PtTagName="\\RTDBB\1060_FT_1002" TagName="1060_FT_1002" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT15_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT15_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT18" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1370_FT_7101" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="33080" y="8360" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT18_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="33890" y="9060" id="DATAPOINT18_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT18_MS" PBD:PtTagName="\\RTDBB\1370_FT_7101" TagName="1370_FT_7101" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT18_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT18_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT19" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1700_FT_Q002" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="37040" y="8360" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT19_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="37850" y="9060" id="DATAPOINT19_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT19_MS" PBD:PtTagName="\\RTDBB\1700_FT_Q002" TagName="1700_FT_Q002" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT19_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT19_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT28" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1271_PT_0003" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="21220" y="12000" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT28_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="22030" y="12700" id="DATAPOINT28_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT28_MS" PBD:PtTagName="\\RTDBB\1271_PT_0003" TagName="1271_PT_0003" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT28_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT28_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT29" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1272_PT_0003" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="25180" y="12000" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT29_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="25990" y="12700" id="DATAPOINT29_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT29_MS" PBD:PtTagName="\\RTDBB\1272_PT_0003" TagName="1272_PT_0003" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT29_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT29_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT30" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1370_PT_7105" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="29140" y="12000" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT30_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="29950" y="12700" id="DATAPOINT30_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT30_MS" PBD:PtTagName="\\RTDBB\1370_PT_7105" TagName="1370_PT_7105" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT30_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT30_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT31" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\150_PT_8104" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="33080" y="12000" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT31_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="33890" y="12700" id="DATAPOINT31_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT31_MS" PBD:PtTagName="\\RTDBB\150_PT_8104" TagName="150_PT_8104" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT31_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT31_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT32" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\210_PT_7401" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="37040" y="12000" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT32_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="37850" y="12700" id="DATAPOINT32_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT32_MS" PBD:PtTagName="\\RTDBB\210_PT_7401" TagName="210_PT_7401" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT32_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT32_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT33" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\160_PT_90009" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="41000" y="12000" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT33_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="41810" y="12700" id="DATAPOINT33_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT33_MS" PBD:PtTagName="\\RTDBB\160_PT_90009" TagName="160_PT_90009" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT33_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT33_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT34" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\420_PT_1016" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="44960" y="12000" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT34_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="45770" y="12700" id="DATAPOINT34_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT34_MS" PBD:PtTagName="\\RTDBB\420_PT_1016" TagName="420_PT_1016" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT34_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT34_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT35" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\420_PT_2303" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="48900" y="12000" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT35_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="49710" y="12700" id="DATAPOINT35_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT35_MS" PBD:PtTagName="\\RTDBB\420_PT_2303" TagName="420_PT_2303" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT35_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT35_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT41" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1271_FT_0003" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="21220" y="13740" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT41_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="22030" y="14440" id="DATAPOINT41_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT41_MS" PBD:PtTagName="\\RTDBB\1271_FT_0003" TagName="1271_FT_0003" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT41_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT41_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT42" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1272_FT_0003" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="25180" y="13740" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT42_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="25990" y="14440" id="DATAPOINT42_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT42_MS" PBD:PtTagName="\\RTDBB\1272_FT_0003" TagName="1272_FT_0003" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT42_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT42_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT43" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1370_FT_7105" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="29140" y="13740" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT43_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="29950" y="14440" id="DATAPOINT43_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT43_MS" PBD:PtTagName="\\RTDBB\1370_FT_7105" TagName="1370_FT_7105" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT43_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT43_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT44" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\150_FT_8104" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="33080" y="13740" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT44_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="33890" y="14440" id="DATAPOINT44_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT44_MS" PBD:PtTagName="\\RTDBB\150_FT_8104" TagName="150_FT_8104" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT44_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT44_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT45" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\210_FT_7401" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="37040" y="13740" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT45_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="37850" y="14440" id="DATAPOINT45_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT45_MS" PBD:PtTagName="\\RTDBB\210_FT_7401" TagName="210_FT_7401" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT45_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT45_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT46" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\160_FT_90009_TP" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="41000" y="13740" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT46_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="41810" y="14440" id="DATAPOINT46_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT46_MS" PBD:PtTagName="\\RTDBB\160_FT_90009_TP" TagName="160_FT_90009_TP" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT46_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT46_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT47" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\420_FT_1004" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="44960" y="13740" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT47_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="45770" y="14440" id="DATAPOINT47_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT47_MS" PBD:PtTagName="\\RTDBB\420_FT_1004" TagName="420_FT_1004" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT47_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT47_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT48" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\420_FT_2303" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="48900" y="13740" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT48_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="49710" y="14440" id="DATAPOINT48_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT48_MS" PBD:PtTagName="\\RTDBB\420_FT_2303" TagName="420_FT_2303" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT48_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT48_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT53" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="17260" y="17320" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT53_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="18070" y="18020" id="DATAPOINT53_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT53_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT53_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT53_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT54" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="21220" y="17320" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT54_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="22030" y="18020" id="DATAPOINT54_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT54_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT54_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT54_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT55" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="25180" y="17320" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT55_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="25990" y="18020" id="DATAPOINT55_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT55_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT55_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT55_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT56" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="29140" y="17320" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT56_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="29950" y="18020" id="DATAPOINT56_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT56_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT56_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT56_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT57" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="33080" y="17320" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT57_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="33890" y="18020" id="DATAPOINT57_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT57_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT57_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT57_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT58" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="37040" y="17320" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT58_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="37850" y="18020" id="DATAPOINT58_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT58_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT58_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT58_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT59" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="41000" y="17320" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT59_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="41810" y="18020" id="DATAPOINT59_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT59_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT59_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT59_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT61" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="44960" y="17320" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT61_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="45770" y="18020" id="DATAPOINT61_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT61_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT61_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT61_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT62" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="48900" y="17320" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT62_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="49710" y="18020" id="DATAPOINT62_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT62_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT62_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT62_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT63" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="52860" y="17320" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT63_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="53670" y="18020" id="DATAPOINT63_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT63_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT63_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT63_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT64" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="56820" y="17320" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT64_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="57630" y="18020" id="DATAPOINT64_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT64_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT64_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT64_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT65" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="60760" y="17320" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT65_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="61570" y="18020" id="DATAPOINT65_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT65_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT65_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT65_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT67" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="17260" y="19140" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT67_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="18070" y="19840" id="DATAPOINT67_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT67_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT67_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT67_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT68" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="21220" y="19140" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT68_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="22030" y="19840" id="DATAPOINT68_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT68_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT68_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT68_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT69" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="25180" y="19140" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT69_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="25990" y="19840" id="DATAPOINT69_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT69_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT69_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT69_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT70" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="29140" y="19140" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT70_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="29950" y="19840" id="DATAPOINT70_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT70_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT70_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT70_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT71" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="33080" y="19140" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT71_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="33890" y="19840" id="DATAPOINT71_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT71_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT71_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT71_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT72" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="37040" y="19140" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT72_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="37850" y="19840" id="DATAPOINT72_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT72_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT72_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT72_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT73" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="41000" y="19140" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT73_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="41810" y="19840" id="DATAPOINT73_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT73_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT73_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT73_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT74" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="44960" y="19140" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT74_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="45770" y="19840" id="DATAPOINT74_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT74_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT74_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT74_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT75" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="48900" y="19140" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT75_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="49710" y="19840" id="DATAPOINT75_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT75_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT75_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT75_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT76" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="52860" y="19140" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT76_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="53670" y="19840" id="DATAPOINT76_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT76_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT76_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT76_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT77" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="56820" y="19140" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT77_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="57630" y="19840" id="DATAPOINT77_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT77_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT77_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT77_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT78" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_Ft_5005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="60760" y="19140" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT78_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="61570" y="19840" id="DATAPOINT78_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT78_MS" PBD:PtTagName="\\RTDBB\1060_Ft_5005" TagName="1060_Ft_5005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT78_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT78_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT95" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\M560_PT_1301" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="25180" y="22660" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT95_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="25990" y="23360" id="DATAPOINT95_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT95_MS" PBD:PtTagName="\\RTDBB\M560_PT_1301" TagName="M560_PT_1301" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT95_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT95_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT97" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\430_PT_1204" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="33080" y="22660" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT97_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="33890" y="23360" id="DATAPOINT97_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT97_MS" PBD:PtTagName="\\RTDBB\430_PT_1204" TagName="430_PT_1204" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT97_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT97_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT105" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\180_PIC_0106" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="11700" y="22660" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT105_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="12510" y="23360" id="DATAPOINT105_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT105_MS" PBD:PtTagName="\\RTDBB\180_PIC_0106" TagName="180_PIC_0106" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT105_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT105_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT106" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_PT_1010" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="17220" y="28060" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT106_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="18030" y="28760" id="DATAPOINT106_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT106_MS" PBD:PtTagName="\\RTDBB\1060_PT_1010" TagName="1060_PT_1010" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT106_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT106_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT118" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\PT_85_7103_98_P05" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="10640" y="27840" width="2200" height="440" stroke-width="0" fill="none" id="DATAPOINT118_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="11740" y="28340" id="DATAPOINT118_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT118_MS" PBD:PtTagName="\\RTDBB\PT_85_7103_98_P05" TagName="PT_85_7103_98_P05" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT118_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT118_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT119" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1060_FT_1012" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="17220" y="29880" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT119_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="18030" y="30580" id="DATAPOINT119_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT119_MS" PBD:PtTagName="\\RTDBB\1060_FT_1012" TagName="1060_FT_1012" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT119_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT119_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT120" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1201_FT_1901" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="21180" y="29880" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT120_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="21990" y="30580" id="DATAPOINT120_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT120_MS" PBD:PtTagName="\\RTDBB\1201_FT_1901" TagName="1201_FT_1901" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT120_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT120_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT121" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\1202_FT_1901" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="25140" y="29880" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT121_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="25950" y="30580" id="DATAPOINT121_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT121_MS" PBD:PtTagName="\\RTDBB\1202_FT_1901" TagName="1202_FT_1901" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT121_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT121_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT250" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\FT_85_7303_17_F01" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="10600" y="8840" width="1820" height="540" stroke-width="0" fill="none" id="DATAPOINT250_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="11510" y="9390" id="DATAPOINT250_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT250_MS" PBD:PtTagName="\\RTDBB\FT_85_7303_17_F01" TagName="FT_85_7303_17_F01" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT250_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT250_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT254" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\85_7303_27_F02_C" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="11700" y="13760" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT254_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="12510" y="14460" id="DATAPOINT254_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT254_MS" PBD:PtTagName="\\RTDBB\85_7303_27_F02_C" TagName="85_7303_27_F02_C" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT254_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT254_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT255" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\85_7303_27_P02_C" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="11700" y="11920" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT255_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="12510" y="12620" id="DATAPOINT255_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT255_MS" PBD:PtTagName="\\RTDBB\85_7303_27_P02_C" TagName="85_7303_27_P02_C" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT255_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT255_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT257" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\180_PIC_0106" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="11700" y="17380" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT257_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="12510" y="18080" id="DATAPOINT257_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT257_MS" PBD:PtTagName="\\RTDBB\180_PIC_0106" TagName="180_PIC_0106" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT257_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT257_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT259" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\180_FT_0102" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="11700" y="19080" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT259_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="12510" y="19780" id="DATAPOINT259_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT259_MS" PBD:PtTagName="\\RTDBB\180_FT_0102" TagName="180_FT_0102" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT259_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT259_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="TEXT976">
+    <rect x="7540" y="2800" width="7680" height="1200" stroke-width="0" fill="none" id="TEXT976_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="11380" y="3680" id="TEXT976_pbTextEl">气、风系统参数</text>
+  </g>
+  <g id="TEXT977">
+    <rect x="2960" y="7140" width="3180" height="1880" stroke-width="0" fill="none" id="TEXT977_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="4550" y="8360" id="TEXT977_pbTextEl">高压氮气</text>
+  </g>
+  <g id="TEXT978">
+    <rect x="2920" y="12520" width="3180" height="1880" stroke-width="0" fill="none" id="TEXT978_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="4510" y="13740" id="TEXT978_pbTextEl">中压氮气</text>
+  </g>
+  <g id="TEXT979">
+    <rect x="2900" y="20560" width="3180" height="1880" stroke-width="0" fill="none" id="TEXT979_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="4490" y="21780" id="TEXT979_pbTextEl">低压氮气</text>
+  </g>
+  <g id="TEXT981">
+    <rect x="2800" y="28480" width="3500" height="1880" stroke-width="0" fill="none" id="TEXT981_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="4550" y="29700" id="TEXT981_pbTextEl">低低压氮气</text>
+  </g>
+  <path id="LINE1" d="M 460 31120 l 63040 0" stroke="#000000" stroke-width="20" fill="none" />
+  <g id="TEXT99">
+    <rect x="9460" y="8780" width="1140" height="740" stroke-width="0" fill="none" id="TEXT99_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="10030" y="9430" id="TEXT99_pbTextEl">主泵</text>
+  </g>
+  <g id="DATAPOINT8" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\FT_85_7303_18_F01" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="14220" y="8880" width="1820" height="540" stroke-width="0" fill="none" id="DATAPOINT8_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="15130" y="9430" id="DATAPOINT8_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT8_MS" PBD:PtTagName="\\RTDBB\FT_85_7303_18_F01" TagName="FT_85_7303_18_F01" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT8_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT8_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="TEXT101">
+    <rect x="13200" y="8840" width="1140" height="740" stroke-width="0" fill="none" id="TEXT101_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="13770" y="9490" id="TEXT101_pbTextEl">副泵</text>
+  </g>
+  <g id="DATAPOINT9" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\FT_85_7303_17_18_F01" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="11420" y="8080" width="2320" height="540" stroke-width="0" fill="none" id="DATAPOINT9_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="12580" y="8630" id="DATAPOINT9_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT9_MS" PBD:PtTagName="\\RTDBB\FT_85_7303_17_18_F01" TagName="FT_85_7303_17_18_F01" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT9_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT9_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="TEXT103">
+    <rect x="9600" y="8040" width="1140" height="740" stroke-width="0" fill="none" id="TEXT103_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="10170" y="8690" id="TEXT103_pbTextEl">总量</text>
+  </g>
+  <g id="DATAPOINT10" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\SMN_001" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="17240" y="24560" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT10_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="18050" y="25260" id="DATAPOINT10_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT10_MS" PBD:PtTagName="\\RTDBB\SMN_001" TagName="SMN_001" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT10_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT10_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT11" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\580_FT_10608" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="21200" y="24560" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT11_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="22010" y="25260" id="DATAPOINT11_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT11_MS" PBD:PtTagName="\\RTDBB\580_FT_10608" TagName="580_FT_10608" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT11_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT11_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT12" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\M560_FT_1301" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="25160" y="24560" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT12_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="25970" y="25260" id="DATAPOINT12_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT12_MS" PBD:PtTagName="\\RTDBB\M560_FT_1301" TagName="M560_FT_1301" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT12_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT12_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT20" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\430_FT_1204" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="33060" y="24560" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT20_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="33870" y="25260" id="DATAPOINT20_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT20_MS" PBD:PtTagName="\\RTDBB\430_FT_1204" TagName="430_FT_1204" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT20_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT20_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT21" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\430_FT_2205" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="37020" y="24560" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT21_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="37830" y="25260" id="DATAPOINT21_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT21_MS" PBD:PtTagName="\\RTDBB\430_FT_2205" TagName="430_FT_2205" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT21_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT21_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT22" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\420_FT_1005" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="40980" y="24560" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT22_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="41790" y="25260" id="DATAPOINT22_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT22_MS" PBD:PtTagName="\\RTDBB\420_FT_1005" TagName="420_FT_1005" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT22_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT22_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT23" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\420_FT_2302" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="44940" y="24560" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT23_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="45750" y="25260" id="DATAPOINT23_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT23_MS" PBD:PtTagName="\\RTDBB\420_FT_2302" TagName="420_FT_2302" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT23_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT23_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT24" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\420_FT_3502" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="48880" y="24560" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT24_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="49690" y="25260" id="DATAPOINT24_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT24_MS" PBD:PtTagName="\\RTDBB\420_FT_3502" TagName="420_FT_3502" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT24_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT24_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT25" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\GWN_001" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="52840" y="24560" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT25_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="53650" y="25260" id="DATAPOINT25_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT25_MS" PBD:PtTagName="\\RTDBB\GWN_001" TagName="GWN_001" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT25_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT25_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT26" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\180_FT_0102" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="11680" y="24560" width="1620" height="840" stroke-width="0" fill="none" id="DATAPOINT26_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="12490" y="25260" id="DATAPOINT26_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT26_MS" PBD:PtTagName="\\RTDBB\180_FT_0102" TagName="180_FT_0102" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT26_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT26_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT36" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\PT_85_7103_01_P01" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="14120" y="27840" width="1940" height="440" stroke-width="0" fill="none" id="DATAPOINT36_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="15090" y="28340" id="DATAPOINT36_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT36_MS" PBD:PtTagName="\\RTDBB\PT_85_7103_01_P01" TagName="PT_85_7103_01_P01" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT36_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT36_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="TEXT116">
+    <rect x="13280" y="27640" width="1140" height="740" stroke-width="0" fill="none" id="TEXT116_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="13850" y="28290" id="TEXT116_pbTextEl">后备</text>
+  </g>
+  <g id="TEXT117">
+    <rect x="9560" y="27620" width="1140" height="740" stroke-width="0" fill="none" id="TEXT117_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="10130" y="28270" id="TEXT117_pbTextEl">管网</text>
+  </g>
+  <g id="DATAPOINT37" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\PT_85_7103_98_P05" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="10000" y="28740" width="1440" height="440" stroke-width="0" fill="none" id="DATAPOINT37_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="10720" y="29240" id="DATAPOINT37_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT37_MS" PBD:PtTagName="\\RTDBB\PT_85_7103_98_P05" TagName="PT_85_7103_98_P05" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT37_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT37_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT38" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\PT_85_7103_98_P05" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="12340" y="28700" width="1440" height="440" stroke-width="0" fill="none" id="DATAPOINT38_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="13060" y="29200" id="DATAPOINT38_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT38_MS" PBD:PtTagName="\\RTDBB\PT_85_7103_98_P05" TagName="PT_85_7103_98_P05" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT38_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT38_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT39" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\PT_85_7103_98_P05" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="14780" y="28760" width="1440" height="440" stroke-width="0" fill="none" id="DATAPOINT39_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="15500" y="29260" id="DATAPOINT39_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT39_MS" PBD:PtTagName="\\RTDBB\PT_85_7103_98_P05" TagName="PT_85_7103_98_P05" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT39_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT39_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="TEXT121">
+    <rect x="9240" y="28620" width="560" height="740" stroke-width="0" fill="none" id="TEXT121_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="9520" y="29270" id="TEXT121_pbTextEl">1#</text>
+  </g>
+  <g id="TEXT122">
+    <rect x="11700" y="28560" width="560" height="740" stroke-width="0" fill="none" id="TEXT122_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="11980" y="29210" id="TEXT122_pbTextEl">2#</text>
+  </g>
+  <g id="TEXT123">
+    <rect x="14040" y="28560" width="560" height="740" stroke-width="0" fill="none" id="TEXT123_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="14320" y="29210" id="TEXT123_pbTextEl">3#</text>
+  </g>
+  <g id="DATAPOINT49" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\QYZL" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="10640" y="29740" width="2200" height="440" stroke-width="0" fill="none" id="DATAPOINT49_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="11740" y="30240" id="DATAPOINT49_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT49_MS" PBD:PtTagName="\\RTDBB\QYZL" TagName="QYZL" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT49_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT49_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT50" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\FT_85_7103_01_F01" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="14120" y="29740" width="1940" height="440" stroke-width="0" fill="none" id="DATAPOINT50_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="15090" y="30240" id="DATAPOINT50_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT50_MS" PBD:PtTagName="\\RTDBB\FT_85_7103_01_F01" TagName="FT_85_7103_01_F01" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT50_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT50_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="TEXT126">
+    <rect x="13280" y="29540" width="1140" height="740" stroke-width="0" fill="none" id="TEXT126_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="13850" y="30190" id="TEXT126_pbTextEl">后备</text>
+  </g>
+  <g id="TEXT127">
+    <rect x="9560" y="29520" width="1140" height="740" stroke-width="0" fill="none" id="TEXT127_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="10130" y="30170" id="TEXT127_pbTextEl">总量</text>
+  </g>
+  <g id="DATAPOINT51" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\81_3701_01_F02" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="10000" y="30640" width="1440" height="440" stroke-width="0" fill="none" id="DATAPOINT51_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="10720" y="31140" id="DATAPOINT51_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT51_MS" PBD:PtTagName="\\RTDBB\81_3701_01_F02" TagName="81_3701_01_F02" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT51_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT51_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT52" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\82_3701_01_F02" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="12340" y="30600" width="1440" height="440" stroke-width="0" fill="none" id="DATAPOINT52_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="13060" y="31100" id="DATAPOINT52_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT52_MS" PBD:PtTagName="\\RTDBB\82_3701_01_F02" TagName="82_3701_01_F02" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT52_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT52_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="DATAPOINT60" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\83_3701_01_F02" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="14780" y="30660" width="1440" height="440" stroke-width="0" fill="none" id="DATAPOINT60_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="15500" y="31160" id="DATAPOINT60_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT60_MS" PBD:PtTagName="\\RTDBB\83_3701_01_F02" TagName="83_3701_01_F02" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT60_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT60_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+  </g>
+  <g id="TEXT131">
+    <rect x="9240" y="30520" width="560" height="740" stroke-width="0" fill="none" id="TEXT131_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="9520" y="31170" id="TEXT131_pbTextEl">1#</text>
+  </g>
+  <g id="TEXT132">
+    <rect x="11680" y="30460" width="560" height="740" stroke-width="0" fill="none" id="TEXT132_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="11960" y="31110" id="TEXT132_pbTextEl">2#</text>
+  </g>
+  <g id="TEXT133">
+    <rect x="14020" y="30460" width="560" height="740" stroke-width="0" fill="none" id="TEXT133_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="14300" y="31110" id="TEXT133_pbTextEl">3#</text>
+  </g>
+</svg>

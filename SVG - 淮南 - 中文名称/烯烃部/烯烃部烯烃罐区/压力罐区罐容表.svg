@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg height="100%" width="100%" viewBox="0 0 64000 32000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:PB="urn:osisoft-com-pb" xmlns:PBI="urn:osisoft-com-interface" xmlns:PBD="urn:osisoft-com-data" style="background-color:#C0C0C0">
+  <title>Graphic30</title>
+  <defs>
+    <PBD:TagUses tag="\\RTDBB\420_MT_1001_SUM">
+      <PBI:Symbol name="DATAPOINT1" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_1001D">
+      <PBI:Symbol name="DATAPOINT2" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2001_SUM">
+      <PBI:Symbol name="DATAPOINT3" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2001D">
+      <PBI:Symbol name="DATAPOINT4" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2002_SUM">
+      <PBI:Symbol name="DATAPOINT5" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2003_SUM">
+      <PBI:Symbol name="DATAPOINT33" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2004_SUM">
+      <PBI:Symbol name="DATAPOINT34" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_1001ABC">
+      <PBI:Symbol name="DATAPOINT43" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_1002D">
+      <PBI:Symbol name="DATAPOINT44" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2001ABC">
+      <PBI:Symbol name="DATAPOINT45" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2002D">
+      <PBI:Symbol name="DATAPOINT46" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2002AB">
+      <PBI:Symbol name="DATAPOINT47" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2003AB">
+      <PBI:Symbol name="DATAPOINT48" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2004AB">
+      <PBI:Symbol name="DATAPOINT49" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_1001_SUB">
+      <PBI:Symbol name="DATAPOINT58" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_1002D_SUB">
+      <PBI:Symbol name="DATAPOINT59" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2001_SUB">
+      <PBI:Symbol name="DATAPOINT60" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2001D_SUB">
+      <PBI:Symbol name="DATAPOINT61" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2002SUB">
+      <PBI:Symbol name="DATAPOINT62" PB:Type="7" />
+      <PBI:Symbol name="DATAPOINT63" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_2004SUB">
+      <PBI:Symbol name="DATAPOINT64" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3001_SUM">
+      <PBI:Symbol name="DATAPOINT35" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3001AB">
+      <PBI:Symbol name="DATAPOINT50" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3001SUB">
+      <PBI:Symbol name="DATAPOINT65" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3002_SUM">
+      <PBI:Symbol name="DATAPOINT70" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3002AB">
+      <PBI:Symbol name="DATAPOINT71" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3002SUB">
+      <PBI:Symbol name="DATAPOINT72" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3003_SUM">
+      <PBI:Symbol name="DATAPOINT73" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3003AB">
+      <PBI:Symbol name="DATAPOINT74" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3003SUB">
+      <PBI:Symbol name="DATAPOINT75" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3004_SUM">
+      <PBI:Symbol name="DATAPOINT76" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3004AB">
+      <PBI:Symbol name="DATAPOINT77" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3004SUB">
+      <PBI:Symbol name="DATAPOINT78" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3005_SUM">
+      <PBI:Symbol name="DATAPOINT79" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3005AB">
+      <PBI:Symbol name="DATAPOINT80" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3005SUB">
+      <PBI:Symbol name="DATAPOINT81" PB:Type="7" />
+    </PBD:TagUses>
+  </defs>
+  <g id="TEXT157">
+    <rect x="20740" y="680" width="25000" height="2000" stroke-width="0" fill="none" id="TEXT157_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="800" text-anchor="middle" x="33240" y="2080" id="TEXT157_pbTextEl">压力罐区罐容表</text>
+  </g>
+  <g id="TEXT158">
+    <rect x="4880" y="4480" width="5380" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT158_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7570" y="5690" id="TEXT158_pbTextEl">序号</text>
+  </g>
+  <g id="TEXT159">
+    <rect x="10260" y="4480" width="16820" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT159_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18670" y="5690" id="TEXT159_pbTextEl">物料</text>
+  </g>
+  <g id="TEXT160">
+    <rect x="27080" y="4480" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT160_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32680" y="5690" id="TEXT160_pbTextEl">最大总罐容</text>
+  </g>
+  <g id="TEXT161">
+    <rect x="38280" y="4480" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT161_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="43880" y="5690" id="TEXT161_pbTextEl">实际罐容量</text>
+  </g>
+  <g id="TEXT162">
+    <rect x="49500" y="4480" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT162_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="5690" id="TEXT162_pbTextEl">剩余罐容量</text>
+  </g>
+  <g id="TEXT163">
+    <rect x="4880" y="6340" width="5380" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT163_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7570" y="7550" id="TEXT163_pbTextEl">1</text>
+  </g>
+  <g id="TEXT164">
+    <rect x="10260" y="6340" width="16820" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT164_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18670" y="7550" id="TEXT164_pbTextEl">合格乙烯（A/B/C罐）</text>
+  </g>
+  <g id="TEXT165">
+    <rect x="27080" y="6340" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT165_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32680" y="7550" id="TEXT165_pbTextEl">        t</text>
+  </g>
+  <g id="TEXT166">
+    <rect x="38280" y="6340" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT166_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="43880" y="7550" id="TEXT166_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT167">
+    <rect x="49500" y="6340" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT167_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="7550" id="TEXT167_pbTextEl">t</text>
+  </g>
+  <g id="TEXT168">
+    <rect x="4880" y="8200" width="5380" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT168_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7570" y="9410" id="TEXT168_pbTextEl">2</text>
+  </g>
+  <g id="TEXT169">
+    <rect x="10260" y="8200" width="16820" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT169_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18670" y="9410" id="TEXT169_pbTextEl">不合格乙烯（D罐）</text>
+  </g>
+  <g id="TEXT170">
+    <rect x="27080" y="8200" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT170_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32680" y="9410" id="TEXT170_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT171">
+    <rect x="38280" y="8200" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT171_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="43880" y="9410" id="TEXT171_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT172">
+    <rect x="49500" y="8200" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT172_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="9410" id="TEXT172_pbTextEl">t</text>
+  </g>
+  <g id="TEXT173">
+    <rect x="4880" y="10060" width="5380" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT173_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7570" y="11270" id="TEXT173_pbTextEl">3</text>
+  </g>
+  <g id="TEXT174">
+    <rect x="10260" y="10060" width="16820" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT174_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18670" y="11270" id="TEXT174_pbTextEl">合格丙烯（A/B/C罐）</text>
+  </g>
+  <g id="TEXT175">
+    <rect x="27080" y="10060" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT175_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32680" y="11270" id="TEXT175_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT176">
+    <rect x="38280" y="10060" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT176_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="43880" y="11270" id="TEXT176_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT177">
+    <rect x="49500" y="10060" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT177_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="11270" id="TEXT177_pbTextEl">t</text>
+  </g>
+  <g id="TEXT178">
+    <rect x="4880" y="11920" width="5380" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT178_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7570" y="13130" id="TEXT178_pbTextEl">4</text>
+  </g>
+  <g id="TEXT179">
+    <rect x="10260" y="11920" width="16820" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT179_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18670" y="13130" id="TEXT179_pbTextEl">不合格丙烯（D罐）</text>
+  </g>
+  <g id="TEXT180">
+    <rect x="27080" y="11920" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT180_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32680" y="13130" id="TEXT180_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT181">
+    <rect x="38280" y="11920" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT181_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="43880" y="13130" id="TEXT181_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT182">
+    <rect x="49500" y="11920" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT182_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="13130" id="TEXT182_pbTextEl">t</text>
+  </g>
+  <g id="TEXT183">
+    <rect x="4880" y="13780" width="5380" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT183_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7570" y="14990" id="TEXT183_pbTextEl">5</text>
+  </g>
+  <g id="TEXT184">
+    <rect x="10260" y="13780" width="16820" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT184_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18670" y="14990" id="TEXT184_pbTextEl">污丙烯</text>
+  </g>
+  <g id="TEXT185">
+    <rect x="27080" y="13780" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT185_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32680" y="14990" id="TEXT185_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT186">
+    <rect x="38280" y="13780" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT186_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="43880" y="14990" id="TEXT186_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT187">
+    <rect x="49500" y="13780" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT187_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="14990" id="TEXT187_pbTextEl">t</text>
+  </g>
+  <g id="TEXT188">
+    <rect x="4880" y="15640" width="5380" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT188_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7570" y="16850" id="TEXT188_pbTextEl">6</text>
+  </g>
+  <g id="TEXT189">
+    <rect x="10260" y="15640" width="16820" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT189_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18670" y="16850" id="TEXT189_pbTextEl">丙烷</text>
+  </g>
+  <g id="TEXT190">
+    <rect x="27080" y="15640" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT190_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32680" y="16850" id="TEXT190_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT191">
+    <rect x="38280" y="15640" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT191_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="43880" y="16850" id="TEXT191_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT192">
+    <rect x="49500" y="15640" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT192_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="16850" id="TEXT192_pbTextEl">t</text>
+  </g>
+  <g id="TEXT193">
+    <rect x="4880" y="17500" width="5380" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT193_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7570" y="18710" id="TEXT193_pbTextEl">7</text>
+  </g>
+  <g id="TEXT194">
+    <rect x="4880" y="19360" width="5380" height="1840" stroke="#000000" stroke-width="20" fill="none" id="TEXT194_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7570" y="20560" id="TEXT194_pbTextEl">8</text>
+  </g>
+  <g id="TEXT195">
+    <rect x="10260" y="19360" width="16820" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT195_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18670" y="20570" id="TEXT195_pbTextEl">混合C4</text>
+  </g>
+  <g id="TEXT196">
+    <rect x="27080" y="19360" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT196_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32680" y="20570" id="TEXT196_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT197">
+    <rect x="38280" y="19360" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT197_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="43880" y="20570" id="TEXT197_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT198">
+    <rect x="49500" y="19360" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT198_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="20570" id="TEXT198_pbTextEl">t</text>
+  </g>
+  <g id="TEXT199">
+    <rect x="4880" y="21200" width="5380" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT199_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7570" y="22410" id="TEXT199_pbTextEl">9</text>
+  </g>
+  <g id="TEXT200">
+    <rect x="10260" y="21220" width="16820" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT200_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18670" y="22430" id="TEXT200_pbTextEl">混合重烯烃</text>
+  </g>
+  <g id="TEXT201">
+    <rect x="27080" y="21220" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT201_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32680" y="22430" id="TEXT201_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT202">
+    <rect x="38280" y="21220" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT202_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="43880" y="22430" id="TEXT202_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT203">
+    <rect x="49500" y="21220" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT203_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="22430" id="TEXT203_pbTextEl">t</text>
+  </g>
+  <g id="TEXT204">
+    <rect x="4880" y="23060" width="5380" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT204_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7570" y="24270" id="TEXT204_pbTextEl">10</text>
+  </g>
+  <g id="TEXT205">
+    <rect x="10260" y="23080" width="16820" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT205_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18670" y="24290" id="TEXT205_pbTextEl">异戊烷</text>
+  </g>
+  <g id="TEXT206">
+    <rect x="27080" y="23080" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT206_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32680" y="24290" id="TEXT206_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT207">
+    <rect x="38280" y="23080" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT207_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="43880" y="24290" id="TEXT207_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT208">
+    <rect x="49500" y="23080" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT208_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="24290" id="TEXT208_pbTextEl">t</text>
+  </g>
+  <g id="TEXT209">
+    <rect x="4880" y="24920" width="5380" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT209_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7570" y="26130" id="TEXT209_pbTextEl">11</text>
+  </g>
+  <g id="TEXT210">
+    <rect x="10260" y="24940" width="16820" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT210_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18670" y="26150" id="TEXT210_pbTextEl">丁烷</text>
+  </g>
+  <g id="TEXT211">
+    <rect x="27080" y="24940" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT211_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32680" y="26150" id="TEXT211_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT212">
+    <rect x="38280" y="24940" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT212_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="43880" y="26150" id="TEXT212_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT213">
+    <rect x="49500" y="24940" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT213_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="26150" id="TEXT213_pbTextEl">t</text>
+  </g>
+  <g id="TEXT214">
+    <rect x="4880" y="26780" width="5380" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT214_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7570" y="27990" id="TEXT214_pbTextEl">12</text>
+  </g>
+  <g id="TEXT215">
+    <rect x="10260" y="26800" width="16820" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT215_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18670" y="28010" id="TEXT215_pbTextEl">烯烃-1</text>
+  </g>
+  <g id="TEXT216">
+    <rect x="27080" y="26800" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT216_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32680" y="28010" id="TEXT216_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT217">
+    <rect x="38280" y="26800" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT217_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="43880" y="28010" id="TEXT217_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT218">
+    <rect x="49500" y="26800" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT218_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="28010" id="TEXT218_pbTextEl">t</text>
+  </g>
+  <g id="TEXT230">
+    <rect x="10260" y="17500" width="16820" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT230_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18670" y="18710" id="TEXT230_pbTextEl">LPG</text>
+  </g>
+  <g id="TEXT231">
+    <rect x="27080" y="17500" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT231_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32680" y="18710" id="TEXT231_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT232">
+    <rect x="38280" y="17500" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT232_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="43880" y="18710" id="TEXT232_pbTextEl">       t</text>
+  </g>
+  <g id="TEXT233">
+    <rect x="49500" y="17500" width="11200" height="1860" stroke="#000000" stroke-width="20" fill="none" id="TEXT233_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55100" y="18710" id="TEXT233_pbTextEl">t</text>
+  </g>
+  <g id="DATAPOINT1" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_1001_SUM" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27760" y="6980" width="3420" height="560" stroke-width="0" fill="none" id="DATAPOINT1_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29470" y="7540" id="DATAPOINT1_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT2" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_1001D" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27760" y="8780" width="3420" height="560" stroke-width="0" fill="none" id="DATAPOINT2_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29470" y="9340" id="DATAPOINT2_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT3" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2001_SUM" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27760" y="10600" width="3420" height="560" stroke-width="0" fill="none" id="DATAPOINT3_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29470" y="11160" id="DATAPOINT3_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT4" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2001D" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27760" y="12560" width="3420" height="560" stroke-width="0" fill="none" id="DATAPOINT4_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29470" y="13120" id="DATAPOINT4_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT5" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2002_SUM" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27760" y="14280" width="3420" height="560" stroke-width="0" fill="none" id="DATAPOINT5_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29470" y="14840" id="DATAPOINT5_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT33" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2003_SUM" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27760" y="16320" width="3420" height="560" stroke-width="0" fill="none" id="DATAPOINT33_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29470" y="16880" id="DATAPOINT33_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT34" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2004_SUM" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27760" y="18000" width="3420" height="560" stroke-width="0" fill="none" id="DATAPOINT34_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29470" y="18560" id="DATAPOINT34_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT43" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_1001ABC" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38900" y="6980" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT43_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41230" y="7540" id="DATAPOINT43_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT44" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_1002D" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38900" y="8660" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT44_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41230" y="9220" id="DATAPOINT44_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT45" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2001ABC" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38900" y="10720" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT45_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41230" y="11280" id="DATAPOINT45_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT46" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2002D" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38900" y="12400" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT46_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41230" y="12960" id="DATAPOINT46_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT47" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2002AB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38900" y="14540" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT47_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41230" y="15100" id="DATAPOINT47_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT48" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2003AB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38900" y="16440" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT48_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41230" y="17000" id="DATAPOINT48_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT49" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2004AB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38900" y="18220" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT49_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41230" y="18780" id="DATAPOINT49_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT58" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_1001_SUB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="49900" y="6920" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT58_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52230" y="7480" id="DATAPOINT58_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT59" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_1002D_SUB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="49900" y="8620" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT59_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52230" y="9180" id="DATAPOINT59_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT60" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2001_SUB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="49900" y="10660" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT60_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52230" y="11220" id="DATAPOINT60_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT61" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2001D_SUB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="49900" y="12360" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT61_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52230" y="12920" id="DATAPOINT61_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT62" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2002SUB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="49900" y="14480" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT62_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52230" y="15040" id="DATAPOINT62_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT63" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2002SUB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="49900" y="16400" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT63_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52230" y="16960" id="DATAPOINT63_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT64" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_2004SUB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="49900" y="18180" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT64_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52230" y="18740" id="DATAPOINT64_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT35" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3001_SUM" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27760" y="20060" width="3420" height="560" stroke-width="0" fill="none" id="DATAPOINT35_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29470" y="20620" id="DATAPOINT35_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT50" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3001AB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38900" y="20080" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT50_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41230" y="20640" id="DATAPOINT50_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT65" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3001SUB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="49900" y="20020" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT65_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52230" y="20580" id="DATAPOINT65_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT70" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3002_SUM" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27760" y="22020" width="3420" height="560" stroke-width="0" fill="none" id="DATAPOINT70_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29470" y="22580" id="DATAPOINT70_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT71" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3002AB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38900" y="22040" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT71_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41230" y="22600" id="DATAPOINT71_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT72" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3002SUB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="49900" y="21980" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT72_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52230" y="22540" id="DATAPOINT72_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT73" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3003_SUM" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27760" y="23740" width="3420" height="560" stroke-width="0" fill="none" id="DATAPOINT73_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29470" y="24300" id="DATAPOINT73_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT74" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3003AB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38900" y="23760" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT74_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41230" y="24320" id="DATAPOINT74_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT75" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3003SUB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="49900" y="23700" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT75_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52230" y="24260" id="DATAPOINT75_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT76" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3004_SUM" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27760" y="25560" width="3420" height="560" stroke-width="0" fill="none" id="DATAPOINT76_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29470" y="26120" id="DATAPOINT76_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT77" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3004AB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38900" y="25580" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT77_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41230" y="26140" id="DATAPOINT77_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT78" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3004SUB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="49900" y="25520" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT78_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52230" y="26080" id="DATAPOINT78_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT79" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3005_SUM" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27760" y="27460" width="3420" height="560" stroke-width="0" fill="none" id="DATAPOINT79_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29470" y="28020" id="DATAPOINT79_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT80" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3005AB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38900" y="27480" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT80_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41230" y="28040" id="DATAPOINT80_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT81" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3005SUB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="49900" y="27420" width="4660" height="560" stroke-width="0" fill="none" id="DATAPOINT81_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52230" y="27980" id="DATAPOINT81_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+</svg>

@@ -19,10 +19,6 @@ public class PointAlertData extends Point implements Serializable {
 
 	Long alertBeginTime;
 	Long alertEndTime;
-	Double hihiLimit;
-	Double hiLimit;
-	Double loloLimit;
-	Double loLimit;
 	
 
 	public Long getAlertType() {
@@ -32,38 +28,38 @@ public class PointAlertData extends Point implements Serializable {
 	public void setAlertType(Long alerType) {
 		this.alertType = alerType;
 	}
-
-	public Double getHihiLimit() {
-		return hihiLimit;
-	}
-
-	public void setHihiLimit(Double hihiLimit) {
-		this.hihiLimit = hihiLimit;
-	}
-
-	public Double getHiLimit() {
-		return hiLimit;
-	}
-
-	public void setHiLimit(Double hiLimit) {
-		this.hiLimit = hiLimit;
-	}
-
-	public Double getLoloLimit() {
-		return loloLimit;
-	}
-
-	public void setLoloLimit(Double loloLimit) {
-		this.loloLimit = loloLimit;
-	}
-
-	public Double getLoLimit() {
-		return loLimit;
-	}
-
-	public void setLoLimit(Double loLimit) {
-		this.loLimit = loLimit;
-	}
+//
+//	public Double getHihiLimit() {
+//		return hihiLimit;
+//	}
+//
+//	public void setHihiLimit(Double hihiLimit) {
+//		this.hihiLimit = hihiLimit;
+//	}
+//
+//	public Double getHiLimit() {
+//		return hiLimit;
+//	}
+//
+//	public void setHiLimit(Double hiLimit) {
+//		this.hiLimit = hiLimit;
+//	}
+//
+//	public Double getLoloLimit() {
+//		return loloLimit;
+//	}
+//
+//	public void setLoloLimit(Double loloLimit) {
+//		this.loloLimit = loloLimit;
+//	}
+//
+//	public Double getLoLimit() {
+//		return loLimit;
+//	}
+//
+//	public void setLoLimit(Double loLimit) {
+//		this.loLimit = loLimit;
+//	}
 
 	public void setAlertValue(Double alertValue) {
 		this.alertValue = alertValue;

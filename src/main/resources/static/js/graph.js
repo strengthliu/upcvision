@@ -713,6 +713,8 @@ function refreshData(data) {
 	//				}
 				// 	画图形
 				ele.innerHTML =  Math.round(_data_[key]*10000)/10000;
+				// 设置显示样式
+				ele.style.color = "#007800";
 
 			}else{
 				console.log("no element named "+key);
@@ -1786,3 +1788,17 @@ function saveToFile(fileName,code){
     saveAs(file);
 }
 
+
+function loadDirectory(){
+	if(isloadDefaultGraph!=null&&isloadDefaultGraph!="undefined"){
+		isloadDefaultGraph = false;
+	}else{
+		isloadDefaultGraph = false;
+	}
+	
+	if(_graph!=null&&_graph!="undefined"){
+		var path = _graph.path;
+		var __g = getGraphByPath(userSpace.graph,path);
+		routeTo('diagramList', __g,__g.id);
+	}
+}

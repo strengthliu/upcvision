@@ -1,0 +1,791 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg height="100%" width="100%" viewBox="0 0 64000 32000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:PB="urn:osisoft-com-pb" xmlns:PBI="urn:osisoft-com-interface" xmlns:PBD="urn:osisoft-com-data" style="background-color:#C0C0C0">
+  <title>Graphic17</title>
+  <defs>
+    <PBD:TagUses tag="\\\">
+      <PBI:Symbol name="BARGRAPH5" PB:Type="12" />
+      <PBI:Symbol name="BARGRAPH6" PB:Type="12" />
+      <PBI:Symbol name="BARGRAPH7" PB:Type="12" />
+      <PBI:Symbol name="BARGRAPH8" PB:Type="12" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_PT_3001A">
+      <PBI:Symbol name="DATAPOINT2" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_LZT_3001A">
+      <PBI:Symbol name="DATAPOINT30" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_TT_3001A">
+      <PBI:Symbol name="DATAPOINT31" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_LT_3002A">
+      <PBI:Symbol name="DATAPOINT32" PB:Type="7" />
+      <PBI:Symbol name="DATAPOINT164" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_PT_3001B">
+      <PBI:Symbol name="DATAPOINT33" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_LZT_3001B">
+      <PBI:Symbol name="DATAPOINT34" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_LT_3002B">
+      <PBI:Symbol name="DATAPOINT35" PB:Type="7" />
+      <PBI:Symbol name="DATAPOINT160" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_TT_3001B">
+      <PBI:Symbol name="DATAPOINT36" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_PT_3009">
+      <PBI:Symbol name="DATAPOINT37" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_PT_3003B">
+      <PBI:Symbol name="DATAPOINT38" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_LT_3031B">
+      <PBI:Symbol name="DATAPOINT39" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_PT_3031B">
+      <PBI:Symbol name="DATAPOINT40" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_PT_3003A">
+      <PBI:Symbol name="DATAPOINT41" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_LT_3031A">
+      <PBI:Symbol name="DATAPOINT42" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_PT_3031A">
+      <PBI:Symbol name="DATAPOINT43" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_PT_3307">
+      <PBI:Symbol name="DATAPOINT44" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_PT_3334">
+      <PBI:Symbol name="DATAPOINT45" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_LT_3334">
+      <PBI:Symbol name="DATAPOINT46" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_HV3001">
+      <PBI:Symbol name="DATAPOINT47" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_FIC_3307_PV">
+      <PBI:Symbol name="DATAPOINT1" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_FIC_3307_SP">
+      <PBI:Symbol name="DATAPOINT3" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_FIC_3307_OUT">
+      <PBI:Symbol name="DATAPOINT4" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_VT_3002B">
+      <PBI:Symbol name="DATAPOINT161" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3002B">
+      <PBI:Symbol name="DATAPOINT162" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_DT_3002B">
+      <PBI:Symbol name="DATAPOINT163" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_VT_3002A">
+      <PBI:Symbol name="DATAPOINT165" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_MT_3002A">
+      <PBI:Symbol name="DATAPOINT166" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\420_DT_3002A">
+      <PBI:Symbol name="DATAPOINT167" PB:Type="7" />
+    </PBD:TagUses>
+  </defs>
+  <g id="TEXT154">
+    <rect x="2640" y="24340" width="4940" height="640" stroke-width="0" fill="none" id="TEXT154_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="5110" y="24940" id="TEXT154_pbTextEl">420FIC3307</text>
+  </g>
+  <path id="ELLIPSE8" d="M 22940 10752 l -40 339 -40 193 -40 150 -40 126 -40 111 -40 100 -40 92 -40 84 -40 79 -40 74 -40 70 -40 66 -40 63 -40 60 -40 58 -40 55 -40 53 -40 51 -40 49 -40 47 -40 46 -40 45 -40 42 -40 42 -40 40 -40 39 -40 38 -40 37 -40 36 -40 35 -40 34 -40 33 -40 32 -40 31 -40 30 -40 30 -40 29 -40 28 -40 27 -40 27 -40 26 -40 26 -40 24 -40 24 -40 24 -40 23 -40 22 -40 22 -40 21 -40 21 -40 20 -40 19 -40 19 -40 19 -40 18 -40 17 -40 17 -40 17 -40 16 -40 16 -40 15 -40 15 -40 14 -40 14 -40 14 -40 13 -40 12 -40 13 -40 11 -40 12 -40 11 -40 10 -40 11 -40 10 -40 9 -40 9 -40 9 -40 8 -40 8 -40 8 -40 7 -40 7 -40 6 -40 6 -40 6 -40 6 -40 5 -40 4 -40 5 -40 4 -40 3 -40 4 -40 2 -40 3 -40 2 -40 2 -40 2 -40 1 -40 1 -40 0 -40 0 0 0 -40 0 -40 0 -40 -1 -40 -1 -40 -2 -40 -2 -40 -2 -40 -3 -40 -2 -40 -4 -40 -3 -40 -4 -40 -5 -40 -4 -40 -5 -40 -6 -40 -6 -40 -6 -40 -6 -40 -7 -40 -7 -40 -8 -40 -8 -40 -8 -40 -9 -40 -9 -40 -9 -40 -10 -40 -11 -40 -10 -40 -11 -40 -12 -40 -11 -40 -13 -40 -12 -40 -13 -40 -14 -40 -14 -40 -14 -40 -15 -40 -15 -40 -16 -40 -16 -40 -17 -40 -17 -40 -17 -40 -18 -40 -19 -40 -19 -40 -19 -40 -20 -40 -21 -40 -21 -40 -22 -40 -22 -40 -23 -40 -24 -40 -24 -40 -24 -40 -26 -40 -26 -40 -27 -40 -27 -40 -28 -40 -29 -40 -30 -40 -30 -40 -31 -40 -32 -40 -33 -40 -34 -40 -35 -40 -36 -40 -37 -40 -38 -40 -39 -40 -40 -40 -42 -40 -42 -40 -45 -40 -46 -40 -47 -40 -49 -40 -51 -40 -53 -40 -55 -40 -58 -40 -60 -40 -63 -40 -66 -40 -70 -40 -74 -40 -79 -40 -84 -40 -92 -40 -100 -40 -111 -40 -126 -40 -150 -40 -193 -40 -339 0 -383 40 -339 40 -193 40 -150 40 -126 40 -111 40 -100 40 -92 40 -84 40 -79 40 -74 40 -70 40 -66 40 -63 40 -60 40 -58 40 -55 40 -53 40 -51 40 -49 40 -47 40 -46 40 -45 40 -42 40 -42 40 -40 40 -39 40 -38 40 -37 40 -36 40 -35 40 -34 40 -33 40 -32 40 -31 40 -30 40 -30 40 -29 40 -28 40 -27 40 -27 40 -26 40 -26 40 -24 40 -24 40 -24 40 -23 40 -22 40 -22 40 -21 40 -21 40 -20 40 -19 40 -19 40 -19 40 -18 40 -17 40 -17 40 -17 40 -16 40 -16 40 -15 40 -15 40 -14 40 -14 40 -14 40 -13 40 -12 40 -13 40 -11 40 -12 40 -11 40 -10 40 -11 40 -10 40 -9 40 -9 40 -9 40 -8 40 -8 40 -8 40 -7 40 -7 40 -6 40 -6 40 -6 40 -6 40 -5 40 -4 40 -5 40 -4 40 -3 40 -4 40 -2 40 -3 40 -2 40 -2 40 -2 40 -1 40 -1 40 0 40 -1 0 0 40 1 40 0 40 1 40 1 40 2 40 2 40 2 40 3 40 2 40 4 40 3 40 4 40 5 40 4 40 5 40 6 40 6 40 6 40 6 40 7 40 7 40 8 40 8 40 8 40 9 40 9 40 9 40 10 40 11 40 10 40 11 40 12 40 11 40 13 40 12 40 13 40 14 40 14 40 14 40 15 40 15 40 16 40 16 40 17 40 17 40 17 40 18 40 19 40 19 40 19 40 20 40 21 40 21 40 22 40 22 40 23 40 24 40 24 40 24 40 26 40 26 40 27 40 27 40 28 40 29 40 30 40 30 40 31 40 32 40 33 40 34 40 35 40 36 40 37 40 38 40 39 40 40 40 42 40 42 40 45 40 46 40 47 40 49 40 51 40 53 40 55 40 58 40 60 40 63 40 66 40 70 40 74 40 79 40 84 40 92 40 100 40 111 40 126 40 150 40 193 40 339 0 383" stroke="#000000" stroke-width="20" fill="#808080" />
+  <g id="BARGRAPH5" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\\" PB:Start="0" PB:Upper="100" PB:Type="12">
+    <rect x="15800" y="8420" width="740" height="4360" stroke="#000000" stroke-width="20" fill="#C0C0C0" id="BARGRAPH5_pbBarBoundingRectEl" />
+    <rect x="15800" y="8420" width="740" height="4360" stroke="none" stroke-width="20" fill="#00B400" id="BARGRAPH5_pbBarTagRectEl" PBD:Property="" />
+  </g>
+  <g id="BARGRAPH6" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\\" PB:Start="0" PB:Upper="100" PB:Type="12">
+    <rect x="21180" y="8400" width="740" height="4360" stroke="#000000" stroke-width="20" fill="#C0C0C0" id="BARGRAPH6_pbBarBoundingRectEl" />
+    <rect x="21180" y="8400" width="740" height="4360" stroke="none" stroke-width="20" fill="#00B400" id="BARGRAPH6_pbBarTagRectEl" PBD:Property="" />
+  </g>
+  <g id="TEXT2">
+    <rect x="15700" y="9600" width="6260" height="1340" stroke-width="0" fill="none" id="TEXT2_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18830" y="10550" id="TEXT2_pbTextEl">4203-T-001A</text>
+  </g>
+  <path id="ELLIPSE9" d="M 52920 10772 l -40 339 -40 193 -40 150 -40 126 -40 111 -40 100 -40 92 -40 84 -40 79 -40 74 -40 70 -40 66 -40 63 -40 60 -40 58 -40 55 -40 53 -40 51 -40 49 -40 47 -40 46 -40 45 -40 42 -40 42 -40 40 -40 39 -40 38 -40 37 -40 36 -40 35 -40 34 -40 33 -40 32 -40 31 -40 30 -40 30 -40 29 -40 28 -40 27 -40 27 -40 26 -40 26 -40 24 -40 24 -40 24 -40 23 -40 22 -40 22 -40 21 -40 21 -40 20 -40 19 -40 19 -40 19 -40 18 -40 17 -40 17 -40 17 -40 16 -40 16 -40 15 -40 15 -40 14 -40 14 -40 14 -40 13 -40 12 -40 13 -40 11 -40 12 -40 11 -40 10 -40 11 -40 10 -40 9 -40 9 -40 9 -40 8 -40 8 -40 8 -40 7 -40 7 -40 6 -40 6 -40 6 -40 6 -40 5 -40 4 -40 5 -40 4 -40 3 -40 4 -40 2 -40 3 -40 2 -40 2 -40 2 -40 1 -40 1 -40 0 -40 0 0 0 -40 0 -40 0 -40 -1 -40 -1 -40 -2 -40 -2 -40 -2 -40 -3 -40 -2 -40 -4 -40 -3 -40 -4 -40 -5 -40 -4 -40 -5 -40 -6 -40 -6 -40 -6 -40 -6 -40 -7 -40 -7 -40 -8 -40 -8 -40 -8 -40 -9 -40 -9 -40 -9 -40 -10 -40 -11 -40 -10 -40 -11 -40 -12 -40 -11 -40 -13 -40 -12 -40 -13 -40 -14 -40 -14 -40 -14 -40 -15 -40 -15 -40 -16 -40 -16 -40 -17 -40 -17 -40 -17 -40 -18 -40 -19 -40 -19 -40 -19 -40 -20 -40 -21 -40 -21 -40 -22 -40 -22 -40 -23 -40 -24 -40 -24 -40 -24 -40 -26 -40 -26 -40 -27 -40 -27 -40 -28 -40 -29 -40 -30 -40 -30 -40 -31 -40 -32 -40 -33 -40 -34 -40 -35 -40 -36 -40 -37 -40 -38 -40 -39 -40 -40 -40 -42 -40 -42 -40 -45 -40 -46 -40 -47 -40 -49 -40 -51 -40 -53 -40 -55 -40 -58 -40 -60 -40 -63 -40 -66 -40 -70 -40 -74 -40 -79 -40 -84 -40 -92 -40 -100 -40 -111 -40 -126 -40 -150 -40 -193 -40 -339 0 -383 40 -339 40 -193 40 -150 40 -126 40 -111 40 -100 40 -92 40 -84 40 -79 40 -74 40 -70 40 -66 40 -63 40 -60 40 -58 40 -55 40 -53 40 -51 40 -49 40 -47 40 -46 40 -45 40 -42 40 -42 40 -40 40 -39 40 -38 40 -37 40 -36 40 -35 40 -34 40 -33 40 -32 40 -31 40 -30 40 -30 40 -29 40 -28 40 -27 40 -27 40 -26 40 -26 40 -24 40 -24 40 -24 40 -23 40 -22 40 -22 40 -21 40 -21 40 -20 40 -19 40 -19 40 -19 40 -18 40 -17 40 -17 40 -17 40 -16 40 -16 40 -15 40 -15 40 -14 40 -14 40 -14 40 -13 40 -12 40 -13 40 -11 40 -12 40 -11 40 -10 40 -11 40 -10 40 -9 40 -9 40 -9 40 -8 40 -8 40 -8 40 -7 40 -7 40 -6 40 -6 40 -6 40 -6 40 -5 40 -4 40 -5 40 -4 40 -3 40 -4 40 -2 40 -3 40 -2 40 -2 40 -2 40 -1 40 -1 40 0 40 -1 0 0 40 1 40 0 40 1 40 1 40 2 40 2 40 2 40 3 40 2 40 4 40 3 40 4 40 5 40 4 40 5 40 6 40 6 40 6 40 6 40 7 40 7 40 8 40 8 40 8 40 9 40 9 40 9 40 10 40 11 40 10 40 11 40 12 40 11 40 13 40 12 40 13 40 14 40 14 40 14 40 15 40 15 40 16 40 16 40 17 40 17 40 17 40 18 40 19 40 19 40 19 40 20 40 21 40 21 40 22 40 22 40 23 40 24 40 24 40 24 40 26 40 26 40 27 40 27 40 28 40 29 40 30 40 30 40 31 40 32 40 33 40 34 40 35 40 36 40 37 40 38 40 39 40 40 40 42 40 42 40 45 40 46 40 47 40 49 40 51 40 53 40 55 40 58 40 60 40 63 40 66 40 70 40 74 40 79 40 84 40 92 40 100 40 111 40 126 40 150 40 193 40 339 0 383" stroke="#000000" stroke-width="20" fill="#808080" />
+  <g id="BARGRAPH7" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\\" PB:Start="0" PB:Upper="100" PB:Type="12">
+    <rect x="45760" y="8420" width="740" height="4360" stroke="#000000" stroke-width="20" fill="#C0C0C0" id="BARGRAPH7_pbBarBoundingRectEl" />
+    <rect x="45760" y="8420" width="740" height="4360" stroke="none" stroke-width="20" fill="#00B400" id="BARGRAPH7_pbBarTagRectEl" PBD:Property="" />
+  </g>
+  <g id="BARGRAPH8" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\\" PB:Start="0" PB:Upper="100" PB:Type="12">
+    <rect x="51180" y="8400" width="740" height="4360" stroke="#000000" stroke-width="20" fill="#C0C0C0" id="BARGRAPH8_pbBarBoundingRectEl" />
+    <rect x="51180" y="8400" width="740" height="4360" stroke="none" stroke-width="20" fill="#00B400" id="BARGRAPH8_pbBarTagRectEl" PBD:Property="" />
+  </g>
+  <g id="TEXT4">
+    <rect x="45680" y="9600" width="6260" height="1340" stroke-width="0" fill="none" id="TEXT4_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="48810" y="10550" id="TEXT4_pbTextEl">4203-T-001B</text>
+  </g>
+  <path id="LINE1" d="M 800 3540 l 59020 0" stroke="#B40000" stroke-width="20" fill="none" />
+  <path id="LINE18" d="M 15200 5720 l 44420 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE20" d="M 18840 5760 l 0 1200" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE21" d="M 48740 5780 l 0 1200" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE23" d="M 52220 3620 l 0 2140" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE27" d="M 16720 6760 l 0 760" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE28" d="M 18760 14180 l 0 5280" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE41" d="M 49060 13580 l 0 5880" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE48" d="M 3020 19680 l 56520 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE58" d="M 3120 16620 l 5560 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE59" d="M 32820 6820 l 0 12740" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE60" d="M 3160 6760 l 0 12840" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE63" d="M 3120 6820 l 13500 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE64" d="M 32820 16520 l 6160 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE68" d="M 35160 28660 l -3540 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE74" d="M 15300 3540 l 0 2180" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE77" d="M 8640 16520 l 0 3080" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE78" d="M 39120 16500 l 0 3100" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE79" d="M 8640 19780 l 0 2340" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE80" d="M 26040 25400 l 0 2100" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE81" d="M 18760 19800 l 0 1140" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE82" d="M 25960 23280 l 33480 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE88" d="M 9140 20940 l 39820 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE89" d="M 36260 25420 l 0 2220" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE90" d="M 25960 24360 l -2420 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE91" d="M 34120 24400 l 2000 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE92" d="M 39100 22080 l -30360 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE100" d="M 32780 6840 l 13820 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE101" d="M 20820 25400 l 0 3120" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE102" d="M 20820 20920 l 0 940" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE105" d="M 31780 23660 l 0 4940" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE110" d="M 600 31160 l 62520 0" stroke="#B40000" stroke-width="20" fill="none" />
+  <path id="LINE115" d="M 14600 17580 l 0 -1180" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE116" d="M 14620 19800 l 0 1020" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE117" d="M 14600 25280 l 0 5700" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 2880 18780 l 480 0 -480 -800 480 0 -480 800" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 3160 18400 l -540 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 2340 18720 l 340 0 0 -680 -340 0 0 680 0 0" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 8340 18840 l 460 0 -460 -800 460 0 -460 800" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 8600 18460 l -540 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 7800 18740 l 340 0 0 -640 -340 0 0 640 0 0" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 18540 18480 l 460 0 -460 -780 460 0 -460 780" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 18800 18100 l -540 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 18000 18400 l 320 0 0 -640 -320 0 0 640 0 0" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 48820 18580 l 460 0 -460 -800 460 0 -460 800" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 49080 18200 l -540 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 48280 18480 l 340 0 0 -660 -340 0 0 660 0 0" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path id="LINE158" d="M 14500 30680 l 200 0 -100 480 -100 -480" stroke="#000000" stroke-width="20" fill="#000000" />
+  <path id="LINE159" d="M 44040 19800 l 0 1000" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE160" d="M 44080 25620 l 0 5600" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE172" d="M 43940 30740 l 200 0 -100 480 -100 -480" stroke="#000000" stroke-width="20" fill="#000000" />
+  <path d="M 26060 29220 l 380 380 -1760 0 180 -440" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 25520 28400 l 860 0 0 -880 -860 0 0 880 0 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 26360 28609 l -40 154 -40 85 -40 64 -40 52 -40 44 -40 38 -40 34 -40 29 -40 26 -40 23 -40 20 -40 18 -40 15 -40 13 -40 12 -40 9 -40 8 -40 6 -40 4 -40 3 -40 0 0 0 -40 0 -40 -3 -40 -4 -40 -6 -40 -8 -40 -9 -40 -12 -40 -13 -40 -15 -40 -18 -40 -20 -40 -23 -40 -26 -40 -29 -40 -34 -40 -38 -40 -44 -40 -52 -40 -64 -40 -85 -40 -154 0 -177 40 -154 40 -85 40 -64 40 -52 40 -44 40 -38 40 -34 40 -29 40 -26 40 -23 40 -20 40 -18 40 -15 40 -13 40 -12 40 -9 40 -8 40 -6 40 -4 40 -3 40 -1 0 0 40 1 40 3 40 4 40 6 40 8 40 9 40 12 40 13 40 15 40 18 40 20 40 23 40 26 40 29 40 34 40 38 40 44 40 52 40 64 40 85 40 154 0 177" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 25960 28624 l -20 66 -20 41 -20 32 -20 25 -20 22 -20 19 -20 17 -20 15 -20 13 -20 12 -20 10 -20 10 -20 8 -20 7 -20 6 -20 5 -20 5 -20 3 -20 3 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -3 -20 -3 -20 -5 -20 -5 -20 -6 -20 -7 -20 -8 -20 -10 -20 -10 -20 -12 -20 -13 -20 -15 -20 -17 -20 -19 -20 -22 -20 -25 -20 -32 -20 -41 -20 -66 0 -127 20 -66 20 -41 20 -32 20 -25 20 -22 20 -19 20 -17 20 -15 20 -13 20 -12 20 -10 20 -10 20 -8 20 -7 20 -6 20 -5 20 -5 20 -3 20 -3 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 3 20 3 20 5 20 5 20 6 20 7 20 8 20 10 20 10 20 12 20 13 20 15 20 17 20 19 20 22 20 25 20 32 20 41 20 66 0 127" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path id="LINE174" d="M 23580 22060 l 0 2300" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE175" d="M 49080 19740 l 0 1180" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE177" d="M 36000 29580 l 0 1600" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE178" d="M 35920 30800 l 200 0 -100 480 -100 -480" stroke="#000000" stroke-width="20" fill="#000000" />
+  <path id="LINE179" d="M 18600 20540 l 340 0 -180 460 -160 -460" stroke="#000000" stroke-width="20" fill="#000000" />
+  <path d="M 32520 18720 l 480 0 -480 -780 480 0 -480 780" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 32800 18340 l -540 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 31980 18660 l 340 0 0 -680 -340 0 0 680 0 0" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 38860 18740 l 460 0 -460 -780 460 0 -460 780" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 39120 18360 l -540 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 38320 18700 l 340 0 0 -680 -340 0 0 680 0 0" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path id="ELLIPSE12" d="M 9620 13137 l -14 44 -13 29 -13 23 -14 19 -13 16 -13 14 -14 13 -13 11 -13 11 -14 9 -13 8 -13 8 -14 7 -13 6 -13 5 -14 5 -13 5 -13 3 -14 4 -13 3 -13 2 -14 2 -13 1 -13 1 -14 0 -13 0 -13 0 -14 -1 -13 -1 -13 -2 -14 -2 -13 -3 -13 -4 -14 -3 -13 -5 -13 -5 -14 -5 -13 -6 -13 -7 -14 -8 -13 -8 -13 -9 -14 -11 -13 -11 -13 -13 -14 -14 -13 -16 -13 -19 -14 -23 -13 -29 -13 -44 0 -113 13 -44 13 -29 14 -23 13 -19 13 -16 14 -14 13 -13 13 -11 14 -11 13 -9 13 -8 14 -8 13 -7 13 -6 14 -5 13 -5 13 -5 14 -3 13 -4 13 -3 14 -2 13 -2 13 -1 14 -1 13 0 13 0 14 0 13 1 13 1 14 2 13 2 13 3 14 4 13 3 13 5 14 5 13 5 13 6 14 7 13 8 13 8 14 9 13 11 13 11 14 13 13 14 13 16 14 19 13 23 13 29 14 44 0 113" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path id="ELLIPSE14" d="M 39540 13357 l -14 44 -13 29 -13 23 -14 19 -13 16 -13 14 -14 13 -13 11 -13 11 -14 9 -13 8 -13 8 -14 7 -13 6 -13 5 -14 5 -13 5 -13 3 -14 4 -13 3 -13 2 -14 2 -13 1 -13 1 -14 0 -13 0 -13 0 -14 -1 -13 -1 -13 -2 -14 -2 -13 -3 -13 -4 -14 -3 -13 -5 -13 -5 -14 -5 -13 -6 -13 -7 -14 -8 -13 -8 -13 -9 -14 -11 -13 -11 -13 -13 -14 -14 -13 -16 -13 -19 -14 -23 -13 -29 -13 -44 0 -113 13 -44 13 -29 14 -23 13 -19 13 -16 14 -14 13 -13 13 -11 14 -11 13 -9 13 -8 14 -8 13 -7 13 -6 14 -5 13 -5 13 -5 14 -3 13 -4 13 -3 14 -2 13 -2 13 -1 14 -1 13 0 13 0 14 0 13 1 13 1 14 2 13 2 13 3 14 4 13 3 13 5 14 5 13 5 13 6 14 7 13 8 13 8 14 9 13 11 13 11 14 13 13 14 13 16 14 19 13 23 13 29 14 44 0 113" stroke="#000000" stroke-width="20" fill="#808080" />
+  <g name="StraightArrow2">
+    <path d="M 61979 3498 l -915 -310 129 209 -1572 0 0 206 1572 0 -129 209 915 -314 0 0" stroke-width="0" fill="#FF8000" />
+    <path d="M 61979 3498 l -915 -310 129 209 -1572 0 0 206 1572 0 -129 209 915 -314" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT5">
+    <rect x="58580" y="2260" width="3200" height="900" stroke-width="0" fill="none" id="TEXT5_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="60180" y="2990" id="TEXT5_pbTextEl">火炬管网</text>
+  </g>
+  <g id="TEXT12">
+    <rect x="56580" y="29900" width="6660" height="900" stroke-width="0" fill="none" id="TEXT12_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="59910" y="30630" id="TEXT12_pbTextEl">采样器放空线</text>
+  </g>
+  <g id="TEXT19">
+    <rect x="2120" y="18460" width="6660" height="900" stroke-width="0" fill="none" id="TEXT19_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="5450" y="19190" id="TEXT19_pbTextEl">420XV3003A</text>
+  </g>
+  <g id="TEXT21">
+    <rect x="7600" y="18480" width="6660" height="900" stroke-width="0" fill="none" id="TEXT21_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="10930" y="19210" id="TEXT21_pbTextEl">420XV3004A</text>
+  </g>
+  <g id="TEXT22">
+    <rect x="19040" y="17760" width="5400" height="900" stroke-width="0" fill="none" id="TEXT22_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="21740" y="18490" id="TEXT22_pbTextEl">420XV3005A</text>
+  </g>
+  <g id="TEXT23">
+    <rect x="17900" y="14940" width="6660" height="900" stroke-width="0" fill="none" id="TEXT23_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="21230" y="15670" id="TEXT23_pbTextEl">420XZV3002A</text>
+  </g>
+  <g id="TEXT30">
+    <rect x="31620" y="18460" width="6660" height="900" stroke-width="0" fill="none" id="TEXT30_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="34950" y="19190" id="TEXT30_pbTextEl">420XV3003B</text>
+  </g>
+  <g id="TEXT31">
+    <rect x="37980" y="18460" width="6660" height="900" stroke-width="0" fill="none" id="TEXT31_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41310" y="19190" id="TEXT31_pbTextEl">420XV3004B</text>
+  </g>
+  <g id="TEXT32">
+    <rect x="49620" y="17820" width="5340" height="900" stroke-width="0" fill="none" id="TEXT32_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52290" y="18550" id="TEXT32_pbTextEl">420XV3005B</text>
+  </g>
+  <g id="TEXT33">
+    <rect x="22640" y="10360" width="6660" height="900" stroke-width="0" fill="none" id="TEXT33_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="25970" y="11090" id="TEXT33_pbTextEl">420LIAS3002A</text>
+  </g>
+  <g id="TEXT34">
+    <rect x="21540" y="12420" width="6660" height="900" stroke-width="0" fill="none" id="TEXT34_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="24870" y="13150" id="TEXT34_pbTextEl">420TI3001A</text>
+  </g>
+  <path id="LINE186" d="M 15040 8020 l 960 0" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="LINE187" d="M 14800 12580 l 1040 0" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="LINE189" d="M 21820 12840 l 1060 0" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="LINE190" d="M 45660 8040 l 320 0" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <g id="TEXT42">
+    <rect x="52660" y="10420" width="6660" height="900" stroke-width="0" fill="none" id="TEXT42_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55990" y="11150" id="TEXT42_pbTextEl">420LIAS3002B</text>
+  </g>
+  <path id="LINE191" d="M 52960 10880 l 760 0" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="LINE192" d="M 52380 12820 l 780 0" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <g id="TEXT43">
+    <rect x="51960" y="12440" width="6660" height="900" stroke-width="0" fill="none" id="TEXT43_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55290" y="13170" id="TEXT43_pbTextEl">420TI3001B</text>
+  </g>
+  <path id="LINE193" d="M 44820 12720 l 760 0" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <g id="TEXT44">
+    <rect x="3280" y="7040" width="6660" height="900" stroke-width="0" fill="none" id="TEXT44_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="6610" y="7770" id="TEXT44_pbTextEl">420XZV3001A</text>
+  </g>
+  <g id="TEXT46">
+    <rect x="19740" y="30340" width="6660" height="900" stroke-width="0" fill="none" id="TEXT46_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="23070" y="31070" id="TEXT46_pbTextEl">4203-P-001A</text>
+  </g>
+  <path id="LINE194" d="M 600 31160 l 0 -27720" stroke="#B40000" stroke-width="20" fill="none" />
+  <path id="LINE195" d="M 18740 16440 l -4120 0" stroke="#000000" stroke-width="20" fill="none" />
+  <g id="TEXT52">
+    <rect x="9820" y="11680" width="4960" height="900" stroke="#008080" stroke-width="20" fill="none" id="TEXT52_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="12300" y="12410" id="TEXT52_pbTextEl">420LZIA3001A</text>
+  </g>
+  <g id="TEXT53">
+    <rect x="9820" y="12620" width="4960" height="900" stroke="#008080" stroke-width="20" fill="none" id="TEXT53_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="end" x="14780" y="13350" id="TEXT53_pbTextEl">mm</text>
+  </g>
+  <g id="TEXT57">
+    <rect x="39800" y="11800" width="4960" height="900" stroke="#008080" stroke-width="20" fill="none" id="TEXT57_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="42280" y="12530" id="TEXT57_pbTextEl">420LZIA3001B</text>
+  </g>
+  <g id="TEXT58">
+    <rect x="39760" y="12740" width="4960" height="900" stroke="#008080" stroke-width="20" fill="none" id="TEXT58_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="end" x="44720" y="13470" id="TEXT58_pbTextEl">mm</text>
+  </g>
+  <path id="LINE196" d="M 23040 10880 l 580 0" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path d="M 18500 15440 l 460 0 -460 -780 460 0 -460 780" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 18760 15060 l -540 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 17960 15380 l 340 0 0 -660 -340 0 0 660 0 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path id="LINE200" d="M 3260 7280 l -300 0 160 -460 140 460" stroke="#000000" stroke-width="20" fill="#000000" />
+  <path d="M 5920 6580 l 0 400 900 -400 0 400 -900 -400" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 6340 6820 l 0 -480" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 5980 6100 l 0 300 780 0 0 -300 -780 0 0 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <path d="M 48840 15440 l 480 0 -480 -780 480 0 -480 780" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 49120 15060 l -540 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 48320 15380 l 320 0 0 -660 -320 0 0 660 0 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <rect x="13040" y="17080" width="3100" height="1320" stroke="#000000" stroke-width="20" fill="#FFFFFF" id="RECTANGLE1" />
+  <path id="LINE207" d="M 13040 17660 l 3220 0" stroke="#000000" stroke-width="20" fill="none" />
+  <g id="TEXT68">
+    <rect x="13040" y="17080" width="3200" height="580" stroke-width="0" fill="none" id="TEXT68_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="14640" y="17650" id="TEXT68_pbTextEl">4203SC</text>
+  </g>
+  <g id="TEXT69">
+    <rect x="12960" y="17780" width="3200" height="580" stroke-width="0" fill="none" id="TEXT69_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="14560" y="18350" id="TEXT69_pbTextEl">001A</text>
+  </g>
+  <path id="LINE208" d="M 46600 6820 l 0 920" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE209" d="M 32920 7160 l -340 0 180 -460 160 460" stroke="#000000" stroke-width="20" fill="#000000" />
+  <path id="LINE210" d="M 8780 17000 l -340 0 160 -480 180 480" stroke="#000000" stroke-width="20" fill="#000000" />
+  <path id="LINE211" d="M 39220 17120 l -340 0 180 -480 160 480" stroke="#000000" stroke-width="20" fill="#000000" />
+  <rect x="43140" y="17040" width="3280" height="1320" stroke="#000000" stroke-width="20" fill="#FFFFFF" id="RECTANGLE2" />
+  <path id="LINE212" d="M 43140 17640 l 3400 0" stroke="#000000" stroke-width="20" fill="none" />
+  <g id="TEXT70">
+    <rect x="43180" y="17040" width="3400" height="580" stroke-width="0" fill="none" id="TEXT70_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="44880" y="17610" id="TEXT70_pbTextEl">4203SC</text>
+  </g>
+  <g id="TEXT71">
+    <rect x="43080" y="17760" width="3400" height="580" stroke-width="0" fill="none" id="TEXT71_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="44780" y="18330" id="TEXT71_pbTextEl">001B</text>
+  </g>
+  <path id="LINE213" d="M 14600 19480 l 0 -1160" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE214" d="M 44040 19520 l 0 -1200" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE215" d="M 44080 17000 l 0 -620" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE216" d="M 49220 16440 l -5280 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE217" d="M 44040 21000 l 0 2140" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE218" d="M 48920 20420 l 300 0 -140 460 -160 -460" stroke="#000000" stroke-width="20" fill="#000000" />
+  <path id="LINE219" d="M 25520 29520 l 0 1600" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 36440 29220 l 360 380 -1740 0 160 -440" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 35900 28400 l 840 0 0 -880 -840 0 0 880 0 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 36740 28609 l -40 154 -40 85 -40 64 -40 52 -40 44 -40 38 -40 34 -40 29 -40 26 -40 23 -40 20 -40 18 -40 15 -40 13 -40 12 -40 9 -40 8 -40 6 -40 4 -40 3 -40 0 0 0 -40 0 -40 -3 -40 -4 -40 -6 -40 -8 -40 -9 -40 -12 -40 -13 -40 -15 -40 -18 -40 -20 -40 -23 -40 -26 -40 -29 -40 -34 -40 -38 -40 -44 -40 -52 -40 -64 -40 -85 -40 -154 0 -177 40 -154 40 -85 40 -64 40 -52 40 -44 40 -38 40 -34 40 -29 40 -26 40 -23 40 -20 40 -18 40 -15 40 -13 40 -12 40 -9 40 -8 40 -6 40 -4 40 -3 40 -1 0 0 40 1 40 3 40 4 40 6 40 8 40 9 40 12 40 13 40 15 40 18 40 20 40 23 40 26 40 29 40 34 40 38 40 44 40 52 40 64 40 85 40 154 0 177" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 36340 28624 l -20 66 -20 41 -20 32 -20 25 -20 22 -20 19 -20 17 -20 15 -20 13 -20 12 -20 10 -20 10 -20 8 -20 7 -20 6 -20 5 -20 5 -20 3 -20 3 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -3 -20 -3 -20 -5 -20 -5 -20 -6 -20 -7 -20 -8 -20 -10 -20 -10 -20 -12 -20 -13 -20 -15 -20 -17 -20 -19 -20 -22 -20 -25 -20 -32 -20 -41 -20 -66 0 -127 20 -66 20 -41 20 -32 20 -25 20 -22 20 -19 20 -17 20 -15 20 -13 20 -12 20 -10 20 -10 20 -8 20 -7 20 -6 20 -5 20 -5 20 -3 20 -3 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 3 20 3 20 5 20 5 20 6 20 7 20 8 20 10 20 10 20 12 20 13 20 15 20 17 20 19 20 22 20 25 20 32 20 41 20 66 0 127" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path id="LINE221" d="M 24620 28500 l -3840 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE222" d="M 31760 22240 l 0 920" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE223" d="M 31760 20860 l 0 1040" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE224" d="M 25460 30800 l 200 0 -100 480 -100 -480" stroke="#000000" stroke-width="20" fill="#000000" />
+  <path id="LINE225" d="M 34140 23480 l 0 940" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE226" d="M 34180 22180 l 0 920" stroke="#000000" stroke-width="40" fill="none" />
+  <g id="TEXT72">
+    <rect x="30380" y="30200" width="6660" height="900" stroke-width="0" fill="none" id="TEXT72_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33710" y="30930" id="TEXT72_pbTextEl">4203-P-001B</text>
+  </g>
+  <g id="TEXT94">
+    <rect x="48320" y="14900" width="6660" height="900" stroke-width="0" fill="none" id="TEXT94_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="51650" y="15630" id="TEXT94_pbTextEl">420XZV3002B</text>
+  </g>
+  <g name="StraightArrow2">
+    <path d="M 59308 19618 l 941 -229 -133 154 1616 0 0 154 -1616 0 133 154 -941 -233 0 0" stroke-width="0" fill="#C0C0C0" />
+    <path d="M 59308 19618 l 941 -229 -133 154 1616 0 0 154 -1616 0 133 154 -941 -233" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow2">
+    <path d="M 59921 31162 l 915 310 -129 -209 1572 0 0 -206 -1572 0 129 -209 -915 314 0 0" stroke-width="0" fill="#FF8000" />
+    <path d="M 59921 31162 l 915 310 -129 -209 1572 0 0 -206 -1572 0 129 -209 -915 314" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT96">
+    <rect x="55000" y="17460" width="7600" height="2340" stroke-width="0" fill="none" id="TEXT96_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="58800" y="18350" id="TEXT96_pbTextEl">混合C4自分离装置/<tspan x="58800" dy="560">自丙烯罐组C4倒罐泵/</tspan><tspan x="58800" dy="560">兼分离装置开车C4线</tspan></text>
+  </g>
+  <g id="TEXT97">
+    <rect x="21540" y="25760" width="4180" height="900" stroke-width="0" fill="none" id="TEXT97_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="23630" y="26490" id="TEXT97_pbTextEl">420PI3003A</text>
+  </g>
+  <g id="TEXT100">
+    <rect x="25760" y="28260" width="6660" height="900" stroke-width="0" fill="none" id="TEXT100_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="29090" y="28990" id="TEXT100_pbTextEl">420LI3031A</text>
+  </g>
+  <g id="TEXT101">
+    <rect x="25660" y="29440" width="6660" height="900" stroke-width="0" fill="none" id="TEXT101_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="28990" y="30170" id="TEXT101_pbTextEl">420PI3031A</text>
+  </g>
+  <g id="TEXT102">
+    <rect x="37980" y="21560" width="6660" height="900" stroke-width="0" fill="none" id="TEXT102_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41310" y="22290" id="TEXT102_pbTextEl">420PIA3009</text>
+  </g>
+  <g id="TEXT103">
+    <rect x="24380" y="26800" width="1520" height="580" stroke-width="0" fill="none" id="TEXT103_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="25140" y="27370" id="TEXT103_pbTextEl">MPa</text>
+  </g>
+  <path id="LINE245" d="M 25260 26760 l 780 0" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <g id="TEXT105">
+    <rect x="29700" y="29000" width="1520" height="580" stroke-width="0" fill="none" id="TEXT105_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="30460" y="29570" id="TEXT105_pbTextEl">kPa</text>
+  </g>
+  <g id="TEXT116">
+    <rect x="41720" y="22420" width="1520" height="580" stroke-width="0" fill="none" id="TEXT116_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="42480" y="22990" id="TEXT116_pbTextEl">MPa</text>
+  </g>
+  <g id="TEXT133">
+    <rect x="40400" y="30540" width="1520" height="580" stroke-width="0" fill="none" id="TEXT133_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41160" y="31110" id="TEXT133_pbTextEl">MPa</text>
+  </g>
+  <g id="TEXT136">
+    <rect x="37780" y="30020" width="3780" height="900" stroke-width="0" fill="none" id="TEXT136_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39670" y="30470" id="TEXT136_pbTextEl">420PI3031B<tspan x="39670" dy="560"></tspan></text>
+  </g>
+  <path id="LINE246" d="M 44040 23460 l 0 1520" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 36440 6600 l 0 420 900 -420 0 420 -900 -420" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 36860 6840 l 0 -460" stroke="#000000" stroke-width="20" fill="none" />
+  <path d="M 36500 6140 l 0 300 780 0 0 -300 -780 0 0 0" stroke="#000000" stroke-width="20" fill="#FF0000" />
+  <g id="TEXT138">
+    <rect x="33700" y="7200" width="6660" height="900" stroke-width="0" fill="none" id="TEXT138_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="37030" y="7930" id="TEXT138_pbTextEl">420XZV3001B</text>
+  </g>
+  <path id="LINE249" d="M 35500 26700 l 760 0" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <g id="TEXT139">
+    <rect x="32000" y="25860" width="4180" height="900" stroke-width="0" fill="none" id="TEXT139_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="34090" y="26590" id="TEXT139_pbTextEl">420PI3003B</text>
+  </g>
+  <g id="TEXT140">
+    <rect x="34740" y="26760" width="1520" height="580" stroke-width="0" fill="none" id="TEXT140_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="35500" y="27330" id="TEXT140_pbTextEl">MPa</text>
+  </g>
+  <g id="TEXT142">
+    <rect x="27080" y="11140" width="1520" height="580" stroke-width="0" fill="none" id="TEXT142_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="27840" y="11710" id="TEXT142_pbTextEl">mm</text>
+  </g>
+  <g id="TEXT143">
+    <rect x="25700" y="13320" width="1520" height="580" stroke-width="0" fill="none" id="TEXT143_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="26460" y="13890" id="TEXT143_pbTextEl">℃</text>
+  </g>
+  <g id="TEXT145">
+    <rect x="57120" y="11120" width="1520" height="580" stroke-width="0" fill="none" id="TEXT145_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57880" y="11690" id="TEXT145_pbTextEl">mm</text>
+  </g>
+  <g id="TEXT146">
+    <rect x="56140" y="13320" width="1520" height="580" stroke-width="0" fill="none" id="TEXT146_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="56900" y="13890" id="TEXT146_pbTextEl">℃</text>
+  </g>
+  <path id="LINE250" d="M 10120 22500 l -340 0 160 -480 180 480" stroke="#000000" stroke-width="20" fill="#000000" />
+  <path id="LINE251" d="M 34280 22500 l -340 0 180 -480 160 480" stroke="#000000" stroke-width="20" fill="#000000" />
+  <path id="LINE252" d="M 23740 22560 l -340 0 180 -480 160 480" stroke="#000000" stroke-width="20" fill="#000000" />
+  <path id="LINE253" d="M 39100 19840 l 0 900" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE254" d="M 39100 21060 l 0 960" stroke="#000000" stroke-width="40" fill="none" />
+  <g name="StraightArrow2">
+    <path d="M 61979 5678 l -915 -310 129 209 -1572 0 0 206 1572 0 -129 209 915 -314 0 0" stroke-width="0" fill="#1E1E1E" />
+    <path d="M 61979 5678 l -915 -310 129 209 -1572 0 0 206 1572 0 -129 209 915 -314" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT147">
+    <rect x="55380" y="4260" width="6920" height="900" stroke-width="0" fill="none" id="TEXT147_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="58840" y="4430" id="TEXT147_pbTextEl">混合C4自分离装置/<tspan x="58840" dy="560">自丙烯罐组C4倒罐泵/</tspan><tspan x="58840" dy="560">兼分离装置开车C4线</tspan></text>
+  </g>
+  <path id="LINE255" d="M 13520 25100 l 0 2480" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE256" d="M 13480 25560 l -3600 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path d="M 13680 29160 l 380 380 -1760 0 180 -440" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 13140 28340 l 840 0 0 -880 -840 0 0 880 0 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 13980 28549 l -40 154 -40 85 -40 64 -40 52 -40 44 -40 38 -40 34 -40 29 -40 26 -40 23 -40 20 -40 18 -40 15 -40 13 -40 12 -40 9 -40 8 -40 6 -40 4 -40 3 -40 0 0 0 -40 0 -40 -3 -40 -4 -40 -6 -40 -8 -40 -9 -40 -12 -40 -13 -40 -15 -40 -18 -40 -20 -40 -23 -40 -26 -40 -29 -40 -34 -40 -38 -40 -44 -40 -52 -40 -64 -40 -85 -40 -154 0 -177 40 -154 40 -85 40 -64 40 -52 40 -44 40 -38 40 -34 40 -29 40 -26 40 -23 40 -20 40 -18 40 -15 40 -13 40 -12 40 -9 40 -8 40 -6 40 -4 40 -3 40 -1 0 0 40 1 40 3 40 4 40 6 40 8 40 9 40 12 40 13 40 15 40 18 40 20 40 23 40 26 40 29 40 34 40 38 40 44 40 52 40 64 40 85 40 154 0 177" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 13580 28564 l -20 66 -20 41 -20 32 -20 25 -20 22 -20 19 -20 17 -20 15 -20 13 -20 12 -20 10 -20 10 -20 8 -20 7 -20 6 -20 5 -20 5 -20 3 -20 3 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -3 -20 -3 -20 -5 -20 -5 -20 -6 -20 -7 -20 -8 -20 -10 -20 -10 -20 -12 -20 -13 -20 -15 -20 -17 -20 -19 -20 -22 -20 -25 -20 -32 -20 -41 -20 -66 0 -127 20 -66 20 -41 20 -32 20 -25 20 -22 20 -19 20 -17 20 -15 20 -13 20 -12 20 -10 20 -10 20 -8 20 -7 20 -6 20 -5 20 -5 20 -3 20 -3 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 3 20 3 20 5 20 5 20 6 20 7 20 8 20 10 20 10 20 12 20 13 20 15 20 17 20 19 20 22 20 25 20 32 20 41 20 66 0 127" stroke="#000000" stroke-width="20" fill="#808080" />
+  <g id="TEXT148">
+    <rect x="7500" y="30160" width="6660" height="900" stroke-width="0" fill="none" id="TEXT148_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="10830" y="30890" id="TEXT148_pbTextEl">4203-P-007</text>
+  </g>
+  <path id="LINE258" d="M 12380 28520 l -3140 0" stroke="#000000" stroke-width="40" fill="none" />
+  <g id="TEXT149">
+    <rect x="9480" y="26060" width="4180" height="900" stroke-width="0" fill="none" id="TEXT149_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="11570" y="26790" id="TEXT149_pbTextEl">420PI3307</text>
+  </g>
+  <g id="TEXT150">
+    <rect x="12040" y="26820" width="1520" height="580" stroke-width="0" fill="none" id="TEXT150_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="12800" y="27390" id="TEXT150_pbTextEl">MPa</text>
+  </g>
+  <path id="LINE259" d="M 12880 26760 l 780 0" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <g id="TEXT151">
+    <rect x="17860" y="29320" width="1520" height="580" stroke-width="0" fill="none" id="TEXT151_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18620" y="29890" id="TEXT151_pbTextEl">kPa</text>
+  </g>
+  <g id="TEXT152">
+    <rect x="17900" y="30580" width="1520" height="580" stroke-width="0" fill="none" id="TEXT152_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18660" y="31150" id="TEXT152_pbTextEl">MPa</text>
+  </g>
+  <path id="LINE260" d="M 13340 25160 l 46040 0" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE261" d="M 9140 22200 l 0 6440" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE262" d="M 9180 20880 l 0 940" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE263" d="M 20860 22120 l 0 2920" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE264" d="M 14620 21000 l 0 940" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE265" d="M 13240 29540 l 0 1620" stroke="#000000" stroke-width="20" fill="none" />
+  <g id="TEXT153">
+    <rect x="13440" y="25200" width="6660" height="1140" stroke-width="0" fill="none" id="TEXT153_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="16770" y="26050" id="TEXT153_pbTextEl">420HV3001</text>
+  </g>
+  <path id="LINE267" d="M 9980 22060 l 0 3480" stroke="#000000" stroke-width="40" fill="none" />
+  <path id="LINE268" d="M 26040 23380 l 0 1580" stroke="#000000" stroke-width="40" fill="none" />
+  <path d="M 10920 25440 l 0 400 1120 -400 0 400 -1120 -400" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 11500 25680 l 0 -440" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 11020 25300 l 920 0" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 11940 25300 l -1 -6 0 -7 0 -6 -1 -7 0 -7 -1 -6 -1 -7 -1 -6 -1 -7 -1 -6 -2 -7 -1 -7 -2 -6 -2 -6 -1 -7 -3 -6 -2 -7 -2 -6 -2 -6 -3 -6 -3 -7 -3 -6 -2 -6 -4 -6 -3 -6 -3 -6 -3 -6 -4 -6 -4 -6 -3 -6 -4 -5 -4 -6 -4 -5 -5 -6 -4 -5 -5 -6 -4 -5 -5 -5 -5 -6 -4 -5 -5 -5 -6 -5 -5 -5 -5 -4 -5 -5 -6 -5 -5 -4 -6 -5 -6 -4 -6 -5 -6 -4 -6 -4 -6 -4 -6 -4 -6 -4 -6 -4 -7 -3 -6 -4 -7 -3 -6 -4 -7 -3 -7 -3 -7 -3 -7 -3 -7 -3 -7 -3 -7 -2 -7 -3 -7 -2 -7 -3 -7 -2 -8 -2 -7 -2 -7 -2 -8 -2 -7 -1 -8 -2 -7 -1 -8 -2 -7 -1 -8 -1 -7 -1 -8 -1 -8 0 -7 -1 -8 -1 -7 0 -8 0 -8 0 -7 -1 -8 1 -8 0 -8 0 -7 0 -8 1 -7 1 -8 0 -8 1 -7 1 -8 1 -7 1 -8 2 -7 1 -8 2 -7 1 -8 2 -7 2 -7 2 -8 2 -7 2 -7 3 -7 2 -7 3 -7 2 -7 3 -7 3 -7 3 -7 3 -7 3 -6 3 -7 4 -7 3 -6 4 -7 3 -6 4 -6 4 -6 4 -6 4 -6 4 -6 4 -6 5 -6 4 -6 5 -5 4 -6 5 -5 5 -5 4 -5 5 -6 5 -5 5 -4 5 -5 6 -5 5 -4 5 -5 6 -4 5 -5 6 -4 5 -4 6 -4 5 -3 6 -4 6 -4 6 -3 6 -3 6 -3 6 -4 6 -2 6 -3 6 -3 7 -3 6 -2 6 -2 6 -2 7 -3 6 -1 7 -2 6 -2 6 -1 7 -2 7 -1 6 -1 7 -1 6 -1 7 -1 6 0 7 -1 7 0 6 0 7 0 6" stroke="#000000" stroke-width="20" fill="#808080" />
+  <g id="TEXT155">
+    <rect x="3420" y="25060" width="980" height="580" stroke-width="0" fill="none" id="TEXT155_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="3910" y="25630" id="TEXT155_pbTextEl">P</text>
+  </g>
+  <g id="TEXT156">
+    <rect x="6320" y="25020" width="980" height="580" stroke-width="0" fill="none" id="TEXT156_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="6810" y="25590" id="TEXT156_pbTextEl">kPa</text>
+  </g>
+  <g id="TEXT157">
+    <rect x="3440" y="25660" width="980" height="580" stroke-width="0" fill="none" id="TEXT157_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="3930" y="26230" id="TEXT157_pbTextEl">S</text>
+  </g>
+  <g id="TEXT158">
+    <rect x="3440" y="26180" width="980" height="580" stroke-width="0" fill="none" id="TEXT158_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="3930" y="26750" id="TEXT158_pbTextEl">O</text>
+  </g>
+  <g id="TEXT159">
+    <rect x="6320" y="25660" width="980" height="580" stroke-width="0" fill="none" id="TEXT159_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="6810" y="26230" id="TEXT159_pbTextEl">kPa</text>
+  </g>
+  <path id="LINE280" d="M 5400 26860 l 0 400" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <g id="TEXT160">
+    <rect x="6280" y="26140" width="980" height="580" stroke-width="0" fill="none" id="TEXT160_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="6770" y="26710" id="TEXT160_pbTextEl">%</text>
+  </g>
+  <path id="LINE281" d="M 36260 23380 l 0 1580" stroke="#000000" stroke-width="40" fill="none" />
+  <path d="M 15500 24980 l 0 380 1120 -380 0 380 -1120 -380" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 16080 25220 l 0 -440" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 15600 24840 l 920 0" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path d="M 16520 24840 l -1 -6 0 -7 0 -6 -1 -7 0 -7 -1 -6 -1 -7 -1 -6 -1 -7 -1 -6 -2 -7 -1 -7 -2 -6 -2 -6 -1 -7 -3 -6 -2 -7 -2 -6 -2 -6 -3 -6 -3 -7 -3 -6 -2 -6 -4 -6 -3 -6 -3 -6 -3 -6 -4 -6 -4 -6 -3 -6 -4 -5 -4 -6 -4 -5 -5 -6 -4 -5 -5 -6 -4 -5 -5 -5 -5 -6 -4 -5 -5 -5 -6 -5 -5 -5 -5 -4 -5 -5 -6 -5 -5 -4 -6 -5 -6 -4 -6 -5 -6 -4 -6 -4 -6 -4 -6 -4 -6 -4 -6 -4 -7 -3 -6 -4 -7 -3 -6 -4 -7 -3 -7 -3 -7 -3 -7 -3 -7 -3 -7 -3 -7 -2 -7 -3 -7 -2 -7 -3 -7 -2 -8 -2 -7 -2 -7 -2 -8 -2 -7 -1 -8 -2 -7 -1 -8 -2 -7 -1 -8 -1 -7 -1 -8 -1 -8 0 -7 -1 -8 -1 -7 0 -8 0 -8 0 -7 -1 -8 1 -8 0 -8 0 -7 0 -8 1 -7 1 -8 0 -8 1 -7 1 -8 1 -7 1 -8 2 -7 1 -8 2 -7 1 -8 2 -7 2 -7 2 -8 2 -7 2 -7 3 -7 2 -7 3 -7 2 -7 3 -7 3 -7 3 -7 3 -7 3 -6 3 -7 4 -7 3 -6 4 -7 3 -6 4 -6 4 -6 4 -6 4 -6 4 -6 4 -6 5 -6 4 -6 5 -5 4 -6 5 -5 5 -5 4 -5 5 -6 5 -5 5 -4 5 -5 6 -5 5 -4 5 -5 6 -4 5 -5 6 -4 5 -4 6 -4 5 -3 6 -4 6 -4 6 -3 6 -3 6 -3 6 -4 6 -2 6 -3 6 -3 7 -3 6 -2 6 -2 6 -2 7 -3 6 -1 7 -2 6 -2 6 -1 7 -2 7 -1 6 -1 7 -1 6 -1 7 -1 6 0 7 -1 7 0 6 0 7 0 6" stroke="#000000" stroke-width="20" fill="#808080" />
+  <path id="LINE285" d="M 14600 22260 l 0 2760" stroke="#000000" stroke-width="20" fill="none" />
+  <g id="TEXT161">
+    <rect x="13940" y="27060" width="6660" height="900" stroke-width="0" fill="none" id="TEXT161_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="17270" y="27790" id="TEXT161_pbTextEl">420TI3334</text>
+  </g>
+  <g id="TEXT162">
+    <rect x="18000" y="27960" width="1520" height="580" stroke-width="0" fill="none" id="TEXT162_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18760" y="28530" id="TEXT162_pbTextEl">℃</text>
+  </g>
+  <g id="TEXT163">
+    <rect x="14040" y="28560" width="6660" height="900" stroke-width="0" fill="none" id="TEXT163_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="17370" y="29290" id="TEXT163_pbTextEl">420LI3334</text>
+  </g>
+  <g id="TEXT164">
+    <rect x="14080" y="29820" width="6660" height="900" stroke-width="0" fill="none" id="TEXT164_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="17410" y="30550" id="TEXT164_pbTextEl">420PI3334</text>
+  </g>
+  <g id="TEXT165">
+    <rect x="29700" y="30080" width="1520" height="580" stroke-width="0" fill="none" id="TEXT165_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="30460" y="30650" id="TEXT165_pbTextEl">MPa</text>
+  </g>
+  <g id="TEXT166">
+    <rect x="36260" y="28440" width="6660" height="900" stroke-width="0" fill="none" id="TEXT166_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39590" y="29170" id="TEXT166_pbTextEl">420LI3031B</text>
+  </g>
+  <g id="TEXT167">
+    <rect x="40300" y="29280" width="1520" height="580" stroke-width="0" fill="none" id="TEXT167_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41060" y="29850" id="TEXT167_pbTextEl">kPa</text>
+  </g>
+  <path id="LINE286" d="M 7360 24960 l 4240 0" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="LINE287" d="M 7300 26040 l 6260 0" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <g id="TEXT168">
+    <rect x="9960" y="23820" width="3980" height="1140" stroke-width="0" fill="none" id="TEXT168_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="11950" y="24670" id="TEXT168_pbTextEl">420FV3307</text>
+  </g>
+  <g id="TEXT170">
+    <rect x="16680" y="23100" width="3780" height="900" stroke="#008080" stroke-width="20" fill="none" id="TEXT170_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18570" y="23830" id="TEXT170_pbTextEl">420HV3001</text>
+  </g>
+  <g id="TEXT171">
+    <rect x="16720" y="24020" width="3700" height="900" stroke="#008080" stroke-width="20" fill="none" id="TEXT171_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18570" y="24750" id="TEXT171_pbTextEl"> </text>
+  </g>
+  <g id="TEXT172">
+    <rect x="9440" y="7280" width="6660" height="900" stroke-width="0" fill="none" id="TEXT172_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="12770" y="8010" id="TEXT172_pbTextEl">420PIAS3001A</text>
+  </g>
+  <g id="TEXT173">
+    <rect x="13640" y="8180" width="1520" height="580" stroke-width="0" fill="none" id="TEXT173_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="14400" y="8750" id="TEXT173_pbTextEl">MPa</text>
+  </g>
+  <g id="TEXT174">
+    <rect x="43800" y="8180" width="1520" height="580" stroke-width="0" fill="none" id="TEXT174_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="44560" y="8750" id="TEXT174_pbTextEl">MPa</text>
+  </g>
+  <g id="TEXT175">
+    <rect x="39560" y="7280" width="6660" height="900" stroke-width="0" fill="none" id="TEXT175_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="42890" y="8010" id="TEXT175_pbTextEl">420PIAS3001B</text>
+  </g>
+  <g name="StraightArrow2">
+    <path d="M 59208 23258 l 941 -229 -133 154 1616 0 0 154 -1616 0 133 154 -941 -233 0 0" stroke-width="0" fill="#C0C0C0" />
+    <path d="M 59208 23258 l 941 -229 -133 154 1616 0 0 154 -1616 0 133 154 -941 -233" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow2">
+    <path d="M 59288 25118 l 941 -229 -133 154 1616 0 0 154 -1616 0 133 154 -941 -233 0 0" stroke-width="0" fill="#C0C0C0" />
+    <path d="M 59288 25118 l 941 -229 -133 154 1616 0 0 154 -1616 0 133 154 -941 -233" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow2">
+    <path d="M 62652 19622 l -941 229 133 -154 -1616 0 0 -154 1616 0 -133 -154 941 233 0 0" stroke-width="0" fill="#C0C0C0" />
+    <path d="M 62652 19622 l -941 229 133 -154 -1616 0 0 -154 1616 0 -133 -154 941 233" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow2">
+    <path d="M 62572 25102 l -941 229 133 -154 -1616 0 0 -154 1616 0 -133 -154 941 233 0 0" stroke-width="0" fill="#C0C0C0" />
+    <path d="M 62572 25102 l -941 229 133 -154 -1616 0 0 -154 1616 0 -133 -154 941 233" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow2">
+    <path d="M 62552 23262 l -941 229 133 -154 -1616 0 0 -154 1616 0 -133 -154 941 233 0 0" stroke-width="0" fill="#C0C0C0" />
+    <path d="M 62552 23262 l -941 229 133 -154 -1616 0 0 -154 1616 0 -133 -154 941 233" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT1">
+    <rect x="56040" y="21600" width="6660" height="900" stroke-width="0" fill="none" id="TEXT1_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="59370" y="22330" id="TEXT1_pbTextEl">混合C4去/自OCC装置</text>
+  </g>
+  <g id="TEXT3">
+    <rect x="55060" y="23860" width="7980" height="900" stroke-width="0" fill="none" id="TEXT3_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="59050" y="24590" id="TEXT3_pbTextEl">混合C4去/自汽车装卸站</text>
+  </g>
+  <path id="LINE2" d="M 40840 23060 l 0 -680" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="LINE3" d="M 13120 30660 l 200 0 -100 460 -100 -460" stroke="#000000" stroke-width="20" fill="#000000" />
+  <g id="TEXT6">
+    <rect x="25260" y="640" width="11480" height="2820" stroke-width="0" fill="none" id="TEXT6_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="800" text-anchor="middle" x="31000" y="2450" id="TEXT6_pbTextEl">混合C4球罐</text>
+  </g>
+  <g id="DATAPOINT2" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_PT_3001A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="11680" y="8000" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT2_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="12570" y="8620" id="DATAPOINT2_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT30" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_LZT_3001A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="11040" y="12720" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT30_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="11930" y="13340" id="DATAPOINT30_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT31" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_TT_3001A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="23740" y="13340" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT31_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="24630" y="13960" id="DATAPOINT31_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT32" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_LT_3002A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="24960" y="11160" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT32_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="25850" y="11780" id="DATAPOINT32_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT33" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_PT_3001B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="41380" y="8020" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT33_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="42270" y="8640" id="DATAPOINT33_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT34" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_LZT_3001B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="40880" y="12800" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT34_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41770" y="13420" id="DATAPOINT34_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT35" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_LT_3002B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="54520" y="11340" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT35_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="55410" y="11960" id="DATAPOINT35_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT36" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_TT_3001B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="53760" y="13220" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT36_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="54650" y="13840" id="DATAPOINT36_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT37" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_PT_3009" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="39560" y="22380" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT37_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="40450" y="23000" id="DATAPOINT37_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT38" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_PT_3003B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="32800" y="26660" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT38_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="33690" y="27280" id="DATAPOINT38_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT39" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_LT_3031B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38480" y="29220" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT39_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39370" y="29840" id="DATAPOINT39_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT40" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_PT_3031B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="38380" y="30360" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT40_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39270" y="30980" id="DATAPOINT40_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT41" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_PT_3003A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="22340" y="26660" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT41_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="23230" y="27280" id="DATAPOINT41_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT42" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_LT_3031A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27780" y="28920" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT42_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="28670" y="29540" id="DATAPOINT42_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT43" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_PT_3031A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="27860" y="30160" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT43_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="28750" y="30780" id="DATAPOINT43_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT44" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_PT_3307" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="10120" y="26840" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT44_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="11010" y="27460" id="DATAPOINT44_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT45" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_PT_3334" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="16000" y="30480" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT45_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="16890" y="31100" id="DATAPOINT45_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT46" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_LT_3334" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="16000" y="29340" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT46_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="16890" y="29960" id="DATAPOINT46_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT47" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_HV3001" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="17620" y="24140" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT47_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="18510" y="24760" id="DATAPOINT47_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT1" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_FIC_3307_PV" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="4260" y="25080" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT1_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="5150" y="25700" id="DATAPOINT1_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT3" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_FIC_3307_SP" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="4400" y="25600" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT3_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="5290" y="26220" id="DATAPOINT3_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT4" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_FIC_3307_OUT" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="4400" y="26100" width="1780" height="680" stroke-width="0" fill="none" id="DATAPOINT4_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="5290" y="26720" id="DATAPOINT4_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT1212">
+    <rect x="33000" y="8300" width="3580" height="780" stroke-width="0" fill="none" id="TEXT1212_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="34790" y="8970" id="TEXT1212_pbTextEl">B罐容积：</text>
+  </g>
+  <g id="TEXT1213">
+    <rect x="33680" y="9560" width="3580" height="780" stroke-width="0" fill="none" id="TEXT1213_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="35470" y="10230" id="TEXT1213_pbTextEl">液位：</text>
+  </g>
+  <g id="TEXT1214">
+    <rect x="33680" y="10820" width="3580" height="780" stroke-width="0" fill="none" id="TEXT1214_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="35470" y="11490" id="TEXT1214_pbTextEl">质量：</text>
+  </g>
+  <g id="TEXT1215">
+    <rect x="33680" y="12080" width="3580" height="780" stroke-width="0" fill="none" id="TEXT1215_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="35470" y="12750" id="TEXT1215_pbTextEl">密度：</text>
+  </g>
+  <g id="DATAPOINT160" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_LT_3002B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="36200" y="9680" width="2180" height="500" stroke-width="0" fill="none" id="DATAPOINT160_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="37290" y="10210" id="DATAPOINT160_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT1217">
+    <rect x="38480" y="9540" width="1040" height="780" stroke-width="0" fill="none" id="TEXT1217_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39000" y="10210" id="TEXT1217_pbTextEl">mm</text>
+  </g>
+  <g id="DATAPOINT161" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_VT_3002B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="36200" y="8420" width="2180" height="500" stroke-width="0" fill="none" id="DATAPOINT161_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="37290" y="8950" id="DATAPOINT161_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT1219">
+    <rect x="38480" y="8240" width="1040" height="780" stroke-width="0" fill="none" id="TEXT1219_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39000" y="8910" id="TEXT1219_pbTextEl">m3</text>
+  </g>
+  <g id="DATAPOINT162" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3002B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="36200" y="10940" width="2180" height="500" stroke-width="0" fill="none" id="DATAPOINT162_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="37290" y="11470" id="DATAPOINT162_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT1221">
+    <rect x="38480" y="10860" width="1040" height="780" stroke-width="0" fill="none" id="TEXT1221_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39000" y="11530" id="TEXT1221_pbTextEl">t</text>
+  </g>
+  <g id="DATAPOINT163" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_DT_3002B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="36200" y="12200" width="2180" height="500" stroke-width="0" fill="none" id="DATAPOINT163_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="37290" y="12730" id="DATAPOINT163_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT1223">
+    <rect x="38480" y="12020" width="1040" height="780" stroke-width="0" fill="none" id="TEXT1223_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="39000" y="12690" id="TEXT1223_pbTextEl">t/m3</text>
+  </g>
+  <g id="TEXT1224">
+    <rect x="3180" y="8300" width="3580" height="780" stroke-width="0" fill="none" id="TEXT1224_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="4970" y="8970" id="TEXT1224_pbTextEl">A罐容积：</text>
+  </g>
+  <g id="TEXT1225">
+    <rect x="3860" y="9560" width="3580" height="780" stroke-width="0" fill="none" id="TEXT1225_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="5650" y="10230" id="TEXT1225_pbTextEl">液位：</text>
+  </g>
+  <g id="TEXT1226">
+    <rect x="3860" y="10820" width="3580" height="780" stroke-width="0" fill="none" id="TEXT1226_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="5650" y="11490" id="TEXT1226_pbTextEl">质量：</text>
+  </g>
+  <g id="TEXT1227">
+    <rect x="3860" y="12080" width="3580" height="780" stroke-width="0" fill="none" id="TEXT1227_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="5650" y="12750" id="TEXT1227_pbTextEl">密度：</text>
+  </g>
+  <g id="DATAPOINT164" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_LT_3002A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="6380" y="9680" width="2180" height="500" stroke-width="0" fill="none" id="DATAPOINT164_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7470" y="10210" id="DATAPOINT164_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT1229">
+    <rect x="8660" y="9540" width="1040" height="780" stroke-width="0" fill="none" id="TEXT1229_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="9180" y="10210" id="TEXT1229_pbTextEl">mm</text>
+  </g>
+  <g id="DATAPOINT165" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_VT_3002A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="6380" y="8420" width="2180" height="500" stroke-width="0" fill="none" id="DATAPOINT165_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7470" y="8950" id="DATAPOINT165_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT1231">
+    <rect x="8660" y="8240" width="1040" height="780" stroke-width="0" fill="none" id="TEXT1231_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="9180" y="8910" id="TEXT1231_pbTextEl">m3</text>
+  </g>
+  <g id="DATAPOINT166" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_MT_3002A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="6380" y="10940" width="2180" height="500" stroke-width="0" fill="none" id="DATAPOINT166_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7470" y="11470" id="DATAPOINT166_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT1233">
+    <rect x="8660" y="10860" width="1040" height="780" stroke-width="0" fill="none" id="TEXT1233_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="9180" y="11530" id="TEXT1233_pbTextEl">t</text>
+  </g>
+  <g id="DATAPOINT167" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\420_DT_3002A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="6380" y="12200" width="2180" height="500" stroke-width="0" fill="none" id="DATAPOINT167_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="7470" y="12730" id="DATAPOINT167_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT1235">
+    <rect x="8660" y="12020" width="1040" height="780" stroke-width="0" fill="none" id="TEXT1235_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="9180" y="12690" id="TEXT1235_pbTextEl">t/m3</text>
+  </g>
+</svg>

@@ -250,6 +250,7 @@ function getGraphByID(graph,id,l){
 var defaultSVG = ["main","index"];
 //如果目录内只有一个页面，是否直接打开。默认是。
 var loadOnlyGraph = false; // TODO: 设置参数
+var isloadDefaultGraph = true; // TODO: 设置参数
 
 /**
 * 加载默认主页
@@ -257,6 +258,9 @@ var loadOnlyGraph = false; // TODO: 设置参数
 * @returns
 */
 function loadDefaultGraph(){
+	if(!isloadDefaultGraph){
+		return;
+	}
 	var _galleryKey;
 //	console.log("graph => "+JSON.stringify(userSpace.graph));
 	if(_routeID==null||_routeID=="undefined"||_routeID==""){

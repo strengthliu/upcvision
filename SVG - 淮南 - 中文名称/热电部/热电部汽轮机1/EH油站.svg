@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg height="100%" width="100%" viewBox="0 0 60000 30000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:PB="urn:osisoft-com-pb" xmlns:PBI="urn:osisoft-com-interface" xmlns:PBD="urn:osisoft-com-data" style="background-color:#C0C0C0">
+  <title>Graphic48</title>
+  <defs>
+    <PBD:TagUses tag="\\\">
+      <PBI:Symbol name="BARGRAPH1" PB:Type="12" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\T1AIEHTNKLVL">
+      <PBI:Symbol name="DATAPOINT98" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\T1AIEHYXT">
+      <PBI:Symbol name="DATAPOINT108" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\T1AIEHPUMPCRNTA">
+      <PBI:Symbol name="DATAPOINT109" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\T1AIEHPUMPCRNTB">
+      <PBI:Symbol name="DATAPOINT110" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\T1AIEHP">
+      <PBI:Symbol name="DATAPOINT111" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\T1AIDRNOILCLIT">
+      <PBI:Symbol name="DATAPOINT112" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\T1AIDRNOILCLOT">
+      <PBI:Symbol name="DATAPOINT113" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\T1AIBPCLOT">
+      <PBI:Symbol name="DATAPOINT114" PB:Type="7" />
+    </PBD:TagUses>
+  </defs>
+  <rect x="4720" y="4240" width="24100" height="5520" stroke="#000000" stroke-width="20" fill="#787800" id="RECTANGLE1" />
+  <g id="BARGRAPH1" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\\" PB:Start="0" PB:Upper="100" PB:Type="12">
+    <rect x="2780" y="4240" width="840" height="5520" stroke="#000000" stroke-width="20" fill="#C0C0C0" id="BARGRAPH1_pbBarBoundingRectEl" />
+    <rect x="2780" y="4240" width="840" height="5520" stroke="none" stroke-width="20" fill="#FFFF00" id="BARGRAPH1_pbBarTagRectEl" PBD:Property="" />
+  </g>
+  <g id="TEXT1">
+    <rect x="1180" y="4300" width="1340" height="5460" stroke-width="0" fill="none" id="TEXT1_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="1850" y="5070" id="TEXT1_pbTextEl">EH<tspan x="1850" dy="560"></tspan><tspan x="1850" dy="560">油</tspan><tspan x="1850" dy="560"></tspan><tspan x="1850" dy="560">站</tspan><tspan x="1850" dy="560"></tspan><tspan x="1850" dy="560">液</tspan><tspan x="1850" dy="560"></tspan><tspan x="1850" dy="560">位</tspan></text>
+  </g>
+  <path id="ELLIPSE1" d="M 6380 5355 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#FF0000" stroke-width="20" fill="#FF0000" />
+  <g id="TEXT2">
+    <rect x="6600" y="5020" width="4700" height="580" stroke-width="0" fill="none" id="TEXT2_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="8950" y="5590" id="TEXT2_pbTextEl">EH油箱液位高</text>
+  </g>
+  <path id="ELLIPSE2" d="M 6420 8015 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#808080" stroke-width="20" fill="#808080" />
+  <g id="TEXT3">
+    <rect x="6640" y="7740" width="4700" height="580" stroke-width="0" fill="none" id="TEXT3_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="8990" y="8310" id="TEXT3_pbTextEl">EH油箱液位低</text>
+  </g>
+  <path id="ELLIPSE3" d="M 6420 8975 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#808080" stroke-width="20" fill="#808080" />
+  <g id="TEXT4">
+    <rect x="6640" y="8660" width="4980" height="580" stroke-width="0" fill="none" id="TEXT4_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="9130" y="9230" id="TEXT4_pbTextEl">EH油箱液位低低</text>
+  </g>
+  <g id="TEXT5">
+    <rect x="14960" y="6120" width="5600" height="1840" stroke-width="0" fill="none" id="TEXT5_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="17760" y="7320" id="TEXT5_pbTextEl">EH油站</text>
+  </g>
+  <g id="TEXT6">
+    <rect x="19960" y="7800" width="4700" height="580" stroke-width="0" fill="none" id="TEXT6_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="22310" y="8370" id="TEXT6_pbTextEl">EH油箱温度：</text>
+  </g>
+  <rect x="4280" y="3900" width="24820" height="340" stroke="#FFFFFF" stroke-width="20" fill="none" id="RECTANGLE2" />
+  <path id="POLYGON3" d="M 28900 4740 l 14480 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="LINE3" d="M 28920 5460 l 14500 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="ELLIPSE4" d="M 3800 10695 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#FF0000" stroke-width="20" fill="#FF0000" />
+  <g id="TEXT7">
+    <rect x="4040" y="10400" width="4700" height="580" stroke-width="0" fill="none" id="TEXT7_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="6390" y="10970" id="TEXT7_pbTextEl">EH泵B现场投入</text>
+  </g>
+  <path id="POLYGON4" d="M 9240 9800 l 0 7540" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="LINE4" d="M 12020 9780 l 0 7520" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="ELLIPSE5" d="M 13000 10695 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#FF0000" stroke-width="20" fill="#FF0000" />
+  <g id="TEXT8">
+    <rect x="13200" y="10400" width="4700" height="580" stroke-width="0" fill="none" id="TEXT8_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="15550" y="10970" id="TEXT8_pbTextEl">EH泵A现场投入</text>
+  </g>
+  <g id="TEXT9">
+    <rect x="4340" y="11240" width="3340" height="980" stroke-width="0" fill="none" id="TEXT9_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" font-weight="bold" text-anchor="middle" x="6010" y="12010" id="TEXT9_pbTextEl">EH油泵B</text>
+  </g>
+  <g id="TEXT10">
+    <rect x="13520" y="11240" width="3340" height="980" stroke-width="0" fill="none" id="TEXT10_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" font-weight="bold" text-anchor="middle" x="15190" y="12010" id="TEXT10_pbTextEl">EH油泵A</text>
+  </g>
+  <g id="TEXT11">
+    <rect x="3840" y="13040" width="4700" height="580" stroke-width="0" fill="none" id="TEXT11_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="6190" y="13610" id="TEXT11_pbTextEl">B泵电流</text>
+  </g>
+  <g id="TEXT12">
+    <rect x="12860" y="13040" width="4700" height="580" stroke-width="0" fill="none" id="TEXT12_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="15210" y="13610" id="TEXT12_pbTextEl">A泵电流</text>
+  </g>
+  <path id="ELLIPSE6" d="M 4600 15435 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#808080" stroke-width="20" fill="#808080" />
+  <g id="TEXT13">
+    <rect x="4600" y="15060" width="4260" height="1620" stroke-width="0" fill="none" id="TEXT13_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="6730" y="15590" id="TEXT13_pbTextEl">B油泵滤油器<tspan x="6730" dy="560"></tspan><tspan x="6730" dy="560">压差开关</tspan></text>
+  </g>
+  <path id="ELLIPSE7" d="M 12940 15435 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#808080" stroke-width="20" fill="#808080" />
+  <g id="TEXT14">
+    <rect x="12960" y="15060" width="4260" height="1620" stroke-width="0" fill="none" id="TEXT14_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="15090" y="15590" id="TEXT14_pbTextEl">A油泵滤油器<tspan x="15090" dy="560"></tspan><tspan x="15090" dy="560">压差开关</tspan></text>
+  </g>
+  <path id="POLYGON5" d="M 12020 17380 l -7180 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON6" d="M 4920 17340 l 0 6320" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="LINE6" d="M 7420 17380 l 0 6340" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON7" d="M 7440 23720 l 3520 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON8" d="M 10140 23160 l 1680 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON9" d="M 10980 23160 l 0 640" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <rect x="9480" y="19220" width="1400" height="3560" stroke="#808080" stroke-width="20" fill="#787878" id="RECTANGLE3" />
+  <path id="POLYGON11" d="M 10140 22840 l 0 320" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="LINE11" d="M 11900 22840 l 0 320" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <rect x="11260" y="19220" width="1400" height="3560" stroke="#808080" stroke-width="20" fill="#787878" id="RECTANGLE4" />
+  <g id="TEXT15">
+    <rect x="340" y="17680" width="4260" height="1620" stroke-width="0" fill="none" id="TEXT15_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="2470" y="18210" id="TEXT15_pbTextEl">EH油压联锁<tspan x="2470" dy="560"></tspan><tspan x="2470" dy="560">试验电磁阀</tspan></text>
+  </g>
+  <path id="ELLIPSE8" d="M 6460 18195 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#FF0000" stroke-width="20" fill="#FF0000" />
+  <g id="TEXT16">
+    <rect x="7720" y="17880" width="5160" height="580" stroke-width="0" fill="none" id="TEXT16_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="10300" y="18450" id="TEXT16_pbTextEl">EH油供油压力：</text>
+  </g>
+  <g id="TEXT17">
+    <rect x="8660" y="18600" width="4700" height="580" stroke-width="0" fill="none" id="TEXT17_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="11010" y="19170" id="TEXT17_pbTextEl">蓄能器</text>
+  </g>
+  <path id="LINE12" d="M 18900 9780 l 0 9060" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON13" d="M 18900 13900 l 12580 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON14" d="M 31480 13840 l 0 -5180" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON15" d="M 31480 8660 l -2580 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <g id="TEXT18">
+    <rect x="26020" y="9880" width="4700" height="580" stroke-width="0" fill="none" id="TEXT18_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="28370" y="10450" id="TEXT18_pbTextEl">电加热器</text>
+  </g>
+  <rect x="27680" y="14560" width="3160" height="1620" stroke="#808080" stroke-width="20" fill="none" id="RECTANGLE5" />
+  <path id="POLYGON17" d="M 26580 13940 l 0 1600" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON18" d="M 26540 15620 l 1160 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON19" d="M 30860 15620 l 2000 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON20" d="M 32900 15660 l 0 -7580" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON21" d="M 32840 8020 l -3940 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON22" d="M 18960 18880 l 15340 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON23" d="M 27140 18760 l 0 -1700" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON24" d="M 27020 17100 l 14760 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON25" d="M 36120 18820 l 5600 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON26" d="M 41820 17080 l 0 1700" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON27" d="M 28900 6980 l 7160 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON28" d="M 36060 6980 l 0 9660" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="ARC2" d="M 36020 17600 l 9 0 10 0 10 0 10 -1 9 0 10 -1 10 -1 9 -1 10 -2 10 -1 9 -2 10 -1 9 -2 10 -2 9 -3 10 -2 9 -2 10 -3 9 -3 9 -3 9 -3 9 -3 9 -3 9 -4 9 -3 9 -4 9 -4 8 -4 9 -4 9 -4 8 -5 8 -4 8 -5 9 -5 8 -5 8 -5 8 -5 7 -5 8 -6 7 -5 8 -6 7 -6 7 -6 8 -6 6 -6 7 -6 7 -7 7 -6 6 -6 6 -7 7 -7 6 -7 6 -7 6 -7 5 -7 6 -7 5 -7 5 -8 6 -7 4 -8 5 -7 5 -8 4 -8 5 -7 4 -8 4 -8 4 -8 4 -8 3 -8 4 -8 3 -9 3 -8 3 -8 3 -9 2 -8 3 -9 2 -8 2 -9 2 -8 2 -9 2 -8 1 -9 1 -9 1 -8 1 -9 1 -9 1 -8 0 -9 0 -9 1 -9 -1 -8 0 -9 0 -9 -1 -8 -1 -9 -1 -9 -1 -8 -1 -9 -1 -9 -2 -8 -2 -9 -2 -8 -2 -9 -2 -8 -3 -9 -2 -8 -3 -9 -3 -8 -3 -8 -3 -9 -4 -8 -3 -8 -4 -8 -4 -8 -4 -8 -4 -8 -5 -7 -4 -8 -5 -8 -5 -8 -4 -7 -6 -7 -5 -8 -5 -7 -6 -7 -5 -7 -6 -7 -6 -7 -6 -7 -7 -7 -6 -7 -6 -6 -7 -6 -7 -7 -7 -6 -6 -6 -8 -6 -7 -6 -7 -6 -8 -6 -7 -5 -8 -6 -7 -5 -8 -5 -8 -5 -8 -5 -9 -5 -8 -5 -8 -4 -8 -5 -9 -4 -9 -4 -8 -4 -9 -4 -9 -4 -9 -3 -9 -4 -9 -3 -9 -3 -9 -3 -9 -3 -9 -3 -10 -3 -9 -2 -10 -2 -9 -3 -10 -2 -9 -2 -10 -1 -9 -2 -10 -1 -10 -2 -9 -1 -10 -1 -10 -1 -9 0 -10 -1 -10 0 -10 0 -9 -1" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON29" d="M 36100 17660 l 0 1160" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="ARC3" d="M 34280 17600 l 9 0 10 0 10 0 10 -1 9 0 10 -1 10 -1 9 -1 10 -2 10 -1 9 -2 10 -1 9 -2 10 -2 9 -3 10 -2 9 -2 10 -3 9 -3 9 -3 9 -3 9 -3 9 -3 9 -4 9 -3 9 -4 9 -4 8 -4 9 -4 9 -4 8 -5 8 -4 8 -5 9 -5 8 -5 8 -5 8 -5 7 -5 8 -6 7 -5 8 -6 7 -6 7 -6 8 -6 6 -6 7 -6 7 -7 7 -6 6 -6 6 -7 7 -7 6 -7 6 -7 6 -7 5 -7 6 -7 5 -7 5 -8 6 -7 4 -8 5 -7 5 -8 4 -8 5 -7 4 -8 4 -8 4 -8 4 -8 3 -8 4 -8 3 -9 3 -8 3 -8 3 -9 2 -8 3 -9 2 -8 2 -9 2 -8 2 -9 2 -8 1 -9 1 -9 1 -8 1 -9 1 -9 1 -8 0 -9 0 -9 1 -9 -1 -8 0 -9 0 -9 -1 -8 -1 -9 -1 -9 -1 -8 -1 -9 -1 -9 -2 -8 -2 -9 -2 -8 -2 -9 -2 -8 -3 -9 -2 -8 -3 -9 -3 -8 -3 -8 -3 -9 -4 -8 -3 -8 -4 -8 -4 -8 -4 -8 -4 -8 -5 -7 -4 -8 -5 -8 -5 -8 -4 -7 -6 -7 -5 -8 -5 -7 -6 -7 -5 -7 -6 -7 -6 -7 -6 -7 -7 -7 -6 -7 -6 -6 -7 -6 -7 -7 -7 -6 -6 -6 -8 -6 -7 -6 -7 -6 -8 -6 -7 -5 -8 -6 -7 -5 -8 -5 -8 -5 -8 -5 -9 -5 -8 -5 -8 -4 -8 -5 -9 -4 -9 -4 -8 -4 -9 -4 -9 -4 -9 -3 -9 -4 -9 -3 -9 -3 -9 -3 -9 -3 -9 -3 -10 -3 -9 -2 -10 -2 -9 -3 -10 -2 -9 -2 -10 -1 -9 -2 -10 -1 -10 -2 -9 -1 -10 -1 -10 -1 -9 0 -10 -1 -10 0 -10 0 -9 -1" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="LINE29" d="M 34300 17700 l 0 1140" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON30" d="M 34240 16680 l 0 -2460" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON31" d="M 34240 14220 l 1820 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON32" d="M 28820 6160 l 9300 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON33" d="M 38120 6120 l 0 9780" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <path id="POLYGON34" d="M 38120 15900 l 3800 0" stroke="#FFFF00" stroke-width="40" fill="none" />
+  <g id="TEXT19">
+    <rect x="43020" y="4380" width="4700" height="580" stroke-width="0" fill="none" id="TEXT19_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="45370" y="4950" id="TEXT19_pbTextEl">无压回油1</text>
+  </g>
+  <g id="TEXT20">
+    <rect x="42980" y="5220" width="4700" height="580" stroke-width="0" fill="none" id="TEXT20_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="45330" y="5790" id="TEXT20_pbTextEl">无压回油2</text>
+  </g>
+  <g id="TEXT21">
+    <rect x="33240" y="10620" width="3040" height="580" stroke-width="0" fill="none" id="TEXT21_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="34760" y="11190" id="TEXT21_pbTextEl">精滤网</text>
+  </g>
+  <g id="TEXT22">
+    <rect x="38380" y="10620" width="3040" height="580" stroke-width="0" fill="none" id="TEXT22_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="39900" y="11190" id="TEXT22_pbTextEl">回油滤网</text>
+  </g>
+  <g id="TEXT23">
+    <rect x="41940" y="15640" width="4700" height="580" stroke-width="0" fill="none" id="TEXT23_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="44290" y="16210" id="TEXT23_pbTextEl">有压回油</text>
+  </g>
+  <path id="ELLIPSE9" d="M 25200 12855 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#FF0000" stroke-width="20" fill="#FF0000" />
+  <g id="TEXT24">
+    <rect x="25520" y="12620" width="8040" height="580" stroke-width="0" fill="none" id="TEXT24_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="29540" y="13190" id="TEXT24_pbTextEl">EH油箱电加热器现场投入</text>
+  </g>
+  <g id="TEXT25">
+    <rect x="27800" y="14800" width="2980" height="1100" stroke-width="0" fill="none" id="TEXT25_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="29290" y="15630" id="TEXT25_pbTextEl">再生装置</text>
+  </g>
+  <path id="ELLIPSE10" d="M 20200 17435 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#FF0000" stroke-width="20" fill="#FF0000" />
+  <g id="TEXT26">
+    <rect x="19740" y="17140" width="7600" height="580" stroke-width="0" fill="none" id="TEXT26_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="23540" y="17710" id="TEXT26_pbTextEl">EH冷却油泵现场投入</text>
+  </g>
+  <g id="TEXT27">
+    <rect x="21500" y="17700" width="4700" height="580" stroke-width="0" fill="none" id="TEXT27_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="23850" y="18270" id="TEXT27_pbTextEl">冷却油泵</text>
+  </g>
+  <path id="ELLIPSE11" d="M 49720 4035 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#808080" stroke-width="20" fill="#808080" />
+  <g id="TEXT28">
+    <rect x="50060" y="3780" width="8040" height="580" stroke-width="0" fill="none" id="TEXT28_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="54080" y="4350" id="TEXT28_pbTextEl">EH系统有压回油压力开关</text>
+  </g>
+  <path id="ELLIPSE12" d="M 49720 4855 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#FF0000" stroke-width="20" fill="#FF0000" />
+  <g id="TEXT29">
+    <rect x="50060" y="4620" width="8040" height="580" stroke-width="0" fill="none" id="TEXT29_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="54080" y="5190" id="TEXT29_pbTextEl">OPC油压力低压力开关</text>
+  </g>
+  <path id="ELLIPSE13" d="M 49720 5715 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#FF0000" stroke-width="20" fill="#FF0000" />
+  <g id="TEXT30">
+    <rect x="50060" y="5440" width="8960" height="580" stroke-width="0" fill="none" id="TEXT30_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="54540" y="6010" id="TEXT30_pbTextEl">EH系统出口压力低压力开关</text>
+  </g>
+  <path id="ELLIPSE14" d="M 49720 6475 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#808080" stroke-width="20" fill="#808080" />
+  <g id="TEXT32">
+    <rect x="50060" y="6200" width="8960" height="580" stroke-width="0" fill="none" id="TEXT32_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="54540" y="6770" id="TEXT32_pbTextEl">EH系统出口压力高压力开关</text>
+  </g>
+  <g id="TEXT33">
+    <rect x="50620" y="27160" width="6640" height="1840" stroke-width="0" fill="none" id="TEXT33_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="53940" y="28360" id="TEXT33_pbTextEl">#1汽轮机</text>
+  </g>
+  <path id="RECTANGLE8" d="M 31460 19600 l -900 -760 840 -840 900 780 -840 820 0 0" stroke="#808080" stroke-width="20" fill="#FFFFFF" />
+  <path id="LINE38" d="M 31480 19480 l -20 -1540" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="RECTANGLE9" d="M 38340 19580 l -940 -760 880 -820 920 760 -860 820 0 0" stroke="#808080" stroke-width="20" fill="#FFFFFF" />
+  <path id="LINE39" d="M 38380 19460 l -40 -1540" stroke="#808080" stroke-width="20" fill="none" />
+  <g id="TEXT34">
+    <rect x="29180" y="17360" width="4700" height="580" stroke-width="0" fill="none" id="TEXT34_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="31530" y="17930" id="TEXT34_pbTextEl">外侧冷油器</text>
+  </g>
+  <g id="TEXT35">
+    <rect x="36660" y="17360" width="4700" height="580" stroke-width="0" fill="none" id="TEXT35_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="39010" y="17930" id="TEXT35_pbTextEl">里侧冷油器</text>
+  </g>
+  <path id="POLYGON40" d="M 31020 19240 l 0 7180" stroke="#00FF00" stroke-width="20" fill="none" />
+  <path id="LINE40" d="M 38760 19100 l 0 7160" stroke="#00FF00" stroke-width="20" fill="none" />
+  <path id="POLYGON41" d="M 31860 19180 l 0 3000" stroke="#00FF00" stroke-width="20" fill="none" />
+  <path id="POLYGON42" d="M 31860 22120 l 6960 0" stroke="#00FF00" stroke-width="20" fill="none" />
+  <path id="POLYGON43" d="M 31020 22840 l 6820 0" stroke="#00FF00" stroke-width="20" fill="none" />
+  <path id="POLYGON44" d="M 37840 19180 l 0 3720" stroke="#00FF00" stroke-width="20" fill="none" />
+  <g id="TEXT36">
+    <rect x="45220" y="11220" width="8500" height="640" stroke-width="0" fill="none" id="TEXT36_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="49470" y="11820" id="TEXT36_pbTextEl">回油冷油器进口油温</text>
+  </g>
+  <g id="TEXT37">
+    <rect x="45220" y="12620" width="8500" height="640" stroke-width="0" fill="none" id="TEXT37_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="49470" y="13220" id="TEXT37_pbTextEl">回油冷油器出口油温</text>
+  </g>
+  <g id="TEXT38">
+    <rect x="45220" y="13700" width="8500" height="640" stroke-width="0" fill="none" id="TEXT38_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="49470" y="14300" id="TEXT38_pbTextEl">旁路冷油器出口油温</text>
+  </g>
+  <g id="TEXT39">
+    <rect x="32060" y="23240" width="980" height="5200" stroke-width="0" fill="none" id="TEXT39_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="32550" y="23880" id="TEXT39_pbTextEl">冷<tspan x="32550" dy="560"></tspan><tspan x="32550" dy="560">却</tspan><tspan x="32550" dy="560"></tspan><tspan x="32550" dy="560">水</tspan><tspan x="32550" dy="560"></tspan><tspan x="32550" dy="560">出</tspan><tspan x="32550" dy="560"></tspan><tspan x="32550" dy="560">口</tspan></text>
+  </g>
+  <g id="TEXT40">
+    <rect x="39280" y="22920" width="980" height="5500" stroke-width="0" fill="none" id="TEXT40_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="560" text-anchor="middle" x="39770" y="23710" id="TEXT40_pbTextEl">冷<tspan x="39770" dy="560"></tspan><tspan x="39770" dy="560">却</tspan><tspan x="39770" dy="560"></tspan><tspan x="39770" dy="560">水</tspan><tspan x="39770" dy="560"></tspan><tspan x="39770" dy="560">入</tspan><tspan x="39770" dy="560"></tspan><tspan x="39770" dy="560">口</tspan></text>
+  </g>
+  <path id="LINE53" d="M 27760 16860 l 0 480 1040 -480 0 480 -1040 -480" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path id="LINE54" d="M 27800 18600 l 0 500 1020 -500 0 500 -1020 -500" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path id="LINE55" d="M 34500 14780 l -560 0 560 960 -560 0 560 -960" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path id="LINE56" d="M 36340 14740 l -540 0 540 940 -540 0 540 -940" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path id="LINE57" d="M 4400 21340 l 940 0 -940 -1480 940 0 -940 1480" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path id="LINE58" d="M 4840 20600 l -520 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path id="RECTANGLE11" d="M 3600 20940 l 720 0 0 -640 -720 0 0 640 0 0" stroke="#808080" stroke-width="20" fill="#000000" />
+  <path id="LINE59" d="M 3600 20940 l 0 -620 80 420 100 -360 100 560 0 -660 160 440 60 -300 220 520 0 -620" stroke="#00FF00" stroke-width="20" fill="none" />
+  <path d="M 30520 25020 l 940 0 -940 -1480 940 0 -940 1480" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 30960 24300 l -540 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 29700 24640 l 720 0 0 -640 -720 0 0 640 0 0" stroke="#808080" stroke-width="20" fill="#000000" />
+  <path d="M 29680 24640 l 0 -620 120 420 100 -360 80 560 0 -680 160 460 60 -320 220 540 0 -620" stroke="#00FF00" stroke-width="20" fill="none" />
+  <path d="M 11960 15020 l -660 -620 660 -600 680 620 -680 600 0 0" stroke="#FFFF00" stroke-width="20" fill="#000000" />
+  <path d="M 11460 14280 l 1000 0" stroke="#FFFF00" stroke-width="20" fill="none" />
+  <path d="M 11460 14420 l 1020 40" stroke="#FFFF00" stroke-width="20" fill="none" />
+  <path d="M 36000 12940 l -660 -580 660 -600 680 600 -680 580 0 0" stroke="#FFFF00" stroke-width="20" fill="#000000" />
+  <path d="M 35500 12220 l 1000 20" stroke="#FFFF00" stroke-width="20" fill="none" />
+  <path d="M 35500 12380 l 1020 0" stroke="#FFFF00" stroke-width="20" fill="none" />
+  <path d="M 38060 12940 l -660 -580 700 -620 660 620 -700 580 0 0" stroke="#FFFF00" stroke-width="20" fill="#000000" />
+  <path d="M 37560 12220 l 1000 0" stroke="#FFFF00" stroke-width="20" fill="none" />
+  <path d="M 37560 12380 l 1040 0" stroke="#FFFF00" stroke-width="20" fill="none" />
+  <path d="M 9160 15020 l -640 -600 640 -580 660 580 -660 600 0 0" stroke="#FFFF00" stroke-width="20" fill="#000000" />
+  <path d="M 8660 14280 l 980 40" stroke="#FFFF00" stroke-width="20" fill="none" />
+  <path d="M 8660 14460 l 1040 0" stroke="#FFFF00" stroke-width="20" fill="none" />
+  <path d="M 9620 12012 l -20 75 -20 47 -20 35 -20 30 -20 25 -20 22 -20 19 -20 17 -20 15 -20 14 -20 12 -20 11 -20 9 -20 9 -20 7 -20 7 -20 5 -20 5 -20 4 -20 3 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -3 -20 -4 -20 -5 -20 -5 -20 -7 -20 -7 -20 -9 -20 -9 -20 -11 -20 -12 -20 -14 -20 -15 -20 -17 -20 -19 -20 -22 -20 -25 -20 -30 -20 -35 -20 -47 -20 -75 0 -143 20 -75 20 -47 20 -35 20 -30 20 -25 20 -22 20 -19 20 -17 20 -15 20 -14 20 -12 20 -11 20 -9 20 -9 20 -7 20 -7 20 -5 20 -5 20 -4 20 -3 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 3 20 4 20 5 20 5 20 7 20 7 20 9 20 9 20 11 20 12 20 14 20 15 20 17 20 19 20 22 20 25 20 30 20 35 20 47 20 75 0 143" stroke="#00FF00" stroke-width="20" fill="#00FF00" />
+  <g name="StraightArrow1">
+    <path d="M 9141 12489 l 157 -428 -105 0 0 -670 -106 0 0 670 -105 0 159 428 0 0" stroke-width="0" fill="#000000" />
+    <path d="M 9141 12489 l 157 -428 -105 0 0 -670 -106 0 0 670 -105 0 159 428" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path d="M 12440 11952 l -20 75 -20 47 -20 35 -20 30 -20 25 -20 22 -20 19 -20 17 -20 15 -20 14 -20 12 -20 11 -20 9 -20 9 -20 7 -20 7 -20 5 -20 5 -20 4 -20 3 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -3 -20 -4 -20 -5 -20 -5 -20 -7 -20 -7 -20 -9 -20 -9 -20 -11 -20 -12 -20 -14 -20 -15 -20 -17 -20 -19 -20 -22 -20 -25 -20 -30 -20 -35 -20 -47 -20 -75 0 -143 20 -75 20 -47 20 -35 20 -30 20 -25 20 -22 20 -19 20 -17 20 -15 20 -14 20 -12 20 -11 20 -9 20 -9 20 -7 20 -7 20 -5 20 -5 20 -4 20 -3 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 3 20 4 20 5 20 5 20 7 20 7 20 9 20 9 20 11 20 12 20 14 20 15 20 17 20 19 20 22 20 25 20 30 20 35 20 47 20 75 0 143" stroke="#00FF00" stroke-width="20" fill="#00FF00" />
+  <g name="StraightArrow1">
+    <path d="M 11921 12449 l 157 -428 -105 0 0 -670 -106 0 0 670 -105 0 159 428 0 0" stroke-width="0" fill="#000000" />
+    <path d="M 11921 12449 l 157 -428 -105 0 0 -670 -106 0 0 670 -105 0 159 428" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path d="M 24540 18829 l -20 72 -20 44 -20 34 -20 28 -20 24 -20 21 -20 18 -20 16 -20 15 -20 13 -20 12 -20 10 -20 9 -20 8 -20 8 -20 6 -20 5 -20 5 -20 3 -20 3 -20 2 -20 1 -20 0 0 0 -20 0 -20 -1 -20 -2 -20 -3 -20 -3 -20 -5 -20 -5 -20 -6 -20 -8 -20 -8 -20 -9 -20 -10 -20 -12 -20 -13 -20 -15 -20 -16 -20 -18 -20 -21 -20 -24 -20 -28 -20 -34 -20 -44 -20 -72 0 -137 20 -72 20 -44 20 -34 20 -28 20 -24 20 -21 20 -18 20 -16 20 -15 20 -13 20 -12 20 -10 20 -9 20 -8 20 -8 20 -6 20 -5 20 -5 20 -3 20 -3 20 -2 20 -1 20 -1 0 0 20 1 20 1 20 2 20 3 20 3 20 5 20 5 20 6 20 8 20 8 20 9 20 10 20 12 20 13 20 15 20 16 20 18 20 21 20 24 20 28 20 34 20 44 20 72 0 137" stroke="#00FF00" stroke-width="20" fill="#00FF00" />
+  <g name="StraightArrow1">
+    <path d="M 24621 18779 l -374 -140 0 93 -588 0 0 96 588 0 0 93 374 -142 0 0" stroke-width="0" fill="#000000" />
+    <path d="M 24621 18779 l -374 -140 0 93 -588 0 0 96 588 0 0 93 374 -142" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <path id="ELLIPSE19" d="M 26620 11935 l -14 43 -13 27 -13 22 -14 18 -13 16 -13 13 -14 12 -13 11 -13 9 -14 9 -13 8 -13 7 -14 6 -13 5 -13 5 -14 5 -13 4 -13 3 -14 2 -13 3 -13 1 -14 2 -13 0 -13 0 0 0 -14 0 -13 0 -13 -2 -14 -1 -13 -3 -13 -2 -14 -3 -13 -4 -13 -5 -14 -5 -13 -5 -13 -6 -14 -7 -13 -8 -13 -9 -14 -9 -13 -11 -13 -12 -14 -13 -13 -16 -13 -18 -14 -22 -13 -27 -13 -43 0 -109 13 -43 13 -27 14 -22 13 -18 13 -16 14 -13 13 -12 13 -11 14 -9 13 -9 13 -8 14 -7 13 -6 13 -5 14 -5 13 -5 13 -4 14 -3 13 -2 13 -3 14 -1 13 -2 13 0 14 -1 0 0 13 1 13 0 14 2 13 1 13 3 14 2 13 3 13 4 14 5 13 5 13 5 14 6 13 7 13 8 14 9 13 9 13 11 14 12 13 13 13 16 14 18 13 22 13 27 14 43 0 109" stroke="#00FF00" stroke-width="20" fill="#00FF00" />
+  <path id="POLYGON10" d="M 26260 12220 l 0 -200 -160 -120 420 -140 -280 -60 0 -180" stroke="#FF0000" stroke-width="40" fill="none" />
+  <rect x="26080" y="9260" width="380" height="2260" stroke="#000000" stroke-width="20" fill="#808080" id="RECTANGLE6" />
+  <g name="StraightArrow1">
+    <path d="M 31081 27945 l 188 -642 -125 0 0 -1008 -128 0 0 1008 -125 0 190 642 0 0" stroke-width="0" fill="#00FF00" />
+    <path d="M 31081 27945 l 188 -642 -125 0 0 -1008 -128 0 0 1008 -125 0 190 642" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 38780 26295 l -189 642 126 0 0 1008 127 0 0 -1007 125 -1 -189 -642 0 0" stroke-width="0" fill="#00FF00" />
+    <path d="M 38780 26295 l -189 642 126 0 0 1008 127 0 0 -1007 125 -1 -189 -642" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT31">
+    <rect x="24820" y="600" width="5600" height="1840" stroke-width="0" fill="none" id="TEXT31_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Courier" font-size="800" text-anchor="middle" x="27620" y="1920" id="TEXT31_pbTextEl">EH油站</text>
+  </g>
+  <g id="DATAPOINT98" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\T1AIEHTNKLVL" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="1580" y="9980" width="1280" height="600" stroke-width="0" fill="none" id="DATAPOINT98_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="512" text-anchor="middle" x="2220" y="10536" id="DATAPOINT98_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT108" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\T1AIEHYXT" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="25080" y="7720" width="1280" height="600" stroke-width="0" fill="none" id="DATAPOINT108_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="512" text-anchor="middle" x="25720" y="8276" id="DATAPOINT108_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT109" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\T1AIEHPUMPCRNTA" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="14500" y="13860" width="1280" height="600" stroke-width="0" fill="none" id="DATAPOINT109_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="512" text-anchor="middle" x="15140" y="14416" id="DATAPOINT109_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT110" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\T1AIEHPUMPCRNTB" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="5660" y="13900" width="1280" height="600" stroke-width="0" fill="none" id="DATAPOINT110_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="512" text-anchor="middle" x="6300" y="14456" id="DATAPOINT110_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT111" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\T1AIEHP" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="13860" y="17740" width="1280" height="600" stroke-width="0" fill="none" id="DATAPOINT111_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="512" text-anchor="middle" x="14500" y="18296" id="DATAPOINT111_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT112" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\T1AIDRNOILCLIT" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="54260" y="11240" width="1280" height="600" stroke-width="0" fill="none" id="DATAPOINT112_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="512" text-anchor="middle" x="54900" y="11796" id="DATAPOINT112_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT113" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\T1AIDRNOILCLOT" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="54260" y="12640" width="1280" height="600" stroke-width="0" fill="none" id="DATAPOINT113_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="512" text-anchor="middle" x="54900" y="13196" id="DATAPOINT113_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT114" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\T1AIBPCLOT" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="54260" y="13720" width="1280" height="600" stroke-width="0" fill="none" id="DATAPOINT114_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="512" text-anchor="middle" x="54900" y="14276" id="DATAPOINT114_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+# Declarations using pattern:
+# FunctionName ReturnType NumberParameters Param1Type Param2Type ...
+# 512 = G_POINTER 
+# 256 = G_STRING (String)
+# 8 = G_DOUBLE (Real/float)
+# 2 = G_INTEGER (Integer)
+#
+# Format functions
+fmtreal 512 2 8 2
+fmtint 512 1 2
+fmtexpo 512 2 8 2
+fmttext 512 2 512 2
+fmtdate 512 1 8
+#
+# Assignment function (for animation)
+SetVar 2 2 512 2
+isNaN 2 1 8
+isIntNaN 2 1 2
+#
+# Script functions
+onSelect 2 1 512
+onShowDetail 2 1 512
+onEnterInt  2 3 256 2 256
+onEnterReal 2 4 256 8 2 256
+onEnterExp  2 4 256 8 2 256
+onEnterStr  2 3 256 256 256
+onEnterDate 2 3 256 8 256

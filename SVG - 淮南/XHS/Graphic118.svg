@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg height="100%" width="100%" viewBox="0 0 64000 32000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:PB="urn:osisoft-com-pb" xmlns:PBI="urn:osisoft-com-interface" xmlns:PBD="urn:osisoft-com-data" style="background-color:#C0C0C0">
+  <title>Graphic118</title>
+  <defs>
+    <pattern id="RECTANGLE6-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE6-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE8-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE8-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE10-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE10-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE12-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE12-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE14-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <pattern id="RECTANGLE14-hatchpattern" patternUnits="userSpaceOnUse" x="0" y="0" width="160" height="160">
+      <image x="0" y="0" width="160" height="160" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVChTfYuBBgBADEL7/5/uJtcYbRGVF/gFdJTcx5qgcn5aahfUaYPGmqByflpqO0Q+xBbPMaDykOEAAAAASUVORK5CYII=" />
+    </pattern>
+    <PBD:TagUses tag="\\RTDBB\570_FI_30107A">
+      <PBI:Symbol name="DATAPOINT35" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\570_PA_405A_L">
+      <PBI:Symbol name="DATAPOINT36" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\570_FI_30107B">
+      <PBI:Symbol name="DATAPOINT37" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\570_FI_30107C">
+      <PBI:Symbol name="DATAPOINT38" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\570_FI_30108A">
+      <PBI:Symbol name="DATAPOINT39" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\570_FI_30108B">
+      <PBI:Symbol name="DATAPOINT40" PB:Type="7" />
+    </PBD:TagUses>
+  </defs>
+  <g name="Bin">
+    <path d="M 8734 8298 l -557 -898 0 -1198 1486 0 0 1198 -557 898 -372 0 0 0" stroke="#000000" stroke-width="40" fill="#009600" />
+  </g>
+  <rect x="7460" y="8360" width="2560" height="740" stroke="#FFFFFF" stroke-width="20" fill="#FFFFFF" id="RECTANGLE1" />
+  <g id="TEXT3">
+    <rect x="8300" y="6640" width="1340" height="660" stroke-width="0" fill="none" id="TEXT3_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="8970" y="7250" id="TEXT3_pbTextEl">料斗</text>
+  </g>
+  <g id="TEXT4">
+    <rect x="1600" y="12520" width="3480" height="760" stroke-width="0" fill="none" id="TEXT4_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="3340" y="13180" id="TEXT4_pbTextEl">UID</text>
+  </g>
+  <path id="POLYGON2" d="M 3580 11780 l -880 -200 0 100 -860 0 0 220 0 0 860 0 0 100 880 -220 0 0" stroke="#009600" stroke-width="20" fill="none" />
+  <g name="Pipe1">
+    <path d="M 18077 19185 l -717 0 0 -6797 717 0 0 6797 0 0" stroke="#FFFFFF" stroke-width="20" fill="#FFFFFF" />
+    <path d="M 24613 19185 l -538 0 0 -6797 538 0 0 6797 0 0" stroke="#000000" stroke-width="20" fill="#000000" />
+    <path d="M 24075 19185 l -626 0 0 -6797 626 0 0 6797 0 0" stroke="#3C3C3C" stroke-width="20" fill="#3C3C3C" />
+    <path d="M 23449 19185 l -896 0 0 -6805 896 0 0 6805 0 0" stroke="#5A5A5A" stroke-width="20" fill="#5A5A5A" />
+    <path d="M 22553 19185 l -626 0 0 -6797 626 0 0 6797 0 0" stroke="#808080" stroke-width="20" fill="#808080" />
+    <path d="M 21927 19185 l -806 0 0 -6797 806 0 0 6797 0 0" stroke="#969696" stroke-width="20" fill="#969696" />
+    <path d="M 21121 19185 l -627 0 0 -6797 627 0 0 6797 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+    <path d="M 20494 19185 l -895 0 0 -6797 895 0 0 6797 0 0" stroke="#D2D2D2" stroke-width="20" fill="#D2D2D2" />
+    <path d="M 19599 19185 l -717 0 0 -6797 717 0 0 6797 0 0" stroke="#DEDEDE" stroke-width="20" fill="#DEDEDE" />
+    <path d="M 18882 19185 l -805 0 0 -6797 805 0 0 6797 0 0" stroke="#F0F0F0" stroke-width="20" fill="#F0F0F0" />
+    <path d="M 10646 19185 l 1074 0 0 -6797 -1074 0 0 6797 0 0" stroke="#000000" stroke-width="20" fill="#000000" />
+    <path d="M 11720 19185 l 716 0 0 -6797 -716 0 0 6797 0 0" stroke="#3C3C3C" stroke-width="20" fill="#3C3C3C" />
+    <path d="M 12436 19185 l 627 0 0 -6805 -627 0 0 6805 0 0" stroke="#5A5A5A" stroke-width="20" fill="#5A5A5A" />
+    <path d="M 13063 19185 l 716 0 0 -6797 -716 0 0 6797 0 0" stroke="#808080" stroke-width="20" fill="#808080" />
+    <path d="M 13779 19185 l 895 0 0 -6797 -895 0 0 6797 0 0" stroke="#969696" stroke-width="20" fill="#969696" />
+    <path d="M 14674 19185 l 627 0 0 -6797 -627 0 0 6797 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+    <path d="M 15301 19185 l 716 0 0 -6797 -716 0 0 6797 0 0" stroke="#D2D2D2" stroke-width="20" fill="#D2D2D2" />
+    <path d="M 16017 19185 l 806 0 0 -6797 -806 0 0 6797 0 0" stroke="#DEDEDE" stroke-width="20" fill="#DEDEDE" />
+    <path d="M 16823 19185 l 537 0 0 -6797 -537 0 0 6797 0 0" stroke="#F0F0F0" stroke-width="20" fill="#F0F0F0" />
+  </g>
+  <g id="TEXT6">
+    <rect x="29120" y="620" width="12220" height="1560" stroke-width="0" fill="none" id="TEXT6_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="960" text-anchor="middle" x="35230" y="1880" id="TEXT6_pbTextEl">污泥脱水间至气浮加药</text>
+  </g>
+  <g id="TEXT7">
+    <rect x="15500" y="19460" width="3480" height="760" stroke-width="0" fill="none" id="TEXT7_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="17240" y="20120" id="TEXT7_pbTextEl">PA-405-A</text>
+  </g>
+  <path id="ELLIPSE6" d="M 13138 12100 l -142 -40 -76 -40 -56 -40 -44 -40 -37 -40 -30 -40 -25 -40 -21 -40 -16 -40 -14 -40 -10 -40 -7 -40 -5 -40 -1 -40 0 0 1 -40 5 -40 7 -40 10 -40 14 -40 16 -40 21 -40 25 -40 30 -40 37 -40 44 -40 56 -40 76 -40 142 -40 164 0 142 40 76 40 56 40 44 40 37 40 30 40 25 40 21 40 16 40 14 40 10 40 7 40 5 40 1 40 0 0 -1 40 -5 40 -7 40 -10 40 -14 40 -16 40 -21 40 -25 40 -30 40 -37 40 -44 40 -56 40 -76 40 -142 40 -164 0" stroke="#000000" stroke-width="20" fill="none" />
+  <g id="TEXT8">
+    <rect x="12840" y="11160" width="860" height="760" stroke-width="0" fill="none" id="TEXT8_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="13270" y="11820" id="TEXT8_pbTextEl">M</text>
+  </g>
+  <rect x="13220" y="12140" width="0" height="5380" stroke="#000000" stroke-width="80" fill="none" id="RECTANGLE2" />
+  <g name="Fan2">
+    <path d="M 12344 17533 l -238 -406 -5 5 -3 10 -6 4 -5 10 0 5 -6 10 -3 9 -3 5 -8 10 -3 14 -3 0 0 10 -5 14 0 5 -6 5 -3 10 -2 9 0 10 -3 10 -3 9 -3 10 -5 15 0 9 -3 0 0 10 -6 14 0 5 -3 10 0 10 0 9 -2 10 0 14 -3 15 0 10 -3 4 -3 15 3 10 -3 9 0 5 0 10 0 9 0 15 0 5 0 9 0 10 0 14 0 10 0 10 0 14 0 10 0 5 0 9 3 15 0 5 -3 9 3 10 0 10 6 14 0 15 0 5 2 14 3 5 -3 10 3 9 6 10 0 10 3 9 2 10 3 5 3 14 3 5 3 15 2 4 3 15 0 0 6 14 3 5 2 15 3 5 3 4 3 15 5 10 3 4 3 5 6 10 2 5 3 5 6 0 3 9 5 10 238 -406" stroke="#000000" stroke-width="40" fill="#FFFFFF" />
+    <path d="M 14134 17533 l 235 401 6 0 2 -10 6 -4 3 -5 3 -5 5 -10 3 -9 3 -5 5 -5 3 -15 3 -4 3 -5 3 -15 2 -9 3 -10 3 -5 3 -10 3 -9 2 -10 3 -10 3 -9 3 -10 3 -10 2 -4 0 -10 3 -5 3 -14 0 -10 3 -10 0 -9 3 -10 0 -15 2 -9 0 -10 3 -10 0 -9 0 -10 3 -10 0 -9 0 -10 0 -10 0 -9 0 -10 0 -10 3 -14 -3 -10 0 -9 0 -10 0 -10 0 -9 0 -10 0 -10 -3 -9 0 -10 0 -10 -3 -9 0 -10 -2 -10 0 -14 -3 -10 0 -9 -3 -10 0 -10 -3 -9 -3 -10 0 -10 -2 -5 -3 -9 -3 -10 -3 -10 -3 -9 -2 -10 -3 -10 -3 -9 -3 -10 -3 -5 -2 -9 -3 -10 -3 -10 -3 -5 -3 -9 -5 -10 -3 -5 -3 -9 -5 -10 -3 -5 -3 -10 -6 -4 -2 -10 -6 -5 -235 406" stroke="#000000" stroke-width="40" fill="#FFFFFF" />
+    <path d="M 13239 17533 l -1119 -387 0 774 1119 -387 0 0" stroke="#000000" stroke-width="40" fill="#FFFFFF" />
+    <path d="M 13239 17533 l 1119 -387 0 774 -1119 -387 0 0" stroke="#000000" stroke-width="40" fill="#FFFFFF" />
+  </g>
+  <path id="ELLIPSE7" d="M 16358 12100 l -142 -40 -76 -40 -56 -40 -44 -40 -37 -40 -30 -40 -25 -40 -21 -40 -16 -40 -14 -40 -10 -40 -7 -40 -5 -40 -1 -40 0 0 1 -40 5 -40 7 -40 10 -40 14 -40 16 -40 21 -40 25 -40 30 -40 37 -40 44 -40 56 -40 76 -40 142 -40 164 0 142 40 76 40 56 40 44 40 37 40 30 40 25 40 21 40 16 40 14 40 10 40 7 40 5 40 1 40 0 0 -1 40 -5 40 -7 40 -10 40 -14 40 -16 40 -21 40 -25 40 -30 40 -37 40 -44 40 -56 40 -76 40 -142 40 -164 0" stroke="#000000" stroke-width="20" fill="none" />
+  <g id="TEXT10">
+    <rect x="16080" y="11160" width="860" height="760" stroke-width="0" fill="none" id="TEXT10_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="16510" y="11820" id="TEXT10_pbTextEl">M</text>
+  </g>
+  <rect x="16440" y="12140" width="0" height="5380" stroke="#000000" stroke-width="80" fill="none" id="RECTANGLE3" />
+  <g name="Fan2">
+    <path d="M 15564 17533 l -238 -406 -5 5 -3 10 -6 4 -5 10 0 5 -6 10 -3 9 -3 5 -8 10 -3 14 -3 0 0 10 -5 14 0 5 -6 5 -3 10 -2 9 0 10 -3 10 -3 9 -3 10 -5 15 0 9 -3 0 0 10 -6 14 0 5 -3 10 0 10 0 9 -2 10 0 14 -3 15 0 10 -3 4 -3 15 3 10 -3 9 0 5 0 10 0 9 0 15 0 5 0 9 0 10 0 14 0 10 0 10 0 14 0 10 0 5 0 9 3 15 0 5 -3 9 3 10 0 10 6 14 0 15 0 5 2 14 3 5 -3 10 3 9 6 10 0 10 3 9 2 10 3 5 3 14 3 5 3 15 2 4 3 15 0 0 6 14 3 5 2 15 3 5 3 4 3 15 5 10 3 4 3 5 6 10 2 5 3 5 6 0 3 9 5 10 238 -406" stroke="#000000" stroke-width="40" fill="#FFFFFF" />
+    <path d="M 17354 17533 l 235 401 6 0 2 -10 6 -4 3 -5 3 -5 5 -10 3 -9 3 -5 5 -5 3 -15 3 -4 3 -5 3 -15 2 -9 3 -10 3 -5 3 -10 3 -9 2 -10 3 -10 3 -9 3 -10 3 -10 2 -4 0 -10 3 -5 3 -14 0 -10 3 -10 0 -9 3 -10 0 -15 2 -9 0 -10 3 -10 0 -9 0 -10 3 -10 0 -9 0 -10 0 -10 0 -9 0 -10 0 -10 3 -14 -3 -10 0 -9 0 -10 0 -10 0 -9 0 -10 0 -10 -3 -9 0 -10 0 -10 -3 -9 0 -10 -2 -10 0 -14 -3 -10 0 -9 -3 -10 0 -10 -3 -9 -3 -10 0 -10 -2 -5 -3 -9 -3 -10 -3 -10 -3 -9 -2 -10 -3 -10 -3 -9 -3 -10 -3 -5 -2 -9 -3 -10 -3 -10 -3 -5 -3 -9 -5 -10 -3 -5 -3 -9 -5 -10 -3 -5 -3 -10 -6 -4 -2 -10 -6 -5 -235 406" stroke="#000000" stroke-width="40" fill="#FFFFFF" />
+    <path d="M 16459 17533 l -1119 -387 0 774 1119 -387 0 0" stroke="#000000" stroke-width="40" fill="#FFFFFF" />
+    <path d="M 16459 17533 l 1119 -387 0 774 -1119 -387 0 0" stroke="#000000" stroke-width="40" fill="#FFFFFF" />
+  </g>
+  <path id="ELLIPSE8" d="M 20258 12100 l -142 -40 -76 -40 -56 -40 -44 -40 -37 -40 -30 -40 -25 -40 -21 -40 -16 -40 -14 -40 -10 -40 -7 -40 -5 -40 -1 -40 0 0 1 -40 5 -40 7 -40 10 -40 14 -40 16 -40 21 -40 25 -40 30 -40 37 -40 44 -40 56 -40 76 -40 142 -40 164 0 142 40 76 40 56 40 44 40 37 40 30 40 25 40 21 40 16 40 14 40 10 40 7 40 5 40 1 40 0 0 -1 40 -5 40 -7 40 -10 40 -14 40 -16 40 -21 40 -25 40 -30 40 -37 40 -44 40 -56 40 -76 40 -142 40 -164 0" stroke="#000000" stroke-width="20" fill="none" />
+  <g id="TEXT12">
+    <rect x="19980" y="11160" width="860" height="760" stroke-width="0" fill="none" id="TEXT12_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="20410" y="11820" id="TEXT12_pbTextEl">M</text>
+  </g>
+  <rect x="20340" y="12140" width="0" height="5380" stroke="#000000" stroke-width="80" fill="none" id="RECTANGLE4" />
+  <g name="Fan2">
+    <path d="M 19464 17533 l -238 -406 -5 5 -3 10 -6 4 -5 10 0 5 -6 10 -3 9 -3 5 -8 10 -3 14 -3 0 0 10 -5 14 0 5 -6 5 -3 10 -2 9 0 10 -3 10 -3 9 -3 10 -5 15 0 9 -3 0 0 10 -6 14 0 5 -3 10 0 10 0 9 -2 10 0 14 -3 15 0 10 -3 4 -3 15 3 10 -3 9 0 5 0 10 0 9 0 15 0 5 0 9 0 10 0 14 0 10 0 10 0 14 0 10 0 5 0 9 3 15 0 5 -3 9 3 10 0 10 6 14 0 15 0 5 2 14 3 5 -3 10 3 9 6 10 0 10 3 9 2 10 3 5 3 14 3 5 3 15 2 4 3 15 0 0 6 14 3 5 2 15 3 5 3 4 3 15 5 10 3 4 3 5 6 10 2 5 3 5 6 0 3 9 5 10 238 -406" stroke="#000000" stroke-width="40" fill="#FFFFFF" />
+    <path d="M 21254 17533 l 235 401 6 0 2 -10 6 -4 3 -5 3 -5 5 -10 3 -9 3 -5 5 -5 3 -15 3 -4 3 -5 3 -15 2 -9 3 -10 3 -5 3 -10 3 -9 2 -10 3 -10 3 -9 3 -10 3 -10 2 -4 0 -10 3 -5 3 -14 0 -10 3 -10 0 -9 3 -10 0 -15 2 -9 0 -10 3 -10 0 -9 0 -10 3 -10 0 -9 0 -10 0 -10 0 -9 0 -10 0 -10 3 -14 -3 -10 0 -9 0 -10 0 -10 0 -9 0 -10 0 -10 -3 -9 0 -10 0 -10 -3 -9 0 -10 -2 -10 0 -14 -3 -10 0 -9 -3 -10 0 -10 -3 -9 -3 -10 0 -10 -2 -5 -3 -9 -3 -10 -3 -10 -3 -9 -2 -10 -3 -10 -3 -9 -3 -10 -3 -5 -2 -9 -3 -10 -3 -10 -3 -5 -3 -9 -5 -10 -3 -5 -3 -9 -5 -10 -3 -5 -3 -10 -6 -4 -2 -10 -6 -5 -235 406" stroke="#000000" stroke-width="40" fill="#FFFFFF" />
+    <path d="M 20359 17533 l -1119 -387 0 774 1119 -387 0 0" stroke="#000000" stroke-width="40" fill="#FFFFFF" />
+    <path d="M 20359 17533 l 1119 -387 0 774 -1119 -387 0 0" stroke="#000000" stroke-width="40" fill="#FFFFFF" />
+  </g>
+  <path id="POLYGON23" d="M 3720 11760 l 7160 0" stroke="#009600" stroke-width="40" fill="none" />
+  <path id="POLYGON24" d="M 11020 12400 l 0 -3580" stroke="#009600" stroke-width="40" fill="none" />
+  <path id="POLYGON25" d="M 11020 8820 l -880 0" stroke="#009600" stroke-width="40" fill="none" />
+  <path id="LINE25" d="M 7280 11480 l 0 560 760 -500 0 500 -760 -560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path id="LINE2" d="M 36180 14620 l -4880 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path d="M 34400 16280 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33240 16280 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 16640 l -1160 0" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 16600 l -740 560" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33820 17520 l -420 -460" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 14220 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33240 14220 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 14600 l -1160 0" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 14540 l -740 560" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33820 15460 l -420 -460" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 35380 16940 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 34978 16844 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 35380 14880 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 34978 14784 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32880 16940 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32478 16844 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32880 14900 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32478 14804 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path id="LINE18" d="M 31300 14620 l 0 2000" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <g id="TEXT13">
+    <rect x="39440" y="17260" width="3300" height="760" stroke-width="0" fill="none" id="TEXT13_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41090" y="17920" id="TEXT13_pbTextEl">P301-7CX</text>
+  </g>
+  <path id="LINE26" d="M 36180 14620 l 0 2000" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path id="LINE27" d="M 40040 16620 l -15420 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path id="LINE28" d="M 60600 15840 l -18700 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path d="M 46440 16180 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 46038 16084 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 48060 15620 l 0 560 -1120 0 0 -560 1120 0 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 47060 15540 l 0 620 880 -540 0 640" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="POLYGON30" d="M 62360 15840 l -880 -200 0 100 -860 0 0 220 0 0 860 0 0 100 880 -220 0 0" stroke="#FF00FF" stroke-width="20" fill="none" />
+  <path id="POLYGON31" d="M 50100 15820 l 0 -3660" stroke="#007800" stroke-width="40" fill="none" />
+  <path d="M 50100 15520 l -160 0 0 -460 160 0 0 460 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 50120 15100 l -180 0 160 380 -200 0" stroke="#808080" stroke-width="20" fill="none" />
+  <path d="M 50200 13200 l -220 0 0 -600 220 0 0 600 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 50240 12660 l -260 0 220 480 -260 0" stroke="#808080" stroke-width="20" fill="none" />
+  <rect x="49900" y="13440" width="380" height="1340" stroke="#000000" stroke-width="20" fill="#FFFFFF" id="RECTANGLE5" />
+  <path id="RECTANGLE6" d="M 52500 15620 l -800 0 0 360 800 0 0 -360 0 0" stroke="#000000" stroke-width="20" fill="url(#RECTANGLE6-hatchpattern)" />
+  <path d="M 54240 16120 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 53838 16024 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <g id="TEXT14">
+    <rect x="56300" y="13060" width="3300" height="760" stroke-width="0" fill="none" id="TEXT14_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57950" y="13720" id="TEXT14_pbTextEl">FI_30107CX</text>
+  </g>
+  <path id="LINE36" d="M 36180 10920 l -4880 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path d="M 34400 12580 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33240 12580 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 12940 l -1160 0" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 12900 l -740 560" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33820 13820 l -420 -460" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 10520 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33240 10520 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 10900 l -1160 0" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 10840 l -740 560" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33820 11760 l -420 -460" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 35380 13240 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 34978 13144 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 35380 11180 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 34978 11084 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32880 13240 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32478 13144 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32880 11200 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32478 11104 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path id="LINE51" d="M 31300 10920 l 0 2000" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <g id="TEXT15">
+    <rect x="39440" y="13560" width="3300" height="760" stroke-width="0" fill="none" id="TEXT15_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41090" y="14220" id="TEXT15_pbTextEl">P301-7BX</text>
+  </g>
+  <path id="LINE52" d="M 36180 10920 l 0 2000" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path id="LINE53" d="M 40040 12920 l -8680 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path id="LINE54" d="M 60600 12140 l -18700 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path d="M 46440 12480 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 46038 12384 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 48060 11920 l 0 560 -1120 0 0 -560 1120 0 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 47060 11840 l 0 620 880 -540 0 640" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="POLYGON56" d="M 62360 12140 l -880 -200 0 100 -860 0 0 220 0 0 860 0 0 100 880 -220 0 0" stroke="#FF00FF" stroke-width="20" fill="none" />
+  <path id="LINE57" d="M 50100 12120 l 0 -3660" stroke="#007800" stroke-width="40" fill="none" />
+  <path d="M 50100 11820 l -160 0 0 -460 160 0 0 460 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 50120 11400 l -180 0 160 380 -200 0" stroke="#808080" stroke-width="20" fill="none" />
+  <path d="M 50200 9500 l -220 0 0 -600 220 0 0 600 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 50240 8960 l -260 0 220 480 -260 0" stroke="#808080" stroke-width="20" fill="none" />
+  <rect x="49900" y="9740" width="380" height="1340" stroke="#000000" stroke-width="20" fill="#FFFFFF" id="RECTANGLE7" />
+  <path id="RECTANGLE8" d="M 52500 11920 l -800 0 0 380 800 0 0 -380 0 0" stroke="#000000" stroke-width="20" fill="url(#RECTANGLE8-hatchpattern)" />
+  <path d="M 54240 12440 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 53838 12344 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <g id="TEXT16">
+    <rect x="56300" y="9360" width="3300" height="760" stroke-width="0" fill="none" id="TEXT16_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57950" y="10020" id="TEXT16_pbTextEl">FI_30107BX</text>
+  </g>
+  <path id="LINE61" d="M 36180 7180 l -4880 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path d="M 34400 8840 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33240 8840 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 9200 l -1160 0" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 9160 l -740 560" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33820 10080 l -420 -460" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 6780 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33240 6780 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 7160 l -1160 0" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 7100 l -740 560" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33820 8020 l -420 -460" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 35380 9500 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 34978 9404 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 35380 7440 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 34978 7344 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32880 9500 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32478 9404 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32880 7460 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32478 7364 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path id="LINE76" d="M 31300 7180 l 0 2000" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <g id="TEXT17">
+    <rect x="39440" y="9820" width="3300" height="760" stroke-width="0" fill="none" id="TEXT17_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41090" y="10480" id="TEXT17_pbTextEl">P301-7AX</text>
+  </g>
+  <path id="LINE77" d="M 36180 7180 l 0 2000" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path id="LINE78" d="M 40040 9180 l -8680 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path id="LINE79" d="M 60600 8400 l -18700 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path d="M 46440 8740 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 46038 8644 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 48060 8180 l 0 560 -1120 0 0 -560 1120 0 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 47060 8100 l 0 620 880 -540 0 640" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="POLYGON81" d="M 62360 8400 l -880 -200 0 100 -860 0 0 220 0 0 860 0 0 100 880 -220 0 0" stroke="#FF00FF" stroke-width="20" fill="none" />
+  <path id="LINE82" d="M 50100 8380 l 0 -3660" stroke="#007800" stroke-width="40" fill="none" />
+  <path d="M 50100 8080 l -160 0 0 -460 160 0 0 460 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 50120 7660 l -180 0 160 380 -200 0" stroke="#808080" stroke-width="20" fill="none" />
+  <path d="M 50200 5760 l -220 0 0 -600 220 0 0 600 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 50240 5220 l -260 0 220 480 -260 0" stroke="#808080" stroke-width="20" fill="none" />
+  <rect x="49900" y="6000" width="380" height="1340" stroke="#000000" stroke-width="20" fill="#FFFFFF" id="RECTANGLE9" />
+  <path id="RECTANGLE10" d="M 52500 8180 l -800 0 0 360 800 0 0 -360 0 0" stroke="#000000" stroke-width="20" fill="url(#RECTANGLE10-hatchpattern)" />
+  <path d="M 54240 8680 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 53838 8584 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <g id="TEXT18">
+    <rect x="56300" y="5620" width="3300" height="760" stroke-width="0" fill="none" id="TEXT18_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57950" y="6280" id="TEXT18_pbTextEl">FI_30107AX</text>
+  </g>
+  <path id="LINE86" d="M 36180 18340 l -4880 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path d="M 34400 20000 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33240 20000 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 20360 l -1160 0" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 20320 l -740 560" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33820 21240 l -420 -460" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 17940 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33240 17940 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 18320 l -1160 0" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 18260 l -740 560" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33820 19180 l -420 -460" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 35380 20660 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 34978 20564 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 35380 18600 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 34978 18504 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32880 20660 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32478 20564 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32880 18620 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32478 18524 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path id="LINE101" d="M 31300 18340 l 0 2000" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <g id="TEXT19">
+    <rect x="39440" y="20980" width="3300" height="760" stroke-width="0" fill="none" id="TEXT19_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41090" y="21640" id="TEXT19_pbTextEl">P301-8AX</text>
+  </g>
+  <path id="LINE102" d="M 36180 18340 l 0 2000" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path id="LINE103" d="M 40040 20340 l -8680 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path id="LINE104" d="M 60600 19560 l -18700 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path d="M 46440 19900 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 46038 19804 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 48060 19340 l 0 560 -1120 0 0 -560 1120 0 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 47060 19260 l 0 620 880 -540 0 640" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="POLYGON106" d="M 62360 19560 l -880 -200 0 100 -860 0 0 220 0 0 860 0 0 100 880 -220 0 0" stroke="#FF00FF" stroke-width="20" fill="none" />
+  <path id="LINE107" d="M 50100 19540 l 0 -3660" stroke="#007800" stroke-width="40" fill="none" />
+  <path d="M 50100 19260 l -160 0 0 -480 160 0 0 480 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 50120 18840 l -180 0 160 360 -200 0" stroke="#808080" stroke-width="20" fill="none" />
+  <path d="M 50200 16920 l -220 0 0 -600 220 0 0 600 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 50240 16380 l -260 0 220 480 -260 0" stroke="#808080" stroke-width="20" fill="none" />
+  <rect x="49900" y="17160" width="380" height="1340" stroke="#000000" stroke-width="20" fill="#FFFFFF" id="RECTANGLE11" />
+  <path id="RECTANGLE12" d="M 52500 19340 l -800 0 0 380 800 0 0 -380 0 0" stroke="#000000" stroke-width="20" fill="url(#RECTANGLE12-hatchpattern)" />
+  <path d="M 54240 19860 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 53838 19764 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <g id="TEXT20">
+    <rect x="56300" y="16780" width="3300" height="760" stroke-width="0" fill="none" id="TEXT20_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57950" y="17440" id="TEXT20_pbTextEl">FI_30108AX</text>
+  </g>
+  <path id="LINE111" d="M 36180 22120 l -4880 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path d="M 34400 23780 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33240 23780 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 24140 l -1160 0" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 24100 l -740 560" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33820 25020 l -420 -460" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 21720 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33240 21720 l 0 740" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 22100 l -1160 0" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 34400 22040 l -740 560" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 33820 22960 l -420 -460" stroke="#808080" stroke-width="40" fill="none" />
+  <path d="M 35380 24440 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 34978 24344 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 35380 22380 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 34978 22284 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32880 24440 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32478 24344 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32880 22400 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 32478 22304 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path id="LINE126" d="M 31300 22120 l 0 2000" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <g id="TEXT21">
+    <rect x="39440" y="24760" width="3300" height="760" stroke-width="0" fill="none" id="TEXT21_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41090" y="25420" id="TEXT21_pbTextEl">P301-8BX</text>
+  </g>
+  <path id="LINE127" d="M 36180 22120 l 0 2000" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path id="LINE128" d="M 40040 24120 l -8680 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path id="LINE129" d="M 60600 23340 l -18700 0" stroke="#FF00FF" stroke-width="40" fill="none" />
+  <path d="M 46440 23680 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 46038 23584 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 48060 23120 l 0 560 -1120 0 0 -560 1120 0 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 47060 23040 l 0 620 880 -540 0 640" stroke="#808080" stroke-width="20" fill="none" />
+  <path id="POLYGON131" d="M 62360 23340 l -880 -200 0 100 -860 0 0 220 0 0 860 0 0 100 880 -220 0 0" stroke="#FF00FF" stroke-width="20" fill="none" />
+  <path id="LINE132" d="M 50100 23320 l 0 -3660" stroke="#007800" stroke-width="40" fill="none" />
+  <path d="M 50100 23020 l -160 0 0 -460 160 0 0 460 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 50120 22600 l -180 0 160 380 -200 0" stroke="#808080" stroke-width="20" fill="none" />
+  <path d="M 50200 20700 l -220 0 0 -600 220 0 0 600 0 0" stroke="#C0C0C0" stroke-width="20" fill="#C0C0C0" />
+  <path d="M 50240 20160 l -260 0 220 480 -260 0" stroke="#808080" stroke-width="20" fill="none" />
+  <rect x="49900" y="20940" width="380" height="1340" stroke="#000000" stroke-width="20" fill="#FFFFFF" id="RECTANGLE13" />
+  <path id="RECTANGLE14" d="M 52500 23120 l -800 0 0 360 800 0 0 -360 0 0" stroke="#000000" stroke-width="20" fill="url(#RECTANGLE14-hatchpattern)" />
+  <path d="M 54240 23620 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 53838 23524 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <g id="TEXT22">
+    <rect x="56300" y="20560" width="3300" height="760" stroke-width="0" fill="none" id="TEXT22_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57950" y="21220" id="TEXT22_pbTextEl">FI_30108BX</text>
+  </g>
+  <g id="TEXT23">
+    <rect x="60260" y="8840" width="3300" height="760" stroke-width="0" fill="none" id="TEXT23_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="61910" y="9500" id="TEXT23_pbTextEl">PA-221</text>
+  </g>
+  <g id="TEXT24">
+    <rect x="60260" y="12580" width="3300" height="760" stroke-width="0" fill="none" id="TEXT24_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="61910" y="13240" id="TEXT24_pbTextEl">PA-221</text>
+  </g>
+  <g id="TEXT25">
+    <rect x="60260" y="16280" width="3300" height="760" stroke-width="0" fill="none" id="TEXT25_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="61910" y="16940" id="TEXT25_pbTextEl">PA-211</text>
+  </g>
+  <g id="TEXT26">
+    <rect x="60260" y="20000" width="3300" height="760" stroke-width="0" fill="none" id="TEXT26_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="61910" y="20660" id="TEXT26_pbTextEl">PA-101A</text>
+  </g>
+  <g id="TEXT27">
+    <rect x="60260" y="23780" width="3300" height="760" stroke-width="0" fill="none" id="TEXT27_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="61910" y="24440" id="TEXT27_pbTextEl">PA-101B</text>
+  </g>
+  <path id="POLYGON136" d="M 50000 4740 l -21100 0" stroke="#007800" stroke-width="40" fill="none" />
+  <path d="M 26420 17020 l 0 -560 -760 500 0 -500 760 560" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path d="M 26018 16924 l -26 -8 -15 -8 -12 -8 -10 -8 -8 -8 -7 -8 -6 -8 -6 -8 -5 -8 -5 -8 -4 -8 -3 -8 -3 -8 -3 -8 -3 -8 -2 -8 -2 -8 -1 -8 -1 -8 -1 -8 -1 -8 0 -8 0 -8 0 0 0 -8 0 -8 1 -8 1 -8 1 -8 1 -8 2 -8 2 -8 3 -8 3 -8 3 -8 3 -8 4 -8 5 -8 5 -8 6 -8 6 -8 7 -8 8 -8 10 -8 12 -8 15 -8 26 -8 43 0 26 8 15 8 12 8 10 8 8 8 7 8 6 8 6 8 5 8 5 8 4 8 3 8 3 8 3 8 3 8 2 8 2 8 1 8 1 8 1 8 1 8 0 8 1 8 0 0 -1 8 0 8 -1 8 -1 8 -1 8 -1 8 -2 8 -2 8 -3 8 -3 8 -3 8 -3 8 -4 8 -5 8 -5 8 -6 8 -6 8 -7 8 -8 8 -10 8 -12 8 -15 8 -26 8 -43 0" stroke="#808080" stroke-width="20" fill="#808080" />
+  <path id="POLYGON137" d="M 29020 4700 l -880 -200 0 100 -860 0 0 220 0 0 860 0 0 100 880 -220 0 0" stroke="#009600" stroke-width="20" fill="none" />
+  <g id="TEXT28">
+    <rect x="26200" y="5240" width="3480" height="760" stroke-width="0" fill="none" id="TEXT28_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="27940" y="5900" id="TEXT28_pbTextEl">生产水</text>
+  </g>
+  <g id="TEXT29">
+    <rect x="44180" y="5960" width="3300" height="760" stroke-width="0" fill="none" id="TEXT29_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="45830" y="6620" id="TEXT29_pbTextEl">PI_30107AX</text>
+  </g>
+  <g id="TEXT30">
+    <rect x="44180" y="9700" width="3300" height="760" stroke-width="0" fill="none" id="TEXT30_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="45830" y="10360" id="TEXT30_pbTextEl">PI_30107BX</text>
+  </g>
+  <g id="TEXT31">
+    <rect x="44180" y="13400" width="3300" height="760" stroke-width="0" fill="none" id="TEXT31_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="45830" y="14060" id="TEXT31_pbTextEl">PI_30107CX</text>
+  </g>
+  <g id="TEXT32">
+    <rect x="44180" y="17120" width="3300" height="760" stroke-width="0" fill="none" id="TEXT32_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="45830" y="17780" id="TEXT32_pbTextEl">PI_30108AX</text>
+  </g>
+  <g id="TEXT33">
+    <rect x="44180" y="20900" width="3300" height="760" stroke-width="0" fill="none" id="TEXT33_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="45830" y="21560" id="TEXT33_pbTextEl">PI_30108BX</text>
+  </g>
+  <g name="RadialFumeExhauster">
+    <path d="M 41318 8920 l -881 0 0 779 881 0 0 -779 0 0" stroke-width="0" fill="#CCCCCC" />
+    <path d="M 41318 8920 l -881 0 0 779 881 0 0 -779" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41283 8951 l -808 0 0 682 808 0 0 -682 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41283 8951 l -808 0 0 682 808 0 0 -682" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41379 8781 l 181 0 0 -534 -418 0 -359 0 -31 2 -31 2 -30 2 -31 6 -28 4 -28 9 -28 8 -28 10 -26 11 -26 10 -26 15 -23 12 -24 17 -23 14 -22 17 -21 19 -21 18 -19 19 -16 21 -17 21 -16 20 -14 23 -14 23 -12 23 -12 25 -9 25 -7 25 -5 25 -5 27 -4 27 -3 25 0 29 0 27 3 25 4 27 5 27 5 25 7 25 9 25 12 22 12 23 14 23 14 23 16 21 17 21 16 20 19 19 21 19 21 18 22 17 23 15 24 14 23 15 26 12 26 13 26 10 28 10 28 9 28 6 28 6 31 4 30 5 31 2 31 0 14 0 16 0 14 0 17 -2 14 -3 16 -2 14 -2 14 -2 14 -2 15 -4 14 -2 14 -4 14 -4 14 -5 14 -4 14 -6 12 -4 14 -6 12 -7 14 -4 12 -6 11 -8 14 -6 12 -7 12 -8 12 -6 11 -9 10 -8 12 -8 11 -9 10 -8 11 -10 10 -9 9 -10 10 -8 9 -11 9 -10 10 -10 7 -11 9 -10 7 -11 10 -10 7 -10 7 -13 7 -10 5 -13 7 -10 7 -13 4 -12 5 -13 5 -12 4 -12 5 -13 3 -10 4 -15 3 -12 2 -13 2 -12 3 -13 2 -14 2 -13 0 -12 0 -15 0 -12 0 0" stroke-width="0" fill="#DBDBDB" />
+    <path d="M 41379 8781 l 181 0 0 -534 -418 0 -359 0 0 0 -31 2 -31 2 -30 2 -31 6 -28 4 -28 9 -28 8 -28 10 -26 11 -26 10 -26 15 -23 12 -24 17 -23 14 -22 17 -21 19 -21 18 -19 19 -16 21 -17 21 -16 20 -14 23 -14 23 -12 23 -12 25 -9 25 -7 25 -5 25 -5 27 -4 27 -3 25 0 29 0 0 0 27 3 25 4 27 5 27 5 25 7 25 9 25 12 22 12 23 14 23 14 23 16 21 17 21 16 20 19 19 21 19 21 18 22 17 23 15 24 14 23 15 26 12 26 13 26 10 28 10 28 9 28 6 28 6 31 4 30 5 31 2 31 0 0 0 14 0 16 0 14 0 17 -2 14 -3 16 -2 14 -2 14 -2 14 -2 15 -4 14 -2 14 -4 14 -4 14 -5 14 -4 14 -6 12 -4 14 -6 12 -7 14 -4 12 -6 11 -8 14 -6 12 -7 12 -8 12 -6 11 -9 10 -8 12 -8 11 -9 10 -8 11 -10 0 0 10 -9 9 -10 10 -8 9 -11 9 -10 10 -10 7 -11 9 -10 7 -11 10 -10 7 -10 7 -13 7 -10 5 -13 7 -10 7 -13 4 -12 5 -13 5 -12 4 -12 5 -13 3 -10 4 -15 3 -12 2 -13 2 -12 3 -13 2 -14 2 -13 0 -12 0 -15 0 -12" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41379 8781 l 181 0 0 -322 -355 -52 10 8 9 10 12 9 9 10 10 10 7 9 9 10 10 11 7 12 7 10 7 11 7 12 7 11 7 12 7 11 5 12 4 12 5 13 5 12 4 13 5 12 5 13 2 12 3 13 4 14 3 13 0 12 2 13 2 14 0 13 0 12 0 15 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41619 8887 l 0 -746 -59 0 0 746 59 0 0 0" stroke-width="0" fill="#CCCCCC" />
+    <path d="M 41619 8887 l 0 -241 -59 0 0 241 59 0 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41619 8301 l 0 -160 -59 0 0 160 59 0 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 41619 8887 l 0 -746 -59 0 0 746 59 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41356 9633 l -954 0 0 66 954 0 0 -66 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 41356 9633 l -954 0 0 66 954 0 0 -66" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40780 9205 l -91 -9 -92 -25 -85 -39 -73 -52 -58 -64 -45 -75 -28 -79 -9 -83 9 -81 28 -84 45 -72 58 -65 73 -54 85 -39 89 -23 94 -8 92 8 94 23 82 39 73 54 61 65 45 75 25 76 10 86 -7 83 -28 79 -45 75 -61 64 -73 52 -82 39 -89 25 -97 9 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 40780 9205 l -91 -9 -92 -25 -85 -39 -73 -52 -58 -64 -45 -75 -28 -79 -9 -83 9 -81 28 -84 45 -72 58 -65 73 -54 85 -39 89 -23 94 -8 92 8 94 23 82 39 73 54 61 65 45 75 25 76 10 86 -7 83 -28 79 -45 75 -61 64 -73 52 -82 39 -89 25 -97 9" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40780 9090 l -68 -6 -68 -19 -61 -27 -52 -39 -45 -48 -30 -54 -21 -58 -7 -60 4 -61 24 -60 30 -54 45 -48 52 -37 61 -29 68 -17 68 -6 68 6 66 17 64 29 51 39 43 46 35 56 19 58 7 61 -7 60 -19 60 -33 52 -45 48 -51 39 -64 27 -66 19 -68 6 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 40778 9057 l -122 -21 -101 -62 -69 -89 -23 -106 23 -108 69 -92 101 -58 122 -23 122 23 101 60 68 90 26 108 -23 108 -71 89 -101 60 -122 21 0 0" stroke-width="0" fill="#A3A3A3" />
+    <path d="M 40775 9024 l -54 -4 -51 -15 -50 -21 -42 -33 -35 -35 -26 -44 -14 -46 -7 -47 5 -48 16 -48 26 -41 35 -40 42 -29 50 -23 51 -14 54 -5 57 5 52 14 47 23 42 31 35 35 26 44 16 48 5 48 -5 47 -16 48 -26 42 -35 37 -40 31 -49 21 -52 15 -57 4 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 40775 8993 l -94 -17 -79 -48 -52 -68 -19 -81 19 -83 52 -69 79 -48 94 -16 92 16 78 48 54 69 18 83 -18 81 -54 70 -78 46 -92 17 0 0" stroke-width="0" fill="#858585" />
+    <path d="M 40771 8959 l -78 -12 -68 -39 -45 -61 -14 -68 14 -71 45 -58 68 -40 78 -14 80 14 65 40 45 58 17 71 -17 68 -45 61 -65 39 -80 12 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 40783 8619 l -19 0 -17 2 -19 4 -16 6 -14 6 -17 9 -14 8 -11 10 -12 13 -9 12 -10 13 -9 14 -5 15 -5 17 -2 16 -2 17 2 14 2 17 5 14 5 15 9 15 10 12 9 13 12 12 11 10 14 9 17 8 14 6 16 4 19 5 17 2 19 2 18 -2 17 -2 19 -5 16 -4 14 -6 17 -8 11 -9 14 -10 12 -12 10 -13 9 -12 7 -15 7 -15 5 -14 2 -17 0 -14 0 -17 -2 -16 -5 -17 -7 -15 -7 -14 -9 -13 -10 -12 -12 -13 -14 -10 -11 -8 -17 -9 -14 -6 -16 -6 -19 -4 -17 -2 -18 0 0 0" stroke-width="0" fill="#666666" />
+    <path d="M 40783 8619 l 0 0 -19 0 -17 2 -19 4 -16 6 -14 6 -17 9 -14 8 -11 10 -12 13 -9 12 -10 13 -9 14 -5 15 -5 17 -2 16 -2 17 0 0 2 14 2 17 5 14 5 15 9 15 10 12 9 13 12 12 11 10 14 9 17 8 14 6 16 4 19 5 17 2 19 2 0 0 18 -2 17 -2 19 -5 16 -4 14 -6 17 -8 11 -9 14 -10 12 -12 10 -13 9 -12 7 -15 7 -15 5 -14 2 -17 0 -14 0 0 0 -17 -2 -16 -5 -17 -7 -15 -7 -14 -9 -13 -10 -12 -12 -13 -14 -10 -11 -8 -17 -9 -14 -6 -16 -6 -19 -4 -17 -2 -18 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40736 8756 l -92 -44 7 -8 5 -8 7 -7 7 -8 7 -6 9 -6 7 -5 10 -6 9 -4 9 -2 10 -4 9 -2 12 -2 9 -2 10 -3 12 0 0 94 -8 0 -7 2 -4 2 -7 2 -5 4 -7 2 -5 5 -4 6 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40806 8737 l 54 -79 7 4 10 7 7 6 7 6 7 6 7 9 4 6 5 8 7 8 2 9 5 8 3 8 2 9 2 10 0 8 3 11 -104 0 0 -9 0 -6 -2 -6 -5 -6 -5 -4 -4 -5 -5 -6 -7 -2 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40827 8802 l 89 43 -7 8 -4 9 -7 6 -7 6 -7 7 -10 6 -7 6 -9 4 -7 4 -10 4 -9 5 -10 2 -11 2 -10 2 -9 0 -9 2 0 -92 7 -2 4 -2 7 -2 7 -2 5 -4 5 -4 7 -4 2 -4 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40754 8820 l -49 79 -9 -6 -10 -4 -7 -6 -7 -7 -7 -6 -7 -8 -7 -6 -5 -9 -4 -8 -5 -8 -2 -9 -5 -8 0 -10 -3 -9 0 -8 0 -10 101 0 3 6 0 8 2 6 3 5 4 6 5 4 5 4 4 4 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40797 9163 l 0 -25 -33 0 0 25 33 0 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40393 8781 l -33 0 0 25 33 0 0 -25 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40797 8446 l 0 -27 -33 0 0 27 33 0 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 41205 8781 l -32 0 0 25 32 0 0 -25 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40613 9440 l 14 -7 3 -12 -3 -8 -14 -7 -14 7 -4 8 4 12 14 7 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40613 9568 l 14 -4 3 -12 -3 -13 -14 -2 -14 2 -4 13 4 12 14 4 0 0" stroke-width="0" fill="#595959" />
+  </g>
+  <g name="RadialFumeExhauster">
+    <path d="M 41318 12680 l -881 0 0 779 881 0 0 -779 0 0" stroke-width="0" fill="#CCCCCC" />
+    <path d="M 41318 12680 l -881 0 0 779 881 0 0 -779" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41283 12711 l -808 0 0 682 808 0 0 -682 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41283 12711 l -808 0 0 682 808 0 0 -682" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41379 12541 l 181 0 0 -534 -418 0 -359 0 -31 2 -31 2 -30 2 -31 6 -28 4 -28 9 -28 8 -28 10 -26 11 -26 10 -26 15 -23 12 -24 17 -23 14 -22 17 -21 19 -21 18 -19 19 -16 21 -17 21 -16 20 -14 23 -14 23 -12 23 -12 25 -9 25 -7 25 -5 25 -5 27 -4 27 -3 25 0 29 0 27 3 25 4 27 5 27 5 25 7 25 9 25 12 22 12 23 14 23 14 23 16 21 17 21 16 20 19 19 21 19 21 18 22 17 23 15 24 14 23 15 26 12 26 13 26 10 28 10 28 9 28 6 28 6 31 4 30 5 31 2 31 0 14 0 16 0 14 0 17 -2 14 -3 16 -2 14 -2 14 -2 14 -2 15 -4 14 -2 14 -4 14 -4 14 -5 14 -4 14 -6 12 -4 14 -6 12 -7 14 -4 12 -6 11 -8 14 -6 12 -7 12 -8 12 -6 11 -9 10 -8 12 -8 11 -9 10 -8 11 -10 10 -9 9 -10 10 -8 9 -11 9 -10 10 -10 7 -11 9 -10 7 -11 10 -10 7 -10 7 -13 7 -10 5 -13 7 -10 7 -13 4 -12 5 -13 5 -12 4 -12 5 -13 3 -10 4 -15 3 -12 2 -13 2 -12 3 -13 2 -14 2 -13 0 -12 0 -15 0 -12 0 0" stroke-width="0" fill="#DBDBDB" />
+    <path d="M 41379 12541 l 181 0 0 -534 -418 0 -359 0 0 0 -31 2 -31 2 -30 2 -31 6 -28 4 -28 9 -28 8 -28 10 -26 11 -26 10 -26 15 -23 12 -24 17 -23 14 -22 17 -21 19 -21 18 -19 19 -16 21 -17 21 -16 20 -14 23 -14 23 -12 23 -12 25 -9 25 -7 25 -5 25 -5 27 -4 27 -3 25 0 29 0 0 0 27 3 25 4 27 5 27 5 25 7 25 9 25 12 22 12 23 14 23 14 23 16 21 17 21 16 20 19 19 21 19 21 18 22 17 23 15 24 14 23 15 26 12 26 13 26 10 28 10 28 9 28 6 28 6 31 4 30 5 31 2 31 0 0 0 14 0 16 0 14 0 17 -2 14 -3 16 -2 14 -2 14 -2 14 -2 15 -4 14 -2 14 -4 14 -4 14 -5 14 -4 14 -6 12 -4 14 -6 12 -7 14 -4 12 -6 11 -8 14 -6 12 -7 12 -8 12 -6 11 -9 10 -8 12 -8 11 -9 10 -8 11 -10 0 0 10 -9 9 -10 10 -8 9 -11 9 -10 10 -10 7 -11 9 -10 7 -11 10 -10 7 -10 7 -13 7 -10 5 -13 7 -10 7 -13 4 -12 5 -13 5 -12 4 -12 5 -13 3 -10 4 -15 3 -12 2 -13 2 -12 3 -13 2 -14 2 -13 0 -12 0 -15 0 -12" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41379 12541 l 181 0 0 -322 -355 -52 10 8 9 10 12 9 9 10 10 10 7 9 9 10 10 11 7 12 7 10 7 11 7 12 7 11 7 12 7 11 5 12 4 12 5 13 5 12 4 13 5 12 5 13 2 12 3 13 4 14 3 13 0 12 2 13 2 14 0 13 0 12 0 15 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41619 12647 l 0 -746 -59 0 0 746 59 0 0 0" stroke-width="0" fill="#CCCCCC" />
+    <path d="M 41619 12647 l 0 -241 -59 0 0 241 59 0 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41619 12061 l 0 -160 -59 0 0 160 59 0 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 41619 12647 l 0 -746 -59 0 0 746 59 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41356 13393 l -954 0 0 66 954 0 0 -66 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 41356 13393 l -954 0 0 66 954 0 0 -66" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40780 12965 l -91 -9 -92 -25 -85 -39 -73 -52 -58 -64 -45 -75 -28 -79 -9 -83 9 -81 28 -84 45 -72 58 -65 73 -54 85 -39 89 -23 94 -8 92 8 94 23 82 39 73 54 61 65 45 75 25 76 10 86 -7 83 -28 79 -45 75 -61 64 -73 52 -82 39 -89 25 -97 9 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 40780 12965 l -91 -9 -92 -25 -85 -39 -73 -52 -58 -64 -45 -75 -28 -79 -9 -83 9 -81 28 -84 45 -72 58 -65 73 -54 85 -39 89 -23 94 -8 92 8 94 23 82 39 73 54 61 65 45 75 25 76 10 86 -7 83 -28 79 -45 75 -61 64 -73 52 -82 39 -89 25 -97 9" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40780 12850 l -68 -6 -68 -19 -61 -27 -52 -39 -45 -48 -30 -54 -21 -58 -7 -60 4 -61 24 -60 30 -54 45 -48 52 -37 61 -29 68 -17 68 -6 68 6 66 17 64 29 51 39 43 46 35 56 19 58 7 61 -7 60 -19 60 -33 52 -45 48 -51 39 -64 27 -66 19 -68 6 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 40778 12817 l -122 -21 -101 -62 -69 -89 -23 -106 23 -108 69 -92 101 -58 122 -23 122 23 101 60 68 90 26 108 -23 108 -71 89 -101 60 -122 21 0 0" stroke-width="0" fill="#A3A3A3" />
+    <path d="M 40775 12784 l -54 -4 -51 -15 -50 -21 -42 -33 -35 -35 -26 -44 -14 -46 -7 -47 5 -48 16 -48 26 -41 35 -40 42 -29 50 -23 51 -14 54 -5 57 5 52 14 47 23 42 31 35 35 26 44 16 48 5 48 -5 47 -16 48 -26 42 -35 37 -40 31 -49 21 -52 15 -57 4 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 40775 12753 l -94 -17 -79 -48 -52 -68 -19 -81 19 -83 52 -69 79 -48 94 -16 92 16 78 48 54 69 18 83 -18 81 -54 70 -78 46 -92 17 0 0" stroke-width="0" fill="#858585" />
+    <path d="M 40771 12719 l -78 -12 -68 -39 -45 -61 -14 -68 14 -71 45 -58 68 -40 78 -14 80 14 65 40 45 58 17 71 -17 68 -45 61 -65 39 -80 12 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 40783 12379 l -19 0 -17 2 -19 4 -16 6 -14 6 -17 9 -14 8 -11 10 -12 13 -9 12 -10 13 -9 14 -5 15 -5 17 -2 16 -2 17 2 14 2 17 5 14 5 15 9 15 10 12 9 13 12 12 11 10 14 9 17 8 14 6 16 4 19 5 17 2 19 2 18 -2 17 -2 19 -5 16 -4 14 -6 17 -8 11 -9 14 -10 12 -12 10 -13 9 -12 7 -15 7 -15 5 -14 2 -17 0 -14 0 -17 -2 -16 -5 -17 -7 -15 -7 -14 -9 -13 -10 -12 -12 -13 -14 -10 -11 -8 -17 -9 -14 -6 -16 -6 -19 -4 -17 -2 -18 0 0 0" stroke-width="0" fill="#666666" />
+    <path d="M 40783 12379 l 0 0 -19 0 -17 2 -19 4 -16 6 -14 6 -17 9 -14 8 -11 10 -12 13 -9 12 -10 13 -9 14 -5 15 -5 17 -2 16 -2 17 0 0 2 14 2 17 5 14 5 15 9 15 10 12 9 13 12 12 11 10 14 9 17 8 14 6 16 4 19 5 17 2 19 2 0 0 18 -2 17 -2 19 -5 16 -4 14 -6 17 -8 11 -9 14 -10 12 -12 10 -13 9 -12 7 -15 7 -15 5 -14 2 -17 0 -14 0 0 0 -17 -2 -16 -5 -17 -7 -15 -7 -14 -9 -13 -10 -12 -12 -13 -14 -10 -11 -8 -17 -9 -14 -6 -16 -6 -19 -4 -17 -2 -18 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40736 12516 l -92 -44 7 -8 5 -8 7 -7 7 -8 7 -6 9 -6 7 -5 10 -6 9 -4 9 -2 10 -4 9 -2 12 -2 9 -2 10 -3 12 0 0 94 -8 0 -7 2 -4 2 -7 2 -5 4 -7 2 -5 5 -4 6 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40806 12497 l 54 -79 7 4 10 7 7 6 7 6 7 6 7 9 4 6 5 8 7 8 2 9 5 8 3 8 2 9 2 10 0 8 3 11 -104 0 0 -9 0 -6 -2 -6 -5 -6 -5 -4 -4 -5 -5 -6 -7 -2 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40827 12562 l 89 43 -7 8 -4 9 -7 6 -7 6 -7 7 -10 6 -7 6 -9 4 -7 4 -10 4 -9 5 -10 2 -11 2 -10 2 -9 0 -9 2 0 -92 7 -2 4 -2 7 -2 7 -2 5 -4 5 -4 7 -4 2 -4 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40754 12580 l -49 79 -9 -6 -10 -4 -7 -6 -7 -7 -7 -6 -7 -8 -7 -6 -5 -9 -4 -8 -5 -8 -2 -9 -5 -8 0 -10 -3 -9 0 -8 0 -10 101 0 3 6 0 8 2 6 3 5 4 6 5 4 5 4 4 4 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40797 12923 l 0 -25 -33 0 0 25 33 0 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40393 12541 l -33 0 0 25 33 0 0 -25 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40797 12206 l 0 -27 -33 0 0 27 33 0 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 41205 12541 l -32 0 0 25 32 0 0 -25 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40613 13200 l 14 -7 3 -12 -3 -8 -14 -7 -14 7 -4 8 4 12 14 7 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40613 13328 l 14 -4 3 -12 -3 -13 -14 -2 -14 2 -4 13 4 12 14 4 0 0" stroke-width="0" fill="#595959" />
+  </g>
+  <g name="RadialFumeExhauster">
+    <path d="M 41318 16200 l -881 0 0 779 881 0 0 -779 0 0" stroke-width="0" fill="#CCCCCC" />
+    <path d="M 41318 16200 l -881 0 0 779 881 0 0 -779" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41283 16231 l -808 0 0 682 808 0 0 -682 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41283 16231 l -808 0 0 682 808 0 0 -682" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41379 16061 l 181 0 0 -534 -418 0 -359 0 -31 2 -31 2 -30 2 -31 6 -28 4 -28 9 -28 8 -28 10 -26 11 -26 10 -26 15 -23 12 -24 17 -23 14 -22 17 -21 19 -21 18 -19 19 -16 21 -17 21 -16 20 -14 23 -14 23 -12 23 -12 25 -9 25 -7 25 -5 25 -5 27 -4 27 -3 25 0 29 0 27 3 25 4 27 5 27 5 25 7 25 9 25 12 22 12 23 14 23 14 23 16 21 17 21 16 20 19 19 21 19 21 18 22 17 23 15 24 14 23 15 26 12 26 13 26 10 28 10 28 9 28 6 28 6 31 4 30 5 31 2 31 0 14 0 16 0 14 0 17 -2 14 -3 16 -2 14 -2 14 -2 14 -2 15 -4 14 -2 14 -4 14 -4 14 -5 14 -4 14 -6 12 -4 14 -6 12 -7 14 -4 12 -6 11 -8 14 -6 12 -7 12 -8 12 -6 11 -9 10 -8 12 -8 11 -9 10 -8 11 -10 10 -9 9 -10 10 -8 9 -11 9 -10 10 -10 7 -11 9 -10 7 -11 10 -10 7 -10 7 -13 7 -10 5 -13 7 -10 7 -13 4 -12 5 -13 5 -12 4 -12 5 -13 3 -10 4 -15 3 -12 2 -13 2 -12 3 -13 2 -14 2 -13 0 -12 0 -15 0 -12 0 0" stroke-width="0" fill="#DBDBDB" />
+    <path d="M 41379 16061 l 181 0 0 -534 -418 0 -359 0 0 0 -31 2 -31 2 -30 2 -31 6 -28 4 -28 9 -28 8 -28 10 -26 11 -26 10 -26 15 -23 12 -24 17 -23 14 -22 17 -21 19 -21 18 -19 19 -16 21 -17 21 -16 20 -14 23 -14 23 -12 23 -12 25 -9 25 -7 25 -5 25 -5 27 -4 27 -3 25 0 29 0 0 0 27 3 25 4 27 5 27 5 25 7 25 9 25 12 22 12 23 14 23 14 23 16 21 17 21 16 20 19 19 21 19 21 18 22 17 23 15 24 14 23 15 26 12 26 13 26 10 28 10 28 9 28 6 28 6 31 4 30 5 31 2 31 0 0 0 14 0 16 0 14 0 17 -2 14 -3 16 -2 14 -2 14 -2 14 -2 15 -4 14 -2 14 -4 14 -4 14 -5 14 -4 14 -6 12 -4 14 -6 12 -7 14 -4 12 -6 11 -8 14 -6 12 -7 12 -8 12 -6 11 -9 10 -8 12 -8 11 -9 10 -8 11 -10 0 0 10 -9 9 -10 10 -8 9 -11 9 -10 10 -10 7 -11 9 -10 7 -11 10 -10 7 -10 7 -13 7 -10 5 -13 7 -10 7 -13 4 -12 5 -13 5 -12 4 -12 5 -13 3 -10 4 -15 3 -12 2 -13 2 -12 3 -13 2 -14 2 -13 0 -12 0 -15 0 -12" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41379 16061 l 181 0 0 -322 -355 -52 10 8 9 10 12 9 9 10 10 10 7 9 9 10 10 11 7 12 7 10 7 11 7 12 7 11 7 12 7 11 5 12 4 12 5 13 5 12 4 13 5 12 5 13 2 12 3 13 4 14 3 13 0 12 2 13 2 14 0 13 0 12 0 15 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41619 16167 l 0 -746 -59 0 0 746 59 0 0 0" stroke-width="0" fill="#CCCCCC" />
+    <path d="M 41619 16167 l 0 -241 -59 0 0 241 59 0 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41619 15581 l 0 -160 -59 0 0 160 59 0 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 41619 16167 l 0 -746 -59 0 0 746 59 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41356 16913 l -954 0 0 66 954 0 0 -66 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 41356 16913 l -954 0 0 66 954 0 0 -66" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40780 16485 l -91 -9 -92 -25 -85 -39 -73 -52 -58 -64 -45 -75 -28 -79 -9 -83 9 -81 28 -84 45 -72 58 -65 73 -54 85 -39 89 -23 94 -8 92 8 94 23 82 39 73 54 61 65 45 75 25 76 10 86 -7 83 -28 79 -45 75 -61 64 -73 52 -82 39 -89 25 -97 9 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 40780 16485 l -91 -9 -92 -25 -85 -39 -73 -52 -58 -64 -45 -75 -28 -79 -9 -83 9 -81 28 -84 45 -72 58 -65 73 -54 85 -39 89 -23 94 -8 92 8 94 23 82 39 73 54 61 65 45 75 25 76 10 86 -7 83 -28 79 -45 75 -61 64 -73 52 -82 39 -89 25 -97 9" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40780 16370 l -68 -6 -68 -19 -61 -27 -52 -39 -45 -48 -30 -54 -21 -58 -7 -60 4 -61 24 -60 30 -54 45 -48 52 -37 61 -29 68 -17 68 -6 68 6 66 17 64 29 51 39 43 46 35 56 19 58 7 61 -7 60 -19 60 -33 52 -45 48 -51 39 -64 27 -66 19 -68 6 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 40778 16337 l -122 -21 -101 -62 -69 -89 -23 -106 23 -108 69 -92 101 -58 122 -23 122 23 101 60 68 90 26 108 -23 108 -71 89 -101 60 -122 21 0 0" stroke-width="0" fill="#A3A3A3" />
+    <path d="M 40775 16304 l -54 -4 -51 -15 -50 -21 -42 -33 -35 -35 -26 -44 -14 -46 -7 -47 5 -48 16 -48 26 -41 35 -40 42 -29 50 -23 51 -14 54 -5 57 5 52 14 47 23 42 31 35 35 26 44 16 48 5 48 -5 47 -16 48 -26 42 -35 37 -40 31 -49 21 -52 15 -57 4 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 40775 16273 l -94 -17 -79 -48 -52 -68 -19 -81 19 -83 52 -69 79 -48 94 -16 92 16 78 48 54 69 18 83 -18 81 -54 70 -78 46 -92 17 0 0" stroke-width="0" fill="#858585" />
+    <path d="M 40771 16239 l -78 -12 -68 -39 -45 -61 -14 -68 14 -71 45 -58 68 -40 78 -14 80 14 65 40 45 58 17 71 -17 68 -45 61 -65 39 -80 12 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 40783 15899 l -19 0 -17 2 -19 4 -16 6 -14 6 -17 9 -14 8 -11 10 -12 13 -9 12 -10 13 -9 14 -5 15 -5 17 -2 16 -2 17 2 14 2 17 5 14 5 15 9 15 10 12 9 13 12 12 11 10 14 9 17 8 14 6 16 4 19 5 17 2 19 2 18 -2 17 -2 19 -5 16 -4 14 -6 17 -8 11 -9 14 -10 12 -12 10 -13 9 -12 7 -15 7 -15 5 -14 2 -17 0 -14 0 -17 -2 -16 -5 -17 -7 -15 -7 -14 -9 -13 -10 -12 -12 -13 -14 -10 -11 -8 -17 -9 -14 -6 -16 -6 -19 -4 -17 -2 -18 0 0 0" stroke-width="0" fill="#666666" />
+    <path d="M 40783 15899 l 0 0 -19 0 -17 2 -19 4 -16 6 -14 6 -17 9 -14 8 -11 10 -12 13 -9 12 -10 13 -9 14 -5 15 -5 17 -2 16 -2 17 0 0 2 14 2 17 5 14 5 15 9 15 10 12 9 13 12 12 11 10 14 9 17 8 14 6 16 4 19 5 17 2 19 2 0 0 18 -2 17 -2 19 -5 16 -4 14 -6 17 -8 11 -9 14 -10 12 -12 10 -13 9 -12 7 -15 7 -15 5 -14 2 -17 0 -14 0 0 0 -17 -2 -16 -5 -17 -7 -15 -7 -14 -9 -13 -10 -12 -12 -13 -14 -10 -11 -8 -17 -9 -14 -6 -16 -6 -19 -4 -17 -2 -18 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40736 16036 l -92 -44 7 -8 5 -8 7 -7 7 -8 7 -6 9 -6 7 -5 10 -6 9 -4 9 -2 10 -4 9 -2 12 -2 9 -2 10 -3 12 0 0 94 -8 0 -7 2 -4 2 -7 2 -5 4 -7 2 -5 5 -4 6 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40806 16017 l 54 -79 7 4 10 7 7 6 7 6 7 6 7 9 4 6 5 8 7 8 2 9 5 8 3 8 2 9 2 10 0 8 3 11 -104 0 0 -9 0 -6 -2 -6 -5 -6 -5 -4 -4 -5 -5 -6 -7 -2 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40827 16082 l 89 43 -7 8 -4 9 -7 6 -7 6 -7 7 -10 6 -7 6 -9 4 -7 4 -10 4 -9 5 -10 2 -11 2 -10 2 -9 0 -9 2 0 -92 7 -2 4 -2 7 -2 7 -2 5 -4 5 -4 7 -4 2 -4 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40754 16100 l -49 79 -9 -6 -10 -4 -7 -6 -7 -7 -7 -6 -7 -8 -7 -6 -5 -9 -4 -8 -5 -8 -2 -9 -5 -8 0 -10 -3 -9 0 -8 0 -10 101 0 3 6 0 8 2 6 3 5 4 6 5 4 5 4 4 4 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40797 16443 l 0 -25 -33 0 0 25 33 0 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40393 16061 l -33 0 0 25 33 0 0 -25 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40797 15726 l 0 -27 -33 0 0 27 33 0 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 41205 16061 l -32 0 0 25 32 0 0 -25 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40613 16720 l 14 -7 3 -12 -3 -8 -14 -7 -14 7 -4 8 4 12 14 7 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40613 16848 l 14 -4 3 -12 -3 -13 -14 -2 -14 2 -4 13 4 12 14 4 0 0" stroke-width="0" fill="#595959" />
+  </g>
+  <g name="RadialFumeExhauster">
+    <path d="M 41318 20080 l -881 0 0 779 881 0 0 -779 0 0" stroke-width="0" fill="#CCCCCC" />
+    <path d="M 41318 20080 l -881 0 0 779 881 0 0 -779" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41283 20111 l -808 0 0 682 808 0 0 -682 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41283 20111 l -808 0 0 682 808 0 0 -682" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41379 19941 l 181 0 0 -534 -418 0 -359 0 -31 2 -31 2 -30 2 -31 6 -28 4 -28 9 -28 8 -28 10 -26 11 -26 10 -26 15 -23 12 -24 17 -23 14 -22 17 -21 19 -21 18 -19 19 -16 21 -17 21 -16 20 -14 23 -14 23 -12 23 -12 25 -9 25 -7 25 -5 25 -5 27 -4 27 -3 25 0 29 0 27 3 25 4 27 5 27 5 25 7 25 9 25 12 22 12 23 14 23 14 23 16 21 17 21 16 20 19 19 21 19 21 18 22 17 23 15 24 14 23 15 26 12 26 13 26 10 28 10 28 9 28 6 28 6 31 4 30 5 31 2 31 0 14 0 16 0 14 0 17 -2 14 -3 16 -2 14 -2 14 -2 14 -2 15 -4 14 -2 14 -4 14 -4 14 -5 14 -4 14 -6 12 -4 14 -6 12 -7 14 -4 12 -6 11 -8 14 -6 12 -7 12 -8 12 -6 11 -9 10 -8 12 -8 11 -9 10 -8 11 -10 10 -9 9 -10 10 -8 9 -11 9 -10 10 -10 7 -11 9 -10 7 -11 10 -10 7 -10 7 -13 7 -10 5 -13 7 -10 7 -13 4 -12 5 -13 5 -12 4 -12 5 -13 3 -10 4 -15 3 -12 2 -13 2 -12 3 -13 2 -14 2 -13 0 -12 0 -15 0 -12 0 0" stroke-width="0" fill="#DBDBDB" />
+    <path d="M 41379 19941 l 181 0 0 -534 -418 0 -359 0 0 0 -31 2 -31 2 -30 2 -31 6 -28 4 -28 9 -28 8 -28 10 -26 11 -26 10 -26 15 -23 12 -24 17 -23 14 -22 17 -21 19 -21 18 -19 19 -16 21 -17 21 -16 20 -14 23 -14 23 -12 23 -12 25 -9 25 -7 25 -5 25 -5 27 -4 27 -3 25 0 29 0 0 0 27 3 25 4 27 5 27 5 25 7 25 9 25 12 22 12 23 14 23 14 23 16 21 17 21 16 20 19 19 21 19 21 18 22 17 23 15 24 14 23 15 26 12 26 13 26 10 28 10 28 9 28 6 28 6 31 4 30 5 31 2 31 0 0 0 14 0 16 0 14 0 17 -2 14 -3 16 -2 14 -2 14 -2 14 -2 15 -4 14 -2 14 -4 14 -4 14 -5 14 -4 14 -6 12 -4 14 -6 12 -7 14 -4 12 -6 11 -8 14 -6 12 -7 12 -8 12 -6 11 -9 10 -8 12 -8 11 -9 10 -8 11 -10 0 0 10 -9 9 -10 10 -8 9 -11 9 -10 10 -10 7 -11 9 -10 7 -11 10 -10 7 -10 7 -13 7 -10 5 -13 7 -10 7 -13 4 -12 5 -13 5 -12 4 -12 5 -13 3 -10 4 -15 3 -12 2 -13 2 -12 3 -13 2 -14 2 -13 0 -12 0 -15 0 -12" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41379 19941 l 181 0 0 -322 -355 -52 10 8 9 10 12 9 9 10 10 10 7 9 9 10 10 11 7 12 7 10 7 11 7 12 7 11 7 12 7 11 5 12 4 12 5 13 5 12 4 13 5 12 5 13 2 12 3 13 4 14 3 13 0 12 2 13 2 14 0 13 0 12 0 15 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41619 20047 l 0 -746 -59 0 0 746 59 0 0 0" stroke-width="0" fill="#CCCCCC" />
+    <path d="M 41619 20047 l 0 -241 -59 0 0 241 59 0 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41619 19461 l 0 -160 -59 0 0 160 59 0 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 41619 20047 l 0 -746 -59 0 0 746 59 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41356 20793 l -954 0 0 66 954 0 0 -66 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 41356 20793 l -954 0 0 66 954 0 0 -66" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40780 20365 l -91 -9 -92 -25 -85 -39 -73 -52 -58 -64 -45 -75 -28 -79 -9 -83 9 -81 28 -84 45 -72 58 -65 73 -54 85 -39 89 -23 94 -8 92 8 94 23 82 39 73 54 61 65 45 75 25 76 10 86 -7 83 -28 79 -45 75 -61 64 -73 52 -82 39 -89 25 -97 9 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 40780 20365 l -91 -9 -92 -25 -85 -39 -73 -52 -58 -64 -45 -75 -28 -79 -9 -83 9 -81 28 -84 45 -72 58 -65 73 -54 85 -39 89 -23 94 -8 92 8 94 23 82 39 73 54 61 65 45 75 25 76 10 86 -7 83 -28 79 -45 75 -61 64 -73 52 -82 39 -89 25 -97 9" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40780 20250 l -68 -6 -68 -19 -61 -27 -52 -39 -45 -48 -30 -54 -21 -58 -7 -60 4 -61 24 -60 30 -54 45 -48 52 -37 61 -29 68 -17 68 -6 68 6 66 17 64 29 51 39 43 46 35 56 19 58 7 61 -7 60 -19 60 -33 52 -45 48 -51 39 -64 27 -66 19 -68 6 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 40778 20217 l -122 -21 -101 -62 -69 -89 -23 -106 23 -108 69 -92 101 -58 122 -23 122 23 101 60 68 90 26 108 -23 108 -71 89 -101 60 -122 21 0 0" stroke-width="0" fill="#A3A3A3" />
+    <path d="M 40775 20184 l -54 -4 -51 -15 -50 -21 -42 -33 -35 -35 -26 -44 -14 -46 -7 -47 5 -48 16 -48 26 -41 35 -40 42 -29 50 -23 51 -14 54 -5 57 5 52 14 47 23 42 31 35 35 26 44 16 48 5 48 -5 47 -16 48 -26 42 -35 37 -40 31 -49 21 -52 15 -57 4 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 40775 20153 l -94 -17 -79 -48 -52 -68 -19 -81 19 -83 52 -69 79 -48 94 -16 92 16 78 48 54 69 18 83 -18 81 -54 70 -78 46 -92 17 0 0" stroke-width="0" fill="#858585" />
+    <path d="M 40771 20119 l -78 -12 -68 -39 -45 -61 -14 -68 14 -71 45 -58 68 -40 78 -14 80 14 65 40 45 58 17 71 -17 68 -45 61 -65 39 -80 12 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 40783 19779 l -19 0 -17 2 -19 4 -16 6 -14 6 -17 9 -14 8 -11 10 -12 13 -9 12 -10 13 -9 14 -5 15 -5 17 -2 16 -2 17 2 14 2 17 5 14 5 15 9 15 10 12 9 13 12 12 11 10 14 9 17 8 14 6 16 4 19 5 17 2 19 2 18 -2 17 -2 19 -5 16 -4 14 -6 17 -8 11 -9 14 -10 12 -12 10 -13 9 -12 7 -15 7 -15 5 -14 2 -17 0 -14 0 -17 -2 -16 -5 -17 -7 -15 -7 -14 -9 -13 -10 -12 -12 -13 -14 -10 -11 -8 -17 -9 -14 -6 -16 -6 -19 -4 -17 -2 -18 0 0 0" stroke-width="0" fill="#666666" />
+    <path d="M 40783 19779 l 0 0 -19 0 -17 2 -19 4 -16 6 -14 6 -17 9 -14 8 -11 10 -12 13 -9 12 -10 13 -9 14 -5 15 -5 17 -2 16 -2 17 0 0 2 14 2 17 5 14 5 15 9 15 10 12 9 13 12 12 11 10 14 9 17 8 14 6 16 4 19 5 17 2 19 2 0 0 18 -2 17 -2 19 -5 16 -4 14 -6 17 -8 11 -9 14 -10 12 -12 10 -13 9 -12 7 -15 7 -15 5 -14 2 -17 0 -14 0 0 0 -17 -2 -16 -5 -17 -7 -15 -7 -14 -9 -13 -10 -12 -12 -13 -14 -10 -11 -8 -17 -9 -14 -6 -16 -6 -19 -4 -17 -2 -18 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40736 19916 l -92 -44 7 -8 5 -8 7 -7 7 -8 7 -6 9 -6 7 -5 10 -6 9 -4 9 -2 10 -4 9 -2 12 -2 9 -2 10 -3 12 0 0 94 -8 0 -7 2 -4 2 -7 2 -5 4 -7 2 -5 5 -4 6 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40806 19897 l 54 -79 7 4 10 7 7 6 7 6 7 6 7 9 4 6 5 8 7 8 2 9 5 8 3 8 2 9 2 10 0 8 3 11 -104 0 0 -9 0 -6 -2 -6 -5 -6 -5 -4 -4 -5 -5 -6 -7 -2 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40827 19962 l 89 43 -7 8 -4 9 -7 6 -7 6 -7 7 -10 6 -7 6 -9 4 -7 4 -10 4 -9 5 -10 2 -11 2 -10 2 -9 0 -9 2 0 -92 7 -2 4 -2 7 -2 7 -2 5 -4 5 -4 7 -4 2 -4 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40754 19980 l -49 79 -9 -6 -10 -4 -7 -6 -7 -7 -7 -6 -7 -8 -7 -6 -5 -9 -4 -8 -5 -8 -2 -9 -5 -8 0 -10 -3 -9 0 -8 0 -10 101 0 3 6 0 8 2 6 3 5 4 6 5 4 5 4 4 4 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40797 20323 l 0 -25 -33 0 0 25 33 0 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40393 19941 l -33 0 0 25 33 0 0 -25 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40797 19606 l 0 -27 -33 0 0 27 33 0 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 41205 19941 l -32 0 0 25 32 0 0 -25 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40613 20600 l 14 -7 3 -12 -3 -8 -14 -7 -14 7 -4 8 4 12 14 7 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40613 20728 l 14 -4 3 -12 -3 -13 -14 -2 -14 2 -4 13 4 12 14 4 0 0" stroke-width="0" fill="#595959" />
+  </g>
+  <g name="RadialFumeExhauster">
+    <path d="M 41318 23780 l -881 0 0 779 881 0 0 -779 0 0" stroke-width="0" fill="#CCCCCC" />
+    <path d="M 41318 23780 l -881 0 0 779 881 0 0 -779" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41283 23811 l -808 0 0 682 808 0 0 -682 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41283 23811 l -808 0 0 682 808 0 0 -682" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41379 23641 l 181 0 0 -534 -418 0 -359 0 -31 2 -31 2 -30 2 -31 6 -28 4 -28 9 -28 8 -28 10 -26 11 -26 10 -26 15 -23 12 -24 17 -23 14 -22 17 -21 19 -21 18 -19 19 -16 21 -17 21 -16 20 -14 23 -14 23 -12 23 -12 25 -9 25 -7 25 -5 25 -5 27 -4 27 -3 25 0 29 0 27 3 25 4 27 5 27 5 25 7 25 9 25 12 22 12 23 14 23 14 23 16 21 17 21 16 20 19 19 21 19 21 18 22 17 23 15 24 14 23 15 26 12 26 13 26 10 28 10 28 9 28 6 28 6 31 4 30 5 31 2 31 0 14 0 16 0 14 0 17 -2 14 -3 16 -2 14 -2 14 -2 14 -2 15 -4 14 -2 14 -4 14 -4 14 -5 14 -4 14 -6 12 -4 14 -6 12 -7 14 -4 12 -6 11 -8 14 -6 12 -7 12 -8 12 -6 11 -9 10 -8 12 -8 11 -9 10 -8 11 -10 10 -9 9 -10 10 -8 9 -11 9 -10 10 -10 7 -11 9 -10 7 -11 10 -10 7 -10 7 -13 7 -10 5 -13 7 -10 7 -13 4 -12 5 -13 5 -12 4 -12 5 -13 3 -10 4 -15 3 -12 2 -13 2 -12 3 -13 2 -14 2 -13 0 -12 0 -15 0 -12 0 0" stroke-width="0" fill="#DBDBDB" />
+    <path d="M 41379 23641 l 181 0 0 -534 -418 0 -359 0 0 0 -31 2 -31 2 -30 2 -31 6 -28 4 -28 9 -28 8 -28 10 -26 11 -26 10 -26 15 -23 12 -24 17 -23 14 -22 17 -21 19 -21 18 -19 19 -16 21 -17 21 -16 20 -14 23 -14 23 -12 23 -12 25 -9 25 -7 25 -5 25 -5 27 -4 27 -3 25 0 29 0 0 0 27 3 25 4 27 5 27 5 25 7 25 9 25 12 22 12 23 14 23 14 23 16 21 17 21 16 20 19 19 21 19 21 18 22 17 23 15 24 14 23 15 26 12 26 13 26 10 28 10 28 9 28 6 28 6 31 4 30 5 31 2 31 0 0 0 14 0 16 0 14 0 17 -2 14 -3 16 -2 14 -2 14 -2 14 -2 15 -4 14 -2 14 -4 14 -4 14 -5 14 -4 14 -6 12 -4 14 -6 12 -7 14 -4 12 -6 11 -8 14 -6 12 -7 12 -8 12 -6 11 -9 10 -8 12 -8 11 -9 10 -8 11 -10 0 0 10 -9 9 -10 10 -8 9 -11 9 -10 10 -10 7 -11 9 -10 7 -11 10 -10 7 -10 7 -13 7 -10 5 -13 7 -10 7 -13 4 -12 5 -13 5 -12 4 -12 5 -13 3 -10 4 -15 3 -12 2 -13 2 -12 3 -13 2 -14 2 -13 0 -12 0 -15 0 -12" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41379 23641 l 181 0 0 -322 -355 -52 10 8 9 10 12 9 9 10 10 10 7 9 9 10 10 11 7 12 7 10 7 11 7 12 7 11 7 12 7 11 5 12 4 12 5 13 5 12 4 13 5 12 5 13 2 12 3 13 4 14 3 13 0 12 2 13 2 14 0 13 0 12 0 15 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41619 23747 l 0 -746 -59 0 0 746 59 0 0 0" stroke-width="0" fill="#CCCCCC" />
+    <path d="M 41619 23747 l 0 -241 -59 0 0 241 59 0 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 41619 23161 l 0 -160 -59 0 0 160 59 0 0 0" stroke-width="0" fill="#DEDEDE" />
+    <path d="M 41619 23747 l 0 -746 -59 0 0 746 59 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41356 24493 l -954 0 0 66 954 0 0 -66 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 41356 24493 l -954 0 0 66 954 0 0 -66" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40780 24065 l -91 -9 -92 -25 -85 -39 -73 -52 -58 -64 -45 -75 -28 -79 -9 -83 9 -81 28 -84 45 -72 58 -65 73 -54 85 -39 89 -23 94 -8 92 8 94 23 82 39 73 54 61 65 45 75 25 76 10 86 -7 83 -28 79 -45 75 -61 64 -73 52 -82 39 -89 25 -97 9 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 40780 24065 l -91 -9 -92 -25 -85 -39 -73 -52 -58 -64 -45 -75 -28 -79 -9 -83 9 -81 28 -84 45 -72 58 -65 73 -54 85 -39 89 -23 94 -8 92 8 94 23 82 39 73 54 61 65 45 75 25 76 10 86 -7 83 -28 79 -45 75 -61 64 -73 52 -82 39 -89 25 -97 9" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40780 23950 l -68 -6 -68 -19 -61 -27 -52 -39 -45 -48 -30 -54 -21 -58 -7 -60 4 -61 24 -60 30 -54 45 -48 52 -37 61 -29 68 -17 68 -6 68 6 66 17 64 29 51 39 43 46 35 56 19 58 7 61 -7 60 -19 60 -33 52 -45 48 -51 39 -64 27 -66 19 -68 6 0 0" stroke-width="0" fill="#B4B4B4" />
+    <path d="M 40778 23917 l -122 -21 -101 -62 -69 -89 -23 -106 23 -108 69 -92 101 -58 122 -23 122 23 101 60 68 90 26 108 -23 108 -71 89 -101 60 -122 21 0 0" stroke-width="0" fill="#A3A3A3" />
+    <path d="M 40775 23884 l -54 -4 -51 -15 -50 -21 -42 -33 -35 -35 -26 -44 -14 -46 -7 -47 5 -48 16 -48 26 -41 35 -40 42 -29 50 -23 51 -14 54 -5 57 5 52 14 47 23 42 31 35 35 26 44 16 48 5 48 -5 47 -16 48 -26 42 -35 37 -40 31 -49 21 -52 15 -57 4 0 0" stroke-width="0" fill="#969696" />
+    <path d="M 40775 23853 l -94 -17 -79 -48 -52 -68 -19 -81 19 -83 52 -69 79 -48 94 -16 92 16 78 48 54 69 18 83 -18 81 -54 70 -78 46 -92 17 0 0" stroke-width="0" fill="#858585" />
+    <path d="M 40771 23819 l -78 -12 -68 -39 -45 -61 -14 -68 14 -71 45 -58 68 -40 78 -14 80 14 65 40 45 58 17 71 -17 68 -45 61 -65 39 -80 12 0 0" stroke-width="0" fill="#808080" />
+    <path d="M 40783 23479 l -19 0 -17 2 -19 4 -16 6 -14 6 -17 9 -14 8 -11 10 -12 13 -9 12 -10 13 -9 14 -5 15 -5 17 -2 16 -2 17 2 14 2 17 5 14 5 15 9 15 10 12 9 13 12 12 11 10 14 9 17 8 14 6 16 4 19 5 17 2 19 2 18 -2 17 -2 19 -5 16 -4 14 -6 17 -8 11 -9 14 -10 12 -12 10 -13 9 -12 7 -15 7 -15 5 -14 2 -17 0 -14 0 -17 -2 -16 -5 -17 -7 -15 -7 -14 -9 -13 -10 -12 -12 -13 -14 -10 -11 -8 -17 -9 -14 -6 -16 -6 -19 -4 -17 -2 -18 0 0 0" stroke-width="0" fill="#666666" />
+    <path d="M 40783 23479 l 0 0 -19 0 -17 2 -19 4 -16 6 -14 6 -17 9 -14 8 -11 10 -12 13 -9 12 -10 13 -9 14 -5 15 -5 17 -2 16 -2 17 0 0 2 14 2 17 5 14 5 15 9 15 10 12 9 13 12 12 11 10 14 9 17 8 14 6 16 4 19 5 17 2 19 2 0 0 18 -2 17 -2 19 -5 16 -4 14 -6 17 -8 11 -9 14 -10 12 -12 10 -13 9 -12 7 -15 7 -15 5 -14 2 -17 0 -14 0 0 0 -17 -2 -16 -5 -17 -7 -15 -7 -14 -9 -13 -10 -12 -12 -13 -14 -10 -11 -8 -17 -9 -14 -6 -16 -6 -19 -4 -17 -2 -18 0" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 40736 23616 l -92 -44 7 -8 5 -8 7 -7 7 -8 7 -6 9 -6 7 -5 10 -6 9 -4 9 -2 10 -4 9 -2 12 -2 9 -2 10 -3 12 0 0 94 -8 0 -7 2 -4 2 -7 2 -5 4 -7 2 -5 5 -4 6 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40806 23597 l 54 -79 7 4 10 7 7 6 7 6 7 6 7 9 4 6 5 8 7 8 2 9 5 8 3 8 2 9 2 10 0 8 3 11 -104 0 0 -9 0 -6 -2 -6 -5 -6 -5 -4 -4 -5 -5 -6 -7 -2 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40827 23662 l 89 43 -7 8 -4 9 -7 6 -7 6 -7 7 -10 6 -7 6 -9 4 -7 4 -10 4 -9 5 -10 2 -11 2 -10 2 -9 0 -9 2 0 -92 7 -2 4 -2 7 -2 7 -2 5 -4 5 -4 7 -4 2 -4 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40754 23680 l -49 79 -9 -6 -10 -4 -7 -6 -7 -7 -7 -6 -7 -8 -7 -6 -5 -9 -4 -8 -5 -8 -2 -9 -5 -8 0 -10 -3 -9 0 -8 0 -10 101 0 3 6 0 8 2 6 3 5 4 6 5 4 5 4 4 4 0 0" stroke-width="0" fill="#3C3C3C" />
+    <path d="M 40797 24023 l 0 -25 -33 0 0 25 33 0 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40393 23641 l -33 0 0 25 33 0 0 -25 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40797 23306 l 0 -27 -33 0 0 27 33 0 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 41205 23641 l -32 0 0 25 32 0 0 -25 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40613 24300 l 14 -7 3 -12 -3 -8 -14 -7 -14 7 -4 8 4 12 14 7 0 0" stroke-width="0" fill="#595959" />
+    <path d="M 40613 24428 l 14 -4 3 -12 -3 -13 -14 -2 -14 2 -4 13 4 12 14 4 0 0" stroke-width="0" fill="#595959" />
+  </g>
+  <g id="DATAPOINT35" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\570_FI_30107A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="56480" y="6580" width="1560" height="520" stroke-width="0" fill="none" id="DATAPOINT35_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57260" y="7120" id="DATAPOINT35_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT223">
+    <rect x="58060" y="6600" width="1500" height="480" stroke-width="0" fill="none" id="TEXT223_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="58810" y="7120" id="TEXT223_pbTextEl">L/H</text>
+  </g>
+  <g id="DATAPOINT36" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\570_PA_405A_L" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="25200" y="14760" width="1560" height="520" stroke-width="0" fill="none" id="DATAPOINT36_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="25980" y="15300" id="DATAPOINT36_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT225">
+    <rect x="26780" y="14780" width="1500" height="480" stroke-width="0" fill="none" id="TEXT225_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="27530" y="15300" id="TEXT225_pbTextEl">m</text>
+  </g>
+  <g id="TEXT226">
+    <rect x="24860" y="13840" width="3300" height="760" stroke-width="0" fill="none" id="TEXT226_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="26510" y="14500" id="TEXT226_pbTextEl">LT_30301X</text>
+  </g>
+  <g id="DATAPOINT37" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\570_FI_30107B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="56500" y="10280" width="1560" height="520" stroke-width="0" fill="none" id="DATAPOINT37_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57280" y="10820" id="DATAPOINT37_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT228">
+    <rect x="58080" y="10300" width="1500" height="480" stroke-width="0" fill="none" id="TEXT228_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="58830" y="10820" id="TEXT228_pbTextEl">L/H</text>
+  </g>
+  <g id="DATAPOINT38" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\570_FI_30107C" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="56600" y="14000" width="1560" height="520" stroke-width="0" fill="none" id="DATAPOINT38_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57380" y="14540" id="DATAPOINT38_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT230">
+    <rect x="58180" y="14020" width="1500" height="480" stroke-width="0" fill="none" id="TEXT230_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="58930" y="14540" id="TEXT230_pbTextEl">L/H</text>
+  </g>
+  <g id="DATAPOINT39" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\570_FI_30108A" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="56500" y="17780" width="1560" height="520" stroke-width="0" fill="none" id="DATAPOINT39_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57280" y="18320" id="DATAPOINT39_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT232">
+    <rect x="58080" y="17800" width="1500" height="480" stroke-width="0" fill="none" id="TEXT232_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="58830" y="18320" id="TEXT232_pbTextEl">L/H</text>
+  </g>
+  <g id="DATAPOINT40" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\570_FI_30108B" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="56360" y="21540" width="1560" height="520" stroke-width="0" fill="none" id="DATAPOINT40_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57140" y="22080" id="DATAPOINT40_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="TEXT234">
+    <rect x="57940" y="21560" width="1500" height="480" stroke-width="0" fill="none" id="TEXT234_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="58690" y="22080" id="TEXT234_pbTextEl">L/H</text>
+  </g>
+</svg>

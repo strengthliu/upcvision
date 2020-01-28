@@ -33,6 +33,7 @@ public final class GlobalConsts {
      * Redis中Key的定义
      */
 	public static final String Key_UserSpace_pre_ = "Key_UserSpace_pre_"; // 用户空间key前缀
+	public static final String Key_UserSpaceFlash_pre_ = "Key_UserSpaceFlash_pre_"; // 用户空间key前缀
 	public static final String Key_UserInfo_Pre_ = "Key_UserInfo_Pre_"; // 用户key前缀
 	public static final String Key_DepartInfo_Pre_ = "Key_DepartInfo_Pre_";
     public final static String Key_Graph_pre_ = "Key_Graph_pre_"; // 图形key前缀

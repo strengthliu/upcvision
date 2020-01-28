@@ -272,6 +272,36 @@ public class ServerManager {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
+						
+						double hihiLimit;
+						double hiLimit;
+						double loLimit;
+						double loloLimit;	
+						try {
+							List<Long> pnTagIDArray = new ArrayList<Long>();
+							pnTagIDArray.add(pointId);
+							List<Double> hihiLimit1 = gec().DBECBatchGetTagRealField(serverName, pnTagIDArray, "FN_HIHILIMIT");
+							List<Double> hiLimit1 = gec().DBECBatchGetTagRealField(serverName, pnTagIDArray, "FN_HILIMIT");
+							List<Double> loloLimit1 = gec().DBECBatchGetTagRealField(serverName, pnTagIDArray, "FN_LOLOLIMIT");
+							List<Double> loLimit1 = gec().DBECBatchGetTagRealField(serverName, pnTagIDArray, "FN_LOLIMIT");
+							hihiLimit = hihiLimit1.get(0);
+							hiLimit = hiLimit1.get(0);
+							loloLimit = loloLimit1.get(0);
+							loLimit = loLimit1.get(0);
+//							hihiLimit = gec().DBECGetTagRealFieldByTagName(serverName, tagName, "HIHILIMIT");
+//							hihiLimit = gec().DBECGetTagRealField(serverName, pointId, "HIHILIMIT");
+//							hiLimit = gec().DBECGetTagRealField(serverName, pointId, "HILIMIT");
+//							loLimit = gec().DBECGetTagRealField(serverName, pointId, "LOLIMIT");
+//							loloLimit = gec().DBECGetTagRealField(serverName, pointId, "LOLOLIMIT");
+							point.setHihiLimit(hihiLimit);
+							point.setHiLimit(hiLimit);
+							point.setLoLimit(loLimit);
+							point.setLoloLimit(loloLimit);
+//							LOGGER.info("tagName="+tagName+" hihiLimit="+hihiLimit+" hiLimit="+hiLimit+" loloLimit="+loloLimit+" loLimit="+loLimit);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+						
 						tagType = tagType.trim();
 						point.setEnunit(enunit);
 						point.setTagType(tagType);
@@ -457,7 +487,6 @@ public class ServerManager {
 			List<Long> pOccuredTimeArray = new ArrayList<Long>();
 			try {
 				gec().DBACGetCurrentAlarm(lpszServerName, pnTagIDArray, pAlarmTypeArray, nArraySize, pValueArray, pOccuredTimeArray);
-			
 				List<Double> hihiLimit = gec().DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HIHILIMIT");
 				List<Double> hiLimit = gec().DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_HILIMIT");
 				List<Double> loloLimit = gec().DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLOLIMIT");

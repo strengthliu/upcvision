@@ -125,6 +125,9 @@ public class UserSpaceManager {
 
 	public UserSpace getUserSpace(Double uid) {
 		LOGGER.info("userKey: " + GlobalConsts.Key_UserSpace_pre_ + uid.toString());
+		Object objFlash = redisService.get(GlobalConsts.Key_UserSpaceFlash_pre_ + IDTools.toString(uid));
+		if(objFlash != null && objFlash instanceof UserSpace)
+			return (UserSpace) objFlash;
 		Object obj = redisService.get(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(uid));
 		if (obj == null)
 			return null;
@@ -243,6 +246,7 @@ public class UserSpaceManager {
 			((UserSpace)us).updateUserSpaceData();
 		UserSpaceData ust = us.clone();
 		redisService.set(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(us.getUid()), ust);
+		redisService.set(GlobalConsts.Key_UserSpaceFlash_pre_ + IDTools.toString(us.getUid()), us);
 	}
 
 	public void setUserSpaceWithStorage(UserSpaceData us) {
@@ -250,6 +254,7 @@ public class UserSpaceManager {
 			((UserSpace)us).updateUserSpaceData();
 		UserSpaceData usd = (UserSpaceData)us.clone();
 		redisService.set(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(us.getUid()), usd);
+		redisService.set(GlobalConsts.Key_UserSpaceFlash_pre_ + IDTools.toString(us.getUid()), us);
 		try {
 		// 更新数据库用户空间表
 		userSpaceService.updateUserSpace(us.getUid(),usd);

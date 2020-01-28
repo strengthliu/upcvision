@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg height="100%" width="100%" viewBox="0 0 64000 32000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:PB="urn:osisoft-com-pb" xmlns:PBI="urn:osisoft-com-interface" xmlns:PBD="urn:osisoft-com-data" style="background-color:#C0C0C0">
+  <title>A1</title>
+  <defs>
+    <PBD:TagUses tag="\\\">
+      <PBI:Symbol name="BARGRAPH15" PB:Type="12" />
+      <PBI:Symbol name="BARGRAPH16" PB:Type="12" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\150_LT_8314">
+      <PBI:Symbol name="DATAPOINT318" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\150_LT_8313">
+      <PBI:Symbol name="DATAPOINT319" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\150_PT_8312">
+      <PBI:Symbol name="DATAPOINT320" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\150_TT_8312">
+      <PBI:Symbol name="DATAPOINT321" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\150_FT_8312">
+      <PBI:Symbol name="DATAPOINT322" PB:Type="7" />
+    </PBD:TagUses>
+    <PBD:TagUses tag="\\RTDBB\150_FIQ_8312">
+      <PBI:Symbol name="DATAPOINT323" PB:Type="7" />
+    </PBD:TagUses>
+  </defs>
+  <g id="TEXT319">
+    <rect x="25140" y="220" width="14000" height="2580" stroke-width="0" fill="none" id="TEXT319_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="720" font-weight="bold" text-anchor="middle" x="32140" y="1870" id="TEXT319_pbTextEl">废水池</text>
+  </g>
+  <rect x="23080" y="19140" width="17360" height="500" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE59" />
+  <rect x="23400" y="28100" width="3240" height="500" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE60" />
+  <path id="RECTANGLE62" d="M 23420 28640 l 380 0 0 -9020 -380 0 0 9020 0 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="RECTANGLE63" d="M 26280 30360 l 380 0 0 -2240 -380 0 0 2240 0 0" stroke="#000000" stroke-width="20" fill="none" />
+  <rect x="26280" y="29860" width="11020" height="500" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE64" />
+  <path id="RECTANGLE65" d="M 39800 28640 l 380 0 0 -9020 -380 0 0 9020 0 0" stroke="#000000" stroke-width="20" fill="none" />
+  <rect x="36940" y="28120" width="3240" height="500" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE66" />
+  <path id="RECTANGLE67" d="M 36940 30360 l 360 0 0 -2240 -360 0 0 2240 0 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="RECTANGLE68" d="M 31460 29880 l 380 0 0 -10260 -380 0 0 10260 0 0" stroke="#000000" stroke-width="20" fill="none" />
+  <rect x="31460" y="27380" width="380" height="1500" stroke="#000000" stroke-width="20" fill="none" id="RECTANGLE69" />
+  <path id="POLYGON339" d="M 31840 27440 l -340 1380" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="LINE340" d="M 31480 27320 l 340 1400" stroke="#000000" stroke-width="20" fill="none" />
+  <g id="TEXT320">
+    <rect x="25500" y="26860" width="4220" height="1240" stroke-width="0" fill="none" id="TEXT320_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="27610" y="27760" id="TEXT320_pbTextEl">初期雨水池</text>
+  </g>
+  <g id="TEXT321">
+    <rect x="33680" y="26920" width="4220" height="1240" stroke-width="0" fill="none" id="TEXT321_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="35790" y="27820" id="TEXT321_pbTextEl">生产污水池</text>
+  </g>
+  <g id="BARGRAPH15" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\\" PB:Start="0" PB:Upper="100" PB:Type="12">
+    <rect x="27340" y="20600" width="720" height="6280" stroke-width="0" fill="#C0C0C0" id="BARGRAPH15_pbBarBoundingRectEl" />
+    <rect x="27340" y="20600" width="720" height="6280" stroke-width="0" fill="#008000" id="BARGRAPH15_pbBarTagRectEl" stroke="none" PBD:Property="" />
+  </g>
+  <g id="BARGRAPH16" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\\" PB:Start="0" PB:Upper="100" PB:Type="12">
+    <rect x="35440" y="20700" width="720" height="6280" stroke-width="0" fill="#C0C0C0" id="BARGRAPH16_pbBarBoundingRectEl" />
+    <rect x="35440" y="20700" width="720" height="6280" stroke-width="0" fill="#FF0000" id="BARGRAPH16_pbBarTagRectEl" stroke="none" PBD:Property="" />
+  </g>
+  <path id="POLYGON340" d="M 27700 20560 l 0 -4540" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="LINE341" d="M 35820 20560 l 0 -4540" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="POLYGON341" d="M 32780 15580 l 0 12440" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="POLYGON342" d="M 32780 28020 l -940 0" stroke="#000000" stroke-width="20" fill="none" />
+  <path id="POLYGON343" d="M 24900 21940 l -22460 0" stroke="#008000" stroke-width="40" fill="none" />
+  <path id="POLYGON344" d="M 24900 21880 l 0 4660" stroke="#008000" stroke-width="40" fill="none" />
+  <path id="LINE344" d="M 10580 22020 l 0 5440" stroke="#008000" stroke-width="40" fill="none" />
+  <path id="POLYGON345" d="M 10540 27440 l -8260 0" stroke="#008000" stroke-width="40" fill="none" />
+  <path id="LINE345" d="M 46800 23520 l -8260 0" stroke="#008000" stroke-width="40" fill="none" />
+  <path id="LINE346" d="M 38600 23500 l 0 3500" stroke="#008000" stroke-width="40" fill="none" />
+  <path id="LINE347" d="M 37380 8720 l 0 18260" stroke="#008000" stroke-width="40" fill="none" />
+  <path id="POLYGON347" d="M 37380 8780 l 3480 0" stroke="#008000" stroke-width="40" fill="none" />
+  <path id="LINE348" d="M 37420 12520 l 3480 0" stroke="#008000" stroke-width="40" fill="none" />
+  <path id="LINE349" d="M 41840 8160 l 19360 0" stroke="#008000" stroke-width="40" fill="none" />
+  <path id="LINE350" d="M 42140 11960 l 3620 0" stroke="#008000" stroke-width="40" fill="none" />
+  <path id="LINE351" d="M 45760 8140 l 0 3740" stroke="#008000" stroke-width="40" fill="none" />
+  <g name="SimpleFan2">
+    <path d="M 41619 9130 l 13 -15 13 -15 14 -15 11 -15 13 -15 12 -17 11 -18 11 -15 12 -17 9 -20 10 -18 9 -17 10 -20 9 -20 8 -20 7 -20 8 -20 7 -20 6 -20 6 -23 5 -20 6 -22 4 -23 6 -22 3 -20 2 -23 4 -23 2 -22 2 -23 2 -22 0 -23 0 -22 237 0 0 -783 -828 0 -31 3 -30 2 -29 5 -30 8 -28 7 -29 10 -26 13 -27 15 -26 15 -25 17 -25 20 -24 20 -23 23 -23 22 -22 25 -19 25 -21 28 -19 27 -17 30 -17 30 -15 33 -14 32 -13 35 -11 33 -12 35 -9 37 -8 38 -7 37 -6 38 -4 40 -2 40 0 40 0 22 0 23 2 22 2 23 2 22 4 23 4 23 3 22 4 20 4 23 6 22 5 20 6 23 8 20 5 20 8 22 9 20 8 20 9 18 8 20 9 17 12 20 9 18 12 17 11 18 11 17 12 15 13 15 11 15 14 15 13 15 13 15 -178 468 1065 0 -176 -468 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 41619 9130 l 0 0 13 -15 13 -15 14 -15 11 -15 13 -15 12 -17 11 -18 11 -15 12 -17 9 -20 10 -18 9 -17 10 -20 9 -20 8 -20 7 -20 8 -20 7 -20 6 -20 6 -23 5 -20 6 -22 4 -23 6 -22 3 -20 2 -23 4 -23 2 -22 2 -23 2 -22 0 -23 0 -22 237 0 0 -783 -828 0 0 0 -31 3 -30 2 -29 5 -30 8 -28 7 -29 10 -26 13 -27 15 -26 15 -25 17 -25 20 -24 20 -23 23 -23 22 -22 25 -19 25 -21 28 -19 27 -17 30 -17 30 -15 33 -14 32 -13 35 -11 33 -12 35 -9 37 -8 38 -7 37 -6 38 -4 40 -2 40 0 40 0 0 0 22 0 23 2 22 2 23 2 22 4 23 4 23 3 22 4 20 4 23 6 22 5 20 6 23 8 20 5 20 8 22 9 20 8 20 9 18 8 20 9 17 12 20 9 18 12 17 11 18 11 17 12 15 13 15 11 15 14 15 13 15 13 15 -178 468 1065 0 -176 -468" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41619 9130 l 0 0 -10 8 -9 10 -12 7 -9 10 -10 8 -11 7 -9 8 -12 7 -9 8 -12 7 -11 5 -9 8 -12 5 -11 5 -12 7 -11 5 -11 5 -12 3 -11 5 -11 5 -12 2 -11 3 -11 2 -14 5 -11 3 -11 0 -12 2 -13 3 -11 0 -12 0 -13 2 -11 0 0 0 -12 0 -11 -2 -13 0 -12 0 -11 -3 -12 -2 -13 -3 -11 -2 -12 -3 -11 -2 -11 -3 -12 -5 -11 -2 -11 -5 -12 -5 -11 -5 -12 -5 -11 -5 -11 -5 -12 -8 -9 -5 -11 -7 -10 -8 -11 -5 -10 -7 -11 -8 -10 -10 -11 -7 -9 -8 -10 -7 -9 -10 -10 -8" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41263 8115 l 30 0 30 7 27 10 28 13 25 17 24 18 23 22 21 25 19 28 17 30 15 32 13 35 10 35 7 38 4 40 2 40 -2 40 -4 37 -7 38 -10 35 -13 35 -15 33 -17 30 -19 27 -21 25 -23 23 -24 20 -25 15 -28 15 -27 7 -30 8 -30 2 -31 -2 -28 -8 -29 -7 -28 -15 -25 -15 -24 -20 -23 -23 -21 -25 -19 -27 -17 -30 -15 -33 -13 -35 -10 -35 -7 -38 -4 -37 -2 -40 2 -40 4 -40 7 -38 10 -35 13 -35 15 -32 17 -30 19 -28 21 -25 23 -22 24 -18 25 -17 28 -13 29 -10 28 -7 31 0 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 41263 8115 l 0 0 30 0 30 7 27 10 28 13 25 17 24 18 23 22 21 25 19 28 17 30 15 32 13 35 10 35 7 38 4 40 2 40 0 0 -2 40 -4 37 -7 38 -10 35 -13 35 -15 33 -17 30 -19 27 -21 25 -23 23 -24 20 -25 15 -28 15 -27 7 -30 8 -30 2 0 0 -31 -2 -28 -8 -29 -7 -28 -15 -25 -15 -24 -20 -23 -23 -21 -25 -19 -27 -17 -30 -15 -33 -13 -35 -10 -35 -7 -38 -4 -37 -2 -40 0 0 2 -40 4 -40 7 -38 10 -35 13 -35 15 -32 17 -30 19 -28 21 -25 23 -22 24 -18 25 -17 28 -13 29 -10 28 -7 31 0" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="SimpleFan2">
+    <path d="M 41779 12830 l 13 -15 13 -15 14 -15 11 -15 13 -15 12 -17 11 -18 11 -15 12 -17 9 -20 10 -18 9 -17 10 -20 9 -20 8 -20 7 -20 8 -20 7 -20 6 -20 6 -23 5 -20 6 -22 4 -23 6 -22 3 -20 2 -23 4 -23 2 -22 2 -23 2 -22 0 -23 0 -22 237 0 0 -783 -828 0 -31 3 -30 2 -29 5 -30 8 -28 7 -29 10 -26 13 -27 15 -26 15 -25 17 -25 20 -24 20 -23 23 -23 22 -22 25 -19 25 -21 28 -19 27 -17 30 -17 30 -15 33 -14 32 -13 35 -11 33 -12 35 -9 37 -8 38 -7 37 -6 38 -4 40 -2 40 0 40 0 22 0 23 2 22 2 23 2 22 4 23 4 23 3 22 4 20 4 23 6 22 5 20 6 23 8 20 5 20 8 22 9 20 8 20 9 18 8 20 9 17 12 20 9 18 12 17 11 18 11 17 12 15 13 15 11 15 14 15 13 15 13 15 -178 468 1065 0 -176 -468 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 41779 12830 l 0 0 13 -15 13 -15 14 -15 11 -15 13 -15 12 -17 11 -18 11 -15 12 -17 9 -20 10 -18 9 -17 10 -20 9 -20 8 -20 7 -20 8 -20 7 -20 6 -20 6 -23 5 -20 6 -22 4 -23 6 -22 3 -20 2 -23 4 -23 2 -22 2 -23 2 -22 0 -23 0 -22 237 0 0 -783 -828 0 0 0 -31 3 -30 2 -29 5 -30 8 -28 7 -29 10 -26 13 -27 15 -26 15 -25 17 -25 20 -24 20 -23 23 -23 22 -22 25 -19 25 -21 28 -19 27 -17 30 -17 30 -15 33 -14 32 -13 35 -11 33 -12 35 -9 37 -8 38 -7 37 -6 38 -4 40 -2 40 0 40 0 0 0 22 0 23 2 22 2 23 2 22 4 23 4 23 3 22 4 20 4 23 6 22 5 20 6 23 8 20 5 20 8 22 9 20 8 20 9 18 8 20 9 17 12 20 9 18 12 17 11 18 11 17 12 15 13 15 11 15 14 15 13 15 13 15 -178 468 1065 0 -176 -468" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41779 12830 l 0 0 -10 8 -9 10 -12 7 -9 10 -10 8 -11 7 -9 8 -12 7 -9 8 -12 7 -11 5 -9 8 -12 5 -11 5 -12 7 -11 5 -11 5 -12 3 -11 5 -11 5 -12 2 -11 3 -11 2 -14 5 -11 3 -11 0 -12 2 -13 3 -11 0 -12 0 -13 2 -11 0 0 0 -12 0 -11 -2 -13 0 -12 0 -11 -3 -12 -2 -13 -3 -11 -2 -12 -3 -11 -2 -11 -3 -12 -5 -11 -2 -11 -5 -12 -5 -11 -5 -12 -5 -11 -5 -11 -5 -12 -8 -9 -5 -11 -7 -10 -8 -11 -5 -10 -7 -11 -8 -10 -10 -11 -7 -9 -8 -10 -7 -9 -10 -10 -8" stroke="#000000" stroke-width="20" fill="none" />
+    <path d="M 41423 11815 l 30 0 30 7 27 10 28 13 25 17 24 18 23 22 21 25 19 28 17 30 15 32 13 35 10 35 7 38 4 40 2 40 -2 40 -4 37 -7 38 -10 35 -13 35 -15 33 -17 30 -19 27 -21 25 -23 23 -24 20 -25 15 -28 15 -27 7 -30 8 -30 2 -31 -2 -28 -8 -29 -7 -28 -15 -25 -15 -24 -20 -23 -23 -21 -25 -19 -27 -17 -30 -15 -33 -13 -35 -10 -35 -7 -38 -4 -37 -2 -40 2 -40 4 -40 7 -38 10 -35 13 -35 15 -32 17 -30 19 -28 21 -25 23 -22 24 -18 25 -17 28 -13 29 -10 28 -7 31 0 0 0" stroke-width="0" fill="#FF0000" />
+    <path d="M 41423 11815 l 0 0 30 0 30 7 27 10 28 13 25 17 24 18 23 22 21 25 19 28 17 30 15 32 13 35 10 35 7 38 4 40 2 40 0 0 -2 40 -4 37 -7 38 -10 35 -13 35 -15 33 -17 30 -19 27 -21 25 -23 23 -24 20 -25 15 -28 15 -27 7 -30 8 -30 2 0 0 -31 -2 -28 -8 -29 -7 -28 -15 -25 -15 -24 -20 -23 -23 -21 -25 -19 -27 -17 -30 -15 -33 -13 -35 -10 -35 -7 -38 -4 -37 -2 -40 0 0 2 -40 4 -40 7 -38 10 -35 13 -35 15 -32 17 -30 19 -28 21 -25 23 -22 24 -18 25 -17 28 -13 29 -10 28 -7 31 0" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT322">
+    <rect x="29380" y="30380" width="5060" height="1240" stroke-width="0" fill="none" id="TEXT322_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="31910" y="31280" id="TEXT322_pbTextEl">SU-8302（反再）</text>
+  </g>
+  <path id="ELLIPSE42" d="M 10483 23220 l -169 -40 -95 -40 -72 -40 -61 -40 -51 -40 -46 -40 -41 -40 -37 -40 -34 -40 -31 -40 -29 -40 -26 -40 -25 -40 -22 -40 -21 -40 -19 -40 -18 -40 -17 -40 -15 -40 -14 -40 -13 -40 -11 -40 -11 -40 -9 -40 -9 -40 -7 -40 -7 -40 -5 -40 -5 -40 -3 -40 -3 -40 -2 -40 -1 -40 0 -40 1 -40 2 -40 3 -40 3 -40 5 -40 5 -40 7 -40 7 -40 9 -40 9 -40 11 -40 11 -40 13 -40 14 -40 15 -40 17 -40 18 -40 19 -40 21 -40 22 -40 25 -40 26 -40 29 -40 31 -40 34 -40 37 -40 41 -40 46 -40 51 -40 61 -40 72 -40 95 -40 169 -40 194 0 169 40 95 40 72 40 61 40 51 40 46 40 41 40 37 40 34 40 31 40 29 40 26 40 25 40 22 40 21 40 19 40 18 40 17 40 15 40 14 40 13 40 11 40 11 40 9 40 9 40 7 40 7 40 5 40 5 40 3 40 3 40 2 40 1 40 0 40 -1 40 -2 40 -3 40 -3 40 -5 40 -5 40 -7 40 -7 40 -9 40 -9 40 -11 40 -11 40 -13 40 -14 40 -15 40 -17 40 -18 40 -19 40 -21 40 -22 40 -25 40 -26 40 -29 40 -31 40 -34 40 -37 40 -41 40 -46 40 -51 40 -61 40 -72 40 -95 40 -169 40 -194 0" stroke="#000000" stroke-width="20" fill="#0080C0" />
+  <g id="TEXT323">
+    <rect x="8320" y="19340" width="4220" height="1240" stroke-width="0" fill="none" id="TEXT323_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="10430" y="20240" id="TEXT323_pbTextEl">溢流切换井</text>
+  </g>
+  <g id="TEXT324">
+    <rect x="140" y="20520" width="4220" height="1240" stroke-width="0" fill="none" id="TEXT324_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="2250" y="21420" id="TEXT324_pbTextEl">初期雨水</text>
+  </g>
+  <g id="TEXT325">
+    <rect x="780" y="25900" width="4220" height="1240" stroke-width="0" fill="none" id="TEXT325_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="2890" y="26800" id="TEXT325_pbTextEl">清净雨水管道</text>
+  </g>
+  <g id="TEXT326">
+    <rect x="59360" y="6720" width="4220" height="1240" stroke-width="0" fill="none" id="TEXT326_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="61470" y="7620" id="TEXT326_pbTextEl">生产污水</text>
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 2531 21962 l -554 234 0 -156 -868 0 0 -160 868 0 0 -156 554 238 0 0" stroke-width="0" fill="#008000" />
+    <path d="M 2531 21962 l -554 234 0 -156 -868 0 0 -160 868 0 0 -156 554 238" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 2571 27362 l -554 234 0 -156 -868 0 0 -160 868 0 0 -156 554 238 0 0" stroke-width="0" fill="#008000" />
+    <path d="M 2571 27362 l -554 234 0 -156 -868 0 0 -160 868 0 0 -156 554 238" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g name="StraightArrow1">
+    <path d="M 62591 8082 l -554 234 0 -156 -868 0 0 -160 868 0 0 -156 554 238 0 0" stroke-width="0" fill="#008000" />
+    <path d="M 62591 8082 l -554 234 0 -156 -868 0 0 -160 868 0 0 -156 554 238" stroke="#000000" stroke-width="20" fill="none" />
+  </g>
+  <g id="TEXT327">
+    <rect x="26060" y="14680" width="3180" height="900" stroke-width="0" fill="none" id="TEXT327_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="27650" y="15410" id="TEXT327_pbTextEl">LI8314</text>
+  </g>
+  <g id="TEXT328">
+    <rect x="28180" y="15420" width="1140" height="900" stroke-width="0" fill="none" id="TEXT328_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="28750" y="16150" id="TEXT328_pbTextEl">%</text>
+  </g>
+  <g id="TEXT329">
+    <rect x="34060" y="14500" width="3180" height="900" stroke-width="0" fill="none" id="TEXT329_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="35650" y="15230" id="TEXT329_pbTextEl">LI8313</text>
+  </g>
+  <g id="TEXT330">
+    <rect x="36180" y="15240" width="1140" height="900" stroke-width="0" fill="none" id="TEXT330_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="36750" y="15970" id="TEXT330_pbTextEl">%</text>
+  </g>
+  <g id="TEXT331">
+    <rect x="31300" y="13420" width="3180" height="900" stroke-width="0" fill="none" id="TEXT331_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="32890" y="14150" id="TEXT331_pbTextEl">MV8312</text>
+  </g>
+  <path id="ELLIPSE43" d="M 32695 15600 l -70 -20 -43 -20 -33 -20 -28 -20 -24 -20 -21 -20 -19 -20 -17 -20 -16 -20 -14 -20 -13 -20 -12 -20 -11 -20 -10 -20 -9 -20 -8 -20 -8 -20 -7 -20 -6 -20 -6 -20 -5 -20 -4 -20 -4 -20 -4 -20 -3 -20 -2 -20 -2 -20 -1 -20 -1 -20 0 -20 0 0 0 -20 1 -20 1 -20 2 -20 2 -20 3 -20 4 -20 4 -20 4 -20 5 -20 6 -20 6 -20 7 -20 8 -20 8 -20 9 -20 10 -20 11 -20 12 -20 13 -20 14 -20 16 -20 17 -20 19 -20 21 -20 24 -20 28 -20 33 -20 43 -20 70 -20 130 0 70 20 43 20 33 20 28 20 24 20 21 20 19 20 17 20 16 20 14 20 13 20 12 20 11 20 10 20 9 20 8 20 8 20 7 20 6 20 6 20 5 20 4 20 4 20 4 20 3 20 2 20 2 20 1 20 1 20 0 20 0 0 0 20 -1 20 -1 20 -2 20 -2 20 -3 20 -4 20 -4 20 -4 20 -5 20 -6 20 -6 20 -7 20 -8 20 -8 20 -9 20 -10 20 -11 20 -12 20 -13 20 -14 20 -16 20 -17 20 -19 20 -21 20 -24 20 -28 20 -33 20 -43 20 -70 20 -130 0" stroke="#000000" stroke-width="20" fill="#808080" />
+  <g id="TEXT332">
+    <rect x="32460" y="14500" width="680" height="1000" stroke-width="0" fill="none" id="TEXT332_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="32800" y="15280" id="TEXT332_pbTextEl">M</text>
+  </g>
+  <g id="TEXT333">
+    <rect x="39800" y="9820" width="3180" height="900" stroke-width="0" fill="none" id="TEXT333_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41390" y="10550" id="TEXT333_pbTextEl">P8302A</text>
+  </g>
+  <g id="TEXT334">
+    <rect x="39940" y="13420" width="3180" height="900" stroke-width="0" fill="none" id="TEXT334_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="41530" y="14150" id="TEXT334_pbTextEl">P8302B</text>
+  </g>
+  <g id="TEXT335">
+    <rect x="46600" y="5400" width="3180" height="900" stroke-width="0" fill="none" id="TEXT335_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="48190" y="6130" id="TEXT335_pbTextEl">PI8312</text>
+  </g>
+  <g id="TEXT336">
+    <rect x="48280" y="6320" width="1220" height="900" stroke-width="0" fill="none" id="TEXT336_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="48890" y="7050" id="TEXT336_pbTextEl">MPa</text>
+  </g>
+  <g id="TEXT337">
+    <rect x="51440" y="5500" width="2320" height="1000" stroke-width="0" fill="none" id="TEXT337_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52600" y="6280" id="TEXT337_pbTextEl">TI8312</text>
+  </g>
+  <g id="TEXT338">
+    <rect x="53100" y="6300" width="680" height="900" stroke-width="0" fill="none" id="TEXT338_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="53440" y="7030" id="TEXT338_pbTextEl">℃</text>
+  </g>
+  <g id="TEXT339">
+    <rect x="55140" y="4520" width="2320" height="1000" stroke-width="0" fill="none" id="TEXT339_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="56300" y="5300" id="TEXT339_pbTextEl">FIQ8312</text>
+  </g>
+  <path id="POLYGON351" d="M 48040 6880 l 0 1200" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="LINE352" d="M 52560 6980 l 0 1160" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <path id="LINE353" d="M 56380 6720 l 0 1420" stroke="#000000" stroke-width="20" stroke-dasharray="60,60" fill="none" />
+  <g id="TEXT340">
+    <rect x="57240" y="6300" width="1220" height="900" stroke-width="0" fill="none" id="TEXT340_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57850" y="7030" id="TEXT340_pbTextEl">kg</text>
+  </g>
+  <g id="TEXT341">
+    <rect x="57200" y="5380" width="1220" height="900" stroke-width="0" fill="none" id="TEXT341_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="57810" y="6110" id="TEXT341_pbTextEl">kg/h</text>
+  </g>
+  <g id="TEXT342">
+    <rect x="43840" y="22140" width="4220" height="1240" stroke-width="0" fill="none" id="TEXT342_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="45950" y="23040" id="TEXT342_pbTextEl">生产污水</text>
+  </g>
+  <g name="RightArrow">
+    <path d="M 10410 26750 l 300 0 -150 624 -150 -624 0 0" stroke="#000000" stroke-width="20" fill="#008000" />
+  </g>
+  <g name="RightArrow">
+    <path d="M 24710 25970 l 300 0 -150 624 -150 -624 0 0" stroke="#000000" stroke-width="20" fill="#008000" />
+  </g>
+  <g name="RightArrow">
+    <path d="M 38450 26530 l 300 0 -150 624 -150 -624 0 0" stroke="#000000" stroke-width="20" fill="#008000" />
+  </g>
+  <g name="RightArrow">
+    <path d="M 45610 8830 l 300 0 -150 -624 -150 624 0 0" stroke="#000000" stroke-width="20" fill="#008000" />
+  </g>
+  <g name="RightArrow">
+    <path d="M 40251 8938 l 0 -396 472 198 -472 198 0 0" stroke="#000000" stroke-width="20" fill="#008000" />
+  </g>
+  <g name="RightArrow">
+    <path d="M 40431 12658 l 0 -396 472 198 -472 198 0 0" stroke="#000000" stroke-width="20" fill="#008000" />
+  </g>
+  <g name="RightArrow">
+    <path d="M 22911 22118 l 0 -396 472 198 -472 198 0 0" stroke="#000000" stroke-width="20" fill="#008000" />
+  </g>
+  <g name="Valve4">
+    <path d="M 10412 25306 l 419 0 -419 1044 419 0 -419 -1044" stroke="#000000" stroke-width="20" fill="#808080" />
+  </g>
+  <g name="Valve4">
+    <path d="M 32388 16986 l 0 -553 792 553 0 -553 -792 553" stroke="#000000" stroke-width="20" fill="#FFFF00" />
+  </g>
+  <g id="DATAPOINT318" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\150_LT_8314" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="26400" y="15580" width="1880" height="620" stroke-width="0" fill="none" id="DATAPOINT318_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="27340" y="16170" id="DATAPOINT318_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT319" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\150_LT_8313" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="34060" y="15460" width="1980" height="620" stroke-width="0" fill="none" id="DATAPOINT319_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="35050" y="16050" id="DATAPOINT319_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT320" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\150_PT_8312" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="46480" y="6480" width="1420" height="620" stroke-width="0" fill="none" id="DATAPOINT320_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="47190" y="7070" id="DATAPOINT320_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT321" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\150_TT_8312" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="51600" y="6380" width="1200" height="620" stroke-width="0" fill="none" id="DATAPOINT321_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="52200" y="6970" id="DATAPOINT321_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT322" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\150_FT_8312" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="55520" y="5460" width="1480" height="620" stroke-width="0" fill="none" id="DATAPOINT322_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="56260" y="6050" id="DATAPOINT322_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+  <g id="DATAPOINT323" PB:IsMultiState="False" PBD:PtTagName="\\RTDBB\150_FIQ_8312" PB:Type="7" PB:NumberFormat="0.00">
+    <rect x="55520" y="6420" width="1480" height="620" stroke-width="0" fill="none" id="DATAPOINT323_pbTextBoundingRectEl" />
+    <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="56260" y="7010" id="DATAPOINT323_pbTextEl" PBD:Property="VAL">#.##</text>
+  </g>
+</svg>

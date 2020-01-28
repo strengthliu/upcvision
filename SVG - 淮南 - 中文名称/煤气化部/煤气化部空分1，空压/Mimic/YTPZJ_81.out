@@ -1,0 +1,21 @@
+"C:\Program Files (x86)\AspenTech\Web21GraphicStudio\m1java.exe" -i"C:\\Users\\Administrator\\Documents\\Web21Graphics\\kf\\" -i"C:\\Program Files (x86)\\AspenTech\\Web21GraphicStudio\\Palette\\" -i"C:\\Users\\Administrator\\Documents\\Web21Graphics\\kf\\Mimic\\" -i"C:\\Users\\Administrator\\Documents\\Web21Graphics\\kf\\Symbol\\" -i"C:\\Program Files (x86)\\AspenTech\\Web21GraphicStudio\\Libraries\\Basic\\" -i"C:\\Program Files (x86)\\AspenTech\\Web21GraphicStudio\\Libraries\\Dashboard\\" -i"C:\\Program Files (x86)\\AspenTech\\Web21GraphicStudio\\Libraries\\Process\\" -i"C:\\Program Files (x86)\\AspenTech\\Web21GraphicStudio\\Libraries\\ISA\\" -i"C:\\Program Files (x86)\\AspenTech\\Web21GraphicStudio\\Libraries\\Misc\\" -i"C:\\Program Files (x86)\\AspenTech\\Web21GraphicStudio\\Libraries\\HVAC\\" -i"C:\\Program Files (x86)\\AspenTech\\Web21GraphicStudio\\Libraries\\A1Symbols\\" -i"C:\\Program Files (x86)\\AspenTech\\Web21GraphicStudio\\Libraries\\Electrical\\" -i"C:\\Users\\Administrator\\Documents\\Web21Graphics\\kf\\Bitmap\\" -j -classpath "C:\Program Files (x86)\AspenTech\Web21GraphicStudio\Web21Graphics.jar" -e1 -exclude -g -getvars -l -n -sdat -sdisp -split64k -compress -gismo -w3000 -package:a123 -g:com.aspentech.web21.Web21GraphicsModel -call -userfctns YTPZJ_81
+CLASSPATH=C:\Program Files (x86)\Common Files\AspenTech Shared\
+PATH=%SystemRoot%\System32;C:\Program Files (x86)\Common Files\AspenTech Shared\;C:\Program Files (x86)\Java\jdk1.8.0_92\bin
+GMS_JAVAC_OPTIONS=-target 1.1 -source 1.2 
+
+SL-GMS Code Generation Utility for Java
+Release Version 3.5d2, 05 December 2003
+Copyright (C) 1998-2000 SL Corporation
+
+THIS IS A SAMPLE LICENSE INTERCEPT FUNCTION AND SHOULD BE
+      USED FOR DEMONSTRATION ONLY.  SL CORPORATION... classpath = <"C:\Program Files (x86)\AspenTech\Web21GraphicStudio\Web21Graphics.jar">
+... processing model: YTPZJ_81
+... generating file <YTPZJ_81.java>
+
+警告: [options] 未与 -source 1.2 一起设置引导类路径
+警告: [options] 源值1.2已过时, 将在未来所有发行版中删除
+警告: [options] 目标值1.1已过时, 将在未来所有发行版中删除
+警告: [options] 要隐藏有关已过时选项的警告, 请使用 -Xlint:-options。
+4 个警告
+
+
