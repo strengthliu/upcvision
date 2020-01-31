@@ -160,6 +160,7 @@ public class GraphController extends BaseController {
 			departIds = JSONObject.parseArray(jdepartIds.toJSONString(), String.class);
 		}
 		try {
+			// 修改图形
 			rtd = graphManager.updateShareRight(id, userIds, departIds);
 			if (rtd != null) {
 				// 更新用户空间

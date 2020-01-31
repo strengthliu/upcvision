@@ -123,16 +123,25 @@ public class UserSpaceManager {
 
 	}
 
+	/**
+	 * 获取指定用户的用户空间
+	 * @param uid
+	 * @return
+	 */
 	public UserSpace getUserSpace(Double uid) {
 		LOGGER.info("userKey: " + GlobalConsts.Key_UserSpace_pre_ + uid.toString());
-		Object objFlash = redisService.get(GlobalConsts.Key_UserSpaceFlash_pre_ + IDTools.toString(uid));
-		if(objFlash != null && objFlash instanceof UserSpace)
-			return (UserSpace) objFlash;
+//		Object objFlash = redisService.get(GlobalConsts.Key_UserSpaceFlash_pre_ + IDTools.toString(uid));
+//		if(objFlash != null && objFlash instanceof UserSpace)
+//			return (UserSpace) objFlash;
 		Object obj = redisService.get(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(uid));
 		if (obj == null)
 			return null;
-		if (obj instanceof UserSpaceData)
-			return buildUserSpace((UserSpaceData) obj,((UserSpaceData)obj).getToken());
+		if (obj instanceof UserSpaceData) {
+			UserSpace us = buildUserSpace((UserSpaceData) obj,((UserSpaceData)obj).getToken());
+			setUserSpace(us);
+			return us;
+			
+		}
 		else {
 			System.out.println(obj.toString());
 			throw new IllegalStateException("缓存中保存的用户空间类型与实际不匹配。");
@@ -242,19 +251,28 @@ public class UserSpaceManager {
 			LOGGER.info("给的用户空间为空，不能设置。");
 			throw new IllegalStateException("给的用户空间为空，不能设置。");
 		}
-		if(us instanceof UserSpace)
+		if(us instanceof UserSpace) {
 			((UserSpace)us).updateUserSpaceData();
-		UserSpaceData ust = us.clone();
-		redisService.set(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(us.getUid()), ust);
-		redisService.set(GlobalConsts.Key_UserSpaceFlash_pre_ + IDTools.toString(us.getUid()), us);
+			UserSpaceData ust = us.clone();
+			redisService.set(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(us.getUid()), ust);
+//			redisService.set(GlobalConsts.Key_UserSpaceFlash_pre_ + IDTools.toString(us.getUid()), us);
+		} else {
+			redisService.set(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(us.getUid()), us);
+		}
 	}
 
 	public void setUserSpaceWithStorage(UserSpaceData us) {
-		if(us instanceof UserSpace)
+		UserSpaceData usd = null;
+		if(us instanceof UserSpace) {
 			((UserSpace)us).updateUserSpaceData();
-		UserSpaceData usd = (UserSpaceData)us.clone();
-		redisService.set(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(us.getUid()), usd);
-		redisService.set(GlobalConsts.Key_UserSpaceFlash_pre_ + IDTools.toString(us.getUid()), us);
+			usd = us.clone();
+			redisService.set(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(us.getUid()), usd);
+//			redisService.set(GlobalConsts.Key_UserSpaceFlash_pre_ + IDTools.toString(us.getUid()), us);
+		} else {
+			usd = us;
+			redisService.set(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(us.getUid()), us);
+		}
+		
 		try {
 		// 更新数据库用户空间表
 		userSpaceService.updateUserSpace(us.getUid(),usd);
@@ -407,7 +425,7 @@ public class UserSpaceManager {
 		usd.setUid(user.getId());
 		us.setUser(user);
 		LOGGER.debug(" buildAdminUserSpace 2 => "+new Date(System.currentTimeMillis()).toLocaleString());
-		Graph gf = graphDataManager.getAdminGraph();
+		Graph gf = graphManager.getAdminGraph();
 		LOGGER.debug(" buildAdminUserSpace 2 => "+new Date(System.currentTimeMillis()).toLocaleString());
 
 		us.setGraph(gf);
@@ -503,6 +521,17 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpaceWithStorage(us);
 		}
+		
+		//更新adminUserSpace
+		UserSpace adminUs = getAdminUserSpace();
+		Hashtable hsHis = adminUs.getRealTimeData();
+		if(rtd.getId()==null) {
+			hsHis.remove(IDTools.toString(oldRtd.getId()));
+		}else {
+			hsHis.put(IDTools.toString(rtd.getId()), rtd);
+		}
+		setUserSpace(adminUs); // 管理员空间，不用保存
+
 	}
 	/** ---------------- realtimedata end ------------------------- **/
 
@@ -544,6 +573,17 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpaceWithStorage(us);
 		}//		if(rtd!=null)
+		
+		//更新adminUserSpace
+		UserSpace adminUs = getAdminUserSpace();
+		Hashtable hsHis = adminUs.getLineAlertData();
+		if(rtd.getId()==null) {
+			hsHis.remove(IDTools.toString(oldRtd.getId()));
+		}else {
+			hsHis.put(IDTools.toString(rtd.getId()), rtd);
+		}
+		setUserSpace(adminUs); // 管理员空间，不用保存
+
 //			this.lineAlertDataManager.updateLineAlertData(rtd);
 	}
 	/** ---------------- linealertdata end ------------------------- **/
@@ -590,6 +630,17 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpaceWithStorage(us);
 		}
+		
+		//更新adminUserSpace
+		UserSpace adminUs = getAdminUserSpace();
+		Hashtable hsHis = adminUs.getAlertData();
+		if(rtd.getId()==null) {
+			hsHis.remove(IDTools.toString(oldRtd.getId()));
+		}else {
+			hsHis.put(IDTools.toString(rtd.getId()), rtd);
+		}
+		setUserSpace(adminUs); // 管理员空间，不用保存
+
 //		if(rtd!=null)
 //			this.alertDataManager.updateAlertData(rtd);
 	}
@@ -637,6 +688,17 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpaceWithStorage(us);
 		}
+		
+		//更新adminUserSpace
+		UserSpace adminUs = getAdminUserSpace();
+		Hashtable hsHis = adminUs.getHistoryData();
+		if(rtd.getId()==null) {
+			hsHis.remove(IDTools.toString(oldRtd.getId()));
+		}else {
+			hsHis.put(IDTools.toString(rtd.getId()), rtd);
+		}
+		setUserSpace(adminUs); // 管理员空间，不用保存
+
 //		if(rtd!=null)
 //			this.historyDataManager.updateHistoryData(rtd);
 	}
@@ -685,6 +747,17 @@ public class UserSpaceManager {
 			hrtd.remove(IDTools.toString(oldRtd.getId()));
 			this.setUserSpaceWithStorage(us);
 		}
+		
+		//更新adminUserSpace
+		UserSpace adminUs = getAdminUserSpace();
+		Hashtable hsHis = adminUs.getXyGraph();
+		if(rtd.getId()==null) {
+			hsHis.remove(IDTools.toString(oldRtd.getId()));
+		}else {
+			hsHis.put(IDTools.toString(rtd.getId()), rtd);
+		}
+		setUserSpace(adminUs); // 管理员空间，不用保存
+
 //		if(rtd!=null)
 //			this.xYGraphManager.updateXYGraph(rtd);
 	}
@@ -806,6 +879,17 @@ public class UserSpaceManager {
 			usd.setGraphs(graphids);
 			this.setUserSpaceWithStorage(usd);
 		}
+		
+//		//更新adminUserSpace.: admin的graph是全部graph
+//		UserSpace adminUs = getAdminUserSpace();
+//		Graph graph = adminUs.getGraph();
+//		graph.get
+//		if(rtd.getId()==null) {
+//			hsHis.remove(IDTools.toString(oldRtd.getId()));
+//		}else {
+//			hsHis.put(IDTools.toString(rtd.getId()), rtd);
+//		}
+//		setUserSpace(adminUs); // 管理员空间，不用保存
 	}
 	/** ---------------- graph end ------------------------- **/
 
@@ -906,6 +990,21 @@ public class UserSpaceManager {
 			}catch(Exception ex) {	return false;}
 		}
 		return true;
+	}
+
+	/**
+	 * 获取管理员的用户空间
+	 * @param double1 
+	 * @return
+	 */
+	public UserSpace getAdminUserSpace(Double... userId) {
+		UserSpace us = null;
+		// 如果是超级管理员
+		if(userId!=null && IDTools.toString(userId[0]).contentEquals(GlobalConsts.UserAdminID)) {
+		}
+		
+			
+		return null;
 	}
 
 

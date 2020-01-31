@@ -566,7 +566,7 @@ public class GraphDataManager extends PointGroupDataManager {
 		// 更新缓存
 		Graph rtd = this.copyFromPointGroupData(pgd);
 		// 写缓存HistoryData，返回
-		redisService.set(GlobalConsts.Key_HistoryData_pre_ + IDTools.toString(rtd.getId()), rtd);
+		redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(rtd.getId()), rtd);
 
 		return rtd;
 	}
@@ -633,7 +633,7 @@ public class GraphDataManager extends PointGroupDataManager {
 
 		// 更新缓存
 		Graph rtd = this.copyFromPointGroupData(pgd);
-		redisService.set(GlobalConsts.Key_HistoryData_pre_ + IDTools.toString(rtd.getId()), rtd);
+		redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(rtd.getId()), rtd);
 
 		return rtd;
 	}

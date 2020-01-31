@@ -124,8 +124,9 @@ if (isSafari)
 			//确保服务器和点位数据
 			if(user.role<2)
 			if(serverList == null || serverList=="undefined"){
-				// 去取服务器数据
-				var data={'uid':uid,'token':token};
+				window.οnlοad=function(){
+					// 去取服务器数据
+					var data={'uid':uid,'token':token};
 					$.ajax({
 						// 提交数据的类型 POST GET
 						type : "POST",
@@ -161,6 +162,7 @@ if (isSafari)
 							hideLoading();
 						}
 					});
+				}
 			} 
 
 		}
