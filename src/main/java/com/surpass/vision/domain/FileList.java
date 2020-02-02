@@ -397,24 +397,20 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 			}
 		}
 	}
-//	public JSONObject toJSONObject() {
-//		JSONObject ret = new JSONObject();
-//		ret.put("name", name);
-//		ret.put("path", path);
-//		ret.put("isFile", isFile);
-//		ret.put("changed", changed);
-//		{
-//			JSONArray jChildren = new JSONArray();
-//			Enumeration<String> e = this.children.keys();
-//			while (e.hasMoreElements()) {
-//				String key = (String) e.nextElement();
-//				FileList fl = children.get(key);
-//				JSONObject jo = fl.toJSONObject();
-//				jChildren.add(jo);
-//			}
-//			ret.put("children", jChildren);
-//		}
-//		return ret;
-//	}
+
+	public void copyPointGroupData(PointGroupData pgd) {
+		this.setId(pgd.getId());
+		this.setName(pgd.getName());
+		this.setOtherrule1(pgd.getOtherrule1());
+		this.setOtherrule2(pgd.getOtherrule2());
+		this.setOtherrule3(pgd.getOtherrule3());
+		this.setOtherrule4(pgd.getOtherrule4());
+		this.setOtherrule5(pgd.getOtherrule5());
+		this.setOwner(pgd.getOwner());
+		this.setPoints(pgd.getPoints());
+		this.setShared(pgd.getShared());
+		this.setShareddepart(pgd.getShareddepart());
+		this.setType(pgd.getType());
+	}
 
 }

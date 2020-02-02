@@ -111,7 +111,6 @@ public class GraphManager extends GraphDataManager {
 //			graphs = graph.clone();
 //			graphs.clearLeaf();
 			printGraph(repo1, null);
-			System.out.println("初始化图形目录树结束。");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -155,9 +154,10 @@ public class GraphManager extends GraphDataManager {
 		// 因为Graph与一般的XYGraph等不一样，他有一部分信息是存在FileList里，所以需要先取出来，再更新PointGroup的部分。
 		Graph g = this.getGraphByKeys(itemId);
 		// TODO: 修改全图 graph\graphs
+		g = g.copyRootNode();
 		Graph _g = (Graph) updateShareRight(g, GlobalConsts.Key_Graph_pre_, itemId, userIdsid, depIdsid);
 		if(_g!=null) {
-			g = _g;
+			g.copyGraph(_g);
 			return _g;
 		}else
 			return null;
@@ -167,38 +167,29 @@ public class GraphManager extends GraphDataManager {
 	public Graph updateGraph(Graph _g) {
 		Graph g = this.getGraphByKeys(_g.getId());
 		if(g!=null) {
-			g = _g;
+			g.copyGraph(_g);
 		}
+		Graph g1 = this.getGraphByKeys(_g.getId());
+		
+//		Graph g = this.getGraphByPath(_g.getWholePath());
+//		Graph g = this.getgraphb.getGraphByKeys(_g.getId());
 		return super.updateGraph(_g);
 	}
 	
-//	public Graph updateShareRightDepartment(Double itemId, List<String> depIdsid) {
-//		PointGroupData pgd = pointGroupService.getPointGroupDataByID(itemId);
-//		if (pgd == null) {
-//			throw new IllegalStateException("没有id为" + itemId + "这个数据");
-//		}
-//		String sharedDepIDs = "";
-//		if (depIdsid != null) {
-//			sharedDepIDs = IDTools.merge(depIdsid.toArray());
-//		}
-//		pgd.setShareddepart(sharedDepIDs);
-//		// 更新数据库
-//		pointGroupService.updatePointGroupItem(pgd);
-//
-//		// 更新缓存
-//		Graph rtd = this.copyFromPointGroupData(pgd);
-//		// 写缓存HistoryData，返回
-//		redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(rtd.getId()), rtd);
-//
-//		return rtd;
-//
-//	}
+	public Graph getGraphByPath(String wholepath) {
+		return (Graph) repo.getChild(wholepath);
+	}
 
 	/****************************************************************************************
 	 * 图形操作：查
 	 */
 	public Graph getGraphByKeys(Double oldRtdId) {
-		Graph rtd = (Graph) redisService.get(GlobalConsts.Key_Graph_pre_ + IDTools.toString(oldRtdId));
+		// 先取内存中的repo
+		Graph rtd = (Graph) repo.getChild(oldRtdId);
+		if(rtd!=null) return rtd;
+		else {
+			rtd = (Graph) redisService.get(GlobalConsts.Key_Graph_pre_ + IDTools.toString(oldRtdId));
+		}
 		// TODO: 如果没有，就从GraphManager
 		if (rtd == null) {
 //			this.children.h
@@ -247,18 +238,18 @@ public class GraphManager extends GraphDataManager {
 	}
 
 	private void printGraph(Graph g, String tab) {
-		if (StringUtil.isBlank(tab))
-			tab = "    ";
-		System.out.println(tab + " " + g.getPath() + " - " + g.getName() + " isFile:" + g.isFile());
-		if (g.getChildren() != null) {
-			Enumeration<?> e = g.getChildren().keys();
-			while (e.hasMoreElements()) {
-				String key = (String) e.nextElement();
-				Graph _g = (Graph) g.getChildren().get(key);
-				String _tab = tab + tab;
-				printGraph(_g, tab);
-			}
-		}
+//		if (StringUtil.isBlank(tab))
+//			tab = "    ";
+//		System.out.println(tab + " " + g.getPath() + " - " + g.getName() + " isFile:" + g.isFile());
+//		if (g.getChildren() != null) {
+//			Enumeration<?> e = g.getChildren().keys();
+//			while (e.hasMoreElements()) {
+//				String key = (String) e.nextElement();
+//				Graph _g = (Graph) g.getChildren().get(key);
+//				String _tab = tab + tab;
+//				printGraph(_g, tab);
+//			}
+//		}
 	}
 
 	public static void main(String[] args) {

@@ -998,13 +998,21 @@ public class UserSpaceManager {
 	 * @return
 	 */
 	public UserSpace getAdminUserSpace(Double... userId) {
-		UserSpace us = null;
-		// 如果是超级管理员
-		if(userId!=null && IDTools.toString(userId[0]).contentEquals(GlobalConsts.UserAdminID)) {
-		}
-		
-			
-		return null;
+		return getUserSpace(Double.valueOf(GlobalConsts.UserAdminID));
+//		if(userId!=null) {
+//			return getUserSpace(userId[0]);			
+//		}
+//		else {
+//			return null;	
+//		}
+//		UserSpace us = null;
+//		// 如果是超级管理员，返回超级管理员信息
+//		if(userId!=null && IDTools.toString(userId[0]).contentEquals(GlobalConsts.UserAdminID)) {
+//		}
+//		
+//			
+////		return null;
+//		return this.buildAdminUserSpace(userId[0]);
 	}
 
 

@@ -316,6 +316,7 @@ function loginByUserPassWord(uname, pwd) {
 			if (data.status == "000"){// GlobalConsts.ResultCode_SUCCESS) {
 				// us = data.data;
 				userSpace = data.data.userSpace;
+				console.log("userSpace => "+JSON.stringify(userSpace));
 				user = userSpace.user;
 				token = userSpace.token;
 // console.log("登录成功，用户名为： "+JSON.stringify(user)+" token="+token);

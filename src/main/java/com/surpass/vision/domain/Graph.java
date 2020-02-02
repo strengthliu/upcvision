@@ -43,6 +43,19 @@ import com.surpass.vision.server.Point;
  * @version: v1.0 ---------------------------------------
  */
 public class Graph extends FileList implements Serializable, Cloneable {
+	public static void main(String[]args) {
+		Hashtable ht = new Hashtable();
+		Graph g1 = new Graph();
+		g1.setName("aaa");
+		ht.put("aaa", g1);
+		Graph g2 = (Graph) ht.get("aaa");
+		System.out.println("1- "+g2.getName());
+		g2.setName("bbb");
+		System.out.println("2- "+g2.getName());
+		Graph g3 = (Graph) ht.get("aaa");
+		System.out.println("3- "+g3.getName());
+	}
+	
 	int changed;
 //	Hashtable<String,Graph> children;
 	String fileName;
@@ -435,5 +448,37 @@ public class Graph extends FileList implements Serializable, Cloneable {
 
 	public void setUrlPath(String urlPath) {
 		this.urlPath = urlPath;
+	}
+
+	public void copyGraph(Graph g) {
+		this.setChildren(g.getChildren());
+		this.setCreater(g.getCreater());
+		this.setCreaterUser(g.getCreaterUser());
+		this.setDesc(g.getDesc());
+		this.setFile(g.isFile);
+		this.setFileName(g.getFileName());
+		this.setId(g.getId());
+		this.setImg(g.getImg());
+		this.setName(g.getName());
+		this.setNickName(g.getNickName());
+		this.setOtherrule1(g.getOtherrule1());
+		this.setOtherrule2(g.getOtherrule2());
+		this.setOtherrule3(g.getOtherrule3());
+		this.setOtherrule4(g.getOtherrule4());
+		this.setOtherrule5(g.getOtherrule5());
+		this.setOwner(g.getOwner());
+		this.setOwnerUser(g.getOwnerUser());
+		this.setPath(g.getPath());
+		this.setPointList(g.getPointList());
+		this.setPoints(g.getPoints());
+		this.setPointTextIDs(g.getPointTextIDs());
+		this.setShared(g.getShared());
+		this.setShareddepart(g.getShareddepart());
+		this.setSharedDepartment(g.getSharedDepartment());
+		this.setSharedUsers(g.getSharedUsers());
+		this.setSVG(g.isSVG);
+		this.setType(g.getType());
+		this.setUrlPath(g.getUrlPath());
+		
 	}
 }

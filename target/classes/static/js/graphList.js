@@ -299,8 +299,8 @@ updateGraphListFrame();
 
 function updateGraphListFrame(){
 	var _galleryKey = _routeID;
-	 console.log("_routeID= "+_routeID);
-	 console.log("_graphId= "+_graphId);
+	 console.log("updateGraphListFrame_routeID= "+_routeID);
+	 console.log("updateGraphListFrame_graphId= "+_graphId);
  //alert();
 
 // // TODO: 如果key为空，就是异常，待处理。

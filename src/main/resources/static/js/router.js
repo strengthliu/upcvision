@@ -104,6 +104,7 @@ function routeTo(diagram, key, graphId) {
 		if (routeList.length > historyStepCount)
 			routeList.shift();
 
+		console.log("router.js -> routeList => "+JSON.stringify(routeList));
 		localStorage.routeList = JSON.stringify(routeList);
 
 		currentStepInRouteList++;
