@@ -159,7 +159,6 @@ public class PointGroupDataManager {
 
 		// 更新缓存
 		PointGroup rtd = copyFromPointGroupData(instance,pgd);
-		// 写缓存XYGraph，返回
 		redisService.set(type+IDTools.toString(rtd.getId()),rtd);
 
 		return rtd;		
