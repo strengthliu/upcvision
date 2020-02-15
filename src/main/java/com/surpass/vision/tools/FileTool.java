@@ -191,7 +191,7 @@ public class FileTool {
 			fl.setName(name);
 			if (file.isDirectory()) {
 				fl.setPath(path);
-				fl.setName(path);
+//				fl.setName(path);
 				fl.setFile(false);
 				fl.setSVG(false);
 				fl.setType(GlobalConsts.Type_graph_);
