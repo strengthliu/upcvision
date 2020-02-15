@@ -352,7 +352,8 @@ public class GraphDataManager extends PointGroupDataManager {
 			}
 			// 更新缓存
 			try {
-				redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(ret.getId()), ret);
+				Graph _g = ret.copyRootNode();
+				redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(ret.getId()), _g);
 			} catch (Exception e) {
 				System.out.println();
 				e.printStackTrace();
@@ -383,6 +384,7 @@ public class GraphDataManager extends PointGroupDataManager {
 			Graph graph = null;
 			FileList fl = GraphManager.getCurrentFileList();
 			fl = fl.getChild(pgd.getId());
+			fl.copyPointGroupData(pgd);
 			graph = this.copyGraphFromFileList(fl); // 去掉了pgd参数后，会在这个方法里再取一次数据库。增加了压力，但也增加了同步。
 			return graph;
 		}
@@ -566,7 +568,7 @@ public class GraphDataManager extends PointGroupDataManager {
 		// 更新缓存
 		Graph rtd = this.copyFromPointGroupData(pgd);
 		// 写缓存HistoryData，返回
-		redisService.set(GlobalConsts.Key_HistoryData_pre_ + IDTools.toString(rtd.getId()), rtd);
+		redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(rtd.getId()), rtd);
 
 		return rtd;
 	}
@@ -600,7 +602,6 @@ public class GraphDataManager extends PointGroupDataManager {
 		}
 		return fl;
 	}
-
 	public Graph updateGraph(Graph g) {
 		PointGroupData pgd = pointGroupService.getPointGroupDataByID(g.getId());
 		if (pgd == null) {
@@ -633,7 +634,7 @@ public class GraphDataManager extends PointGroupDataManager {
 
 		// 更新缓存
 		Graph rtd = this.copyFromPointGroupData(pgd);
-		redisService.set(GlobalConsts.Key_HistoryData_pre_ + IDTools.toString(rtd.getId()), rtd);
+		redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(rtd.getId()), rtd);
 
 		return rtd;
 	}

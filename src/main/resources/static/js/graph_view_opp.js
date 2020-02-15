@@ -209,7 +209,7 @@ function scrollTo(lab) {
 //	interpolateZoom(translate,scale);
 //	 console.log("lab=" + lab);
 	var bigValueSpan = document.getElementById('huge-value');
-	if (bigValueSpan.innerHTML == "" || bigValueSpan.innerHTML == "undefined")
+	if (bigValueSpan!=null && (bigValueSpan.innerHTML == "" || bigValueSpan.innerHTML == "undefined"))
 		bigValueSpan.innerHTML = 1;
 	var _num = parseFloat(bigValueSpan.innerHTML);
 //	 console.log("scrollTo-> " + lab + " scale=" + scale);

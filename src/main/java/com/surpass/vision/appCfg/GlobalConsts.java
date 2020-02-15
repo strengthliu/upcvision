@@ -78,10 +78,14 @@ public final class GlobalConsts {
 	 * 解析图形文件
 	 */
 	public static final String PointTag = "text";
+	public static final String RectTag = "rect";
 	public static final String PointID = "id";
 	public static final String GPointID = "PBD:PtTagName";
 	public static final String PBMultiStateTag = "PB:MultiState";
 	public static final String PBMSStateTag = "PB:MSState";
+	public static final String GIsMultiState = "PB:IsMultiState";
+	public static final String GType = "PB:Type";
+	public static final String GNumberFormat = "PB:NumberFormat";
 
 	public static final String GraphElement = "svg";
 	public static final String ScriptElement = "script";

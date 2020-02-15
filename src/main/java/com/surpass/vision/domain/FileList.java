@@ -58,6 +58,10 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 	 * @author 刘强 2019年10月6日 下午1:04:06 
 	 */
 	private static Hashtable<Double, FileList> inds = new Hashtable<Double, FileList>();//GraphManager.getInds();
+	/**
+	 * 按全路径建立的索引
+	 */
+	private static Hashtable<String, FileList> indpath = new Hashtable<String, FileList>();
 
 	/**
 	 * 
@@ -95,9 +99,11 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 				}
 				fl.getChildren().put(child.getWholePath(), child);
 				inds.put(child.getId(), child);
+				indpath.put(child.getWholePath(), child);
 			}else {
 				this.getChildren().put(child.getWholePath(), child);
 				inds.put(child.getId(), child);
+				indpath.put(child.getWholePath(), child);
 				System.out.println("22");
 			}
 		}
@@ -184,6 +190,7 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 				// 添加一个孩子
 				children.put(k, child);
 				inds.put(child.getId(), child);
+				indpath.put(child.getWholePath(), child);
 			} else
 				// 否则就是当前孩子里已经包含，就在待删除列表中去掉
 				deleteChildren.remove(k);
@@ -338,11 +345,17 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 			 */
 //			if (child.isFile)
 				inds.put(child.getId(), child);
+				indpath.put(child.getWholePath(), child);
+
 		}
 	}
 	
 	public FileList getChild(Double id) {
 		return inds.get(id);
+	}
+
+	public FileList getChild(String wholepath) {
+		return indpath.get(wholepath);
 	}
 
 	@Override
@@ -367,37 +380,37 @@ public class FileList extends PointGroup implements Serializable,Cloneable {
 		return ret;
 	}
 	
-	private void buildInds(Hashtable<Double, FileList> inds) {
+	private void buildInds(Hashtable<Double, FileList> inds,Hashtable<String, FileList> indpath) {
 		if(inds == null) inds = new Hashtable<Double, FileList>();
+		if(indpath == null) indpath = new Hashtable<String, FileList>();
 		inds.put(this.getId(), this);
+		indpath.put(this.getWholePath(), this);
+		
 		this.inds = inds;
+		this.indpath = indpath;
 		if(this.children!=null) {
 			Enumeration<String> e = this.children.keys();
 			while(e.hasMoreElements()) {
 				String key = e.nextElement();
 				FileList fl = (FileList) this.children.get(key);
-				fl.buildInds(inds);
+				fl.buildInds(inds,indpath);
 			}
 		}
 	}
-//	public JSONObject toJSONObject() {
-//		JSONObject ret = new JSONObject();
-//		ret.put("name", name);
-//		ret.put("path", path);
-//		ret.put("isFile", isFile);
-//		ret.put("changed", changed);
-//		{
-//			JSONArray jChildren = new JSONArray();
-//			Enumeration<String> e = this.children.keys();
-//			while (e.hasMoreElements()) {
-//				String key = (String) e.nextElement();
-//				FileList fl = children.get(key);
-//				JSONObject jo = fl.toJSONObject();
-//				jChildren.add(jo);
-//			}
-//			ret.put("children", jChildren);
-//		}
-//		return ret;
-//	}
+
+	public void copyPointGroupData(PointGroupData pgd) {
+		this.setId(pgd.getId());
+		this.setName(pgd.getName());
+		this.setOtherrule1(pgd.getOtherrule1());
+		this.setOtherrule2(pgd.getOtherrule2());
+		this.setOtherrule3(pgd.getOtherrule3());
+		this.setOtherrule4(pgd.getOtherrule4());
+		this.setOtherrule5(pgd.getOtherrule5());
+		this.setOwner(pgd.getOwner());
+		this.setPoints(pgd.getPoints());
+		this.setShared(pgd.getShared());
+		this.setShareddepart(pgd.getShareddepart());
+		this.setType(pgd.getType());
+	}
 
 }

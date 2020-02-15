@@ -1799,6 +1799,6 @@ function loadDirectory(){
 	if(_graph!=null&&_graph!="undefined"){
 		var path = _graph.path;
 		var __g = getGraphByPath(userSpace.graph,path);
-		routeTo('diagramList', __g,__g.id);
+		routeTo('diagramList', path,__g.id);
 	}
 }
