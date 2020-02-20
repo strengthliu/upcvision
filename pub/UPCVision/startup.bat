@@ -11,4 +11,4 @@ set CLASSPATH=%CLASSPATH%;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
 
 java -version
 
-%cd%\jre1.8.0_211\bin\java -jar %cd%\upcvision-0.0.1-SNAPSHOT.jar
+%cd%\jre1.8.0_211\bin\java -jar %cd%\upcvision-0.9.6-SNAPSHOT.jar

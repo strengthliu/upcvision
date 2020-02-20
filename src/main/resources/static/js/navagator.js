@@ -1,6 +1,8 @@
 /**
  * 
  */
+
+var currentLink;
 /* 刷新流程图目录结构 */
 function updateDiagram() {
 	// console.log("updateDiagram");
@@ -22,7 +24,7 @@ function doUpdateDiagram(userSpace) {
 	// console.log(JSON.stringify(userSpace));
 	/* 刷新流程图目录结构 */
 	var diagrams = userSpace.graph.children;
-	// console.log("diagrams = "+JSON.stringify(diagrams))
+	console.log("diagrams = " + JSON.stringify(diagrams))
 	if (diagrams == null || diagrams == "undefined")
 		diagrams = {};
 	var uiDiagram = document.getElementById("ui-diagram");
@@ -34,60 +36,68 @@ function doUpdateDiagram(userSpace) {
 		var itemHtml = buildTree(diagrams, 0);
 		itemsHtml = itemsHtml + itemHtml + "</ul>";
 		uiDiagram.innerHTML = itemsHtml;// "<ul></ul>";
-		// // console.log(uiDiagram.innerHTML);
+
+		var children = $('.tree li.parent_li').find(' > ul > li');
+		children.hide('fast');
+
 	}
 }
 
 function buildTree(diagrams, level) {
+	var badgeClassArray = [ 'badge-primary', 'badge-success', 'badge-info',
+			'badge-warning', 'badge-danger', 'badge-light', 'badge-dark' ];
+	if (level == null || level == "undefined")
+		level = 0;
 
-	 var ret = "";
-	Object
-			.keys(diagrams)
-			.forEach(
-					function(key) {
-						// console.log("======= debug 1");
-						if (key != null && key != "undefined") {
-							var diagram = diagrams[key];
-							var item = "";
-							 var name = "";
-							 if(diagram.nickName != null && diagram.nickName !="undefined")
-								 name = diagram.nickName;
-							 else
-								 name = diagram.name;
+	var ret = "";
+	var fca = [];
+	var dca = [];
+	Object.keys(diagrams).forEach(function(key) {
+		if (diagrams[key].file) {
+			fca.push(key);
+		} else {
+			dca.push(key);
+		}
+	});
+	fca = fca.sort();
+	dca = dca.sort();
+	fca = fca.concat(dca);
+	for (var i = 0; i < fca.length; i++) {
+		var key = fca[i];
+		// console.log("======= debug 1");
+		if (key != null && key != "undefined") {
+			var diagram = diagrams[key];
+			var item = "";
+			var name = "";
+			if (diagram.nickName != null && diagram.nickName != "undefined")
+				name = diagram.nickName;
+			else
+				name = diagram.name;
+			var badgeClass = badgeClassArray[level];
+			if (diagram.file) { // 文件
+				if(diagram.name=='main'||diagram.name=='index'){
+					
+				}
+				item = '<li onclick="routeTo(' + "'diagramDetail','"
+						+ diagram.urlPath + "','" + diagram.id + "');"
+						+ '"><span class="badge '
+						+ '" style="padding-left:10px;"><i class=""></i>'
+						+ name + '</span> ' + '<i  id="diagramDetail'+diagram.urlPath+diagram.id+'" class=""></i>' + '</li>';
+			} else { // 目录
+				item = '<li>'
+						+ '<img src="images/minus.png" style="margin-left:-20px; position:relative; z-index:999; top:0;">'
+						+ '<span class="badge ' + badgeClass
+						+ '" onclick="routeTo(\'diagramList\',\'' + diagram.id
+						+ "','" + diagram.id + '\');" >'  + '<i class=""></i>'
+						+ name + '</span> <i id="diagramList'+ diagram.id + diagram.id +'" class=""></i>';
+				item += '<ul >';
+				var _itemHtml = buildTree(diagram.children, level + 1);
+				item = item + _itemHtml + "</ul></li>";
 
-							if(diagram.file){ // 文件
-//								<span class="badge badge-success"><i
-//								 class="icon-minus-sign"></i> Monday, January 14: 8.00 hours</span>
-								item = '<li onclick="routeTo('
-									+ "'diagramDetail','"
-									+ diagram.urlPath
-									+ "','"
-									+ diagram.id
-									+ "');"
-									+ '"><span class="badge badge-success" style="padding-left:10px;"><i class=""></i>'
-									+ name
-									+'</span> - '
-									+'<i class=""></i>'
-									+'</li>';
-
-							}else{ // 目录
-								item = '<li><span class="badge badge-success" onclick="routeTo(\'diagramList\',\''
-									+ diagram
-									+ "','"
-									+ diagram.id
-									+ '\');">'
-									+ '<i class=""></i>'
-									+ name
-									+'</span> ';
-								item += '<ul>';
-								if(level==null||level=="undefined") level = 0;
-								var _itemHtml = buildTree(diagram.children, level+1);
-								item = item + _itemHtml + "</ul></li>";
-								
-							}
-							ret += item;
-						}
-					});
+			}
+			ret += item;
+		}
+	}
 	return ret;
 }
 

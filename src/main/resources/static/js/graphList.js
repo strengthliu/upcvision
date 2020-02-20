@@ -249,7 +249,7 @@ function getGraphByID(graph,id,l){
 //默认图形目录主页。当存在主页时，直接打开主页。
 var defaultSVG = ["main","index"];
 //如果目录内只有一个页面，是否直接打开。默认是。
-var loadOnlyGraph = false; // TODO: 设置参数
+var loadOnlyGraph = true; // TODO: 设置参数
 var isloadDefaultGraph = true; // TODO: 设置参数
 
 /**
@@ -275,11 +275,13 @@ function loadDefaultGraph(){
 	if(_graph!=null&&_graph.children!=null&&_graph.children!="undefined"){
 		for(let key in _graph.children){
 			var _g = _graph.children[key];
+			//console.log(" AAA1 -> _g.name.toLowerCase()="+_g.name.toLowerCase() + " _g.file="+_g.file +" _g.svg="+_g.svg);
 			if(_g.file && _g.svg){
 				gCount ++;
 				defaultG = _g;
-				for(var indDefaultSvg = 0;indDefaultSvg<defaultSVG.length;defaultSVG++){
+				for(var indDefaultSvg = 0;indDefaultSvg<defaultSVG.length;indDefaultSvg++){
 					// 是否存在defaultSVG里的主页，如果存在，就routeto
+					//console.log(" AAA1 -> _g.name.toLowerCase()="+_g.name.toLowerCase()+"  defaultSVG[indDefaultSvg].toLowerCase()="+defaultSVG[indDefaultSvg].toLowerCase());
 					if(_g.name.toLowerCase() == defaultSVG[indDefaultSvg].toLowerCase()){
 						routeTo('diagramDetail', _g.urlPath,_g.id);
 						return;
@@ -329,7 +331,7 @@ function updateGraphListFrame(){
 		Object.keys(children).forEach(function(key){
 // console.log(key+" => "+JSON.stringify(children[key]));
 			var _graph=children[key];
-			var diagram_gallery_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12"';
+			var diagram_gallery_item_innerHTML = '<div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-12"';
 			diagram_gallery_item_innerHTML += '>'; // 1
 			if(_graph.file && _graph.svg){
 				diagram_gallery_item_innerHTML += '<figure class="effect-text-in">'; // 2
@@ -376,16 +378,15 @@ function updateGraphListFrame(){
 				diagram_gallery_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 				// 判断权限
 				if(user.id == _graph.creater || user.id == _graph.owner || user.role == 1){
-					diagram_gallery_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
-					diagram_gallery_item_innerHTML += 'shareItemAction(\''+_graph.id+'\')">Share</button>';
-					diagram_gallery_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
+					//diagram_gallery_item_innerHTML += '<i class="icon-people icon-md"><i class="icon-trash"></i><i class="icon-note"></i><i class="icon-share"></i>';
+					diagram_gallery_item_innerHTML += '<i class="icon-people icon-md" onclick="';
+					diagram_gallery_item_innerHTML += 'shareItemAction(\''+_graph.id+'\')"> </i>';
+					diagram_gallery_item_innerHTML += '<i class="icon-trash icon-md" onclick="';
 					diagram_gallery_item_innerHTML += 'deleteItemAction(\''+_graph.id+'\')">';
-					diagram_gallery_item_innerHTML += 'Delete';//'<i class="mdi mdi-delete"></i>';
-					diagram_gallery_item_innerHTML += '</button>';
-					diagram_gallery_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
+					diagram_gallery_item_innerHTML += '</i>';
+					diagram_gallery_item_innerHTML += '<i class="icon-note icon-md" onclick="';
 					diagram_gallery_item_innerHTML += 'editItemAction(\''+_graph.id+'\')">';
-					diagram_gallery_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
-					diagram_gallery_item_innerHTML += '</button>';
+					diagram_gallery_item_innerHTML += '</i>';
 				}
 				diagram_gallery_item_innerHTML += '</figure>';
 				diagram_gallery_item_innerHTML += '</div>';
@@ -415,12 +416,11 @@ function updateGraphListFrame(){
 				diagram_gallery_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 				// 判断权限
 				if(user.id == _graph.creater || user.id == _graph.owner || user.role == 1){
-					diagram_gallery_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
-					diagram_gallery_item_innerHTML += 'shareItemAction(\''+_graph.id+'\')">Share</button>';
-					diagram_gallery_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
+					diagram_gallery_item_innerHTML += '<i class="icon-people icon-md" onclick="';
+					diagram_gallery_item_innerHTML += 'shareItemAction(\''+_graph.id+'\')">&nbsp;</i>';
+					diagram_gallery_item_innerHTML += '<i class="icon-note icon-md" onclick="';
 					diagram_gallery_item_innerHTML += 'editItemAction(\''+_graph.id+'\')">';
-					diagram_gallery_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
-					diagram_gallery_item_innerHTML += '</button>';
+					diagram_gallery_item_innerHTML += '</i>';
 				}
 				diagram_gallery_item_innerHTML += '</figure></div>';
 //				diagram_gallery_item_innerHTML += '</figure>';
@@ -553,7 +553,7 @@ function doUpLoad(){
 //		    		console.log("v="+JSON.stringify(value));
 		    		 console.log("doUpLoad _routeID= "+_routeID);
 		    		 console.log("doUpLoad _graphId= "+_graphId);
-
+		    		 console.log(" AA-> "+JSON.stringify(value.data.graph));
 		    		fixGraphList(value.data.graph);
 		    		
 		    	},function(err){
@@ -574,6 +574,7 @@ function doUpLoad(){
 //	    		alert();
 		   		 console.log("doUpLoad 2 _routeID= "+_routeID);
 				 console.log("doUpLoad 3 _graphId= "+_graphId);
+	    		 console.log(" AA-> "+JSON.stringify(value.data.graph));
 	    		fixGraphList(value.data.graph);
 //	    		console.log("1");
 //	    		alert();
@@ -596,43 +597,70 @@ function doUpLoad(){
 		console.log("当前目录下存在同名文件:"+JSON.stringify(og));
 		return;
 	}
+	var graphThumbnailFile=$("#graphThumbnail")[0].files[0];
+	if(graphThumbnailFile!=null&&graphThumbnailFile!="undefined"){
+	    var promise = new Promise(function(resolve, reject) {
+	    	showLoading();
+	        // 发送ajax 获取第一份数据 (我们需要这份数据里面的key值 要带着这个key去请求pay.json)
+	    		ajaxGraphThumbnail(resolve,reject);
+	    });
+	    promise.then(function(value) {
+	        // 这里 可以接收到上一步 用 resolve处理的数据
+	        // console.log('第二步接收到的key:', response)
+	        // 发送ajax 带上这个key 去请求另一个接口 pay.json
+	    	// console.log("then..."+JSON.stringify(value));
+	        return new Promise(function(resolve, reject) {
+	        	ajaxGraphFile(value.data.url,resolve,reject);
+	        })
+	    },function(err){
+	    	console.log("err="+err);
+	    	hideLoading()
+	    }) 
+	    .then(function(response){
+	        // 这里 可以接收到上一步 用 resolve处理的数据
+	        console.log('第三步接收到的数据:', response);
+//	    	console.log("ssws- "+JSON.stringify(userSpace.graph));
 
-    var promise = new Promise(function(resolve, reject) {
-    	showLoading();
-        // 发送ajax 获取第一份数据 (我们需要这份数据里面的key值 要带着这个key去请求pay.json)
-    	ajaxGraphThumbnail(resolve,reject);
-    });
-    promise.then(function(value) {
-        // 这里 可以接收到上一步 用 resolve处理的数据
-        // console.log('第二步接收到的key:', response)
-        // 发送ajax 带上这个key 去请求另一个接口 pay.json
-    	// console.log("then..."+JSON.stringify(value));
-        return new Promise(function(resolve, reject) {
-        	ajaxGraphFile(value.data.url,resolve,reject);
-        })
-    },function(err){
-    	console.log("err="+err);
-    	hideLoading()
-    }) 
-    .then(function(response){
-        // 这里 可以接收到上一步 用 resolve处理的数据
-        console.log('第三步接收到的数据:', response);
-//    	console.log("ssws- "+JSON.stringify(userSpace.graph));
+	        var g = getGraphByPath(userSpace.graph,_graphs.path);
+	        g.children[response.wholePath] = response;
+	        updateGraphListFrame();
+	        init();
+	        hideLoading();
+	        $('#newItemAction_mid').modal('hide');
+	    },function(err){
+	        // 这里 可以接收到上一步 用 resolve处理的数据
+	        console.log('err:', err)
+	        hideLoading();
+	        $('#newItemAction_mid').modal('hide');
+	        document.getElementById("divUpLoadGraphFile").style.display="block";//显示
 
-        var g = getGraphByPath(userSpace.graph,_graphs.path);
-        g.children[response.wholePath] = response;
-        updateGraphListFrame();
-        init();
-        hideLoading();
-        $('#newItemAction_mid').modal('hide');
-    },function(err){
-        // 这里 可以接收到上一步 用 resolve处理的数据
-        console.log('err:', err)
-        hideLoading();
-        $('#newItemAction_mid').modal('hide');
-        document.getElementById("divUpLoadGraphFile").style.display="block";//显示
+	    });
+	}else{ // 如果没有缩略图
+	    var promise = new Promise(function(resolve, reject) {
+	    	showLoading();
+	        // 发送ajax 获取第一份数据 (我们需要这份数据里面的key值 要带着这个key去请求pay.json)
+	    	ajaxGraphFile('',resolve,reject);
+	    });
+	    promise.then(function(response) {
+	        // 这里 可以接收到上一步 用 resolve处理的数据
+	        console.log('第三步接收到的数据:', response);
+//	    	console.log("ssws- "+JSON.stringify(userSpace.graph));
 
-    });
+	        var g = getGraphByPath(userSpace.graph,_graphs.path);
+	        g.children[response.wholePath] = response;
+	        updateGraphListFrame();
+	        init();
+	        hideLoading();
+	        $('#newItemAction_mid').modal('hide');
+	    },function(err){
+	        console.log('err:', err)
+	        hideLoading();
+	        $('#newItemAction_mid').modal('hide');
+	        document.getElementById("divUpLoadGraphFile").style.display="block";//显示
+	    }) ;
+	}
+
+
 
 }
 
@@ -654,14 +682,24 @@ function fixGraphList(response){
 //    console.log("fixGraphList response= "+JSON.stringify(response));
     // TODO: 新增一个方法，setGraph。现在下面这部分是有问题的，没有更新userSpace.graph。需要修改。
     
-    var g = getParentGraphByPath(userSpace.graph,_graphs.path);
-//    console.log("fixGraphList g= "+JSON.stringify(g));
+    var g = null;
+    // 如果是文件，下面的正确
+    g = getParentGraphByPath(userSpace.graph,response.wholePath);
+    // 如果是目录
+    
+    console.log("AA -> fixGraphList g= "+JSON.stringify(g));
+    console.log("AA -> 0 fixGraphList response.wholePath= "+response.wholePath);
+    console.log("AA -> 1 fixGraphList g.children[response.wholePath]= "+JSON.stringify(g.children[response.wholePath]));
     g.children[response.wholePath] = response;
+    console.log("AA -> 2 fixGraphList g.children[response.wholePath]= "+JSON.stringify(g.children[response.wholePath]));
+    console.log("AA -> fixGraphList response= "+JSON.stringify(response));
+    console.log("AA -> fixGraphList g= "+JSON.stringify(g));
 //	 console.log("fixGraphList 2 _routeID= "+_routeID);
 //	 console.log("fixGraphList 2 _graphId= "+_graphId);
-
-
+    // 更新主窗口列表
     updateGraphListFrame();
+    // 更新导航栏
+    updateDiagram();
     init();
     hideLoading();
 }

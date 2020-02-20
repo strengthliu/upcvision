@@ -13,7 +13,8 @@ var isIE = userAgent.indexOf("compatible") > -1
         && userAgent.indexOf("MSIE") > -1 && !isOpera; //判断是否IE浏览器
 var isEdge = userAgent.indexOf("Edge") > -1; //判断是否IE的Edge浏览器
 var isFF = userAgent.indexOf("Firefox") > -1; //判断是否Firefox浏览器
-var isSafari = userAgent.indexOf("Safari") > -1
+var isSafari = false;
+isSafari = userAgent.indexOf("Safari") > -1
         && userAgent.indexOf("Chrome") == -1; //判断是否Safari浏览器
 var isChrome = userAgent.indexOf("Chrome") > -1
         && userAgent.indexOf("Safari") > -1; //判断Chrome浏览器
@@ -22,11 +23,13 @@ if (isIE) {
 	alert("你正在使用IE浏览器，很抱歉我们当前还不支持IE浏览器，请下载其他我们支持的浏览器。");
 	window.location.href="downLoadBrowser.html";
 }
-if (isSafari) 
-{
-	alert("你正在使用Safari浏览器，很抱歉我们当前还不支持Safari浏览器，请下载其他我们支持的浏览器。");
-	window.location.href="downLoadBrowser.html";
-}
+
+//if (isSafari) 
+//{
+//	console.log(JSON.stringify(userAgent));
+//	alert("你正在使用Safari浏览器，很抱歉我们当前还不支持Safari浏览器，请下载其他我们支持的浏览器。");
+//	window.location.href="downLoadBrowser.html";
+//}
 
 </script>
 <!-- plugins:css -->
@@ -34,19 +37,19 @@ if (isSafari)
 	href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet"
 	href="vendors/iconfonts/puse-icons-feather/feather.css">
+<link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+<link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
+	
 <link rel="stylesheet"
 	href="vendors/iconfonts/simple-line-icon/css/simple-line-icons.css">
-
+  <link rel="stylesheet" href="vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
+  
 <link rel="stylesheet" href="css/jquery.datetimepicker.css">
 <link rel="stylesheet" href="css/c3.css">
 <link rel="stylesheet" href="css/jquery.contextMenu.css">
-<link rel="stylesheet" href="css/bootstrap.css">
-<!-- 
-<link rel="stylesheet" href="css/bootstrap.css">
- -->
-<link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
-<link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
+
 <link rel="stylesheet" href="css/style.css">
+
 <link rel="shortcut icon" href="images/favicon.png" />
 
 <!-- plugin css for this page -->
@@ -70,7 +73,7 @@ if (isSafari)
 <script src="js/bootstrap-datetimepicker.min.js"></script>
  -->
 <script src="js/sockjs.min.js"></script>
-<script src="js/stomp.min.js"></script>
+<script src="js/stomp.js"></script>
 <script src="js/file-upload.js"></script>
 <script src="js/select2.js"></script>
 
@@ -92,12 +95,10 @@ if (isSafari)
 <script src="js/shadow-viewport.js"></script>
 <script src="js/svg-pan-zoom.js"></script>
  -->
-
 <script src="js/app.js"></script>
 <script src="js/router.js"></script>
 <script src="js/navagator.js"></script>
 <script src="js/lodash.js"></script>
-
 <script type="text/javascript">
        
 	/* 用户登录验证 */
@@ -122,9 +123,11 @@ if (isSafari)
 			}
 
 			//确保服务器和点位数据
+			if(user.role<2)
 			if(serverList == null || serverList=="undefined"){
-				// 去取服务器数据
-				var data={'uid':uid,'token':token};
+				window.οnlοad=function(){
+					// 去取服务器数据
+					var data={'uid':uid,'token':token};
 					$.ajax({
 						// 提交数据的类型 POST GET
 						type : "POST",
@@ -160,6 +163,7 @@ if (isSafari)
 							hideLoading();
 						}
 					});
+				}
 			} 
 
 		}
@@ -185,15 +189,16 @@ if (isSafari)
 	<div class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
 		<nav
-			class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-success"
+			class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-primary"
 			id="topToolsBar">
 			<div
 				class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
 				<a class="navbar-brand brand-logo" href="index.html"><img
-					src="images/logo_l.png" alt="logo" /></a> <a
+					src="images/logo_l.png" style="margin-top: 10px;" alt="logo" /></a> <a
 					class="navbar-brand brand-logo-mini" href="index.html"><img
-					src="images/logo.png" alt="logo" /></a>
+					src="images/logo.png" style="margin-top: 10px;" alt="logo" /></a>
 			</div>
+
 			<div class="navbar-menu-wrapper d-flex align-items-stretch"
 				id="mainToolsBar">
 				<button class="navbar-toggler navbar-toggler align-self-center"
@@ -216,8 +221,7 @@ if (isSafari)
 						class="nav-link"> <i class="mdi mdi-step-forward"
 							id="stepForward"></i>
 					</a></li>
-
-					<li class="nav-item" style="display: none; visibility: hidden;"
+					<li class="nav-item" style="visibility: hidden;"
 						id="serachbox_topToolsBar">
 						<div
 							class="nav-link form-inline mt-2 mt-md-0 d-none d-lg-flex search">
@@ -234,9 +238,56 @@ if (isSafari)
 						</script>
 					</li>
 				</ul>
-
+				<div>
+					<nav aria-label="breadcrumb" style="visibility: hidden;">
+						<ol class="breadcrumb bg-inverse-primary"
+							id="mainTools_Breadcrumb">
+							<li class="breadcrumb-item">
+								<div class="btn-group">
+									<button type="button" class="btn btn-primary">Dropdown</button>
+									<button type="button"
+										class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+										id="dropdownMenuSplitButton1" data-toggle="dropdown"
+										aria-haspopup="true" aria-expanded="false">
+										<span class="sr-only">Toggle Dropdown</span>
+									</button>
+									<div class="dropdown-menu"
+										aria-labelledby="dropdownMenuSplitButton1">
+										<h6 class="dropdown-header">Settings</h6>
+										<a class="dropdown-item" href="#">Action</a> <a
+											class="dropdown-item" href="#">Another action</a> <a
+											class="dropdown-item" href="#">Something else here</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="#">Separated link</a>
+									</div>
+								</div>
+							</li>
+							<li class="breadcrumb-item">
+								<div class="btn-group">
+									<button type="button" class="btn btn-primary">Dropdown</button>
+									<button type="button"
+										class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+										id="dropdownMenuSplitButton1" data-toggle="dropdown"
+										aria-haspopup="true" aria-expanded="false">
+										<span class="sr-only">Toggle Dropdown</span>
+									</button>
+									<div class="dropdown-menu"
+										aria-labelledby="dropdownMenuSplitButton1">
+										<h6 class="dropdown-header">Settings</h6>
+										<a class="dropdown-item" href="#">Action</a> <a
+											class="dropdown-item" href="#">Another action</a> <a
+											class="dropdown-item" href="#">Something else here</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="#">Separated link</a>
+									</div>
+								</div>
+							</li>
+							<li class="breadcrumb-item active" aria-current="page">Data</li>
+						</ol>
+					</nav>
+				</div>
 				<ul class="navbar-nav navbar-nav-right">
-				<!-- 
+					<!-- 
 					<li class="nav-item dropdown d-none d-lg-flex"><a
 						class="nav-link dropdown-toggle" id="languageDropdown" href="#"
 						data-toggle="dropdown"> 简体中文 </a>
@@ -326,8 +377,9 @@ if (isSafari)
 							</a>
 							 -->
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" id="changeUserInfo" onclick="showUserInfoDialog(null, null)">
-								<i class="mdi mdi-cached mr-2 text-success"></i> 修改个人信息
+							<a class="dropdown-item" id="changeUserInfo"
+								onclick="showUserInfoDialog(null, null)"> <i
+								class="mdi mdi-cached mr-2 text-success"></i> 修改个人信息
 							</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" onclick="logout();"> <i
@@ -342,72 +394,11 @@ if (isSafari)
 					<span class="mdi mdi-menu"></span>
 				</button>
 			</div>
+
 		</nav>
 		<!-- partial -->
 		<div class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_settings-panel.html -->
-			<!-- 
-			<div class="theme-setting-wrapper">
-				<div id="settings-trigger">
-					<i class="mdi mdi-settings"></i>
-				</div>
-				<div id="theme-settings" class="settings-panel">
-					<i class="settings-close mdi mdi-close"></i>
-					<p class="settings-heading">当前正在执行的任务</p>
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title">Circle progress bar</h4>
-							<div class="row px-2 template-demo">
-								<div class="col-sm-3 col-md-4 col-6 circle-progress-block">
-									<div id="circleProgress1"
-										class="progressbar-js-circle border rounded p-3"></div>
-								</div>
-								<div class="col-sm-3 col-md-4 col-6 circle-progress-block">
-									<div id="circleProgress2"
-										class="progressbar-js-circle border rounded p-3"></div>
-								</div>
-								<div class="col-sm-3 col-md-4 col-6 circle-progress-block">
-									<div id="circleProgress3"
-										class="progressbar-js-circle border rounded p-3"></div>
-								</div>
-								<div class="col-sm-3 col-md-4 col-6 circle-progress-block">
-									<div id="circleProgress4"
-										class="progressbar-js-circle border rounded p-3"></div>
-								</div>
-								<div class="col-sm-3 col-md-4 col-6 circle-progress-block">
-									<div id="circleProgress5"
-										class="progressbar-js-circle border rounded p-3"></div>
-								</div>
-								<div class="col-sm-3 col-md-4 col-6 circle-progress-block">
-									<div id="circleProgress6"
-										class="progressbar-js-circle border rounded p-3"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="sidebar-bg-options selected" id="sidebar-light-theme">
-						<div class="img-ss rounded-circle bg-light border mr-3"></div>
-						Light
-					</div>
-					<div class="sidebar-bg-options" id="sidebar-dark-theme">
-						<div class="img-ss rounded-circle bg-dark border mr-3"></div>
-						Dark
-					</div>
-					<p class="settings-heading mt-2">修改皮肤颜色</p>
-					<div class="color-tiles mx-0 px-4">
-						<div class="tiles primary"></div>
-						<div class="tiles success"></div>
-						<div class="tiles warning"></div>
-						<div class="tiles danger"></div>
-						<div class="tiles pink"></div>
-						<div class="tiles info"></div>
-						<div class="tiles dark"></div>
-						<div class="tiles default"></div>
-					</div>
-				</div>
-			</div>
-			 -->
 			<!-- partial -->
 			<!-- partial:partials/_sidebar.html -->
 			<nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -499,20 +490,45 @@ if (isSafari)
 					<li class="nav-item nav-category"><span class="nav-link">视图列表</span>
 					</li>
  					-->
+
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-diagram" aria-expanded="false"
 						aria-controls="ui-diagram" onclick="routeTo('diagramList','')">
-						<img alt="" src="images/mod_pid.gif">
-							<!-- <i class="icon-bell menu-icon"></i>  -->
-							<span class="menu-title">流程图</span>
-					</a></li>
+							<img alt="" src="images/mod_pid.gif"> <span
+							class="menu-title">流程图</span> <i class="menu-arrow"></i>
+					</a>
+						<div class="collapse tree" id="ui-diagram">
+							<ul class="nav flex-column sub-menu" id="ui-diagram-ul">
+							</ul>
+						</div> <script>
+$(function(){
+    $('.tree li:has(ul)').addClass('parent_li').find(' > img').attr('title', '收起这个分支');
+    $('.tree li.parent_li > img').on('click', function (e) {
+        var children = $(this).parent('li.parent_li').find(' > ul > li');
+        //var _img = $(this).parent('li.parent_li').find(' > ul > li > img');
+        if (children.is(":visible")) {
+            children.hide('fast');
+            //_img.attr('src', 'images/mod_pid.gif')
+            $(this).attr('title', '展开这个分支').parent().find(' > img').attr('src',"images/plus.png").css("position","relative").css("z-index","999").css("top","0");
+            // style='position:fixed; z-index:999; top:0;'
+            //$(this).attr('title', 'Expand this branch').find(' > i').addClass('mdi-key-plus').removeClass('mdi-key-minus');
+        } else {
+            children.show('fast');
+            //var _img = $(this).parent('li.parent_li').find(' > ul > li > img');
+            //_img.attr('src', 'mod_real.gif')
+            $(this).attr('title', '收起这个分支').parent().find(' > img').attr('src',"images/minus.png").css("position","relative").css("z-index","999").css("top","0");;
+            //$(this).attr('title', 'Collapse this branch').find(' > i').addClass('mdi-key-minus').removeClass('mdi-key-plus');
+        }
+        e.stopPropagation();
+    });
+});
 
+</script></li>
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-xydiagram" aria-expanded="false"
 						aria-controls="ui-xydiagram" onclick="routeTo('xydiagramList','')">
-						<img alt="" src="images/mod_XY.gif">
-							<span class="menu-title">XY图</span>
-							<i class="menu-arrow"></i>
+							<img alt="" src="images/mod_XY.gif"> <span
+							class="menu-title">XY图</span> <i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-xydiagram">
 							<ul class="nav flex-column sub-menu">
@@ -525,11 +541,9 @@ if (isSafari)
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-realtimedata"
 						aria-expanded="false" aria-controls="ui-realtimedata"
-						onclick="routeTo('realtimedataList','')"> 
-						<img alt="" src="images/mod_real.gif">
-							<!-- <i class="icon-bell menu-icon"></i>  -->
-							<span class="menu-title">实时数据查询</span>
-							<i class="menu-arrow"></i>
+						onclick="routeTo('realtimedataList','')"> <img alt=""
+							src="images/mod_real.gif"> <!-- <i class="icon-bell menu-icon"></i>  -->
+							<span class="menu-title">实时数据查询</span> <i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-realtimedata">
 							<ul class="nav flex-column sub-menu">
@@ -542,10 +556,8 @@ if (isSafari)
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-alertdata" aria-expanded="false"
 						aria-controls="ui-alertdata" onclick="routeTo('alertdataList','')">
-						<img alt="" src="images/mod_alarm.gif">
-							<!-- <i class="icon-bell menu-icon"></i>  -->
-							<span class="menu-title">报警查询</span>
-							<i class="menu-arrow"></i>
+							<img alt="" src="images/mod_alarm.gif"> <!-- <i class="icon-bell menu-icon"></i>  -->
+							<span class="menu-title">报警查询</span> <i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-alertdata">
 							<ul class="nav flex-column sub-menu">
@@ -557,11 +569,9 @@ if (isSafari)
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#ui-datahistory"
 						aria-expanded="false" aria-controls="ui-datahistory"
-						onclick="routeTo('historydataList','')"> 
-						<img alt="" src="images/mod_hisplot.gif">
-							<!-- <i class="icon-bell menu-icon"></i>  -->
-							<span class="menu-title">历史数据</span>
-							<i class="menu-arrow"></i>
+						onclick="routeTo('historydataList','')"> <img alt=""
+							src="images/mod_hisplot.gif"> <!-- <i class="icon-bell menu-icon"></i>  -->
+							<span class="menu-title">历史数据</span> <i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="ui-datahistory">
 							<ul class="nav flex-column sub-menu">
@@ -610,33 +620,28 @@ if (isSafari)
 					</script>
 
 					<!-- *******************************  用户管理 ******************************* -->
-					<li class="nav-item" id="userManagePart_Title" style="display: none;" ><a class="nav-link"
+					<li class="nav-item" id="userManagePart_Title"
+						style="display: none;"><a class="nav-link"
 						data-toggle="collapse" href="#userManagePart"
-						aria-expanded="false" aria-controls="userManagePart"> 
-						<img alt="" src="images/mod_users.gif">
-							<!-- <i class="icon-bell menu-icon"></i>  -->
-							<span class="menu-title">用户管理</span>
-							<i class="menu-arrow"></i>
+						aria-expanded="false" aria-controls="userManagePart"> <img
+							alt="" src="images/mod_users.gif"> <!-- <i class="icon-bell menu-icon"></i>  -->
+							<span class="menu-title">用户管理</span> <i class="menu-arrow"></i>
 					</a>
 						<div class="collapse" id="userManagePart">
 							<ul class="nav flex-column sub-menu">
 								<li id="_departManager" class="nav-item"
 									onclick="routeTo('departManage','')" style="display: none;"><span
-									class="nav-link"> 
-									<img alt="" src="images/mod_dept.gif">
-									<span
-										class="menu-title">部门管理</span>
+									class="nav-link"> <img alt="" src="images/mod_dept.gif">
+										<span class="menu-title">部门管理</span>
 								</span></li>
 								<li id="_userManager" class="nav-item"
 									onclick="routeTo('userManage','')" style="display: none;"><span
-									class="nav-link"> 
-									<img alt="" src="images/mod_users.gif">
-									<span
-										class="menu-title">用户管理</span>
+									class="nav-link"> <img alt="" src="images/mod_users.gif">
+										<span class="menu-title">用户管理</span>
 								</span></li>
 							</ul>
 						</div></li>
-						<script>
+					<script>
 						if(user.role == "1") 
 							document.getElementById("userManagePart_Title").style.display="block";// style=display="none"
 						else
@@ -890,6 +895,8 @@ if (isSafari)
 	<script src="js/bt-maxLength.js"></script>
 
 	<script src="js/userAndDepart.js"></script>
+	<script src="js/tooltips.js"></script>
+	<script src="js/popover.js"></script>
 
 	<!-- endinject -->
 	<!-- Custom js for this page-->

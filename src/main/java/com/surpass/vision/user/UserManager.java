@@ -19,6 +19,7 @@ import com.surpass.vision.mapper.UserInfoMapper;
 import com.surpass.vision.service.RedisService;
 import com.surpass.vision.service.UserService;
 import com.surpass.vision.tools.IDTools;
+import com.surpass.vision.userSpace.UserSpaceManager;
 
 @Component
 public class UserManager {
@@ -30,8 +31,16 @@ public class UserManager {
 	@Autowired
 	UserService userService;
 
+	@Autowired
+	UserSpaceManager userSpaceManager;
+
 	public User getUserByID(String userId) {
-		UserInfo ui = getUserInfoByID(userId);
+		UserInfo ui = null;
+		if(userId.contentEquals(GlobalConsts.UserAdminID)) {
+			ui = userSpaceManager.getAdminUserInfo();
+		} else {
+			ui = getUserInfoByID(userId);
+		}
 		User u = new User();
 		if (ui == null)
 			return u;

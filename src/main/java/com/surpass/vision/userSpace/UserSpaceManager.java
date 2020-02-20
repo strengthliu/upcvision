@@ -834,24 +834,46 @@ public class UserSpaceManager {
 			while (it.hasNext()) {
 				String uids = it.next();
 				// 从缓存中取出
-				String idstr = IDTools.toString(oldRtd.getId());
-//				UserSpaceData usd = (UserSpaceData)redisService.get(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(uids));
-				UserSpaceData usd = getUserSpaceRigidly(Double.valueOf(uids));
-				String graphids = usd.getGraphs();
-				if(!StringUtil.isBlank(graphids)) {
-					if(!graphids.contains(idstr)) {
-						String []ida = IDTools.splitID(graphids);
-						String []idat = new String[ida.length+1];
-						System.arraycopy(ida, 0, idat, 0, ida.length);
-						idat[ida.length] = idstr;
-						graphids = IDTools.merge(idat);
+				if(oldRtd.getId()!=null) {
+					String idstr = IDTools.toString(oldRtd.getId());
+	//				UserSpaceData usd = (UserSpaceData)redisService.get(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(uids));
+					UserSpaceData usd = getUserSpaceRigidly(Double.valueOf(uids));
+					String graphids = usd.getGraphs();
+					if(!StringUtil.isBlank(graphids)) {
+						if(!graphids.contains(idstr)) {
+							String []ida = IDTools.splitID(graphids);
+							String []idat = new String[ida.length+1];
+							System.arraycopy(ida, 0, idat, 0, ida.length);
+							idat[ida.length] = idstr;
+							graphids = IDTools.merge(idat);
+						}
+					}else {
+						graphids = idstr;
 					}
+					usd.setGraphs(graphids);
+					this.setUserSpaceWithStorage(usd);
+					// 把空目录补整齐，也不行，因为下一次修改，就会把这目录下的东西带过来了。
 				}else {
-					graphids = idstr;
+					String idstr = IDTools.toString(rtd.getId());
+	//				UserSpaceData usd = (UserSpaceData)redisService.get(GlobalConsts.Key_UserSpace_pre_ + IDTools.toString(uids));
+					UserSpaceData usd = getUserSpaceRigidly(Double.valueOf(uids));
+					String graphids = usd.getGraphs();
+					if(!StringUtil.isBlank(graphids)) {
+						if(!graphids.contains(idstr)) {
+							String []ida = IDTools.splitID(graphids);
+							String []idat = new String[ida.length+1];
+							System.arraycopy(ida, 0, idat, 0, ida.length);
+							idat[ida.length] = idstr;
+							graphids = IDTools.merge(idat);
+						}
+					}else {
+						graphids = idstr;
+					}
+					usd.setGraphs(graphids);
+					this.setUserSpaceWithStorage(usd);
+					
 				}
-				usd.setGraphs(graphids);
-				this.setUserSpaceWithStorage(usd);
-				// 把空目录补整齐，也不行，因为下一次修改，就会把这目录下的东西带过来了。
+
 			}			
 		}
 

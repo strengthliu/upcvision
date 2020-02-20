@@ -312,7 +312,7 @@ function updateAlertDataListFrame(){
 						function(key) {
 							var _alertData = _alertDatas[key];
 							if(_alertData!=null && _alertData!="undefined"){
-								var alertDataList_ui_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">';
+								var alertDataList_ui_item_innerHTML = '<div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-12">';
 								alertDataList_ui_item_innerHTML += '<figure class="effect-text-in">';
 								alertDataList_ui_item_innerHTML += '<img src="'
 										+ _alertData.img + '" alt="image" ';
@@ -355,18 +355,17 @@ function updateAlertDataListFrame(){
 								alertDataList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 								// TODO: 判断权限
 								if(user.id == _alertData.creater || user.id == _alertData.owner || user.role == 1){
-									alertDataList_ui_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
-									alertDataList_ui_item_innerHTML += 'shareItemAction(\''+_alertData.id+'\')">Share</button>';
+									//diagram_gallery_item_innerHTML += '<i class="icon-people icon-md"><i class="icon-trash"></i><i class="icon-note"></i><i class="icon-share"></i>';
+									alertDataList_ui_item_innerHTML += '<i class="icon-people icon-md" onclick="';
+									alertDataList_ui_item_innerHTML += 'shareItemAction(\''+_alertData.id+'\')"></i>';
 								
-									alertDataList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
+									alertDataList_ui_item_innerHTML += '<i class="icon-trash icon-md" onclick="';
 									alertDataList_ui_item_innerHTML += 'deleteItemAction(\''+_alertData.id+'\')">';
-									alertDataList_ui_item_innerHTML += 'Delete';//'<i class="mdi mdi-delete"></i>';
-									alertDataList_ui_item_innerHTML += '</button>';
+									alertDataList_ui_item_innerHTML += '</i>';
 									
-									alertDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
+									alertDataList_ui_item_innerHTML += '<i class="icon-note icon-md" onclick="';
 									alertDataList_ui_item_innerHTML += 'editItemAction(\''+_alertData.id+'\')">';
-									alertDataList_ui_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
-									alertDataList_ui_item_innerHTML += '</button>';
+									alertDataList_ui_item_innerHTML += '</i>';
 								}
 
 								alertDataList_ui_item_innerHTML += '</div></figure></div>';

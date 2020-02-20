@@ -520,7 +520,7 @@ public class ServerManager {
 		for(int ind=0;ind<pl.size();ind++) {
 			ph.put(pl.get(ind).getId(), pl.get(ind));
 			String lpszServerName = pl.get(ind).getServerName();
-			if(sps.contains(lpszServerName)) {
+			if(sps.containsKey(lpszServerName)) {
 				sps.get(lpszServerName).add(pl.get(ind).getId());
 			} else {
 				ArrayList<Long> il = new ArrayList<Long>();
@@ -548,18 +548,21 @@ public class ServerManager {
 				List<Double> loloLimit = gec().DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLOLIMIT");
 				List<Double> loLimit = gec().DBECBatchGetTagRealField(lpszServerName, pnTagIDArray, "FN_LOLIMIT");
 
-				for(int i=0;i<nArraySize;i++) {
+				for(int i=0;i<pnAlarmTagIDArray.size();i++) {
+					Long lid = pnAlarmTagIDArray.get(i);
+					if(lid!=null&&lid!=0) {
 					PointAlertData pad = new PointAlertData(ph.get(pnTagIDArray.get(i)));
-					pad.setOccuredTime(pOccuredTimeArray.get(i));
-					pad.setAlertValue(pValueArray.get(i));
-					pad.setAlertType(pAlarmTypeArray.get(i));
-					pad.setHihiLimit(hihiLimit.get(i));
-					pad.setHiLimit(hiLimit.get(i));
-					pad.setLoLimit(loLimit.get(i));
-					pad.setLoloLimit(loloLimit.get(i));
-					pad.setAlertBeginTime(pAlarmBeginTimeArray.get(i));
-					pad.setAlertEndTime(pAlarmEndTimeArray.get(i));
-					ret.add(pad);
+					// pad.setOccuredTime(pOccuredTimeArray.get(i));
+						pad.setAlertValue(pValueArray.get(i));
+						pad.setAlertType(pAlarmTypeArray.get(i));
+						pad.setHihiLimit(hihiLimit.get(i));
+						pad.setHiLimit(hiLimit.get(i));
+						pad.setLoLimit(loLimit.get(i));
+						pad.setLoloLimit(loloLimit.get(i));
+						pad.setAlertBeginTime(pAlarmBeginTimeArray.get(i));
+						pad.setAlertEndTime(pAlarmEndTimeArray.get(i));
+						ret.add(pad);
+					}
 				}			
 			} catch (Exception e) {
 				e.printStackTrace();

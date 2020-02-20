@@ -282,7 +282,7 @@ function updateXYGraphListFrame(){
 						function(key) {
 							var _xyGraph_Data = _xyGraph[key];
 							if(_xyGraph_Data!=null && _xyGraph_Data!="undefined"){
-								var xyGraphList_ui_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">';
+								var xyGraphList_ui_item_innerHTML = '<div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-12">';
 								xyGraphList_ui_item_innerHTML += '<figure class="effect-text-in">';
 								xyGraphList_ui_item_innerHTML += '<img src="'
 										+ _xyGraph_Data.img + '" alt="image" ';
@@ -325,18 +325,17 @@ function updateXYGraphListFrame(){
 								xyGraphList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 								// TODO: 判断权限
 								if(user.id == _xyGraph_Data.creater || user.id == _xyGraph_Data.owner || user.role == 1){
-									xyGraphList_ui_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
-									xyGraphList_ui_item_innerHTML += 'shareItemAction(\''+_xyGraph_Data.id+'\')">Share</button>';
+									//diagram_gallery_item_innerHTML += '<i class="icon-people icon-md"><i class="icon-trash"></i><i class="icon-note"></i><i class="icon-share"></i>';
+									xyGraphList_ui_item_innerHTML += '<i class="icon-people icon-md" onclick="';
+									xyGraphList_ui_item_innerHTML += 'shareItemAction(\''+_xyGraph_Data.id+'\')"></i>';
 								
-									xyGraphList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
+									xyGraphList_ui_item_innerHTML += '<i class="icon-trash icon-md" onclick="';
 									xyGraphList_ui_item_innerHTML += 'deleteItemAction(\''+_xyGraph_Data.id+'\')">';
-									xyGraphList_ui_item_innerHTML += 'Delete';//'<i class="mdi mdi-delete"></i>';
-									xyGraphList_ui_item_innerHTML += '</button>';
+									xyGraphList_ui_item_innerHTML += '</i>';
 									
-									xyGraphList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
+									xyGraphList_ui_item_innerHTML += '<i class="icon-note icon-md" onclick="';
 									xyGraphList_ui_item_innerHTML += 'editItemAction(\''+_xyGraph_Data.id+'\')">';
-									xyGraphList_ui_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
-									xyGraphList_ui_item_innerHTML += '</button>';
+									xyGraphList_ui_item_innerHTML += '</i>';
 								}
 
 								xyGraphList_ui_item_innerHTML += '</div></figure></div>';

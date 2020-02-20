@@ -1,36 +1,36 @@
 function myBrowser() {
 	alert("myBrowser");
-    var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
-    var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器
+    var userAgent = navigator.userAgent; // 取得浏览器的userAgent字符串
+    var isOpera = userAgent.indexOf("Opera") > -1; // 判断是否Opera浏览器
     var isIE = userAgent.indexOf("compatible") > -1
-            && userAgent.indexOf("MSIE") > -1 && !isOpera; //判断是否IE浏览器
-    var isEdge = userAgent.indexOf("Edge") > -1; //判断是否IE的Edge浏览器
-    var isFF = userAgent.indexOf("Firefox") > -1; //判断是否Firefox浏览器
+            && userAgent.indexOf("MSIE") > -1 && !isOpera; // 判断是否IE浏览器
+    var isEdge = userAgent.indexOf("Edge") > -1; // 判断是否IE的Edge浏览器
+    var isFF = userAgent.indexOf("Firefox") > -1; // 判断是否Firefox浏览器
     var isSafari = userAgent.indexOf("Safari") > -1
-            && userAgent.indexOf("Chrome") == -1; //判断是否Safari浏览器
+            && userAgent.indexOf("Chrome") == -1; // 判断是否Safari浏览器
     var isChrome = userAgent.indexOf("Chrome") > -1
-            && userAgent.indexOf("Safari") > -1; //判断Chrome浏览器
+            && userAgent.indexOf("Safari") > -1; // 判断Chrome浏览器
 
     if (isIE) {
     	alert("isIE");
     	window.location.href="downLoadBrowser.html";
-//        var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
-//        reIE.test(userAgent);
-//        var fIEVersion = parseFloat(RegExp["$1"]);
-//        if (fIEVersion == 7) {
-//            return "IE7";
-//        } else if (fIEVersion == 8) {
-//            return "IE8";
-//        } else if (fIEVersion == 9) {
-//            return "IE9";
-//        } else if (fIEVersion == 10) {
-//            return "IE10";
-//        } else if (fIEVersion == 11) {
-//            return "IE11";
-//        } else {
-//            return "0";
-//        }//IE版本过低
-//        return "IE";
+// var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+// reIE.test(userAgent);
+// var fIEVersion = parseFloat(RegExp["$1"]);
+// if (fIEVersion == 7) {
+// return "IE7";
+// } else if (fIEVersion == 8) {
+// return "IE8";
+// } else if (fIEVersion == 9) {
+// return "IE9";
+// } else if (fIEVersion == 10) {
+// return "IE10";
+// } else if (fIEVersion == 11) {
+// return "IE11";
+// } else {
+// return "0";
+// }//IE版本过低
+// return "IE";
     }
     if (isOpera) {
         return "Opera";
@@ -49,17 +49,17 @@ function myBrowser() {
     }
 }
 
-//格式化日期
+// 格式化日期
 Date.prototype.Format = function (fmt) {
 var o = {
   "y+": this.getFullYear(),
-  "M+": this.getMonth() + 1,                 //月份
-  "d+": this.getDate(),                    //日
-  "h+": this.getHours(),                   //小时
-  "m+": this.getMinutes(),                 //分
-  "s+": this.getSeconds(),                 //秒
-  "q+": Math.floor((this.getMonth() + 3) / 3), //季度
-  "S+": this.getMilliseconds()             //毫秒
+  "M+": this.getMonth() + 1,                 // 月份
+  "d+": this.getDate(),                    // 日
+  "h+": this.getHours(),                   // 小时
+  "m+": this.getMinutes(),                 // 分
+  "s+": this.getSeconds(),                 // 秒
+  "q+": Math.floor((this.getMonth() + 3) / 3), // 季度
+  "S+": this.getMilliseconds()             // 毫秒
 };
 for (var k in o) {
   if (new RegExp("(" + k + ")").test(fmt)){
@@ -78,6 +78,7 @@ for (var k in o) {
 }
 return fmt;
 }
+
 var splitKeyServerPoint = "\\";
 var splitKeyServerPre = "\\\\";
 function splitServerPoint(tag){
@@ -138,38 +139,49 @@ function checkToken(){
 	if(user == null || token == null)
 		checkRight();
 }
-//避免刷新时
-connect();
+// 避免刷新时
+
+$(document).ready(function () {
+    if (window.WebSocket){
+    	connect();
+    } else {
+        alert("错误","浏览器不支持websocket技术通讯.");
+    }
+});
+
 function connect(callback) {
 	if(user==null || user =="undefined")
 		return;
 	console.log(" app.js connect....");
-//	disconnect();
-//	if (socket.readyState == 1) {
-//		return;
-//	}
+// disconnect();
+// if (socket.readyState == 1) {
+// return;
+// }
+// socket = new SockJS("${request.contextPath}/socketServer");
 	socket = new SockJS('/socketServer');
-	stompClient = Stomp.over(socket);
+	// 通过sock对象监听每个事件节点，非必须,这个必须放在stompClient的方法前面
+	sockHandle();
+    // 获取 STOMP 子协议的客户端对象
+    stompClient = Stomp.over(socket);
+
 	// 停止调试信息
 	stompClient.debug = null;
 	checkToken();
 	sessionStorage.setItem('token', token);// 设置指定session值
 	sessionStorage.setItem('uid', user.id);// 设置指定session值
 
-	// const id = localStorage.getItem("chat_id");
-	// var socket = new SockJS('ws://localhost:8888/socketServer/');
-//	socket = new SockJS('/socketServer');
-//	// alert("websocket connected 1.");
-//	stompClient = Stomp.over(socket);
 	stompClient.heartbeat.outgoing = 10000; // 客户端每20000ms发送一次心跳检测
 	stompClient.heartbeat.incoming = 10000; // client接收serever端的心跳检测
+
 	// 连接服务器
 	var headers = {
 		login : user.id,
 		token : token,
+		session_id:"${session_id}",
 		// additional header
 		'client-id' : 'my-client-id'
 	};
+	
 	if(socketRetryTimes>3){
 		socketRetryTimes=0;
 		alert("连续3次没有连接成功，请检查网络，或与系统管理员联系。");
@@ -179,10 +191,39 @@ function connect(callback) {
 	
 	stompClient.connect(headers, function(){
 		connected = true;
+		console.log("websocket connected.");
 		if(callback!=null && callback!="undefined")
 			callback();
+		},function(error){
+			console.log("websocket连接出错： "+JSON.stringify(error));
 		});
 }
+
+// 通过sock对象监听每个事件节点，非必须，这里开启了stomp的websocket 也不会生效了
+function sockHandle() {
+
+    // 连接成功后的回调函数
+    socket.onopen = function () {
+        console.log("------连接成功------");
+    };
+
+    // 监听接受到服务器的消息
+    socket.onmessage = function (event) {
+        console.log('-------收到的消息: ' + event.data);
+    };
+
+    // 关闭连接的回调函数
+    socket.onclose = function (event) {
+        console.log('--------关闭连接: connection closed.------');
+    };
+
+    // 连接发生错误
+    socket.onerror = function () {
+        alert("连接错误", "网络超时或通讯地址错误.");
+        disconnect();
+    } ;
+}
+
 function testSocketConnected(){
 	// 发送消息给服务器
 	try{
@@ -203,28 +244,30 @@ function testSocketConnected(){
 }
 function disconnect() {
 	console.log('disconnect');
-//	if (socket.readyState != 1) {
-////		return;
-//	}
+// if (socket.readyState != 1) {
+// // return;
+// }
 	
 	if (stompClient !== null && stompClient!="undefined") {
 		if(subscribe!=null && subscribe!="undefined")
 			subscribe.unsubscribe();
 		
 		stompClient.disconnect();
+		socket.close();
+        socket = null;
 		console.log('do disconnect');
 	}
 	connected = false;
-//	setConnected(false);
+// setConnected(false);
 
 	console.log("Disconnected");
 }
 
 function unsubscribe(){
-//	if(aabbcc == "undefined")
-//		console.log("yes");
-//	if(stompClient=="undefined" || stompClient==null )
-//		return;
+// if(aabbcc == "undefined")
+// console.log("yes");
+// if(stompClient=="undefined" || stompClient==null )
+// return;
 	try{
 	if (stompClient !== null) {
 		if(subscribe!=null && subscribe!="undefined")
@@ -241,6 +284,7 @@ function logout(){
 	localStorage.user = null;
 	user = null;
 	localStorage.token = null;
+	localStorage.routeList = null;
 	token = null;
 	userSpace = null;
 	window.location.href = "login.html";
@@ -264,25 +308,26 @@ function loginByUserPassWord(uname, pwd) {
 		// 在请求之前调用的函数
 		beforeSend : function() {
 			showLoading();
-//			hideLoading();
+// hideLoading();
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
 			console.log("登录成功返回： " + data);
-			if (data.status == "000"){//GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){// GlobalConsts.ResultCode_SUCCESS) {
 				// us = data.data;
 				userSpace = data.data.userSpace;
+				console.log("userSpace => "+JSON.stringify(userSpace));
 				user = userSpace.user;
 				token = userSpace.token;
-//				console.log("登录成功，用户名为： "+JSON.stringify(user)+" token="+token);
+// console.log("登录成功，用户名为： "+JSON.stringify(user)+" token="+token);
 				window.userSpace = userSpace;
 				localStorage.user = JSON.stringify(user);
-				//console.log("登录成功，userSpace=" + JSON.stringify(userSpace));
+				// console.log("登录成功，userSpace=" + JSON.stringify(userSpace));
 				localStorage.token = token;
-//				alert("login end. wait..");
+// alert("login end. wait..");
 			} else {
 				console.log("登录失败 ： " + data.msg);
-//				alert();
+// alert();
 				window.location.href="login.html"
 			}
 			hideLoading();
@@ -302,7 +347,7 @@ function loginByUserPassWord(uname, pwd) {
 }
 
 async function getUserSpace(uid, token, sucessFucn) {
-	//console.log("async function getUserSpace uid="+uid+"  token="+token);
+	// console.log("async function getUserSpace uid="+uid+" token="+token);
 	if(userSpace==null||userSpace=="undefined"){
 		
 	await $.ajax({
@@ -324,10 +369,11 @@ async function getUserSpace(uid, token, sucessFucn) {
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-//			 console.log("getUserSpace -> "+JSON.stringify(data));
-			if (data.status != "000"){//GlobalConsts.ResultCode_SUCCESS) { // 不成功
-//				alert(data.msg);
-//				console.log("getUserSpace-> "+data.msg);
+// console.log("getUserSpace -> "+JSON.stringify(data));
+			if (data.status != "000"){// GlobalConsts.ResultCode_SUCCESS) { //
+										// 不成功
+// alert(data.msg);
+// console.log("getUserSpace-> "+data.msg);
 				localStorage.user = null;
 				localStorage.token = null;
 				userSpace = null;
@@ -338,7 +384,7 @@ async function getUserSpace(uid, token, sucessFucn) {
 			if (userSpace == null || userSpace == "undefined") {
 				// console.log("getUserSpace -> set userSpace.");
 				userSpace = data.data.userSpace;
-//				console.log("userspace: "+JSON.stringify(data));
+// console.log("userspace: "+JSON.stringify(data));
 				// return userSpace;
 				window.userSpace = userSpace;
 			}
@@ -387,7 +433,8 @@ function checkRight(uid, token, loginPage,sucessPage) {
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status != "000"){//GlobalConsts.ResultCode_SUCCESS) { // 不成功
+			if (data.status != "000"){// GlobalConsts.ResultCode_SUCCESS) { //
+										// 不成功
 				// alert(data.msg);
 				localStorage.user = null;
 				localStorage.token = null;
@@ -399,8 +446,8 @@ function checkRight(uid, token, loginPage,sucessPage) {
 					console.log("checkright -> goto login.html");
 					window.location.href = "login.html";
 				
-//				if (loginPage != "login.html")
-//					window.location.href = loginPage;
+// if (loginPage != "login.html")
+// window.location.href = loginPage;
 			} else {
 				if(sucessPage!=null && sucessPage!="undefined")
 					window.location.href = sucessPage;
@@ -438,7 +485,7 @@ function _showLoading() {
 function hideLoading() {
 	var currentTime = Date.now();
 	var difference = currentTime - loadStartTime;
-	//console.log(difference);
+	// console.log(difference);
 	if (difference < 500)
 		loadStartTime = 0;
 	else {
@@ -451,8 +498,8 @@ function hideLoading() {
 	}
 }
 
-//addLoadListener(unsubscribe);
-//addLoadListener(disconnect);
+// addLoadListener(unsubscribe);
+// addLoadListener(disconnect);
 
 var departdata ;
 fillDepartmentData();
@@ -461,7 +508,7 @@ function fillDepartmentData() {
 		'uid' : 2,
 		'token' : token
 	};
-//	console.log("fdsfdsafdsa");
+// console.log("fdsfdsafdsa");
 	$.ajax({
 		// 提交数据的类型 POST
 		// GET
@@ -501,7 +548,7 @@ function fillDepartmentData() {
 			} else {
 				console.log("department => " + JSON.stringify(data));
 				console.log("department => " + "失败11 ： " + data.msg);
-//				alert("失败11 ： " + data.msg);
+// alert("失败11 ： " + data.msg);
 			}
 			hideLoading();
 		},

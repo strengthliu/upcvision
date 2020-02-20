@@ -36,37 +36,70 @@
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <script src="vendors/js/vendor.bundle.addons.js"></script>
 <script src="js/jquery.datetimepicker.full.js"></script>
+<script src="js/FileSaver.js"></script>
+<script>
+function save_Data2File(){
+	console.log("save_Data2File");
+	if(_data==null | _data=="undefined"||_data.length==0){
+		alert("当前还没有历史数据，请先查询后再执行导出操作。");
+		return;
+	}
+	var _exp = "";
+	console.log("0 -> "+JSON.stringify(_data));
+	var _dataIndex = new Array();
+	for(var indrow=0;indrow<_data.length;indrow++){
+		_dataIndex[_data[indrow][0]]= indrow;
+	}
 
+	var title = "";
+	title +='time';
+	for(var itind=0;itind<_data.length;itind++){
+		console.log(" 1 -> "+_data[itind]);
+		if(itind!=_dataIndex['time'])
+			title+= " \t ,"+(_data[itind][0]);
+	}
+	_exp+=title;
+	
+	for(var indtime=1;indtime<_data[_dataIndex['time']].length;indtime++){
+		var _row = "";
+		var _ti = new Date(_data[_dataIndex['time']][indtime]);
+		console.log(" 2 -> "+_data[_dataIndex['time']][indtime]);
+		_row+=_ti;
+		for(var itind1=0;itind1<_data.length;itind1++){
+			console.log(" 3 -> "+_data[itind1][indtime]+" ");
+			if(itind1!=_dataIndex['time'])
+				_row+=" \t ,"+(_data[itind1][indtime]);
+		}
+		_exp+=" \n "+_row;
+	}
+	console.log("_exp => "+_exp);
+	saveToFile("exportHistory.csv",_exp);
+//	saveToFile("exportHistory.csv",_data);
+}
+
+function saveToFile(fileName,code){
+    // if(isEmpty(code)) {
+    //     code = '';
+    // }
+
+    var file = new File([code], fileName, { type: "text/plain;charset=utf-8" });
+    saveAs(file);
+}
+
+var _data = [["time","2020-01-21T03:41:51.014Z","2020-01-21T03:41:52.003Z","2020-01-21T03:41:53.005Z","2020-01-21T03:41:54.014Z","2020-01-21T03:41:55.027Z","2020-01-21T03:41:56.004Z","2020-01-21T03:41:57.003Z","2020-01-21T03:41:58.003Z","2020-01-21T03:41:59.003Z"],["GT_LT14PI400177","50.974","50.974","50.974","50.974","50.974","50.974","50.974","50.974","50.974"],["GT_LT14PI400179","52.402","52.402","52.402","52.402","52.402","52.402","52.402","52.402","52.402"]];
+
+</script>
 
 <body>
-          <div class="row grid-margin">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Basic Table</h4>
-                  <p class="card-description">用户列表</p>
-                  <div id="userInfoList"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row grid-margin">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Basic Table</h4>
-                  <p class="card-description">A basic example of js-grid</p>
-                  <div id="js-grid"></div>
-                </div>
-              </div>
-            </div>
-          </div>
+<button id="aa" value='aaa'>aaaa</button></head>
+<script>
+var b = document.getElementById("aa");
+b.innerHTML = "ccc";
+</script>
+<button onclick="save_Data2File();">bbb</button>
   <!-- Custom js for this page-->
-  <script src="js/js-grid.js"></script>
-  <script src="js/db.js"></script>
   <!-- End custom js for this page-->
 
-<script src="js/userManage2.js"></script>
 <script src="js/form-validation.js"></script>
 <script src="js/bt-maxLength.js"></script>
 

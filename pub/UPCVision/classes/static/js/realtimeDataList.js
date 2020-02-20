@@ -306,7 +306,7 @@ function updateRealTimeDataListFrame(){
 						function(key) {
 							var _realtimeData = _realtimeDatas[key];
 							if(_realtimeData!=null && _realtimeData!="undefined"){
-								var realtimeDataList_ui_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">';
+								var realtimeDataList_ui_item_innerHTML = '<div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-12">';
 								realtimeDataList_ui_item_innerHTML += '<figure class="effect-text-in">';
 								realtimeDataList_ui_item_innerHTML += '<img src="'
 										+ _realtimeData.img + '" alt="image" ';
@@ -349,18 +349,17 @@ function updateRealTimeDataListFrame(){
 								realtimeDataList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 								// TODO: 判断权限
 								if(user.id == _realtimeData.creater || user.id == _realtimeData.owner || user.role == 1){
-									realtimeDataList_ui_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
-									realtimeDataList_ui_item_innerHTML += 'shareItemAction(\''+_realtimeData.id+'\')">Share</button>';
+									//diagram_gallery_item_innerHTML += '<i class="icon-people icon-md"><i class="icon-trash"></i><i class="icon-note"></i><i class="icon-share"></i>';
+									realtimeDataList_ui_item_innerHTML += '<i class="icon-people icon-md" onclick="';
+									realtimeDataList_ui_item_innerHTML += 'shareItemAction(\''+_realtimeData.id+'\')"></i>';
 								
-									realtimeDataList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
+									realtimeDataList_ui_item_innerHTML += '<i class="icon-trash icon-md" onclick="';
 									realtimeDataList_ui_item_innerHTML += 'deleteItemAction(\''+_realtimeData.id+'\')">';
-									realtimeDataList_ui_item_innerHTML += 'Delete';//'<i class="mdi mdi-delete"></i>';
-									realtimeDataList_ui_item_innerHTML += '</button>';
+									realtimeDataList_ui_item_innerHTML += '</i>';
 									
-									realtimeDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
+									realtimeDataList_ui_item_innerHTML += '<i class="icon-note icon-md" onclick="';
 									realtimeDataList_ui_item_innerHTML += 'editItemAction(\''+_realtimeData.id+'\')">';
-									realtimeDataList_ui_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
-									realtimeDataList_ui_item_innerHTML += '</button>';
+									realtimeDataList_ui_item_innerHTML += '</i>';
 								}
 
 								realtimeDataList_ui_item_innerHTML += '</div></figure></div>';

@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.upcsurpass</groupId>
 	<artifactId>upcvision</artifactId>
-	<version>0.9.1-SNAPSHOT</version>
+	<version>0.9.6-SNAPSHOT</version>
 	<name>upcvision</name>
 	<description>UPCVision project for Spring Boot</description>
 	<packaging>jar</packaging>
@@ -91,7 +91,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>2.9.9</version>
+			<version>2.9.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
 		<dependency>
@@ -125,8 +125,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-websocket</artifactId>
-
 		</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+         </dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
 		<dependency>
@@ -176,13 +179,8 @@
 			<artifactId>commons-lang</artifactId>
 			<version>2.6</version>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>com.surpass.realkits</groupId>
-			<artifactId>realkits</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		 -->
+		<!-- <dependency> <groupId>com.surpass.realkits</groupId> <artifactId>realkits</artifactId> 
+			<version>1.0.0</version> </dependency> -->
 		<dependency>
 			<groupId>com.sun.jna</groupId>
 			<artifactId>jna</artifactId>
@@ -211,7 +209,6 @@
 		<!-- <dependency> <groupId>com.alexkasko.unsafe</groupId> <artifactId>unsafe-tools</artifactId> 
 			<version>1.2</version> </dependency> -->
 	</dependencies>
-
 	<build>
 		<plugins>
 			<!-- <plugin> <groupId>org.asciidoctor</groupId> <artifactId>asciidoctor-maven-plugin</artifactId> 
@@ -252,24 +249,24 @@
 					</archive>
 				</configuration>
 			</plugin>
-			<!-- 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/lib</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<nonFilteredFileExtensions>
+			            <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+			            <nonFilteredFileExtension>woff</nonFilteredFileExtension>
+			            <nonFilteredFileExtension>woff2</nonFilteredFileExtension>
+			            <nonFilteredFileExtension>eot</nonFilteredFileExtension>
+			            <nonFilteredFileExtension>svg</nonFilteredFileExtension>
+					</nonFilteredFileExtensions>
+				</configuration>
 			</plugin>
- 			-->
+
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId> 
+				<executions> <execution> <id>copy</id> <phase>package</phase> <goals> <goal>copy-dependencies</goal> 
+				</goals> <configuration> <outputDirectory>${project.build.directory}/lib</outputDirectory> 
+				</configuration> </execution> </executions> </plugin> -->
 		</plugins>
 	</build>
 

@@ -629,14 +629,16 @@ public class GraphDataManager extends PointGroupDataManager {
 		}
 		else
 			pgd.setOtherrule5(g.getImg());
-		// 更新数据库
+		// 更新数据库，异步的。
 		pointGroupService.updatePointGroupItem(pgd);
-
+		// 在graphManager里更新repo
+		
+		// 这里copy一份可能会出错，因为前面是异步写数据库，这里copy里，还没有更新完成。
+		// Graph rtd = this.copyFromPointGroupData(pgd);
 		// 更新缓存
-		Graph rtd = this.copyFromPointGroupData(pgd);
-		redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(rtd.getId()), rtd);
+		redisService.set(GlobalConsts.Key_Graph_pre_ + IDTools.toString(g.getId()), g);
 
-		return rtd;
+		return g;
 	}
 
 	public boolean deleteGraph(Graph g) {

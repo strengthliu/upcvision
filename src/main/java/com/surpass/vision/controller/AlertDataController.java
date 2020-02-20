@@ -330,37 +330,20 @@ public class AlertDataController extends BaseController {
 		Double rtdId = Double.valueOf(id);
 		
 		// 取时间参数
-		String beginTimeStr = user.getString("beginTime");
-		String endTimeStr = user.getString("endTime");
-		Date beginTime = null;
-		Long _beginTime = null;
-		Date endTime = null;
-		Long _endTime = null;
+//		String beginTimeStr = user.getString("startTime");
+//		String endTimeStr = user.getString("endTime");
+//		Date beginTime = null;
+		Long _beginTime = user.getLong("startTime");
+//		Date endTime = null;
+		Long _endTime = user.getLong("endTime");
+		
+		if(_beginTime!=null)
+			_beginTime = TimeTools.parseSecond(_beginTime);
+		if(_endTime!=null)
+			_endTime = TimeTools.parseSecond(_endTime);
+		
 		try {
-			if(StringUtil.isBlank(beginTimeStr))
-				beginTime=null;
-			else {
-				beginTime = new Date(beginTimeStr);
-				_beginTime = TimeTools.parseSecond(beginTime.getTime());
-			}
-			
-			if(StringUtil.isBlank(endTimeStr))
-				endTime=null;
-			else {
-				endTime = new Date(endTimeStr);
-				_endTime = TimeTools.parseSecond(endTime.getTime());
-			}
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-			ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);
-			ret.setMsg("日期格式不正确");
-			return ret;
-		}
-		try {
-			
 			List<PointAlertData> rtd = alertDataManager.getAlertData(g, _beginTime, _endTime);
-			
 //			HistoryData rtd = historyDataManager.getHistoryData(rtdId);
 			if (rtd == null ) {
 				ret.setStatus(GlobalConsts.ResultCode_INVALIDATION);

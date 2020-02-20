@@ -38,7 +38,7 @@ import com.surpass.vision.service.RedisService;
 
 public class FileTool {
 	private static final Logger LOGGER = LoggerFactory.getLogger(FileTool.class);
-
+//	private static final 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		File f = new File(".");
@@ -425,6 +425,9 @@ public class FileTool {
 		FileList fl = new FileList();
 		fl.setOtherrule1(path); // 把完整路径保存在otherrule1中.
 		fl.setName(name);
+		if(StringUtil.isBlank(picurl)) {
+			picurl = ServerConfig.getInstance().getDefaultGraphImg();
+		}
 		if (file.isDirectory()) {
 			return null;
 		} else {

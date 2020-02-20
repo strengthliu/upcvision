@@ -316,7 +316,7 @@ function updateHistoryDataListFrame(){
 						function(key) {
 							var _historyData = _historyDatas[key];
 							if(_historyData!=null && _historyData!="undefined"){
-								var historyDataList_ui_item_innerHTML = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">';
+								var historyDataList_ui_item_innerHTML = '<div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-12">';
 								historyDataList_ui_item_innerHTML += '<figure class="effect-text-in">';
 								historyDataList_ui_item_innerHTML += '<img src="'
 										+ _historyData.img + '" alt="image" ';
@@ -359,18 +359,17 @@ function updateHistoryDataListFrame(){
 								historyDataList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 								// TODO: 判断权限
 								if(user.id == _historyData.creater || user.id == _historyData.owner || user.role == 1){
-									historyDataList_ui_item_innerHTML += '<button type="submit" class="btn btn-success btn-sm" onclick="';
-									historyDataList_ui_item_innerHTML += 'shareItemAction(\''+_historyData.id+'\')">Share</button>';
+									//diagram_gallery_item_innerHTML += '<i class="icon-people icon-md"><i class="icon-trash"></i><i class="icon-note"></i><i class="icon-share"></i>';
+									historyDataList_ui_item_innerHTML += '<i class="icon-people icon-md" onclick="';
+									historyDataList_ui_item_innerHTML += 'shareItemAction(\''+_historyData.id+'\')"></i>';
 								
-									historyDataList_ui_item_innerHTML += '<button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2" onclick="';
+									historyDataList_ui_item_innerHTML += '<i class="icon-trash icon-md" onclick="';
 									historyDataList_ui_item_innerHTML += 'deleteItemAction(\''+_historyData.id+'\')">';
-									historyDataList_ui_item_innerHTML += 'Delete';//'<i class="mdi mdi-delete"></i>';
-									historyDataList_ui_item_innerHTML += '</button>';
+									historyDataList_ui_item_innerHTML += '</i>';
 									
-									historyDataList_ui_item_innerHTML += '<button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2" onclick="';
+									historyDataList_ui_item_innerHTML += '<i class="icon-note icon-md" onclick="';
 									historyDataList_ui_item_innerHTML += 'editItemAction(\''+_historyData.id+'\')">';
-									historyDataList_ui_item_innerHTML += '<i class="mdi mdi-edit">Edit</i>';
-									historyDataList_ui_item_innerHTML += '</button>';
+									historyDataList_ui_item_innerHTML += '</i>';
 								}
 
 								historyDataList_ui_item_innerHTML += '</div></figure></div>';

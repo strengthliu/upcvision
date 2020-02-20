@@ -43,12 +43,157 @@
 	</div>
 </div>
  -->
- 		<div class="card-body">
-			<table class="table table-bordered" id="_datatableUI">
+<div class="card-body">
+
+	<div class="card">
+		<div class="card col-6">
+			<div class="template-demo">
+				<div id="value-range" class="ul-slider slider-success"></div>
+				<p class="mt-3">
+					刷新时间间隔: <span id="huge-value"></span>
+				</p>
+			</div>
+			<script>
+				if ($("#value-range").length) {
+					var bigValueSlider = document.getElementById('value-range'), bigValueSpan = document
+							.getElementById('huge-value');
+					noUiSlider.create(bigValueSlider, {
+						start : 4,
+						step : 1,
+						range : {
+							min : 0,
+							max : 10
+						}
+					});
+
+					var range = [ '1秒', '5秒', '10秒', '15秒', '20秒', '30秒',
+							'1分钟', '2分钟', '5分钟', '10分钟', '15分钟'];
+					var rangeT = [1,5,10,15,20,30,60,120,300,600,900];
+					bigValueSlider.noUiSlider.on('update', function(values,
+							handle) {
+						if (bigValueSpan.innerHTML == ""
+							|| bigValueSpan.innerHTML == "undefined"){
+							bigValueSpan.innerHTML = '15秒';
+							// setRefreshInterval(15*1000);
+						} else{
+							bigValueSpan.innerHTML = range[Math.round(values)];
+							setRefreshInterval(rangeT[Math.round(values)]*1000);
+						}
+						console.log(JSON.stringify(handle));
+					});
+
+					//	console.log("set _slider.");
+					_slider = bigValueSlider.noUiSlider;
+					// _slider.set(5.32);
+				}
+			</script>
+		</div>
+		<div class="card">
+			<div class="col-12">
+				<p>
+				<h3>实时报警数据：</h3>
+				</p>
+				<table class="table table-bordered" id="_datatableUI">
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card-body">
+	<div class="card col-12">
+		<p>
+		<h3>历史报警数据：</h3>
+		</p>
+		<div class="btn-group">
+			<div class='input-group date form_date col-md-2'>
+				<input name="startTm" id="datetimepicker1" type='text'
+					placeholder="开始时间" class="form-control input-sm"
+					readonly="readonly" /> <span class="input-group-addon input-sm">
+					<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+			</div>
+			<div class='input-group date form_date col-md-2'>
+				<input name="startTm" id="datetimepicker2" type='text'
+					placeholder="结束时间" class="form-control input-sm"
+					readonly="readonly" /> <span class="input-group-addon input-sm">
+					<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+			</div>
+			<div class="btn-toolbar">
+				<button type="button" class="btn btn-sm btn-outline-secondary"
+					onclick="_search();">
+					<i class="mdi mdi-search-web text-primary"></i> 查询
+				</button>
+			</div>
+
+			<script type="text/javascript">
+			
+				var _startTime_;
+				var _endTime_;
+				Date.prototype.Format = function (fmt) { //author: meizz
+					var o = {
+					"M+": this.getMonth() + 1, //月份
+					"d+": this.getDate(), //日
+					"h+": this.getHours(), //小时
+					"m+": this.getMinutes(), //分
+					"s+": this.getSeconds(), //秒
+					"q+": Math.floor((this.getMonth() + 3) / 3), //季度
+					"S": this.getMilliseconds() //毫秒
+					};
+					if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+					for (var k in o)
+					if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+					return fmt;
+					}
+				// console.log("aac -> "+new Date().getTime()+"  "+(new Date().getTime() -7200*1000));
+				_endTime_ = new Date();
+				_startTime_ = new Date(_endTime_.getTime() -7200*1000);
+				var startInitStr = _startTime_.Format("yyyy-MM-dd HH:mm:ss");
+				var endInitStr = new Date().Format("yyyy-MM-dd HH:mm:ss");
+				console.log("aac -> "+startInitStr +" "+endInitStr);
+				$('#datetimepicker1').datetimepicker({//初始化
+					language : 'zh-CN',
+					value:startInitStr,
+					//weekStart: 1,
+					//todayBtn:  1,
+					autoclose : 1,
+					step : 10,
+					//todayHighlight: 1,
+					//startView: 2,
+					//minView: 2,
+					//forceParse: 0,
+					//format: 'mm-dd hh:MM:ss',//格式化想要显示的时间格式
+					minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
+					onSelectTime : function(dateText, inst) {
+						_startTime_ = new Date(dateText).getTime();
+					}
+				});
+				$('#datetimepicker2').datetimepicker({//初始化
+					language : 'zh-CN',
+					value:endInitStr,
+					//weekStart: 1,
+					//todayBtn:  1,
+					autoclose : 1,
+					//todayHighlight: 1,
+					//startView: 2,
+					//minView: 2,
+					//forceParse: 0,
+					//format: 'yyyy-mm-dd',//格式化想要显示的时间格式
+					minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
+					onSelectTime : function(dateText, inst) {
+						_endTime_ = new Date(dateText).getTime();
+					}
+				});
+			</script>
+		</div>
+		<div class="col-12">
+			<table class="table table-bordered" id="_datatableUIHistory">
 			</table>
 		</div>
- 
- 
+	</div>
+</div>
+
+
 <!-- content-wrapper ends -->
 <!-- partial:../../partials/_footer.html -->
 <!-- partial -->
@@ -56,5 +201,5 @@
 
 <!-- partial -->
 <script src="js/sockjs.min.js"></script>
-<script src="js/stomp.min.js"></script>
+<script src="js/stomp.js"></script>
 <script src="js/alertDataChart.js"></script>

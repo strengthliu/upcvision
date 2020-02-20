@@ -14539,7 +14539,7 @@ input:focus {
         color: #09b76b; }
         .sidebar .nav .nav-item .nav-link i.menu-icon {
           margin-right: 1.25rem;
-          font-size: 1.2375rem;
+          font-size: 0.9375rem;
           line-height: 1; }
           .sidebar .nav .nav-item .nav-link i.menu-icon:before {
             vertical-align: middle; }
@@ -14559,7 +14559,7 @@ input:focus {
       .sidebar .nav .nav-item .nav-link .menu-title {
         color: inherit;
         display: inline-block;
-        font-size: 1.2125rem;
+        font-size: 0.8125rem;
         line-height: 1;
         vertical-align: middle; }
       .sidebar .nav .nav-item .nav-link .badge {
@@ -14824,7 +14824,7 @@ input:focus {
       align-items: center; }
       .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link {
         color: inherit;
-        font-size: 1.2375rem;
+        font-size: 0.9375rem;
         margin-left: 1rem;
         margin-right: 1rem; }
         @media (max-width: 767px) {
@@ -19650,7 +19650,7 @@ box-shadow:0px 3px 3px #c8c8c8 ;
     line-height: 1rem; }
   @media (max-width: 991px) {
     #settings-trigger {
-      display: none !important; } }
+       } }
 
 /* Timeline */
 .timeline {

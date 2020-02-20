@@ -6,12 +6,29 @@ var gl = new Array();
 var charts = new Object();
 var _alertDataDetailKey = _routeID;
 
+function setRefreshInterval(itime){
+	getAlertData();
+	if(intervalId !=null && intervalId!="undefined")
+		clearInterval(intervalId);
+	intervalId = setInterval(function () {
+		getAlertData();
+	}, itime);
+}
+setRefreshInterval(15*1000);
 console.log("_alertDataDetailKey: " + _alertDataDetailKey);
-getAlertData();
+getAlertData(_alertDataDetailKey,_startTime_,_endTime_);
+function _search(){
+	getAlertData(_alertDataDetailKey,_startTime_,_endTime_);
+}
 function getAlertData(id,startTime,endTime){
 	if(startTime=="undefined") startTime = null;
 	if(endTime=="undefined") endTime = null;
-	var data={'uid':uid,'token':token,'id':_alertDataDetailKey,'startTime':startTime,'endTime':endTime};
+	console.log("aac -> startTime="+startTime+" endTime="+endTime);
+	if(startTime!=null)
+		var data={'uid':uid,'token':token,'id':_alertDataDetailKey,'startTime':startTime.getTime(),'endTime':endTime.getTime()};
+	else
+		var data={'uid':uid,'token':token,'id':_alertDataDetailKey};
+		
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -32,8 +49,13 @@ function getAlertData(id,startTime,endTime){
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				var alertData = data.data.data;
 				console.log(JSON.stringify(alertData));
-				fillCdata(alertData);
-				refreshDataTable(cdata);
+				if(startTime!=null){
+					fillCdata(alertData);
+					refreshDataTable(cdata);
+				}else{
+					fillCdata(alertData);
+					refreshDataTableRealTime(cdata);
+				}
 			} else {
 				alert("失败 ： " + data.msg);
 			}
@@ -98,9 +120,67 @@ var cdata = new Array();
 var cdataCount = 10;
 
 //************************ 表格 *****************************
+function refreshDataTableRealTime(_cdata){
+	var _datatableUI = document.getElementById("_datatableUI");
+	_datatableUI.innerHTML = "";
+	var _thead = document.createElement("thead");
+	var _tbody = document.createElement("tbody");
+
+// console.log("refreshDataTable - _cdata "+JSON.stringify(_cdata));
+// alert();
+	for(var coli = 0;coli<_cdata.length;coli++){
+		var _tr = document.createElement("tr");  
+		for(var rowi = 0;rowi<_cdata[coli].length;rowi++){
+// console.log('fdsafdsa')
+			var _td = document.createElement("td"); 
+			var _value = _cdata[coli][rowi];
+			var _value = _cdata[coli][rowi];
+			switch(typeof _value){
+//			console.log(" typeof => "+typeof(_value));			
+			case 'number':
+				_td.innerText = (Math.round(_value * 1000)) / 1000+"";		
+				break;
+			case 'string':
+				_td.innerText += _cdata[coli][rowi];//_timeStr;
+//				if(rowi==0){
+//					var _rbox = document.createElement("input");
+//					_rbox.type="radio";
+//					_rbox.id="xray";
+//					_rbox.name="xray";
+//					_rbox.value=_cdata[coli][rowi];
+//					 if(x_axis === _cdata[coli][rowi])
+//						 _rbox.setAttribute("checked","checked"); 
+//					 _rbox.addEventListener("click",changex(cdata[coli][rowi]));
+//					        console.log(" = "+x_axis);
+//
+//					_td.prepend(_rbox);
+//				}
+				break;
+			default:
+				var _t = new Date(_cdata[coli][rowi]);
+				_td.innerText = _t.Format("hh:mm:ss");//_timeStr;					
+//				_td.innerText = _cdata[coli][rowi];//_timeStr;
+				break;
+			}
+//			_td.innerText = _cdata[coli][rowi];// _timeStr;
+
+			_tr.append(_td);
+		}
+
+		// console.log(" _cdata[coli] "+JSON.stringify(_cdata[coli]));
+		if(_cdata[coli][0]=="time"){
+			_thead.append(_tr);
+			_datatableUI.prepend(_thead);
+		}
+		else
+			_tbody.append(_tr);
+	}
+	_datatableUI.append(_tbody);
+
+}
 
 function refreshDataTable(_cdata){
-	var _datatableUI = document.getElementById("_datatableUI");
+	var _datatableUI = document.getElementById("_datatableUIHistory");
 	_datatableUI.innerHTML = "";
 	var _thead = document.createElement("thead");
 	var _tbody = document.createElement("tbody");

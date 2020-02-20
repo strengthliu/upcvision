@@ -19,9 +19,9 @@ function _setParameter(_shareType,_itemId){
 		shareURL = "shareRightXYGraph";
 		break;
 	case 'diagramList'.toLowerCase():
-//		_galleryKey = key;
-//		_routeID = key;
-//		_graphId = graphId;
+// _galleryKey = key;
+// _routeID = key;
+// _graphId = graphId;
 		console.log("diagramList 1");
 		dataItem = getGraphByID(userSpace.graph,itemId);
 		shareURL = "shareRightGraph";
@@ -51,13 +51,13 @@ function _setParameter(_shareType,_itemId){
 	$(function() {
 		var _depart = departdata;
 		// basic config
-		console.log("222-" + JSON.stringify(departdata));
+// console.log("222-" + JSON.stringify(departdata));
 		if ($("#shareItemToUser").length) {
 			$("#shareItemToUser").jsGrid({
 								height : "400px",
 								width : "100%",
 								filtering : true,
-								editing : false,
+								editing : true,
 								// inserting : true,
 								sorting : true,
 								paging : true,
@@ -86,7 +86,7 @@ function _setParameter(_shareType,_itemId){
 															})
 													.done(
 															function(response) {
-//																console.log("===> "+JSON.stringify(response));
+// console.log("===> "+JSON.stringify(response));
 																// 加载用户数据后，取当前的分享情况，修改显示数据。
 																var _userInfoList = response.data.users;
 																var sharedUsers;
@@ -98,23 +98,23 @@ function _setParameter(_shareType,_itemId){
 																	sharedUsers = [];
 																}
 																console.log("userInfoList="+JSON.stringify(userInfoList));
-//																if(dataItem!=null&&dataItem!="undefined")
-//																	console.log("dataItem.sharedUsers="+JSON.stringify(dataItem.sharedUsers));
+// if(dataItem!=null&&dataItem!="undefined")
+// console.log("dataItem.sharedUsers="+JSON.stringify(dataItem.sharedUsers));
 																// dataItem.sharedUsers=[]
 																var userInfoList = new Array();
 																Object.keys(_userInfoList).forEach(function(key){
 																	var _user = _userInfoList[key];
-//																	console.log("user="+JSON.stringify(_user));
+// console.log("user="+JSON.stringify(_user));
 																	var _sharedUser ;
 																	_sharedUser = sharedUsers.find(element => element.id==_user.id);
-//																	console.log("_sharedUser="+JSON.stringify(_sharedUser));
+// console.log("_sharedUser="+JSON.stringify(_sharedUser));
 																	// _sharedUser=undefined
 																	if(_sharedUser!=null && _sharedUser!="undefined"){
 																		_userInfoList[key]['shared']=true;
 																	}else{
 																		_userInfoList[key]['shared']=false;
 																	}
-//																	console.log("user="+JSON.stringify(_user));
+// console.log("user="+JSON.stringify(_user));
 																	// user={"id":2,"name":"admin","department":"1","shared":false}
 																	userInfoList.push(_user);
 																});
@@ -131,7 +131,7 @@ function _setParameter(_shareType,_itemId){
 																									.indexOf(filter.depart) > -1)
 																							&& (!filter.role || client.role === filter.role);
 																				});
-//																console.log("_userInfoList = "+JSON.stringify(_userInfoList));
+// console.log("_userInfoList = "+JSON.stringify(_userInfoList));
 
 																d
 																		.resolve(_userInfoList);
@@ -179,7 +179,7 @@ var _dialogType;
 								height : "400px",
 								width : "100%",
 								filtering : true,
-								editing : false,
+								editing : true,
 								// inserting : true,
 								deleting : false,
 								sorting : true,
@@ -251,7 +251,7 @@ var _dialogType;
 								fields : [
 										{
 											title : "是否分享",
-											editing : false,
+											editing : true,
 											type: "checkbox",
 											name : "shared",
 											width : 30
@@ -300,7 +300,7 @@ function updateShareToUser(item,dataItem) {
 		if(sharedDepartment!=null&& sharedDepartment!="undefined")
 		for(var ind=0;ind<sharedDepartment.length;ind++){
 			var sharedDepartmentItem = sharedDepartment[ind];
-//			if(sharedDepartmentItem.id != item.id)
+// if(sharedDepartmentItem.id != item.id)
 			departIds.push(sharedDepartmentItem.id);
 		}
 		data={'uid':uid,'token':token,'id':dataItemId,'userIds':userIds,'departIds':departIds};
@@ -311,12 +311,14 @@ function updateShareToUser(item,dataItem) {
 				url : shareURL,
 				data: JSON.stringify(data),
 				contentType : "application/json",
-				datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
+				datatype : "json",// "xml", "html", "script", "json", "jsonp",
+									// "text".
 				beforeSend : function() {
 					showLoading();
 				},
 				success : function(data) {
-					if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+					if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS)
+												// {
 						var ddd = data.data.data;
 						switch(shareType){
 						case 'xydiagramlist'.toLowerCase():
@@ -325,14 +327,15 @@ function updateShareToUser(item,dataItem) {
 						case 'diagramList'.toLowerCase():
 						case 'diagramList'.toLowerCase():
 							console.log("updateRight return -> "+JSON.stringify(ddd));
-//							console.log("updateRight userSpace.graph -> "+JSON.stringify(userSpace.graph));
+// console.log("updateRight userSpace.graph ->
+// "+JSON.stringify(userSpace.graph));
 							var _g = getGraphByID(userSpace.graph,ddd.id);
-//							console.log("target graph-> "+JSON.stringify(_g));
+// console.log("target graph-> "+JSON.stringify(_g));
 							_g.shared = ddd.shared;
 							_g.sharedUsers = ddd.sharedUsers;
 							_g.shareddepart = ddd.shareddepart;
 							_g.sharedDepartment = ddd.sharedDepartment;
-//							userSpace.graph[ddd.id]=ddd;
+// userSpace.graph[ddd.id]=ddd;
 							break;
 						case 'realtimedataList'.toLowerCase():
 							userSpace.realTimeData[ddd.id]=ddd;
@@ -369,7 +372,8 @@ function updateShareToDepart(item,dataItem) {
 	var value = item.shared;
 	console.log("updateShareToUser");
 	// 根据value，把item加入或减出dataItem
-//	console.log("updateShart -》 "+JSON.stringify(item)+"  value="+value+" dataItem-> "+JSON.stringify(dataItem));
+// console.log("updateShart -》 "+JSON.stringify(item)+" value="+value+"
+// dataItem-> "+JSON.stringify(dataItem));
 	var data;
 	var sharedUsers = dataItem.sharedUsers;
 	var sharedDepartment = dataItem.sharedDepartment;
@@ -397,7 +401,7 @@ function updateShareToDepart(item,dataItem) {
 		if(sharedUsers!=null&& sharedUsers!="undefined")
 		for(var ind=0;ind<sharedUsers.length;ind++){
 			var sharedUser = sharedUsers[ind];
-//			if(sharedDepartmentItem.id != item.id)
+// if(sharedDepartmentItem.id != item.id)
 			userIds.push(sharedUser.id);
 		}
 		data={'uid':uid,'token':token,'id':dataItemId,'userIds':userIds,'departIds':departIds};
@@ -407,12 +411,14 @@ function updateShareToDepart(item,dataItem) {
 				url : shareURL,
 				data: JSON.stringify(data),
 				contentType : "application/json",
-				datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
+				datatype : "json",// "xml", "html", "script", "json", "jsonp",
+									// "text".
 				beforeSend : function() {
 					showLoading();
 				},
 				success : function(data) {
-					if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+					if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS)
+												// {
 						console.log("server info : "+JSON.stringify(data.data.data));
 						var ddd = data.data.data;
 						
@@ -429,7 +435,7 @@ function updateShareToDepart(item,dataItem) {
 							_g.sharedUsers = ddd.sharedUsers;
 							_g.shareddepart = ddd.shareddepart;
 							_g.sharedDepartment = ddd.sharedDepartment;
-//							userSpace.graph[ddd.id]=ddd;
+// userSpace.graph[ddd.id]=ddd;
 							break;
 						case 'realtimedataList'.toLowerCase():
 							userSpace.realTimeData[ddd.id]=ddd;
@@ -463,20 +469,20 @@ function updateShareToDepart(item,dataItem) {
 
 }
 
-//function loadUsers() {
-//	console.log(0);
-//	selectedUsers = new Set();
-//	// 传入变量
-//	if (dataItemId == null || dataItemId == "undefined") {
-//		console.log(1);
-//		alert("请选择要分享的内容。");
-//		// return;
-//	} else {
-//		if (users == null || users == "undefined") {
-//			console.log(2);
-//			// getUserList(fillUserUI);
-//		} else {
-//			// fillUserUI(users);
-//		}
-//	}
-//}
+// function loadUsers() {
+// console.log(0);
+// selectedUsers = new Set();
+// // 传入变量
+// if (dataItemId == null || dataItemId == "undefined") {
+// console.log(1);
+// alert("请选择要分享的内容。");
+// // return;
+// } else {
+// if (users == null || users == "undefined") {
+// console.log(2);
+// // getUserList(fillUserUI);
+// } else {
+// // fillUserUI(users);
+// }
+// }
+// }

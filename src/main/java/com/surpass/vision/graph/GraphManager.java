@@ -123,9 +123,9 @@ public class GraphManager extends GraphDataManager {
 	 */
 	public void addOrUpdateGraphToTree(Graph g) {
 		// 如果库里有指定ID的这个图形，就更新
-		
+		repo.addOrUpdateChild(g);
 		// 否则就新增
-		repo.addChild(g);
+//		repo.addChild(g);
 	}
 
 	/****************************************************************************************
@@ -143,6 +143,8 @@ public class GraphManager extends GraphDataManager {
 		// 更新缓存
 		redisService.delete(GlobalConsts.Key_Graph_pre_ + IDTools.toString(g.getId()));
 
+		// 更新repo
+		repo.deleteChild(g);
 		return true;
 	}
 
@@ -169,11 +171,11 @@ public class GraphManager extends GraphDataManager {
 		if(g!=null) {
 			g.copyGraph(_g);
 		}
-		Graph g1 = this.getGraphByKeys(_g.getId());
-		
-//		Graph g = this.getGraphByPath(_g.getWholePath());
-//		Graph g = this.getgraphb.getGraphByKeys(_g.getId());
-		return super.updateGraph(_g);
+//		Graph g1 = this.getGraphByKeys(_g.getId());
+		// 更新repo
+		addOrUpdateGraphToTree(g);
+		Graph gt = super.updateGraph(_g);
+		return gt;
 	}
 	
 	public Graph getGraphByPath(String wholepath) {

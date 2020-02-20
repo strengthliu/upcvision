@@ -71,6 +71,12 @@
 					</div>
 				</div>
 
+				<button class="navbar-toggler navbar-toggler align-self-center"
+					type="button" data-toggle="tooltip" data-placement="bottom"
+					title="导出历史数据" onclick="save_Data2File();">
+					<span class="icon-cloud-download"></span>
+					
+				</button>
 
 
 
@@ -242,7 +248,15 @@
 				<i class="mdi mdi-settings"></i>
 			</div>
 			<div id="theme-settings" class="settings-panel">
-
+				<div class="modal-footer dialog-title">
+						<button class="btn btn-sm btn-outline-secondary"
+							onclick="loadDirectory();">
+							<i class="mdi icon-list ml-1">返回目录视图</i>
+						</button>
+						<button class="btn btn-sm btn-outline-secondary">
+							<i > </i>
+						</button>
+				</div>
 				<div id="drag_tool">
 					<div style="display:none;opacity: 0.5;" class="modal-footer">
 						<button class="btn btn-sm btn-outline-secondary"
@@ -335,6 +349,7 @@
 <!-- Dummy Modal Ends -->
 
 <script>
+console.log("=======================diagramShow页面加载了一次");
 	var graphPannelVisual = true;
 	function switchVisuale() {
 		var graphPannel = document.getElementById("graphPannel");
@@ -391,14 +406,31 @@
 			var g = getGraphByPath_1(userSpace.graph, _diagramShowKey);
 			if (g == null || g == "undefined" || g.id == null
 					|| g.id == "undefined") {
-				alert("您没有查看这个图形的权限。");
+				alert("您不能查看这个图形。");
 			} else {
 				_graphId = g.id;
 				_diagramShowKey = g.urlPath;
+				console.log("diagramShow ->  在diagramShow页面中，开始加载svg图形:"+_diagramShowKey);
+				console.log("diagramShow ->  在diagramShow页面中，开始加载svg图形:"+_diagramShowKey+" 转码后："+unicodeSpecialChar(_diagramShowKey));
+				
 				$("#_diagramShow").load(unicodeSpecialChar(_diagramShowKey),
 						null, changeAAction);
 			}
 		} else {
+			var g = getGraphByPath_1(userSpace.graph, _diagramShowKey);
+			console.log("g -> "+JSON.stringify(g));
+			console.log("111--- 在diagramShow页面中，开始加载svg图形:"+_diagramShowKey);
+			console.log("diagramShow ->  在diagramShow页面中，开始加载svg图形:"+_diagramShowKey+" 转码后："+unicodeSpecialChar(_diagramShowKey));
+			var nx = _diagramShowKey.substring(_diagramShowKey.length-4,_diagramShowKey.length);
+			console.log("---"+nx);
+			if(nx.toLowerCase()==".svg"){
+			}else{
+				_diagramShowKey = _diagramShowKey + ".svg";
+			}
+			if(g!=null&&g!="undefined")
+				$("#_diagramShow").load(unicodeSpecialChar(g.urlPath), null,
+						changeAAction);
+			else
 			$("#_diagramShow").load(unicodeSpecialChar(_diagramShowKey), null,
 					changeAAction);
 		}
@@ -408,6 +440,7 @@
 
 	// 页面加载完成后调用。在之前调用会导致不能正确获得对象。
 	function changeAAction() {
+		console.log("diagramShow ->  SVG加载完成，开始执行下面的内容");
 		var d = document.getElementById("_diagramShow");
 		var as = d.getElementsByTagName("a");
 		for (var i = 0; i < as.length; i++) {
@@ -417,16 +450,17 @@
 				var g = getGraphByPath_1(userSpace.graph, this.href.baseVal);
 				if (g == null || g == "undefined" || g.id == null
 						|| g.id == "undefined") {
-					alert("您没有查看这个图形的权限。");
+					alert("您不能查看这个图形。");
 				} else {
 					_graphId = g.id;
 					_diagramShowKey = g.urlPath;
 					console.log("从图里面点链接，图形地址是："+this.href.baseVal);
-					routeTo("diagramDetail", this.href.baseVal);
+					routeTo("diagramDetail", this.href.baseVal,_graphId);
 				}
 				return false;
 			};
 		}
+		console.log("diagramShow ->  SVG加载完成，点击事件已经被拦截，开始初始化图形显示。。");
 		initView();
 		fullScreen();
 	}
@@ -471,10 +505,12 @@
 </script>
 
 <!-- End custom js for this page-->
+
+<script src="./js/FileSaver.js"></script>
 <script src="./js/jquerySession.js"></script>
-<script src="js/bootstrap-datetimepicker.min.js"></script>
 
 <!-- 
+<script src="js/bootstrap-datetimepicker.min.js"></script>
 <script src="./js/light-gallery.js"></script>
 <script src="./js/xyRealTimeHistoryGraphChart.js"></script>
 <script src="vendors/lightgallery/js/lightgallery-all.min.js"></script>
