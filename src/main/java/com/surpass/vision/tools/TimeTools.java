@@ -19,7 +19,9 @@ public class TimeTools {
 	}
 	
 	public static void main(String[]args) {
-		Date dt = new Date(1578275040);
+		
+		Date dt = new Date(Long.valueOf("1582269052000"));
+		System.out.println(dt.toLocaleString());
 		long l = System.currentTimeMillis();
 		System.out.println(l);
 		l = parseSecond(l);

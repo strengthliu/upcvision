@@ -14519,7 +14519,7 @@ input:focus {
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease; }
   .sidebar .nav {
-    overflow: scroll;
+    overflow: hidden;
     flex-wrap: nowrap;
     flex-direction: column;
     padding-bottom: 100px; }
@@ -14648,7 +14648,9 @@ input:focus {
       background: #f6f6f6;
       color: #000; }
     .sidebar .nav.sub-menu {
-      margin-bottom: 0;
+    overflow: scroll;
+	margin-bottom: 0;
+	max-height:400px;
       padding: 0 0 0 4.25rem; }
       .sidebar .nav.sub-menu .nav-item {
         border-bottom: none; }
@@ -22574,7 +22576,7 @@ div.tagsinput {
 /*# sourceMappingURL=maps/style.css.map */
 
 
-@charset "gb2312";
+/*@charset "gb2312";*/
 .info-nr {
 	position:fixed;
     top:170px;

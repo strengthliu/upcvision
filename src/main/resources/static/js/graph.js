@@ -699,7 +699,7 @@ function refreshData(data) {
 
 	var ids = document.getElementsByTagName("text");
 	var _data_ = JSON.parse(data.body);
-	// console.log(JSON.stringify(_data));
+	console.log(JSON.stringify(pointKs));
 	Object.keys(_data_).forEach(function(key) {
 		if (key != "time") {
 			var ele = document.getElementById(key);

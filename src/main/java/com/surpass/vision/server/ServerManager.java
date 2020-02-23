@@ -470,7 +470,7 @@ public class ServerManager {
 		for(int ind=0;ind<pl.size();ind++) {
 			ph.put(pl.get(ind).getId(), pl.get(ind));
 			String lpszServerName = pl.get(ind).getServerName();
-			if(sps.contains(lpszServerName)) {
+			if(sps.containsKey(lpszServerName)) {
 				sps.get(lpszServerName).add(pl.get(ind).getId());
 			} else {
 				ArrayList<Long> il = new ArrayList<Long>();

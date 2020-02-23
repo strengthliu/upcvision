@@ -251,7 +251,7 @@ public class FileTool {
 //							if (tagName.contentEquals("81_3701_01_P02_C_out"))System.out.println();}
 							Point p = sm.getPointByID(serverName, tagName);
 							if (p != null) {
-								 LOGGER.info("检查点位："+tagName);
+//								 LOGGER.info("检查点位："+tagName);
 								// PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\LT_85_7301_10_L01B" PB:Type="7" PB:NumberFormat="0.00">
 								String isMultiState = eg.attr(GlobalConsts.GIsMultiState);// PB:IsMultiState
 								String _type = eg.attr(GlobalConsts.GType);// PB:Type
@@ -305,7 +305,7 @@ public class FileTool {
 												jo.put("LowerValue", LowerValue);
 												jo.put("UpperValue", UpperValue);
 											}
-											LOGGER.info(" 检查点规则： \t"+jo.toJSONString());
+//											LOGGER.info(" 检查点规则： \t"+jo.toJSONString());
 										}
 									}
 
