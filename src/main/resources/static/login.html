@@ -36,6 +36,14 @@
 	      loginByUserPassWord(uname,pwd);
 	}
 
+	$(document).keyup(function(e){
+		  var key = e.which;
+		  if(key==13){
+		    /*Do something. 调用一些方法*/
+		    login();
+		  }
+		});
+	
   </script>
 
 		<style type="text/css">

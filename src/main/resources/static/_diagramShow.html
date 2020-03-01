@@ -349,7 +349,7 @@
 <!-- Dummy Modal Ends -->
 
 <script>
-console.log("=======================diagramShow页面加载了一次");
+// console.log("=======================diagramShow页面加载了一次");
 	var graphPannelVisual = true;
 	function switchVisuale() {
 		var graphPannel = document.getElementById("graphPannel");
@@ -364,14 +364,14 @@ console.log("=======================diagramShow页面加载了一次");
 		if (path == null || path == "undefined")
 			return graph;
 		if(path.startsWith("..\\")||path.startsWith("../")){
-			console.log("getGraphByPath_1 0-> "+path);
+			// console.log("getGraphByPath_1 0-> "+path);
 			path = path.substring(3,path.length-1);
-			console.log("getGraphByPath_1 1-> "+path);
+			// console.log("getGraphByPath_1 1-> "+path);
 		}
 		if(path.startsWith("..\\..\\")||path.startsWith("../../")){
-			console.log("getGraphByPath_1 0-> "+path);
+			// console.log("getGraphByPath_1 0-> "+path);
 			path = path.substring(6,path.length-1);
-			console.log("getGraphByPath_1 1-> "+path);
+			// console.log("getGraphByPath_1 1-> "+path);
 		}
 		
 		//console.log("graph.wholePath="+graph.wholePath.toLowerCase()+"  ==  "+"path="+path.toLowerCase());
@@ -410,19 +410,19 @@ console.log("=======================diagramShow页面加载了一次");
 			} else {
 				_graphId = g.id;
 				_diagramShowKey = g.urlPath;
-				console.log("diagramShow ->  在diagramShow页面中，开始加载svg图形:"+_diagramShowKey);
-				console.log("diagramShow ->  在diagramShow页面中，开始加载svg图形:"+_diagramShowKey+" 转码后："+unicodeSpecialChar(_diagramShowKey));
+				// console.log("diagramShow ->  在diagramShow页面中，开始加载svg图形:"+_diagramShowKey);
+				// console.log("diagramShow ->  在diagramShow页面中，开始加载svg图形:"+_diagramShowKey+" 转码后："+unicodeSpecialChar(_diagramShowKey));
 				
 				$("#_diagramShow").load(unicodeSpecialChar(_diagramShowKey),
 						null, changeAAction);
 			}
 		} else {
 			var g = getGraphByPath_1(userSpace.graph, _diagramShowKey);
-			console.log("g -> "+JSON.stringify(g));
-			console.log("111--- 在diagramShow页面中，开始加载svg图形:"+_diagramShowKey);
-			console.log("diagramShow ->  在diagramShow页面中，开始加载svg图形:"+_diagramShowKey+" 转码后："+unicodeSpecialChar(_diagramShowKey));
+			// console.log("g -> "+JSON.stringify(g));
+			// console.log("111--- 在diagramShow页面中，开始加载svg图形:"+_diagramShowKey);
+			// console.log("diagramShow ->  在diagramShow页面中，开始加载svg图形:"+_diagramShowKey+" 转码后："+unicodeSpecialChar(_diagramShowKey));
 			var nx = _diagramShowKey.substring(_diagramShowKey.length-4,_diagramShowKey.length);
-			console.log("---"+nx);
+			// console.log("---"+nx);
 			if(nx.toLowerCase()==".svg"){
 			}else{
 				_diagramShowKey = _diagramShowKey + ".svg";
@@ -440,7 +440,7 @@ console.log("=======================diagramShow页面加载了一次");
 
 	// 页面加载完成后调用。在之前调用会导致不能正确获得对象。
 	function changeAAction() {
-		console.log("diagramShow ->  SVG加载完成，开始执行下面的内容");
+		// console.log("diagramShow ->  SVG加载完成，开始执行下面的内容");
 		var d = document.getElementById("_diagramShow");
 		var as = d.getElementsByTagName("a");
 		for (var i = 0; i < as.length; i++) {
@@ -454,15 +454,17 @@ console.log("=======================diagramShow页面加载了一次");
 				} else {
 					_graphId = g.id;
 					_diagramShowKey = g.urlPath;
-					console.log("从图里面点链接，图形地址是："+this.href.baseVal);
+					// console.log("从图里面点链接，图形地址是："+this.href.baseVal);
 					routeTo("diagramDetail", this.href.baseVal,_graphId);
 				}
 				return false;
 			};
 		}
-		console.log("diagramShow ->  SVG加载完成，点击事件已经被拦截，开始初始化图形显示。。");
+		// console.log("diagramShow ->  SVG加载完成，点击事件已经被拦截，开始初始化图形显示。。");
 		initView();
 		fullScreen();
+		buildPointKs();
+		addOnClickEvent();
 	}
 	var _slider;
 

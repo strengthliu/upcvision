@@ -2,7 +2,7 @@ package com.surpass.vision.domain;
 
 import java.io.Serializable;
 
-public class PointGroupData extends BaseDomain implements Serializable, Cloneable {
+public class PointGroupData  extends BaseDomain implements Serializable, Cloneable {
     private Double id;
 
     private String type;
@@ -14,6 +14,8 @@ public class PointGroupData extends BaseDomain implements Serializable, Cloneabl
     private String creater;
 
     private String shared;
+
+    private String shareddepart;
 
     private String points;
 
@@ -27,7 +29,15 @@ public class PointGroupData extends BaseDomain implements Serializable, Cloneabl
 
     private String otherrule5;
 
-    private String shareddepart;
+    private String otherrule6;
+
+    private String otherrule7;
+
+    private String otherrule8;
+
+    private String otherrule9;
+
+    private String otherrule10;
 
     public Double getId() {
         return id;
@@ -75,6 +85,14 @@ public class PointGroupData extends BaseDomain implements Serializable, Cloneabl
 
     public void setShared(String shared) {
         this.shared = shared == null ? null : shared.trim();
+    }
+
+    public String getShareddepart() {
+        return shareddepart;
+    }
+
+    public void setShareddepart(String shareddepart) {
+        this.shareddepart = shareddepart == null ? null : shareddepart.trim();
     }
 
     public String getPoints() {
@@ -125,12 +143,44 @@ public class PointGroupData extends BaseDomain implements Serializable, Cloneabl
         this.otherrule5 = otherrule5 == null ? null : otherrule5.trim();
     }
 
-    public String getShareddepart() {
-        return shareddepart;
+    public String getOtherrule6() {
+        return otherrule6;
     }
 
-    public void setShareddepart(String shareddepart) {
-        this.shareddepart = shareddepart == null ? null : shareddepart.trim();
+    public void setOtherrule6(String otherrule6) {
+        this.otherrule6 = otherrule6 == null ? null : otherrule6.trim();
+    }
+
+    public String getOtherrule7() {
+        return otherrule7;
+    }
+
+    public void setOtherrule7(String otherrule7) {
+        this.otherrule7 = otherrule7 == null ? null : otherrule7.trim();
+    }
+
+    public String getOtherrule8() {
+        return otherrule8;
+    }
+
+    public void setOtherrule8(String otherrule8) {
+        this.otherrule8 = otherrule8 == null ? null : otherrule8.trim();
+    }
+
+    public String getOtherrule9() {
+        return otherrule9;
+    }
+
+    public void setOtherrule9(String otherrule9) {
+        this.otherrule9 = otherrule9 == null ? null : otherrule9.trim();
+    }
+
+    public String getOtherrule10() {
+        return otherrule10;
+    }
+
+    public void setOtherrule10(String otherrule10) {
+        this.otherrule10 = otherrule10 == null ? null : otherrule10.trim();
     }
     
     @Override

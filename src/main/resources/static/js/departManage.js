@@ -64,10 +64,10 @@
 																success : function(
 																		data) {
 																	if (data.status == "000") { // GlobalConsts.ResultCode_SUCCESS)
-																		console
-																				.log("department => "
-																						+ JSON
-																								.stringify(data));
+																		// console
+																		// 		.log("department => "
+																		// 				+ JSON
+																		// 						.stringify(data));
 																	} else {
 																		alert("失败 ： "
 																				+ data.msg);

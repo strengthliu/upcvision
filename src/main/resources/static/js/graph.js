@@ -406,7 +406,7 @@ var _graph = getGraphByID(userSpace.graph, _graphId);
  * "enunit":"", "tagType":"", "values":null }, ... }
  */
 var pointKs;
-buildPointKs();
+var isAddOnclickFunc = false;
 /**
  * 构建当前图形的点位信息表
  * 
@@ -430,6 +430,9 @@ function buildPointKs() {
 			pointKs[pointTextIDs[ind]] = pointList[ind];
 		}
 }
+
+var multistatesObj = new Object();
+var bargraphsObj = new Object();
 
 /**
  * 获取当前状态的下指定标签的原始标签txtid
@@ -699,41 +702,137 @@ function refreshData(data) {
 
 	var ids = document.getElementsByTagName("text");
 	var _data_ = JSON.parse(data.body);
-	console.log(JSON.stringify(pointKs));
-	Object.keys(_data_).forEach(function(key) {
-		if (key != "time") {
-			var ele = document.getElementById(key);
-			if (ele != null && ele != "undefined") {
-				// 加事件
-				ele.onclick = function() {
-					// 添加进趋势图的换成点位说明。
-					var _tagname = getNewLabelForData(ele.getAttribute("id"));
-					_addPointToXY(_tagname);
-					// pointGroup中的值不变，还是txtid。
-					// TODO: ==================================================
-					// console.log("_tagname() -> "+_tagname);
-					// console.log("ele.getAttribute(\"id\") ->
-					// "+ele.getAttribute("id"));
-					// console.log("ele.getAttribute(\"id\") ->
-					// "+ele.getAttribute("id"));
-					addPointToXYGraph(_tagname);
-					// console.log("_data => "+JSON.stringify(_data,null,2));
-				}
-				// 画点图
-				// if(gl[p].config.id == "point_" + key){
-				// gl[p].refresh(pointList_[key]);
-				// }
-				// 画图形
-				ele.innerHTML = Math.round(_data_[key] * 10000) / 10000;
-				// 设置显示样式
-				ele.style.color = "#007800";
+	// console.log(_data_);
+	// console.log(pointKs);
+	Object
+			.keys(_data_)
+			.forEach(
+					function(key) {
+						if (key != "time") {
+							var ele = document.getElementById(key);
+							// 画图形,要移到外层
+							// var multistatesObj = new Object();
+							// var bargraphsObj = new Object();
+							if (multistatesObj[key] != null
+									& multistatesObj[key] != "undefined") {
+								console.log(" -> 刷新数据 ->添加一个点，text类型。");
+								// 小数点位数
+								var decimalCount = multistatesObj[key].pbnumberformat;
+								decimalCount = decimalCount.substr(decimalCount
+										.indexOf('.') + 1);
+								// console.log(" decimalCount=" + decimalCount
+								// + " decimalCount.length="
+								// + decimalCount.length);
+								ele.innerHTML = Math.round(_data_[key]
+										* decimalCount.length * 10)
+										/ (decimalCount.length * 10);
+								console.log("ele.style.fill=" + ele.style.fill);
+								if (ele.style.fill == "#000000")
+									ele.style.fill = "#007800";
+								// 设置显示样式
+								var multistates = multistatesObj[key].pbmsstates;
+								if (multistates != null
+										&& multistates != "undefined") {
+									// ele.style.color = "#007800";
+									// ele.style.backgroundColor = "red";
+									console.log("multistates[0].color="
+											+ multistates[0].color);
+									ele.style.fill = '#' + multistates[0].color;
+									for (var imultistates = 0; imultistates < multistates.length; imultistates++) {
+										if (_data_[key] != null
+												&& _data_[key] >= multistates[imultistates].lowervalue
+												&& _data_[key] <= multistates[imultistates].uppervalue) {
+											ele.style.fill = '#'
+													+ multistates[imultistates].color;
+										} else {
+										}
+									}
+								}
+								// ele.style.fill = "#007800";
 
-			} else {
-				console.log("no element named " + key);
-			}
-		}
-	});
+							} else if (bargraphsObj[key] != null
+									& bargraphsObj[key] != "undefined") {
+								// console.log(ele);
+								var brotherRect = ele.previousElementSibling;
+								if (brotherRect == null
+										|| brotherRect == "undefined") {
+									brotherRect = ele.nextElementSibling;
+								}
+								brotherRect.style.fill = brotherRect
+										.getAttribute('fill');
+								var rate = 0;
+								if (_data_[key] >= bargraphsObj[key].start) {
+									rate = bargraphsObj[key].upper
+											- bargraphsObj[key].start;
+								} else {
+									rate = bargraphsObj[key].start
+											- bargraphsObj[key].lower;
+								}
+								var start = bargraphsObj[key].start
+										/ (bargraphsObj[key].upper - bargraphsObj[key].lower);
 
+								switch (bargraphsObj[key].orientation) {
+								case '0':
+									rate = _data_[key] / rate;
+									var height = brotherRect
+											.getAttribute('height')
+											* rate;
+									ele.setAttribute('height', height);
+									var startHeight = brotherRect
+											.getAttribute('height')
+											* start;
+									start = eval(brotherRect.getAttribute('y'))
+											+ eval(brotherRect
+													.getAttribute('height'))
+											- startHeight;
+									// console.log("start = " + start
+									// + " brotherRect.getAttribute('y')="
+									// + brotherRect.getAttribute('y'));
+									if (_data_[key] >= bargraphsObj[key].start) {
+										ele.setAttribute('y', start - height);
+									} else {
+										ele.setAttribute('y', start);
+									}
+									// console.log(ele);
+
+									break;
+								case '1':
+									rate = _data_[key] / rate;
+									var width = brotherRect
+											.getAttribute('width')
+											* rate;
+									ele.setAttribute('width', width);
+									var startwidth = brotherRect
+											.getAttribute('width')
+											* start;
+									start = eval(brotherRect.getAttribute('x'))
+											+ eval(brotherRect
+													.getAttribute('width'))
+											- startwidth;
+									// console.log("start = " + start
+									// + " brotherRect.getAttribute('y')="
+									// + brotherRect.getAttribute('y'));
+									if (_data_[key] >= bargraphsObj[key].start) {
+										ele.setAttribute('x', start - width);
+									} else {
+										ele.setAttribute('x', start);
+									}
+									// console.log(ele);
+									break;
+								}
+
+							} else {
+								if (ele != null && ele != "undefined") {
+									ele.innerHTML = Math
+											.round(_data_[key] * 10000) / 10000;
+									// ele.style.fill = "#007800";
+									// console.log("aa");
+								} else {
+									// console.log("不存在点：" + key);
+								}
+							}
+						}
+					});
 	if (currentPlayStatus) {
 		// 刷新线图
 		// _forward(data.body);
@@ -741,6 +840,105 @@ function refreshData(data) {
 		// 刷新表格
 		// refreshDataTable(cdata);
 	}
+}
+function addOnClickEvent() {
+	var _data_ = pointKs;
+	Object
+			.keys(_data_)
+			.forEach(
+					function(key) {
+						if (key != "time") {
+							var ele = document.getElementById(key);
+							if (!isAddOnclickFunc && ele != null
+									&& ele != "undefined") {
+								if (ele.parentNode != null
+										&& ele.parentNode != "undefined") {
+									var _gNode = ele.parentNode;
+									var ismultistate = _gNode
+											.getAttribute("pb:ismultistate");
+									console.log(ele);
+									console.log();
+									if (ismultistate != null
+											&& ismultistate != "undefined"
+											&& ele.nodeName == "text") {
+										var pbtype = _gNode
+												.getAttribute('pb:type');
+										var pbnumberformat = _gNode
+												.getAttribute('pb:numberformat');
+										if (eval(ismultistate.toLowerCase())) {
+											var multistate = ele
+													.getElementsByTagName("pb:multistate");
+											if (multistate != null
+													&& multistate != "undefined"
+													&& multistate.length > 0) {
+												var pbmsstates = new Array();
+												var states = multistate[0]
+														.getElementsByTagName("pb:msstate");
+												if (states != null
+														&& states != "undefined") {
+													for (var i = 0; i < states.length; i++) {
+														var state = new Object();
+														state['blink'] = states[i]
+																.getAttribute('blink');
+														state['color'] = states[i]
+																.getAttribute('color');
+														state['lowervalue'] = states[i]
+																.getAttribute('lowervalue');
+														state['uppervalue'] = states[i]
+																.getAttribute('uppervalue');
+														pbmsstates.push(state);
+													}
+												}
+											}
+										}
+										var pointMultistate = new Object();
+										pointMultistate['id'] = key;
+										pointMultistate['pbtype'] = pbtype;
+										pointMultistate['pbnumberformat'] = pbnumberformat;
+										pointMultistate['pbmsstates'] = pbmsstates;
+										// console.log(pointMultistate);
+										multistatesObj[key] = pointMultistate;
+									} else if (_gNode.getAttribute('pb:type') != null
+											&& _gNode.getAttribute('pb:type') != "undefined") {
+										// 找父g，找Orientation
+										// bargraphsObj
+										var state = new Object();
+										state['type'] = _gNode
+												.getAttribute('pb:type');
+										state['lower'] = _gNode
+												.getAttribute('pb:lower');
+										state['orientation'] = _gNode
+												.getAttribute('pb:orientation');
+										state['canonicalnumberformat'] = _gNode
+												.getAttribute('pb:canonicalnumberformat');
+										state['start'] = _gNode
+												.getAttribute('pb:start');
+										state['upper'] = _gNode
+												.getAttribute('pb:upper');
+										bargraphsObj[key] = state;
+										// console.log(_gNode);
+										// console.log(state);
+										// console.log(bargraphsObj);
+									}
+
+									if (ele.onclick == null
+											|| ele.onclick == "undefined") {
+										ele.onclick = function() { // 加事件
+											// 添加进趋势图的换成点位说明。
+											var _tagname = getNewLabelForData(ele
+													.getAttribute("id"));
+											_addPointToXY(_tagname);
+											addPointToXYGraph(_tagname);
+										}
+									}
+								} else {
+									console.log("no element named " + key);
+								}
+							}
+						}
+					});
+	console.log(multistatesObj);
+	console.log(bargraphsObj);
 }
 
 /**

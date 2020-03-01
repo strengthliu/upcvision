@@ -24,7 +24,7 @@ function doUpdateDiagram(userSpace) {
 	// console.log(JSON.stringify(userSpace));
 	/* 刷新流程图目录结构 */
 	var diagrams = userSpace.graph.children;
-	console.log("diagrams = " + JSON.stringify(diagrams))
+	// console.log("diagrams = " + JSON.stringify(diagrams))
 	if (diagrams == null || diagrams == "undefined")
 		diagrams = {};
 	var uiDiagram = document.getElementById("ui-diagram");
@@ -75,21 +75,24 @@ function buildTree(diagrams, level) {
 				name = diagram.name;
 			var badgeClass = badgeClassArray[level];
 			if (diagram.file) { // 文件
-				if(diagram.name=='main'||diagram.name=='index'){
-					
+				if (diagram.name == 'main' || diagram.name == 'index') {
+
 				}
 				item = '<li onclick="routeTo(' + "'diagramDetail','"
 						+ diagram.urlPath + "','" + diagram.id + "');"
 						+ '"><span class="badge '
 						+ '" style="padding-left:10px;"><i class=""></i>'
-						+ name + '</span> ' + '<i  id="diagramDetail'+diagram.urlPath+diagram.id+'" class=""></i>' + '</li>';
+						+ name + '</span> ' + '<i  id="diagramDetail'
+						+ diagram.urlPath + diagram.id + '" class=""></i>'
+						+ '</li>';
 			} else { // 目录
 				item = '<li>'
 						+ '<img src="images/minus.png" style="margin-left:-20px; position:relative; z-index:999; top:0;">'
 						+ '<span class="badge ' + badgeClass
 						+ '" onclick="routeTo(\'diagramList\',\'' + diagram.id
-						+ "','" + diagram.id + '\');" >'  + '<i class=""></i>'
-						+ name + '</span> <i id="diagramList'+ diagram.id + diagram.id +'" class=""></i>';
+						+ "','" + diagram.id + '\');" >' + '<i class=""></i>'
+						+ name + '</span> <i id="diagramList' + diagram.id
+						+ diagram.id + '" class=""></i>';
 				item += '<ul >';
 				var _itemHtml = buildTree(diagram.children, level + 1);
 				item = item + _itemHtml + "</ul></li>";
@@ -260,7 +263,6 @@ function doUpdateAlertData(userSpace) {
 		uialertdata.innerHTML = itemsHtml;// "<ul></ul>";
 		// // console.log(uialertdata.innerHTML);
 	}
-
 }
 
 /* 刷新历史数据结构 */

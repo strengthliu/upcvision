@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.surpass.vision.server.Point;
+import com.surpass.vision.server.pb.PointDisplayRule;
 import com.surpass.vision.tools.IDTools;
 
 /**---------------------------------------
@@ -50,6 +51,17 @@ public class PointGroup extends PointGroupData implements Serializable,Cloneable
 	// 点位信息
 	List<Point> pointList;
 	
+	// 图形上的显示格式。
+	List<PointDisplayRule> pointDisplayRuleList;
+	
+	public List<PointDisplayRule> getPointDisplayRuleList() {
+		return pointDisplayRuleList;
+	}
+
+	public void setPointDisplayRuleList(List<PointDisplayRule> pointDisplayRuleList) {
+		this.pointDisplayRuleList = pointDisplayRuleList;
+	}
+
 	/**
 	 * 在图形上，点位所显示的那个text的ID
 	 * ---------------------------------------

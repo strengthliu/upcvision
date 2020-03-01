@@ -51,10 +51,11 @@ function deleteItemAction(itemId) {
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			hideLoading();
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				var realTimeDataId = data.data.data;
 				fixLocalRealTimeDataList_Delete(realTimeDataId);
-				if(data.refresh) routeTo('realtimedataList','');
+				// if(data.refresh) routeTo('realtimedataList','');
 				// 
 			} else {
 				alert("失败 ： "+data.msg);
@@ -99,7 +100,7 @@ function doShareActionToServer(){
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				var realTimeData = data.data.data;
 				userSpace.realTimeData[realTimeData.id]=realTimeData;
@@ -137,7 +138,7 @@ function doShareActionToServer(){
 var dataItemId;
 function shareItemAction(itemId) {
 	dataItemId = itemId;
-	shareType = _routeType;//"realTimeData";
+	shareType = _routeType;// "realTimeData";
 	setParameter(shareType,itemId);
 	$('#shareItemAction_mid').modal('show');
 }
@@ -152,16 +153,17 @@ function shareItemAction(itemId) {
  */
 function submitNewDataItem(selectedPoints,targetName,targetDesc){
 
-	console.log("realtimedata.js => submitNewDataItem 1 "+targetName +"  "+targetDesc);
+	// console.log("realtimedata.js => submitNewDataItem 1 "+targetName +"
+	// "+targetDesc);
 	var selectPointArray = new Array();
 	var i__ = 0;
 	for (let e of selectedPoints) {
-//		console.log("  "+JSON.stringify(e));
+// console.log(" "+JSON.stringify(e));
 		selectPointArray[i__] = e;
 		i__++;
 		}
 
-	console.log("realtimedata.js => submitNewDataItem 2");
+	// console.log("realtimedata.js => submitNewDataItem 2");
 	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -180,9 +182,9 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
-				console.log("realtimedata.js => submitNewDataItem 3");
+				// console.log("realtimedata.js => submitNewDataItem 3");
 				var realTimeData = data.data.data;
 				$('#newItemAction_mid').modal('hide');
 				fixLocalRealTimeDataList(realTimeData);
@@ -198,7 +200,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		complete : function(XMLHttpRequest, textStatus) {
 			// alert(XMLHttpRequest.responseText);
 			// alert(textStatus);
-			console.log("realtimedata.js => submitNewDataItem 4");
+			// console.log("realtimedata.js => submitNewDataItem 4");
 			hideLoading();
 		
 		},
@@ -212,7 +214,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 			/* 弹出其他两个参数的信息 */
 			// alert(textStatus);
 			// alert(errorThrown);
-			console.log("realtimedata.js => submitNewDataItem 5");
+			// console.log("realtimedata.js => submitNewDataItem 5");
 			hideLoading();
 		}
 	});
@@ -280,7 +282,7 @@ function fixLocalRealTimeDataList(realTimeData){
 updateRealTimeDataListFrame();
 
 function updateRealTimeDataListFrame(){
-	console.log("_realtimedataListKey = " + _realtimedataListKey);
+	// console.log("_realtimedataListKey = " + _realtimedataListKey);
 	var _realtimeDatas;
 	// TODO: 如果key为空，就是异常，待处理。
 	if (_realtimedataListKey == null || _realtimedataListKey == "undefined")
@@ -297,7 +299,7 @@ function updateRealTimeDataListFrame(){
 	// 如果当前主页面不是实时数据这页，就不刷新了
 	var realtimeDataList_ui = document.getElementById("realtimeDataList_ui");
 	if(realtimeDataList_ui==null || realtimeDataList_ui=="undefined") return;
-	//console.log("_realtimeDatas: "+JSON.stringify(_realtimeDatas));
+	// console.log("_realtimeDatas: "+JSON.stringify(_realtimeDatas));
 	var realtimeDataList_ui_innerHTML = "";
 	if (_realtimeDatas != null && _realtimeDatas != "undefined") {
 		Object
@@ -349,12 +351,16 @@ function updateRealTimeDataListFrame(){
 								realtimeDataList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 								// TODO: 判断权限
 								if(user.id == _realtimeData.creater || user.id == _realtimeData.owner || user.role == 1){
-									//diagram_gallery_item_innerHTML += '<i class="icon-people icon-md"><i class="icon-trash"></i><i class="icon-note"></i><i class="icon-share"></i>';
+									// diagram_gallery_item_innerHTML += '<i
+									// class="icon-people icon-md"><i
+									// class="icon-trash"></i><i
+									// class="icon-note"></i><i
+									// class="icon-share"></i>';
 									realtimeDataList_ui_item_innerHTML += '<i class="icon-people icon-md" onclick="';
 									realtimeDataList_ui_item_innerHTML += 'shareItemAction(\''+_realtimeData.id+'\')"></i>';
 								
-									realtimeDataList_ui_item_innerHTML += '<i class="icon-trash icon-md" onclick="';
-									realtimeDataList_ui_item_innerHTML += 'deleteItemAction(\''+_realtimeData.id+'\')">';
+									realtimeDataList_ui_item_innerHTML += '<i class="icon-trash icon-md" data-toggle="modal" data-target="#exampleModal-3"';
+									realtimeDataList_ui_item_innerHTML += ' data-whatever=\''+_realtimeData.id+'\'>';
 									realtimeDataList_ui_item_innerHTML += '</i>';
 									
 									realtimeDataList_ui_item_innerHTML += '<i class="icon-note icon-md" onclick="';

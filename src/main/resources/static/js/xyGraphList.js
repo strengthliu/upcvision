@@ -10,18 +10,18 @@ function newItemAction() {
 	if(user.id == 2 || user.role <= 2){
 	// alert("xyGraphList.newItemAction");
 		$('#newItemAction_mid').modal('show');
-//		init();
+// init();
 	}else {
 		alert("您没有权限进行新建操作。");
 	}
 }
 
-console.log("userSpace in XYGraphList -> "+JSON.stringify(userSpace));
-//_routeType = diagram;
-//_routeID = key;
+// console.log("userSpace in XYGraphList -> "+JSON.stringify(userSpace));
+// _routeType = diagram;
+// _routeID = key;
 
 var itemID = _routeID;
-var actionType = _routeType;//"xyGraph";
+var actionType = _routeType;// "xyGraph";
 
 function editItemAction(itemId) {
 	// console.log(itemId);
@@ -55,10 +55,10 @@ function deleteItemAction(itemId) {
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				var xyGraphId = data.data.data;
 				fixLocalXYGraphList_Delete(xyGraphId);
-//				if(data.refresh) routeTo('xygraphList','');
+				// if(data.refresh) routeTo('xygraphList','');
 				// 
 			} else {
 				alert("失败 ： "+data.msg);
@@ -79,10 +79,10 @@ function deleteItemAction(itemId) {
 
 }
 
-//function updateShareToDepart(item) {
-//	console.log("updateShart");
-//	$("#shareItemToDepart").jsGrid("loadData", item);
-//}
+// function updateShareToDepart(item) {
+// console.log("updateShart");
+// $("#shareItemToDepart").jsGrid("loadData", item);
+// }
 
 function doShareActionToServer(){
 	if (user == null || user == "undefined") {
@@ -90,7 +90,8 @@ function doShareActionToServer(){
 		uid = user.id;
 		token = localStorage.token;
 	}
-//	console.log("dataItemId="+dataItemId+"  user:"+JSON.stringify(Array.from(selectedUsers)));
+// console.log("dataItemId="+dataItemId+"
+// user:"+JSON.stringify(Array.from(selectedUsers)));
 	var data={'uid':uid,'token':token,'id':dataItemId,'userIds':Array.from(selectedUsers),'type':"xyGraph",departIds:''};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -108,7 +109,7 @@ function doShareActionToServer(){
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				var xyGraph = data.data.data;
 				userSpace.xyGraph[xyGraph.id]=xyGraph;
@@ -132,12 +133,12 @@ function doShareActionToServer(){
 
 var dataItemId;
 function shareItemAction(itemId) {
-//	console.log("shareItemAction: "+itemId);
+// console.log("shareItemAction: "+itemId);
 	dataItemId = itemId;
-	shareType = _routeType;//"xyGraph";
+	shareType = _routeType;// "xyGraph";
 	setParameter(shareType,itemId);
 	$('#shareItemAction_mid').modal('show');
-//	loadUsers();
+// loadUsers();
 }
 /**
  * 添加一个实时数据
@@ -175,7 +176,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc,xray){
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				var xyGraph = data.data.data;
 				$('#newItemAction_mid').modal('hide');
 				fixLocalXYGraphList(xyGraph);
@@ -325,12 +326,16 @@ function updateXYGraphListFrame(){
 								xyGraphList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 								// TODO: 判断权限
 								if(user.id == _xyGraph_Data.creater || user.id == _xyGraph_Data.owner || user.role == 1){
-									//diagram_gallery_item_innerHTML += '<i class="icon-people icon-md"><i class="icon-trash"></i><i class="icon-note"></i><i class="icon-share"></i>';
+									// diagram_gallery_item_innerHTML += '<i
+									// class="icon-people icon-md"><i
+									// class="icon-trash"></i><i
+									// class="icon-note"></i><i
+									// class="icon-share"></i>';
 									xyGraphList_ui_item_innerHTML += '<i class="icon-people icon-md" onclick="';
 									xyGraphList_ui_item_innerHTML += 'shareItemAction(\''+_xyGraph_Data.id+'\')"></i>';
 								
-									xyGraphList_ui_item_innerHTML += '<i class="icon-trash icon-md" onclick="';
-									xyGraphList_ui_item_innerHTML += 'deleteItemAction(\''+_xyGraph_Data.id+'\')">';
+									xyGraphList_ui_item_innerHTML += '<i class="icon-trash icon-md" data-toggle="modal" data-target="#exampleModal-3"';
+									xyGraphList_ui_item_innerHTML += ' data-whatever=\''+_xyGraph_Data.id+'\'>';
 									xyGraphList_ui_item_innerHTML += '</i>';
 									
 									xyGraphList_ui_item_innerHTML += '<i class="icon-note icon-md" onclick="';

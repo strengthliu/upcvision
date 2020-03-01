@@ -86,6 +86,7 @@ public final class GlobalConsts {
 	public static final String GIsMultiState = "PB:IsMultiState";
 	public static final String GType = "PB:Type";
 	public static final String GNumberFormat = "PB:NumberFormat";
+	public static final String PBDProperty = "PBD:Property";
 
 	public static final String GraphElement = "svg";
 	public static final String ScriptElement = "script";

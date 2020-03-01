@@ -15,7 +15,7 @@ function setRefreshInterval(itime) {
 	}, itime);
 }
 setRefreshInterval(15 * 1000);
-console.log("_alertDataDetailKey: " + _alertDataDetailKey);
+// console.log("_alertDataDetailKey: " + _alertDataDetailKey);
 getAlertData(_alertDataDetailKey, _startTime_, _endTime_);
 function _search() {
 	getAlertData(_alertDataDetailKey, _startTime_, _endTime_);
@@ -25,7 +25,7 @@ function getAlertData(id, startTime, endTime) {
 		startTime = null;
 	if (endTime == "undefined")
 		endTime = null;
-	console.log("aac -> startTime=" + startTime + " endTime=" + endTime);
+	// console.log("aac -> startTime=" + startTime + " endTime=" + endTime);
 	if (startTime != null)
 		var data = {
 			'uid' : uid,
@@ -58,9 +58,9 @@ function getAlertData(id, startTime, endTime) {
 		// 成功返回之后调用的函数
 		success : function(data) {
 			if (data.status == "000") { // GlobalConsts.ResultCode_SUCCESS) {
-				console.log("server info : " + JSON.stringify(data.data.data));
+				// console.log("server info : " + JSON.stringify(data.data.data));
 				var alertData = data.data.data;
-				console.log(JSON.stringify(alertData));
+				// console.log(JSON.stringify(alertData));
 				if (startTime != null) {
 					fillCdata(alertData);
 					refreshDataTable(cdata);
@@ -99,7 +99,7 @@ function getAlertData(id, startTime, endTime) {
 
 function fillCdata(alertData) {
 	// alertData = JSON.parse(alertData);
-	console.log(alertData);
+	// console.log(alertData);
 	cdata = new Array();
 	var ser = [ '序号', '位号', '报警实值', '报警类型', '服务器名', '报警开始时间', '连续报警时间', '高报警线',
 			'低报警线', '高高报警线', '低低报警线' ];
@@ -159,7 +159,7 @@ function refreshDataTableRealTime(_cdata) {
 	var _thead = document.createElement("thead");
 	var _tbody = document.createElement("tbody");
 
-	console.log("refreshDataTable - _cdata " + JSON.stringify(_cdata));
+	// console.log("refreshDataTable - _cdata " + JSON.stringify(_cdata));
 	// alert();
 	for (var coli = 0; coli < _cdata.length; coli++) {
 		var _tr = document.createElement("tr");
@@ -389,7 +389,7 @@ function loginWebsocket() {
 		connect();
 		return;
 	} else {
-		console.log("当前存在");
+		// console.log("当前存在");
 		if (subscribe != null && subscribe != "undefined")
 			subscribe.unsubscribe();
 		stompClient.send("/app/aaa", {
@@ -519,7 +519,7 @@ function newItemAction() {
 function updateAlertDataChart(ruserSpace) {
 	var pointGroup = ruserSpace.alertData[_alertDataDetailKey];
 	var uialertDataPoints = document.getElementById("ui-alertDataPoints");
-	console.log(" updateAlertDataChart => " + JSON.stringify(pointGroup));
+	// console.log(" updateAlertDataChart => " + JSON.stringify(pointGroup));
 	if (pointGroup == null || pointGroup == "undefined")
 		return;
 	var pointList = pointGroup.pointList;
@@ -538,10 +538,10 @@ function updateAlertDataChart(ruserSpace) {
 		}
 	}
 	uialertDataPoints.innerHTML = innerHtml;
-	console.log(uialertDataPoints.innerHTML);
+	// console.log(uialertDataPoints.innerHTML);
 
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		console.log();
+		// console.log();
 		// 对象加一条
 		var gt = new JustGage({
 			id : "point_" + pointList[indpl].tagName,

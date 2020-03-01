@@ -256,11 +256,10 @@
 				return;
 			}
 			targetName = document.getElementById("_targetNameUI").value;
-			if (targetName)
-				if (targetName.length < 1) {
-					alert("给我取个名字吧，要不就找不到我了。");
-					return;
-				}
+			if (targetName==null || (targetName.length < 1)) {
+				alert("请填写一个组名称。");
+				return;
+			}
 			targetDesc = document.getElementById("targetDesc").value;
 			if(xray=="undefined") xray=null;
 			submitNewDataItem(selectedPoints, targetName, targetDesc, xray);

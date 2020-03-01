@@ -319,7 +319,7 @@ function newDataItem_leftboxitemcheck(elemId,editAction) {
 	// alert("check "+ elemId);
 	var newItem_pointlistleft = document.getElementById("newItem_pointlistleft");
 	var newItem_pointlistright = document.getElementById("newItem_pointlistright");
-	console.log(" elemId="+elemId);
+	// console.log(" elemId="+elemId);
 	// 找出目标
 	var targetCheck = document.getElementById("check"+elemId);
 	if(targetCheck!=null && targetCheck!="undefined"){

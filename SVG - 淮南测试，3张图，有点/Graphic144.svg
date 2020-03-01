@@ -1360,9 +1360,9 @@
     <rect x="720" y="21980" width="4800" height="1260" stroke-width="0" fill="none" id="TEXT4630_pbTextBoundingRectEl" />
     <text fill="#000000" font-family="Helvetica" font-size="560" text-anchor="middle" x="3120" y="22890" id="TEXT4630_pbTextEl">4000m3液氮储罐</text>
   </g>
-  <g id="DATAPOINT326" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\CJY_AV2701" PB:Type="7" PB:NumberFormat="0.00">
+  <g id="DATAPOINT326" PB:IsMultiState="True" PBD:PtTagName="\\RTDBB\LT_85_7301_10_L01A" PB:Type="7" PB:NumberFormat="0.00">
     <rect x="320" y="27380" width="1860" height="520" stroke-width="0" fill="none" id="DATAPOINT326_pbTextBoundingRectEl" />
-    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="1250" y="27920" id="DATAPOINT326_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT326_MS" PBD:PtTagName="\\RTDBB\CJY_AV2701" TagName="CJY_AV2701" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT326_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT326_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
+    <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="1250" y="27920" id="DATAPOINT326_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT326_MS" PBD:PtTagName="\\RTDBB\LT_85_7301_10_L01A" TagName="LT_85_7301_10_L01A" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT326_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT326_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
   </g>
   <g id="TEXT4632">
     <rect x="2200" y="27280" width="1700" height="680" stroke-width="0" fill="none" id="TEXT4632_pbTextBoundingRectEl" />
@@ -1372,11 +1372,11 @@
     <rect x="3800" y="27400" width="1860" height="520" stroke-width="0" fill="none" id="DATAPOINT327_pbTextBoundingRectEl" />
     <text fill="#000000" font-family="Helvetica" font-size="560" font-weight="bold" text-anchor="middle" x="4730" y="27940" id="DATAPOINT327_pbTextEl" PBD:Property="VAL">#.##<PB:MultiState id="DATAPOINT327_MS" PBD:PtTagName="\\RTDBB\LT_85_7301_10_L01B" TagName="LT_85_7301_10_L01B" ServerName="RTDBB" StateCount="2"><PB:MSState id="DATAPOINT327_MSS1" Blink="0" Color="007800" LowerValue="" UpperValue="" /><PB:MSState id="DATAPOINT327_MSS2" Blink="0" Color="000000" LowerValue="" UpperValue="" /></PB:MultiState></text>
   </g>
-  <g id="BARGRAPH3" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\RTDBB\LT_85_7301_10_L01A" PB:Start="0" PB:Upper="100" PB:Type="12">
+  <g id="BARGRAPH3" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\RTDBB\CJY_AV2701" PB:Start="0" PB:Upper="100" PB:Type="12">
     <rect x="1260" y="24100" width="680" height="2420" stroke-width="0" fill="#FFFFFF" id="BARGRAPH3_pbBarBoundingRectEl" />
     <rect x="1260" y="24100" width="680" height="2420" stroke-width="0" fill="#00FF00" id="BARGRAPH3_pbBarTagRectEl" stroke="none" PBD:Property="VAL" />
   </g>
-  <g id="BARGRAPH4" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\RTDBB\LT_85_7301_10_L01B" PB:Start="0" PB:Upper="100" PB:Type="12">
+  <g id="BARGRAPH4" PB:IsMultiState="False" PB:Lower="0" PB:Orientation="0" PB:CanonicalNumberFormat="General" PBD:PtTagName="\\RTDBB\CJY_AV2701" PB:Start="0" PB:Upper="100" PB:Type="12">
     <rect x="4220" y="24080" width="680" height="2420" stroke-width="0" fill="#FFFFFF" id="BARGRAPH4_pbBarBoundingRectEl" />
     <rect x="4220" y="24080" width="680" height="2420" stroke-width="0" fill="#00FF00" id="BARGRAPH4_pbBarTagRectEl" stroke="none" PBD:Property="VAL" />
   </g>

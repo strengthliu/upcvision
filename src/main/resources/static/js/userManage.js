@@ -116,9 +116,9 @@
 																		.grep(
 																				userInfoList,
 																				function(client) {
-																					console.log("filter= "+JSON.stringify(filter));
-																					console.log("client= "+JSON.stringify(client));
-																					console.log("response.data= "+JSON.stringify(response.data));
+																					// console.log("filter= "+JSON.stringify(filter));
+																					// console.log("client= "+JSON.stringify(client));
+																					// console.log("response.data= "+JSON.stringify(response.data));
 																					return (!filter.name || client.name
 																							.indexOf(filter.name) > -1)
 																							&& (!client || !client.userName || !filter.userName || client.userName
@@ -818,7 +818,7 @@ function fillDepartmentData(func) {
 		// 成功返回之后调用的函数
 		success : function(data) {
 			if (data.status == "000") { // GlobalConsts.ResultCode_SUCCESS)
-				console.log("department => " + JSON.stringify(data));
+				// console.log("department => " + JSON.stringify(data));
 				var departs = data.data.departs;
 				departdata = new Array();
 				for(var inddep=0;inddep<departs.length;inddep++){

@@ -73,5 +73,4 @@ public interface PointGroupDataMapper {
     @Update({ "update t_pointGroup set owner = #{owner},creater = #{creater},shared = #{shared},points = #{points} ,otherRule2 = #{otherRule2},otherRule1 = #{otherRule1} ,otherRule3 = #{otherRule3} where name = #{name} and type='"+GlobalConsts.Type_graph_+"\'" })
 	int updateByName(@Param("owner") String owner,@Param("creater") String creater,@Param("shared") String shared,@Param("points") String points,@Param("otherRule1") String otherRule1,@Param("otherRule2") String otherRule2,@Param("otherRule3") String otherRule3,@Param("name") String name);
 
-    
 }

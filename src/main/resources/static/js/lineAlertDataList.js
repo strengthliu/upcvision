@@ -15,11 +15,11 @@ function newItemAction() {
 	}
 }
 
-//_routeType = diagram;
-//_routeID = key;
+// _routeType = diagram;
+// _routeID = key;
 
 var itemID = _routeID;
-var actionType = _routeType;//"lineAlertData";
+var actionType = _routeType;// "lineAlertData";
 
 function editItemAction(itemId) {
 	// console.log(itemId);
@@ -54,10 +54,10 @@ console.log("deleteItemAction");
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				var lineAlertDataId = data.data.data;
 				fixLocalLineAlertDataList_Delete(lineAlertDataId);
-//				if(data.refresh) routeTo('linalertdataList','');
+				// if(data.refresh) routeTo('linalertdataList','');
 				// 
 			} else {
 				alert("失败 ： "+data.msg);
@@ -81,7 +81,7 @@ console.log("deleteItemAction");
 var dataItemId;
 function shareItemAction(itemId) {
 	dataItemId = itemId;
-	shareType = _routeType;//"lineAlertData";
+	shareType = _routeType;// "lineAlertData";
 	setParameter(shareType,itemId);
 	$('#shareItemAction_mid').modal('show');
 }
@@ -111,7 +111,7 @@ function doShareActionToServer(){
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				var lineAlertData = data.data.data;
 				userSpace.lineAlertData[lineAlertData.id]=lineAlertData;
@@ -168,14 +168,15 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 	console.log("historydata.js => submitNewDataItem 2");
 	var rule = new Object();
 	rule._selectedPoints = _selectedPoints;
-//	rule.relativetime = relativetime;
-//	rule.starttime = starttime;
-//	rule.terminaltime = terminaltime;
+// rule.relativetime = relativetime;
+// rule.starttime = starttime;
+// rule.terminaltime = terminaltime;
 	console.log("otherrule = "+JSON.stringify(rule));
 	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID,'rule':JSON.stringify(rule)};
 
-//	console.log("linalertdata.js => submitNewDataItem 2");
-//	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID};
+// console.log("linalertdata.js => submitNewDataItem 2");
+// var
+// data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID};
 	$.ajax({
 		// 提交数据的类型 POST GET
 		type : "POST",
@@ -192,7 +193,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				console.log("linalertdata.js => submitNewDataItem 3");
 				var lineAlertData = data.data.data;
@@ -293,7 +294,7 @@ function fixLocalLineAlertDataList(lineAlertData){
 updateLineAlertDataListFrame();
 
 function updateLineAlertDataListFrame(){
-	console.log("_routeID = " + _routeID);
+	// console.log("_routeID = " + _routeID);
 	var _lineAlertDatas;
 	// TODO: 如果key为空，就是异常，待处理。
 	if (_routeID == null || _routeID == "undefined")
@@ -362,12 +363,16 @@ function updateLineAlertDataListFrame(){
 								lineAlertDataList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 								// TODO: 判断权限
 								if(user.id == _lineAlertData.creater || user.id == _lineAlertData.owner || user.role == 1){
-									//diagram_gallery_item_innerHTML += '<i class="icon-people icon-md"><i class="icon-trash"></i><i class="icon-note"></i><i class="icon-share"></i>';
+									// diagram_gallery_item_innerHTML += '<i
+									// class="icon-people icon-md"><i
+									// class="icon-trash"></i><i
+									// class="icon-note"></i><i
+									// class="icon-share"></i>';
 									lineAlertDataList_ui_item_innerHTML += '<i class="icon-people icon-md" onclick="';
 									lineAlertDataList_ui_item_innerHTML += 'shareItemAction(\''+_lineAlertData.id+'\')"></i>';
 								
-									lineAlertDataList_ui_item_innerHTML += '<i class="icon-trash icon-md" onclick="';
-									lineAlertDataList_ui_item_innerHTML += 'deleteItemAction(\''+_lineAlertData.id+'\')">';
+									lineAlertDataList_ui_item_innerHTML += '<i class="icon-trash icon-md" data-toggle="modal" data-target="#exampleModal-3"';
+									lineAlertDataList_ui_item_innerHTML += ' data-whatever=\''+_lineAlertData.id+'\'>';
 									lineAlertDataList_ui_item_innerHTML += '</i>';
 									
 									lineAlertDataList_ui_item_innerHTML += '<i class="icon-note icon-md" onclick="';

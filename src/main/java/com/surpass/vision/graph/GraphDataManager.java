@@ -181,6 +181,7 @@ public class GraphDataManager extends PointGroupDataManager {
 		}
 		if(otherrule3.length()>1)
 			otherrule3 = otherrule3.substring(0,otherrule3.length()-1);
+		fl.setOtherrule3(otherrule3);
 		ret.setOtherrule3(otherrule3);
 		// 设置类型
 		ret.setType(fl.getType());
@@ -230,13 +231,18 @@ public class GraphDataManager extends PointGroupDataManager {
 				fl.setCreater(pgd.getCreater());
 				fl.setShared(pgd.getShared());
 				fl.setShareddepart(pgd.getShareddepart());
-				fl.setPoints(pgd.getPoints());
+//				fl.setPoints(pgd.getPoints());
 				fl.setOtherrule1(pgd.getOtherrule1());
 				fl.setOtherrule2(pgd.getOtherrule2());
-				fl.setOtherrule3(pgd.getOtherrule3());
+//				fl.setOtherrule3(pgd.getOtherrule3());
 				fl.setOtherrule4(pgd.getOtherrule4());
 				fl.setOtherrule5(pgd.getOtherrule5());
 				setRightInfo(ret, pgd);
+				// 用图形文件中的点更新数据库
+				pgd.setPoints(fl.getPoints());
+				pgd.setOtherrule3(fl.getOtherrule3());
+				// 这是个异步执行
+				this.pointGroupService.updatePointGroupItem(pgd);
 				
 				ret.setId(pgd.getId());
 				ret.setType(pgd.getType());

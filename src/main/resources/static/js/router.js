@@ -17,35 +17,35 @@ var selectedNavagatorItem;
 
 // // console.log(" router... 2222222 = " + currentStepInRouteList);
 function routeTo(diagram, key, graphId) {
-	console.log(" router... diagram= " + diagram + " ; key= " + key
-			+ " ;  graphId= " + graphId);
+	// console.log(" router... diagram= " + diagram + " ; key= " + key
+	// + " ; graphId= " + graphId);
 
 	if (intervalId != null && intervalId != "undefined")
 		clearInterval(intervalId);
 
 	// 设置左侧导航栏选择条目的显示样式
-	if(selectedNavagatorItem!=null&&selectedNavagatorItem!="undefined"){
-		var selectedItem = document.getElementById(diagram+key+graphId);
+	if (selectedNavagatorItem != null && selectedNavagatorItem != "undefined") {
+		var selectedItem = document.getElementById(diagram + key + graphId);
 		var classVal = selectedNavagatorItem.getAttribute("class");
-		//删除的话
-		classVal = classVal.replace("icon-compass","");
-		selectedNavagatorItem.setAttribute("class",classVal );
+		// 删除的话
+		classVal = classVal.replace("icon-compass", "");
+		selectedNavagatorItem.setAttribute("class", classVal);
 
-		if(selectedItem!=null&&selectedItem!="undefined"){
+		if (selectedItem != null && selectedItem != "undefined") {
 			selectedNavagatorItem = selectedItem;
 			classVal = selectedNavagatorItem.getAttribute("class");
-			//添加的话
+			// 添加的话
 			classVal = classVal.concat(" icon-compass");
-			selectedNavagatorItem.setAttribute("class",classVal );
+			selectedNavagatorItem.setAttribute("class", classVal);
 		}
-	}else {
-		var selectedItem = document.getElementById(diagram+key+graphId);
-		if(selectedItem!=null&&selectedItem!="undefined"){
+	} else {
+		var selectedItem = document.getElementById(diagram + key + graphId);
+		if (selectedItem != null && selectedItem != "undefined") {
 			selectedNavagatorItem = selectedItem;
 			classVal = selectedNavagatorItem.getAttribute("class");
-			//添加的话
+			// 添加的话
 			classVal = classVal.concat(" icon-compass");
-			selectedNavagatorItem.setAttribute("class",classVal );
+			selectedNavagatorItem.setAttribute("class", classVal);
 		}
 	}
 	// 初始化步数记录
@@ -142,7 +142,8 @@ function routeTo(diagram, key, graphId) {
 		if (routeList.length > historyStepCount)
 			routeList.shift();
 
-		console.log("router.js -> routeList => " + JSON.stringify(routeList));
+		// console.log("router.js -> routeList => " +
+		// JSON.stringify(routeList));
 		localStorage.routeList = JSON.stringify(routeList);
 
 		currentStepInRouteList++;
@@ -340,7 +341,7 @@ function setBreadcrumb(items) {
 	// 从items里取内容：最后一个元素，是所有显示值；第一个元素是第一级显示
 	// TODO: 取出最后一个元素
 	var tags = items.pop();
-	console.log("aaa=> items= " + JSON.stringify(items));
+	// console.log("aaa=> items= " + JSON.stringify(items));
 
 	for (var inditem = 0; inditem < items.length; inditem++) {
 		var itemD = items[inditem];
@@ -395,7 +396,7 @@ function setBreadcrumb(items) {
 			var itemDI = itemD[indi];
 			// 如果name=tags[inditem]，不显示
 			if (itemDI.name != tags[inditem]) {
-				console.log("aaa=> itemD= " + JSON.stringify(itemD));
+				// console.log("aaa=> itemD= " + JSON.stringify(itemD));
 				itemDIV.setAttribute('class', 'dropdown-item');
 				itemDIV.innerHTML = itemDI.name;
 				itemDIV.setAttribute('onclick', 'routeTo(\'' + itemDI.diagram
@@ -416,7 +417,7 @@ function setBreadcrumb(items) {
 	lastli.innerHTML = tags[tags.length - 1];
 	mainTools_Breadcrumb.appendChild(lastli);
 
-	console.log("aaa=> " + mainTools_Breadcrumb.innerHTML);
+	// console.log("aaa=> " + mainTools_Breadcrumb.innerHTML);
 
 }
 // 生成从minNum到maxNum的随机数

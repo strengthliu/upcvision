@@ -532,7 +532,7 @@ function fillDepartmentData() {
 		// 成功返回之后调用的函数
 		success : function(data) {
 			if (data.status == "000") { // GlobalConsts.ResultCode_SUCCESS)
-				console.log("department => " + JSON.stringify(data));
+				// console.log("department => " + JSON.stringify(data));
 				var departs = data.data.departs;
 				departdata = new Array();
 				for(var inddep=0;inddep<departs.length;inddep++){

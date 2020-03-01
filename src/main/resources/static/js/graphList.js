@@ -325,8 +325,8 @@ updateGraphListFrame();
 
 function updateGraphListFrame() {
 	var _galleryKey = _routeID;
-	console.log("updateGraphListFrame_routeID= " + _routeID);
-	console.log("updateGraphListFrame_graphId= " + _graphId);
+	// console.log("updateGraphListFrame_routeID= " + _routeID);
+	// console.log("updateGraphListFrame_graphId= " + _graphId);
 	// alert();
 
 	// // TODO: 如果key为空，就是异常，待处理。
@@ -437,9 +437,9 @@ function updateGraphListFrame() {
 									diagram_gallery_item_innerHTML += '<i class="icon-people icon-md" onclick="';
 									diagram_gallery_item_innerHTML += 'shareItemAction(\''
 											+ _graph.id + '\')"> </i>';
-									diagram_gallery_item_innerHTML += '<i class="icon-trash icon-md" onclick="';
-									diagram_gallery_item_innerHTML += 'deleteItemAction(\''
-											+ _graph.id + '\')">';
+									diagram_gallery_item_innerHTML += '<i class="icon-trash icon-md" data-toggle="modal" data-target="#exampleModal-3"';
+									diagram_gallery_item_innerHTML += ' data-whatever=\''
+											+ _graph.id + '\'>';
 									diagram_gallery_item_innerHTML += '</i>';
 									diagram_gallery_item_innerHTML += '<i class="icon-note icon-md" onclick="';
 									diagram_gallery_item_innerHTML += 'editItemAction(\''
