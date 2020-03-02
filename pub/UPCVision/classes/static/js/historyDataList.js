@@ -15,11 +15,11 @@ function newItemAction() {
 	}
 }
 
-//_routeType = diagram;
-//_routeID = key;
+// _routeType = diagram;
+// _routeID = key;
 
 var itemID = _routeID;
-var actionType = _routeType;//"historyData";
+var actionType = _routeType;// "historyData";
 
 function editItemAction(itemId) {
 	// console.log(itemId);
@@ -55,10 +55,10 @@ console.log("deleteItemAction");
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				var historyDataId = data.data.data;
 				fixLocalHistoryDataList_Delete(historyDataId);
-				if(data.refresh) routeTo('historydataList','');
+				// if(data.refresh) routeTo('historydataList','');
 				// 
 			} else {
 				alert("失败 ： "+data.msg);
@@ -82,7 +82,7 @@ console.log("deleteItemAction");
 var dataItemId;
 function shareItemAction(itemId) {
 	dataItemId = itemId;
-	shareType = _routeType;//"historyData";
+	shareType = _routeType;// "historyData";
 	setParameter(shareType,itemId);
 	$('#shareItemAction_mid').modal('show');
 }
@@ -112,7 +112,7 @@ function doShareActionToServer(){
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				var historyData = data.data.data;
 				userSpace.historyData[historyData.id]=historyData;
@@ -190,7 +190,7 @@ function submitNewDataItem(selectedPoints,_selectedPoints, targetName, targetDes
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				console.log("historydata.js => submitNewDataItem 3");
 				var historyData = data.data.data;
@@ -290,7 +290,7 @@ function fixLocalHistoryDataList(historyData){
 updateHistoryDataListFrame();
 
 function updateHistoryDataListFrame(){
-	console.log("_routeID = " + _routeID);
+	// console.log("_routeID = " + _routeID);
 	var _historyDatas;
 	// TODO: 如果key为空，就是异常，待处理。
 	if (_routeID == null || _routeID == "undefined")
@@ -359,12 +359,16 @@ function updateHistoryDataListFrame(){
 								historyDataList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 								// TODO: 判断权限
 								if(user.id == _historyData.creater || user.id == _historyData.owner || user.role == 1){
-									//diagram_gallery_item_innerHTML += '<i class="icon-people icon-md"><i class="icon-trash"></i><i class="icon-note"></i><i class="icon-share"></i>';
+									// diagram_gallery_item_innerHTML += '<i
+									// class="icon-people icon-md"><i
+									// class="icon-trash"></i><i
+									// class="icon-note"></i><i
+									// class="icon-share"></i>';
 									historyDataList_ui_item_innerHTML += '<i class="icon-people icon-md" onclick="';
 									historyDataList_ui_item_innerHTML += 'shareItemAction(\''+_historyData.id+'\')"></i>';
 								
-									historyDataList_ui_item_innerHTML += '<i class="icon-trash icon-md" onclick="';
-									historyDataList_ui_item_innerHTML += 'deleteItemAction(\''+_historyData.id+'\')">';
+									historyDataList_ui_item_innerHTML += '<i class="icon-trash icon-md" data-toggle="modal" data-target="#exampleModal-3"';
+									historyDataList_ui_item_innerHTML += ' data-whatever=\''+_historyData.id+'\'>';
 									historyDataList_ui_item_innerHTML += '</i>';
 									
 									historyDataList_ui_item_innerHTML += '<i class="icon-note icon-md" onclick="';

@@ -6,9 +6,9 @@ var gl = new Array();
 var charts = new Object();
 var _xyGraphDetailKey = _routeID;
 var x_axis = 'time';
-console.log("_xyGraphDetailKey: " + _xyGraphDetailKey);
+// console.log("_xyGraphDetailKey: " + _xyGraphDetailKey);
 var t = userSpace.xyGraph[_xyGraphDetailKey];
-console.log("xyGraphChart -> "+JSON.stringify(t));
+// console.log("xyGraphChart -> "+JSON.stringify(t));
 var _selectedPoints = JSON.parse(t.otherrule1);
 
 for(var i=0;i<_selectedPoints.length;i++){
@@ -35,7 +35,7 @@ if (userSpace == null || userSpace == "undefined") {
 function updateXYGraphChart(ruserSpace) {
 	var pointGroup = ruserSpace.xyGraph[_xyGraphDetailKey];
 	var uixyGraphPoints = document.getElementById("ui-xyGraphPoints");
-	 console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
+	 // console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
 	if (pointGroup == null || pointGroup == "undefined")
 		return;
 	var pointList = pointGroup.pointList;
@@ -62,7 +62,7 @@ function refreshData(data) {
 	for(var key in pointList_){
 		if(key!="time"){
 			pointList_[key] = (Math.round(pointList_[key] * 1000)) / 1000;
-			console.log("  ==  "+"point_" + key +"  = "+pointList_[key]);
+			// console.log("  ==  "+"point_" + key +"  = "+pointList_[key]);
 		}
 		for(var p in gl){
 			if(gl[p].config.id == "point_" + key){
@@ -212,7 +212,7 @@ function zoomout_y() {
  * 换X轴
  */
 function changex(tname) {
-	console.log("click: ========================== "+tname);
+	// console.log("click: ========================== "+tname);
 	var but = document.getElementById("x_axisSelectButtonUI");
 	but.innerHTML = tname;
 	console.log(tname);

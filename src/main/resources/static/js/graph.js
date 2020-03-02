@@ -1313,6 +1313,7 @@ function getHistoryData1(_historyDataDetailKey, startTime, endTime, pointGroup,
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
+			hideLoading();
 			if (data.status == "000") { // GlobalConsts.ResultCode_SUCCESS) {
 				var historyData = data.data.data;
 				// console.log("historydata1.js 取回数据个数 => historyData1=
@@ -1331,7 +1332,6 @@ function getHistoryData1(_historyDataDetailKey, startTime, endTime, pointGroup,
 				// Date(startTime));
 				// console.log("getHistoryData1 historyData[0].length=
 				// "+historyData[0].length);
-				hideLoading();
 				func();
 			} else {
 				alert("失败 ： " + data.msg);

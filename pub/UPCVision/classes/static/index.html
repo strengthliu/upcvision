@@ -417,7 +417,7 @@ if (isIE) {
 							</div>
 							<script type="text/javascript">
 								var changeUserInfo = document.getElementById("changeUserInfo");
-								console.log("index -> user.id="+user.id);
+								// console.log("index -> user.id="+user.id);
 								if(user.id == 2) 
 									document.getElementById("changeUserInfo").style.display="none"
 								else
@@ -428,11 +428,11 @@ if (isIE) {
 									var und = document
 											.getElementById("userNameUI");
 									if(user.username!=null&&user.username!="undefined"){
-										console.log("username = "+user.username);
+										// console.log("username = "+user.username);
 										und.innerHTML = user.username;
 									}
 									else{
-										console.log("1 username = "+user.username+" "+JSON.stringify(user));
+										// console.log("1 username = "+user.username+" "+JSON.stringify(user));
 										und.innerHTML = user.name;
 									}
 									var udd = document
@@ -441,11 +441,11 @@ if (isIE) {
 									var unrd = document
 											.getElementById("userNameUIRight");
 									if(user.username!=null&&user.username!="undefined"){
-										console.log("username = "+user.username);
+										// console.log("username = "+user.username);
 										unrd.innerHTML = user.username;
 									}
 									else{
-										console.log("1 username = "+user.username+" "+JSON.stringify(user));
+										// console.log("1 username = "+user.username+" "+JSON.stringify(user));
 										unrd.innerHTML = user.name;
 									}
 									var _face = document

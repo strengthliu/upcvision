@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group row">
-					<label class="col-sm-2 col-form-label" style="align:center;">服务器</label>
+					<label class="col-sm-2 col-form-label" style="align: center;">服务器</label>
 					<div class="col-sm-10" style="padding-left: 1px;">
 						<select class="form-control" id="newItem_ServerSelectSect">
 						</select>
@@ -37,11 +37,13 @@
 							<div class="form-inline repeater">
 								<div data-repeater-list="group-a">
 									<div data-repeater-item class="d-flex mb-2">
-										<div class="input-group mb-2 mr-sm-2 mb-sm-0 col-lg-4 grid-margin grid-margin-lg-0">
+										<div
+											class="input-group mb-2 mr-sm-2 mb-sm-0 col-lg-4 grid-margin grid-margin-lg-0">
 											<input type="text" class="form-control form-control-sm"
 												id="newItem_pointfilterpointname" placeholder="位号名">
 										</div>
-										<div class="input-group mb-2 mr-sm-2 mb-sm-0 col-lg-4 grid-margin grid-margin-lg-0">
+										<div
+											class="input-group mb-2 mr-sm-2 mb-sm-0 col-lg-4 grid-margin grid-margin-lg-0">
 											<input type="text" class="form-control form-control-sm"
 												id="newItem_pointfilterpointdesc" placeholder="位号描述">
 										</div>
@@ -174,8 +176,8 @@
 		targetName = ""; // 组名称
 		targetDesc = ""; // 组说明
 		itemID = "";
-		elemId="";
-		editAction="";
+		elemId = "";
+		editAction = "";
 
 		// 重置步骤数
 		stepCount = 2; // 总共有多少步
@@ -225,6 +227,7 @@
 							pointLeftBoxInnerHtml += pointLeftBoxInnerHtmlItem;
 						});
 		pointLeftBox.innerHTML = pointLeftBoxInnerHtml;
+		filterPoints = defaultPoints;
 		// 清空右侧框
 		var pointRightBox = document.getElementById("newItem_pointlistright");
 		pointRightBox.innerHTML = "";
@@ -233,7 +236,6 @@
 		_targetNameUI.value = "";
 		var targetDesc = document.getElementById("targetDesc");
 		targetDesc.value = "";
-		
 
 	}
 
@@ -253,11 +255,10 @@
 			console.log("1 => " + JSON.stringify(selectedPoints));
 
 			targetName = document.getElementById("_targetNameUI").value;
-			if (targetName)
-				if (targetName.length < 1) {
-					alert("给我取个名字吧，要不就找不到我了。");
-					return;
-				}
+			if (targetName==null || (targetName.length < 1)) {
+				alert("请填写一个组名称。");
+				return;
+			}
 			console.log("2 => " + JSON.stringify(selectedPoints));
 			targetDesc = document.getElementById("targetDesc").value;
 			submitNewDataItem(selectedPoints, targetName, targetDesc);

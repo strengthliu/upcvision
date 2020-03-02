@@ -6,7 +6,7 @@ var gl = new Array();
 var charts = new Object();
 var _xyGraphDetailKey = _routeID;
 var x_axis = 'time';
-console.log("_xyGraphDetailKey: " + _xyGraphDetailKey);
+// console.log("_xyGraphDetailKey: " + _xyGraphDetailKey);
 
 function newItemAction() {
 	alert("xyGraph.js newItemAction。 从mainPanel中调用的。");
@@ -24,7 +24,7 @@ if (userSpace == null || userSpace == "undefined") {
 function updateXYGraphChart(ruserSpace) {
 	var pointGroup = ruserSpace.xyGraph[_xyGraphDetailKey];
 	var uixyGraphPoints = document.getElementById("ui-xyGraphPoints");
-	 console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
+	 // console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
 	if (pointGroup == null || pointGroup == "undefined")
 		return;
 	var pointList = pointGroup.pointList;
@@ -229,7 +229,7 @@ function zoomout_y() {
  * 换X轴
  */
 function changex(tname) {
-	console.log("click: ========================== "+tname);
+	// console.log("click: ========================== "+tname);
 	var but = document.getElementById("x_axisSelectButtonUI");
 	but.innerHTML = tname;
 	console.log(tname);

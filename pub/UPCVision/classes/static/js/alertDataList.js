@@ -15,11 +15,11 @@ function newItemAction() {
 	}
 }
 
-//_routeType = diagram;
-//_routeID = key;
+// _routeType = diagram;
+// _routeID = key;
 
 var itemID = _routeID;
-var actionType = _routeType;//"alertData";
+var actionType = _routeType;// "alertData";
 
 function editItemAction(itemId) {
 	// console.log(itemId);
@@ -37,7 +37,9 @@ function editItemAction(itemId) {
 }
 
 function deleteItemAction(itemId) {
+	console.log("itemId = "+itemId);
 	console.log("deleteItemAction");
+	itemId = itemId+"";
 	var data={'uid':uid,'token':token,'id':itemId};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -55,10 +57,11 @@ function deleteItemAction(itemId) {
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			hideLoading();
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				var alertDataId = data.data.data;
 				fixLocalAlertDataList_Delete(alertDataId);
-				if(data.refresh) routeTo('alertDataList','');
+				// if(data.refresh) routeTo('alertDataList','');
 				// 
 			} else {
 				alert("失败 ： "+data.msg);
@@ -76,7 +79,7 @@ function deleteItemAction(itemId) {
 			hideLoading();
 		}
 	});
-
+$
 }
 
 var dataItemId;
@@ -93,7 +96,8 @@ function doShareActionToServer(){
 		uid = user.id;
 		token = localStorage.token;
 	}
-	console.log("dataItemId="+dataItemId+"  user:"+JSON.stringify(Array.from(selectedUsers)));
+	// console.log("dataItemId="+dataItemId+"
+	// user:"+JSON.stringify(Array.from(selectedUsers)));
 	var data={'uid':uid,'token':token,'id':dataItemId,'userIds':Array.from(selectedUsers),'type':"realTimeData"};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -111,7 +115,7 @@ function doShareActionToServer(){
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
 				var alertData = data.data.data;
 				userSpace.alertData[alertData.id]=alertData;
@@ -155,7 +159,8 @@ function doShareActionToServer(){
  * @returns
  */
 function submitNewDataItem(selectedPoints,targetName,targetDesc){
-	console.log("alertData.js => submitNewDataItem 1 "+targetName +"  "+targetDesc);
+	// console.log("alertData.js => submitNewDataItem 1 "+targetName +"
+	// "+targetDesc);
 	var selectPointArray = new Array();
 	var i__ = 0;
 	for (let e of selectedPoints) {
@@ -163,7 +168,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		i__++;
 		}
 
-	console.log("alertData.js => submitNewDataItem 2 itemid="+itemID);
+	// console.log("alertData.js => submitNewDataItem 2 itemid="+itemID);
 	var data={'uid':uid,'token':token,'points':selectPointArray,'name':targetName,'desc':targetDesc,'id':itemID,'rule':_selectedPoints};
 	$.ajax({
 		// 提交数据的类型 POST GET
@@ -181,14 +186,14 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		},
 		// 成功返回之后调用的函数
 		success : function(data) {
-			if (data.status == "000"){ //GlobalConsts.ResultCode_SUCCESS) {
+			if (data.status == "000"){ // GlobalConsts.ResultCode_SUCCESS) {
 				// console.log("server info : "+JSON.stringify(data.data.data));
-				console.log("alertData.js => submitNewDataItem 3");
+				// console.log("alertData.js => submitNewDataItem 3");
 				var alertData = data.data.data;
 				$('#newItemAction_mid').modal('hide');
-				console.log("NewAlertData before fixLocalAlertDataList.");
+				// console.log("NewAlertData before fixLocalAlertDataList.");
 				fixLocalAlertDataList(alertData);
-				console.log("NewAlertData finished.");
+				// console.log("NewAlertData finished.");
 				// 
 			} else {
 				alert("失败 ： "+data.msg);
@@ -201,7 +206,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 		complete : function(XMLHttpRequest, textStatus) {
 			// alert(XMLHttpRequest.responseText);
 			// alert(textStatus);
-			console.log("alertData.js => submitNewDataItem 4");
+			// console.log("alertData.js => submitNewDataItem 4");
 			hideLoading();
 		
 		},
@@ -215,7 +220,7 @@ function submitNewDataItem(selectedPoints,targetName,targetDesc){
 			/* 弹出其他两个参数的信息 */
 			// alert(textStatus);
 			// alert(errorThrown);
-			console.log("alertData.js => submitNewDataItem 5");
+			// console.log("alertData.js => submitNewDataItem 5");
 			hideLoading();
 		}
 	});
@@ -245,7 +250,7 @@ function fixLocalAlertDataList_Delete(alertDataId){
 		userSpace.alertData = alertData;
 		// console.log("after delete alertData =>
 		// "+JSON.stringify(userSpace.alertData));
-		
+		console.log("fixLocalAlertDataList_Delete");
 		updateAlertData();
 		updateAlertDataListFrame();
 		cancel11();
@@ -263,7 +268,7 @@ function fixLocalAlertDataList_Delete(alertDataId){
  */
 function fixLocalAlertDataList(alertData){
 	// $('#newItemAction_mid').modal('hide');
-	console.log("fixLocalAlertDataList 1");
+	// console.log("fixLocalAlertDataList 1");
 	if(userSpace==null || userSpace=="undefined"){
 		getUserSpace(user.id,token,fixLocalAlertDataList);
 		cancel11();
@@ -283,10 +288,10 @@ function fixLocalAlertDataList(alertData){
 updateAlertDataListFrame();
 
 function updateAlertDataListFrame(){
-//	_routeType = diagram.toLowerCase();
-//	_routeID = key;
+// _routeType = diagram.toLowerCase();
+// _routeID = key;
 
-	console.log("_routeID = " + _routeID);
+	// console.log("_routeID = " + _routeID);
 	var _alertDatas;
 	// TODO: 如果key为空，就是异常，待处理。
 	if (_routeID == null || _routeID == "undefined")
@@ -355,12 +360,16 @@ function updateAlertDataListFrame(){
 								alertDataList_ui_item_innerHTML += '<div style="position: absolute;left: 10px; top: 10px;opacity:1;">';
 								// TODO: 判断权限
 								if(user.id == _alertData.creater || user.id == _alertData.owner || user.role == 1){
-									//diagram_gallery_item_innerHTML += '<i class="icon-people icon-md"><i class="icon-trash"></i><i class="icon-note"></i><i class="icon-share"></i>';
+									// diagram_gallery_item_innerHTML += '<i
+									// class="icon-people icon-md"><i
+									// class="icon-trash"></i><i
+									// class="icon-note"></i><i
+									// class="icon-share"></i>';
 									alertDataList_ui_item_innerHTML += '<i class="icon-people icon-md" onclick="';
 									alertDataList_ui_item_innerHTML += 'shareItemAction(\''+_alertData.id+'\')"></i>';
 								
-									alertDataList_ui_item_innerHTML += '<i class="icon-trash icon-md" onclick="';
-									alertDataList_ui_item_innerHTML += 'deleteItemAction(\''+_alertData.id+'\')">';
+									alertDataList_ui_item_innerHTML += '<i class="icon-trash icon-md"  data-toggle="modal" data-target="#exampleModal-3"';
+									alertDataList_ui_item_innerHTML += ' data-whatever=\''+_alertData.id+'\'>';
 									alertDataList_ui_item_innerHTML += '</i>';
 									
 									alertDataList_ui_item_innerHTML += '<i class="icon-note icon-md" onclick="';

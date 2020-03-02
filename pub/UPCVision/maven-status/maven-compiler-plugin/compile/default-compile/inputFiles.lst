@@ -1,5 +1,6 @@
 c:\dev\upcvision\src\main\java\com\surpass\vision\tools\TokenTools.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\server\SocketServer.java
+c:\dev\upcvision\src\main\java\com\surpass\vision\server\pb\PointDisplayRule.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\service\RealTimeDataService.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\common\SubmitAspect.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\server\ControlMessageServer.java
@@ -14,6 +15,7 @@ c:\dev\upcvision\src\main\java\com\surpass\vision\appCfg\NoRepeatSubmitAop.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\exception\ExceptionEnum.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\schedule\InitServiceRunner.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\utils\Newton_interpolation.java
+c:\dev\upcvision\src\main\java\com\surpass\vision\server\pb\PBMSState.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\tools\IDTools.java
 c:\dev\upcvision\src\main\java\com\surpass\realkits\GecService.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\service\impl\RealTimeDataServiceImpl.java
@@ -39,6 +41,7 @@ c:\dev\upcvision\src\main\java\com\surpass\vision\exception\SystemException.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\userSpace\UserSpaceManager.java
 c:\dev\upcvision\src\main\java\com\surpass\realkits\JGecService.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\domain\User.java
+c:\dev\upcvision\src\main\java\com\surpass\vision\server\STOMPConnectEventListener.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\service\RedisService.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\tools\FileTool.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\controller\GraphController.java
@@ -49,6 +52,7 @@ c:\dev\upcvision\src\main\java\com\surpass\vision\XYGraph\XYGraphManager.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\domain\UserRight.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\server\MyPrincipal.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\domain\FileList.java
+c:\dev\upcvision\src\main\java\com\surpass\vision\server\pb\PBText.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\domain\Graph.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\service\AuthorcationService.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\utils\SpringUtil.java
@@ -91,6 +95,7 @@ c:\dev\upcvision\src\main\java\com\surpass\vision\mapper\UserSpaceDataMapper.jav
 c:\dev\upcvision\src\main\java\com\surpass\vision\appCfg\NoRepeatSubmit.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\appCfg\WebSocketConfig.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\schedule\UpdateGraphDirctory.java
+c:\dev\upcvision\src\main\java\com\surpass\vision\server\pb\PBMultiState.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\service\UserSpaceService.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\mapper\DepartmentInfoMapper.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\controller\BaseController.java
@@ -104,6 +109,7 @@ c:\dev\upcvision\src\main\java\com\surpass\vision\tools\SVGTools.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\pointGroup\PointGroupDataManager.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\controller\RealTimeDataController.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\service\impl\AuthorcationServiceImpl.java
+c:\dev\upcvision\src\main\java\com\surpass\vision\server\pb\PB_G.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\service\impl\LoginServiceImpl.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\service\PointGroupService.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\GeneratorSqlmap.java
@@ -123,3 +129,4 @@ c:\dev\upcvision\src\main\java\com\surpass\vision\appCfg\UrlCache.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\exception\ResponseBean.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\controller\HistoryDataController.java
 c:\dev\upcvision\src\main\java\com\surpass\vision\historyData\HistoryDataManager.java
+c:\dev\upcvision\src\main\java\com\surpass\vision\server\pb\PBBarGraph.java

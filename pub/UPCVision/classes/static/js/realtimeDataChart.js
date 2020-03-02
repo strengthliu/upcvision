@@ -6,7 +6,7 @@ var gl = new Array();
 var charts = new Object();
 var _realtimeDataDetailKey = _routeID;
 
-console.log("_realtimeDataDetailKey: " + _realtimeDataDetailKey);
+// console.log("_realtimeDataDetailKey: " + _realtimeDataDetailKey);
 
 function newItemAction() {
 	alert("realtimeData.js newItemAction。 从mainPanel中调用的。");
@@ -22,44 +22,46 @@ if (userSpace == null || userSpace == "undefined") {
  * 画点图
  */
 function updateRealTimeDataChart(ruserSpace) {
-//	var pointGroup = ruserSpace.realTimeData[_realtimeDataDetailKey];
-//	var uirealtimeDataPoints = document.getElementById("ui-realtimeDataPoints");
-////	 console.log(" updateRealTimeDataChart => "+JSON.stringify(ruserSpace));
-//	if (pointGroup == null || pointGroup == "undefined")
-//		return;
-//	var pointList = pointGroup.pointList;
-//	var innerHtml = "";
-//	for (var indpl = 0; indpl < pointList.length; indpl++) {
-//		try{
-//			// 页面加一块
-//			var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
-//					+ pointList[indpl].tagName + '"></div></div>';
-//			innerHtml += item;
-//		}catch(e){
-//			
-//		}
-//	}
-//	uirealtimeDataPoints.innerHTML = innerHtml;
-//
-//	for (var indpl = 0; indpl < pointList.length; indpl++) {
-//		//console.log();
-//		// 对象加一条
-//		var gt = new JustGage({
-//			id : "point_" + pointList[indpl].tagName,
-//			value : 0,
-//			min : 0,
-//			max : 100,
-//			title : pointList[indpl].desc,//"一级电脱盐混合阀压差",
-//			label : pointList[indpl].enunit,
-//			donut : true,
-//			gaugeWidthScale : 0.6,
-//			counter : true,
-//			hideInnerShadow : true
-//		});
-//		var _tagName_ = pointList[indpl].tagName;
-//		charts[_tagName_] = indpl;
-//		gl[indpl] = gt;
-//	}
+	// var pointGroup = ruserSpace.realTimeData[_realtimeDataDetailKey];
+	// var uirealtimeDataPoints =
+	// document.getElementById("ui-realtimeDataPoints");
+	// // console.log(" updateRealTimeDataChart =>
+	// "+JSON.stringify(ruserSpace));
+	// if (pointGroup == null || pointGroup == "undefined")
+	// return;
+	// var pointList = pointGroup.pointList;
+	// var innerHtml = "";
+	// for (var indpl = 0; indpl < pointList.length; indpl++) {
+	// try{
+	// // 页面加一块
+	// var item = '<div class="box col-lg-3"><div class="gauge" id="point_'
+	// + pointList[indpl].tagName + '"></div></div>';
+	// innerHtml += item;
+	// }catch(e){
+	//			
+	// }
+	// }
+	// uirealtimeDataPoints.innerHTML = innerHtml;
+	//
+	// for (var indpl = 0; indpl < pointList.length; indpl++) {
+	// //console.log();
+	// // 对象加一条
+	// var gt = new JustGage({
+	// id : "point_" + pointList[indpl].tagName,
+	// value : 0,
+	// min : 0,
+	// max : 100,
+	// title : pointList[indpl].desc,//"一级电脱盐混合阀压差",
+	// label : pointList[indpl].enunit,
+	// donut : true,
+	// gaugeWidthScale : 0.6,
+	// counter : true,
+	// hideInnerShadow : true
+	// });
+	// var _tagName_ = pointList[indpl].tagName;
+	// charts[_tagName_] = indpl;
+	// gl[indpl] = gt;
+	// }
 }
 
 /**
@@ -68,114 +70,114 @@ function updateRealTimeDataChart(ruserSpace) {
  * @returns
  */
 var timeInterval = 1; // 刷新间隔
-function setTimeInterval(val){ // 设置刷新间隔
+function setTimeInterval(val) { // 设置刷新间隔
 	timeInterval = val;
 }
 var lastcurrentTime; // 临时变量，上次刷新的时间
 
 function refreshData(data) {
 	// 判断时间
-	if(lastcurrentTime==null ||lastcurrentTime=="undefined"){
+	if (lastcurrentTime == null || lastcurrentTime == "undefined") {
 		lastcurrentTime = 0;
 	}
-	if(lastcurrentTime>timeInterval)
+	if (lastcurrentTime > timeInterval)
 		lastcurrentTime = 0;
-	
+
 	lastcurrentTime++;
 
-	if(lastcurrentTime<timeInterval){
+	if (lastcurrentTime < timeInterval) {
 		return;
-	}else{
+	} else {
 		lastcurrentTime = 0;
 	}
-	
+
 	var pointList_ = JSON.parse(data.body);
-//	for(var key in pointList_){
-//		for(var p in gl){
-//			//console.log(gl[p].config.id + "  ==  "+"point_" + key );
-//			if(gl[p].config.id == "point_" + key){
-//				gl[p].refresh(pointList_[key]);
-//			}
-//		}
-//	}
-	addData(data.body,cdata,cdataCount);
+	// for(var key in pointList_){
+	// for(var p in gl){
+	// //console.log(gl[p].config.id + " == "+"point_" + key );
+	// if(gl[p].config.id == "point_" + key){
+	// gl[p].refresh(pointList_[key]);
+	// }
+	// }
+	// }
+	addData(data.body, cdata, cdataCount);
 	_forward(data.body);
 	// 刷新表格
 	refreshDataTable(cdata);
 
 }
 
-//console.log("_cdata-> "+JSON.stringify(_cdata));
+// console.log("_cdata-> "+JSON.stringify(_cdata));
 var realtimeData = userSpace.realTimeData[_realtimeDataDetailKey];
 var points = realtimeData.pointList;
 var _points = {};
-for(var i=0;i<points.length;i++){
+for (var i = 0; i < points.length; i++) {
 	var _ps = points[i];
 	var _pt = new Object();
-	_pt['serverName']=_ps["serverName"];
-	_pt['tagName']=_ps["tagName"];
-	_pt['desc']=_ps["desc"];
-	_pt['enunit']=_ps["enunit"];
-	_points[_pt['tagName']]=_pt;
+	_pt['serverName'] = _ps["serverName"];
+	_pt['tagName'] = _ps["tagName"];
+	_pt['desc'] = _ps["desc"];
+	_pt['enunit'] = _ps["enunit"];
+	_points[_pt['tagName']] = _pt;
 }
-//console.log("_points=> "+JSON.stringify(_points));
+// console.log("_points=> "+JSON.stringify(_points));
 
-function refreshDataTable(_cdata){
+function refreshDataTable(_cdata) {
 	var _datatableUI = document.getElementById("_datatableUI");
 	_datatableUI.innerHTML = "";
 	var _thead = document.createElement("thead");
-//	var _tr = document.createElement("tr");  
-//	_tr.style['bgcolor']="green";
-//	_tr.style['border']="3";
-//	_tr.style['cellspacing']="1";
-	_thead.setAttribute('style',  "bgcolor='green' border='0' cellspacing='1'");
-	var _td1 = document.createElement("td"); 
-	_td1.style['bgcolor']="green";
+	// var _tr = document.createElement("tr");
+	// _tr.style['bgcolor']="green";
+	// _tr.style['border']="3";
+	// _tr.style['cellspacing']="1";
+	_thead.setAttribute('style', "bgcolor='green' border='0' cellspacing='1'");
+	var _td1 = document.createElement("td");
+	_td1.style['bgcolor'] = "green";
 	_td1.innerText = "服务器";
 	_thead.append(_td1);
-	var _td2 = document.createElement("td"); 
+	var _td2 = document.createElement("td");
 	_td2.innerText = "位号";
 	_thead.append(_td2);
-	var _td3 = document.createElement("td"); 
+	var _td3 = document.createElement("td");
 	_td3.innerText = "说明";
 	_thead.append(_td3);
-	var _td4 = document.createElement("td"); 
+	var _td4 = document.createElement("td");
 	_td4.innerText = "当前值";
 	_thead.append(_td4);
-	var _td5 = document.createElement("td"); 
+	var _td5 = document.createElement("td");
 	_td5.innerText = "单位";
 	_thead.append(_td5);
-	
-//	console.log("realTimeData ->"+JSON.stringify(userSpace));
-//	console.log("refreshDataTable - _cdata "+JSON.stringify(_cdata));
-//	alert();
-	
+
+	// console.log("realTimeData ->"+JSON.stringify(userSpace));
+	// console.log("refreshDataTable - _cdata "+JSON.stringify(_cdata));
+	// alert();
+
 	var _tbody = document.createElement("tbody");
-	for(var coli = 0;coli<_cdata.length;coli++){
-		if(_cdata[coli][0]!="time"){
-			var _tr = document.createElement("tr");  
-			var _td1 = document.createElement("td"); 
-			var _td2 = document.createElement("td"); 
-			var _td3 = document.createElement("td"); 
-			var _td4 = document.createElement("td"); 
-			var _td5 = document.createElement("td"); 
-			
+	for (var coli = 0; coli < _cdata.length; coli++) {
+		if (_cdata[coli][0] != "time") {
+			var _tr = document.createElement("tr");
+			var _td1 = document.createElement("td");
+			var _td2 = document.createElement("td");
+			var _td3 = document.createElement("td");
+			var _td4 = document.createElement("td");
+			var _td5 = document.createElement("td");
+
 			var tagName = _cdata[coli][0];
 			var _p = _points[tagName];
-			_td1.innerText=_p.serverName;
+			_td1.innerText = _p.serverName;
 			_tr.append(_td1);
-			var _td2 = document.createElement("td"); 
+			var _td2 = document.createElement("td");
 			_td2.innerText = _p.tagName;
 			_tr.append(_td2);
-			var _td3 = document.createElement("td"); 
+			var _td3 = document.createElement("td");
 			_td3.innerText = _p.desc;
 			_tr.append(_td3);
-			var _td4 = document.createElement("td"); 
-			var rowi = _cdata[coli].length-1;
-			var _value = (Math.round(_cdata[coli][rowi] * 1000)) / 1000+"";
+			var _td4 = document.createElement("td");
+			var rowi = _cdata[coli].length - 1;
+			var _value = (Math.round(_cdata[coli][rowi] * 1000)) / 1000 + "";
 			_td4.innerText = _value;
 			_tr.append(_td4);
-			var _td5 = document.createElement("td"); 
+			var _td5 = document.createElement("td");
 			_td5.innerText = _p.enunit;
 			_tr.append(_td5);
 
@@ -184,7 +186,7 @@ function refreshDataTable(_cdata){
 			_tr.append(_td3);
 			_tr.append(_td4);
 			_tr.append(_td5);
-			
+
 			_tbody.append(_tr);
 		}
 	}
@@ -223,10 +225,10 @@ function _forward(_newData) {
 		columns : cdata
 	});
 	c3LineChart.axis.min({
-		y : _minY - (_maxY-_minY)/2 * _rateY
+		y : _minY - (_maxY - _minY) / 2 * _rateY
 	});
 	c3LineChart.axis.max({
-		y : _maxY + (_maxY-_minY)/2 * _rateY 
+		y : _maxY + (_maxY - _minY) / 2 * _rateY
 	});
 
 }
@@ -242,26 +244,26 @@ var _rateX = 1;
  * x轴放大缩小
  */
 function zoomin_x() {
-	_rateX = _rateX /2;
+	_rateX = _rateX / 2;
 	cdataCount = cdataCount * 1.5;
-	//console.log("cdataCount = "+cdataCount);
+	// console.log("cdataCount = "+cdataCount);
 }
 
 function zoomout_x() {
-	_rateX = _rateX *2;
+	_rateX = _rateX * 2;
 	cdataCount = cdataCount / 1.5;
-	//console.log("cdataCount = "+cdataCount);
+	// console.log("cdataCount = "+cdataCount);
 }
 var _maxY = 0;
 var _minY = 0;
 var _rateY = 1;
 function zoomin_y() {
 	_rateY = _rateY / 2
-	//console.log(" _rateY = "+_rateY);
+	// console.log(" _rateY = "+_rateY);
 }
 function zoomout_y() {
 	_rateY = _rateY * 2
-	//console.log(" _rateY = "+_rateY);
+	// console.log(" _rateY = "+_rateY);
 }
 
 /**
@@ -294,10 +296,10 @@ function addData(newData, _data_, cdatacount) {
 			else {
 				_ctime = new Date(_d_['time']);
 			}
-			if(_data_[ind_data][1]==0){
+			if (_data_[ind_data][1] == 0) {
 				_data_[ind_data][1] = _ctime;
-			}else{
-				_data_[ind_data].push(_ctime);				
+			} else {
+				_data_[ind_data].push(_ctime);
 			}
 			timeInd = ind_data;
 		}
@@ -330,9 +332,11 @@ function addData(newData, _data_, cdatacount) {
 											var lastData = _data_[ind_data][_data_[ind_data].length - 1];
 											_timeD_ = _data_[timeInd][_data_[ind_data].length - 1];
 											// 添加值
-											if(_d_[key]!=null && _d_[key]!="null" && _d_[key]!="undefined")
+											if (_d_[key] != null
+													&& _d_[key] != "null"
+													&& _d_[key] != "undefined")
 												_data_[ind_data].push(_d_[key]);
-											else{
+											else {
 												console.log("服务器返回了空值。");
 											}
 										}
@@ -356,45 +360,45 @@ var c3LineChart;
 (function($) {
 	'use strict';
 	var cols = new Array();
-	console.log("==== debug 1");
-	console.log("_realTimeDataDetailKey =>>>>> "+_routeID);
+	// console.log("==== debug 1");
+	// console.log("_realTimeDataDetailKey =>>>>> "+_routeID);
 	var pointGroup = userSpace.realTimeData[_routeID];
-	console.log("==== debug 2");
+	// console.log("==== debug 2");
 	var pointList = pointGroup.pointList;
-	//console.log("pointList -> "+JSON.stringify(pointList));
+	// console.log("pointList -> "+JSON.stringify(pointList));
 	var _time_ = new Array();
-	_time_.push('time',0);
+	_time_.push('time', 0);
 	cols.push(_time_);
 
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
 		var _c_ = new Array();
-		_c_.push(pointList[indpl].tagName,0);
-		
+		_c_.push(pointList[indpl].tagName, 0);
+
 		cols.push(_c_);
 	}
-	cdata=cols;
-	_data=cols;
+	cdata = cols;
+	_data = cols;
 	c3LineChart = c3.generate({
 		bindto : '#ui-realTimeDataLineChart',
 		data : {
 			x : 'time',
 			xFormat : '%Y',
 			columns : cols,
-			type : 'area-spline',//'spline',
-	        labels: false,
-	        names: {
-	        	//CJY_FV2181: null
-	        },
-	        onclick: function (d, element) {
-	        	showDataList(d,element);
-	        }
+			type : 'area-spline',// 'spline',
+			labels : false,
+			names : {
+			// CJY_FV2181: null
+			},
+			onclick : function(d, element) {
+				showDataList(d, element);
+			}
 		},
-	    legend: {
-	        show: false
-	    },
-	    zoom: {
-	        enabled: true
-	    },
+		legend : {
+			show : false
+		},
+		zoom : {
+			enabled : true
+		},
 		grid : {
 			x : {
 				show : true
@@ -405,7 +409,11 @@ var c3LineChart;
 		},
 		color : {
 			pattern : [ 'rgba(88,216,163,1)', 'rgba(237,28,36,0.6)',
-					'rgba(4,189,254,0.6)', '#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c', '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5', '#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5' ]
+					'rgba(4,189,254,0.6)', '#1f77b4', '#aec7e8', '#ff7f0e',
+					'#ffbb78', '#2ca02c', '#98df8a', '#d62728', '#ff9896',
+					'#9467bd', '#c5b0d5', '#8c564b', '#c49c94', '#e377c2',
+					'#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d',
+					'#17becf', '#9edae5' ]
 		},
 		padding : {
 			top : 10,
@@ -413,23 +421,26 @@ var c3LineChart;
 			bottom : 30,
 			left : 50,
 		},
-	    size: {
-//	        height: 240,
-//	        width: 480
-	    },
-	    transition: {
-	        duration: 1000
-	    },
-	    tooltip: {
-	        format: {
-	            title: function (d) { return 'Data ' + d; },
-	            value: function (value, ratio, id) {
-	                var format = id === 'data1' ? d3.format(',') : d3.format('$');
-	                return format(value);
-	            }
-//	            value: d3.format(',') // apply this format to both y and y2
-	        }
-	    },
+		size : {
+		// height: 240,
+		// width: 480
+		},
+		transition : {
+			duration : 1000
+		},
+		tooltip : {
+			format : {
+				title : function(d) {
+					return 'Data ' + d;
+				},
+				value : function(value, ratio, id) {
+					var format = id === 'data1' ? d3.format(',') : d3
+							.format('$');
+					return format(value);
+				}
+			// value: d3.format(',') // apply this format to both y and y2
+			}
+		},
 		axis : {
 			x : {
 				type : 'timeseries',
@@ -442,8 +453,8 @@ var c3LineChart;
 			},
 			y : {
 				show : true
-//				,
-//				label : 'Y2 Axis Label'
+			// ,
+			// label : 'Y2 Axis Label'
 			}
 		}
 	});
@@ -464,7 +475,7 @@ function menuFunc(key, options) {
 		break;
 	case "disconnect":
 		disconnect();
-		//stompClient.disconnect();
+		// stompClient.disconnect();
 		break;
 	case "edit":
 		stompClient.send("/app/aaa", {
@@ -530,29 +541,28 @@ function setConnected(connected) {
 loginWebsocket();
 
 function loginWebsocket() {
-//	connect();
-//	var t=setTimeout(function(){realtimeSubscribe();},3000)
-	if(!connected){
-//		alert("未连接。");
+	// connect();
+	// var t=setTimeout(function(){realtimeSubscribe();},3000)
+	if (!connected) {
+		// alert("未连接。");
 		connect(realtimeSubscribe);
-//		var t=setTimeout(realtimeSubscribe(),3000);
+		// var t=setTimeout(realtimeSubscribe(),3000);
 		return;
-		}
-	else {
-		if(!testSocketConnected()){
+	} else {
+		if (!testSocketConnected()) {
 			connect(realtimeSubscribe);
 		}
-		console.log("当前存在socket连接");
-		if(subscribe!=null && subscribe!="undefined")
+		// console.log("当前存在socket连接");
+		if (subscribe != null && subscribe != "undefined")
 			subscribe.unsubscribe();
-//		setTimeout(function(){realtimeSubscribe();},3000);
+		// setTimeout(function(){realtimeSubscribe();},3000);
 		realtimeSubscribe();
 	}
 }
 
-function realtimeSubscribe(){
-	console.log("realtimeSubscribe");
-	
+function realtimeSubscribe() {
+	// console.log("realtimeSubscribe");
+
 	// 发送消息给服务器
 	stompClient.send("/app/aaa", {
 		atytopic : _realtimeDataDetailKey,
@@ -584,20 +594,20 @@ function connect_bak(callback) {
 	// alert("websocket connected 1.");
 	stompClient = Stomp.over(socket);
 	stompClient.heartbeat.outgoing = 10000; // 客户端每20000ms发送一次心跳检测
-	stompClient.heartbeat.incoming = 10000;     // client接收serever端的心跳检测
+	stompClient.heartbeat.incoming = 10000; // client接收serever端的心跳检测
 	// 连接服务器
 	var headers = {
-		    login: user.id,
-		    token: token,
-		    // additional header
-		    'client-id': 'my-client-id'
-		};
+		login : user.id,
+		token : token,
+		// additional header
+		'client-id' : 'my-client-id'
+	};
 
 	stompClient.connect(headers, function(frame) {
 		setConnected(true);
 		console.log("websocket connected." + _realtimeDataDetailKey + "  .");
 		// console.log('Connected: ' + frame);
-//		callback();
+		// callback();
 
 		/**
 		 * // 接收消息设置。该方法是接收广播消息。 stompClient.subscribe('/topic/greeting/11',
@@ -618,7 +628,7 @@ function connect_bak(callback) {
 		stompClient.ws.onerror = function() {
 			connect();
 		}
-	},function(message){
+	}, function(message) {
 		console.log(message);
 	});
 
@@ -648,4 +658,3 @@ function pullUnreadMessage(destination) {
 		}
 	});
 }
-

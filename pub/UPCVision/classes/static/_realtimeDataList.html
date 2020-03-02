@@ -22,6 +22,55 @@
 </div>
 <!-- 新建图形弹出框 -->
 <!-- Modal Ends -->
+<!-- 删除弹出框 -->
+<div class="modal fade" id="exampleModal-3" tabindex="-1" role="dialog"
+	aria-labelledby="exampleModalLabel-3" aria-hidden="true">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel-3">数据删除确认</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p id="deleteItemTextP"></p>
+				<p id="deleteItemNameP"></p>
+				<p id="deleteItemDescP"></p>
+			</div>
+			<div class="modal-footer">
+				<button id="deleteConfirmButton" type="button"
+					class="btn btn-success">确定</button>
+				<button type="button" class="btn btn-light" data-dismiss="modal">取消</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$('#exampleModal-3').on('show.bs.modal', function(event) {
+		// 执行一些动作...
+		var button = $(event.relatedTarget); // 触发事件的按钮  
+		var recipient = button.data('whatever'); // 解析出whatever内容  
+		var realTimeData = userSpace.realTimeData;
+		//console.log("alertDataId="+JSON.stringify(alertDataId));
+		//console.log(JSON.stringify(realTimeData[recipient]));
+		//alertData[alertDataId];您确定要删除这个报警数据么？
+		document.getElementById('deleteItemTextP').innerHTML = "您确定要删除这个实时数据查询么？";
+		document.getElementById('deleteItemNameP').innerHTML = "    名称："+ realTimeData[recipient].name;
+		document.getElementById('deleteItemDescP').innerHTML = "    说明："+ realTimeData[recipient].otherrule2;
+		//$('#deleteItemNameP').text(alertData[recipient].name);
+		//$('#deleteItemDescP').text(alertData[recipient].otherrule2);
+
+		//var modal = $(this); //获得模态框本身
+		//modal.find('.modal-body input').val(recipient) ;
+		$('#deleteConfirmButton').click(function() {
+			$('#exampleModal-3').modal('hide');
+			deleteItemAction(recipient);
+		});
+	})
+</script>
+<!-- 删除弹出框 -->
 
 <!-- 分享图形弹出框 -->
 <div class="modal fade" id="shareItemAction_mid" tabindex="-1" role="dialog" aria-labelledby="shareItemAction_mid" >

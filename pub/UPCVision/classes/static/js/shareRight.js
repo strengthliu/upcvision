@@ -91,13 +91,13 @@ function _setParameter(_shareType,_itemId){
 																var _userInfoList = response.data.users;
 																var sharedUsers;
 																_setParameter(shareType,itemId);
-																console.log("dataItem-> "+JSON.stringify(dataItem));
+																// console.log("dataItem-> "+JSON.stringify(dataItem));
 																if(dataItem!=null && dataItem!="undefined"){
 																	sharedUsers = dataItem.sharedUsers;
 																} else{
 																	sharedUsers = [];
 																}
-																console.log("userInfoList="+JSON.stringify(userInfoList));
+																// console.log("userInfoList="+JSON.stringify(userInfoList));
 // if(dataItem!=null&&dataItem!="undefined")
 // console.log("dataItem.sharedUsers="+JSON.stringify(dataItem.sharedUsers));
 																// dataItem.sharedUsers=[]
@@ -214,7 +214,7 @@ var _dialogType;
 																var _userInfoList = response.data.departs;
 																var sharedUsers;
 																_setParameter(shareType,itemId);
-																console.log("dataItem-> "+JSON.stringify(dataItem));
+																// console.log("dataItem-> "+JSON.stringify(dataItem));
 
 																if(dataItem!=null && dataItem!="undefined"){
 																	sharedUsers = dataItem.sharedDepartment;
