@@ -385,7 +385,7 @@ function fullScreenFn() {
 		// translate[0]="+translate[0]);
 		interpolateZoom([ _ttx, _tty ], scale);
 
-		svg.attr("preserveAspectRatio", "none");
+		// svg.attr("preserveAspectRatio", "none");
 		svg1.removeAttribute("width");
 		svg1.removeAttribute("heigth");
 		svg1.setAttribute("width", mainPanelWidth / scale);

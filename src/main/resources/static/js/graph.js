@@ -720,9 +720,6 @@ function refreshData(data) {
 								var decimalCount = multistatesObj[key].pbnumberformat;
 								decimalCount = decimalCount.substr(decimalCount
 										.indexOf('.') + 1);
-								// console.log(" decimalCount=" + decimalCount
-								// + " decimalCount.length="
-								// + decimalCount.length);
 								ele.innerHTML = Math.round(_data_[key]
 										* decimalCount.length * 10)
 										/ (decimalCount.length * 10);
@@ -748,8 +745,8 @@ function refreshData(data) {
 										}
 									}
 								}
-								// ele.style.fill = "#007800";
-
+								// ele.style.fill = "red";
+								ele.style.align = "right";
 							} else if (bargraphsObj[key] != null
 									& bargraphsObj[key] != "undefined") {
 								// console.log(ele);
@@ -823,14 +820,26 @@ function refreshData(data) {
 
 							} else {
 								if (ele != null && ele != "undefined") {
-									ele.innerHTML = Math
-											.round(_data_[key] * 10000) / 10000;
+									var val = Math.round(_data_[key] * 10000) / 10000;
+									val = val + "";
+									val = val.trim();
+									console.log(val + " = " + val.length);
+									var vallen = 12 - val.length;
+									for (var i = 0; i < vallen; i++) {
+										console.log("add");
+										val = '&nbsp;&nbsp;' + val;
+									}
+									ele.innerHTML = val;
+									console.log(val + " = " + val.length);
 									// ele.style.fill = "#007800";
 									// console.log("aa");
 								} else {
 									// console.log("不存在点：" + key);
 								}
 							}
+							// ele.style.fill = "red";
+							// ele.style.align = "right";
+
 						}
 					});
 	if (currentPlayStatus) {
