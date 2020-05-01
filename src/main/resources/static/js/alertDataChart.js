@@ -58,7 +58,8 @@ function getAlertData(id, startTime, endTime) {
 		// 成功返回之后调用的函数
 		success : function(data) {
 			if (data.status == "000") { // GlobalConsts.ResultCode_SUCCESS) {
-				// console.log("server info : " + JSON.stringify(data.data.data));
+				// console.log("server info : " +
+				// JSON.stringify(data.data.data));
 				var alertData = data.data.data;
 				// console.log(JSON.stringify(alertData));
 				if (startTime != null) {

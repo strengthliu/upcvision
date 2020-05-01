@@ -73,7 +73,8 @@ public class MyChannelInterceptor implements ChannelInterceptor{
         HttpSession httpSession = (HttpSession) accessor.getSessionAttributes().get("HTTP_SESSION");
 
         // 这里只是单纯的打印，可以根据项目的实际情况做业务处理
-        logger.info("postSend 中获取httpSession key：" + httpSession.getId());
+        if(httpSession!=null)
+        	logger.info("postSend 中获取httpSession key：" + httpSession.getId());
 
         // 忽略心跳消息等非STOMP消息
         if(accessor.getCommand() == null)
@@ -87,14 +88,16 @@ public class MyChannelInterceptor implements ChannelInterceptor{
         {
             // 首次连接
             case CONNECT:
-                logger.info("httpSession key：" + httpSession.getId() + " 首次连接");
+            	if(httpSession!=null)
+            		logger.info("first time connect: httpSession key：" + httpSession.getId() + " 首次连接");
                 break;
             // 连接中
             case CONNECTED:
                 break;
             // 下线
             case DISCONNECT:
-                logger.info("httpSession key：" + httpSession.getId() + " 下线");
+            	if(httpSession!=null)
+            		logger.info("disconnect: httpSession key：" + httpSession.getId() + " 下线");
                 break;
              default:
                 break;

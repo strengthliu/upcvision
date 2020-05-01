@@ -159,8 +159,9 @@ function connect(callback) {
 // }
 // socket = new SockJS("${request.contextPath}/socketServer");
 	socket = new SockJS('/socketServer');
+// socket = new SockJS('/stomp-websocket');
 	// 通过sock对象监听每个事件节点，非必须,这个必须放在stompClient的方法前面
-	sockHandle();
+	// sockHandle();
     // 获取 STOMP 子协议的客户端对象
     stompClient = Stomp.over(socket);
 
@@ -184,8 +185,9 @@ function connect(callback) {
 	
 	if(socketRetryTimes>3){
 		socketRetryTimes=0;
-		alert("连续3次没有连接成功，请检查网络，或与系统管理员联系。");
-		return;
+		console.log("app.js -> websocket连续3次没有连接成功。");
+// alert("连续3次没有连接成功，请检查网络，或与系统管理员联系。");
+// return;
 	}else
 		socketRetryTimes++;
 	
