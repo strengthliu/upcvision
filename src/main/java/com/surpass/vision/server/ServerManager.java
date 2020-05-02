@@ -198,7 +198,11 @@ public class ServerManager {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}//transByteToString(buffer);
-					deviceNote = deviceNote.trim();
+					if(deviceNote==null){
+						deviceNote = "";
+					}else {
+						deviceNote = deviceNote.trim();
+					}
 					device.setDeviceNote(deviceNote);
 					//取点位信息
 					List<Long> pointIds = null;

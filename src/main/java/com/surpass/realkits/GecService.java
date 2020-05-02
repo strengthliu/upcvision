@@ -344,7 +344,13 @@ public class GecService {
 			for (int k = 0; k < newB.size(); k++) {
 				bytes[k] = newB.get(k);
 			}
-			String s = new String(bytes).trim();
+			String s = null;
+			try {
+				s = new String(bytes,"GBK").trim();
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if (s != null && !s.equals("")) {
 				lpNameBuffer.add(s);
 			}
