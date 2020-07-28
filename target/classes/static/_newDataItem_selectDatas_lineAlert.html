@@ -1,0 +1,362 @@
+<!-- 第一页，查询选择点位  -->
+<section id="newDataItem_section_step_1">
+	<div class="col-12 ">
+		<!--      <h4 class="card-title">鏌ヨ</h4>-->
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label" style="align:center;">服务器</label>
+					<div class="col-sm-10" style="padding-left: 1px;">
+						<select class="form-control" id="newItem_ServerSelectSect">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label">位号组</label>
+					<div class="col-sm-10" style="padding-left: 1px;">
+						<select class="form-control" id="newItem_DeviceSelectSect">
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- partial -->
+	<div class="col-12 "
+		style="padding: .75rem; padding-buttom: 0.25rem; margin-buttom: 0.25rem;">
+		<div class="card">
+			<div class="card-body"
+				style="padding: .75rem; padding-buttom: 0.25rem; margin-buttom: 0.25rem;">
+				<!--                  <h4 class="card-title">Simple Dragula</h4>-->
+				<!--                  <p class="card-description">Drag and drop between Team A and Team B</p>-->
+				<div class="row">
+					<div class="col-md-6 h-100">
+						<div class="bg-secondary p-4">
+							<div class="form-inline repeater">
+								<div data-repeater-list="group-a">
+									<div data-repeater-item class="d-flex mb-2">
+										<div class="input-group mb-2 mr-sm-2 mb-sm-0 col-lg-4 grid-margin grid-margin-lg-0">
+											<input type="text" class="form-control form-control-sm"
+												id="newItem_pointfilterpointname" placeholder="位号名">
+										</div>
+										<div class="input-group mb-2 mr-sm-2 mb-sm-0 col-lg-4 grid-margin grid-margin-lg-0">
+											<input type="text" class="form-control form-control-sm"
+												id="newItem_pointfilterpointdesc" placeholder="位号描述">
+										</div>
+										<button class="btn btn-success btn-sm"
+											onclick="filterNewItem_pointlistleft();">过滤</button>
+										<button class="btn btn-success btn-sm"
+											onclick="addAll_pointlistleft();">>>></button>
+									</div>
+								</div>
+							</div>
+							<div id="newItem_pointlistleft" class="py-2"
+								style="border: solid; height: 300px; overflow: auto;">
+								<div class="card rounded mb-2">
+									<div>
+										<div class="media icheck-line">
+											<input type="checkbox" id="line-radio-disabled-checked"
+												checked> <label for="line-radio-disabled-checked">Disabled
+												&amp; checked</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 h-100">
+						<div class="bg-secondary p-4">
+							<form class="form-inline repeater">
+								<div data-repeater-list="group-a">
+									<div data-repeater-item class="d-flex mb-2">
+										<label class="sr-only" for="inlineFormInputGroup1">Users</label>
+										<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+											<div class="input-group-prepend">
+												<span class="input-group-text">被选中的位号</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+							<div id="newItem_pointlistright" class="py-2"
+								style="border: solid; height: 300px; overflow: auto;">
+
+								<div class="card rounded mb-2">
+									<div>
+										<div class="media icheck-line">
+											<input type="checkbox" id="line-radio-disabled-checked"
+												checked> <label for="line-radio-disabled-checked">Disabled
+												&amp; checked</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- 第二页，填写名称、描述。  -->
+<section id="newDataItem_section_step_2">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">组名称</h4>
+			<p class="card-description">请输入组的名称，这将成后以后查询和显示的依据。</p>
+			<div class="forms-sample">
+				<div class="form-group">
+					<input type="email" class="form-control" id="_targetNameUI"
+						placeholder="组名称"/>
+				</div>
+			</div>
+			<h4>说明</h4>
+			<div class="form-group">
+				<label>请输入这个组的说明</label>
+				<textarea class="form-control" rows="5" id="targetDesc"></textarea>
+			</div>
+			<div id="lineAlertDatagrid"></div>
+		</div>
+	</div>
+</section>
+
+<div class="row">
+	<div class="col-12 grid-margin">
+		<div class="card">
+			<div class="modal-footer">
+				<div class="container-fluid clearfix">
+					<button type="text" class="btn btn-outline-primary" disabled
+						id="StepButton_1">第一步、选择点位</button>
+					<button type="text" class="btn btn-outline-secondary" disabled
+						id="StepButton_2">第二步、设置名称</button>
+				</div>
+				<button type="button" class="btn btn-success" onclick="priorStep()"
+					id="priorStepButton">上一步</button>
+				<button type="button" class="btn btn-success" onclick="nextStep()"
+					id="nextStepButton">下一步</button>
+				<button type="button" class="btn btn-light" class="close"
+					data-dismiss="modal" aria-label="Close" onclick="cancel11();"
+					id="cancelOrFinishButton">取消</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- content-wrapper ends -->
+
+<!-- Custom js for this page-->
+<script src="js/newDataItem.js"></script>
+<script type="text/javascript">
+
+	// init();
+	
+	document.getElementById('newDataItem_section_step_2').hidden = true;
+	document.getElementById('priorStepButton').hidden = true;
+
+	var stepCount = 2;
+	var currentStep = 1;
+
+	// 点击取消或关闭按钮
+	function cancel11() {
+		init();
+	}
+	// 点击取消或关闭按钮
+	function cancel() {
+		init();
+	}
+
+	// 初始化
+	function init() {
+		// 重置数据
+		// 重置数据
+		selectedPoints = new Set(); // 已经选择的点位
+		_selectedPoints = new Array();
+		targetName = ""; // 组名称
+		targetDesc = ""; // 组说明
+		serverName = "";
+		itemID = "";
+		elemId="";
+		editAction="";
+
+		// 重置步骤数
+		stepCount = 2; // 总共有多少步
+		currentStep = 1; // 当前在第几步
+		
+		// 重置显示窗口和显示步骤
+		document.getElementById('newDataItem_section_step_1').hidden = false;
+		document.getElementById('StepButton_1').className = "btn btn-outline-primary";
+		for (var ind = 2; ind <= stepCount; ind++) {
+			console.log("" + ind);
+			document.getElementById('newDataItem_section_step_' + ind).hidden = true;
+			document.getElementById('StepButton_' + ind).className = "btn btn-outline-secondary";
+		}
+		// 重置按钮
+		// console.log(document.getElementById('priorStepButton').innerHTML);
+		document.getElementById('priorStepButton').hidden = true;
+		document.getElementById("nextStepButton").innerHTML = "下一步";
+		// TODO: document.getElementById("priorStepButton").text="下一步";
+
+		// 重置左侧框
+		// 添加默认左侧点位选择列表
+		var defaultDevice = serverList[$("#newItem_ServerSelectSect").val()].devices[$(
+				"#newItem_DeviceSelectSect").val() - 1];
+		serverName = $("#newItem_ServerSelectSect").val();
+		//console.log(" 2  => "+$("#newItem_ServerSelectSect").val()+" | "+$("#newItem_ServerSelectSect").text);
+		var defaultPoints = defaultDevice.points;
+		//console.log(JSON.stringify(defaultDevice));
+		var pointLeftBox = document.getElementById("newItem_pointlistleft");
+		pointLeftBox.innerHTML = "";
+		var pointLeftBoxInnerHtml = "";
+		Object
+				.keys(defaultPoints)
+				.forEach(
+						function(keyPoint) {
+							// console.log(keyPoint);
+							var pointLeftBoxInnerHtmlItem = '<div class="card rounded mb-2" id="div'+defaultPoints[keyPoint].tagName+'">'
+									+ '<div><div class="media icheck-line"><input type="checkbox" id="check'
+									+ defaultPoints[keyPoint].tagName
+									+ '" onclick="newDataItem_leftboxitemcheck(\''
+									+ defaultPoints[keyPoint].tagName
+									+ '\');">'
+									+ '<label for="line-radio-disabled-checked">'
+									+ defaultPoints[keyPoint].tagName
+									+ ' : '
+									+ defaultPoints[keyPoint].desc
+									+ '</label></div></div></div>';
+							pointLeftBoxInnerHtml += pointLeftBoxInnerHtmlItem;
+						});
+		pointLeftBox.innerHTML = pointLeftBoxInnerHtml;
+		filterPoints = defaultPoints;
+		// 清空右侧框
+		var pointRightBox = document.getElementById("newItem_pointlistright");
+		pointRightBox.innerHTML = "";
+		// 清空第二页内容
+		var _targetNameUI = document.getElementById("_targetNameUI");
+		_targetNameUI.value = "";
+		var targetDesc = document.getElementById("targetDesc");
+		targetDesc.value = "";
+
+	}
+
+	// 点击下一步
+	function nextStep() {
+		if (currentStep == stepCount) { // 保存按钮被点击了
+			// 这里
+			if (!selectedPoints.size > 0) {
+				alert("请选择点位，再进行下一步。");
+				return;
+			} else if (selectedPoints.size > 100000) {
+				alert("选择的点位太多了，系统算不过来。请选择少于10个点位");
+				return;
+			}
+
+			targetName = document.getElementById("_targetNameUI").value;
+			if (targetName==null || (targetName.length < 1)) {
+				alert("请填写一个组名称。");
+				return;
+			}
+			targetDesc = document.getElementById("targetDesc").value;
+			submitNewDataItem(selectedPoints, targetName, targetDesc);
+			return;
+		}
+		fillTable("lineAlertDatagrid");
+		// 调整显示页面
+		var currentSectionName = 'newDataItem_section_step_' + currentStep;
+		var nextStepSectionName = "newDataItem_section_step_";
+
+		nextStepSectionName += currentStep + 1;
+		document.getElementById(currentSectionName).hidden = true;
+		document.getElementById(nextStepSectionName).hidden = false;
+		// 调整步骤显示
+		var currentStepButtonName = 'StepButton_' + currentStep;
+		var nextStepButtonName = "StepButton_" + (currentStep + 1);
+		document.getElementById(currentStepButtonName).className = "btn btn-outline-secondary";
+		document.getElementById(nextStepButtonName).className = "btn btn-outline-primary";
+		// 上一步按钮可点击
+		document.getElementById('priorStepButton').hidden = false;
+
+		if (currentStep + 1 < stepCount) { // 如果不是最后一步
+			// 下一步按钮可点击
+
+		} else { // 到最后一步了。
+			document.getElementById("nextStepButton").innerHTML = "保存"; //下一步改为保存
+		}
+		currentStep++;
+	}
+
+	function fillTable(tableID) {
+		$("#" + tableID).jsGrid({
+			height : "300px",
+			width : "100%",
+			filtering : false,
+			editing : true,
+			inserting : false,
+			sorting : true,
+			paging : false,
+			autoload : true,
+			data : Array.from(_selectedPoints),
+			fields : [ {
+				title : "位号名",
+				name : "tagName",
+				type : "text",
+				width : 150,
+				editing : false
+			}, {
+				title : "报警周期",
+				name : "alertInterval",
+				type : "number",
+				width : 50
+			}, {
+				title : "稳定值",
+				name : "stageValue",
+				type : "number",
+				width : 50
+			}, {
+				type : "control",
+				editButton : true,
+				deleteButton : false,
+				clearFilterButton : true,
+				modeSwitchButton : true
+			} ]
+		});
+	}
+
+	// 点击上一步
+	function priorStep() {
+		if (currentStep == 1)
+			return;
+		// 调整显示页面
+		var currentSectionName = 'newDataItem_section_step_' + currentStep;
+		var nextStepSectionName = "newDataItem_section_step_";
+
+		nextStepSectionName += currentStep - 1;
+		document.getElementById(currentSectionName).hidden = true;
+		document.getElementById(nextStepSectionName).hidden = false;
+		// 调整步骤显示
+		var currentStepButtonName = 'StepButton_' + currentStep;
+		var nextStepButtonName = "StepButton_" + (currentStep - 1);
+		document.getElementById(currentStepButtonName).className = "btn btn-outline-secondary";
+		document.getElementById(nextStepButtonName).className = "btn btn-outline-primary";
+		// 下一步按钮可点击
+		document.getElementById("nextStepButton").innerHTML = "下一步";
+
+		if (currentStep - 1 > 1) { // 如果不是第二步
+
+			// newDataItem_section_step2
+		} else { // 到最后一步了。
+			$("priorStepButton").css('visibility', 'hidden'); //上一步不显示了
+
+		}
+		currentStep--;
+	}
+</script>
+<script src="js/dragula.js"></script>
+    <script src="js/js-grid.js"></script>
+    <script src="js/db.js"></script>
+
+<!-- End custom js for this page-->
+
+
+<!-- container-scroller -->
+

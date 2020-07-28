@@ -1,0 +1,840 @@
+private void TextBlock_MouseLeftButtonUp0(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-201 REV.A PRE 触发反应堆停堆或专设安全设施响应规程.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp1(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-202 Rev.A PRE 丧失一回路或二回路系统冷却剂.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp2(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-203 Rev.A PRE 隔离故障的蒸汽发生器.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp3(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-204 Rev.A PRE 蒸汽发生器传热管破损.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp4(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-205 Rev.A PRE 安全壳外LOCA规程.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp5(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-206 REV.A PRE 反应堆停堆响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp6(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-207 Rev.A PRE 自然循环冷却.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp7(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-208 Rev.A PRE 终止非能动安全系统规程.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp8(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-209 Rev.A PRE ES-1.2LOCA事故后降温降压规程.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp9(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-210 Rev.A PRE 堆芯冷却不足响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp10(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-211 Rev.A PRE 堆芯冷却恶化响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp11(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-212 REV.A RRE 堆芯饱和响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp12(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-213 Rev.A PRE 丧失热阱响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp13(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-214 Rev.A PRE 蒸汽发生器超压响应规程.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp14(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-215 Rev.A PRE 蒸汽发生器高水位响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp15(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-216 Rev.A PRE 丧失正常蒸汽排放能力.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp16(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-217 Rev.A PRE 蒸汽发生器低水位响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp17(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-218 Rev.A PRE 稳压器高水位响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp18(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-219 PRE Rev.A 稳压器低水位响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp19(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-220 Rev.A PRE 反应堆压力容器汽化响应.docx";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp20(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-221 Rev.A PRE 承压热冲击条件的响应.docx";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp21(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-222 Rev.A PRE 预期的承压热冲击条件（PTS）响应规程.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp22(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-223 Rev.A PRE 核功率产生(ATWS)响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp23(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-224 Rev.A PRE 丧失停堆裕度响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp24(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-225 Rev.A PRE 安全壳高压力响应.docx";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp25(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-226 Rev.A PRE 安全壳水淹响应.docx";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp26(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-227 Rev.A PRE 安全壳高辐射水平响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp27(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-228 Rev.A PRE 安全壳低压响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp28(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-230 Rev.A PRE 停堆安全功能状态树规程.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp29(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-231 Rev.A PRE 停堆期间丧失RCS水装量.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp30(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-232 PRE Rev.A 停堆期间丧失RNS.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp31(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-233 Rev.A PRE 停堆期间安全壳高辐射水平响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp32(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-234 REVA PRE 停堆期间中子通量增大响应.pdf";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp33(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-235 Rev.A PRE 停堆期间低温超压.docx";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp34(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-236 REVA PRE 停堆期间非预期RCS温度变化响应.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp35(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-237 Rev.A PRE 将蒸汽释放至冷凝器.docx";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp36(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-238 Rev.A PRE 将蒸汽排放至大气.docx";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp37(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-240 PRE Rev.A ADS第1级至第3级阀门动作响应规程.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp38(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-241 Rev.A PRE ADS第4级阀门动作响应规程.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     
+private void TextBlock_MouseLeftButtonUp39(object sender, MouseButtonEventArgs e)
+ {
+ 			p = null;
+            if (p == null)
+            {
+                RunPath = AppDomain.CurrentDomain.BaseDirectory;
+                string ip = AppDomain.CurrentDomain.BaseDirectory + "国核示范\\EOP\\SNG-GX-GJP-250 Rev.A PRE 关键安全功能状态树规程.doc";
+                p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = ip;
+                p.Start();
+            }
+            else
+            {
+                if (p.HasExited) //是否正在运行
+                {
+                    p.Start();
+                }
+            }
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+ }  
+     

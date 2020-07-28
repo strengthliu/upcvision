@@ -92,13 +92,19 @@ public class AuthorcationController extends BaseController {
 			}
 		}else {
 			ui = userManager.getUserInfoByName(uname);
-			if(ui!=null && ui.getRole()==GlobalConsts.UserRoleGuest)
+			System.out.println("ui.getRole() = "+ui.getRole());
+			if(ui!=null && ui.getRole()!=GlobalConsts.UserRoleGuest)
 				try {
 					ui = login.VerificationAccount(uname, pwd); 
 				}catch(Exception e) {
-					tw.setStatus(GlobalConsts.ResultCode_AuthericationError);
-					tw.setMsg(e.toString());
+					tw.setStatus(GlobalConsts.ResultCode_FAIL);
+					tw.setMsg("用户名密码不正确");
+					tw.setRedirectUrl("login.html");
 					return tw;
+//					
+//					tw.setStatus(GlobalConsts.ResultCode_AuthericationError);
+//					tw.setMsg(e.toString());
+//					return tw;
 				}
 		}
 		if(ui==null) {

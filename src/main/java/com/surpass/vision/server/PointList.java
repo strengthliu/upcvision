@@ -28,7 +28,7 @@ import com.surpass.vision.server.ServerPoint;
 import sun.misc.Unsafe;
 
 @Component
-@Configuration
+//@Configuration
 @EnableScheduling // 此注解必加
 public class PointList {
 

@@ -58,10 +58,10 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 		config.setApplicationDestinationPrefixes("/app");
 		// 这句话表示在topic和user这两个域上可以向客户端发消息。
 //		config.enableSimpleBroker("/topic", "/user", "/hello").setHeartbeatValue(new long[] { 10000, 10000 }).setTaskScheduler(taskScheduler);
-		config.enableSimpleBroker("/topic", "/user", "/hello");
-		;
+		config.enableSimpleBroker("/topic", "/user", "/hello","aaa");
 		// 这句话表示给指定用户发送一对一的主题前缀是"/user"
-		config.setUserDestinationPrefix("/user");
+		//config.setUserDestinationPrefix("/user");
+
 	}
 
 	/**
@@ -77,7 +77,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 		// registry.addEndpoint("/socketServer").setAllowedOrigins("*").withSockJS();
 		//registry.addEndpoint("/stomp-websocket").setAllowedOrigins("*").withSockJS().setHeartbeatTime(10000L);
 //		registry.addEndpoint("/socketServer").setAllowedOrigins("*").withSockJS().setHeartbeatTime(10000L);
-		registry.addEndpoint("/socketServer").setAllowedOrigins("*").withSockJS();
+		registry.addEndpoint("/socketServer").setAllowedOrigins("*").withSockJS().setWebSocketEnabled(false);;
+        registry.addEndpoint("/ws").setAllowedOrigins("*").withSockJS().setWebSocketEnabled(false);;
 
 //		registry.addEndpoint("/socketServer").setAllowedOrigins("*").addInterceptors(authHandshakeInterceptor)
 //				.withSockJS().setHeartbeatTime(10000L);

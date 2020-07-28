@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import com.surpass.vision.graph.GraphDataManager;
 import com.surpass.vision.tools.FileTool;
 
-@Configuration
+//@Configuration
 @Component // 此注解必加
 //@EnableScheduling // 此注解必加
 public class UpdateGraphDirctory {

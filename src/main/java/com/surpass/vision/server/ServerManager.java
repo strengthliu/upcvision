@@ -187,7 +187,8 @@ public class ServerManager {
 					try {
 						deviceId = gec().DBECGetDeviceID(serverName, deviceName);
 					} catch (Exception e1) {
-						// TODO Auto-generated catch block
+						// TODO 写错误日志
+						System.out.println("获取设备ID发生异常。");
 						e1.printStackTrace();
 					}
 					device.setId(deviceId);

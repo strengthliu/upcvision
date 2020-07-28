@@ -109,6 +109,10 @@ public class JGecService extends ObjectPool<GecService> {
 	public long DBECGetDeviceID(String lpszServerName, String lpszDeviceName) throws GecException {
 		GecService gs = gecService();
 		long id = gs.DBECGetDeviceID(lpszServerName, lpszDeviceName);
+//		System.out.println("DBECGetDeviceID - "+id+" lpszServerName="+lpszServerName+" lpszDeviceName="+lpszDeviceName);
+//		if(id==0) {
+//			System.out.println("DBECGetDeviceID - "+id+" lpszServerName="+lpszServerName+" lpszDeviceName="+lpszDeviceName);
+//		}
 		this.returnObject(gs);
 		throwException(id != 0);
 		return id;
