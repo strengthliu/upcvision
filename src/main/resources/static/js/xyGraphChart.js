@@ -11,9 +11,9 @@ var t = userSpace.xyGraph[_xyGraphDetailKey];
 // console.log("xyGraphChart -> "+JSON.stringify(t));
 var _selectedPoints = JSON.parse(t.otherrule1);
 
-for(var i=0;i<_selectedPoints.length;i++){
+for (var i = 0; i < _selectedPoints.length; i++) {
 	var item = _selectedPoints[i];
-	if(item.isx){
+	if (item.isx) {
 		x_axis = item.tagName;
 		break;
 	}
@@ -35,7 +35,7 @@ if (userSpace == null || userSpace == "undefined") {
 function updateXYGraphChart(ruserSpace) {
 	var pointGroup = ruserSpace.xyGraph[_xyGraphDetailKey];
 	var uixyGraphPoints = document.getElementById("ui-xyGraphPoints");
-	 // console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
+	// console.log(" updateXYGraphChart => "+JSON.stringify(pointGroup));
 	if (pointGroup == null || pointGroup == "undefined")
 		return;
 	var pointList = pointGroup.pointList;
@@ -43,11 +43,13 @@ function updateXYGraphChart(ruserSpace) {
 	var menuitem = document.getElementById("x_axisSelectButtonUIMenu");
 	var _innerHtml = '<a class="dropdown-item" onclick="changex(\'time\')">时间</a>';
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
-		var _itemHtml = '<a class="dropdown-item" onclick="changex(\''+pointList[indpl].tagName+'\')">'+pointList[indpl].tagName+'</a>';
+		var _itemHtml = '<a class="dropdown-item" onclick="changex(\''
+				+ pointList[indpl].tagName + '\')">' + pointList[indpl].tagName
+				+ '</a>';
 		_innerHtml = _innerHtml + _itemHtml;
 	}
 	menuitem.innerHTML = _innerHtml;
-	
+
 }
 /**
  * 刷新数据
@@ -57,20 +59,20 @@ function updateXYGraphChart(ruserSpace) {
 
 function refreshData(data) {
 	var pointList_ = JSON.parse(data.body);
-//	console.log("pointList_=> "+JSON.stringify(pointList_));
-//	(Math.round(_value * 1000)) / 1000+"";
-	for(var key in pointList_){
-		if(key!="time"){
+	// console.log("pointList_=> "+JSON.stringify(pointList_));
+	// (Math.round(_value * 1000)) / 1000+"";
+	for ( var key in pointList_) {
+		if (key != "time") {
 			pointList_[key] = (Math.round(pointList_[key] * 1000)) / 1000;
-			// console.log("  ==  "+"point_" + key +"  = "+pointList_[key]);
+			// console.log(" == "+"point_" + key +" = "+pointList_[key]);
 		}
-		for(var p in gl){
-			if(gl[p].config.id == "point_" + key){
+		for ( var p in gl) {
+			if (gl[p].config.id == "point_" + key) {
 				gl[p].refresh(pointList_[key]);
 			}
 		}
 	}
-	addData(pointList_,cdata,cdataCount);
+	addData(pointList_, cdata, cdataCount);
 
 	_forward(pointList_);
 	// 刷新表格
@@ -78,59 +80,58 @@ function refreshData(data) {
 
 }
 
-function refreshDataTable(_cdata){
+function refreshDataTable(_cdata) {
 	var _datatableUI = document.getElementById("_datatableUI");
 	_datatableUI.innerHTML = "";
 	var _thead = document.createElement("thead");
 	var _tbody = document.createElement("tbody");
 
-//	console.log("refreshDataTable - _cdata "+JSON.stringify(_cdata));
-//	alert();
-	for(var coli = 0;coli<_cdata.length;coli++){
-		var _tr = document.createElement("tr");  
-		for(var rowi = 0;rowi<_cdata[coli].length;rowi++){
-//			console.log('fdsafdsa')
+	// console.log("refreshDataTable - _cdata "+JSON.stringify(_cdata));
+	// alert();
+	for (var coli = 0; coli < _cdata.length; coli++) {
+		var _tr = document.createElement("tr");
+		for (var rowi = 0; rowi < _cdata[coli].length; rowi++) {
+			// console.log('fdsafdsa')
 			// 设为x轴
-			
-			var _td = document.createElement("td"); 
-			
+
+			var _td = document.createElement("td");
+
 			var _value = _cdata[coli][rowi];
-			switch(typeof _value){
-//			console.log(" typeof => "+typeof(_value));			
+			switch (typeof _value) {
+			// console.log(" typeof => "+typeof(_value));
 			case 'number':
-				_td.innerText = (Math.round(_value * 1000)) / 1000+"";		
+				_td.innerText = (Math.round(_value * 1000)) / 1000 + "";
 				break;
 			case 'string':
-				_td.innerText += _cdata[coli][rowi];//_timeStr;
-//				if(rowi==0){
-//					var _rbox = document.createElement("input");
-//					_rbox.type="radio";
-//					_rbox.id="xray";
-//					_rbox.name="xray";
-//					_rbox.value=_cdata[coli][rowi];
-//					 if(x_axis === _cdata[coli][rowi])
-//						 _rbox.setAttribute("checked","checked"); 
-//					 _rbox.addEventListener("click",changex(cdata[coli][rowi]));
-//					        console.log(" = "+x_axis);
-//
-//					_td.prepend(_rbox);
-//				}
+				_td.innerText += _cdata[coli][rowi];// _timeStr;
+				// if(rowi==0){
+				// var _rbox = document.createElement("input");
+				// _rbox.type="radio";
+				// _rbox.id="xray";
+				// _rbox.name="xray";
+				// _rbox.value=_cdata[coli][rowi];
+				// if(x_axis === _cdata[coli][rowi])
+				// _rbox.setAttribute("checked","checked");
+				// _rbox.addEventListener("click",changex(cdata[coli][rowi]));
+				// console.log(" = "+x_axis);
+				//
+				// _td.prepend(_rbox);
+				// }
 				break;
 			default:
 				var _t = new Date(_cdata[coli][rowi]);
-				_td.innerText = _t.Format("hh:mm:ss");//_timeStr;					
-//				_td.innerText = _cdata[coli][rowi];//_timeStr;
+				_td.innerText = _t.Format("hh:mm:ss");// _timeStr;
+				// _td.innerText = _cdata[coli][rowi];//_timeStr;
 				break;
 			}
 			_tr.append(_td);
 		}
 
-		//		console.log(" _cdata[coli] "+JSON.stringify(_cdata[coli]));
-		if(_cdata[coli][0]=="time"){
+		// console.log(" _cdata[coli] "+JSON.stringify(_cdata[coli]));
+		if (_cdata[coli][0] == "time") {
 			_thead.append(_tr);
 			_datatableUI.prepend(_thead);
-		}
-		else
+		} else
 			_tbody.append(_tr);
 	}
 	_datatableUI.append(_tbody);
@@ -146,14 +147,14 @@ function refreshDataTable(_cdata){
  * 总值
  */
 var _data = new Array();
-var _dataCount = 1000;
+var _dataCount = 10000;
 
 /**
  * 当前值范围
  */
 var cdata = new Array();
-var cdataCount = 10;
-
+var cdataCount = 2400;
+var cdataCount_0 = 2400;
 /**
  * x轴范围，y轴范围
  */
@@ -167,10 +168,10 @@ function _forward(_newData) {
 		columns : cdata
 	});
 	c3LineChart.axis.min({
-		y : _minY - (_maxY-_minY)/2 * _rateY
+		y : _minY - (_maxY - _minY) / 2 * _rateY
 	});
 	c3LineChart.axis.max({
-		y : _maxY + (_maxY-_minY)/2 * _rateY 
+		y : _maxY + (_maxY - _minY) / 2 * _rateY
 	});
 
 }
@@ -180,32 +181,35 @@ function _backward() {
 }
 var _maxX = 0;
 var _minX = 0;
+var _maxY = 0;
+var _minY = 0;
+
+var _max = new Array();
 var _rateX = 1;
 
 /**
  * x轴放大缩小
  */
 function zoomin_x() {
-	_rateX = _rateX /2;
-	cdataCount = cdataCount * 1.5;
-	console.log("cdataCount = "+cdataCount);
+	_rateX = _rateX / 2;
+	cdataCount = cdataCount + cdataCount_0;
+	console.log("cdataCount = " + cdataCount);
 }
 
 function zoomout_x() {
-	_rateX = _rateX *2;
+	_rateX = _rateX * 2;
 	cdataCount = cdataCount / 1.5;
-	console.log("cdataCount = "+cdataCount);
+	console.log("cdataCount = " + cdataCount);
 }
-var _maxY = 0;
-var _minY = 0;
+
 var _rateY = 1;
 function zoomin_y() {
 	_rateY = _rateY / 2
-	console.log(" _rateY = "+_rateY);
+	console.log(" _rateY = " + _rateY);
 }
 function zoomout_y() {
 	_rateY = _rateY * 2
-	console.log(" _rateY = "+_rateY);
+	console.log(" _rateY = " + _rateY);
 }
 
 /**
@@ -216,8 +220,9 @@ function changex(tname) {
 	var but = document.getElementById("x_axisSelectButtonUI");
 	but.innerHTML = tname;
 	console.log(tname);
-//	but.text = tname;
-	if(tname=="time"){
+
+	// but.text = tname;
+	if (tname == "time") {
 		c3LineChart = c3.generate({
 			bindto : '#ui-xyGraphLineChart',
 			data : {
@@ -255,12 +260,25 @@ function changex(tname) {
 					}
 				},
 				y : {
-					show: true,
-					label: 'Y2 Axis Label'
+					show : true,
+					label : 'Y2 Axis Label'
 				}
 			}
 		});
-	}else{
+		for (var indmax = 0; indmax < _max_.length; indmax++) {
+			if (_minY < _max_[indmax][1])
+				_minY = _max_[indmax][1];
+			if (_maxY < _max_[indmax][2])
+				_maxY = _max_[indmax][2];
+		}
+		c3LineChart.axis.min({
+			y : Math.round(_minY - (_maxY - _minY) / 2 * _rateY)
+		});
+		c3LineChart.axis.max({
+			y : Math.round(_maxY + (_maxY - _minY) / 2 * _rateY)
+		});
+	} else {
+
 		c3LineChart = c3.generate({
 			bindto : '#ui-xyGraphLineChart',
 			data : {
@@ -289,10 +307,24 @@ function changex(tname) {
 			},
 			axis : {
 				y : {
-					show: true,
-					label: 'Y2 Axis Label'
+					show : true,
+					label : 'Y2 Axis Label'
 				}
 			}
+		});
+		for (var indmax = 0; indmax < _max_.length; indmax++) {
+			if (tname != _max_[indmax][0]) {
+				if (_minY < _max_[indmax][1])
+					_minY = _max_[indmax][1];
+				if (_maxY < _max_[indmax][2])
+					_maxY = _max_[indmax][2];
+			}
+		}
+		c3LineChart.axis.min({
+			y : Math.round(_minY - (_maxY - _minY) / 2 * _rateY)
+		});
+		c3LineChart.axis.max({
+			y : Math.round(_maxY + (_maxY - _minY) / 2 * _rateY)
 		});
 	}
 
@@ -321,10 +353,10 @@ function addData(newData, _data_, cdatacount) {
 			else {
 				_ctime = new Date(_d_['time']);
 			}
-			if(_data_[ind_data][1]==0){
+			if (_data_[ind_data][1] == 0) {
 				_data_[ind_data][1] = _ctime;
-			}else{
-				_data_[ind_data].push(_ctime);				
+			} else {
+				_data_[ind_data].push(_ctime);
 			}
 			timeInd = ind_data;
 		}
@@ -350,6 +382,22 @@ function addData(newData, _data_, cdatacount) {
 									if (key == "time") {
 										// 不处理time了
 									} else {
+										// 从_max中取出对应的值
+										var _max_ = null;
+										for (var indmax = 0; indmax < _max.length; indmax++) {
+											if (_max[indmax][0] == key) {
+												_max_ = _max[indmax];
+												break;
+											}
+										}
+										if (_max_ == null) {
+											_max_ = new Array();
+											_max_.push(key);
+											_max_.push(0);
+											_max_.push(0);
+											_max.push(_max_);
+										}
+
 										if (_data_[ind_data].length == 2
 												&& _data_[ind_data][1] == 0)
 											_data_[ind_data][1] = _d_[key];
@@ -360,10 +408,18 @@ function addData(newData, _data_, cdatacount) {
 											_data_[ind_data].push(_d_[key]);
 										}
 										// 更新最大值和最小值
+
 										if (_maxY < _d_[key])
 											_maxY = _d_[key];
 										if (_minY > _d_[key] || _minY == 0)
 											_minY = _d_[key];
+										if (_max_[1] < _d_[key]
+												|| _max_[1] == 0)
+											_max_[1] = _d_[key];
+										if (_max_[2] > _d_[key]
+												|| _max_[2] == 0)
+											_max_[2] = _d_[key];
+
 										if (_data_[ind_data].length > cdatacount) {
 											_data_[ind_data].splice(1, 1);
 										}
@@ -380,19 +436,19 @@ var c3LineChart;
 	var cols = new Array();
 	var pointGroup = userSpace.xyGraph[_xyGraphDetailKey];
 	var pointList = pointGroup.pointList;
-	//console.log("pointList -> "+JSON.stringify(pointList));
+	// console.log("pointList -> "+JSON.stringify(pointList));
 	var _time_ = new Array();
-	_time_.push('time',0);
+	_time_.push('time', 0);
 	cols.push(_time_);
 
 	for (var indpl = 0; indpl < pointList.length; indpl++) {
 		var _c_ = new Array();
-		_c_.push(pointList[indpl].tagName,0);
-		
+		_c_.push(pointList[indpl].tagName, 0);
+
 		cols.push(_c_);
 	}
-	cdata=cols;
-	_data=cols;
+	cdata = cols;
+	_data = cols;
 	c3LineChart = c3.generate({
 		bindto : '#ui-xyGraphLineChart',
 		data : {
@@ -400,12 +456,12 @@ var c3LineChart;
 			xFormat : '%Y',
 			columns : cols,
 			type : 'spline',
-	        axes: {
-	        	CJY_XT31101_8: 'y',
-	        },
-	        onclick: function (d, element) {
-	        	showDataList(d,element);
-	        }
+			axes : {
+				CJY_XT31101_8 : 'y',
+			},
+			onclick : function(d, element) {
+				showDataList(d, element);
+			}
 		},
 		grid : {
 			x : {
@@ -436,17 +492,17 @@ var c3LineChart;
 				}
 			},
 			y : {
-				show: true
-//				,
-//				label: 'Y2 Axis Label'
+				show : true
+			// ,
+			// label: 'Y2 Axis Label'
 			}
 		}
 	});
 
 })(jQuery);
-//TODO: 点击下面的位号名，显示图中的数据的列表
-function showDataList(d,element){
-	console.log(JSON.stringify(d)+"  "+JSON.stringify(element));
+// TODO: 点击下面的位号名，显示图中的数据的列表
+function showDataList(d, element) {
+	console.log(JSON.stringify(d) + "  " + JSON.stringify(element));
 }
 //
 /**
@@ -463,7 +519,7 @@ function menuFunc(key, options) {
 		break;
 	case "disconnect":
 		disconnect();
-		//stompClient.disconnect();
+		// stompClient.disconnect();
 		break;
 	case "edit":
 		stompClient.send("/app/aaa", {
@@ -529,26 +585,25 @@ function setConnected(connected) {
 loginWebsocket();
 
 function loginWebsocket() {
-	if(!connected){
-//		alert("未连接。");
-//		connect(realtimeSubscribe);
+	if (!connected) {
+		// alert("未连接。");
+		// connect(realtimeSubscribe);
 
-	//if(socket=="null" || socket=="undefined" || socket.readyState!=1){
+		// if(socket=="null" || socket=="undefined" || socket.readyState!=1){
 		// alert("未连接。");
 		connect();
 		return;
-		}
-	else {
+	} else {
 		console.log("当前存在");
-		if(subscribe!=null && subscribe!="undefined")
+		if (subscribe != null && subscribe != "undefined")
 			subscribe.unsubscribe();
 		stompClient.send("/app/aaa", {
 			atytopic : _xyGraphDetailKey,
 			type : 'xyGraph',
-			id : _xyGraphDetailKey+""
+			id : _xyGraphDetailKey + ""
 		}, JSON.stringify({
 			'type' : 'xyGraph',
-			'id' : _xyGraphDetailKey+""
+			'id' : _xyGraphDetailKey + ""
 		}));
 		// 接收消息设置
 		subscribe = stompClient.subscribe('/topic/Key_XYGraph_pre_/'
@@ -570,14 +625,14 @@ function connect() {
 	// alert("websocket connected 1.");
 	stompClient = Stomp.over(socket);
 	stompClient.heartbeat.outgoing = 10000; // 客户端每20000ms发送一次心跳检测
-	stompClient.heartbeat.incoming = 10000;     // client接收serever端的心跳检测
+	stompClient.heartbeat.incoming = 10000; // client接收serever端的心跳检测
 	// 连接服务器
 	var headers = {
-		    login: user.id,
-		    token: token,
-		    // additional header
-		    'client-id': 'my-client-id'
-		};
+		login : user.id,
+		token : token,
+		// additional header
+		'client-id' : 'my-client-id'
+	};
 
 	stompClient.connect(headers, function(frame) {
 		// 停止调试信息
@@ -625,7 +680,7 @@ function connect() {
 		stompClient.ws.onerror = function() {
 			connect();
 		}
-	},function(message){
+	}, function(message) {
 		console.log(message);
 	});
 }

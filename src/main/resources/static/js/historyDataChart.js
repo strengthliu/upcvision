@@ -89,13 +89,13 @@ function refreshDataTable(_cdata) {
  * 总值
  */
 var _data = new Array();
-var _dataCount = 1000;
+var _dataCount = 10000;
 
 /**
  * 当前值范围
  */
 var cdata = new Array();
-var cdataCount = 300;
+var cdataCount = _dataCount;// 300;
 
 /**
  * x轴范围，y轴范围
@@ -146,6 +146,11 @@ function changex() {
 }
 
 function reloadDataToDiagram() {
+	console.log('------ reloadDataToDiagram 1 ----');
+	console.log(cdata);
+	console.log('------ reloadDataToDiagram 2 ----');
+	console.log(_data);
+	console.log('------ reloadDataToDiagram 3 ----');
 
 	// UI加载数据，显示
 	// TODO: 增加flow效果
@@ -156,14 +161,16 @@ function reloadDataToDiagram() {
 	// console.log("_rateY="+_rateY);
 	// console.log("minY_b="+_minY);
 	// console.log("minY="+Math.round(_minY - (_maxY-_minY)/2 * _rateY));
-	c3LineChart.axis.min({
-		y : Math.round(_minY - (_maxY - _minY) / 2 * _rateY)
-	});
-	// console.log("maxY_b="+_maxY);
-	// console.log("maxY="+Math.round(_maxY + (_maxY-_minY)/2 * _rateY));
-	c3LineChart.axis.max({
-		y : Math.round(_maxY + (_maxY - _minY) / 2 * _rateY)
-	});
+	// c3LineChart.axis.min({
+	// y : Math.round(_minY - (_maxY - _minY) / 2 * _rateY)
+	// });
+	// // console.log("maxY_b="+_maxY);
+	// // console.log("maxY="+Math.round(_maxY + (_maxY-_minY)/2 * _rateY));
+	// c3LineChart.axis.max({
+	// y : Math.round(_maxY + (_maxY - _minY) / 2 * _rateY)
+	// });
+	// console.log('------ reloadDataToDiagram 4 ----');
+
 }
 
 /**
@@ -251,6 +258,7 @@ function _backward() {
 	console.log("cdata=" + JSON.stringify(cdata, null, 2));
 	// console.log("_backward 6 "+ new Date());
 	reloadDataToDiagram();
+
 	// console.log("_backward 7 "+ new Date());
 
 }
@@ -258,9 +266,18 @@ function _backward() {
 function _search() {
 	// var _startTime_;
 	// var _endTime_;
-	console.log("_startTime_=" + _startTime_ + "  _endTime_=" + _endTime_);
+	console.log('--------------------- _search 1--------------');
+	console.log("_startTime_=" + _startTime_ + ' => ' + new Date(_startTime_)
+			+ "  _endTime_=" + _endTime_ + ' => ' + new Date(_endTime_));
+	// getHistoryData1(_historyDataDetailKey, _startTime_, _endTime_,
+	// addHistoryData);
 	getHistoryData1(_historyDataDetailKey, _startTime_, _endTime_,
-			addHistoryData);
+			reloadDataToDiagram);
+	console.log('--------------------- _search 2--------------');
+	// reloadDataToDiagram();
+	console.log('--------------------- _search 3--------------');
+	console.log(cdata);
+	console.log('--------------------- _search 4--------------');
 }
 
 /**
@@ -329,49 +346,59 @@ function getHistoryData1(_historyDataDetailKey, startTime, endTime, func) {
 		'endTime' : endTime
 	};
 	console.log("getHistoryData1  data = " + JSON.stringify(data));
-	$.ajax({
-		// 提交数据的类型 POST GET
-		type : "POST",
-		// 提交的网址
-		url : "getHistoryData",
-		// 提交的数据
-		data : JSON.stringify(data),
-		contentType : "application/json",
-		// 返回数据的格式
-		datatype : "json",// "xml", "html", "script", "json", "jsonp", "text".
-		// 在请求之前调用的函数
-		beforeSend : function() {
-			showLoading();
-		},
-		// 成功返回之后调用的函数
-		success : function(data) {
-			hideLoading();
-			if (data.status == "000") { // GlobalConsts.ResultCode_SUCCESS) {
-				var historyData = data.data.data;
-				// console.log("historydata.js => historyData1= "
-				// + JSON.stringify(historyData));
-				// if(__a<3)
-				addHistoryData(historyData);
-				// console.log("getHistoryData1 startTime="+startTime+" - "+new
-				// Date(startTime));
-				// console.log("getHistoryData1 historyData[0].length=
-				// "+historyData[0].length);
-				if (func != null && func != "undefined")
-					func();
-			} else {
-				alert("失败 ： " + data.msg);
-			}
-			hideLoading();
-		},
-		// 调用执行后调用的函数
-		complete : function(XMLHttpRequest, textStatus) {
-			hideLoading();
-		},
-		// 调用出错执行的函数
-		error : function(jqXHR, textStatus, errorThrown) {
-			hideLoading();
-		}
-	});
+	$
+			.ajax({
+				// 提交数据的类型 POST GET
+				type : "POST",
+				// 提交的网址
+				url : "getHistoryData",
+				// 提交的数据
+				data : JSON.stringify(data),
+				contentType : "application/json",
+				// 返回数据的格式
+				datatype : "json",// "xml", "html", "script", "json", "jsonp",
+				// "text".
+				// 在请求之前调用的函数
+				beforeSend : function() {
+					showLoading();
+				},
+				// 成功返回之后调用的函数
+				success : function(data) {
+					hideLoading();
+					if (data.status == "000") { // GlobalConsts.ResultCode_SUCCESS)
+						// {
+						var historyData = data.data.data;
+						// console.log("historydata.js => historyData1= "
+						// + JSON.stringify(historyData));
+						// if(__a<3)
+						console
+								.log('--------------------- getHistoryData1 1--------------');
+
+						addHistoryData(historyData);
+						console
+								.log('--------------------- getHistoryData1 2--------------');
+						console.log('gethistorydata 1');
+						// console.log("getHistoryData1 startTime="+startTime+"
+						// - "+new
+						// Date(startTime));
+						// console.log("getHistoryData1 historyData[0].length=
+						// "+historyData[0].length);
+						if (func != null && func != "undefined")
+							func();
+					} else {
+						alert("失败 ： " + data.msg);
+					}
+					hideLoading();
+				},
+				// 调用执行后调用的函数
+				complete : function(XMLHttpRequest, textStatus) {
+					hideLoading();
+				},
+				// 调用出错执行的函数
+				error : function(jqXHR, textStatus, errorThrown) {
+					hideLoading();
+				}
+			});
 }
 function getHistoryData() {
 	// console.log("otherrule = "+JSON.stringify(rule));
@@ -404,6 +431,7 @@ function getHistoryData() {
 				var historyData = data.data.data;
 				// console.log("historydata.js => historyData= "
 				// + JSON.stringify(historyData));
+				console.log('gethistorydata no 1');
 				addHistoryData(historyData);
 				loadCData();
 				reloadDataToDiagram();
@@ -437,7 +465,7 @@ function loadCData(startTime) {
 		_dataIndex[_data[indrow][0]] = indrow;
 	}
 	if (startTime == null || startTime == "undefined") {
-		_data[_dataIndex['time']][1];
+		startTime = _data[_dataIndex['time']][1];
 	}
 
 	// console.log("loadCData startTime = "+startTime);
@@ -459,6 +487,7 @@ function loadCData(startTime) {
 	for (var rowcount = 0; rowcount < _data.length; rowcount++) {
 		var loadCount = 0;
 		var rowd = new Array();
+		console.log(' ---> ' + _data[rowcount].length);
 		for (var icdata = 0; icdata < cdataCount; icdata++) {
 			if (dataInd + icdata < _data[rowcount].length) {
 				// console.log("_data[rowcount][dataInd+icdata]="+_data[rowcount][dataInd+icdata]);
@@ -467,7 +496,8 @@ function loadCData(startTime) {
 						_minY = Math.round(_data[rowcount][dataInd + icdata]);
 					if (_maxY == 0)
 						_maxY = Math.round(_data[rowcount][dataInd + icdata]);
-					if (_minY > _data[rowcount][dataInd + icdata])
+					if (_data[rowcount][dataInd + icdata] != -1
+							&& _minY > _data[rowcount][dataInd + icdata])
 						_minY = Math.round(_data[rowcount][dataInd + icdata]);
 					if (_maxY < _data[rowcount][dataInd + icdata])
 						_maxY = Math.round(_data[rowcount][dataInd + icdata]);
@@ -476,16 +506,24 @@ function loadCData(startTime) {
 					// "+new Date(_data[rowcount][dataInd+icdata]));
 				}
 
-				if (_data[rowcount][dataInd + icdata] != 0
-						&& !isNaN(_data[rowcount][dataInd + icdata])) {
+				// 
+				// if (_data[rowcount][dataInd + icdata] != -1 // 0
+				// && !isNaN(_data[rowcount][dataInd + icdata])) {
+				// rowd.push(_data[rowcount][dataInd + icdata]);
+				// loadCount++;
+				// }
+				if (!isNaN(_data[rowcount][dataInd + icdata])) {
 					rowd.push(_data[rowcount][dataInd + icdata]);
 					loadCount++;
 				}
 				// console.log("minY_b="+_minY);
 				// console.log("maxY_b="+_maxY);
 
-			} else
+			} else {
+				console.log('empty dataInd=' + dataInd + '  icdata=' + icdata
+						+ ' rowcount=' + rowcount + ' ');
 				break;
+			}
 		}
 		// console.log("loadCdata -> 加载数据："+_data[rowcount][0]+"，加载了
 		// "+loadCount+"个数据。");
@@ -496,8 +534,9 @@ function loadCData(startTime) {
 		_cdata.push(rowd);
 	}
 	// console.log("debug 6 => "+JSON.stringify(_cdata));
-
-	cdata = _cdata;
+	console.log(_cdata);
+	// cdata = _cdata;
+	cdata = _data;
 	// console.log(" ***** cdata="+JSON.stringify(cdata));
 
 	// console.log("cdata= "+JSON.stringify(cdata));
@@ -514,7 +553,12 @@ function addHistoryData(historyData) {
 	// 数据不正常就返回
 	if (historyData == null || historyData == "undefined")
 		return;
+	// _data = historyData;
+	// for (var i = 1; i < _data[0].length; i++) {
+	// _data[0][i] = new Date(_data[0][i] * 1000);
+	// }
 
+	// _data = historyData;
 	if (_data == null || _data == "undefined") {
 		// console.log("addHistoryData 1");
 		_data = historyData;
@@ -524,6 +568,9 @@ function addHistoryData(historyData) {
 		currentStartTime = _data[_dataIndex['time']][1];
 		currentStartTimeInd = 1;
 	} else {
+		for (var in1 = 0; in1 < _data.length; in1++) {
+			_data[in1].splice(1, _data[in1].length - 1);
+		}
 		// console.log("addHistoryData 2 _data="+JSON.stringify(_data));
 		var historyIndex = {};
 		for (var indrow = 0; indrow < historyData.length; indrow++) {
@@ -592,6 +639,10 @@ function addHistoryData(historyData) {
 		// console.log("addHistoryData 4 _data.length = "+_data[0].length);
 	}
 	__a++;
+	console.log('--------- addHistoryData 1 -----');
+
+	console.log(_data);
+	console.log('--------- addHistoryData 2 -----');
 
 }
 function _IsNaN(value) {

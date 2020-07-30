@@ -82,6 +82,9 @@
 								//forceParse: 0,
 								//format: 'mm-dd hh:MM:ss',//格式化想要显示的时间格式
 								minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
+								onSelectDate :function(dateText, inst) {
+									_startTime_ = new Date(dateText).getTime();
+								},
 								onSelectTime : function(dateText, inst) {
 									_startTime_ = new Date(dateText).getTime();
 								}
@@ -97,6 +100,9 @@
 								//forceParse: 0,
 								//format: 'yyyy-mm-dd',//格式化想要显示的时间格式
 								minView : 'month',//日期时间选择器所能够提供的最精确的时间选择视图。
+								onSelectDate :function(dateText, inst) {
+									_endTime_ = new Date(dateText).getTime();
+								},
 								onSelectTime : function(dateText, inst) {
 									_endTime_ = new Date(dateText).getTime();
 								}

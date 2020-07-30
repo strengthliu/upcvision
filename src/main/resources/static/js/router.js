@@ -212,6 +212,10 @@ function routeTo(diagram, key, graphId) {
 	} ];
 	items.push(item1);
 
+	// 设置顶部提示 breadcrumb
+	var breadcrumb = document.getElementById("breadcrumb_a");
+	breadcrumb.innerHTML = "";
+
 	switch (diagram.toLowerCase()) {
 	case "dashboard".toLowerCase():
 		$("#mainPanel").load("_dashboard.html", null, hideLoading);
@@ -229,14 +233,18 @@ function routeTo(diagram, key, graphId) {
 		serachbox_topToolsBar.style.display = "block";
 		if (graphId != null && graphId != "undefined") {
 			// TODO: 根据ID取出图形目录树
-			console.log("aaa => ");
+			// console.log("aaa => ");
 			var _g = getGraphByID(userSpace.graph, _graphId);
-			console.log("aaa => " + JSON.stringify(_g));
+			breadcrumb.innerHTML = _g.wholePath;
+			// console.log("aaa => " + JSON.stringify(_g));
+		} else {
+			breadcrumb.innerHTML = "流程图查看";
 		}
 		// var
 		var itemcur = [ '流程图', '全部' ];
 		items.push(itemcur);
-		setBreadcrumb(items);
+		// setBreadcrumb(items); // 先不用这个了，这个是带导航功能的，先做个只显示的。
+
 		break;
 	case "diagramDetail".toLowerCase():
 		// console.log(" router... key= "+key);
@@ -249,6 +257,14 @@ function routeTo(diagram, key, graphId) {
 		$("#mainPanel").load("_diagramShow.html", null, hideLoading);
 		mainInfoNr.style.visibility = 'hidden';
 		serachbox_topToolsBar.style.display = "none";
+		if (graphId != null && graphId != "undefined") {
+			// TODO: 根据ID取出图形目录树
+			// console.log("aaa => ");
+			var _g = getGraphByID(userSpace.graph, _graphId);
+			breadcrumb.innerHTML = _g.wholePath;
+			// console.log("aaa => " + JSON.stringify(_g));
+		}
+
 		break;
 	case "xydiagramList".toLowerCase():
 		_xydiagramListKey = key;
@@ -258,6 +274,7 @@ function routeTo(diagram, key, graphId) {
 		var itemcur = [ 'XY图', '全部' ];
 		items.push(itemcur);
 		setBreadcrumb(items);
+		breadcrumb.innerHTML = "XY图查看";
 		break;
 	case "xyGraphDetail".toLowerCase():
 		_xydiagramListKey = key;

@@ -26,7 +26,7 @@ public class PostMessageTask {
 	public void sayHello(){
 		LOGGER.info("Hello world, i'm the king of the world!!!");
 	}
-	@Scheduled(cron="*/1 * * * * ?")
+	@Scheduled(cron="*/5 * * * * ?")
 	public void postMessage() {
 		//LOGGER.info("Websocket遍历主题群发消息。");
 		try {

@@ -328,26 +328,43 @@ public class HistoryDataManager extends PointGroupDataManager {
 			Double[] _x_ = Newton_interpolation.castLongArrayToDoubleArray(_x);
 			Double[] _y = (Double[]) dsy[pointInd].toArray(new Double[dsy[pointInd].size()]);
 			Double[] _x0 = null;
-			try {
-				// TODO: 下面那句，由于把Long转换成Double，导致了JAVA异常。
-				// 先采用值转换的方式，但这样会影响一点效率。后面再想办法改了。
-				_x0 = new Double[dstime2[pointInd].size()];
-				for(int i=0;i<dstime2[pointInd].size();i++) {
-					_x0[i] = Double.valueOf(dstime2[pointInd].get(i));
+			
+			if(dstime1[pointInd].size() <(atime.length/3)) {
+				System.out.println("dstime1[pointInd].size()="+dstime1[pointInd].size()+" atime.length="+atime.length);
+				for(int iatime=0;iatime<atime.length;iatime++) {
+					if(_y[iatime]!=null)
+						dsy[pointInd].add(iatime,_y[iatime]);
+					else {
+						System.out.println("*****************************");
+						dsy[pointInd].add(iatime,-1);
+					}
 				}
-//				_x0 = (Double[]) dstime2[pointInd].toArray(new Double[dstime2[pointInd].size()]);
-			}catch(Exception e) {
-				for(int i=0;i<dstime2[pointInd].size();i++) {
-					System.out.println("getHistoryData-》插值时出错："+dstime2[pointInd].get(i));
+			}else {
+				try {
+					// TODO: 下面那句，由于把Long转换成Double，导致了JAVA异常。
+					// 先采用值转换的方式，但这样会影响一点效率。后面再想办法改了。
+					_x0 = new Double[dstime2[pointInd].size()];
+					for(int i=0;i<dstime2[pointInd].size();i++) {
+						_x0[i] = Double.valueOf(dstime2[pointInd].get(i));
+					}
+	//				_x0 = (Double[]) dstime2[pointInd].toArray(new Double[dstime2[pointInd].size()]);
+				}catch(Exception e) {
+					for(int i=0;i<dstime2[pointInd].size();i++) {
+						System.out.println("getHistoryData-》插值时出错："+dstime2[pointInd].get(i));
+					}
+				}
+				Double[] _y0 = Newton_interpolation.Newton_inter_method(_x_,_y,_x0);
+				if(_y0!=null) {// _y0!=null，说明插值成功
+					for(int itime2=0;itime2<dstime2[pointInd].size();itime2++) {
+						int ind = inserToListOrdered(dstime2[pointInd].get(itime2),dstime1[pointInd]);
+						// TODO: 数据有问题，这里会有空指针问题。
+						// if(_y0[itime2])
+						dsy[pointInd].add(ind, _y0[itime2]);
+					}
+				}else {
+					
 				}
 			}
-			Double[] _y0 = Newton_interpolation.Newton_inter_method(_x_,_y,_x0);
-			if(_y0!=null)
-				for(int itime2=0;itime2<dstime2[pointInd].size();itime2++) {
-					int ind = inserToListOrdered(dstime2[pointInd].get(itime2),dstime1[pointInd]);
-					// TODO: 数据有问题，这里会有空指针问题。
-					dsy[pointInd].add(ind, _y0[itime2]);
-				}
 		}
 
 		time.add(0, "time");
